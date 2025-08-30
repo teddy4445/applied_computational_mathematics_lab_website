@@ -1,0 +1,32 @@
+:where([class^="ri-"])::before {
+  content: "\f3c2";
+}
+body {
+  font-family: 'Inter', sans-serif;
+}
+.hero-bg {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.hero-overlay {
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.9) 0%, rgba(59, 130, 246, 0.8) 50%, rgba(255, 255, 255, 0.1) 100%);
+}
+.page-hidden {
+  display: none;
+}
+.page-visible {
+  display: block;
+}
+
+html { scroll-behavior: smooth; }
+
+.nav-scrolled { background-color: rgba(255, 255, 255, 0.95) !important; }
+
+
+.group:hover .group-hover\:opacity-0 {
+opacity: 0;
+}
+.group:hover .group-hover\:opacity-100 {
+opacity: 1;
+}

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Applied Computational Mathematics Lab - Teddy Lazebnik</title>
+      <meta content="Prof' Teddy Lazebnik - Mathematics and Computer Science researcher focusing on applied computational mathematics including Biomathematical Modeling, Computer Simulation, Personalized Medicince, and AI" name="description"/>
+      <meta content="keywords" content="lazebnik, לזנבניק, teddy lazebnik, applied computational mathematics, academic lab" />
+      <meta content="Teddy Lazebnik" name="author"/>
+      <link href="img/favicon.ico" rel="icon" type="image/x-icon"/>
+      <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="css/styles.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+      <!-- Navbar -->
+      <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+            <!-- Logo -->
+            <div class="flex items-center gap-2">
+               <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                  <span class="font-['Pacifico'] text-xl text-white">A</span>
+               </div>
+               <div class="flex flex-col">
+                  <span class="font-['Pacifico'] text-2xl text-primary">ACM Lab</span>
+                  <span class="text-xs text-gray-500">Computational Mathematics</span>
+               </div>
+            </div>
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center">
+               <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+                  <a href="index.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+                  <a href="team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+                  <a href="projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+                  <a href="publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+               </div>
+               <a href="contact.html" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100">
+            <i class="ri-menu-line text-xl"></i>
+            </button>
+         </div>
+      </nav>
+      <div class="h-20"></div>
+      <main class="min-h-screen">
+         <section class="py-16 bg-gradient-to-b from-gray-50 to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+                    Discover Our Publications
+                </h1>
+                <p class="text-lg text-gray-600 leading-relaxed">
+                    Since our lab's founding in 2018, we have contributed extensively to the scientific community. Our publications span computational biology, artificial intelligence, and interdisciplinary applications, reflecting both foundational research and innovative methodologies.
+                </p>
+                <p class="text-lg text-gray-600 leading-relaxed">
+                    Explore our peer-reviewed papers, conference proceedings, and technical reports to see how our work advances knowledge and inspires real-world impact.
+                </p>
+                <div class="flex items-center space-x-6 pt-4">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary">150+</div>
+                        <div class="text-sm text-gray-600">Publications</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary">75+</div>
+                        <div class="text-sm text-gray-600">Citations</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary">12</div>
+                        <div class="text-sm text-gray-600">Awards & Recognitions</div>
+                    </div>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="aspect-square rounded-2xl overflow-hidden shadow-xl">
+                    <img
+                        src="https://readdy.ai/api/search-image?query=scientific%20research%20papers%20on%20desk%20with%20laptop%20and%20data%20visualizations%2C%20researcher%20writing%20and%20reviewing%20publications%2C%20modern%20academic%20environment&width=600&height=600&seq=publications-main&orientation=squarish"
+                        alt="Research Publications"
+                        class="w-full h-full object-cover object-top"
+                    >
+                </div>
+                <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/10 rounded-full blur-3xl"></div>
+                <div class="absolute -top-6 -left-6 w-24 h-24 bg-secondary/10 rounded-full blur-2xl"></div>
+            </div>
+        </div>
+    </div>
+</section>
+         <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+               <div class="text-center mb-16">
+                  <h1 class="text-4xl font-bold text-gray-900 mb-6">Publications</h1>
+                  <p class="text-xl text-gray-600">Our research contributions to the scientific community</p>
+               </div>
+               <!-- Filter Panel -->
+               <div class="bg-gray-50 rounded-xl p-6 mb-8">
+                  <div class="grid md:grid-cols-4 gap-4">
+                     <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Year</label>
+                        <select id="year-filter" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent pr-8">
+                           <option value="">All Years</option>
+                           <option value="2024">2024</option>
+                           <option value="2023">2023</option>
+                           <option value="2022">2022</option>
+                           <option value="2021">2021</option>
+                        </select>
+                     </div>
+                     <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Category</label>
+                        <select id="category-filter" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent pr-8">
+                           <option value="">All Categories</option>
+                           <option value="fluid-dynamics">Fluid Dynamics</option>
+                           <option value="machine-learning">Machine Learning</option>
+                           <option value="finance">Finance</option>
+                           <option value="climate">Climate Modeling</option>
+                        </select>
+                     </div>
+                     <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Search</label>
+                        <input type="text" id="search-input" placeholder="Search publications..." class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                     </div>
+                     <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Sort by</label>
+                        <select id="sort-filter" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent pr-8">
+                           <option value="date-desc">Newest First</option>
+                           <option value="date-asc">Oldest First</option>
+                           <option value="title">Title A-Z</option>
+                        </select>
+                     </div>
+                  </div>
+               </div>
+               <!-- Publications List -->
+               <div id="publications-container" class="space-y-6">
+                  <div class="publication-card bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300" data-year="2024" data-category="machine-learning">
+                     <h3 class="text-xl font-semibold mb-3">Adaptive Optimization Algorithms for Large-Scale Neural Network Training</h3>
+                     <p class="text-gray-600 mb-3">
+                        <strong>Authors:</strong> Sarah Chen, Michael Rodriguez, Emily Watson, James Liu
+                     </p>
+                     <div class="mb-4">
+                        <button class="abstract-toggle text-primary font-medium hover:text-secondary transition-colors duration-200 flex items-center">
+                        <span>Show Abstract</span>
+                        <i class="ri-arrow-down-s-line ml-1 transform transition-transform duration-200"></i>
+                        </button>
+                        <div class="abstract-content hidden mt-3 p-4 bg-gray-50 rounded-lg">
+                           <p class="text-gray-700 leading-relaxed">This paper presents novel adaptive optimization algorithms designed specifically for training large-scale neural networks. We introduce a momentum-based approach that dynamically adjusts learning rates based on gradient statistics and network topology. Our experimental results demonstrate significant improvements in convergence speed and final model accuracy across various deep learning benchmarks, including computer vision and natural language processing tasks.</p>
+                        </div>
+                     </div>
+                     <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                           <span class="text-sm text-gray-500">Journal of Machine Learning Research, 2024</span>
+                           <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs">Machine Learning</span>
+                        </div>
+                        <a href="#" class="text-primary hover:text-secondary transition-colors duration-200 flex items-center">
+                        <span class="mr-1">View Paper</span>
+                        <i class="ri-external-link-line"></i>
+                        </a>
+                     </div>
+                  </div>
+                  <div class="publication-card bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300" data-year="2024" data-category="fluid-dynamics">
+                     <h3 class="text-xl font-semibold mb-3">High-Order Finite Element Methods for Turbulent Flow Simulation</h3>
+                     <p class="text-gray-600 mb-3">
+                        <strong>Authors:</strong> Michael Rodriguez, Priya Patel, Sarah Chen
+                     </p>
+                     <div class="mb-4">
+                        <button class="abstract-toggle text-primary font-medium hover:text-secondary transition-colors duration-200 flex items-center">
+                        <span>Show Abstract</span>
+                        <i class="ri-arrow-down-s-line ml-1 transform transition-transform duration-200"></i>
+                        </button>
+                        <div class="abstract-content hidden mt-3 p-4 bg-gray-50 rounded-lg">
+                           <p class="text-gray-700 leading-relaxed">We develop and analyze high-order finite element methods for the numerical simulation of turbulent flows governed by the Navier-Stokes equations. Our approach combines discontinuous Galerkin methods with adaptive mesh refinement to achieve optimal accuracy-to-cost ratios. The proposed algorithms show excellent scalability on modern high-performance computing architectures and demonstrate superior performance in capturing complex flow phenomena.</p>
+                        </div>
+                     </div>
+                     <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                           <span class="text-sm text-gray-500">Computer Methods in Applied Mechanics, 2024</span>
+                           <span class="px-2 py-1 bg-green-100 text-green-800 rounded text-xs">Fluid Dynamics</span>
+                        </div>
+                        <a href="#" class="text-primary hover:text-secondary transition-colors duration-200 flex items-center">
+                        <span class="mr-1">View Paper</span>
+                        <i class="ri-external-link-line"></i>
+                        </a>
+                     </div>
+                  </div>
+                  <div class="publication-card bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300" data-year="2023" data-category="finance">
+                     <h3 class="text-xl font-semibold mb-3">Stochastic Models for Financial Risk Assessment in Volatile Markets</h3>
+                     <p class="text-gray-600 mb-3">
+                        <strong>Authors:</strong> Emily Watson, Sarah Chen, Maria Gonzalez
+                     </p>
+                     <div class="mb-4">
+                        <button class="abstract-toggle text-primary font-medium hover:text-secondary transition-colors duration-200 flex items-center">
+                        <span>Show Abstract</span>
+                        <i class="ri-arrow-down-s-line ml-1 transform transition-transform duration-200"></i>
+                        </button>
+                        <div class="abstract-content hidden mt-3 p-4 bg-gray-50 rounded-lg">
+                           <p class="text-gray-700 leading-relaxed">This research introduces advanced stochastic models for quantifying financial risk in highly volatile market conditions. We propose a multi-factor approach that incorporates jump-diffusion processes and regime-switching models to capture extreme market events. Our methodology provides more accurate risk estimates compared to traditional Value-at-Risk models, with applications demonstrated across various asset classes and market conditions.</p>
+                        </div>
+                     </div>
+                     <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                           <span class="text-sm text-gray-500">Quantitative Finance, 2023</span>
+                           <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded text-xs">Finance</span>
+                        </div>
+                        <a href="#" class="text-primary hover:text-secondary transition-colors duration-200 flex items-center">
+                        <span class="mr-1">View Paper</span>
+                        <i class="ri-external-link-line"></i>
+                        </a>
+                     </div>
+                  </div>
+                  <div class="publication-card bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300" data-year="2023" data-category="climate">
+                     <h3 class="text-xl font-semibold mb-3">Multi-Scale Climate Modeling with Machine Learning Enhancement</h3>
+                     <p class="text-gray-600 mb-3">
+                        <strong>Authors:</strong> Priya Patel, James Liu, Michael Rodriguez, Sarah Chen
+                     </p>
+                     <div class="mb-4">
+                        <button class="abstract-toggle text-primary font-medium hover:text-secondary transition-colors duration-200 flex items-center">
+                        <span>Show Abstract</span>
+                        <i class="ri-arrow-down-s-line ml-1 transform transition-transform duration-200"></i>
+                        </button>
+                        <div class="abstract-content hidden mt-3 p-4 bg-gray-50 rounded-lg">
+                           <p class="text-gray-700 leading-relaxed">We present a novel approach to climate modeling that combines traditional numerical weather prediction methods with machine learning techniques. Our multi-scale framework enables efficient simulation of climate phenomena across different temporal and spatial scales. The integration of deep learning components significantly improves prediction accuracy for extreme weather events while maintaining computational efficiency for long-term climate projections.</p>
+                        </div>
+                     </div>
+                     <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                           <span class="text-sm text-gray-500">Nature Climate Change, 2023</span>
+                           <span class="px-2 py-1 bg-teal-100 text-teal-800 rounded text-xs">Climate</span>
+                        </div>
+                        <a href="#" class="text-primary hover:text-secondary transition-colors duration-200 flex items-center">
+                        <span class="mr-1">View Paper</span>
+                        <i class="ri-external-link-line"></i>
+                        </a>
+                     </div>
+                  </div>
+                  <div class="publication-card bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300" data-year="2022" data-category="machine-learning">
+                     <h3 class="text-xl font-semibold mb-3">Convergence Analysis of Gradient Descent Algorithms in Non-Convex Optimization</h3>
+                     <p class="text-gray-600 mb-3">
+                        <strong>Authors:</strong> James Liu, Emily Watson, Sarah Chen
+                     </p>
+                     <div class="mb-4">
+                        <button class="abstract-toggle text-primary font-medium hover:text-secondary transition-colors duration-200 flex items-center">
+                        <span>Show Abstract</span>
+                        <i class="ri-arrow-down-s-line ml-1 transform transition-transform duration-200"></i>
+                        </button>
+                        <div class="abstract-content hidden mt-3 p-4 bg-gray-50 rounded-lg">
+                           <p class="text-gray-700 leading-relaxed">This theoretical work provides rigorous convergence guarantees for gradient descent algorithms in non-convex optimization landscapes commonly encountered in deep learning. We establish new convergence rates under relaxed assumptions and provide practical guidelines for algorithm parameter selection. Our analysis extends to stochastic variants and includes novel escape mechanisms for avoiding poor local minima.</p>
+                        </div>
+                     </div>
+                     <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                           <span class="text-sm text-gray-500">Mathematical Programming, 2022</span>
+                           <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs">Machine Learning</span>
+                        </div>
+                        <a href="#" class="text-primary hover:text-secondary transition-colors duration-200 flex items-center">
+                        <span class="mr-1">View Paper</span>
+                        <i class="ri-external-link-line"></i>
+                        </a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+      </main>
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <h3 class="font-['Pacifico'] text-2xl mb-3">ACM Lab</h3>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Quick Links</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="#about" class="hover:text-white">About Us</a></li>
+                  <li><a href="#projects" class="hover:text-white">Join Us</a></li>
+                  <li><a href="#team" class="hover:text-white">Collaborations</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="#publications" class="hover:text-white">Publications</a></li>
+                  <li><a href="#" class="hover:text-white">Software Tools - TBD</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jonkoping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025 Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <!-- js -->
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+         crossorigin="anonymous"></script>
+      <script src="js/main.js"> </script>
+      <!-- end - js -->
+   </body>
+</html>

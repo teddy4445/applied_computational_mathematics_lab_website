@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Applied Computational Mathematics Lab - Teddy Lazebnik</title>
+      <meta content="Prof' Teddy Lazebnik - Mathematics and Computer Science researcher focusing on applied computational mathematics including Biomathematical Modeling, Computer Simulation, Personalized Medicince, and AI" name="description"/>
+      <meta content="keywords" content="lazebnik, לזנבניק, teddy lazebnik, applied computational mathematics, academic lab" />
+      <meta content="Teddy Lazebnik" name="author"/>
+      <link href="img/favicon.ico" rel="icon" type="image/x-icon"/>
+      <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="css/styles.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+      <!-- Navbar -->
+      <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+            <!-- Logo -->
+            <div class="flex items-center gap-2">
+               <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                  <span class="font-['Pacifico'] text-xl text-white">A</span>
+               </div>
+               <div class="flex flex-col">
+                  <span class="font-['Pacifico'] text-2xl text-primary">ACM Lab</span>
+                  <span class="text-xs text-gray-500">Computational Mathematics</span>
+               </div>
+            </div>
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center">
+               <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+                  <a href="index.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+                  <a href="team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+                  <a href="projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+                  <a href="publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+               </div>
+               <a href="contact.html" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100">
+            <i class="ri-menu-line text-xl"></i>
+            </button>
+         </div>
+      </nav>
+      <div class="h-20"></div>
+      <main class="min-h-screen">
+         <section class="py-16 bg-gradient-to-b from-gray-50 to-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+               <div class="grid lg:grid-cols-2 gap-12 items-center">
+                  <div class="space-y-6">
+                     <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+                        Meet Our Research Team
+                     </h1>
+                     <p class="text-lg text-gray-600 leading-relaxed">
+                        Our interdisciplinary research laboratory brings together brilliant minds from diverse backgrounds to tackle the most challenging problems in computational biology and artificial intelligence. We foster a collaborative environment where innovation thrives and groundbreaking discoveries emerge.
+                     </p>
+                     <p class="text-lg text-gray-600 leading-relaxed">
+                        Founded in 2018, our lab has published over 150 peer-reviewed papers and developed cutting-edge algorithms that have been adopted by research institutions worldwide. We are committed to advancing scientific knowledge while mentoring the next generation of researchers.
+                     </p>
+                     <div class="flex items-center space-x-6 pt-4">
+                        <div class="text-center">
+                           <div class="text-3xl font-bold text-primary">25+</div>
+                           <div class="text-sm text-gray-600">Team Members</div>
+                        </div>
+                        <div class="text-center">
+                           <div class="text-3xl font-bold text-primary">150+</div>
+                           <div class="text-sm text-gray-600">Publications</div>
+                        </div>
+                        <div class="text-center">
+                           <div class="text-3xl font-bold text-primary">12</div>
+                           <div class="text-sm text-gray-600">Awards</div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="relative">
+                     <div class="aspect-square rounded-2xl overflow-hidden shadow-xl">
+                        <img
+                           src="https://readdy.ai/api/search-image?query=modern%20research%20laboratory%20with%20scientists%20working%20at%20computers%20and%20lab%20equipment%2C%20bright%20clean%20environment%20with%20white%20walls%20and%20natural%20lighting%2C%20professional%20team%20collaboration%2C%20high-tech%20workspace%20with%20microscopes%20and%20data%20visualization%20screens%2C%20contemporary%20scientific%20facility&width=600&height=600&seq=lab-team-001&orientation=squarish"
+                           alt="Research Lab Team"
+                           class="w-full h-full object-cover object-top"
+                           >
+                     </div>
+                     <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/10 rounded-full blur-3xl"></div>
+                     <div class="absolute -top-6 -left-6 w-24 h-24 bg-secondary/10 rounded-full blur-2xl"></div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <section class="py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+               <div class="text-center mb-16">
+                  <h2 class="text-3xl font-bold text-gray-900 mb-4">Current Team</h2>
+                  <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                     Our current team consists of dedicated researchers, PhD students, and postdoctoral fellows who are actively contributing to our ongoing projects and research initiatives.
+                  </p>
+               </div>
+               <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                  <a href="/member/sarah-chen" class="block group">
+                     <div class="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden">
+                        <div class="aspect-square overflow-hidden relative">
+                           <img
+                              src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20senior%20research%20scientist%2C%20middle-aged%20person%20with%20confident%20expression%2C%20clean%20white%20background%2C%20formal%20business%20attire%2C%20academic%20professional%20portrait%2C%20high%20quality%20studio%20lighting&width=300&height=300&seq=member-001&orientation=squarish"
+                              alt="Dr. Sarah Chen"
+                              class="w-full h-full object-cover object-top absolute inset-0 transition-opacity duration-300 group-hover:opacity-0"
+                              >
+                           <img
+                              src="https://readdy.ai/api/search-image?query=funny%20portrait%20of%20a%20scientist%20in%20a%20lab%2C%20wearing%20safety%20goggles%20and%20making%20silly%20face%2C%20playful%20mood%2C%20bright%20and%20cheerful%2C%20clean%20white%20background%2C%20high%20quality%20studio%20lighting&width=300&height=300&seq=member-001-fun&orientation=squarish"
+                              alt="Dr. Sarah Chen Fun"
+                              class="w-full h-full object-cover object-top absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                              >
+                        </div>
+                        <div class="p-6">
+                           <h3 class="text-xl font-semibold text-gray-900 mb-1 group-hover:text-primary transition-colors">Dr. Sarah Chen</h3>
+                           <p class="text-primary font-medium mb-2">Principal Investigator</p>
+                           <p class="text-sm text-gray-600">Computational Biology, Machine Learning</p>
+                        </div>
+                     </div>
+                  </a>
+                  <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+                     <div class="aspect-square overflow-hidden">
+                        <img
+                           src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20research%20scientist%2C%20young%20professional%20with%20friendly%20smile%2C%20clean%20white%20background%2C%20business%20casual%20attire%2C%20academic%20researcher%20portrait%2C%20natural%20lighting&width=300&height=300&seq=member-002&orientation=squarish"
+                           alt="Dr. Michael Rodriguez"
+                           class="w-full h-full object-cover object-top"
+                           >
+                     </div>
+                     <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-1">Dr. Michael Rodriguez</h3>
+                        <p class="text-primary font-medium mb-2">Senior Research Scientist</p>
+                        <p class="text-sm text-gray-600">Bioinformatics, Data Mining</p>
+                     </div>
+                  </div>
+                  <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+                     <div class="aspect-square overflow-hidden">
+                        <img
+                           src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20postdoctoral%20researcher%2C%20young%20scientist%20with%20professional%20appearance%2C%20clean%20white%20background%2C%20smart%20casual%20attire%2C%20academic%20portrait%2C%20soft%20studio%20lighting&width=300&height=300&seq=member-003&orientation=squarish"
+                           alt="Dr. Emily Johnson"
+                           class="w-full h-full object-cover object-top"
+                           >
+                     </div>
+                     <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-1">Dr. Emily Johnson</h3>
+                        <p class="text-primary font-medium mb-2">Postdoctoral Fellow</p>
+                        <p class="text-sm text-gray-600">Deep Learning, Genomics</p>
+                     </div>
+                  </div>
+                  <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+                     <div class="aspect-square overflow-hidden">
+                        <img
+                           src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20PhD%20student%20researcher%2C%20young%20graduate%20student%20with%20enthusiastic%20expression%2C%20clean%20white%20background%2C%20casual%20professional%20attire%2C%20academic%20student%20portrait&width=300&height=300&seq=member-004&orientation=squarish"
+                           alt="James Park"
+                           class="w-full h-full object-cover object-top"
+                           >
+                     </div>
+                     <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-1">James Park</h3>
+                        <p class="text-primary font-medium mb-2">PhD Student</p>
+                        <p class="text-sm text-gray-600">Neural Networks, Computer Vision</p>
+                     </div>
+                  </div>
+                  <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+                     <div class="aspect-square overflow-hidden">
+                        <img
+                           src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20research%20assistant%2C%20young%20professional%20with%20bright%20smile%2C%20clean%20white%20background%2C%20modern%20business%20attire%2C%20academic%20researcher%20portrait&width=300&height=300&seq=member-005&orientation=squarish"
+                           alt="Dr. Lisa Wang"
+                           class="w-full h-full object-cover object-top"
+                           >
+                     </div>
+                     <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-1">Dr. Lisa Wang</h3>
+                        <p class="text-primary font-medium mb-2">Research Scientist</p>
+                        <p class="text-sm text-gray-600">Statistical Modeling, Proteomics</p>
+                     </div>
+                  </div>
+                  <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+                     <div class="aspect-square overflow-hidden">
+                        <img
+                           src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20PhD%20candidate%2C%20young%20researcher%20with%20confident%20look%2C%20clean%20white%20background%2C%20smart%20casual%20clothing%2C%20graduate%20student%20portrait&width=300&height=300&seq=member-006&orientation=squarish"
+                           alt="Alex Thompson"
+                           class="w-full h-full object-cover object-top"
+                           >
+                     </div>
+                     <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-1">Alex Thompson</h3>
+                        <p class="text-primary font-medium mb-2">PhD Candidate</p>
+                        <p class="text-sm text-gray-600">Algorithms, Optimization</p>
+                     </div>
+                  </div>
+                  <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+                     <div class="aspect-square overflow-hidden">
+                        <img
+                           src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20postdoc%20researcher%2C%20early%20career%20scientist%20with%20professional%20demeanor%2C%20clean%20white%20background%2C%20business%20attire%2C%20academic%20portrait&width=300&height=300&seq=member-007&orientation=squarish"
+                           alt="Dr. Maria Garcia"
+                           class="w-full h-full object-cover object-top"
+                           >
+                     </div>
+                     <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-1">Dr. Maria Garcia</h3>
+                        <p class="text-primary font-medium mb-2">Postdoctoral Researcher</p>
+                        <p class="text-sm text-gray-600">Systems Biology, Network Analysis</p>
+                     </div>
+                  </div>
+                  <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+                     <div class="aspect-square overflow-hidden">
+                        <img
+                           src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20graduate%20student%2C%20young%20researcher%20with%20friendly%20appearance%2C%20clean%20white%20background%2C%20casual%20professional%20wear%2C%20PhD%20student%20portrait&width=300&height=300&seq=member-008&orientation=squarish"
+                           alt="David Kim"
+                           class="w-full h-full object-cover object-top"
+                           >
+                     </div>
+                     <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-1">David Kim</h3>
+                        <p class="text-primary font-medium mb-2">PhD Student</p>
+                        <p class="text-sm text-gray-600">Natural Language Processing, AI</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- Lab Statistics Section -->
+         <section class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+               <div class="text-center mb-16">
+                  <h2 class="text-3xl font-bold text-gray-900 mb-4">Lab Statistics</h2>
+                  <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                     We take pride in maintaining a diverse and inclusive research environment as a secondary objective and excellence as the main one. 
+                     Here are some quick statistics about our lab members and their academic journeys.
+                  </p>
+               </div>
+               <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                  <!-- Gender Distribution -->
+                  <div class="bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition-shadow p-8 text-center">
+                     <div class="text-3xl font-bold text-primary mb-2">Now: 45% / 55% </div>
+                     <div class="text-2xl font-bold text-secondary mb-2">Overall: 45% / 55%</div>
+                     <h3 class="text-xl font-semibold text-gray-900 mb-2">Gender Distribution</h3>
+                     <p class="text-gray-600 text-sm">Male / Female representation</p>
+                  </div>
+                  <!-- International Diversity -->
+                  <div class="bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition-shadow p-8 text-center">
+                     <div class="text-3xl font-bold text-primary mb-2">Now: 30%</div>
+                     <div class="text-2xl font-bold text-secondary mb-2">Overall: 20%</div>
+                     <h3 class="text-xl font-semibold text-gray-900 mb-2">International Members</h3>
+                     <p class="text-gray-600 text-sm">Researchers coming from outside the home country</p>
+                  </div>
+                  <!-- Completion Time -->
+                  <div class="bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition-shadow p-8 text-center">
+                     <div class="text-2xl font-bold text-primary mb-2">PhD: 4.8 yrs</div>
+                     <div class="text-2xl font-bold text-secondary mb-2">Master: 2.2 yrs</div>
+                     <h3 class="text-xl font-semibold text-gray-900 mb-2">Average Degree Completion Time</h3>
+                     <p class="text-gray-600 text-sm">Typical graduation duration for advanced degrees</p>
+                  </div>
+                  <!-- Publication Distribution -->
+                  <div class="bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition-shadow p-8 text-center">
+                     <div class="text-2xl font-bold text-primary mb-2">PhD: 4.8 (67% Q1)</div>
+                     <div class="text-2xl font-bold text-secondary mb-2">Master: 2.3 (67% Q1)</div>
+                     <h3 class="text-xl font-semibold text-gray-900 mb-2"># of Publication</h3>
+                     <p class="text-gray-600 text-sm">Average amount of lab members led manuscript published</p>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- Collaborations & Partners -->
+         <section class="py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+               <div class="text-center mb-12">
+                  <h2 class="text-3xl font-bold text-gray-900 mb-4">Collaborations & Partners</h2>
+                  <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                     Our lab works closely with leading universities, research institutes, and industry partners worldwide.
+                  </p>
+               </div>
+               <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Stanford_University_seal_2003.svg" alt="Stanford" class="h-16 object-contain grayscale hover:grayscale-0 transition"/>
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Harvard_shield_wreath.svg" alt="Harvard" class="h-16 object-contain grayscale hover:grayscale-0 transition"/>
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/MIT_Seal.svg" alt="MIT" class="h-16 object-contain grayscale hover:grayscale-0 transition"/>
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Oxford_University_Coat_Of_Arms.svg" alt="Oxford" class="h-16 object-contain grayscale hover:grayscale-0 transition"/>
+               </div>
+            </div>
+         </section>
+         <!-- Open Positions -->
+         <section class="py-16 bg-white">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+               <div class="text-center mb-12">
+                  <h2 class="text-3xl font-bold text-gray-900 mb-4">Open Positions</h2>
+                  <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                     Interested in joining our lab? We are always looking for talented and motivated researchers.
+                  </p>
+               </div>
+               <div class="space-y-6">
+                  <div class="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition">
+                     <h3 class="text-xl font-semibold text-gray-900 mb-2">Postdoctoral Fellow – Computational Biology</h3>
+                     <p class="text-gray-600 mb-3">Focus on developing machine learning models for genomic data.</p>
+                     <a href="/apply/postdoc" class="text-primary font-medium hover:underline">Apply Now →</a>
+                  </div>
+                  <div class="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition">
+                     <h3 class="text-xl font-semibold text-gray-900 mb-2">PhD Position – AI in Medicine</h3>
+                     <p class="text-gray-600 mb-3">Exploring deep learning for medical image analysis and diagnostics.</p>
+                     <a href="/apply/phd" class="text-primary font-medium hover:underline">Apply Now →</a>
+                  </div>
+                  <div class="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition">
+                     <h3 class="text-xl font-semibold text-gray-900 mb-2">Research Assistant – Data Science</h3>
+                     <p class="text-gray-600 mb-3">Support ongoing projects with data collection, preprocessing, and analysis.</p>
+                     <a href="/apply/ra" class="text-primary font-medium hover:underline">Apply Now →</a>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- Lab Life Gallery -->
+         <section class="py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+               <div class="text-center mb-12">
+                  <h2 class="text-3xl font-bold text-gray-900 mb-4">Lab Life</h2>
+                  <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                     Beyond research, our lab fosters a vibrant community with conferences, retreats, and daily collaboration.
+                  </p>
+               </div>
+               <div class="grid md:grid-cols-3 gap-6">
+                  <img src="https://readdy.ai/api/search-image?query=scientists%20at%20a%20conference%20presentation&width=500&height=350" alt="Conference" class="rounded-xl shadow-md object-cover w-full h-64"/>
+                  <img src="https://readdy.ai/api/search-image?query=research%20team%20lab%20retreat%20outdoors%20fun&width=500&height=350" alt="Retreat" class="rounded-xl shadow-md object-cover w-full h-64"/>
+                  <img src="https://readdy.ai/api/search-image?query=scientists%20collaborating%20in%20lab%20workspace&width=500&height=350" alt="Lab Work" class="rounded-xl shadow-md object-cover w-full h-64"/>
+               </div>
+            </div>
+         </section>
+         <section class="py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+               <div class="text-center mb-16">
+                  <h2 class="text-3xl font-bold text-gray-900 mb-4">Alumni</h2>
+                  <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                     Our distinguished alumni have gone on to make significant contributions in academia and industry, carrying forward the innovative spirit and research excellence fostered in our lab.
+                  </p>
+               </div>
+               <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                  <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+                     <div class="aspect-square overflow-hidden">
+                        <img
+                           src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20former%20research%20scientist%2C%20accomplished%20academic%20with%20professional%20smile%2C%20clean%20white%20background%2C%20formal%20business%20attire%2C%20distinguished%20researcher%20portrait&width=300&height=300&seq=alumni-001&orientation=squarish"
+                           alt="Dr. Robert Anderson"
+                           class="w-full h-full object-cover object-top"
+                           >
+                     </div>
+                     <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-1">Dr. Robert Anderson</h3>
+                        <p class="text-secondary font-medium mb-2">Former Postdoc (2019-2021)</p>
+                        <p class="text-sm text-gray-600">Now: Assistant Professor at MIT</p>
+                     </div>
+                  </div>
+                  <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+                     <div class="aspect-square overflow-hidden">
+                        <img
+                           src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20former%20PhD%20graduate%2C%20successful%20young%20scientist%20with%20confident%20expression%2C%20clean%20white%20background%2C%20professional%20attire%2C%20academic%20achievement%20portrait&width=300&height=300&seq=alumni-002&orientation=squarish"
+                           alt="Dr. Jennifer Lee"
+                           class="w-full h-full object-cover object-top"
+                           >
+                     </div>
+                     <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-1">Dr. Jennifer Lee</h3>
+                        <p class="text-secondary font-medium mb-2">Former PhD Student (2018-2022)</p>
+                        <p class="text-sm text-gray-600">Now: Senior Data Scientist at Google</p>
+                     </div>
+                  </div>
+                  <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+                     <div class="aspect-square overflow-hidden">
+                        <img
+                           src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20former%20research%20fellow%2C%20accomplished%20scientist%20with%20warm%20smile%2C%20clean%20white%20background%2C%20business%20professional%20clothing%2C%20successful%20alumni%20portrait&width=300&height=300&seq=alumni-003&orientation=squarish"
+                           alt="Dr. Thomas Wilson"
+                           class="w-full h-full object-cover object-top"
+                           >
+                     </div>
+                     <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-1">Dr. Thomas Wilson</h3>
+                        <p class="text-secondary font-medium mb-2">Former Research Scientist (2017-2020)</p>
+                        <p class="text-sm text-gray-600">Now: Principal Scientist at Pfizer</p>
+                     </div>
+                  </div>
+                  <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+                     <div class="aspect-square overflow-hidden">
+                        <img
+                           src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20former%20graduate%20student%2C%20young%20professional%20with%20bright%20future%2C%20clean%20white%20background%2C%20modern%20business%20attire%2C%20successful%20PhD%20graduate%20portrait&width=300&height=300&seq=alumni-004&orientation=squarish"
+                           alt="Dr. Rachel Martinez"
+                           class="w-full h-full object-cover object-top"
+                           >
+                     </div>
+                     <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-1">Dr. Rachel Martinez</h3>
+                        <p class="text-secondary font-medium mb-2">Former PhD Student (2019-2023)</p>
+                        <p class="text-sm text-gray-600">Now: Research Scientist at DeepMind</p>
+                     </div>
+                  </div>
+                  <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+                     <div class="aspect-square overflow-hidden">
+                        <img
+                           src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20former%20postdoctoral%20researcher%2C%20experienced%20scientist%20with%20professional%20demeanor%2C%20clean%20white%20background%2C%20formal%20academic%20attire%2C%20distinguished%20alumni%20portrait&width=300&height=300&seq=alumni-005&orientation=squarish"
+                           alt="Dr. Kevin Zhang"
+                           class="w-full h-full object-cover object-top"
+                           >
+                     </div>
+                     <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-1">Dr. Kevin Zhang</h3>
+                        <p class="text-secondary font-medium mb-2">Former Postdoc (2018-2020)</p>
+                        <p class="text-sm text-gray-600">Now: Associate Professor at Stanford</p>
+                     </div>
+                  </div>
+                  <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+                     <div class="aspect-square overflow-hidden">
+                        <img
+                           src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20former%20research%20associate%2C%20accomplished%20young%20scientist%20with%20confident%20look%2C%20clean%20white%20background%2C%20smart%20professional%20clothing%2C%20successful%20career%20transition%20portrait&width=300&height=300&seq=alumni-006&orientation=squarish"
+                           alt="Dr. Amanda Brown"
+                           class="w-full h-full object-cover object-top"
+                           >
+                     </div>
+                     <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-1">Dr. Amanda Brown</h3>
+                        <p class="text-secondary font-medium mb-2">Former Research Associate (2020-2022)</p>
+                        <p class="text-sm text-gray-600">Now: Lead Scientist at Moderna</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- Lab Timeline -->
+         <section class="py-16 bg-white">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+               <div class="text-center mb-12">
+                  <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Journey</h2>
+                  <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                     Since our founding, we’ve achieved significant milestones in research and collaboration.
+                  </p>
+               </div>
+               <div class="space-y-8 relative border-l-2 border-primary/30 pl-6">
+                  <div>
+                     <h3 class="text-xl font-semibold text-primary">2018 – Lab Founded</h3>
+                     <p class="text-gray-600">Established with the mission to advance computational biology and AI research.</p>
+                  </div>
+                  <div>
+                     <h3 class="text-xl font-semibold text-primary">2020 – First Major Grant</h3>
+                     <p class="text-gray-600">Received $2M funding to study AI-driven genomics.</p>
+                  </div>
+                  <div>
+                     <h3 class="text-xl font-semibold text-primary">2022 – 100th Publication</h3>
+                     <p class="text-gray-600">Celebrated a major academic achievement with global recognition.</p>
+                  </div>
+                  <div>
+                     <h3 class="text-xl font-semibold text-primary">2024 – International Expansion</h3>
+                     <p class="text-gray-600">Established collaborations with top institutions in Europe and Asia.</p>
+                  </div>
+               </div>
+            </div>
+         </section>
+      </main>
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <h3 class="font-['Pacifico'] text-2xl mb-3">ACM Lab</h3>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Quick Links</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="#about" class="hover:text-white">About Us</a></li>
+                  <li><a href="#projects" class="hover:text-white">Join Us</a></li>
+                  <li><a href="#team" class="hover:text-white">Collaborations</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="#publications" class="hover:text-white">Publications</a></li>
+                  <li><a href="#" class="hover:text-white">Software Tools - TBD</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jonkoping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025 Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <!-- js -->
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+         crossorigin="anonymous"></script>
+      <script src="js/main.js"> </script>
+      <!-- end - js -->
+   </body>
+</html>
