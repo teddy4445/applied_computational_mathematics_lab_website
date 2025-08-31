@@ -55,27 +55,26 @@
          <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-screen flex items-center">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                <div class="text-white space-y-8">
-                  <h1 class="text-5xl lg:text-7xl font-bold leading-tight">
+                  <h1 class="text-3xl lg:text-5xl font-bold leading-tight">
                      Applied <br>
-                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Computational</span><br>
-                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Mathematics</span><br>
+                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Computational Mathematics</span><br>
                      Laboratory
                   </h1>
                   <p class="text-xl text-gray-300 max-w-xl">Pioneering mathematical modeling, complex simulation design, and computational solutions for tomorrow's challenges.</p>
                   <div class="flex flex-wrap gap-4">
-                     <button class="bg-white text-primary px-8 py-4 !rounded-button font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 whitespace-nowrap flex items-center group">
+                     <a href="publications.html" class="bg-white text-primary px-8 py-4 !rounded-button font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 whitespace-nowrap flex items-center group">
                      Explore Research
                      <i class="ri-arrow-right-line ml-2 transform transition-transform group-hover:translate-x-1"></i>
-                     </button>
-                     <button class="bg-transparent border-2 border-white text-white px-8 py-4 !rounded-button font-semibold hover:bg-white/10 transition-all duration-300 transform hover:scale-105 whitespace-nowrap flex items-center group">
+                     </a>
+                     <a href="team.html#join" class="bg-transparent border-2 border-white text-white px-8 py-4 !rounded-button font-semibold hover:bg-white/10 transition-all duration-300 transform hover:scale-105 whitespace-nowrap flex items-center group">
                      Join Our Team
                      <i class="ri-user-add-line ml-2 transform transition-transform group-hover:translate-x-1"></i>
-                     </button>
+                     </a>
                   </div>
                   <div class="flex items-center space-x-8 pt-8">
                      <div>
                         <p class="text-4xl font-bold">100+</p>
-                        <p class="text-sm text-gray-300">Research Papers</p>
+                        <p class="text-sm text-gray-300">Published Manuscripts</p>
                      </div>
                      <div class="h-12 w-px bg-white/20"></div>
                      <div>
@@ -90,12 +89,35 @@
                   </div>
                </div>
                <div class="hidden lg:block relative">
+					<!-- 
                   <div class="absolute -top-20 -right-20 w-72 h-72 bg-blue-500/30 rounded-full blur-3xl"></div>
                   <div class="absolute -bottom-20 -left-20 w-72 h-72 bg-purple-500/30 rounded-full blur-3xl"></div>
                   <div class="relative bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
                      <img src="img/hero.png" class="w-full h-full object-cover rounded-xl" alt="Applied Computational Mathematics Lab">
                   </div>
-               </div>
+				  -->
+				  <!-- keep your glow blobs for continuity -->
+				  <div class="absolute -top-20 -right-20 w-72 h-72 bg-blue-500/30 rounded-full blur-3xl"></div>
+				  <div class="absolute -bottom-20 -left-20 w-72 h-72 bg-purple-500/30 rounded-full blur-3xl"></div>
+
+				  <!-- card wrapper (same styling as before for consistency) -->
+				  <div class="relative bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-white/20">
+					<!-- Three.js mounts here -->
+					<div id="acm-sphere" class="relative w-[600px] h-[600px] max-w-full aspect-square mx-auto rounded-xl overflow-hidden">
+					  <!-- tooltip (speech bubble) -->
+					  <div id="eq-tooltip"
+						   class="speech-bubble pointer-events-none absolute top-0 left-0 opacity-0 transition-opacity duration-150
+								  bg-white text-gray-800 text-sm md:text-base font-medium shadow-lg px-3 py-2 rounded-lg">
+						<!-- equation injected here -->
+					  </div>
+					  <noscript>
+						<div class="p-6 text-center text-white/90">
+						  Enable JavaScript to view the interactive model.
+						</div>
+					  </noscript>
+					</div>
+				  </div>
+				</div>
             </div>
          </div>
          <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent"></div>
@@ -133,44 +155,52 @@
          </div>
       </section>
       <!-- Recent Studies -->
-      <section class="py-20 bg-gray-50">
-         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-               <h2 class="text-4xl font-bold text-gray-900 mb-6">Recent Studies</h2>
-               <p class="text-xl text-gray-600">Discover our latest research breakthroughs and ongoing projects</p>
+<section class="py-20 bg-gray-50">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+         <h2 class="text-4xl font-bold text-gray-900 mb-6">Recent Studies</h2>
+         <p class="text-xl text-gray-600">Discover our latest research breakthroughs and ongoing projects</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+         
+         <!-- Study 1 -->
+         <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300">
+            <img src="img/manuscripts/fire.png" alt="Fire Weather Index Study" class="w-full h-48 object-cover object-top">
+            <div class="p-6">
+               <h3 class="text-xl font-semibold mb-3">Region-Tailored Fire Weather Indices</h3>
+               <p class="text-gray-600 mb-4">Genetic Algorithms and Decision Trees outperform global models in wildfire prediction by adapting to local weather, terrain, and vegetation.</p>
+               <a href="https://teddylazebnik.com/files/fires_global.pdf" class="text-primary font-medium hover:text-secondary transition-colors duration-200">Learn More →</a>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-               <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                  <img src="https://readdy.ai/api/search-image?query=fluid%20dynamics%20simulation%20with%20colorful%20flow%20patterns%20and%20mathematical%20equations%2C%20computational%20fluid%20dynamics%20visualization%2C%20scientific%20research%20illustration%2C%20modern%20laboratory%20setting%2C%20blue%20and%20orange%20color%20scheme&width=400&height=250&seq=study1&orientation=landscape" alt="Fluid Dynamics Study" class="w-full h-48 object-cover object-top">
-                  <div class="p-6">
-                     <h3 class="text-xl font-semibold mb-3">Advanced Fluid Dynamics Modeling</h3>
-                     <p class="text-gray-600 mb-4">Novel computational approaches for turbulent flow analysis in aerospace applications</p>
-                     <button class="text-primary font-medium hover:text-secondary transition-colors duration-200">Learn More →</button>
-                  </div>
-               </div>
-               <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                  <img src="https://readdy.ai/api/search-image?query=machine%20learning%20neural%20network%20visualization%20with%20mathematical%20nodes%20and%20connections%2C%20artificial%20intelligence%20research%2C%20computational%20mathematics%2C%20modern%20tech%20background%2C%20blue%20and%20green%20tones&width=400&height=250&seq=study2&orientation=landscape" alt="Machine Learning Study" class="w-full h-48 object-cover object-top">
-                  <div class="p-6">
-                     <h3 class="text-xl font-semibold mb-3">Machine Learning Optimization</h3>
-                     <p class="text-gray-600 mb-4">Developing efficient algorithms for large-scale optimization problems in AI systems</p>
-                     <button class="text-primary font-medium hover:text-secondary transition-colors duration-200">Learn More →</button>
-                  </div>
-               </div>
-               <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                  <img src="https://readdy.ai/api/search-image?query=financial%20market%20data%20visualization%20with%20mathematical%20models%20and%20graphs%2C%20quantitative%20finance%20research%2C%20computational%20economics%2C%20professional%20business%20environment%2C%20blue%20and%20gold%20colors&width=400&height=250&seq=study3&orientation=landscape" alt="Financial Modeling Study" class="w-full h-48 object-cover object-top">
-                  <div class="p-6">
-                     <h3 class="text-xl font-semibold mb-3">Quantitative Financial Models</h3>
-                     <p class="text-gray-600 mb-4">Mathematical frameworks for risk assessment and portfolio optimization</p>
-                     <button class="text-primary font-medium hover:text-secondary transition-colors duration-200">Learn More →</button>
-                  </div>
-               </div>
-            </div>
-			  <!-- Button to View All Publications -->
-			  <div class="text-center mt-8">
-				 <a href="publications.html" class="bg-primary text-white px-6 py-3 rounded-full hover:bg-primary/90 transition font-medium text-lg">See all publications</a>
-			  </div>
          </div>
-      </section>
+
+         <!-- Study 2 -->
+         <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300">
+            <img src="img/manuscripts/ee.png" alt="Publishing Behavior Study" class="w-full h-48 object-cover object-top">
+            <div class="p-6">
+               <h3 class="text-xl font-semibold mb-3">Exploration vs. Exploitation in Publishing</h3>
+               <p class="text-gray-600 mb-4">Analyzes how computer science scholars form "Home Venues" using a biologically inspired decision-making model.</p>
+               <a href="https://teddylazebnik.com/files/publishing_instincts.pdf" class="text-primary font-medium hover:text-secondary transition-colors duration-200">Learn More →</a>
+            </div>
+         </div>
+
+         <!-- Study 3 -->
+         <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300">
+            <img src="img/manuscripts/concept_drift.png" alt="Concept Drift Study" class="w-full h-48 object-cover object-top">
+            <div class="p-6">
+               <h3 class="text-xl font-semibold mb-3">Adapting ML to Concept Drift</h3>
+               <p class="text-gray-600 mb-4">A Genetic Algorithm-based ensemble model enhances ML performance under changing data patterns using AutoML pipelines.</p>
+               <a href="https://teddylazebnik.com/files/ga_cd.pdf" class="text-primary font-medium hover:text-secondary transition-colors duration-200">Learn More →</a>
+            </div>
+         </div>
+      </div>
+
+      <!-- Button to View All Publications -->
+      <div class="text-center mt-8">
+         <a href="publications.html" class="bg-primary text-white px-6 py-3 rounded-full hover:bg-primary/90 transition font-medium text-lg">See all publications</a>
+      </div>
+   </div>
+</section>
+
       <!-- Collaboration -->
       <section class="py-20 bg-white">
          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -390,6 +420,7 @@
          integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
          crossorigin="anonymous"></script>
       <script src="js/main.js"> </script>
+	  <script type="module" src="js/hero-sphere.js"></script>
       <!-- end - js -->
    </body>
 </html>

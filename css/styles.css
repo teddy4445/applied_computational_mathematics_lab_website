@@ -44,3 +44,58 @@ a:hover {
 	border: 2px solid rgb(37 99 235 / var(--tw-bg-opacity, 1)) !important;
 	color: rgb(37 99 235 / var(--tw-bg-opacity, 1)) !important;
 }
+
+/* ---- 3D hero helpers ---- */
+#acm-sphere canvas {
+  display: block;
+}
+
+/* speech bubble w/ arrow; matches Tailwind card look */
+.speech-bubble {
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 12px;
+  background: #ffffff;
+  position: absolute;
+  transform: translate(-50%, -120%); /* position above the point by default */
+  z-index: 5;
+}
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  transform: translateX(-50%);
+  width: 0; height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #ffffff;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.05));
+}
+
+/* respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  #acm-sphere[data-reduced-motion="true"] { opacity: 0.95; }
+}
+
+/* speech bubble above the point */
+.speech-bubble {
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 12px;
+  background: #fff;
+  position: absolute;
+  transform: translate(-50%, -120%); /* center X, above Y */
+  z-index: 5;
+  pointer-events: none; /* don’t block the canvas */
+}
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  transform: translateX(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #ffffff;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.05));
+}
+
