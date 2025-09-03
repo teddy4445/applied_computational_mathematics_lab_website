@@ -99,3 +99,41 @@ a:hover {
   filter: drop-shadow(0 1px 1px rgba(0,0,0,0.05));
 }
 
+
+/* --- 2D hero graph helpers --- */
+.speech-bubble {
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 12px;
+  background: #ffffff;
+  transform: translate(-50%, -120%);
+  z-index: 5;
+}
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  transform: translateX(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #ffffff;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.05));
+}
+
+#graph-svg .edge { opacity: 0; transition: opacity 300ms ease; }
+#graph-svg .edge.visible { opacity: 0.95; }
+#graph-svg .edge-label { opacity: 0; transition: opacity 300ms ease; }
+#graph-svg .edge-label.visible { opacity: 1; }
+\
+#graph-svg .edge {
+  cursor: default !important;
+  transition: none !important;
+}
+
+/* respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  #graph-svg .edge, #graph-svg .edge-label,
+  #graph-svg .user, #graph-svg .subject { transition: none !important; }
+}
+
+
