@@ -10,11 +10,11 @@
 
   const MAX_PARTICLES_DESKTOP = 6000;
   const MAX_PARTICLES_MOBILE  = 4000;
-  const PARTICLE_SIZE = 0.15;     // world units
+  const PARTICLE_SIZE = 0.1;     // world units
   const DEPTH_JITTER = 1.0;       // ±Z variance added on each morph
-  const MORPH_TIME   = 1400;      // ms base morph duration
+  const MORPH_TIME   = 3000;      // ms base morph duration
   const STAGGER_MS   = 600;       // ms random per-particle delay span
-  const FLOAT_AMPL   = 0.25;      // idle sinus wobble amplitude
+  const FLOAT_AMPL   = 0.22;      // idle sinus wobble amplitude
   const FLOAT_SPEED  = 0.7;       // idle wobble speed factor
   const BG_ROT_SPEED = 0.12;      // slow background rotation
 

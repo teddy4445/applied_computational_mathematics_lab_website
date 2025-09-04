@@ -196,7 +196,7 @@ function rewire() {
 // ------------------ init ------------------
 resize();
 window.addEventListener('resize', resize);
-setInterval(rewire, 3000);
+setInterval(rewire, 1500);
 
 // Gentle idle bob to keep it lively (no hover)
 let t = 0;
