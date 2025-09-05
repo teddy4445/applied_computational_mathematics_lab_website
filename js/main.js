@@ -1,4 +1,20 @@
 
+
+const menuBtn = document.getElementById("menu-btn");
+const mobileMenu = document.getElementById("mobile-menu");
+let menuOpen = false;
+
+menuBtn.addEventListener("click", () => {
+  menuOpen = !menuOpen;
+  if (menuOpen) {
+	mobileMenu.classList.remove("max-h-0");
+	mobileMenu.classList.add("max-h-screen");
+  } else {
+	mobileMenu.classList.remove("max-h-screen");
+	mobileMenu.classList.add("max-h-0");
+  }
+});
+
 tailwind.config = {
 theme: {
 extend: {

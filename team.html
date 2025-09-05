@@ -27,43 +27,47 @@
 
   <body class="bg-gray-50 font-['Inter']">
     <!-- Navbar -->
-    <nav
-      id="navbar"
-      class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30"
-    >
-      <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
-        <!-- Logo -->
-        <div class="flex items-center gap-2">
-          <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-            <span class="font-['Pacifico'] text-xl text-white">A</span>
-          </div>
-          <div class="flex flex-col">
-            <span class="font-['Pacifico'] text-2xl text-primary">ACM Lab</span>
-            <span class="text-xs text-gray-500">Computational Mathematics</span>
-          </div>
+   
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <!-- Logo -->
+      <div class="flex items-center gap-2">
+        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+          <span class="font-['Pacifico'] text-xl text-white">A</span>
         </div>
-
-        <!-- Desktop Menu -->
-        <div class="hidden md:flex items-center">
-          <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
-            <a href="index.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
-            <a href="team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
-            <a href="projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
-            <a href="publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
-          </div>
-          <a
-            href="index.html#contact"
-            class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm"
-            >Contact Us</a
-          >
+        <div class="flex flex-col">
+          <span class="font-['Pacifico'] text-2xl text-primary">ACM Lab</span>
+          <span class="text-xs text-gray-500">Computational Mathematics</span>
         </div>
-
-        <!-- Mobile Menu Button -->
-        <button class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100">
-          <i class="ri-menu-line text-xl"></i>
-        </button>
       </div>
-    </nav>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="index.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+        </div>
+        <a href="index.html#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Menu (animated) -->
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="index.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="index.html#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
 
     <div class="h-20"></div>
 
