@@ -159,5 +159,53 @@ a:hover {
   #projects-tunnel { background-image: none; }
 }
 
+/* Media grid tweaks */
+.media-card:hover img {
+  transform: scale(1.02);
+}
+.media-card img {
+  transition: transform 300ms ease;
+}
 
+/* Publications: micro-interactions */
+.publication-card:hover {
+  box-shadow: 0 10px 28px rgb(17 24 39 / 8%);
+}
+.pub-abstract {
+  transition: height 220ms ease, opacity 200ms ease;
+}
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* --- Team/Alumni skeleton loader --- */
+.skeleton-card {
+  @apply bg-white rounded-xl shadow-sm overflow-hidden;
+  position: relative;
+  height: 340px;
+}
+.skeleton-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(226,232,240,0.6) 25%, rgba(203,213,225,0.6) 37%, rgba(226,232,240,0.6) 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.25s infinite;
+}
+@keyframes shimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+/* optional image polish */
+.team-card img {
+  transition: transform .35s ease, filter .35s ease;
+}
+.team-card:hover img {
+  transform: scale(1.03);
+  filter: saturate(1.05);
+}
 

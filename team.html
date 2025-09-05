@@ -1,452 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Applied Computational Mathematics Lab - Teddy Lazebnik</title>
-      <meta content="Prof' Teddy Lazebnik - Mathematics and Computer Science researcher focusing on applied computational mathematics including Biomathematical Modeling, Computer Simulation, Personalized Medicince, and AI" name="description"/>
-      <meta content="keywords" content="lazebnik, לזנבניק, teddy lazebnik, applied computational mathematics, academic lab" />
-      <meta content="Teddy Lazebnik" name="author"/>
-      <link href="https://teddylazebnik.com/img/favicon.ico" rel="icon" type="image/x-icon"/>
-      <script src="https://cdn.tailwindcss.com/3.4.16"></script>
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
-      <link href="css/styles.css" rel="stylesheet">
-   </head>
-   <body class="bg-gray-50 font-['Inter']">
-      <!-- Navbar -->
-      <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
-         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
-            <!-- Logo -->
-            <div class="flex items-center gap-2">
-               <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                  <span class="font-['Pacifico'] text-xl text-white">A</span>
-               </div>
-               <div class="flex flex-col">
-                  <span class="font-['Pacifico'] text-2xl text-primary">ACM Lab</span>
-                  <span class="text-xs text-gray-500">Computational Mathematics</span>
-               </div>
-            </div>
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center">
-               <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
-                  <a href="index.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
-                  <a href="team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
-                  <a href="projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
-                  <a href="publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
-               </div>
-               <a href="index.html#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
-            </div>
-            <!-- Mobile Menu Button -->
-            <button class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100">
-            <i class="ri-menu-line text-xl"></i>
-            </button>
-         </div>
-      </nav>
-      <div class="h-20"></div>
-      <main class="min-h-screen">
-         <section class="py-16 bg-gradient-to-b from-gray-50 to-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-               <div class="grid lg:grid-cols-2 gap-12 items-center">
-                  <div class="space-y-6">
-                     <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
-                        Meet Our Research Team
-                     </h1>
-                     <p class="text-lg text-gray-600 leading-relaxed">
-                        Our interdisciplinary research laboratory brings together brilliant minds from diverse backgrounds to tackle the most challenging problems in computational mathematics and its applications in biology, medicine, economics, sociology, and scientometrics.
-						We foster a collaborative environment where innovation thrives and groundbreaking discoveries emerge.
-                     </p>
-                     <div class="flex items-center space-x-6 pt-4">
-                        <div class="text-center">
-                           <div class="text-3xl font-bold text-primary">8+</div>
-                           <div class="text-sm text-gray-600">Team Members</div>
-                        </div>
-                        <div class="text-center">
-                           <div class="text-3xl font-bold text-primary">9+</div>
-                           <div class="text-sm text-gray-600">Alumni</div>
-                        </div>
-                        <div class="text-center">
-                           <div class="text-3xl font-bold text-primary">0.2M$+</div>
-                           <div class="text-sm text-gray-600">Student Grants</div>
-                        </div>
-                     </div>
-                  </div>
-				  <!-- RIGHT COLUMN: 2D USER–SUBJECT GRAPH -->
-<div class="hidden lg:block relative">
-  <!-- optional soft glow blobs (keep your look) -->
-  <div class="absolute -top-20 -right-20 w-72 h-72 bg-blue-500/30 rounded-full blur-3xl"></div>
-  <div class="absolute -bottom-20 -left-20 w-72 h-72 bg-purple-500/30 rounded-full blur-3xl"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Applied Computational Mathematics Lab - Teddy Lazebnik</title>
+    <meta
+      content="Prof' Teddy Lazebnik - Mathematics and Computer Science researcher focusing on applied computational mathematics including Biomathematical Modeling, Computer Simulation, Personalized Medicince, and AI"
+      name="description"
+    />
+    <meta
+      content="keywords"
+      content="lazebnik, לזנבניק, teddy lazebnik, applied computational mathematics, academic lab"
+    />
+    <meta content="Teddy Lazebnik" name="author" />
+    <link href="https://teddylazebnik.com/img/favicon.ico" rel="icon" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+  </head>
 
-  <div class="relative bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-white/20">
-    <div id="acm-graph"
-         class="relative w-[600px] h-[600px] max-w-full aspect-square mx-auto rounded-xl overflow-hidden">
-      <!-- SVG injected by JS -->
-      <svg id="graph-svg" class="absolute inset-0 w-full h-full"></svg>
+  <body class="bg-gray-50 font-['Inter']">
+    <!-- Navbar -->
+    <nav
+      id="navbar"
+      class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30"
+    >
+      <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+        <!-- Logo -->
+        <div class="flex items-center gap-2">
+          <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+            <span class="font-['Pacifico'] text-xl text-white">A</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-['Pacifico'] text-2xl text-primary">ACM Lab</span>
+            <span class="text-xs text-gray-500">Computational Mathematics</span>
+          </div>
+        </div>
 
-      <!-- shared tooltip -->
-      <div id="eq-tooltip"
-           class="speech-bubble pointer-events-none absolute top-0 left-0 opacity-0 transition-opacity duration-150
-                  bg-white text-gray-800 text-sm md:text-base font-medium shadow-lg px-3 py-2 rounded-lg">
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center">
+          <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+            <a href="index.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+            <a href="team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+            <a href="projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+            <a href="publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          </div>
+          <a
+            href="index.html#contact"
+            class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm"
+            >Contact Us</a
+          >
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100">
+          <i class="ri-menu-line text-xl"></i>
+        </button>
       </div>
-    </div>
-  </div>
-</div>
-</div>
-</div>
-</section>
+    </nav>
 
-         <section class="py-16 bg-gray-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-      <a href="https://scholar.google.com/citations?hl=en&authuser=1&user=m9NckL4AAAAJ" target="_blank" rel="noopener" class="block group">
-        <div class="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden">
-          <div class="aspect-square overflow-hidden">
-            <img src="https://teddylazebnik.com/img/lab/amit.png" alt="Dr. Amit Yaniv Rosenfeld" class="w-full h-full object-cover object-top">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-semibold text-gray-900 mb-1 group-hover:text-primary transition-colors">Dr. Amit Yaniv Rosenfeld</h3>
-            <p class="text-primary font-medium mb-2">Post-doc</p>
-            <p class="text-sm text-gray-600">Developing ML methods for psychiatric patient management (Haifa University, IS).</p>
-          </div>
-        </div>
-      </a>
+    <div class="h-20"></div>
 
-      <a href="https://scholar.google.com/citations?user=jEbepeYAAAAJ&hl=en" target="_blank" rel="noopener" class="block group">
-        <div class="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden">
-          <div class="aspect-square overflow-hidden">
-            <img src="https://teddylazebnik.com/img/lab/meirav.jpg" alt="Dr. Meirav Har Even" class="w-full h-full object-cover object-top">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-semibold text-gray-900 mb-1 group-hover:text-primary transition-colors">Dr. Meirav Har Even</h3>
-            <p class="text-primary font-medium mb-2">Post-doc</p>
-            <p class="text-sm text-gray-600">Registered dietitian & neuroscience researcher (Haifa University, IS).</p>
-          </div>
-        </div>
-      </a>
-
-      <a href="https://scholar.google.com/citations?user=tXZ3diUAAAAJ&hl=en&authuser=1" target="_blank" rel="noopener" class="block group">
-        <div class="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden">
-          <div class="aspect-square overflow-hidden">
-            <img src="https://teddylazebnik.com/img/lab/max.jpg" alt="Dr. Maxim Glebov" class="w-full h-full object-cover object-top">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-semibold text-gray-900 mb-1 group-hover:text-primary transition-colors">Dr. Maxim Glebov</h3>
-            <p class="text-primary font-medium mb-2">PhD. Student</p>
-            <p class="text-sm text-gray-600">ML for perioperative workflow optimization & surgical outcomes.</p>
-          </div>
-        </div>
-      </a>
-
-      <div class="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden">
-        <div class="aspect-square overflow-hidden">
-          <img src="https://teddylazebnik.com/img/lab/irena.jpg" alt="Irena Shami" class="w-full h-full object-cover object-top">
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-semibold text-gray-900 mb-1">Irena Shami</h3>
-          <p class="text-primary font-medium mb-2">PhD. Student</p>
-          <p class="text-sm text-gray-600">LLMs/ML + Socio-Economic profiling for fair, transparent portfolio optimisation.</p>
-        </div>
-      </div>
-
-      <a href="https://scholar.google.com/citations?user=vbN5b1EAAAAJ&hl=en" target="_blank" rel="noopener" class="block group">
-        <div class="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden">
-          <div class="aspect-square overflow-hidden">
-            <img src="https://teddylazebnik.com/img/lab/adi.png" alt="Adi Shuchami" class="w-full h-full object-cover object-top">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-semibold text-gray-900 mb-1 group-hover:text-primary transition-colors">Adi Shuchami</h3>
-            <p class="text-primary font-medium mb-2">PhD. Student</p>
-            <p class="text-sm text-gray-600">Data science of community & hospital data for decision support.</p>
-          </div>
-        </div>
-      </a>
-
-      <a href="https://scholar.google.com/citations?user=GGQ6sw0AAAAJ&hl=en" target="_blank" rel="noopener" class="block group">
-        <div class="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden">
-          <div class="aspect-square overflow-hidden">
-            <img src="https://teddylazebnik.com/img/lab/ariel.png" alt="Ariel Alexi" class="w-full h-full object-cover object-top">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-semibold text-gray-900 mb-1 group-hover:text-primary transition-colors">Ariel Alexi</h3>
-            <p class="text-primary font-medium mb-2">PhD. Student</p>
-            <p class="text-sm text-gray-600">Scientometric dynamics via bio-mathematical modeling.</p>
-          </div>
-        </div>
-      </a>
-
-      <a href="https://il.linkedin.com/in/amit-bengiat-379288230" target="_blank" rel="noopener" class="block group">
-        <div class="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden">
-          <div class="aspect-square overflow-hidden">
-            <img src="https://teddylazebnik.com/img/lab/amit.jpeg" alt="Amit Bengiat" class="w-full h-full object-cover object-top">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-semibold text-gray-900 mb-1 group-hover:text-primary transition-colors">Amit Bengiat</h3>
-            <p class="text-primary font-medium mb-2">PhD. Student</p>
-            <p class="text-sm text-gray-600">Scientometric properties & dynamics of academic collaborations.</p>
-          </div>
-        </div>
-      </a>
-
-      <a href="https://scholar.google.com/citations?hl=en&user=LCOIWK0AAAAJ" target="_blank" rel="noopener" class="block group">
-        <div class="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden">
-          <div class="aspect-square overflow-hidden">
-            <img src="https://teddylazebnik.com/img/lab/assaf.png" alt="Dr. Assaf Shmuel" class="w-full h-full object-cover object-top">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-semibold text-gray-900 mb-1 group-hover:text-primary transition-colors">Dr. Assaf Shmuel</h3>
-            <p class="text-primary font-medium mb-2">PhD. Student</p>
-            <p class="text-sm text-gray-600">Symbolic regression in ML/DL; OOD generalization & explainability.</p>
-          </div>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-         <!-- Lab Statistics Section -->
-         <section class="py-16 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-               <div class="text-center mb-16">
-                  <h2 class="text-3xl font-bold text-gray-900 mb-4">Lab Statistics</h2>
-                  <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                     We take pride in maintaining a diverse and inclusive research environment as a secondary objective and excellence as the main one. 
-                     Here are some quick statistics about our lab members and their academic journeys.
-                  </p>
-               </div>
-               <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                  <!-- Gender Distribution -->
-                  <div class="bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition-shadow p-8 text-center">
-                     <div class="text-3xl font-bold text-primary mb-2">Now: 37.5% / 62.5% </div>
-                     <div class="text-2xl font-bold text-secondary mb-2">Overall: 58.8% / 41.2%</div>
-                     <h3 class="text-xl font-semibold text-gray-900 mb-2">Gender distribution</h3>
-                     <p class="text-gray-600 text-sm">Male / Female representation</p>
-                  </div>
-                  <!-- International Diversity -->
-                  <div class="bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition-shadow p-8 text-center">
-                     <div class="text-3xl font-bold text-primary mb-2">Now: 0%</div>
-                     <div class="text-2xl font-bold text-secondary mb-2">Overall: 12%</div>
-                     <h3 class="text-xl font-semibold text-gray-900 mb-2">International members</h3>
-                     <p class="text-gray-600 text-sm">Researchers coming from outside the home country</p>
-                  </div>
-                  <!-- Completion Time -->
-                  <div class="bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition-shadow p-8 text-center">
-                     <div class="text-2xl font-bold text-primary mb-2">PhD: TBD yrs</div>
-                     <div class="text-2xl font-bold text-secondary mb-2">Master: 1.75 yrs</div>
-                     <h3 class="text-xl font-semibold text-gray-900 mb-2">Average degree completion time</h3>
-                     <p class="text-gray-600 text-sm">Typical graduation duration for advanced degrees</p>
-                  </div>
-                  <!-- Publication Distribution -->
-                  <div class="bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition-shadow p-8 text-center">
-                     <div class="text-2xl font-bold text-primary mb-2">PhD: 4.8 (76% Q1)</div>
-                     <div class="text-2xl font-bold text-secondary mb-2">Master: 2.6 (68% Q1)</div>
-                     <h3 class="text-xl font-semibold text-gray-900 mb-2"># of Publication</h3>
-                     <p class="text-gray-600 text-sm">Average amount of lab members led manuscript published</p>
-                  </div>
-               </div>
+    <main class="min-h-screen">
+      <!-- HERO / INTRO -->
+      <section class="py-16 bg-gradient-to-b from-gray-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+              <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">Meet Our Research Team</h1>
+              <p class="text-lg text-gray-600 leading-relaxed">
+                Our interdisciplinary research laboratory brings together brilliant minds from diverse backgrounds to tackle the most challenging problems in computational mathematics and its applications in biology, medicine, economics, sociology, and scientometrics.
+                We foster a collaborative environment where innovation thrives and groundbreaking discoveries emerge.
+              </p>
+              <div class="flex items-center space-x-6 pt-4">
+                <div class="text-center">
+                  <div id="team-count" class="text-3xl font-bold text-primary">8+</div>
+                  <div class="text-sm text-gray-600">Team Members</div>
+                </div>
+                <div class="text-center">
+                  <div id="alumni-count" class="text-3xl font-bold text-primary">9+</div>
+                  <div class="text-sm text-gray-600">Alumni</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-3xl font-bold text-primary">0.2M$+</div>
+                  <div class="text-sm text-gray-600">Student Grants</div>
+                </div>
+              </div>
             </div>
-         </section>
-         <!-- Collaborations & Partners -->
-         <section class="py-16 bg-gray-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-               <div class="text-center mb-12">
-                  <h2 class="text-3xl font-bold text-gray-900 mb-4">Collaborations & Partners</h2>
-                  <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                     Our lab works closely with leading universities, research institutes, and industry partners worldwide.
-                  </p>
-               </div>
-               <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
-                  <a href="https://tech4animals.haifa.ac.il/"><img src="img/partner/c1.png" alt="tech4animals" class="h-16 object-contain grayscale hover:grayscale-0 transition"/></a>
-                  <a href="https://arielrosenfeld.com/"><img src="img/partner/c2.png" alt="AI 4 Good" class="h-16 object-contain grayscale hover:grayscale-0 transition"/></a>
-                  <a href="https://www.turbulencelab.sites.tau.ac.il/"><img src="img/partner/c3.png" alt="Alex Liberzon" class="h-16 object-contain grayscale hover:grayscale-0 transition"/></a>
-                  <a href="https://www.ucl.ac.uk/"><img src="img/partner/c4.png" alt="UCL" class="h-16 object-contain grayscale hover:grayscale-0 transition"/></a>
-               </div>
+
+            <!-- RIGHT COLUMN: (your existing graph UI stays untouched) -->
+            <div class="hidden lg:block relative">
+              <div class="absolute -top-20 -right-20 w-72 h-72 bg-blue-500/30 rounded-full blur-3xl"></div>
+              <div class="absolute -bottom-20 -left-20 w-72 h-72 bg-purple-500/30 rounded-full blur-3xl"></div>
+
+              <div class="relative bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-white/20">
+                <div id="acm-graph" class="relative w-[600px] h-[600px] max-w-full aspect-square mx-auto rounded-xl overflow-hidden">
+                  <svg id="graph-svg" class="absolute inset-0 w-full h-full"></svg>
+                  <div
+                    id="eq-tooltip"
+                    class="speech-bubble pointer-events-none absolute top-0 left-0 opacity-0 transition-opacity duration-150 bg-white text-gray-800 text-sm md:text-base font-medium shadow-lg px-3 py-2 rounded-lg"
+                  ></div>
+                </div>
+              </div>
             </div>
-         </section>
-         <!-- Open Positions -->
-         <section class="py-16 bg-white">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-               <div class="text-center mb-12">
-                  <h2 class="text-3xl font-bold text-gray-900 mb-4">Open Positions</h2>
-                  <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                     Interested in joining our lab? We are always looking for talented and motivated researchers.
-                  </p>
-               </div>
-               <div class="space-y-6">
-                  <div class="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition">
-                     <h3 class="text-xl font-semibold text-gray-900 mb-2">Master students - computational mathematics</h3>
-                     <p class="text-gray-600 mb-3">Come up with your ideas or lets talk and find one together.</p>
-                     <a href="/index.html#contact" class="text-primary font-medium hover:underline">Apply Now →</a>
-                  </div>
-               </div>
+            <!-- /graph -->
+          </div>
+        </div>
+      </section>
+
+      <!-- CURRENT TEAM (dynamic) -->
+      <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Current Team</h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+			We invent new methods to solve real-world problems
+            </p>
+          </div>
+
+          <!-- Skeletons shown while fetching -->
+          <div id="current-grid-skeleton" class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+          </div>
+
+          <!-- Real content goes here -->
+          <div id="current-grid" class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 hidden"></div>
+        </div>
+      </section>
+
+      <!-- Lab Statistics (kept as-is) -->
+      <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Lab Statistics</h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+              We take pride in maintaining a diverse and inclusive research environment as a secondary objective and excellence as the main one.
+              Here are some quick statistics about our lab members and their academic journeys.
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition-shadow p-8 text-center">
+              <div class="text-3xl font-bold text-primary mb-2">Now: 37.5% / 62.5% </div>
+              <div class="text-2xl font-bold text-secondary mb-2">Overall: 41.2% / 58.8%</div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">Gender distribution</h3>
+              <p class="text-gray-600 text-sm">Male / Female representation</p>
             </div>
-         </section>
-		 <!-- Alumni -->
-<section class="py-16 bg-gray-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16">
-      <h2 class="text-3xl font-bold text-gray-900 mb-4">Alumni</h2>
-      <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-        Our distinguished alumni have gone on to make significant contributions in academia and industry, carrying forward the innovative spirit and research excellence fostered in our lab.
-      </p>
-    </div>
-
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-12">
-      <a href="https://www.linkedin.com/in/lukastoral/" target="_blank" rel="noopener" class="block">
-        <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-          <div class="aspect-square overflow-hidden">
-            <img src="https://teddylazebnik.com/img/lab/lukas.jpeg" alt="Lukas Toral" class="w-full h-full object-cover object-top">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-semibold text-gray-900 mb-1">Lukas Toral</h3>
-            <p class="text-secondary font-medium mb-2">McS. Student (01/01/2025 – 01/07/2025)</p>
-            <p class="text-sm text-gray-600">LLMs with RL in teacher-student setups to accelerate RL convergence.</p>
+            <div class="bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition-shadow p-8 text-center">
+              <div class="text-3xl font-bold text-primary mb-2">Now: 0%</div>
+              <div class="text-2xl font-bold text-secondary mb-2">Overall: 12%</div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">International members</h3>
+              <p class="text-gray-600 text-sm">Researchers coming from outside the home country</p>
+            </div>
+            <div class="bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition-shadow p-8 text-center">
+              <div class="text-2xl font-bold text-primary mb-2">PhD: TBD yrs</div>
+              <div class="text-2xl font-bold text-secondary mb-2">Master: 1.75 yrs</div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">Average degree completion time</h3>
+              <p class="text-gray-600 text-sm">Typical graduation duration for advanced degrees</p>
+            </div>
+            <div class="bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition-shadow p-8 text-center">
+              <div class="text-2xl font-bold text-primary mb-2">PhD: 4.8 (76% Q1)</div>
+              <div class="text-2xl font-bold text-secondary mb-2">Master: 2.6 (68% Q1)</div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-2"># of Publication</h3>
+              <p class="text-gray-600 text-sm">Average amount of lab members led manuscript published</p>
+            </div>
           </div>
         </div>
-      </a>
+      </section>
 
-      <a href="https://www.linkedin.com/in/bilgesi/" target="_blank" rel="noopener" class="block">
-        <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-          <div class="aspect-square overflow-hidden">
-            <img src="https://teddylazebnik.com/img/lab/bilge.jpg" alt="Bilge Taskin" class="w-full h-full object-cover object-top">
+      <!-- Collaborations & Partners (unchanged) -->
+      <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Collaborations & Partners</h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+              Our lab works closely with leading universities, research institutes, and industry partners worldwide.
+            </p>
           </div>
-          <div class="p-6">
-            <h3 class="text-xl font-semibold text-gray-900 mb-1">Bilge Taskin</h3>
-            <p class="text-secondary font-medium mb-2">McS. Student (01/01/2025 – 01/07/2025)</p>
-            <p class="text-sm text-gray-600">Domain knowledge via LLMs for physical symbolic regression.</p>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
+            <a href="https://tech4animals.haifa.ac.il/"><img src="img/partner/c1.png" alt="tech4animals" class="h-16 object-contain grayscale hover:grayscale-0 transition"/></a>
+            <a href="https://arielrosenfeld.com/"><img src="img/partner/c2.png" alt="AI 4 Good" class="h-16 object-contain grayscale hover:grayscale-0 transition"/></a>
+            <a href="https://www.turbulencelab.sites.tau.ac.il/"><img src="img/partner/c3.png" alt="Alex Liberzon" class="h-16 object-contain grayscale hover:grayscale-0 transition"/></a>
+            <a href="https://www.ucl.ac.uk/"><img src="img/partner/c4.png" alt="UCL" class="h-16 object-contain grayscale hover:grayscale-0 transition"/></a>
           </div>
         </div>
-      </a>
+      </section>
 
-      <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-        <div class="aspect-square overflow-hidden">
-          <img src="https://teddylazebnik.com/img/lab/Wenxiong.jpeg" alt="Wenxiong Xie" class="w-full h-full object-cover object-top">
+      <!-- Open Positions (unchanged) -->
+      <section class="py-16 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Open Positions</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+              Interested in joining our lab? We are always looking for talented and motivated researchers.
+            </p>
+          </div>
+          <div class="space-y-6">
+            <div class="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition">
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">Master students - computational mathematics</h3>
+              <p class="text-gray-600 mb-3">Come up with your ideas or lets talk and find one together.</p>
+              <a href="/index.html#contact" class="text-primary font-medium hover:underline">Apply Now →</a>
+            </div>
+          </div>
         </div>
-        <div class="p-6">
-          <h3 class="text-xl font-semibold text-gray-900 mb-1">Wenxiong Xie</h3>
-          <p class="text-secondary font-medium mb-2">McS. Student (01/01/2025 – 01/07/2025)</p>
-          <p class="text-sm text-gray-600">Domain knowledge via LLMs for physical symbolic regression.</p>
+      </section>
+	  
+
+      <!-- ALUMNI (dynamic) -->
+      <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Alumni</h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+             Our distinguished alumni have gone on to make significant contributions in academia and industry, carrying forward the innovative spirit and research excellence fostered in our lab.
+            </p>
+          </div>
+
+          <!-- Skeletons -->
+          <div id="alumni-grid-skeleton" class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+          </div>
+
+          <!-- Real content -->
+          <div id="alumni-grid" class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 hidden"></div>
+        </div>
+      </section>
+	  
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 mt-20">
+      <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="font-['Pacifico'] text-2xl mb-3">ACM Lab</h3>
+          <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-3">Quick Links</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="team.html" class="hover:text-white">Team</a></li>
+            <li><a href="media.html" class="hover:text-white">Media</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-3">Resources</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="#publications" class="hover:text-white">Publications</a></li>
+            <li><a href="#" class="hover:text-white">Software Tools - TBD</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-3">Contact Info</h4>
+          <p class="text-gray-400">
+            Department of Information Systems,<br />University of Haifa<br />Department of Computing,<br />Jonkoping University<br />Lazebnik.teddy (at) gmail.com<br />
+          </p>
         </div>
       </div>
+      <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+        © 2025 Applied Computational Mathematics Laboratory. All rights reserved to
+        <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+      </div>
+    </footer>
 
-      <a href="https://www.linkedin.com/in/eden-aloni-618967359/" target="_blank" rel="noopener" class="block">
-        <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-          <div class="aspect-square overflow-hidden">
-            <img src="https://teddylazebnik.com/img/lab/eden.jpeg" alt="Eden Aloni" class="w-full h-full object-cover object-top">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-semibold text-gray-900 mb-1">Eden Aloni</h3>
-            <p class="text-secondary font-medium mb-2">BS. Student (01/12/2024 – 01/6/2025)</p>
-            <p class="text-sm text-gray-600">Modeling links between stress and cancer development.</p>
-          </div>
-        </div>
-      </a>
-
-      <a href="https://www.sciencedirect.com/science/article/pii/S0303264723000916" target="_blank" rel="noopener" class="block">
-        <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-          <div class="aspect-square overflow-hidden">
-            <img src="https://teddylazebnik.com/img/lab/user.png" alt="Yonatan Herskowitz" class="w-full h-full object-cover object-top">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-semibold text-gray-900 mb-1">Yonatan Herskowitz</h3>
-            <p class="text-secondary font-medium mb-2">MS. Student (01/03/2022 – 01/03/2023)</p>
-            <p class="text-sm text-gray-600">Pandemic spread modeling for coffee tree; biological control agents.</p>
-          </div>
-        </div>
-      </a>
-      <a href="https://github.com/naormatania" target="_blank" rel="noopener" class="block">
-        <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-          <div class="aspect-square overflow-hidden">
-            <img src="https://teddylazebnik.com/img/lab/naor.png" alt="Naor Matania" class="w-full h-full object-cover object-top">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-semibold text-gray-900 mb-1">Naor Matania</h3>
-            <p class="text-secondary font-medium mb-2">Research assistance (1/06/2023 – 1/12/2023)</p>
-            <p class="text-sm text-gray-600">Led ML model for lung-cancer prediction from sparse blood samples (Clalit).</p>
-          </div>
-        </div>
-      </a>
-
-      <a href="https://scholar.google.com/citations?user=kFAf3CgAAAAJ" target="_blank" rel="noopener" class="block">
-        <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-          <div class="aspect-square overflow-hidden">
-            <img src="https://teddylazebnik.com/img/lab/liron.png" alt="Liron Simon-Keren" class="w-full h-full object-cover object-top">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-semibold text-gray-900 mb-1">Liron Simon-Keren</h3>
-            <p class="text-secondary font-medium mb-2">MS. Student (1/09/2020 – 1/09/2022)</p>
-            <p class="text-sm text-gray-600">Symbolic regression with knowledge integration for fluid dynamics.</p>
-          </div>
-        </div>
-      </a>
-
-      <a href="https://www.linkedin.com/in/tzach-fleischer-software-developer?trk=public_profile_browsemap&originalSubdomain=il" target="_blank" rel="noopener" class="block">
-        <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-          <div class="aspect-square overflow-hidden">
-            <img src="https://teddylazebnik.com/img/lab/tzach.png" alt="Tzach Fleischer" class="w-full h-full object-cover object-top">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-semibold text-gray-900 mb-1">Tzach Fleischer</h3>
-            <p class="text-secondary font-medium mb-2">Research assistance (1/05/2023 – 1/08/2023)</p>
-            <p class="text-sm text-gray-600">Benchmarking biologically-inspired AutoML for economic tasks.</p>
-          </div>
-        </div>
-      </a>
-
-      <a href="https://www.linkedin.com/in/liel-mushiev/?originalSubdomain=il" target="_blank" rel="noopener" class="block">
-        <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-          <div class="aspect-square overflow-hidden">
-            <img src="https://teddylazebnik.com/img/lab/userf.png" alt="Liel Mushiev" class="w-full h-full object-cover object-top">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-semibold text-gray-900 mb-1">Liel Mushiev</h3>
-            <p class="text-secondary font-medium mb-2">Research assistance (1/07/2023 – 1/10/2023)</p>
-            <p class="text-sm text-gray-600">Novel scientometrics metric using big-data analysis (math domain focus).</p>
-          </div>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-      </main>
-
-      <!-- Footer -->
-      <footer class="bg-gray-900 text-white py-12 mt-20">
-         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
-            <div>
-               <h3 class="font-['Pacifico'] text-2xl mb-3">ACM Lab</h3>
-               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
-            </div>
-            <div>
-               <h4 class="font-semibold mb-3">Quick Links</h4>
-               <ul class="space-y-2 text-gray-400">
-                  <li><a href="team.html" class="hover:text-white">Team</a></li>
-                  <li><a href="media.html" class="hover:text-white">Media</a></li>
-               </ul>
-            </div>
-            <div>
-               <h4 class="font-semibold mb-3">Resources</h4>
-               <ul class="space-y-2 text-gray-400">
-                  <li><a href="#publications" class="hover:text-white">Publications</a></li>
-                  <li><a href="#" class="hover:text-white">Software Tools - TBD</a></li>
-               </ul>
-            </div>
-            <div>
-               <h4 class="font-semibold mb-3">Contact Info</h4>
-               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jonkoping University<br>Lazebnik.teddy (at) gmail.com<br></p>
-            </div>
-         </div>
-         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
-            © 2025 Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
-         </div>
-      </footer>
-      <!-- js -->
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-         crossorigin="anonymous"></script>
-      <script src="js/main.js"> </script>
-	  <script type="module" src="js/hero-team.js"></script>
-      <!-- end - js -->
-   </body>
+    <!-- js -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/main.js"></script>
+    <!-- NEW: dynamic loader for lab data -->
+    <script type="module" src="js/lab.js"></script>
+    <script type="module" src="js/hero-team.js"></script>
+  </body>
 </html>

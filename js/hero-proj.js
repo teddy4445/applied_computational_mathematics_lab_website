@@ -46,11 +46,14 @@
   // Project words + equations
   function collectProjectWords() {
     const words = [
-      'Fluid Dynamics',
       'Machine Learning',
       'Symbolic Regression',
       'System Design',
-      'Cancer Treatment'
+      'Cancer Treatment',
+      'Fluid Dynamics',
+      'Knowledge Rep.',
+      'Biological Modelling',
+      'Informal Economy'
     ];
     return words;
   }
@@ -251,7 +254,7 @@
       return pts;
     }
 
-    const sequence = [...collectProjectWords(), ...equations];
+    const sequence = collectProjectWords();
     let fromPositions = new Float32Array(MAX_POINTS * 3);
     let toPositions = new Float32Array(MAX_POINTS * 3);
     let startTime = performance.now();
