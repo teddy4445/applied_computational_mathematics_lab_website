@@ -15,19 +15,61 @@ const fallbackImg = (img) => {
   img.src = 'img/lab/user.png';
 };
 
+// Build a hover image path by inserting "hover-" before the filename.
+// Example: /img/lab/alice.jpg -> /img/lab/hover-alice.jpg
+const deriveHoverFromPrimary = (src = '') => {
+  if (!src) return '';
+  try {
+    const url = new URL(src, window.location.href);
+    const segments = url.pathname.split('/');
+    const file = segments.pop() || '';
+    if (!file || file.startsWith('hover-')) return ''; // already a hover or missing file
+    // Skip placeholder
+    if (/^user\.(png|jpe?g|webp|svg)$/i.test(file)) return '';
+    const hoverFile = `hover-${file}`;
+    url.pathname = [...segments, hoverFile].join('/');
+    return url.toString();
+  } catch {
+    // Relative path fallback (no base URL)
+    const i = src.lastIndexOf('/');
+    const dir = i >= 0 ? src.slice(0, i + 1) : '';
+    const file = i >= 0 ? src.slice(i + 1) : src;
+    if (!file || file.startsWith('hover-')) return '';
+    if (/^user\.(png|jpe?g|webp|svg)$/i.test(file)) return '';
+    return `${dir}hover-${file}`;
+  }
+};
+
 const cardTemplate = (m) => {
   const hasLink = (m.info_link || '').trim().length > 0;
   const image = (m.image_link || '').trim() || 'img/lab/user.png';
+  const hoverImage = deriveHoverFromPrimary(image);
+  const useHover = !!hoverImage && hoverImage !== image;
+
   const wrapOpen  = hasLink ? `<a href="${m.info_link}" target="_blank" rel="noopener" class="block group">` : `<div class="block group">`;
   const wrapClose = hasLink ? `</a>` : `</div>`;
 
-  // description may contain safe HTML (links), so we inject as HTML.
+  // Two stacked images: base + hover (which fades in on group hover). If hover 404s, we remove it.
   return `
     ${wrapOpen}
       <div class="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden team-card">
-        <div class="aspect-square overflow-hidden">
-          <img src="${image}" alt="${m.name}" class="w-full h-full object-cover object-top"
-               onerror="this.onerror=null;this.src='img/lab/user.png';" />
+        <div class="aspect-square overflow-hidden relative">
+          <img
+            src="${image}"
+            alt="${m.name}"
+            loading="lazy" decoding="async"
+            class="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-300 ${useHover ? 'group-hover:opacity-0' : ''}"
+            onerror="this.onerror=null;this.src='img/lab/user.png';"
+          />
+          ${useHover ? `
+            <img
+              src="${hoverImage}"
+              alt="${m.name} (alternate)"
+              loading="lazy" decoding="async" aria-hidden="true"
+              class="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+              onerror="this.onerror=null;this.remove();"
+            />
+          ` : ``}
         </div>
         <div class="p-6">
           <h3 class="text-xl font-semibold text-gray-900 mb-1 ${hasLink ? 'group-hover:text-primary transition-colors' : ''}">${m.name}</h3>
