@@ -255,6 +255,7 @@ window.addEventListener("scroll", () => {
   const searchInp = document.getElementById('search-input');
   const sortSel = document.getElementById('sort-filter');
   const statsTotal = document.getElementById('stats-total')?.querySelector('strong');
+  const paperCountHeader = document.getElementById('papers-count');
   const statsVisible = document.getElementById('stats-visible')?.querySelector('strong');
 
   if (!container || !yearSel || !catSel || !searchInp || !sortSel) return; // not on this page
@@ -279,6 +280,7 @@ window.addEventListener("scroll", () => {
   }
 
   if (statsTotal) statsTotal.textContent = String(ALL.length);
+  if (paperCountHeader) paperCountHeader.textContent = String(ALL.length);
 
   // ---- 2) Helpers ----
   const norm = s => (s ?? '').toString().trim();
@@ -497,7 +499,7 @@ window.addEventListener("scroll", () => {
           ${prj.tags?.map((t, idx) => badge(t, ["blue","green","purple","orange","indigo"][idx%5])).join("")}
         </div>
         ${prj.team?.length ? `<div class="space-y-3 mb-4">${prj.team.map(person).join("")}</div>` : ""}
-        ${prj.links?.read_more ? `<a class="text-primary font-medium hover:text-secondary transition-colors duration-200" href="${prj.links.read_more}">Learn More →</a>` : ""}
+        ${prj.links?.read_more ? `<a class="text-primary font-medium hover:text-secondary transition-colors duration-200" href="project.html?pagename=${prj.links.read_more}">Learn More →</a>` : ""}
       </div>`;
 
     const order = (prj.orientation === "right" || (prj.orientation == null && i % 2 === 1))
