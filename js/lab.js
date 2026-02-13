@@ -81,6 +81,239 @@ const cardTemplate = (m) => {
   `;
 };
 
+// ======================
+// Lab Statistics (NEW)
+// ======================
+
+// Change this to your actual "home country" string as it appears in JSON
+const HOME_COUNTRY = 'Israel';
+
+const round1 = (x) => (Math.round(x * 10) / 10).toFixed(1);
+const round2 = (x) => (Math.round(x * 100) / 100).toFixed(2);
+
+const setText = (id, text) => {
+  const el = document.getElementById(id);
+  if (el) el.textContent = text;
+};
+
+const isEndDateCurrent = (e = '') => String(e).trim().toLowerCase() === 'current';
+
+const inStats = (m) => m && m.include_in_stats === true;
+
+const normGender = (g) => {
+  const v = String(g || '').trim().toLowerCase();
+  if (!v) return null;
+  if (['m', 'male', 'man', 'masculine'].includes(v)) return 'male';
+  if (['f', 'female', 'woman', 'feminine'].includes(v)) return 'female';
+  return null;
+};
+
+// International flag:
+// Prefer boolean is_international, else compare country to HOME_COUNTRY
+const intlFlag = (m) => {
+  if (typeof m.is_international === 'boolean') return m.is_international;
+  const c = String(m.country || '').trim();
+  if (!c) return null;
+  return c !== HOME_COUNTRY;
+};
+
+// Prefer explicit degree_level in JSON; fallback to parsing title
+// degree_level expected: "phd" | "master"
+const inferDegreeLevel = (m) => {
+  const dl = String(m.degree_level || '').trim().toLowerCase();
+  if (dl === 'phd' || dl === 'doctorate') return 'phd';
+  if (dl === 'master' || dl === 'msc' || dl === 'mcs') return 'master';
+
+  const t = String(m.title || '').toLowerCase();
+  if (t.includes('phd')) return 'phd';
+  if (t.includes('mcs') || t.includes('msc') || t.includes('ms.')) return 'master';
+  return null;
+};
+
+// Dates: your JSON is mostly d/m/yyyy but some are ambiguous (1/10/2023).
+// Heuristic resolves:
+// - If first > 12 -> day/month
+// - If second > 12 -> month/day
+// - Else assume day/month
+const parseDateSmart = (s) => {
+  if (!s) return null;
+  const v = String(s).trim();
+  if (!v || v.toLowerCase() === 'current') return null;
+
+  const parts = v.split('/').map(p => p.trim());
+  if (parts.length !== 3) return null;
+
+  let a = Number(parts[0]);
+  let b = Number(parts[1]);
+  const y = Number(parts[2]);
+  if (![a, b, y].every(Number.isFinite)) return null;
+
+  let day, month;
+  if (a > 12 && b <= 12) { day = a; month = b; }
+  else if (b > 12 && a <= 12) { day = b; month = a; }
+  else { day = a; month = b; }
+
+  const dt = new Date(Date.UTC(y, month - 1, day));
+  return Number.isNaN(dt.getTime()) ? null : dt;
+};
+
+const yearsBetween = (start, end) => (end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24 * 365.25);
+
+const avg = (arr) => arr.length ? arr.reduce((a, b) => a + b, 0) / arr.length : null;
+
+// Publications: allow any of these input styles:
+// 1) pub_q1_ratio: 0..1
+// 2) pub_q1_pct: 0..100
+// 3) pub_q1_count with pub_count
+const q1RatioFromMember = (m) => {
+  const r = Number(m.pub_q1_ratio);
+  if (Number.isFinite(r)) return r;
+
+  const pct = Number(m.pub_q1_pct);
+  if (Number.isFinite(pct)) return pct / 100;
+
+  const q1c = Number(m.pub_q1_count);
+  const pc = Number(m.pub_count);
+  if (Number.isFinite(q1c) && Number.isFinite(pc) && pc > 0) return q1c / pc;
+
+  return null;
+};
+
+function computeAndRenderStats(members) {
+  // Notes implemented:
+  // 1) Male/Female uses include_in_stats === true, split by e_date === "Current" for Now, and all for Overall
+  // 2) International same
+  // 3) Completion time uses category_name === "Alumni" (and include_in_stats === true)
+  // 4) Publications uses category_name === "Alumni" (and include_in_stats === true)
+
+  const overall = members.filter(inStats);
+  const now = overall.filter(m => isEndDateCurrent(m.e_date));
+
+  // --- Gender (strict: if any missing gender among included -> TBD) ---
+  const missingGenderOverall = overall.filter(m => !normGender(m.gender)).map(m => m.name);
+  const missingGenderNow = now.filter(m => !normGender(m.gender)).map(m => m.name);
+
+  let genderNowText = 'Now: TBD';
+  let genderOverallText = 'Overall: TBD';
+
+  if (overall.length && missingGenderOverall.length === 0) {
+    const male = overall.filter(m => normGender(m.gender) === 'male').length;
+    const female = overall.filter(m => normGender(m.gender) === 'female').length;
+    const total = male + female;
+    if (total > 0) genderOverallText = `Overall: ${round1((male / total) * 100)}% / ${round1((female / total) * 100)}%`;
+  } else if (missingGenderOverall.length) {
+    console.warn('Stats: missing/invalid "gender" for OVERALL include_in_stats members:', missingGenderOverall);
+  }
+
+  if (now.length && missingGenderNow.length === 0) {
+    const male = now.filter(m => normGender(m.gender) === 'male').length;
+    const female = now.filter(m => normGender(m.gender) === 'female').length;
+    const total = male + female;
+    if (total > 0) genderNowText = `Now: ${round1((male / total) * 100)}% / ${round1((female / total) * 100)}%`;
+  } else if (missingGenderNow.length) {
+    console.warn('Stats: missing/invalid "gender" for NOW include_in_stats members:', missingGenderNow);
+  }
+
+  // --- International (strict: if any missing intl info among included -> TBD) ---
+  const missingIntlOverall = overall.filter(m => intlFlag(m) === null).map(m => m.name);
+  const missingIntlNow = now.filter(m => intlFlag(m) === null).map(m => m.name);
+
+  let intlNowText = 'Now: TBD';
+  let intlOverallText = 'Overall: TBD';
+
+  if (overall.length && missingIntlOverall.length === 0) {
+    const intlCount = overall.filter(m => intlFlag(m) === true).length;
+    intlOverallText = `Overall: ${round1((intlCount / overall.length) * 100)}%`;
+  } else if (missingIntlOverall.length) {
+    console.warn('Stats: missing "country" or "is_international" for OVERALL include_in_stats members:', missingIntlOverall);
+  }
+
+  if (now.length && missingIntlNow.length === 0) {
+    const intlCount = now.filter(m => intlFlag(m) === true).length;
+    intlNowText = `Now: ${round1((intlCount / now.length) * 100)}%`;
+  } else if (missingIntlNow.length) {
+    console.warn('Stats: missing "country" or "is_international" for NOW include_in_stats members:', missingIntlNow);
+  }
+
+  // --- Alumni-only groups for completion time and publications ---
+  const alumni = members
+    .filter(m => isAlumni(m.category_name || ''))
+    .filter(inStats);
+
+  // Completion time (years) per degree level
+  const completionYears = (level /* 'phd'|'master' */) => {
+    const yrs = [];
+    const missing = [];
+    for (const m of alumni) {
+      if (inferDegreeLevel(m) !== level) continue;
+      const s = parseDateSmart(m.s_date);
+      const e = parseDateSmart(m.e_date);
+      if (!s || !e) {
+        missing.push(m.name);
+        continue;
+      }
+      const y = yearsBetween(s, e);
+      if (Number.isFinite(y) && y > 0) yrs.push(y);
+      else missing.push(m.name);
+    }
+    if (missing.length) console.warn(`Stats: missing/invalid dates for alumni completion time (${level}):`, missing);
+    return yrs;
+  };
+
+  const phdYears = completionYears('phd');
+  const masterYears = completionYears('master');
+
+  const timePhdText = (avg(phdYears) === null) ? 'PhD: TBD yrs' : `PhD: ${round2(avg(phdYears))} yrs`;
+  const timeMasterText = (avg(masterYears) === null) ? 'Master: TBD yrs' : `Master: ${round2(avg(masterYears))} yrs`;
+
+  // Publications (avg pub_count + overall Q1% weighted by pub_count)
+  const pubStats = (level /* 'phd'|'master' */) => {
+    const rows = alumni.filter(m => inferDegreeLevel(m) === level);
+
+    const missingPub = rows.filter(m => !Number.isFinite(Number(m.pub_count))).map(m => m.name);
+    const missingQ1 = rows.filter(m => q1RatioFromMember(m) === null).map(m => m.name);
+
+    if (missingPub.length) console.warn(`Stats: missing/invalid "pub_count" for alumni (${level}):`, missingPub);
+    if (missingQ1.length) console.warn(`Stats: missing Q1 info for alumni (${level}) — add pub_q1_ratio/pub_q1_pct/pub_q1_count:`, missingQ1);
+
+    const valid = rows
+      .map(m => {
+        const pubCount = Number(m.pub_count);
+        const q1r = q1RatioFromMember(m);
+        if (!Number.isFinite(pubCount)) return null;
+        if (q1r === null || !Number.isFinite(q1r)) return null;
+        return { pubCount, q1r };
+      })
+      .filter(Boolean);
+
+    if (!valid.length) return null;
+
+    const sumPubs = valid.reduce((s, x) => s + x.pubCount, 0);
+    const avgPubs = sumPubs / valid.length;
+
+    const sumQ1Weighted = valid.reduce((s, x) => s + (x.pubCount * x.q1r), 0);
+    const q1Pct = sumPubs > 0 ? (sumQ1Weighted / sumPubs) * 100 : null;
+
+    return { avgPubs, q1Pct };
+  };
+
+  const phdP = pubStats('phd');
+  const masterP = pubStats('master');
+
+  const pubsPhdText = phdP ? `PhD: ${round1(phdP.avgPubs)} (${round1(phdP.q1Pct)}% Q1)` : 'PhD: TBD';
+  const pubsMasterText = masterP ? `Master: ${round1(masterP.avgPubs)} (${round1(masterP.q1Pct)}% Q1)` : 'Master: TBD';
+
+  // Write to HTML (IDs you will add below)
+  setText('stat-gender-now', genderNowText);
+  setText('stat-gender-overall', genderOverallText);
+  setText('stat-intl-now', intlNowText);
+  setText('stat-intl-overall', intlOverallText);
+  setText('stat-time-phd', timePhdText);
+  setText('stat-time-master', timeMasterText);
+  setText('stat-pubs-phd', pubsPhdText);
+  setText('stat-pubs-master', pubsMasterText);
+}
+
 async function loadMembers() {
   const res = await fetch(DATA_URL, { cache: 'no-store' });
   if (!res.ok) throw new Error(`Failed to load ${DATA_URL}: ${res.status}`);
@@ -118,6 +351,9 @@ async function loadMembers() {
   const alumniCountEl = document.getElementById('alumni-count');
   if (teamCountEl)   teamCountEl.textContent   = `${current.length}`;
   if (alumniCountEl) alumniCountEl.textContent = `${alumni.length}`;
+
+  // NEW: compute and render Lab Statistics
+  computeAndRenderStats(members);
 }
 
 loadMembers().catch(err => {
