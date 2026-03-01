@@ -1,0 +1,172 @@
+/* Sock page add-ons.
+   This file assumes the global site stylesheet is already loaded (css/styles.css).
+*/
+
+/* Section anchors look nicer under a fixed navbar */
+section[id]{ scroll-margin-top: 92px; }
+
+/* ---- reveal on scroll ---- */
+.reveal{ opacity: 0; transform: translateY(12px); transition: opacity 650ms ease, transform 650ms ease; }
+.reveal.is-visible{ opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce){
+  .reveal{ opacity: 1; transform: none; transition: none; }
+}
+
+/* ---- hero background helpers (keeps same vibe as index) ---- */
+.sock-hero{
+  background-image:
+    radial-gradient(900px 450px at 80% 10%, rgba(37, 99, 235, 0.18), transparent 60%),
+    radial-gradient(700px 350px at 10% 90%, rgba(244, 63, 94, 0.14), transparent 60%);
+}
+
+/* ---- carousel ---- */
+.carousel{
+  position: relative;
+}
+.carousel-track{
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 8px;
+}
+.carousel-track::-webkit-scrollbar{ display:none; }
+.carousel-slide{
+  scroll-snap-align: start;
+  flex: 0 0 100%;
+}
+@media (min-width: 768px){
+  .carousel-slide{ flex: 0 0 86%; }
+}
+@media (min-width: 1024px){
+  .carousel-slide{ flex: 0 0 72%; }
+}
+
+.carousel-btn{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 10px 26px rgba(17, 24, 39, 0.12);
+  display: grid;
+  place-items: center;
+}
+.carousel-btn:hover{ background:#fff; }
+.carousel-btn:disabled{ opacity: .45; cursor: not-allowed; }
+.carousel-btn.prev{ left: -10px; }
+.carousel-btn.next{ right: -10px; }
+@media (max-width: 640px){
+  .carousel-btn.prev{ left: 6px; }
+  .carousel-btn.next{ right: 6px; }
+}
+
+.carousel-dots{
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+.carousel-dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.15);
+  border: 1px solid rgba(0,0,0,0.12);
+}
+.carousel-dot[aria-current="true"]{
+  background: rgba(37, 99, 235, 0.95);
+  border-color: rgba(37, 99, 235, 0.95);
+}
+
+/* ---- lightbox ---- */
+.lightbox{
+  position: fixed;
+  inset: 0;
+  background: rgba(17,24,39,0.85);
+  backdrop-filter: blur(6px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 24px;
+}
+.lightbox.open{ display:flex; }
+.lightbox img{
+  max-width: min(1200px, 95vw);
+  max-height: 88vh;
+  border-radius: 16px;
+  box-shadow: 0 24px 70px rgba(0,0,0,0.45);
+}
+.lightbox .lb-ui{
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  gap: 10px;
+}
+.lightbox .lb-btn{
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(255,255,255,0.25);
+  display: grid;
+  place-items: center;
+}
+.lightbox .lb-btn:hover{ background:#fff; }
+.lightbox .lb-nav{
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+  padding: 0 8px;
+}
+.lightbox .lb-nav button{
+  pointer-events: all;
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.86);
+  border: 1px solid rgba(255,255,255,0.24);
+  display: grid;
+  place-items: center;
+}
+.lightbox .lb-nav button:hover{ background:#fff; }
+
+/* ---- sock drawer UI ---- */
+.sock-pill{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(17,24,39,0.10);
+  border-radius: 999px;
+  padding: 8px 12px;
+  background: #fff;
+}
+.sock-swatch{
+  width: 18px;
+  height: 18px;
+  border-radius: 6px;
+  border: 1px solid rgba(17,24,39,0.15);
+  background: var(--swatch, #94a3b8);
+}
+.sock-mini{
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+  border: 1px solid rgba(17,24,39,0.15);
+  background: var(--swatch, #94a3b8);
+}
+
+/* keep embedded video corners consistent */
+.embed16x9{ aspect-ratio: 16/9; }
+
