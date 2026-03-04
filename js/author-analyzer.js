@@ -1,13 +1,14 @@
-/* Publication Score Analyzer
-   - Score = cited_by_count (OpenAlex citations)
-   - Histogram + descriptive stats
-   - Scatter: age (year - oldestYear) vs score + linear regression + R^2
+/* ============================================================
+   Author Analyzer (Front-end only)
+   Score = Disruption Index (D-index) from OpenAlex
+   Based on your disruption script logic:
+   D = (nf - nb) / (nf + nb + nl)
+   nf/nb/nl definitions match your file. :contentReference[oaicite:3]{index=3}
+   ============================================================ */
 
-   Notes:
-   - OpenAlex now expects API keys for reliable usage. Docs: API key required. (Used if provided)
-   - We use cursor paging and select fields to reduce payload.
-*/
-
+/* -------------------------
+   DOM helpers
+------------------------- */
 const $ = (sel) => document.querySelector(sel);
 
 const form = $("#analyzeForm");
@@ -15,8 +16,19 @@ const personLinkInput = $("#personLink");
 const apiKeyInput = $("#apiKey");
 const errorBox = $("#errorBox");
 
+const resultsSection = $("#section-results");
+const analyzeBtn = form?.querySelector('button[type="submit"]');
+const analyzeBtnOriginalHtml = analyzeBtn ? analyzeBtn.innerHTML : "Analyze";
+
 const authorPanel = $("#authorPanel");
 const authorBadge = $("#authorBadge");
+
+const worksTbody = $("#worksTbody");
+const tableSearch = $("#tableSearch");
+const downloadCsvBtn = $("#downloadCsvBtn");
+
+const regEquation = $("#regEquation");
+const regR2 = $("#regR2");
 
 const statsEls = {
   mean: $("#statMean"),
@@ -27,96 +39,111 @@ const statsEls = {
   n: $("#statN"),
 };
 
-const worksTbody = $("#worksTbody");
-const tableSearch = $("#tableSearch");
-const downloadCsvBtn = $("#downloadCsvBtn");
-
 const loadingOverlay = $("#loadingOverlay");
 const loadingMessage = $("#loadingMessage");
 const loadingMeta = $("#loadingMeta");
 const loadingBar = $("#loadingBar");
 const cancelBtn = $("#cancelBtn");
 
-const regEquation = $("#regEquation");
-const regR2 = $("#regR2");
-
-const resultsSection = document.getElementById("section-results");
-const analyzeBtn = form?.querySelector('button[type="submit"]');
-
-const analyzeBtnOriginalHtml = analyzeBtn ? analyzeBtn.innerHTML : "";
-
 let histChart = null;
 let scatterChart = null;
-
 let currentAbort = null;
-let currentWorks = []; // normalized rows used by table/csv/filter
 
+let currentWorksAll = [];
+let currentWorks = [];
+
+const PERSON_PARAM = "person";
+
+/* -------------------------
+   UX: loading + disable
+------------------------- */
+function openLoading() {
+  loadingOverlay?.classList.remove("hidden");
+}
+function closeLoading() {
+  loadingOverlay?.classList.add("hidden");
+}
+function setLoading({ message, meta, progress01 }) {
+  if (loadingMessage && message) loadingMessage.textContent = message;
+  if (loadingMeta && meta) loadingMeta.textContent = meta;
+  if (loadingBar && typeof progress01 === "number") {
+    const p = Math.max(0.02, Math.min(1, progress01));
+    loadingBar.style.width = `${Math.round(p * 100)}%`;
+  }
+}
+
+function setPersonParamInUrl(personLink) {
+  const url = new URL(window.location.href);
+
+  const v = (personLink || "").trim();
+  if (v) url.searchParams.set(PERSON_PARAM, v);
+  else url.searchParams.delete(PERSON_PARAM);
+
+  // Replace (no extra back-button entries). Use pushState if you want history entries.
+  window.history.replaceState({}, "", url.toString());
+}
+
+function getPersonParamFromUrl() {
+  const url = new URL(window.location.href);
+  return url.searchParams.get(PERSON_PARAM) || "";
+}
 
 function setAnalyzeBusy(isBusy) {
   if (!analyzeBtn) return;
-
   analyzeBtn.disabled = isBusy;
   analyzeBtn.setAttribute("aria-busy", isBusy ? "true" : "false");
-
-  // Visual + optional label change
   if (isBusy) {
     analyzeBtn.classList.add("opacity-60", "cursor-not-allowed");
     analyzeBtn.innerHTML = `<i class="ri-loader-4-line animate-spin"></i> Analyzing...`;
   } else {
     analyzeBtn.classList.remove("opacity-60", "cursor-not-allowed");
-    analyzeBtn.innerHTML = analyzeBtnOriginalHtml || "Analyze";
+    analyzeBtn.innerHTML = analyzeBtnOriginalHtml;
   }
 }
 
 function revealResultsAndScroll() {
   if (!resultsSection) return;
-
-  // show results on first successful analysis
   resultsSection.classList.remove("hidden-author-analyzer");
-
-  // scroll to results
   requestAnimationFrame(() => {
     resultsSection.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 }
 
+function showError(msg) {
+  if (!errorBox) return;
+  errorBox.textContent = msg;
+  errorBox.classList.remove("hidden");
+}
+function clearError() {
+  if (!errorBox) return;
+  errorBox.textContent = "";
+  errorBox.classList.add("hidden");
+}
 
-// -----------------------------
-// Navbar helpers (so this page works even without site JS)
-// -----------------------------
-(function setupNavbar() {
-  const btn = $("#menu-btn");
-  const menu = $("#mobile-menu");
-  const nav = $("#navbar");
+function sleep(ms) {
+  return new Promise((res) => setTimeout(res, ms));
+}
 
-  if (btn && menu) {
-    btn.addEventListener("click", () => {
-      const expanded = menu.style.maxHeight && menu.style.maxHeight !== "0px";
-      menu.style.maxHeight = expanded ? "0px" : `${menu.scrollHeight}px`;
-    });
-
-    window.addEventListener("resize", () => {
-      if (window.innerWidth >= 768) menu.style.maxHeight = "0px";
-    });
-  }
-
-  if (nav) {
-    const onScroll = () => {
-      if (window.scrollY > 20) nav.classList.add("nav-scrolled");
-      else nav.classList.remove("nav-scrolled");
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-  }
-})();
-
-// -----------------------------
-// OpenAlex utilities
-// -----------------------------
+/* -------------------------
+   OpenAlex basics
+------------------------- */
 const OA_BASE = "https://api.openalex.org";
+
+// IMPORTANT:
+// Your original script uses a fixed MAILTO for the "polite pool". :contentReference[oaicite:4]{index=4}
+// In a public front-end page, it's better to set your own email (or leave empty).
+const MAILTO = ""; // e.g. "you@example.com"
+
+function getApiKey() {
+  return (apiKeyInput?.value || "").trim();
+}
 
 function buildUrl(path, params = {}) {
   const url = new URL(`${OA_BASE}${path}`);
+  const apiKey = getApiKey();
+  if (apiKey) url.searchParams.set("api_key", apiKey);
+  if (MAILTO) url.searchParams.set("mailto", MAILTO);
+
   Object.entries(params).forEach(([k, v]) => {
     if (v === undefined || v === null || v === "") return;
     url.searchParams.set(k, String(v));
@@ -124,128 +151,391 @@ function buildUrl(path, params = {}) {
   return url.toString();
 }
 
-function getApiKey() {
-  return (apiKeyInput?.value || "").trim();
+// Retry logic mirrors your script’s apiFetch retry/backoff on 429. :contentReference[oaicite:5]{index=5}
+async function apiFetchJson(url, { signal } = {}, retries = 4) {
+  for (let attempt = 0; attempt < retries; attempt++) {
+    try {
+      const res = await fetch(url, { signal, headers: { Accept: "application/json" } });
+
+      if (res.status === 429) {
+        const wait = 1500 * (attempt + 1);
+        await sleep(wait);
+        continue;
+      }
+      if (!res.ok) {
+        const body = await res.text().catch(() => "");
+        throw new Error(`OpenAlex HTTP ${res.status}: ${body.slice(0, 200)}`);
+      }
+      return await res.json();
+    } catch (err) {
+      if (signal?.aborted) throw err;
+      if (attempt === retries - 1) throw err;
+      await sleep(800 * (attempt + 1));
+    }
+  }
 }
 
+/* -------------------------
+   Input: author link/ORCID
+------------------------- */
 function normalizePersonInput(raw) {
   const s = (raw || "").trim();
   if (!s) throw new Error("Please paste an OpenAlex author link or an ORCID link.");
 
-  // OpenAlex Author key (A123...)
   const directA = s.match(/^A\d+$/i);
   if (directA) return { kind: "openalexKey", id: directA[0].toUpperCase() };
 
-  // Any OpenAlex URL containing A\d+
   const oaMatch = s.match(/openalex\.org\/(?:authors\/|people\/)?(A\d+)/i);
   if (oaMatch) return { kind: "openalexKey", id: oaMatch[1].toUpperCase() };
 
-  // API URL with authors/A...
   const apiMatch = s.match(/api\.openalex\.org\/authors\/(A\d+)/i);
   if (apiMatch) return { kind: "openalexKey", id: apiMatch[1].toUpperCase() };
 
-  // ORCID formats
   const orcidMatch = s.match(/(\d{4}-\d{4}-\d{4}-\d{3}[\dX])/i);
   if (orcidMatch) return { kind: "orcid", id: `https://orcid.org/${orcidMatch[1]}` };
 
-  throw new Error("Unrecognized link. Please provide an OpenAlex author URL (openalex.org/A...) or an ORCID (orcid.org/....).");
+  throw new Error("Unrecognized link. Provide openalex.org/A... or orcid.org/....");
 }
 
-async function oaFetchJson(url, { signal } = {}) {
-  const r = await fetch(url, {
-    method: "GET",
+async function fetchAuthor(authorInput, { signal }) {
+  const select = "id,display_name,orcid,works_count,cited_by_count,last_known_institutions";
+  const path =
+    authorInput.kind === "openalexKey"
+      ? `/authors/${encodeURIComponent(authorInput.id)}`
+      : `/authors/${encodeURIComponent(authorInput.id)}`;
+
+  const url = buildUrl(path, { select });
+  return apiFetchJson(url, { signal });
+}
+
+function extractAuthorKeyFromAuthor(author) {
+  const id = String(author?.id || "");
+  const m = id.match(/openalex\.org\/(A\d+)/i);
+  return m ? m[1].toUpperCase() : null;
+}
+
+function renderAuthorPanel(author) {
+  if (!authorPanel) return;
+  if (authorBadge) authorBadge.classList.remove("hidden");
+
+  const name = author?.display_name ?? "—";
+  const id = author?.id ?? "—";
+  const orcid = author?.orcid ?? null;
+  const worksCount = author?.works_count ?? "—";
+  const citedBy = author?.cited_by_count ?? "—";
+  const inst = author?.last_known_institutions?.map(i => i.display_name).join(", ") ?? null;
+
+  authorPanel.innerHTML = `
+    <div class="space-y-2">
+      <div class="text-lg font-semibold text-gray-900">${escapeHtml(name)}</div>
+      <div class="text-sm text-gray-700 space-y-1">
+        <div><span class="text-gray-500">OpenAlex ID:</span> <a class="hover:text-primary" target="_blank" rel="noopener noreferrer" href="${id}">${id}</a></div>
+        <div><span class="text-gray-500">ORCID:</span> ${orcid ? `<a class="hover:text-primary" target="_blank" rel="noopener noreferrer" href="${orcid}">${orcid}</a>` : "—"}</div>
+        <div><span class="text-gray-500">Works:</span> <b>${worksCount}</b> · <span class="text-gray-500">Citations:</span> <b>${citedBy}</b></div>
+        <div><span class="text-gray-500">Last known institution:</span> ${inst ? `<b>${escapeHtml(inst)}</b>` : "—"}</div>
+      </div>
+    </div>
+  `;
+}
+
+function escapeHtml(s) {
+  return String(s ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+/* -------------------------
+   Fetch author works (include referenced_works)
+------------------------- */
+async function fetchAllWorksByAuthorKey(authorKey, { signal, onProgress }) {
+  let cursor = "*";
+  const per_page = 200;
+
+  // We include referenced_works so we can compute D without fetching the focal again.
+  const select = "id,display_name,publication_year,authorships,referenced_works";
+
+  const baseParams = {
+    filter: `author.id:${authorKey}`,
+    per_page,
+    cursor,
+    select,
+    sort: "publication_year:asc",
+  };
+
+  let page = 0;
+  let total = null;
+  const results = [];
+
+  while (true) {
+    page++;
+    baseParams.cursor = cursor;
+    const url = buildUrl("/works", baseParams);
+
+    const data = await apiFetchJson(url, { signal });
+    const pageResults = Array.isArray(data?.results) ? data.results : [];
+    results.push(...pageResults);
+
+    if (total === null && data?.meta?.count != null) total = Number(data.meta.count);
+    cursor = data?.meta?.next_cursor;
+
+    onProgress?.({ page, loaded: results.length, total });
+
+    if (!cursor || pageResults.length === 0) break;
+    await sleep(80);
+  }
+
+  return results;
+}
+
+/* ============================================================
+   Disruption Index (D-index) — browser version
+   Logic mirrors your script:
+   - fetch all citers including referenced_works :contentReference[oaicite:6]{index=6}
+   - nf/nb computed by overlap with focal references :contentReference[oaicite:7]{index=7}
+   - D computed as (nf-nb)/(nf+nb+nl) :contentReference[oaicite:8]{index=8}
+============================================================ */
+
+// Your Node script extracts W-id from many input formats. :contentReference[oaicite:9]{index=9}
+function extractWorkId(input) {
+  input = String(input || "").trim();
+  const m = input.match(/W\d+/);
+  if (m) return m[0];
+  if (input.startsWith("https://doi.org/") || input.startsWith("10.")) return input;
+  throw new Error(`Cannot identify an OpenAlex ID from input: "${input}"`);
+}
+
+async function fetchWorkByIdOrDoi(idOrDoi, { signal }) {
+  if (/^W\d+$/.test(idOrDoi)) {
+    // fetch focal details if needed
+    const url = buildUrl(`/works/${encodeURIComponent(idOrDoi)}`, {
+      select: "id,display_name,publication_year,referenced_works",
+    });
+    return apiFetchJson(url, { signal });
+  }
+
+  // DOI fallback (same strategy as your script) :contentReference[oaicite:10]{index=10}
+  const doi = idOrDoi.replace("https://doi.org/", "");
+  const url = buildUrl("/works", {
+    filter: `doi:${encodeURIComponent(doi)}`,
+    per_page: 1,
+    select: "id,display_name,publication_year,referenced_works",
+  });
+  const data = await apiFetchJson(url, { signal });
+  if (!data?.results?.length) throw new Error(`No work found for DOI: ${doi}`);
+  return data.results[0];
+}
+
+async function fetchAllCiters(workShortId, { signal, onProgress }) {
+  const citers = [];
+  let cursor = "*";
+  const per_page = 200;
+  let total = null;
+  let page = 0;
+
+  while (true) {
+    page++;
+    const url = buildUrl("/works", {
+      filter: `cites:${workShortId}`,
+      per_page,
+      cursor,
+      select: "id,referenced_works",
+    });
+
+    const data = await apiFetchJson(url, { signal });
+    const pageResults = Array.isArray(data?.results) ? data.results : [];
+    citers.push(...pageResults);
+
+    if (total === null && data?.meta?.count != null) total = Number(data.meta.count);
+    cursor = data?.meta?.next_cursor;
+
+    onProgress?.({ page, loaded: citers.length, total });
+
+    if (!cursor || pageResults.length === 0) break;
+    await sleep(70);
+  }
+
+  return citers;
+}
+
+// Optional (VERY slow): nl computation mirrors your script’s “fetch citer ids per reference”. :contentReference[oaicite:11]{index=11}
+async function fetchCiterIds(workShortId, excludeSet, { signal }) {
+  const result = new Set();
+  let cursor = "*";
+  const per_page = 200;
+
+  while (true) {
+    const url = buildUrl("/works", {
+      filter: `cites:${workShortId}`,
+      per_page,
+      cursor,
+      select: "id",
+    });
+
+    const data = await apiFetchJson(url, { signal });
+    for (const w of data.results || []) {
+      const shortId = String(w.id || "").replace("https://openalex.org/", "");
+      if (shortId && !excludeSet.has(shortId)) result.add(shortId);
+    }
+
+    const total = data.meta?.count ?? 0;
+    if (!data.meta?.next_cursor || result.size + excludeSet.size >= total) break;
+    cursor = data.meta.next_cursor;
+    await sleep(60);
+  }
+
+  return result;
+}
+
+// Control how expensive D-index is:
+const COMPUTE_NL = false;         // default false (fast). nl is costly. :contentReference[oaicite:12]{index=12}
+const MAX_WORKS_SCORED = 40;      // keep runtime reasonable in-browser
+const SCORE_CONCURRENCY = 3;      // parallel scoring, limited to reduce rate limits
+
+const disruptionCache = new Map(); // workShortId -> {D, nf, nb, nl}
+
+async function computeDisruptionForWork(workObjOrId, { signal, onProgress } = {}) {
+  // workObjOrId can be OpenAlex work object (from author list) OR a string
+  let focal;
+  if (typeof workObjOrId === "string") {
+    focal = await fetchWorkByIdOrDoi(extractWorkId(workObjOrId), { signal });
+  } else {
+    focal = workObjOrId;
+    if (!Array.isArray(focal?.referenced_works)) {
+      // fallback: fetch full record
+      const shortId = String(focal?.id || "").replace("https://openalex.org/", "");
+      if (shortId) focal = await fetchWorkByIdOrDoi(shortId, { signal });
+    }
+  }
+
+  const focalShortId = String(focal?.id || "").replace("https://openalex.org/", "");
+  if (!focalShortId) return null;
+
+  if (disruptionCache.has(focalShortId)) return disruptionCache.get(focalShortId);
+
+  const references = new Set(
+    (focal.referenced_works || []).map((r) => String(r).replace("https://openalex.org/", ""))
+  );
+
+  if (references.size === 0) {
+    // Same behavior as your script: cannot compute if no refs. :contentReference[oaicite:13]{index=13}
+    const res = { D: null, nf: 0, nb: 0, nl: 0 };
+    disruptionCache.set(focalShortId, res);
+    return res;
+  }
+
+  // Fetch all citers with their references (needed for nf/nb). :contentReference[oaicite:14]{index=14}
+  const citers = await fetchAllCiters(focalShortId, {
     signal,
-    headers: {
-      "Accept": "application/json",
-    },
+    onProgress,
   });
 
-  if (!r.ok) {
-    let msg = `OpenAlex request failed (${r.status}).`;
-    try {
-      const t = await r.text();
-      if (t) msg += ` ${t.slice(0, 280)}`;
-    } catch {}
-    throw new Error(msg);
+  if (!citers.length) {
+    const res = { D: null, nf: 0, nb: 0, nl: 0 };
+    disruptionCache.set(focalShortId, res);
+    return res;
   }
 
-  return r.json();
-}
+  // nf/nb computation matches your overlap logic. :contentReference[oaicite:15]{index=15}
+  let nf = 0;
+  let nb = 0;
 
-function sleep(ms) {
-  return new Promise((res) => setTimeout(res, ms));
-}
+  const citerIdSet = new Set(
+    citers.map((c) => String(c.id || "").replace("https://openalex.org/", ""))
+  );
 
-function openLoading() {
-  loadingOverlay.classList.remove("hidden");
-}
-function closeLoading() {
-  loadingOverlay.classList.add("hidden");
-}
-function setLoading({ message, meta, progress01 }) {
-  if (message) loadingMessage.textContent = message;
-  if (meta) loadingMeta.textContent = meta;
-  if (typeof progress01 === "number") {
-    const p = Math.max(0.02, Math.min(1, progress01));
-    loadingBar.style.width = `${Math.round(p * 100)}%`;
+  for (const citer of citers) {
+    const citerRefs = new Set(
+      (citer.referenced_works || []).map((r) => String(r).replace("https://openalex.org/", ""))
+    );
+
+    let overlap = false;
+    for (const ref of references) {
+      if (citerRefs.has(ref)) {
+        overlap = true;
+        break;
+      }
+    }
+    if (overlap) nb++;
+    else nf++;
   }
+
+  let nl = 0;
+
+  // Optional nl (very slow) — same strategy as your script. :contentReference[oaicite:16]{index=16}
+  if (COMPUTE_NL) {
+    const nlPapers = new Set();
+    let idx = 0;
+
+    for (const refId of references) {
+      idx++;
+      // Papers that cite this ref but are NOT in citerIdSet
+      try {
+        const refCiters = await fetchCiterIds(refId, citerIdSet, { signal });
+        for (const id of refCiters) nlPapers.add(id);
+      } catch {
+        // ignore missing references
+      }
+      await sleep(40);
+    }
+    nl = nlPapers.size;
+  }
+
+  const denom = nf + nb + nl;
+  const D = denom > 0 ? (nf - nb) / denom : 0; // :contentReference[oaicite:17]{index=17}
+
+  const res = { D, nf, nb, nl };
+  disruptionCache.set(focalShortId, res);
+  return res;
 }
 
-function showError(msg) {
-  errorBox.textContent = msg;
-  errorBox.classList.remove("hidden");
-}
-function clearError() {
-  errorBox.textContent = "";
-  errorBox.classList.add("hidden");
+/* -------------------------
+   Small concurrency helper
+------------------------- */
+function createLimiter(concurrency) {
+  let active = 0;
+  const queue = [];
+  const next = () => {
+    if (active >= concurrency) return;
+    const job = queue.shift();
+    if (!job) return;
+    active++;
+    job()
+      .catch(() => {})
+      .finally(() => {
+        active--;
+        next();
+      });
+  };
+
+  return (fn) =>
+    new Promise((resolve, reject) => {
+      queue.push(async () => {
+        try {
+          resolve(await fn());
+        } catch (e) {
+          reject(e);
+        }
+      });
+      next();
+    });
 }
 
-// -----------------------------
-// “Score” definition (change here if needed)
-// -----------------------------
-function scoreFromWork(work) {
-  // score = cited_by_count
-  const v = Number(work?.cited_by_count ?? 0);
-  return Number.isFinite(v) ? v : 0;
-}
-
-function yearFromWork(work) {
-  const y = Number(work?.publication_year);
-  return Number.isFinite(y) ? y : null;
-}
-
-function titleFromWork(work) {
-  return String(work?.display_name ?? "").trim() || "(untitled)";
-}
-
-function authorCountFromWork(work) {
-  const n = Array.isArray(work?.authorships) ? work.authorships.length : 0;
-  return Number.isFinite(n) ? n : 0;
-}
-
-function workIdToOpenAlexWeb(id) {
-  // id usually like https://openalex.org/W...
-  const m = String(id || "").match(/openalex\.org\/(W\d+)/i);
-  if (m) return `https://openalex.org/${m[1]}`;
-  return String(id || "");
-}
-
-// -----------------------------
-// Math helpers
-// -----------------------------
+/* -------------------------
+   Stats + math
+------------------------- */
 function mean(arr) {
   if (!arr.length) return NaN;
-  let s = 0;
-  for (const x of arr) s += x;
-  return s / arr.length;
+  return arr.reduce((a, b) => a + b, 0) / arr.length;
 }
 
 function stdPop(arr) {
   if (!arr.length) return NaN;
   const m = mean(arr);
-  let v = 0;
-  for (const x of arr) v += (x - m) ** 2;
-  return Math.sqrt(v / arr.length);
+  const v = arr.reduce((s, x) => s + (x - m) ** 2, 0) / arr.length;
+  return Math.sqrt(v);
 }
 
 function median(arr) {
@@ -256,15 +546,13 @@ function median(arr) {
 }
 
 function linearRegression(xs, ys) {
-  // y = a + b x
   const n = Math.min(xs.length, ys.length);
   if (n < 2) return null;
 
   const xMean = mean(xs);
   const yMean = mean(ys);
 
-  let num = 0;
-  let den = 0;
+  let num = 0, den = 0;
   for (let i = 0; i < n; i++) {
     const dx = xs[i] - xMean;
     num += dx * (ys[i] - yMean);
@@ -275,29 +563,24 @@ function linearRegression(xs, ys) {
   const b = num / den;
   const a = yMean - b * xMean;
 
-  // R^2
-  let ssRes = 0;
-  let ssTot = 0;
+  let ssRes = 0, ssTot = 0;
   for (let i = 0; i < n; i++) {
     const yHat = a + b * xs[i];
     ssRes += (ys[i] - yHat) ** 2;
     ssTot += (ys[i] - yMean) ** 2;
   }
   const r2 = ssTot === 0 ? 1 : (1 - ssRes / ssTot);
-
   return { a, b, r2 };
 }
 
-function formatNum(x, digits = 2) {
+function formatNum(x, digits = 3) {
   if (!Number.isFinite(x)) return "—";
-  // keep integers as integers
-  if (Number.isInteger(x)) return String(x);
   return x.toFixed(digits);
 }
 
-// -----------------------------
-// Charts
-// -----------------------------
+/* -------------------------
+   Charts (Chart.js)
+------------------------- */
 function destroyCharts() {
   if (histChart) { histChart.destroy(); histChart = null; }
   if (scatterChart) { scatterChart.destroy(); scatterChart = null; }
@@ -308,21 +591,17 @@ function renderHistogram(scores) {
   if (!ctx) return;
 
   if (!scores.length) {
-    destroyCharts();
+    if (histChart) histChart.destroy();
+    histChart = null;
     return;
   }
 
   const minS = Math.min(...scores);
   const maxS = Math.max(...scores);
 
-  // bins: sqrt(n), clamped
-  const nBins = Math.max(5, Math.min(20, Math.ceil(Math.sqrt(scores.length))));
+  const nBins = Math.max(8, Math.min(24, Math.ceil(Math.sqrt(scores.length))));
   const range = maxS - minS;
-
-  let binSize = range === 0 ? 1 : range / nBins;
-
-  // ensure non-zero binSize for tight integer ranges
-  if (binSize === 0) binSize = 1;
+  let binSize = range === 0 ? 0.1 : range / nBins;
 
   const bins = new Array(nBins).fill(0);
   const labels = [];
@@ -330,7 +609,7 @@ function renderHistogram(scores) {
   for (let i = 0; i < nBins; i++) {
     const a = minS + i * binSize;
     const b = i === nBins - 1 ? maxS : (minS + (i + 1) * binSize);
-    labels.push(`${Math.floor(a)}–${Math.floor(b)}`);
+    labels.push(`${a.toFixed(2)}–${b.toFixed(2)}`);
   }
 
   for (const s of scores) {
@@ -343,34 +622,14 @@ function renderHistogram(scores) {
   if (histChart) histChart.destroy();
   histChart = new Chart(ctx, {
     type: "bar",
-    data: {
-      labels,
-      datasets: [{
-        label: "Count",
-        data: bins,
-      }],
-    },
+    data: { labels, datasets: [{ label: "Count", data: bins }] },
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          callbacks: {
-            title: (items) => `Score range: ${items?.[0]?.label ?? ""}`,
-          }
-        }
-      },
+      plugins: { legend: { display: false } },
       scales: {
-        x: {
-          title: { display: true, text: "Score bins" },
-          ticks: { maxRotation: 0, autoSkip: true, maxTicksLimit: 8 },
-          grid: { display: false }
-        },
-        y: {
-          title: { display: true, text: "Papers" },
-          beginAtZero: true,
-        }
+        x: { title: { display: true, text: "D-index bins" }, grid: { display: false } },
+        y: { title: { display: true, text: "Papers" }, beginAtZero: true }
       }
     }
   });
@@ -381,7 +640,6 @@ function renderScatter(ages, scores, reg) {
   if (!ctx) return;
 
   const points = ages.map((x, i) => ({ x, y: scores[i] }));
-
   const datasets = [{
     type: "scatter",
     label: "Papers",
@@ -411,97 +669,45 @@ function renderScatter(ages, scores, reg) {
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          callbacks: {
-            label: (item) => `age=${item.raw.x}, score=${item.raw.y}`,
-          }
-        }
-      },
+      plugins: { legend: { display: false } },
       scales: {
-        x: {
-          title: { display: true, text: "Academic age (Publish year − first publish year)" },
-          beginAtZero: true,
-        },
-        y: {
-          title: { display: true, text: "Disruptive score" },
-          beginAtZero: true,
-        }
+        x: { title: { display: true, text: "Paper age (year − oldest year)" }, beginAtZero: true },
+        // D-index can be negative, so do NOT force beginAtZero
+        y: { title: { display: true, text: "D-index score" }, beginAtZero: false }
       }
     }
   });
 }
 
-// -----------------------------
-// Table
-// -----------------------------
+/* -------------------------
+   Table + CSV
+------------------------- */
 function setTableRows(rows) {
   currentWorks = rows;
+  if (!worksTbody) return;
 
-  // clear
   worksTbody.innerHTML = "";
-
   if (!rows.length) {
-    const tr = document.createElement("tr");
-    tr.innerHTML = `<td class="px-6 py-5 text-gray-500" colspan="4">No works found.</td>`;
-    worksTbody.appendChild(tr);
+    worksTbody.innerHTML = `<tr><td class="px-6 py-5 text-gray-500" colspan="4">No works found.</td></tr>`;
     return;
   }
 
   const frag = document.createDocumentFragment();
-
   for (const r of rows) {
     const tr = document.createElement("tr");
 
-    const titleTd = document.createElement("td");
-    titleTd.className = "px-6 py-4 text-gray-900";
-
-    const a = document.createElement("a");
-    a.className = "hover:text-primary";
-    a.target = "_blank";
-    a.rel = "noopener noreferrer";
-    a.href = r.work_url;
-    a.textContent = r.title;
-
-    const sub = document.createElement("div");
-    sub.className = "text-xs text-gray-500 mt-1";
-    sub.textContent = r.work_id;
-
-    titleTd.appendChild(a);
-    titleTd.appendChild(sub);
-
-    const yearTd = document.createElement("td");
-    yearTd.className = "px-6 py-4 text-gray-700";
-    yearTd.textContent = String(r.year ?? "—");
-
-    const authorsTd = document.createElement("td");
-    authorsTd.className = "px-6 py-4 text-gray-700";
-    authorsTd.textContent = String(r.n_authors);
-
-    const scoreTd = document.createElement("td");
-    scoreTd.className = "px-6 py-4 text-gray-900 font-semibold";
-    scoreTd.textContent = String(r.score);
-
-    tr.appendChild(titleTd);
-    tr.appendChild(yearTd);
-    tr.appendChild(authorsTd);
-    tr.appendChild(scoreTd);
-
+    tr.innerHTML = `
+      <td class="px-6 py-4 text-gray-900">
+        <a class="hover:text-primary" target="_blank" rel="noopener noreferrer" href="${r.work_url}">${escapeHtml(r.title)}</a>
+        <div class="text-xs text-gray-500 mt-1">${escapeHtml(r.work_id)}</div>
+      </td>
+      <td class="px-6 py-4 text-gray-700">${r.year ?? "—"}</td>
+      <td class="px-6 py-4 text-gray-700">${r.n_authors}</td>
+      <td class="px-6 py-4 text-gray-900 font-semibold">${r.score_display}</td>
+    `;
     frag.appendChild(tr);
   }
-
   worksTbody.appendChild(frag);
-}
-
-function filterTable(query) {
-  const q = (query || "").trim().toLowerCase();
-  if (!q) {
-    setTableRows(currentWorksAll);
-    return;
-  }
-  const filtered = currentWorksAll.filter(r => r.title.toLowerCase().includes(q));
-  setTableRows(filtered);
 }
 
 function toCsv(rows) {
@@ -511,8 +717,9 @@ function toCsv(rows) {
     return s;
   };
 
-  const header = ["title", "year", "n_authors", "score", "work_id", "work_url"];
+  const header = ["title", "year", "n_authors", "score_D", "work_id", "work_url", "nf", "nb", "nl"];
   const lines = [header.join(",")];
+
   for (const r of rows) {
     lines.push([
       esc(r.title),
@@ -521,6 +728,9 @@ function toCsv(rows) {
       esc(r.score),
       esc(r.work_id),
       esc(r.work_url),
+      esc(r.nf),
+      esc(r.nb),
+      esc(r.nl),
     ].join(","));
   }
   return lines.join("\n");
@@ -538,154 +748,74 @@ function downloadText(filename, text) {
   URL.revokeObjectURL(url);
 }
 
-// -----------------------------
-// OpenAlex fetch pipeline
-// -----------------------------
-let currentWorksAll = [];
+/* -------------------------
+   Compute + render
+------------------------- */
+function resetUIForNewRun() {
+  if (authorBadge) authorBadge.classList.add("hidden");
+  if (authorPanel) authorPanel.innerHTML = `<div class="text-sm text-gray-500">Loading…</div>`;
 
-async function fetchAuthor(authorInput, { signal }) {
-  const apiKey = getApiKey();
+  Object.values(statsEls).forEach((el) => { if (el) el.textContent = "—"; });
+  if (regEquation) regEquation.textContent = "y = —";
+  if (regR2) regR2.textContent = "R² = —";
 
-  // Use select to keep it light
-  const authorSelect =
-    "id,display_name,orcid,works_count,cited_by_count,last_known_institutions,affiliations";
+  if (worksTbody) worksTbody.innerHTML = `<tr><td class="px-6 py-5 text-gray-500" colspan="4">Loading…</td></tr>`;
+  if (tableSearch) tableSearch.value = "";
 
-  let authorPath;
-  if (authorInput.kind === "openalexKey") {
-    authorPath = `/authors/${encodeURIComponent(authorInput.id)}`;
-  } else {
-    // ORCID: docs show /authors/<ORCID URL> works (URL-encoded)
-    authorPath = `/authors/${encodeURIComponent(authorInput.id)}`;
+  destroyCharts();
+  currentWorksAll = [];
+  currentWorks = [];
+}
+
+function computeAndRender(rows) {
+  const numericScores = rows.map(r => r.score).filter(Number.isFinite);
+  const years = rows.map(r => r.year).filter(Number.isFinite);
+
+  if (statsEls.n) statsEls.n.textContent = String(numericScores.length);
+
+  if (!numericScores.length || !years.length) return;
+
+  const m = mean(numericScores);
+  const sd = stdPop(numericScores);
+  const med = median(numericScores);
+  const minV = Math.min(...numericScores);
+  const maxV = Math.max(...numericScores);
+
+  if (statsEls.mean) statsEls.mean.textContent = formatNum(m, 3);
+  if (statsEls.std) statsEls.std.textContent = formatNum(sd, 3);
+  if (statsEls.median) statsEls.median.textContent = formatNum(med, 3);
+  if (statsEls.min) statsEls.min.textContent = formatNum(minV, 3);
+  if (statsEls.max) statsEls.max.textContent = formatNum(maxV, 3);
+
+  renderHistogram(numericScores);
+
+  const oldestYear = Math.min(...years);
+  const ages = rows
+    .filter(r => Number.isFinite(r.score) && Number.isFinite(r.year))
+    .map(r => r.year - oldestYear);
+
+  const scoresForScatter = rows
+    .filter(r => Number.isFinite(r.score) && Number.isFinite(r.year))
+    .map(r => r.score);
+
+  const reg = linearRegression(ages, scoresForScatter);
+  renderScatter(ages, scoresForScatter, reg);
+
+  if (regEquation && regR2 && reg) {
+    const sign = reg.b >= 0 ? "+" : "−";
+    regEquation.textContent = `y = ${formatNum(reg.a, 3)} ${sign} ${formatNum(Math.abs(reg.b), 3)}·x`;
+    regR2.textContent = `R² = ${formatNum(reg.r2, 3)}`;
   }
-
-  const url = buildUrl(authorPath, {
-    select: authorSelect,
-    api_key: apiKey || undefined,
-  });
-
-  return oaFetchJson(url, { signal });
 }
 
-async function fetchAllWorksByAuthorKey(authorKey, { signal, onProgress }) {
-  const apiKey = getApiKey();
-
-  // Cursor paging docs: cursor=* then next_cursor in meta :contentReference[oaicite:4]{index=4}
-  let cursor = "*";
-  let results = [];
-  let total = null;
-
-  // Select fields docs :contentReference[oaicite:5]{index=5}
-  const select = "id,display_name,publication_year,cited_by_count,authorships";
-
-  // Filter by author.id (works) – example shows author.id:A... :contentReference[oaicite:6]{index=6}
-  // We also sort by publication_year asc to make “oldest year” stable.
-  const baseParams = {
-    filter: `author.id:${authorKey}`,
-    per_page: 200,
-    cursor,
-    select,
-    sort: "publication_year:asc",
-    api_key: apiKey || undefined,
-  };
-
-  let page = 0;
-
-  while (true) {
-    page++;
-    baseParams.cursor = cursor;
-
-    const url = buildUrl("/works", baseParams);
-    const data = await oaFetchJson(url, { signal });
-
-    if (total === null && data?.meta?.count != null) total = Number(data.meta.count);
-
-    const pageResults = Array.isArray(data?.results) ? data.results : [];
-    results.push(...pageResults);
-
-    cursor = data?.meta?.next_cursor;
-
-    if (onProgress) {
-      onProgress({
-        page,
-        loaded: results.length,
-        total: Number.isFinite(total) ? total : null,
-        cursor,
-      });
-    }
-
-    if (!cursor || pageResults.length === 0) break;
-
-    // A tiny pause helps avoid hammering the API in the browser
-    await sleep(120);
-    if (results.length > 8000) break; // safety cap
-  }
-
-  return results;
-}
-
-function extractAuthorKeyFromAuthor(author) {
-  const id = String(author?.id || "");
-  const m = id.match(/openalex\.org\/(A\d+)/i);
-  return m ? m[1].toUpperCase() : null;
-}
-
-function renderAuthorPanel(author) {
-  authorBadge.classList.remove("hidden");
-  authorPanel.innerHTML = "";
-
-  const name = author?.display_name ?? "—";
-  const id = author?.id ?? "—";
-  const orcid = author?.orcid ?? null;
-  const worksCount = author?.works_count ?? "—";
-  const citedBy = author?.cited_by_count ?? "—";
-  const inst = author?.last_known_institution?.display_name ?? null;
-  const country = author?.last_known_institution?.country_code ?? null;
-
-  const wrap = document.createElement("div");
-  wrap.className = "space-y-3";
-
-  const title = document.createElement("div");
-  title.className = "text-lg font-semibold text-gray-900";
-  title.textContent = name;
-
-  const meta = document.createElement("div");
-  meta.className = "text-sm text-gray-700 space-y-1";
-
-  const idRow = document.createElement("div");
-  idRow.innerHTML = `<span class="text-gray-500">OpenAlex ID:</span> <a class="hover:text-primary" target="_blank" rel="noopener noreferrer" href="${id}">${id}</a>`;
-
-  const orcidRow = document.createElement("div");
-  orcidRow.innerHTML = orcid
-    ? `<span class="text-gray-500">ORCID:</span> <a class="hover:text-primary" target="_blank" rel="noopener noreferrer" href="${orcid}">${orcid}</a>`
-    : `<span class="text-gray-500">ORCID:</span> —`;
-
-  const countsRow = document.createElement("div");
-  countsRow.innerHTML = `<span class="text-gray-500">Works:</span> <b>${worksCount}</b> &nbsp; · &nbsp; <span class="text-gray-500">Citations:</span> <b>${citedBy}</b>`;
-
-  const instRow = document.createElement("div");
-  instRow.innerHTML = inst
-    ? `<span class="text-gray-500">Last known institution:</span> <b>${inst}</b>${country ? ` <span class="text-gray-500">(${country})</span>` : ""}`
-    : `<span class="text-gray-500">Last known institution:</span> —`;
-
-  wrap.appendChild(title);
-  meta.appendChild(idRow);
-  meta.appendChild(orcidRow);
-  meta.appendChild(countsRow);
-  meta.appendChild(instRow);
-  wrap.appendChild(meta);
-
-  authorPanel.appendChild(wrap);
-}
-
-// -----------------------------
-// Main analysis
-// -----------------------------
+/* -------------------------
+   Main submit handler
+------------------------- */
 const cuteMessages = [
   "Summoning citations…",
   "Brewing coffee for the API…",
-  "Sorting years and authors…",
-  "Counting papers like a tiny librarian…",
-  "Binning scores into neat little boxes…",
+  "Counting overlaps (nf/nb)…",
+  "Estimating disruption scores…",
   "Drawing charts with dramatic flair…",
 ];
 
@@ -696,78 +826,21 @@ function startCuteMessageLoop(signal) {
     if (signal.aborted) { clearInterval(t); return; }
     i = (i + 1) % cuteMessages.length;
     setLoading({ message: cuteMessages[i] });
-  }, 2600);
+  }, 2400);
   return () => clearInterval(t);
 }
 
-function resetUIForNewRun() {
-  authorBadge.classList.add("hidden");
-  authorPanel.innerHTML = `<div class="text-sm text-gray-500">Loading…</div>`;
-
-  for (const k of Object.keys(statsEls)) statsEls[k].textContent = "—";
-  regEquation.textContent = "y = —";
-  regR2.textContent = "R² = —";
-
-  worksTbody.innerHTML = `<tr><td class="px-6 py-5 text-gray-500" colspan="4">Loading…</td></tr>`;
-  tableSearch.value = "";
-
-  destroyCharts();
-  currentWorksAll = [];
-  currentWorks = [];
-}
-
-function computeAndRender(rows) {
-  // stats + charts use all rows (unfiltered)
-  const scores = rows.map(r => r.score).filter(Number.isFinite);
-  const years = rows.map(r => r.year).filter(Number.isFinite);
-
-  const n = scores.length;
-  statsEls.n.textContent = String(n);
-  if (!n) return;
-
-  const m = mean(scores);
-  const sd = stdPop(scores);
-  const med = median(scores);
-  const minV = Math.min(...scores);
-  const maxV = Math.max(...scores);
-
-  statsEls.mean.textContent = formatNum(m, 2);
-  statsEls.std.textContent = formatNum(sd, 2);
-  statsEls.median.textContent = formatNum(med, 2);
-  statsEls.min.textContent = formatNum(minV, 0);
-  statsEls.max.textContent = formatNum(maxV, 0);
-
-  renderHistogram(scores);
-
-  const oldestYear = Math.min(...years);
-  const ages = rows.map(r => r.year - oldestYear);
-  const reg = linearRegression(ages, scores);
-
-  renderScatter(ages, scores, reg);
-
-  if (reg) {
-    const a = reg.a;
-    const b = reg.b;
-    const sign = b >= 0 ? "+" : "−";
-    regEquation.textContent = `y = ${formatNum(a, 2)} ${sign} ${formatNum(Math.abs(b), 2)}·x`;
-    regR2.textContent = `R² = ${formatNum(reg.r2, 3)}`;
-  } else {
-    regEquation.textContent = "y = — (not enough variation/data)";
-    regR2.textContent = "R² = —";
-  }
-}
-
-form.addEventListener("submit", async (e) => {
+form?.addEventListener("submit", async (e) => {
   e.preventDefault();
   clearError();
+  setPersonParamInUrl(personLinkInput.value);
 
-  // cancel prior
   if (currentAbort) currentAbort.abort();
   currentAbort = new AbortController();
 
-  setAnalyzeBusy(true);      // ✅ disable button
-  openLoading();             // ✅ show overlay
-  setLoading({ meta: "Preparing…", progress01: 0.08 });
+  setAnalyzeBusy(true);
+  openLoading();
+  setLoading({ meta: "Preparing…", progress01: 0.06 });
 
   const stopLoop = startCuteMessageLoop(currentAbort.signal);
 
@@ -776,106 +849,176 @@ form.addEventListener("submit", async (e) => {
 
     const parsed = normalizePersonInput(personLinkInput.value);
 
-    setLoading({ meta: "Resolving author…", progress01: 0.12 });
+    setLoading({ meta: "Resolving author…", progress01: 0.10 });
     const author = await fetchAuthor(parsed, { signal: currentAbort.signal });
     renderAuthorPanel(author);
 
     const authorKey = extractAuthorKeyFromAuthor(author);
     if (!authorKey) throw new Error("Could not extract OpenAlex author key.");
 
-    setLoading({ meta: `Fetching works…`, progress01: 0.18 });
+    setLoading({ meta: "Fetching works list…", progress01: 0.18 });
     const works = await fetchAllWorksByAuthorKey(authorKey, {
       signal: currentAbort.signal,
       onProgress: ({ page, loaded, total }) => {
         const p = total
-          ? Math.min(0.92, 0.18 + 0.74 * (loaded / Math.max(1, total)))
-          : Math.min(0.90, 0.18 + 0.02 * page);
-
+          ? Math.min(0.45, 0.18 + 0.27 * (loaded / Math.max(1, total)))
+          : Math.min(0.45, 0.18 + 0.03 * page);
         setLoading({
           meta: total
-            ? `Fetched ${loaded.toLocaleString()} / ${total.toLocaleString()} works (page ${page})`
-            : `Fetched ${loaded.toLocaleString()} works (page ${page})`,
+            ? `Fetched ${loaded.toLocaleString()} / ${total.toLocaleString()} works`
+            : `Fetched ${loaded.toLocaleString()} works`,
           progress01: p,
         });
-      },
+      }
     });
 
-    setLoading({ meta: "Computing + rendering…", progress01: 0.95 });
-
-    // Normalize rows
-    const rows = works
+    // Normalize basic table rows first
+    const baseRows = works
       .map(w => {
-        const year = yearFromWork(w);
-        if (year === null) return null;
+        const year = Number(w.publication_year);
+        if (!Number.isFinite(year)) return null;
 
-        const title = titleFromWork(w);
-        const score = scoreFromWork(w);
-        const nAuthors = authorCountFromWork(w);
+        const title = String(w.display_name || "").trim() || "(untitled)";
+        const nAuthors = Array.isArray(w.authorships) ? w.authorships.length : 0;
 
-        const workId = String(w?.id || "");
-        const workUrl = workIdToOpenAlexWeb(workId);
+        const workId = String(w.id || "");
+        const workShort = workId.replace("https://openalex.org/", "");
+        const workUrl = workShort ? `https://openalex.org/${workShort}` : workId;
 
         return {
+          _workObj: w, // keep for scoring
           title,
           year,
           n_authors: nAuthors,
-          score,
           work_id: workId,
           work_url: workUrl,
+          score: null,
+          score_display: "…",
+          nf: "",
+          nb: "",
+          nl: "",
         };
       })
       .filter(Boolean);
 
-    currentWorksAll = rows;
+    // Limit scoring to keep runtime sane in-browser
+    // (You can raise MAX_WORKS_SCORED if you want.)
+    const rowsToScore = baseRows
+      .sort((a, b) => b.year - a.year)
+      .slice(0, MAX_WORKS_SCORED);
 
-    // Table (default: newest first is often nicer)
-    const tableRows = [...rows].sort((a, b) => (b.year - a.year) || (b.score - a.score));
-    setTableRows(tableRows);
+    // Score in parallel with limited concurrency
+    const limit = createLimiter(SCORE_CONCURRENCY);
+    let done = 0;
 
-    computeAndRender(rows);
+    setLoading({ meta: `Computing D-index for ${rowsToScore.length} works…`, progress01: 0.50 });
+
+    await Promise.all(rowsToScore.map((row, idx) =>
+      limit(async () => {
+        if (currentAbort.signal.aborted) return;
+
+        // per-work progress
+        const workShortId = String(row.work_id).replace("https://openalex.org/", "");
+        const label = workShortId ? workShortId : `work #${idx + 1}`;
+
+        const res = await computeDisruptionForWork(row._workObj, {
+          signal: currentAbort.signal,
+          onProgress: ({ loaded, total }) => {
+            // keep this lightweight
+            if (total && loaded && loaded % 400 === 0) {
+              setLoading({ meta: `Scoring ${label}: fetched ${loaded}/${total} citers…` });
+            }
+          }
+        });
+
+        // Set score
+        if (res?.D === null || !Number.isFinite(res?.D)) {
+          row.score = null;
+          row.score_display = "—";
+        } else {
+          row.score = res.D;
+          row.score_display = formatNum(res.D, 3);
+        }
+        row.nf = res?.nf ?? "";
+        row.nb = res?.nb ?? "";
+        row.nl = res?.nl ?? "";
+
+        done++;
+        const prog = 0.50 + 0.45 * (done / Math.max(1, rowsToScore.length));
+        setLoading({
+          meta: `Computed D-index: ${done}/${rowsToScore.length}`,
+          progress01: Math.min(0.95, prog),
+        });
+      })
+    ));
+
+    // For works we didn’t score, mark as —
+    const scoredSet = new Set(rowsToScore.map(r => r.work_id));
+    for (const r of baseRows) {
+      if (!scoredSet.has(r.work_id)) {
+        r.score = null;
+        r.score_display = "—";
+      }
+      delete r._workObj;
+    }
+
+    // Show table newest first
+    currentWorksAll = baseRows.sort((a, b) => (b.year - a.year));
+    setTableRows(currentWorksAll);
+
+    // compute stats/charts on scored subset only (numeric scores)
+    computeAndRender(currentWorksAll.filter(r => Number.isFinite(r.score)));
 
     setLoading({ meta: "Done.", progress01: 1.0 });
 
-    // ✅ only now show results and scroll
-    closeLoading();                 // ✅ remove overlay
-    revealResultsAndScroll();       // ✅ unhide + scroll
+    closeLoading();
+    revealResultsAndScroll();
   } catch (err) {
-    closeLoading();                 // ✅ remove overlay on error
+    closeLoading();
     showError(err?.message || "Something went wrong.");
   } finally {
     stopLoop();
-    setAnalyzeBusy(false);          // ✅ re-enable button always
+    setAnalyzeBusy(false);
   }
 });
 
-cancelBtn.addEventListener("click", () => {
+cancelBtn?.addEventListener("click", () => {
   if (currentAbort) currentAbort.abort();
   closeLoading();
   showError("Canceled.");
   setAnalyzeBusy(false);
 });
 
-// search
-tableSearch.addEventListener("input", () => {
+window.addEventListener("DOMContentLoaded", () => {
+  const person = getPersonParamFromUrl();
+  if (!person) return;
+
+  // Fill input
+  personLinkInput.value = person;
+
+  // Auto-run analysis once
+  // Guard against multiple runs (e.g. hot reload / double event)
+  if (analyzeBtn?.disabled) return;
+
+  // Trigger submit in a browser-friendly way
+  if (form.requestSubmit) form.requestSubmit();
+  else form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
+});
+
+/* -------------------------
+   Search + CSV
+------------------------- */
+tableSearch?.addEventListener("input", () => {
   const q = (tableSearch.value || "").trim().toLowerCase();
-  if (!q) {
-    setTableRows([...currentWorksAll].sort((a, b) => (b.year - a.year) || (b.score - a.score)));
-    return;
-  }
-  const filtered = currentWorksAll
-    .filter(r => r.title.toLowerCase().includes(q))
-    .sort((a, b) => (b.year - a.year) || (b.score - a.score));
+  if (!q) { setTableRows(currentWorksAll); return; }
+  const filtered = currentWorksAll.filter(r => r.title.toLowerCase().includes(q));
   setTableRows(filtered);
 });
 
-// csv download
-downloadCsvBtn.addEventListener("click", () => {
-  if (!currentWorksAll.length) {
-    showError("No data to export yet.");
-    return;
-  }
+downloadCsvBtn?.addEventListener("click", () => {
+  if (!currentWorksAll.length) return showError("No data to export yet.");
   clearError();
   const csv = toCsv(currentWorksAll);
   const safeName = (personLinkInput.value || "author").replaceAll(/[^a-z0-9]+/gi, "_").slice(0, 40);
-  downloadText(`${safeName}_openalex_scores.csv`, csv);
+  downloadText(`${safeName}_openalex_d_index.csv`, csv);
 });
