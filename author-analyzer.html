@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Applied Computational Mathematics Lab - Teddy Lazebnik</title>
+  <meta content="Prof' Teddy Lazebnik - Mathematics and Computer Science researcher focusing on applied computational mathematics including Biomathematical Modeling, Computer Simulation, Personalized Medicince, and AI" name="description"/>
+  <meta content="keywords" content="lazebnik, לזנבניק, teddy lazebnik, applied computational mathematics, academic lab" />
+  <meta content="Teddy Lazebnik" name="author"/>
+  <link href="img/favicon.ico" rel="icon" type="image/x-icon"/>
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/author-analyzer.css" rel="stylesheet">
+
+  <!-- Charts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+
+<body class="bg-gray-50 font-['Inter']">
+    <!-- Navbar (same structure as team.html) -->
+    <nav
+      id="navbar"
+      class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30"
+    >
+      <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+        <!-- Logo -->
+        <div class="flex items-center gap-2">
+          <img src="img/logo.png" alt="acml logo" width="100px" />
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center">
+          <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+            <a
+              href="index.html"
+              class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm"
+              >Home</a
+            >
+            <a
+              href="team.html"
+              class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm"
+              >Our Team</a
+            >
+            <a
+              href="projects.html"
+              class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm"
+              >Projects</a
+            >
+            <a
+              href="publications.html"
+              class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm"
+              >Publications</a
+            >
+          </div>
+          <a
+            href="index.html#contact"
+            class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm"
+            >Contact Us</a
+          >
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button
+          id="menu-btn"
+          class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100"
+        >
+          <i class="ri-menu-line text-xl"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Menu (animated) -->
+      <div
+        id="mobile-menu"
+        class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out"
+      >
+        <a href="index.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+        <a href="team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+        <a href="projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+        <a href="publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+        <a
+          href="index.html#contact"
+          class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90"
+          >Contact Us</a
+        >
+      </div>
+    </nav>
+
+    <!-- Same spacer as team.html -->
+    <div class="h-20"></div>
+
+    <main class="min-h-screen">
+      <!-- HERO / INTRO (match team.html style) -->
+      <section class="py-16 bg-gradient-to-b from-gray-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid lg:grid-cols-2 gap-12 items-start">
+            <!-- Left column -->
+            <div class="space-y-6">
+              <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
+                Schoalr's Disruptivness analyzer
+              </h1>
+              <p class="text-lg text-gray-600 leading-relaxed">
+                Using OpenAlex data, we compute a schoalr's works disruptivness level and properties. 
+              </p>
+
+              <form id="analyzeForm" class="space-y-4">
+                <div>
+                  <label for="personLink" class="block text-sm font-medium text-gray-700 mb-2">
+                    Person link
+                  </label>
+                  <input
+                    id="personLink"
+                    type="text"
+                    required
+                    class="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/30"
+                    placeholder="https://openalex.org/A... or https://orcid.org/...."
+                  />
+                  <p class="mt-2 text-xs text-gray-500">
+                    Tip: ORCID works too — we’ll resolve the author first.
+                  </p>
+                </div>
+
+                <div>
+                  <label for="apiKey" class="block text-sm font-medium text-gray-700 mb-2">
+                    OpenAlex API key (recommended)
+                  </label>
+                  <input
+                    id="apiKey"
+                    type="password"
+                    class="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/30"
+                    placeholder="optional"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  class="w-full bg-primary text-white px-6 py-3 rounded-full hover:bg-primary/90 transition font-semibold flex items-center justify-center gap-2"
+                >
+                  <i class="ri-play-circle-line"></i>
+                  Analyze
+                </button>
+
+                <div id="errorBox" class="hidden-author-analyzer rounded-lg border border-red-200 bg-red-50 text-red-700 px-4 py-3 text-sm"></div>
+              </form>
+            </div>
+
+            <!-- Right column (form card like team cards) -->
+            <div class="bg-gray-50 rounded-2xl shadow-sm border border-gray-100 p-6">
+              <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+                <div class="flex items-center justify-between mb-4">
+                  <h2 class="text-xl font-semibold text-gray-900">OpenAlex profile</h2>
+                  <span id="authorBadge" class="hidden-author-analyzer text-xs font-semibold bg-primary/10 text-primary px-3 py-1 rounded-full">
+                    Loaded
+                  </span>
+                </div>
+                <div id="authorPanel" class="text-gray-700">
+                  <div class="text-sm text-gray-500">Waiting for input…</div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESULTS (align section style) -->
+      <section class="py-16 bg-gray-50 hidden-author-analyzer" id="section-results">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid lg:grid-cols-12 gap-8">
+            <!-- OpenAlex author panel + stats -->
+            <div class="lg:col-span-12 space-y-12">
+
+              <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Score stats</h2>
+                <div id="statsPanel" class="grid grid-cols-6 gap-4 text-sm text-gray-700">
+                  <div class="stat-tile"><div class="stat-k">N papers</div><div class="stat-v" id="statN">—</div></div>
+                  <div class="stat-tile"><div class="stat-k">Mean</div><div class="stat-v" id="statMean">—</div></div>
+                  <div class="stat-tile"><div class="stat-k">Std</div><div class="stat-v" id="statStd">—</div></div>
+                  <div class="stat-tile"><div class="stat-k">Median</div><div class="stat-v" id="statMedian">—</div></div>
+                  <div class="stat-tile"><div class="stat-k">Max</div><div class="stat-v" id="statMax">—</div></div>
+                  <div class="stat-tile"><div class="stat-k">Min</div><div class="stat-v" id="statMin">—</div></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="lg:col-span-12 flex flex-col lg:flex-row gap-2">
+              <div class="flex-1 bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+                <div class="flex items-center justify-between">
+                  <h2 class="text-xl font-semibold text-gray-900">Histogram of scores</h2>
+                </div>
+                <div class="mt-4 chart-wrap">
+                  <canvas id="histChart" aria-label="Histogram chart"></canvas>
+                </div>
+              </div>
+
+              <div class=" flex-1 bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+                <div class="flex items-center justify-between">
+                  <h2 class="text-xl font-semibold text-gray-900">Score vs paper age</h2>
+                </div>
+
+                <div class="mt-4 chart-wrap">
+                  <canvas id="scatterChart" aria-label="Scatter plot"></canvas>
+                </div>
+
+                <div class="mt-5 grid md:grid-cols-3 gap-4">
+                  <div class="md:col-span-3 rounded-xl bg-gray-50 border border-gray-100 p-4">
+                    <div class="text-sm text-gray-500">Linear regression</div>
+                    <div class="mt-1 font-semibold text-gray-900" id="regEquation">y = —</div>
+                    <div class="text-sm text-gray-700" id="regR2">R² = —</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Table -->
+          <div class="mt-10 bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
+            <div class="p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+              <div>
+                <h2 class="text-xl font-semibold text-gray-900">Papers table</h2>
+                <p class="text-sm text-gray-500">Title, year, number of authors, and score</p>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <div class="relative">
+                  <i class="ri-search-line absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                  <input
+                    id="tableSearch"
+                    type="text"
+                    class="pl-10 pr-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary/30"
+                    placeholder="Search titles…"
+                  />
+                </div>
+
+                <button
+                  id="downloadCsvBtn"
+                  class="px-4 py-2 rounded-lg border border-gray-200 hover:border-gray-300 hover:bg-gray-50 text-sm font-semibold text-gray-700"
+                >
+                  <i class="ri-download-2-line mr-1"></i> CSV
+                </button>
+              </div>
+            </div>
+
+            <div class="overflow-x-auto">
+              <table class="min-w-full text-sm">
+                <thead class="bg-gray-50 border-y border-gray-100">
+                  <tr>
+                    <th class="px-6 py-3 text-left font-semibold text-gray-700">Article</th>
+                    <th class="px-6 py-3 text-left font-semibold text-gray-700 w-24">Year</th>
+                    <th class="px-6 py-3 text-left font-semibold text-gray-700 w-36"># Authors</th>
+                    <th class="px-6 py-3 text-left font-semibold text-gray-700 w-28">Score</th>
+                  </tr>
+                </thead>
+                <tbody id="worksTbody" class="divide-y divide-gray-100">
+                  <tr>
+                    <td class="px-6 py-5 text-gray-500" colspan="4">No data yet — run an analysis above.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="px-6 py-4 bg-gray-50 border-t border-gray-100 text-xs text-gray-500">
+              Note: requests may take 1–2 minutes for prolific authors because we fetch all pages.
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer (identical to team.html) -->
+    <footer class="bg-gray-900 text-white py-12 mt-20">
+      <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+        <div>
+          <img src="img/LOGO_Blue.svg" alt="acml logo footer" width="100px" />
+          <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-3">Quick Links</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="team.html" class="hover:text-white">Team</a></li>
+            <li><a href="media.html" class="hover:text-white">Media</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-3">Resources</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="publications.html" class="hover:text-white">Publications</a></li>
+            <li><a href="#" class="hover:text-white">Software Tools - TBD</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-3">Contact Info</h4>
+          <p class="text-gray-400">
+            Department of Information Systems,<br />
+            University of Haifa<br />
+            Department of Computing,<br />
+            Jonkoping University<br />
+            Lazebnik.teddy (at) gmail.com<br />
+          </p>
+        </div>
+      </div>
+      <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+        © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to
+        <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+      </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay hidden-author-analyzer" role="status" aria-live="polite" aria-busy="true">
+      <div class="loading-card">
+        <div class="loading-emoji">🤖📚</div>
+        <div class="loading-title">Crunching papers…</div>
+        <div id="loadingMessage" class="loading-sub">Summoning citations and sorting years.</div>
+
+        <div class="loading-dots" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+
+        <div class="loading-progress">
+          <div id="loadingBar" class="loading-bar" style="width: 10%"></div>
+        </div>
+        <div id="loadingMeta" class="loading-meta">Starting…</div>
+
+        <button id="cancelBtn" class="loading-cancel">
+          <i class="ri-close-circle-line"></i> Cancel
+        </button>
+      </div>
+    </div>
+
+    <!-- Same JS includes order as team.html (+ your analyzer module) -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/main.js"></script>
+
+    <!-- Analyzer logic -->
+    <script type="module" src="js/author-analyzer.js"></script>
+  </body>
+</html>
