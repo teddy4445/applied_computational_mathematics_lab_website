@@ -267,12 +267,12 @@ function renderAuthorPanel(author, metrics = null) {
         </div>
 
         <div class="stat-tile">
-          <div class="stat-k"><a href='https://www.degruyterbrill.com/document/doi/10.2478/jdis-2025-0038/html' alt='Golden Touch Paper'>Golden touch</a></div>
+          <div class="stat-k"><a href='https://www.degruyterbrill.com/document/doi/10.2478/jdis-2025-0038/html' alt='Golden Touch Paper'>Golden touch*</a></div>
           <div class="stat-v">${gtDisplay}</div>
-          <div class="text-xs text-gray-500 mt-1">${escapeHtml(gtSub)}</div>
         </div>
       </div>
       </div>
+          <div class="text-xs text-gray-500 mt-1">* 15 citations, 3 years</div>
     </div>
   `;
 }
