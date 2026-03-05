@@ -109,7 +109,7 @@
               <form id="analyzeForm" class="space-y-4">
                 <div>
                   <label for="personLink" class="block text-sm font-medium text-gray-700 mb-2">
-                    Person link
+                    Person OpenAlex/ORCID link
                   </label>
                   <input
                     id="personLink"
@@ -117,21 +117,6 @@
                     required
                     class="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/30"
                     placeholder="https://openalex.org/A... or https://orcid.org/...."
-                  />
-                  <p class="mt-2 text-xs text-gray-500">
-                    Tip: ORCID works too — we’ll resolve the author first.
-                  </p>
-                </div>
-
-                <div>
-                  <label for="apiKey" class="block text-sm font-medium text-gray-700 mb-2">
-                    OpenAlex API key (recommended)
-                  </label>
-                  <input
-                    id="apiKey"
-                    type="password"
-                    class="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/30"
-                    placeholder="optional"
                   />
                 </div>
 
@@ -165,17 +150,19 @@
           </div>
         </div>
       </section>
+	  
 
       <!-- RESULTS (align section style) -->
-      <section class="py-16 bg-gray-50 hidden-author-analyzer" id="section-results">
+      <section class="py-16 hidden-author-analyzer" id="section-results">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="grid lg:grid-cols-12 gap-8">
+          <div class="grid lg:grid-cols-1">
+		  
             <!-- OpenAlex author panel + stats -->
             <div class="lg:col-span-12 space-y-12">
 
               <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
                 <h2 class="text-xl font-semibold text-gray-900 mb-4">D-index scores stats</h2>
-                <div id="statsPanel" class="grid grid-cols-6 gap-4 text-sm text-gray-700">
+                <div id="statsPanel" class="grid grid-cols-2 xl:grid-col-1 lg:grid-cols-6 xs:grid-cols-2 sm:grid-cols-3 gap-4 text-sm text-gray-700">
                   <div class="stat-tile"><div class="stat-k">N papers</div><div class="stat-v" id="statN">—</div></div>
                   <div class="stat-tile"><div class="stat-k">Mean</div><div class="stat-v" id="statMean">—</div></div>
                   <div class="stat-tile"><div class="stat-k">Std</div><div class="stat-v" id="statStd">—</div></div>
@@ -187,53 +174,71 @@
             </div>
 
             <!-- Charts -->
-            <div class="lg:col-span-12 flex flex-col lg:flex-row gap-2">
-              <div class="flex-1 bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
-                <div class="flex items-center justify-between">
-                  <h2 class="text-xl font-semibold text-gray-900">Histogram of D-index scores</h2>
-                </div>
-                <div class="mt-4 chart-wrap">
-                  <canvas id="histChart" aria-label="Histogram chart"></canvas>
-                </div>
-              </div>
-			  
-			  <div class="flex-1 bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
-			  <div class="flex items-center justify-between">
-				<h2 class="text-xl font-semibold text-gray-900">D-index score vs # Authors</h2>
-			  </div>
+<div class="lg:col-span-12 space-y-2">
+  <!-- Top row: histograms -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-2">
+    <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+      <div class="flex items-center justify-between">
+        <h2 class="text-xl font-semibold text-gray-900">Histogram of D-index scores</h2>
+      </div>
+      <div class="mt-4 chart-wrap">
+        <canvas id="histChart" aria-label="Histogram chart"></canvas>
+      </div>
+    </div>
 
-			  <div class="mt-5 grid md:grid-cols-3 gap-4">
-				<div class="md:col-span-3 rounded-xl bg-gray-50 border border-gray-100 p-4">
-				  <div class="text-sm text-gray-500">
-					Linear regression:
-					<div class="mt-1 font-semibold text-gray-900" id="regEquationAuthors">y = —</div>
-					<div class="text-sm text-gray-700" id="regR2Authors">(R² = —)</div>
-				  </div>
-				</div>
-			  </div>
+    <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+      <div class="flex items-center justify-between">
+        <h2 class="text-xl font-semibold text-gray-900">Histogram of D-index score divided by open access status</h2>
+      </div>
+      <div class="mt-4 chart-wrap">
+        <canvas id="histOaChart" aria-label="Histogram by open access"></canvas>
+      </div>
+    </div>
+  </div>
 
-			  <div class="mt-4 chart-wrap">
-				<canvas id="scatterAuthorsChart" aria-label="Scatter plot authors"></canvas>
-			  </div>
-			</div>
+  <!-- Bottom row: scatter plots -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-2">
+    <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+      <div class="flex items-center justify-between">
+        <h2 class="text-xl font-semibold text-gray-900">D-index score vs # Authors</h2>
+      </div>
 
-              <div class=" flex-1 bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
-                <div class="flex items-center justify-between">
-                  <h2 class="text-xl font-semibold text-gray-900">D-index score vs Academic age</h2>
-                </div>
-
-                <div class="mt-5 grid md:grid-cols-3 gap-4">
-                  <div class="md:col-span-3 rounded-xl bg-gray-50 border border-gray-100 p-4">
-                    <div class="text-sm text-gray-500">Linear regression: <div class="mt-1 font-semibold text-gray-900" id="regEquation">y = —</div> <div class="text-sm text-gray-700" id="regR2">(R² = —)</div></div>
-                  </div>
-                </div>
-
-                <div class="mt-4 chart-wrap">
-                  <canvas id="scatterChart" aria-label="Scatter plot"></canvas>
-                </div>
-              </div>
-            </div>
+      <div class="mt-5 grid md:grid-cols-3 gap-4">
+        <div class="md:col-span-3 rounded-xl bg-gray-50 border border-gray-100 p-4">
+          <div class="text-sm text-gray-500">
+            Linear regression:
+            <div class="mt-1 font-semibold text-gray-900" id="regEquationAuthors">y = —</div>
+            <div class="text-sm text-gray-700" id="regR2Authors">(R² = —)</div>
           </div>
+        </div>
+      </div>
+
+      <div class="mt-4 chart-wrap">
+        <canvas id="scatterAuthorsChart" aria-label="Scatter plot authors"></canvas>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+      <div class="flex items-center justify-between">
+        <h2 class="text-xl font-semibold text-gray-900">D-index score vs Academic age</h2>
+      </div>
+
+      <div class="mt-5 grid md:grid-cols-3 gap-4">
+        <div class="md:col-span-3 rounded-xl bg-gray-50 border border-gray-100 p-4">
+          <div class="text-sm text-gray-500">
+            Linear regression:
+            <div class="mt-1 font-semibold text-gray-900" id="regEquation">y = —</div>
+            <div class="text-sm text-gray-700" id="regR2">(R² = —)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-4 chart-wrap">
+        <canvas id="scatterChart" aria-label="Scatter plot"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
 
           <!-- Table -->
           <div class="mt-10 bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
@@ -286,6 +291,172 @@
           </div>
         </div>
       </section>
+	  
+	  <section class="py-16 bg-gray-50" id="section-example">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid lg:grid-cols-1 gap-8">
+		  
+		  <!-- D-index explainer -->
+<div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+    <h2 class="text-xl font-semibold text-gray-900">How the D-index is computed</h2>
+  </div>
+
+  <p class="text-gray-700 leading-relaxed">
+    For each focal paper, we look at papers that cite it (its <span class="font-semibold">citers</span>) and compare their reference lists
+    to the focal paper’s own references. The counts below summarize how the focal paper is cited, and together form the D-index score.
+  </p>
+
+  <div class="mt-5 rounded-xl bg-gray-50 border border-gray-100 p-4">
+    <div class="text-xs text-gray-500 mb-1">Formula</div>
+    <div class="font-mono text-sm text-gray-900">D = (nf − nb) / (nf + nb + nl)</div>
+    <div class="mt-2 text-xs text-gray-500">
+      Note: this page computes <b>nf</b> and <b>nb</b> by fetching citers (with their referenced works), and can in this calcualtor we skip <b>nl</b> to stay fast in-browser.
+    </div>
+  </div>
+
+  <div class="mt-5 grid md:grid-cols-3 gap-4 text-sm">
+    <div class="rounded-xl bg-gray-50 border border-gray-100 p-4">
+      <div class="text-gray-500 font-semibold">nf</div>
+      <div class="mt-1 text-gray-900">
+        # citers that cite the <b>focal</b> paper <b>only</b> (they do <i>not</i> cite any of its references)
+      </div>
+    </div>
+
+    <div class="rounded-xl bg-gray-50 border border-gray-100 p-4">
+      <div class="text-gray-500 font-semibold">nb</div>
+      <div class="mt-1 text-gray-900">
+        # citers that cite the <b>focal</b> paper <b>and</b> at least one of its references (co-citation / “building on”)
+      </div>
+    </div>
+
+    <div class="rounded-xl bg-gray-50 border border-gray-100 p-4">
+      <div class="text-gray-500 font-semibold">nl</div>
+      <div class="mt-1 text-gray-900">
+        # papers that cite the <b>references</b> but <b>not</b> the focal paper (optional; expensive to compute)
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Examples -->
+<div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+  <div class="flex items-center justify-between">
+    <h2 class="text-xl font-semibold text-gray-900">Examples</h2>
+  </div>
+
+  <div class="mt-6 grid md:grid-cols-3 gap-6">
+    <!-- Example 1 -->
+    <div class="rounded-2xl border border-gray-100 bg-gray-50 p-5">
+      <div class="flex items-start justify-between gap-3">
+        <div>
+          <div class="text-sm font-semibold text-gray-900 leading-snug">
+            Molecular Structure of Nucleic Acids: A Structure for Deoxyribose Nucleic Acid
+          </div>
+          <div class="mt-1 text-xs text-gray-500">1953 · 13,038 citations · 5 references</div>
+        </div>
+      </div>
+
+      <div class="mt-4 grid grid-cols-3 gap-2 text-center">
+        <div class="rounded-xl bg-white border border-gray-100 p-3">
+          <div class="text-xs text-gray-500">nf</div>
+          <div class="text-sm font-semibold text-gray-900">12,863</div>
+        </div>
+        <div class="rounded-xl bg-white border border-gray-100 p-3">
+          <div class="text-xs text-gray-500">nb</div>
+          <div class="text-sm font-semibold text-gray-900">179</div>
+        </div>
+        <div class="rounded-xl bg-white border border-gray-100 p-3">
+          <div class="text-xs text-gray-500">nl</div>
+          <div class="text-sm font-semibold text-gray-900">226</div>
+        </div>
+      </div>
+
+      <div class="mt-4 flex items-end justify-between gap-3">
+        <div class="text-[11px] text-gray-500 font-mono leading-snug">
+          D = (12863 − 179) / (12863 + 179 + 226)
+        </div>
+        <div class="text-2xl font-bold text-gray-900">0.956</div>
+      </div>
+    </div>
+
+    <!-- Example 2 -->
+    <div class="rounded-2xl border border-gray-100 bg-gray-50 p-5">
+      <div class="flex items-start justify-between gap-3">
+        <div>
+          <div class="text-sm font-semibold text-gray-900 leading-snug">
+            Modular Elliptic Curves and Fermat&apos;s Last Theorem
+          </div>
+          <div class="mt-1 text-xs text-gray-500">1995 · 2,048 citations · 17 references</div>
+        </div>
+      </div>
+
+      <div class="mt-4 grid grid-cols-3 gap-2 text-center">
+        <div class="rounded-xl bg-white border border-gray-100 p-3">
+          <div class="text-xs text-gray-500">nf</div>
+          <div class="text-sm font-semibold text-gray-900">952</div>
+        </div>
+        <div class="rounded-xl bg-white border border-gray-100 p-3">
+          <div class="text-xs text-gray-500">nb</div>
+          <div class="text-sm font-semibold text-gray-900">1,098</div>
+        </div>
+        <div class="rounded-xl bg-white border border-gray-100 p-3">
+          <div class="text-xs text-gray-500">nl</div>
+          <div class="text-sm font-semibold text-gray-900">4,659</div>
+        </div>
+      </div>
+
+      <div class="mt-4 flex items-end justify-between gap-3">
+        <div class="text-[11px] text-gray-500 font-mono leading-snug">
+          D = (952 − 1098) / (952 + 1098 + 4659)
+        </div>
+        <div class="text-2xl font-bold text-gray-900">−0.022</div>
+      </div>
+    </div>
+
+    <!-- Example 3 -->
+    <div class="rounded-2xl border border-gray-100 bg-gray-50 p-5">
+      <div class="flex items-start justify-between gap-3">
+        <div>
+          <div class="text-sm font-semibold text-gray-900 leading-snug">
+            The anatomy of a large-scale hypertextual Web search engine
+          </div>
+          <div class="mt-1 text-xs text-gray-500">1998 · 15,836 citations · 22 references</div>
+        </div>
+      </div>
+
+      <div class="mt-4 grid grid-cols-3 gap-2 text-center">
+        <div class="rounded-xl bg-white border border-gray-100 p-3">
+          <div class="text-xs text-gray-500">nf</div>
+          <div class="text-sm font-semibold text-gray-900">12,865</div>
+        </div>
+        <div class="rounded-xl bg-white border border-gray-100 p-3">
+          <div class="text-xs text-gray-500">nb</div>
+          <div class="text-sm font-semibold text-gray-900">2,979</div>
+        </div>
+        <div class="rounded-xl bg-white border border-gray-100 p-3">
+          <div class="text-xs text-gray-500">nl</div>
+          <div class="text-sm font-semibold text-gray-900">1,850</div>
+        </div>
+      </div>
+
+      <div class="mt-4 flex items-end justify-between gap-3">
+        <div class="text-[11px] text-gray-500 font-mono leading-snug">
+          D = (12865 − 2979) / (12865 + 2979 + 1850)
+        </div>
+        <div class="text-2xl font-bold text-gray-900">0.559</div>
+      </div>
+    </div>
+  </div>
+</div>
+		  
+              </div>
+            </div>
+          </div>
+
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- Footer (identical to team.html) -->
@@ -306,7 +477,7 @@
           <h4 class="font-semibold mb-3">Resources</h4>
           <ul class="space-y-2 text-gray-400">
             <li><a href="publications.html" class="hover:text-white">Publications</a></li>
-            <li><a href="#" class="hover:text-white">Software Tools - TBD</a></li>
+            <li><a href="author-analyzer.html" class="hover:text-white">Schoalr's Disruptivness analyzer</a></li>
           </ul>
         </div>
         <div>

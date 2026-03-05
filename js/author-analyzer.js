@@ -13,7 +13,6 @@ const $ = (sel) => document.querySelector(sel);
 
 const form = $("#analyzeForm");
 const personLinkInput = $("#personLink");
-const apiKeyInput = $("#apiKey");
 const errorBox = $("#errorBox");
 
 const resultsSection = $("#section-results");
@@ -50,6 +49,7 @@ const cancelBtn = $("#cancelBtn");
 
 let histChart = null;
 let scatterChart = null;
+let histOaChart = null;
 let currentAbort = null;
 let scatterAuthorsChart = null;
 
@@ -138,13 +138,9 @@ const OA_BASE = "https://api.openalex.org";
 // In a public front-end page, it's better to set your own email (or leave empty).
 const MAILTO = ""; // e.g. "you@example.com"
 
-function getApiKey() {
-  return (apiKeyInput?.value || "").trim();
-}
-
 function buildUrl(path, params = {}) {
   const url = new URL(`${OA_BASE}${path}`);
-  const apiKey = getApiKey();
+  const apiKey = "";
   if (apiKey) url.searchParams.set("api_key", apiKey);
   if (MAILTO) url.searchParams.set("mailto", MAILTO);
 
@@ -202,7 +198,7 @@ function normalizePersonInput(raw) {
 }
 
 async function fetchAuthor(authorInput, { signal }) {
-  const select = "id,display_name,orcid,works_count,cited_by_count,last_known_institutions";
+  const select = "id,display_name,orcid,works_count,cited_by_count,last_known_institutions,summary_stats";
   const path =
     authorInput.kind === "openalexKey"
       ? `/authors/${encodeURIComponent(authorInput.id)}`
@@ -218,7 +214,7 @@ function extractAuthorKeyFromAuthor(author) {
   return m ? m[1].toUpperCase() : null;
 }
 
-function renderAuthorPanel(author) {
+function renderAuthorPanel(author, metrics = null) {
   if (!authorPanel) return;
   if (authorBadge) authorBadge.classList.remove("hidden");
 
@@ -228,6 +224,18 @@ function renderAuthorPanel(author) {
   const worksCount = author?.works_count ?? "—";
   const citedBy = author?.cited_by_count ?? "—";
   const inst = author?.last_known_institutions?.map(i => i.display_name).join(", ") ?? null;
+  
+    const hIndex = metrics?.hIndex;
+  const i10Index = metrics?.i10Index;
+  const cpp = metrics?.citationsPerPaper;
+  const avgYear = metrics?.avgYearlyCitations;
+
+  const gtPct = metrics?.goldenTouchPct;
+  const gtHits = metrics?.goldenHits ?? 0;
+  const gtElig = metrics?.goldenEligible ?? 0;
+
+  const gtDisplay = Number.isFinite(gtPct) ? `${formatCompact(gtPct, 1)}%` : "—";
+  const gtSub = gtElig ? `${gtHits}/${gtElig} eligible` : "No eligible papers";
 
   authorPanel.innerHTML = `
     <div class="space-y-2">
@@ -237,6 +245,33 @@ function renderAuthorPanel(author) {
         <div><span class="text-gray-500">ORCID:</span> ${orcid ? `<a class="hover:text-primary" target="_blank" rel="noopener noreferrer" href="${orcid}">${orcid}</a>` : "—"}</div>
         <div><span class="text-gray-500">Works:</span> <b>${worksCount}</b> · <span class="text-gray-500">Citations:</span> <b>${citedBy}</b></div>
         <div><span class="text-gray-500">Last known institution:</span> ${inst ? `<b>${escapeHtml(inst)}</b>` : "—"}</div>
+		<div class="mt-4 grid grid-cols-2 md:grid-cols-5 gap-3 text-sm">
+        <div class="stat-tile">
+          <div class="stat-k">h-index</div>
+          <div class="stat-v">${Number.isFinite(hIndex) ? hIndex : "—"}</div>
+        </div>
+
+        <div class="stat-tile">
+          <div class="stat-k">i10-index</div>
+          <div class="stat-v">${Number.isFinite(i10Index) ? i10Index : "—"}</div>
+        </div>
+
+        <div class="stat-tile">
+          <div class="stat-k">Average citations per paper</div>
+          <div class="stat-v">${Number.isFinite(cpp) ? formatCompact(cpp, 2) : "—"}</div>
+        </div>
+
+        <div class="stat-tile">
+          <div class="stat-k">Average yearly citations</div>
+          <div class="stat-v">${Number.isFinite(avgYear) ? formatCompact(avgYear, 2) : "—"}</div>
+        </div>
+
+        <div class="stat-tile">
+          <div class="stat-k"><a href='https://www.degruyterbrill.com/document/doi/10.2478/jdis-2025-0038/html' alt='Golden Touch Paper'>Golden touch</a></div>
+          <div class="stat-v">${gtDisplay}</div>
+          <div class="text-xs text-gray-500 mt-1">${escapeHtml(gtSub)}</div>
+        </div>
+      </div>
       </div>
     </div>
   `;
@@ -259,7 +294,7 @@ async function fetchAllWorksByAuthorKey(authorKey, { signal, onProgress }) {
   const per_page = 200;
 
   // We include referenced_works so we can compute D without fetching the focal again.
-  const select = "id,display_name,publication_year,authorships,referenced_works";
+  const select = "id,display_name,publication_year,authorships,referenced_works,cited_by_count,counts_by_year";
 
   const baseParams = {
     filter: `author.id:${authorKey}`,
@@ -292,6 +327,103 @@ async function fetchAllWorksByAuthorKey(authorKey, { signal, onProgress }) {
   }
 
   return results;
+}
+
+function formatCompact(x, digits = 1) {
+  if (!Number.isFinite(x)) return "—";
+  // Keep it simple; you can swap to Intl.NumberFormat if you prefer
+  return x.toFixed(digits);
+}
+
+function computeHIndexFromWorks(works) {
+  const cites = works
+    .map(w => Number(w?.cited_by_count) || 0)
+    .sort((a, b) => b - a);
+
+  let h = 0;
+  for (let i = 0; i < cites.length; i++) {
+    const rank = i + 1;
+    if (cites[i] >= rank) h = rank;
+    else break;
+  }
+  return h;
+}
+
+function computeI10IndexFromWorks(works) {
+  return works.reduce((acc, w) => acc + ((Number(w?.cited_by_count) || 0) >= 10 ? 1 : 0), 0);
+}
+
+function citationsInFirst3Years(work) {
+  const pubYear = Number(work?.publication_year);
+  if (!Number.isFinite(pubYear)) return 0;
+
+  const cby = Array.isArray(work?.counts_by_year) ? work.counts_by_year : [];
+  let sum = 0;
+
+  for (const row of cby) {
+    const y = Number(row?.year);
+    const c = Number(row?.cited_by_count) || 0;
+    if (Number.isFinite(y) && y >= pubYear && y <= pubYear + 2) sum += c;
+  }
+  return sum;
+}
+
+function computeAuthorDerivedMetrics(author, works) {
+  const nowYear = new Date().getFullYear();
+
+  // Prefer OpenAlex-provided indices when available
+  let hIndex = Number(author?.summary_stats?.h_index);
+  let i10Index = Number(author?.summary_stats?.i10_index);
+
+  if (!Number.isFinite(hIndex)) hIndex = computeHIndexFromWorks(works);
+  if (!Number.isFinite(i10Index)) i10Index = computeI10IndexFromWorks(works);
+
+  const worksCount = Number(author?.works_count);
+  const citedBy = Number(author?.cited_by_count);
+
+  // Citations per paper
+  let citationsPerPaper = null;
+  if (Number.isFinite(citedBy) && Number.isFinite(worksCount) && worksCount > 0) {
+    citationsPerPaper = citedBy / worksCount;
+  } else if (works?.length) {
+    const sum = works.reduce((acc, w) => acc + (Number(w?.cited_by_count) || 0), 0);
+    citationsPerPaper = sum / works.length;
+  }
+
+  // Average yearly citations = total citations / career length (from earliest pub year)
+  const years = works.map(w => Number(w?.publication_year)).filter(Number.isFinite);
+  const firstYear = years.length ? Math.min(...years) : null;
+
+  let avgYearlyCitations = null;
+  if (Number.isFinite(citedBy) && Number.isFinite(firstYear)) {
+    const careerYears = Math.max(1, nowYear - firstYear + 1);
+    avgYearlyCitations = citedBy / careerYears;
+  }
+
+  // Golden touch: among eligible papers (>=3 years old), share with >=15 citations in first 3 years
+  const eligible = works.filter(w => {
+    const y = Number(w?.publication_year);
+    return Number.isFinite(y) && (nowYear - y) >= 3; // "less than 3 years" excluded
+  });
+
+  let goldenHits = 0;
+  for (const w of eligible) {
+    const c3 = citationsInFirst3Years(w);
+    if (c3 >= 15) goldenHits++;
+  }
+
+  const goldenEligible = eligible.length;
+  const goldenTouchPct = goldenEligible ? (100 * goldenHits / goldenEligible) : null;
+
+  return {
+    hIndex,
+    i10Index,
+    citationsPerPaper,
+    avgYearlyCitations,
+    goldenTouchPct,
+    goldenHits,
+    goldenEligible,
+  };
 }
 
 /* ============================================================
@@ -394,7 +526,7 @@ async function fetchCiterIds(workShortId, excludeSet, { signal }) {
 }
 
 // Control how expensive D-index is:
-const COMPUTE_NL = false;         // default false (fast). nl is costly. :contentReference[oaicite:12]{index=12}
+const COMPUTE_NL = false;         // default false (fast). nl is costly. 
 const MAX_WORKS_SCORED = 40;      // keep runtime reasonable in-browser
 const SCORE_CONCURRENCY = 3;      // parallel scoring, limited to reduce rate limits
 
@@ -589,6 +721,7 @@ function destroyCharts() {
   if (histChart) { histChart.destroy(); histChart = null; }
   if (scatterChart) { scatterChart.destroy(); scatterChart = null; }
   if (scatterAuthorsChart) { scatterAuthorsChart.destroy(); scatterAuthorsChart = null; }
+  if (histOaChart) { histOaChart.destroy(); histOaChart = null; }
 }
 
 function renderHistogram(scores) {
@@ -644,7 +777,16 @@ function renderScatterAuthors(nAuthors, scores, reg) {
   const ctx = $("#scatterAuthorsChart");
   if (!ctx) return;
 
-  const points = nAuthors.map((x, i) => ({ x, y: scores[i] }));
+  // Build points only from valid, positive author counts
+  const points = [];
+  for (let i = 0; i < nAuthors.length; i++) {
+    const x = Number(nAuthors[i]);
+    const y = Number(scores[i]);
+    if (Number.isFinite(x) && x > 0 && Number.isFinite(y)) {
+      points.push({ x, y });
+    }
+  }
+
   const datasets = [{
     type: "scatter",
     label: "Papers",
@@ -652,9 +794,11 @@ function renderScatterAuthors(nAuthors, scores, reg) {
     pointRadius: 3,
   }];
 
-  if (reg) {
-    const minX = Math.min(...nAuthors);
-    const maxX = Math.max(...nAuthors);
+  if (reg && points.length) {
+    const xs = points.map(p => p.x);
+    const minX = Math.min(...xs);   // <-- minimal author count (not 0)
+    const maxX = Math.max(...xs);
+
     datasets.push({
       type: "line",
       label: "Regression",
@@ -870,6 +1014,8 @@ function computeAndRender(rows, oldestYear) {
 		`y = ${formatNum(regAuthors.a, 3)} ${sign} ${formatNum(Math.abs(regAuthors.b), 3)}·x`;
 	  regR2Authors.textContent = `R² = ${formatNum(regAuthors.r2, 3)}`;
 	}
+	
+	renderHistogramByOpenAccess(rows);
 }
 
 /* -------------------------
@@ -935,6 +1081,9 @@ form?.addEventListener("submit", async (e) => {
         });
       }
     });
+	
+	const metrics = computeAuthorDerivedMetrics(author, works);
+	renderAuthorPanel(author, metrics);
 
     // Normalize basic table rows first
     const baseRows = works
@@ -944,6 +1093,7 @@ form?.addEventListener("submit", async (e) => {
 
         const title = String(w.display_name || "").trim() || "(untitled)";
         const nAuthors = Array.isArray(w.authorships) ? w.authorships.length : 0;
+		const isOa = Boolean(w?.open_access?.is_oa);
 
         const workId = String(w.id || "");
         const workShort = workId.replace("https://openalex.org/", "");
@@ -961,6 +1111,7 @@ form?.addEventListener("submit", async (e) => {
           nf: "",
           nb: "",
           nl: "",
+		  is_oa: isOa,
         };
       })
       .filter(Boolean);
@@ -1045,6 +1196,73 @@ form?.addEventListener("submit", async (e) => {
     setAnalyzeBusy(false);
   }
 });
+
+function renderHistogramByOpenAccess(rows) {
+  const ctx = document.querySelector("#histOaChart");
+  if (!ctx) return;
+
+  if (!Array.isArray(rows) || !rows.length) {
+    if (histOaChart) histOaChart.destroy();
+    histOaChart = null;
+    return;
+  }
+
+  const scored = rows.filter(r => Number.isFinite(r.score));
+  if (!scored.length) {
+    if (histOaChart) histOaChart.destroy();
+    histOaChart = null;
+    return;
+  }
+
+  const scores = scored.map(r => r.score);
+  const minS = Math.min(...scores);
+  const maxS = Math.max(...scores);
+
+  const nBins = Math.max(8, Math.min(24, Math.ceil(Math.sqrt(scores.length))));
+  const range = maxS - minS;
+  const binSize = range === 0 ? 0.1 : range / nBins;
+
+  const binsOa = new Array(nBins).fill(0);
+  const binsNotOa = new Array(nBins).fill(0);
+  const labels = [];
+
+  for (let i = 0; i < nBins; i++) {
+    const a = minS + i * binSize;
+    const b = i === nBins - 1 ? maxS : (minS + (i + 1) * binSize);
+    labels.push(`${a.toFixed(2)}–${b.toFixed(2)}`);
+  }
+
+  for (const r of scored) {
+    const s = r.score;
+    let idx = range === 0 ? 0 : Math.floor((s - minS) / binSize);
+    if (idx >= nBins) idx = nBins - 1;
+    if (idx < 0) idx = 0;
+
+    const isOa = Boolean(r.is_oa); // missing => treated as Not OA
+    if (isOa) binsOa[idx]++; else binsNotOa[idx]++;
+  }
+
+  if (histOaChart) histOaChart.destroy();
+  histOaChart = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels,
+      datasets: [
+        { label: "Open access", data: binsOa },
+        { label: "Not open access", data: binsNotOa },
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: true } },
+      scales: {
+        x: { title: { display: true, text: "D-index bins" }, grid: { display: false } },
+        y: { title: { display: true, text: "Papers" }, beginAtZero: true }
+      }
+    }
+  });
+}
 
 cancelBtn?.addEventListener("click", () => {
   if (currentAbort) currentAbort.abort();
