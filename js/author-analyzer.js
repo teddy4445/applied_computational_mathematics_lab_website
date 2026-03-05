@@ -30,6 +30,9 @@ const downloadCsvBtn = $("#downloadCsvBtn");
 const regEquation = $("#regEquation");
 const regR2 = $("#regR2");
 
+const regEquationAuthors = $("#regEquationAuthors");
+const regR2Authors = $("#regR2Authors");
+
 const statsEls = {
   mean: $("#statMean"),
   std: $("#statStd"),
@@ -48,6 +51,7 @@ const cancelBtn = $("#cancelBtn");
 let histChart = null;
 let scatterChart = null;
 let currentAbort = null;
+let scatterAuthorsChart = null;
 
 let currentWorksAll = [];
 let currentWorks = [];
@@ -584,6 +588,7 @@ function formatNum(x, digits = 3) {
 function destroyCharts() {
   if (histChart) { histChart.destroy(); histChart = null; }
   if (scatterChart) { scatterChart.destroy(); scatterChart = null; }
+  if (scatterAuthorsChart) { scatterAuthorsChart.destroy(); scatterAuthorsChart = null; }
 }
 
 function renderHistogram(scores) {
@@ -635,6 +640,49 @@ function renderHistogram(scores) {
   });
 }
 
+function renderScatterAuthors(nAuthors, scores, reg) {
+  const ctx = $("#scatterAuthorsChart");
+  if (!ctx) return;
+
+  const points = nAuthors.map((x, i) => ({ x, y: scores[i] }));
+  const datasets = [{
+    type: "scatter",
+    label: "Papers",
+    data: points,
+    pointRadius: 3,
+  }];
+
+  if (reg) {
+    const minX = Math.min(...nAuthors);
+    const maxX = Math.max(...nAuthors);
+    datasets.push({
+      type: "line",
+      label: "Regression",
+      data: [
+        { x: minX, y: reg.a + reg.b * minX },
+        { x: maxX, y: reg.a + reg.b * maxX },
+      ],
+      borderWidth: 2,
+      pointRadius: 0,
+      tension: 0,
+    });
+  }
+
+  if (scatterAuthorsChart) scatterAuthorsChart.destroy();
+  scatterAuthorsChart = new Chart(ctx, {
+    data: { datasets },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { title: { display: true, text: "# authors" }, beginAtZero: true },
+        y: { title: { display: true, text: "D-index score" }, beginAtZero: false },
+      }
+    }
+  });
+}
+
 function renderScatter(ages, scores, reg) {
   const ctx = $("#scatterChart");
   if (!ctx) return;
@@ -671,7 +719,7 @@ function renderScatter(ages, scores, reg) {
       maintainAspectRatio: false,
       plugins: { legend: { display: false } },
       scales: {
-        x: { title: { display: true, text: "Paper age (year − oldest year)" }, beginAtZero: true },
+        x: { title: { display: true, text: "Academic age" }, beginAtZero: true },
         // D-index can be negative, so do NOT force beginAtZero
         y: { title: { display: true, text: "D-index score" }, beginAtZero: false }
       }
@@ -758,6 +806,9 @@ function resetUIForNewRun() {
   Object.values(statsEls).forEach((el) => { if (el) el.textContent = "—"; });
   if (regEquation) regEquation.textContent = "y = —";
   if (regR2) regR2.textContent = "R² = —";
+  
+  if (regEquationAuthors) regEquationAuthors.textContent = "y = —";
+  if (regR2Authors) regR2Authors.textContent = "R² = —";
 
   if (worksTbody) worksTbody.innerHTML = `<tr><td class="px-6 py-5 text-gray-500" colspan="4">Loading…</td></tr>`;
   if (tableSearch) tableSearch.value = "";
@@ -767,7 +818,7 @@ function resetUIForNewRun() {
   currentWorks = [];
 }
 
-function computeAndRender(rows) {
+function computeAndRender(rows, oldestYear) {
   const numericScores = rows.map(r => r.score).filter(Number.isFinite);
   const years = rows.map(r => r.year).filter(Number.isFinite);
 
@@ -789,7 +840,6 @@ function computeAndRender(rows) {
 
   renderHistogram(numericScores);
 
-  const oldestYear = Math.min(...years);
   const ages = rows
     .filter(r => Number.isFinite(r.score) && Number.isFinite(r.year))
     .map(r => r.year - oldestYear);
@@ -806,6 +856,20 @@ function computeAndRender(rows) {
     regEquation.textContent = `y = ${formatNum(reg.a, 3)} ${sign} ${formatNum(Math.abs(reg.b), 3)}·x`;
     regR2.textContent = `R² = ${formatNum(reg.r2, 3)}`;
   }
+  
+  const rowsAuthors = rows.filter(r => Number.isFinite(r.score) && Number.isFinite(r.n_authors));
+	const authorsX = rowsAuthors.map(r => Number(r.n_authors));
+	const authorsY = rowsAuthors.map(r => r.score);
+
+	const regAuthors = linearRegression(authorsX, authorsY);
+	renderScatterAuthors(authorsX, authorsY, regAuthors);
+
+	if (regEquationAuthors && regR2Authors && regAuthors) {
+	  const sign = regAuthors.b >= 0 ? "+" : "−";
+	  regEquationAuthors.textContent =
+		`y = ${formatNum(regAuthors.a, 3)} ${sign} ${formatNum(Math.abs(regAuthors.b), 3)}·x`;
+	  regR2Authors.textContent = `R² = ${formatNum(regAuthors.r2, 3)}`;
+	}
 }
 
 /* -------------------------
@@ -967,7 +1031,7 @@ form?.addEventListener("submit", async (e) => {
     setTableRows(currentWorksAll);
 
     // compute stats/charts on scored subset only (numeric scores)
-    computeAndRender(currentWorksAll.filter(r => Number.isFinite(r.score)));
+    computeAndRender(currentWorksAll.filter(r => Number.isFinite(r.score)), currentWorksAll.at(-1).year);
 
     setLoading({ meta: "Done.", progress01: 1.0 });
 

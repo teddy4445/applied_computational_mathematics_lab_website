@@ -196,22 +196,40 @@
                   <canvas id="histChart" aria-label="Histogram chart"></canvas>
                 </div>
               </div>
+			  
+			  <div class="flex-1 bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+			  <div class="flex items-center justify-between">
+				<h2 class="text-xl font-semibold text-gray-900">D-index score vs # Authors</h2>
+			  </div>
+
+			  <div class="mt-5 grid md:grid-cols-3 gap-4">
+				<div class="md:col-span-3 rounded-xl bg-gray-50 border border-gray-100 p-4">
+				  <div class="text-sm text-gray-500">
+					Linear regression:
+					<div class="mt-1 font-semibold text-gray-900" id="regEquationAuthors">y = —</div>
+					<div class="text-sm text-gray-700" id="regR2Authors">(R² = —)</div>
+				  </div>
+				</div>
+			  </div>
+
+			  <div class="mt-4 chart-wrap">
+				<canvas id="scatterAuthorsChart" aria-label="Scatter plot authors"></canvas>
+			  </div>
+			</div>
 
               <div class=" flex-1 bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
                 <div class="flex items-center justify-between">
-                  <h2 class="text-xl font-semibold text-gray-900">D-index score vs academic age</h2>
-                </div>
-
-                <div class="mt-4 chart-wrap">
-                  <canvas id="scatterChart" aria-label="Scatter plot"></canvas>
+                  <h2 class="text-xl font-semibold text-gray-900">D-index score vs Academic age</h2>
                 </div>
 
                 <div class="mt-5 grid md:grid-cols-3 gap-4">
                   <div class="md:col-span-3 rounded-xl bg-gray-50 border border-gray-100 p-4">
-                    <div class="text-sm text-gray-500">Linear regression</div>
-                    <div class="mt-1 font-semibold text-gray-900" id="regEquation">y = —</div>
-                    <div class="text-sm text-gray-700" id="regR2">R² = —</div>
+                    <div class="text-sm text-gray-500">Linear regression: <div class="mt-1 font-semibold text-gray-900" id="regEquation">y = —</div> <div class="text-sm text-gray-700" id="regR2">(R² = —)</div></div>
                   </div>
+                </div>
+
+                <div class="mt-4 chart-wrap">
+                  <canvas id="scatterChart" aria-label="Scatter plot"></canvas>
                 </div>
               </div>
             </div>
@@ -251,7 +269,7 @@
                     <th class="px-6 py-3 text-left font-semibold text-gray-700">Article</th>
                     <th class="px-6 py-3 text-left font-semibold text-gray-700 w-24">Year</th>
                     <th class="px-6 py-3 text-left font-semibold text-gray-700 w-36"># Authors</th>
-                    <th class="px-6 py-3 text-left font-semibold text-gray-700 w-28">Score</th>
+                    <th class="px-6 py-3 text-left font-semibold text-gray-700 w-28">D-index score</th>
                   </tr>
                 </thead>
                 <tbody id="worksTbody" class="divide-y divide-gray-100">
@@ -263,7 +281,7 @@
             </div>
 
             <div class="px-6 py-4 bg-gray-50 border-t border-gray-100 text-xs text-gray-500">
-              Note: requests may take 1–2 minutes for prolific authors because we fetch all pages.
+              Note: OpenAlex may have errors. 
             </div>
           </div>
         </div>
