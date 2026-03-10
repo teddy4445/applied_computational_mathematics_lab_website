@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Applied Computational Mathematics Lab - Teddy Lazebnik</title>
   <meta content="Prof' Teddy Lazebnik - Mathematics and Computer Science researcher focusing on applied computational mathematics including Biomathematical Modeling, Computer Simulation, Personalized Medicince, and AI" name="description"/>
-  <meta content="keywords" content="lazebnik, לזנבניק, teddy lazebnik, applied computational mathematics, academic lab" />
+  <meta content="keywords" content="lazebnik, ×œ×–× ×‘× ×™×§, teddy lazebnik, applied computational mathematics, academic lab" />
   <meta content="Teddy Lazebnik" name="author"/>
   <link href="img/favicon.ico" rel="icon" type="image/x-icon"/>
   <script src="https://cdn.tailwindcss.com/3.4.16"></script>
@@ -50,11 +50,8 @@
               class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm"
               >Projects</a
             >
-            <a
-              href="publications.html"
-              class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm"
-              >Publications</a
-            >
+            <a href="publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
           </div>
           <a
             href="index.html#contact"
@@ -81,6 +78,7 @@
         <a href="team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
         <a href="projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
         <a href="publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
         <a
           href="index.html#contact"
           class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90"
@@ -142,7 +140,7 @@
                   </span>
                 </div>
                 <div id="authorPanel" class="text-gray-700">
-                  <div class="text-sm text-gray-500">Waiting for input…</div>
+                  <div class="text-sm text-gray-500">Waiting for inputâ€¦</div>
                 </div>
               </div>
               
@@ -163,12 +161,12 @@
               <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm" style="margin-bottom: 20px;">
                 <h2 class="text-xl font-semibold text-gray-900 mb-4">D-index scores stats</h2>
                 <div id="statsPanel" class="grid grid-cols-2 xl:grid-col-1 lg:grid-cols-6 xs:grid-cols-2 sm:grid-cols-3 gap-4 text-sm text-gray-700">
-                  <div class="stat-tile"><div class="stat-k">N papers</div><div class="stat-v" id="statN">—</div></div>
-                  <div class="stat-tile"><div class="stat-k">Mean</div><div class="stat-v" id="statMean">—</div></div>
-                  <div class="stat-tile"><div class="stat-k">Std</div><div class="stat-v" id="statStd">—</div></div>
-                  <div class="stat-tile"><div class="stat-k">Median</div><div class="stat-v" id="statMedian">—</div></div>
-                  <div class="stat-tile"><div class="stat-k">Max</div><div class="stat-v" id="statMax">—</div></div>
-                  <div class="stat-tile"><div class="stat-k">Min</div><div class="stat-v" id="statMin">—</div></div>
+                  <div class="stat-tile"><div class="stat-k">N papers</div><div class="stat-v" id="statN">â€”</div></div>
+                  <div class="stat-tile"><div class="stat-k">Mean</div><div class="stat-v" id="statMean">â€”</div></div>
+                  <div class="stat-tile"><div class="stat-k">Std</div><div class="stat-v" id="statStd">â€”</div></div>
+                  <div class="stat-tile"><div class="stat-k">Median</div><div class="stat-v" id="statMedian">â€”</div></div>
+                  <div class="stat-tile"><div class="stat-k">Max</div><div class="stat-v" id="statMax">â€”</div></div>
+                  <div class="stat-tile"><div class="stat-k">Min</div><div class="stat-v" id="statMin">â€”</div></div>
                 </div>
               </div>
             </div>
@@ -207,8 +205,8 @@
         <div class="md:col-span-3 rounded-xl bg-gray-50 border border-gray-100 p-4">
           <div class="text-sm text-gray-500">
             Linear regression:
-            <div class="mt-1 font-semibold text-gray-900" id="regEquationAuthors">y = —</div>
-            <div class="text-sm text-gray-700" id="regR2Authors">(R² = —)</div>
+            <div class="mt-1 font-semibold text-gray-900" id="regEquationAuthors">y = â€”</div>
+            <div class="text-sm text-gray-700" id="regR2Authors">(RÂ² = â€”)</div>
           </div>
         </div>
       </div>
@@ -227,8 +225,8 @@
         <div class="md:col-span-3 rounded-xl bg-gray-50 border border-gray-100 p-4">
           <div class="text-sm text-gray-500">
             Linear regression:
-            <div class="mt-1 font-semibold text-gray-900" id="regEquation">y = —</div>
-            <div class="text-sm text-gray-700" id="regR2">(R² = —)</div>
+            <div class="mt-1 font-semibold text-gray-900" id="regEquation">y = â€”</div>
+            <div class="text-sm text-gray-700" id="regR2">(RÂ² = â€”)</div>
           </div>
         </div>
       </div>
@@ -254,7 +252,7 @@
                     id="tableSearch"
                     type="text"
                     class="pl-10 pr-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary/30"
-                    placeholder="Search titles…"
+                    placeholder="Search titlesâ€¦"
                   />
                 </div>
 
@@ -279,7 +277,7 @@
                 </thead>
                 <tbody id="worksTbody" class="divide-y divide-gray-100">
                   <tr>
-                    <td class="px-6 py-5 text-gray-500" colspan="4">No data yet — run an analysis above.</td>
+                    <td class="px-6 py-5 text-gray-500" colspan="4">No data yet â€” run an analysis above.</td>
                   </tr>
                 </tbody>
               </table>
@@ -304,12 +302,12 @@
 
   <p class="text-gray-700 leading-relaxed">
     For each focal paper, we look at papers that cite it (its <span class="font-semibold">citers</span>) and compare their reference lists
-    to the focal paper’s own references. The counts below summarize how the focal paper is cited, and together form the D-index score.
+    to the focal paperâ€™s own references. The counts below summarize how the focal paper is cited, and together form the D-index score.
   </p>
 
   <div class="mt-5 rounded-xl bg-gray-50 border border-gray-100 p-4">
     <div class="text-xs text-gray-500 mb-1">Formula</div>
-    <div class="font-mono text-sm text-gray-900">D = (nf − nb) / (nf + nb + nl)</div>
+    <div class="font-mono text-sm text-gray-900">D = (nf âˆ’ nb) / (nf + nb + nl)</div>
     <div class="mt-2 text-xs text-gray-500">
       Note: this page computes <b>nf</b> and <b>nb</b> by fetching citers (with their referenced works), and can in this calcualtor we skip <b>nl</b> to stay fast in-browser.
     </div>
@@ -326,7 +324,7 @@
     <div class="rounded-xl bg-gray-50 border border-gray-100 p-4">
       <div class="text-gray-500 font-semibold">nb</div>
       <div class="mt-1 text-gray-900">
-        # citers that cite the <b>focal</b> paper <b>and</b> at least one of its references (co-citation / “building on”)
+        # citers that cite the <b>focal</b> paper <b>and</b> at least one of its references (co-citation / â€œbuilding onâ€)
       </div>
     </div>
 
@@ -353,7 +351,7 @@
           <div class="text-sm font-semibold text-gray-900 leading-snug">
             Molecular Structure of Nucleic Acids: A Structure for Deoxyribose Nucleic Acid
           </div>
-          <div class="mt-1 text-xs text-gray-500">1953 · 13,038 citations · 5 references</div>
+          <div class="mt-1 text-xs text-gray-500">1953 Â· 13,038 citations Â· 5 references</div>
         </div>
       </div>
 
@@ -374,7 +372,7 @@
 
       <div class="mt-4 flex items-end justify-between gap-3">
         <div class="text-[11px] text-gray-500 font-mono leading-snug">
-          D = (12863 − 179) / (12863 + 179 + 226)
+          D = (12863 âˆ’ 179) / (12863 + 179 + 226)
         </div>
         <div class="text-2xl font-bold text-gray-900">0.956</div>
       </div>
@@ -387,7 +385,7 @@
           <div class="text-sm font-semibold text-gray-900 leading-snug">
             Modular Elliptic Curves and Fermat&apos;s Last Theorem
           </div>
-          <div class="mt-1 text-xs text-gray-500">1995 · 2,048 citations · 17 references</div>
+          <div class="mt-1 text-xs text-gray-500">1995 Â· 2,048 citations Â· 17 references</div>
         </div>
       </div>
 
@@ -408,9 +406,9 @@
 
       <div class="mt-4 flex items-end justify-between gap-3">
         <div class="text-[11px] text-gray-500 font-mono leading-snug">
-          D = (952 − 1098) / (952 + 1098 + 4659)
+          D = (952 âˆ’ 1098) / (952 + 1098 + 4659)
         </div>
-        <div class="text-2xl font-bold text-gray-900">−0.022</div>
+        <div class="text-2xl font-bold text-gray-900">âˆ’0.022</div>
       </div>
     </div>
 
@@ -421,7 +419,7 @@
           <div class="text-sm font-semibold text-gray-900 leading-snug">
             The anatomy of a large-scale hypertextual Web search engine
           </div>
-          <div class="mt-1 text-xs text-gray-500">1998 · 15,836 citations · 22 references</div>
+          <div class="mt-1 text-xs text-gray-500">1998 Â· 15,836 citations Â· 22 references</div>
         </div>
       </div>
 
@@ -442,7 +440,7 @@
 
       <div class="mt-4 flex items-end justify-between gap-3">
         <div class="text-[11px] text-gray-500 font-mono leading-snug">
-          D = (12865 − 2979) / (12865 + 2979 + 1850)
+          D = (12865 âˆ’ 2979) / (12865 + 2979 + 1850)
         </div>
         <div class="text-2xl font-bold text-gray-900">0.559</div>
       </div>
@@ -477,7 +475,7 @@
           <h4 class="font-semibold mb-3">Resources</h4>
           <ul class="space-y-2 text-gray-400">
             <li><a href="publications.html" class="hover:text-white">Publications</a></li>
-            <li><a href="author-analyzer.html" class="hover:text-white">Schoalr's Disruptivness analyzer</a></li>
+            <li><a href="tools.html" class="hover:text-white">Tools</a></li>
           </ul>
         </div>
         <div>
@@ -492,7 +490,7 @@
         </div>
       </div>
       <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
-        © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to
+        Â© 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to
         <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
       </div>
     </footer>
@@ -500,8 +498,8 @@
     <!-- Loading Overlay -->
     <div id="loadingOverlay" class="loading-overlay hidden-author-analyzer" role="status" aria-live="polite" aria-busy="true">
       <div class="loading-card">
-        <div class="loading-emoji">🤖📚</div>
-        <div class="loading-title">Crunching papers…</div>
+        <div class="loading-emoji">ðŸ¤–ðŸ“š</div>
+        <div class="loading-title">Crunching papersâ€¦</div>
         <div id="loadingMessage" class="loading-sub">Summoning citations and sorting years.</div>
 
         <div class="loading-dots" aria-hidden="true">
@@ -511,7 +509,7 @@
         <div class="loading-progress">
           <div id="loadingBar" class="loading-bar" style="width: 10%"></div>
         </div>
-        <div id="loadingMeta" class="loading-meta">Starting…</div>
+        <div id="loadingMeta" class="loading-meta">Startingâ€¦</div>
 
         <button id="cancelBtn" class="loading-cancel">
           <i class="ri-close-circle-line"></i> Cancel
@@ -531,3 +529,4 @@
     <script type="module" src="js/author-analyzer.js"></script>
   </body>
 </html>
+
