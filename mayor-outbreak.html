@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Mayor's Outbreak | Applied Computational Mathematics Lab</title>
+      <meta name="description" content="Mayor's Outbreak is a browser-based SIR strategy simulation where you steer a city through an epidemic by balancing mobility, testing, and public protection.">
+      <meta name="keywords" content="sir game, epidemic simulation, outbreak modeling, browser game, city graph, ACML">
+      <meta name="author" content="Teddy Lazebnik">
+      <link href="img/favicon.ico" rel="icon" type="image/x-icon"/>
+      <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="css/styles.css" rel="stylesheet">
+      <link href="css/mayor-outbreak.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter'] mayor-outbreak-page">
+      <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+            <div class="flex items-center gap-2">
+               <img src="img/logo.png" alt="acml logo" width="100px">
+            </div>
+            <div class="hidden md:flex items-center">
+               <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+                  <a href="index.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+                  <a href="team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+                  <a href="projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+                  <a href="publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+                  <a href="tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+               </div>
+               <a href="index.html#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+            </div>
+            <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100">
+               <i class="ri-menu-line text-xl"></i>
+            </button>
+         </div>
+         <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+            <a href="index.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+            <a href="team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+            <a href="projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+            <a href="publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+            <a href="tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+            <a href="index.html#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+         </div>
+      </nav>
+      <div class="h-20"></div>
+
+      <main class="mayor-shell">
+         <section id="scenario-picker" class="mayor-top-section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+               <div class="mayor-setup-card mayor-briefing-card">
+                  <div class="mayor-top-head">
+                     <div>
+                        <h1 class="mayor-display">Mayor's Outbreak</h1>
+                        <p class="mayor-lede">Build your response plan, pick the city mood, and steer the outbreak with a mayor's eye on health, movement, and recovery - the city needs you help to overcome this pandemic.</p>
+                     </div>
+                  </div>
+
+                  <div class="mayor-brief-grid">
+                     <article class="mayor-brief-card">
+                        <span class="mayor-brief-icon"><i class="ri-gamepad-line"></i></span>
+                        <h2 class="mayor-section-title">How to play</h2>
+                        <p>Pick a scenario, tune the city settings, hit <strong>Start game</strong>, and then move the three policy levers while the city keeps evolving day by day.</p>
+                     </article>
+                     <article class="mayor-brief-card">
+                        <span class="mayor-brief-icon"><i class="ri-radar-line"></i></span>
+                        <h2 class="mayor-section-title">What is going on</h2>
+                        <p>Every district tracks susceptible, infectious, and recovered residents. Movement along streets imports risk across neighborhoods and reshapes the outbreak wave.</p>
+                     </article>
+                     <article class="mayor-brief-card">
+                        <span class="mayor-brief-icon"><i class="ri-trophy-line"></i></span>
+                        <h2 class="mayor-section-title ">How to win</h2>
+                        <p>Finish with the highest score possible. Score = 100 x [average(Economic use / 200) + average(S / 2N)], so it rewards steady economic use and keeping more residents susceptible throughout the run.</p>
+                     </article>
+                  </div>
+
+                  <input id="scenario-select" type="hidden" value="balanced-city">
+
+                  <div class="mayor-setup-section">
+                     <div class="mayor-setup-section-head">
+                        <div>
+                           <span class="mayor-mini-kicker">1. Choose a city mission</span>
+                           <h2 class="mayor-section-display">Scenario picker</h2>
+                        </div>
+                     </div>
+                     <div class="mayor-scenario-grid" role="list" aria-label="Scenario choices">
+                        <button type="button" class="mayor-scenario-card is-active" data-scenario="balanced-city" aria-pressed="true">
+                           <span class="mayor-scenario-icon"><i class="ri-community-line"></i></span>
+                           <strong>Balanced City</strong>
+                           <span>Mixed travel, mixed risks, and a fair test of tradeoffs.</span>
+                        </button>
+                        <button type="button" class="mayor-scenario-card" data-scenario="dense-downtown" aria-pressed="false">
+                           <span class="mayor-scenario-icon"><i class="ri-building-2-line"></i></span>
+                           <strong>Dense Downtown</strong>
+                           <span>Busy towers, busy transit, and a faster-moving urban wave.</span>
+                        </button>
+                        <button type="button" class="mayor-scenario-card" data-scenario="school-cluster" aria-pressed="false">
+                           <span class="mayor-scenario-icon"><i class="ri-book-open-line"></i></span>
+                           <strong>School Cluster</strong>
+                           <span>Neighborhood life revolves around classrooms and family mixing.</span>
+                        </button>
+                        <button type="button" class="mayor-scenario-card" data-scenario="winter-wave" aria-pressed="false">
+                           <span class="mayor-scenario-icon"><i class="ri-snowy-line"></i></span>
+                           <strong>Winter Wave</strong>
+                           <span>Indoor crowding and seasonal strain push the city harder.</span>
+                        </button>
+                     </div>
+                     <div class="mayor-scenario-brief">
+                        <span class="mayor-mini-kicker">Selected scenario</span>
+                        <p id="scenario-description" class="mayor-helper-copy"></p>
+                     </div>
+                  </div>
+
+                  <div class="mayor-setup-section">
+                     <div class="mayor-setup-section-head">
+                        <div>
+                           <span class="mayor-mini-kicker">2. Tune the outbreak</span>
+                           <h2 class="mayor-section-display">Scenario configuration</h2>
+                        </div>
+                     </div>
+                     <div class="mayor-config-slider-row">
+                        <label class="mayor-config-slider-card" for="picker-population">
+                           <div class="mayor-config-slider-head">
+                              <span>Population</span>
+                              <strong id="picker-population-value">54,000</strong>
+                           </div>
+                           <input id="picker-population" class="mayor-slider mayor-slider--config" type="range" min="1000" max="1000000" step="1000" value="54000" aria-label="Population count">
+                           <small>1,000 to 1,000,000 residents</small>
+                        </label>
+                        <label class="mayor-config-slider-card" for="picker-beta">
+                           <div class="mayor-config-slider-head">
+                              <span>Beta</span>
+                              <strong id="picker-beta-value">0.45</strong>
+                           </div>
+                           <input id="picker-beta" class="mayor-slider mayor-slider--config" type="range" min="0" max="1" step="0.01" value="0.45" aria-label="Beta">
+                           <small>Per-contact transmission intensity</small>
+                        </label>
+                        <label class="mayor-config-slider-card" for="picker-gamma-days">
+                           <div class="mayor-config-slider-head">
+                              <span>Gamma</span>
+                              <strong id="picker-gamma-days-value">12 days</strong>
+                           </div>
+                           <input id="picker-gamma-days" class="mayor-slider mayor-slider--config" type="range" min="1" max="90" step="1" value="12" aria-label="Gamma in days">
+                           <small>Average infectious duration</small>
+                        </label>
+                        <label class="mayor-config-slider-card" for="picker-day-limit">
+                           <div class="mayor-config-slider-head">
+                              <span>Length</span>
+                              <strong id="picker-day-limit-value">56 days</strong>
+                           </div>
+                           <input id="picker-day-limit" class="mayor-slider mayor-slider--config" type="range" min="7" max="364" step="7" value="56" aria-label="Number of days">
+                           <small>Scenario duration in weekly steps</small>
+                        </label>
+                     </div>
+
+                     <div class="mayor-difficulty-row" role="group" aria-label="Difficulty presets">
+                        <button type="button" class="mayor-difficulty-button" data-difficulty="easy">
+                           <i class="ri-shield-star-line"></i>
+                           <span>Easy</span>
+                        </button>
+                        <button type="button" class="mayor-difficulty-button is-active" data-difficulty="moderate">
+                           <i class="ri-scales-3-line"></i>
+                           <span>Moderate</span>
+                        </button>
+                        <button type="button" class="mayor-difficulty-button" data-difficulty="hard">
+                           <i class="ri-fire-line"></i>
+                           <span>Hard</span>
+                        </button>
+                     </div>
+                  </div>
+
+                  <div class="mayor-setup-section">
+                     <div class="mayor-setup-section-head">
+                        <div>
+                           <span class="mayor-mini-kicker">3. Learn the levers</span>
+                           <h2 class="mayor-section-display">Policy powers</h2>
+                        </div>
+                     </div>
+                     <div class="mayor-policy-fun-grid">
+                        <article class="mayor-policy-fun-card mobility">
+                           <span class="mayor-policy-fun-icon"><i class="ri-road-map-line"></i></span>
+                           <h3>Mobility Restrictions</h3>
+                           <p>Clamp down on trips between districts. It cuts imported spread hard, but it also drags the economy down faster than the other tools.</p>
+                        </article>
+                        <article class="mayor-policy-fun-card testing">
+                           <span class="mayor-policy-fun-icon"><i class="ri-stethoscope-line"></i></span>
+                           <h3>Testing &amp; Isolation</h3>
+                           <p>Find cases early and get infectious residents out of circulation sooner. Great for health outcomes, with a smaller economic penalty than lockdowns.</p>
+                        </article>
+                        <article class="mayor-policy-fun-card protection">
+                           <span class="mayor-policy-fun-icon"><i class="ri-shield-check-line"></i></span>
+                           <h3>Public Protection</h3>
+                           <p>Reduce risk per encounter through masking, cleaner air, distancing, and public messaging. It shines when paired with the other two levers.</p>
+                        </article>
+                     </div>
+                  </div>
+
+                  <div class="mayor-start-row">
+                     <button id="launch-scenario-button" class="mayor-primary-button mayor-start-button" type="button">
+                        <i class="ri-play-large-fill"></i>
+                        <span>Start game</span>
+                     </button>
+                  </div>
+               </div>
+            </div>
+         </section>
+
+         <section id="mayor-game-shell" class="mayor-game-shell" hidden>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+               <section class="mayor-control-row" aria-label="Simulation controls">
+                  <div class="mayor-control-block mayor-timeline-block">
+                     <span class="mayor-field-label">Timeline controls</span>
+                     <div class="mayor-button-row">
+                        <button id="pause-button" class="mayor-action-button" type="button">Pause</button>
+                        <button id="resume-button" class="mayor-action-button is-secondary" type="button">Resume</button>
+                        <button id="reset-button" class="mayor-action-button is-secondary" type="button">Back to picker</button>
+                     </div>
+                     <div class="mayor-speed-row" role="group" aria-label="Simulation speed">
+                        <button class="mayor-speed-button is-active" type="button" data-speed="1">1x</button>
+                        <button class="mayor-speed-button" type="button" data-speed="2">2x</button>
+                        <button class="mayor-speed-button" type="button" data-speed="4">4x</button>
+                     </div>
+                  </div>
+
+                  <div class="mayor-control-block mayor-inline-policy-group">
+                     <div class="mayor-policy-group mayor-policy-group--inline" style="margin-top: 20px;">
+                        <div class="mayor-policy-head">
+                           <label for="policy-mobility">Mobility Restrictions</label>
+                           <button class="mayor-info-button" type="button" data-tooltip="Strongly cuts travel between districts and lowers economic utilization the most." aria-label="About mobility restrictions">i</button>
+                        </div>
+                        <input id="policy-mobility" class="mayor-slider" type="range" min="0" max="1" step="0.01" value="0.22" aria-label="Mobility Restrictions">
+                        <div class="mayor-policy-meta">
+                           <span id="policy-mobility-value">0.22</span>
+                           <span id="policy-mobility-copy">Flow still fairly open.</span>
+                        </div>
+                     </div>
+                     <div class="mayor-policy-group mayor-policy-group--inline">
+                        <div class="mayor-policy-head">
+                           <label for="policy-testing">Testing &amp; Isolation</label>
+                           <button class="mayor-info-button" type="button" data-tooltip="Speeds removal of infectious residents and cuts infected mobility with a moderate operational cost." aria-label="About testing and isolation">i</button>
+                        </div>
+                        <input id="policy-testing" class="mayor-slider" type="range" min="0" max="1" step="0.01" value="0.30" aria-label="Testing and Isolation">
+                        <div class="mayor-policy-meta">
+                           <span id="policy-testing-value">0.30</span>
+                           <span id="policy-testing-copy">Some cases are caught quickly.</span>
+                        </div>
+                     </div>
+                     <div class="mayor-policy-group mayor-policy-group--inline">
+                        <div class="mayor-policy-head">
+                           <label for="policy-protection">Public Protection Measures</label>
+                           <button class="mayor-info-button" type="button" data-tooltip="Reduces transmission per encounter through masks, ventilation, hygiene, and public messaging." aria-label="About public protection measures">i</button>
+                        </div>
+                        <input id="policy-protection" class="mayor-slider" type="range" min="0" max="1" step="0.01" value="0.25" aria-label="Public Protection Measures">
+                        <div class="mayor-policy-meta">
+                           <span id="policy-protection-value">0.25</span>
+                           <span id="policy-protection-copy">Risk reduction is present, but light.</span>
+                        </div>
+                     </div>
+                  </div>
+               </section>
+
+               <div class="mayor-stage-grid">
+                  <article class="mayor-board-card">
+                     <span class="sr-only" id="scenario-badge">Balanced City</span>
+                     <div class="mayor-board-shell mayor-board-shell--graph">
+                        <div id="legend-card" class="mayor-map-legend mayor-map-legend--row" aria-label="Map legend">
+                           <div class="mayor-map-card-head mayor-map-card-head--legend">
+                              <strong>Legend</strong>
+                              <div class="mayor-map-legend-strip">
+                                 <div class="mayor-legend-row">
+                                    <span class="mayor-legend-label">District heat</span>
+                                    <div class="mayor-heat-scale" aria-hidden="true">
+                                       <span></span><span></span><span></span><span></span>
+                                    </div>
+                                 </div>
+                                 <div class="mayor-legend-row">
+                                    <span class="mayor-dot healthy"></span>
+                                    <span>Street movement</span>
+                                 </div>
+                                 <div class="mayor-legend-row">
+                                    <span class="mayor-dot infected"></span>
+                                    <span>Likely infectious movement</span>
+                                 </div>
+                              </div>
+                              <button id="legend-card-close" class="mayor-panel-close" type="button" aria-label="Close legend panel">X</button>
+                           </div>
+                        </div>
+                        <div class="mayor-map-day-anchor">
+                           <div class="mayor-day-badge">Day <span id="day-counter">0</span> / <span id="day-limit">60</span></div>
+                        </div>
+                        <div id="district-card" class="mayor-floating-panel mayor-floating-panel--left">
+                           <div class="mayor-card-head mayor-card-head--panel">
+                              <h3>District</h3>
+                              <button id="district-card-close" class="mayor-panel-close" type="button" aria-label="Close district panel">X</button>
+                           </div>
+                           <div id="district-detail-panel" class="mayor-district-detail" aria-live="polite"></div>
+                        </div>
+                        <div class="mayor-floating-panel mayor-floating-panel--right" id="event-card" aria-live="polite">
+                           <div class="mayor-card-head mayor-card-head--panel">
+                              <h3>City event</h3>
+                              <div class="mayor-panel-head-actions">
+                                 <span id="event-window" class="mayor-event-window">No active event</span>
+                                 <button id="event-card-close" class="mayor-panel-close" type="button" aria-label="Close city event panel">X</button>
+                              </div>
+                           </div>
+                           <h4 id="event-title">Calm briefing</h4>
+                           <p id="event-description">The current city pattern is driven mainly by your policy mix and district-to-district flow.</p>
+                        </div>
+                        <svg id="mayor-city-map" class="mayor-city-map" viewBox="0 0 860 540" role="img" aria-label="City outbreak map with connected districts and animated mobility"></svg>
+                     </div>
+                  </article>
+
+                  <aside class="mayor-stats-sidebar">
+                     <section class="mayor-hero-card mayor-sidebar-summary" aria-labelledby="mayor-summary-card-title">
+                        <div class="mayor-hero-card-top">
+                           <div>
+                              <p class="mayor-hero-card-label">Live briefing</p>
+                              <h2 id="mayor-summary-card-title">City status</h2>
+                           </div>
+                           <span class="mayor-status-pill" id="hero-status-pill">Live simulation</span>
+                        </div>
+                        <div class="mayor-hero-stat-grid">
+                           <div class="mayor-hero-stat">
+                              <div class="mayor-hero-stat-head">
+                                 <span>Active infections</span>
+                                 <button class="mayor-info-button" type="button" data-tooltip="Lower is better. Green means a small active wave, red means a large share of residents are currently infectious." aria-label="About active infections">i</button>
+                              </div>
+                              <strong id="hero-active">0</strong>
+                           </div>
+                           <div class="mayor-hero-stat">
+                              <div class="mayor-hero-stat-head">
+                                 <span>Spread metric</span>
+                                 <button class="mayor-info-button" type="button" data-tooltip="Lower is better. Green below 0.95, yellow near 1, orange above 1.1, red well above 1.35." aria-label="About spread metric">i</button>
+                              </div>
+                              <strong id="hero-rt">0</strong>
+                           </div>
+                           <div class="mayor-hero-stat">
+                              <div class="mayor-hero-stat-head">
+                                 <span>Hospital load</span>
+                                 <button class="mayor-info-button" type="button" data-tooltip="Lower is better. Green when comfortably under capacity, red once overload becomes sustained." aria-label="About hospital load">i</button>
+                              </div>
+                              <strong id="hero-hospital">0%</strong>
+                           </div>
+                           <div class="mayor-hero-stat">
+                              <div class="mayor-hero-stat-head">
+                                 <span>Economic use</span>
+                                 <button class="mayor-info-button" type="button" data-tooltip="Higher is better. Green means the city is operating broadly well, red means severe economic drag." aria-label="About economic use">i</button>
+                              </div>
+                              <strong id="hero-economy">0%</strong>
+                           </div>
+                           <div class="mayor-hero-stat">
+                              <div class="mayor-hero-stat-head">
+                                 <span>Public trust</span>
+                                 <button class="mayor-info-button" type="button" data-tooltip="Higher is better. Trust supports compliance and steadier outcomes when the city is under pressure." aria-label="About public trust">i</button>
+                              </div>
+                              <strong id="hero-trust">0</strong>
+                           </div>
+                        </div>
+                        <div class="mayor-live-score" aria-live="polite">
+                           <div class="mayor-live-score-head">
+                              <span>Score</span>
+                              <button class="mayor-info-button" type="button" data-tooltip="Higher is better. Score = 100 x [average(Economic use / 200) + average(S / 2N)], so it rewards both strong economic use and keeping more residents from ever getting infected." aria-label="About score">i</button>
+                           </div>
+                           <strong id="hero-score" style="color: white;">0</strong>
+                        </div>
+                     </section>
+                  </aside>
+               </div>
+
+               <section class="mayor-analytics" aria-label="Simulation charts">
+                  <div class="mayor-chart-grid">
+                     <article class="mayor-chart-card">
+                        <div class="mayor-card-head">
+                           <h3>Active infections</h3>
+                           <span id="chart-active-label" class="mayor-chart-value">0</span>
+                        </div>
+                        <svg id="chart-active" class="mayor-chart" viewBox="0 0 520 220" aria-label="Active infections over time"></svg>
+                     </article>
+                     <article class="mayor-chart-card">
+                        <div class="mayor-card-head">
+                           <h3>Spread Rate (R_t)</h3>
+                           <span id="chart-rt-label" class="mayor-chart-value">0.00</span>
+                        </div>
+                        <svg id="chart-rt" class="mayor-chart" viewBox="0 0 520 220" aria-label="Spread rate over time"></svg>
+                     </article>
+                     <article class="mayor-chart-card">
+                        <div class="mayor-card-head">
+                           <h3>Hospital utilization</h3>
+                           <span id="chart-hospital-label" class="mayor-chart-value">0%</span>
+                        </div>
+                        <svg id="chart-hospital" class="mayor-chart" viewBox="0 0 520 220" aria-label="Hospital utilization over time"></svg>
+                     </article>
+                     <article class="mayor-chart-card">
+                        <div class="mayor-card-head">
+                           <h3>Economic utilization</h3>
+                           <span id="chart-economy-label" class="mayor-chart-value">0%</span>
+                        </div>
+                        <svg id="chart-economy" class="mayor-chart" viewBox="0 0 520 220" aria-label="Economic utilization over time"></svg>
+                     </article>
+                     <article class="mayor-chart-card mayor-chart-card--policy">
+                        <div class="mayor-card-head">
+                           <h3>Policy history</h3>
+                           <span class="mayor-chart-value">0.00 - 1.00 scale</span>
+                        </div>
+                        <svg id="chart-policy" class="mayor-chart" viewBox="0 0 520 220" aria-label="Policy history timeline"></svg>
+                     </article>
+                  </div>
+               </section>
+            </div>
+         </section>
+      </main>
+
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img src="img/LOGO_Blue.svg" alt="acml logo footer" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Quick Links</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="team.html" class="hover:text-white">Team</a></li>
+                  <li><a href="media.html" class="hover:text-white">Media</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jonkoping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            &copy; 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+
+      <section class="mayor-summary-modal" id="summary-modal" hidden>
+         <div class="mayor-summary-card" role="dialog" aria-modal="true" aria-labelledby="summary-title">
+            <h2 id="summary-title" class="sr-only">Scenario summary</h2>
+            <p id="summary-copy" class="mayor-summary-copy"></p>
+            <div class="mayor-summary-grid">
+               <div>
+                  <span>Public health</span>
+                  <strong id="summary-health">0</strong>
+               </div>
+               <div>
+                  <span>Economy</span>
+                  <strong id="summary-economy">0</strong>
+               </div>
+               <div>
+                  <span>Hospital pressure</span>
+                  <strong id="summary-hospital">0</strong>
+               </div>
+               <div>
+                  <span>Civic trust</span>
+                  <strong id="summary-trust">0</strong>
+               </div>
+            </div>
+            <div class="mayor-summary-score-row">
+               <div class="mayor-summary-score-card">
+                  <span>Score</span>
+                  <strong id="summary-score">0</strong>
+               </div>
+               <div class="mayor-summary-score-graph-card">
+                  <span>Score over time</span>
+                  <svg id="summary-score-chart" class="mayor-summary-score-chart" viewBox="0 0 280 120" aria-label="Score over time"></svg>
+               </div>
+            </div>
+            <div class="mayor-summary-actions">
+               <button id="summary-dismiss" class="mayor-action-button is-secondary" type="button">Close overview</button>
+               <button id="summary-picker" class="mayor-action-button" type="button">Back to scenario picker</button>
+            </div>
+         </div>
+      </section>
+
+      <div id="mayor-tooltip" class="mayor-tooltip" role="tooltip" hidden></div>
+      <script src="js/main.js"></script>
+      <script src="js/mayor-outbreak.js"></script>
+   </body>
+</html>
