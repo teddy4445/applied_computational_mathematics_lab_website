@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Authorship Deal Risk Checker | Applied Computational Mathematics Lab</title>
+  <meta name="description" content="Estimate how fragile a proposed academic authorship arrangement is before submission using transparent, browser-only heuristics inspired by ACML research." />
+  <meta name="keywords" content="authorship, co-authorship, risk checker, negotiation fragility, contribution order, ACML" />
+  <meta name="author" content="Teddy Lazebnik" />
+  <link href="img/favicon.ico" rel="icon" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/authorship-checker.css" rel="stylesheet">
+</head>
+<body>
+  <nav id="navbar" class="site-nav" aria-label="Primary navigation">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html" aria-label="Applied Computational Mathematics Laboratory home">
+        <img src="img/logo.png" alt="ACML logo" width="100" height="34" />
+      </a>
+      <div class="desktop-nav">
+        <div class="desktop-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="team.html" class="nav-link">Our Team</a>
+          <a href="projects.html" class="nav-link">Projects</a>
+          <a href="publications.html" class="nav-link">Publications</a>
+          <a href="tools.html" class="nav-link">Tools</a>
+        </div>
+        <a href="index.html#contact" class="contact-link">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <path d="M4 7h16M4 12h16M4 17h16"></path>
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="mobile-menu" hidden>
+      <div class="container">
+        <a href="index.html">Home</a>
+        <a href="team.html">Our Team</a>
+        <a href="projects.html">Projects</a>
+        <a href="publications.html">Publications</a>
+        <a href="tools.html">Tools</a>
+        <a href="index.html#contact" class="contact-link">Contact Us</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-spacer" aria-hidden="true"></div>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h1>Authorship Deal Risk Checker</h1>
+          <p class="hero-subtitle">Estimate how fragile your proposed author arrangement is before submission.</p>
+          <p class="hero-detail">This tool flags likely tension points around order, credit, and late-stage renegotiation. It is a conflict-risk estimator based on transparent heuristics inspired by game-theoretic authorship-dispute dynamics, not a judge of correct authorship.</p>
+        </div>
+
+        <aside class="hero-note" aria-labelledby="hero-note-title">
+          <h2 id="hero-note-title">What this checker surfaces</h2>
+          <p>Use it before submission to see where an authorship deal may become brittle, who may feel under-credited, and which decisions are safest to settle now.</p>
+          <ul>
+            <li>Contribution-order mismatch for visible byline positions.</li>
+            <li>Equal-contribution labels that may not resolve underlying tension.</li>
+            <li>Late-stage pressure, utility asymmetry, and advisor-student power context.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="app-section" aria-labelledby="tool-heading">
+      <div class="container app-grid">
+        <section class="panel" aria-labelledby="tool-heading">
+          <div class="panel-head">
+            <div>
+              <h2 id="tool-heading">Proposed arrangement</h2>
+            </div>
+          </div>
+
+          <div id="form-status" class="helper-text" aria-live="polite" style="margin-bottom: 10px;"></div>
+
+          <form id="risk-form" novalidate>
+            <fieldset class="input-card">
+              <legend>Project context</legend>
+              <p class="helper-text">Field norms vary. This setting changes how strongly byline position is treated as a signal of credit.</p>
+              <div class="context-grid">
+                <div class="field">
+                  <label for="field-convention">Field convention</label>
+                  <select id="field-convention" name="fieldConvention">
+                    <option value="biomedical">Biomedical / life sciences</option>
+                    <option value="computer-science">Computer science</option>
+                    <option value="economics">Economics / social science</option>
+                    <option value="alphabetical">Alphabetical-order tradition</option>
+                    <option value="custom">Custom / mixed</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="project-stage">Project stage</label>
+                  <select id="project-stage" name="projectStage">
+                    <option value="early">Early collaboration</option>
+                    <option value="drafting">Drafting</option>
+                    <option value="near-submission">Near submission</option>
+                    <option value="under-revision">Under revision</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="author-count">Number of authors</label>
+                  <select id="author-count" name="authorCount"></select>
+                </div>
+                <div class="field">
+                  <label for="corresponding-author">Corresponding author</label>
+                  <select id="corresponding-author" name="correspondingAuthor"></select>
+                </div>
+                <label class="checkbox-field" for="large-collab">
+                  <input id="large-collab" name="largeCollab" type="checkbox" />
+                  Large collaborative project / consortium style
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="input-card">
+              <legend>Authors</legend>
+              <div id="authors-container" class="authors-stack" aria-live="polite"></div>
+            </fieldset>
+            <div class="compute-row">
+              <button id="compute-results" class="btn btn-primary" type="button">Compute fragility</button>
+            </div>
+          </form>
+        </section>
+
+        <aside class="panel results-panel" aria-labelledby="results-heading">
+          <div class="results-header">
+            <div>
+              <h2 id="results-heading">Negotiation fragility results</h2>
+              <p>Results appear only after you compute a complete setup. Edit the arrangement at any time, then compute again to refresh the analysis.</p>
+            </div>
+            <div class="results-actions">
+              <button id="export-summary" class="btn" type="button" disabled>Export summary</button>
+              <button id="copy-link" class="btn" type="button" disabled>Copy shareable link</button>
+            </div>
+          </div>
+          <div id="results-placeholder" class="results-placeholder">Complete the setup and click <strong>Compute fragility</strong> to show the score, mismatch table, likely veto points, and action plan.</div>
+          <div id="results-body" hidden>
+          <section class="score-card" aria-labelledby="score-card-title">
+            <div class="score-top">
+              <div>
+                <h3 id="score-card-title" class="visually-hidden">Fragility score summary</h3>
+                <div id="score-value" class="score-value">0</div>
+                <div class="score-caption">Fragility score</div>
+              </div>
+              <span id="risk-badge" class="risk-badge is-low">Low</span>
+            </div>
+            <div class="score-bar-wrap" aria-label="Fragility score bar">
+              <div class="score-bar-track" aria-hidden="true">
+                <div id="score-bar-fill" class="score-bar-fill"></div>
+              </div>
+              <div class="score-scale"><span>Low fragility</span><span>Severe fragility</span></div>
+            </div>
+            <div class="score-side">
+              <p id="score-summary" class="score-summary">This arrangement currently looks relatively stable.</p>
+              <div class="results-meta">
+                <div class="summary-kv"><strong>Field convention</strong><span id="summary-field">Biomedical / life sciences</span></div>
+                <div class="summary-kv"><strong>Project stage</strong><span id="summary-stage">Drafting</span></div>
+                <div class="summary-kv"><strong>Corresponding author</strong><span id="summary-corresponding">Author 1</span></div>
+                <div class="summary-kv"><strong>Most likely pressure point</strong><span id="summary-pressure">Contribution-order mismatch</span></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="results-block" aria-labelledby="veto-heading">
+            <h3 id="veto-heading">Top veto points</h3>
+            <ul id="veto-list" class="results-list"></ul>
+          </section>
+
+          <section class="results-block" aria-labelledby="mismatch-heading">
+            <h3 id="mismatch-heading">Contribution vs byline mismatch</h3>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Author</th>
+                    <th>Proposed position</th>
+                    <th>Expected contribution rank</th>
+                    <th>Gap</th>
+                    <th>Risk note</th>
+                  </tr>
+                </thead>
+                <tbody id="mismatch-body"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="results-block" aria-labelledby="exposed-heading">
+            <h3 id="exposed-heading">Most exposed authors</h3>
+            <div id="exposed-list" class="exposed-list"></div>
+          </section>
+
+          <section class="results-block" aria-labelledby="action-heading">
+            <h3 id="action-heading">What to settle now</h3>
+            <ol id="action-list" class="action-list"></ol>
+          </section>
+
+          <section class="results-block" aria-labelledby="scenario-heading">
+            <div class="block-head">
+              <div>
+                <h3 id="scenario-heading">Scenario explorer</h3>
+                <p class="subnote">Each option shows whether it lowers or raises the current fragility score.</p>
+              </div>
+              <div class="field" style="min-width: 220px;">
+                <label for="scenario-author">Author to move</label>
+                <select id="scenario-author"></select>
+              </div>
+            </div>
+            <div id="scenario-list" class="scenario-list"></div>
+          </section>
+
+          <details class="results-block breakdown">
+            <summary>See score breakdown</summary>
+            <div id="breakdown-list" class="breakdown-list"></div>
+          </details>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <img src="img/LOGO_Blue.svg" alt="ACML footer logo" width="100" height="34" />
+        <p>Advancing computational mathematics through real-world problem solving.</p>
+      </div>
+      <div>
+        <h4 class="footer-title">Quick Links</h4>
+        <ul class="footer-list">
+          <li><a href="team.html">Team</a></li>
+          <li><a href="media.html">Media</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-title">Resources</h4>
+        <ul class="footer-list">
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="tools.html">Tools</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-title">Contact Info</h4>
+        <p>Department of Information Systems,<br />University of Haifa<br />Department of Computing,<br />Jonkoping University<br />Lazebnik.teddy (at) gmail.com</p>
+      </div>
+    </div>
+    <div class="container footer-meta">
+      &copy; 2025-<span id="footer-year"></span> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com" target="_blank" rel="noopener">Teddy Lazebnik</a>.
+    </div>
+  </footer>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+         crossorigin="anonymous"></script>
+      <script src="js/main.js"></script>
+      <script src="js/authorship-checker.js"></script>
+</body>
+</html>
+
+
+
+
+
