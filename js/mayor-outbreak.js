@@ -4,6 +4,15 @@
   const SUBSTEPS_PER_DAY = 6;
   const MAX_AGENTS = 44;
   const REDUCED_MOTION_AGENTS = 18;
+  const GAME_AUDIO_TRACKS = ["assets/game1.mp3", "assets/game2.mp3"];
+
+  const AUDIO = {
+    player: null,
+    playlist: [],
+    trackIndex: 0,
+    muted: false,
+    playbackStarted: false
+  };
 
   const BASE_DISTRICTS = [
     { id: "residential", name: "Residential North", typeId: "residential", typeLabel: "Residential", population: 9800, economicWeight: 0.92, x: 224, y: 158, size: 56 },
@@ -366,6 +375,7 @@
   function initGame() {
     STATE.reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     cacheElements();
+    initAudioController();
     bindControls();
     bindTooltips();
     markToolsNavActive();
@@ -444,6 +454,9 @@
     EL.chartRtLabel = document.getElementById("chart-rt-label");
     EL.chartHospitalLabel = document.getElementById("chart-hospital-label");
     EL.chartEconomyLabel = document.getElementById("chart-economy-label");
+    EL.audioToggleButton = document.getElementById("mayor-audio-toggle");
+    EL.audioToggleIcon = document.getElementById("mayor-audio-toggle-icon");
+    EL.audioToggleLabel = document.getElementById("mayor-audio-toggle-label");
   }
 
   function bindControls() {
@@ -494,6 +507,10 @@
     EL.resetButton.addEventListener("click", () => {
       goToScenarioPicker();
     });
+
+    if (EL.audioToggleButton) {
+      EL.audioToggleButton.addEventListener("click", toggleGameAudio);
+    }
 
     EL.districtCardClose.addEventListener("click", () => {
       hideFloatingPanel("district");
@@ -551,6 +568,129 @@
         closeSummaryModal();
       }
     });
+  }
+
+  function initAudioController() {
+    AUDIO.playlist = Math.random() < 0.5
+      ? [...GAME_AUDIO_TRACKS]
+      : [...GAME_AUDIO_TRACKS].reverse();
+    AUDIO.trackIndex = 0;
+    AUDIO.player = new Audio(AUDIO.playlist[AUDIO.trackIndex]);
+    AUDIO.player.preload = "auto";
+    AUDIO.player.loop = false;
+    AUDIO.player.volume = 0.42;
+    AUDIO.player.muted = AUDIO.muted;
+    AUDIO.player.addEventListener("ended", playNextGameTrack);
+    AUDIO.player.addEventListener("play", syncAudioToggleButton);
+    AUDIO.player.addEventListener("pause", syncAudioToggleButton);
+    AUDIO.player.addEventListener("volumechange", syncAudioToggleButton);
+    syncAudioToggleButton();
+  }
+
+  function setCurrentGameTrack() {
+    if (!AUDIO.player || !AUDIO.playlist.length) {
+      return;
+    }
+    AUDIO.player.src = AUDIO.playlist[AUDIO.trackIndex];
+    AUDIO.player.load();
+  }
+
+  function syncAudioToggleButton() {
+    if (!EL.audioToggleButton) {
+      return;
+    }
+
+    const isAudible = Boolean(
+      STATE.gameVisible
+      && AUDIO.player
+      && AUDIO.playbackStarted
+      && !AUDIO.player.paused
+      && !AUDIO.muted
+    );
+
+    EL.audioToggleButton.hidden = !STATE.gameVisible;
+    EL.audioToggleButton.classList.toggle("is-muted", !isAudible);
+    EL.audioToggleButton.setAttribute("aria-pressed", String(isAudible));
+    EL.audioToggleButton.setAttribute("aria-label", isAudible ? "Mute background music" : "Play background music");
+    EL.audioToggleButton.title = isAudible ? "Mute background music" : "Play background music";
+
+    if (EL.audioToggleLabel) {
+      EL.audioToggleLabel.textContent = isAudible ? "Mute" : "Play";
+    }
+
+    if (EL.audioToggleIcon) {
+      EL.audioToggleIcon.innerHTML = isAudible
+        ? '<i class="ri-volume-up-line"></i>'
+        : '<i class="ri-play-circle-line"></i>';
+    }
+  }
+
+  function startGameAudioPlayback() {
+    if (!AUDIO.player) {
+      return;
+    }
+
+    AUDIO.playbackStarted = true;
+    AUDIO.player.muted = AUDIO.muted;
+    const playPromise = AUDIO.player.play();
+
+    if (playPromise && typeof playPromise.catch === "function") {
+      playPromise.catch(() => {
+        syncAudioToggleButton();
+      });
+    }
+
+    syncAudioToggleButton();
+  }
+
+  function stopGameAudioPlayback({ resetToStart = false } = {}) {
+    if (!AUDIO.player) {
+      return;
+    }
+
+    AUDIO.playbackStarted = false;
+    AUDIO.player.pause();
+    AUDIO.player.currentTime = 0;
+
+    if (resetToStart) {
+      AUDIO.trackIndex = 0;
+      setCurrentGameTrack();
+    }
+
+    syncAudioToggleButton();
+  }
+
+  function playNextGameTrack() {
+    if (!AUDIO.player || !AUDIO.playlist.length) {
+      return;
+    }
+
+    AUDIO.trackIndex = (AUDIO.trackIndex + 1) % AUDIO.playlist.length;
+    setCurrentGameTrack();
+
+    const playPromise = AUDIO.player.play();
+    if (playPromise && typeof playPromise.catch === "function") {
+      playPromise.catch(() => {
+        syncAudioToggleButton();
+      });
+    }
+  }
+
+  function toggleGameAudio() {
+    if (!AUDIO.player || !STATE.gameVisible) {
+      return;
+    }
+
+    if (AUDIO.muted || AUDIO.player.paused) {
+      AUDIO.muted = false;
+      AUDIO.player.muted = false;
+      startGameAudioPlayback();
+      return;
+    }
+
+    AUDIO.muted = true;
+    AUDIO.player.muted = true;
+    syncAudioToggleButton();
   }
 
   function bindTooltips() {
@@ -806,6 +946,7 @@
     STATE.latestEvent = null;
     STATE.activeEventIds = new Set();
     STATE.eventPanelEventId = null;
+    stopGameAudioPlayback({ resetToStart: true });
     resetFloatingPanels();
     closeSummaryModal();
     EL.gameShell.hidden = true;
@@ -952,6 +1093,7 @@
     renderCharts();
     renderHud();
     closeSummaryModal();
+    startGameAudioPlayback();
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 

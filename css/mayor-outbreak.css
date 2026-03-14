@@ -2219,3 +2219,95 @@ body.mayor-outbreak-page[data-mayor-theme="winter-wave"] {
     grid-template-columns: 1fr;
   }
 }
+
+.mayor-audio-toggle {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 90;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 3.3rem;
+  padding: 0.8rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  background: rgba(15, 23, 42, 0.9);
+  color: #ffffff;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.22);
+  backdrop-filter: blur(18px);
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, color 180ms ease, border-color 180ms ease;
+}
+
+.mayor-audio-toggle[hidden] {
+  display: none;
+}
+
+.mayor-audio-toggle:hover,
+.mayor-audio-toggle:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 26px 46px rgba(15, 23, 42, 0.24);
+}
+
+.mayor-audio-toggle:focus-visible {
+  outline: 2px solid rgba(37, 99, 235, 0.3);
+  outline-offset: 2px;
+}
+
+.mayor-audio-toggle.is-muted {
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--outbreak-ink);
+  border-color: rgba(148, 163, 184, 0.28);
+}
+
+.mayor-audio-toggle-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.mayor-audio-toggle-label {
+  max-width: 0;
+  overflow: hidden;
+  opacity: 0;
+  white-space: nowrap;
+  transform: translateX(0.12rem);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: max-width 180ms ease, opacity 180ms ease, transform 180ms ease;
+}
+
+.mayor-audio-toggle:hover .mayor-audio-toggle-label,
+.mayor-audio-toggle:focus-visible .mayor-audio-toggle-label {
+  max-width: 4.5rem;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (max-width: 700px) {
+  .mayor-audio-toggle {
+    right: 1rem;
+    bottom: 1rem;
+    min-height: 3rem;
+    padding: 0.75rem 0.95rem;
+  }
+
+  .mayor-audio-toggle-label {
+    max-width: 4.5rem;
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mayor-audio-toggle,
+  .mayor-audio-toggle-label {
+    transition: none;
+  }
+}
