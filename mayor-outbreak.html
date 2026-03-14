@@ -215,12 +215,12 @@
                      <div class="mayor-button-row">
                         <button id="pause-button" class="mayor-action-button" type="button">Pause</button>
                         <button id="resume-button" class="mayor-action-button is-secondary" type="button">Resume</button>
-                        <button id="reset-button" class="mayor-action-button is-secondary" type="button">Back to picker</button>
                      </div>
                      <div class="mayor-speed-row" role="group" aria-label="Simulation speed">
                         <button class="mayor-speed-button is-active" type="button" data-speed="1">1x</button>
                         <button class="mayor-speed-button" type="button" data-speed="2">2x</button>
                         <button class="mayor-speed-button" type="button" data-speed="4">4x</button>
+                        <button class="mayor-speed-button" type="button" data-speed="8">8x</button>
                      </div>
                   </div>
 
@@ -284,31 +284,16 @@
                                     <span>Likely infectious movement</span>
                                  </div>
                               </div>
-                              <button id="legend-card-close" class="mayor-panel-close" type="button" aria-label="Close legend panel">X</button>
                            </div>
                         </div>
-                        <div class="mayor-map-day-anchor">
-                           <div class="mayor-day-badge">Day <span id="day-counter">0</span> / <span id="day-limit">60</span></div>
-                        </div>
-                        <div id="district-card" class="mayor-floating-panel mayor-floating-panel--left">
+                        <svg id="mayor-city-map" class="mayor-city-map" viewBox="0 0 860 540" role="img" aria-label="City outbreak map with connected districts and animated mobility"></svg>
+                        <div id="district-card" class="mayor-floating-panel mayor-district-panel-wide" hidden>
                            <div class="mayor-card-head mayor-card-head--panel">
-                              <h3>District</h3>
+                              <h3 id="district-card-title">District detail</h3>
                               <button id="district-card-close" class="mayor-panel-close" type="button" aria-label="Close district panel">X</button>
                            </div>
                            <div id="district-detail-panel" class="mayor-district-detail" aria-live="polite"></div>
                         </div>
-                        <div class="mayor-floating-panel mayor-floating-panel--right" id="event-card" aria-live="polite">
-                           <div class="mayor-card-head mayor-card-head--panel">
-                              <h3>City event</h3>
-                              <div class="mayor-panel-head-actions">
-                                 <span id="event-window" class="mayor-event-window">No active event</span>
-                                 <button id="event-card-close" class="mayor-panel-close" type="button" aria-label="Close city event panel">X</button>
-                              </div>
-                           </div>
-                           <h4 id="event-title">Calm briefing</h4>
-                           <p id="event-description">The current city pattern is driven mainly by your policy mix and district-to-district flow.</p>
-                        </div>
-                        <svg id="mayor-city-map" class="mayor-city-map" viewBox="0 0 860 540" role="img" aria-label="City outbreak map with connected districts and animated mobility"></svg>
                      </div>
                   </article>
 
@@ -357,6 +342,13 @@
                               </div>
                               <strong id="hero-trust">0</strong>
                            </div>
+                           <div class="mayor-hero-stat">
+                              <div class="mayor-hero-stat-head">
+                                 <span>Days held</span>
+                                 <button class="mayor-info-button" type="button" data-tooltip="The scenario ends once you hold the city together for the full number of scenario days." aria-label="About days held">i</button>
+                              </div>
+                              <strong id="hero-days"><span id="day-counter">0</span> / <span id="day-limit">60</span></strong>
+                           </div>
                         </div>
                         <div class="mayor-live-score" aria-live="polite">
                            <div class="mayor-live-score-head">
@@ -366,10 +358,69 @@
                            <strong id="hero-score" style="color: white;">0</strong>
                         </div>
                      </section>
+
                   </aside>
                </div>
 
-               <section class="mayor-analytics" aria-label="Simulation charts">
+               <section class="mayor-advisor-row" aria-labelledby="advisor-panel-title">
+                  <section class="mayor-panel-card mayor-advisor-panel mayor-advisor-panel--row">
+                     <div class="mayor-card-head">
+                        <h3 id="advisor-panel-title">Advisor desk</h3>
+                     </div>
+                     <div class="mayor-advisor-list">
+                        <article id="advisor-health-card" class="mayor-advisor-note health">
+                           <div class="mayor-advisor-note-head">
+                              <div class="mayor-advisor-note-meta">
+                                 <span class="mayor-advisor-icon" aria-hidden="true"><i class="ri-heart-pulse-line"></i></span>
+                                 <div>
+                                    <span class="mayor-advisor-badge">Health</span>
+                                    <strong>Public health desk</strong>
+                                 </div>
+                              </div>
+                              <div id="advisor-health-chart" class="mayor-advisor-mini-chart" aria-hidden="true">
+                                 <span></span><span></span><span></span><span></span><span></span>
+                              </div>
+                           </div>
+                           <div class="mayor-advisor-meter" aria-hidden="true"><span id="advisor-health-meter" class="mayor-advisor-meter-fill"></span></div>
+                           <p id="advisor-health-copy">Public health is stable for now.</p>
+                        </article>
+                        <article id="advisor-economy-card" class="mayor-advisor-note economy">
+                           <div class="mayor-advisor-note-head">
+                              <div class="mayor-advisor-note-meta">
+                                 <span class="mayor-advisor-icon" aria-hidden="true"><i class="ri-line-chart-line"></i></span>
+                                 <div>
+                                    <span class="mayor-advisor-badge">Economy</span>
+                                    <strong>Economic desk</strong>
+                                 </div>
+                              </div>
+                              <div id="advisor-economy-chart" class="mayor-advisor-mini-chart" aria-hidden="true">
+                                 <span></span><span></span><span></span><span></span><span></span>
+                              </div>
+                           </div>
+                           <div class="mayor-advisor-meter" aria-hidden="true"><span id="advisor-economy-meter" class="mayor-advisor-meter-fill"></span></div>
+                           <p id="advisor-economy-copy">Business activity is waiting on your next move.</p>
+                        </article>
+                        <article id="advisor-trust-card" class="mayor-advisor-note trust">
+                           <div class="mayor-advisor-note-head">
+                              <div class="mayor-advisor-note-meta">
+                                 <span class="mayor-advisor-icon" aria-hidden="true"><i class="ri-community-line"></i></span>
+                                 <div>
+                                    <span class="mayor-advisor-badge">Trust</span>
+                                    <strong>Civic sentiment desk</strong>
+                                 </div>
+                              </div>
+                              <div id="advisor-trust-chart" class="mayor-advisor-mini-chart" aria-hidden="true">
+                                 <span></span><span></span><span></span><span></span><span></span>
+                              </div>
+                           </div>
+                           <div class="mayor-advisor-meter" aria-hidden="true"><span id="advisor-trust-meter" class="mayor-advisor-meter-fill"></span></div>
+                           <p id="advisor-trust-copy">Residents are watching whether policy and reality still match.</p>
+                        </article>
+                     </div>
+                  </section>
+               </section>
+
+                <section class="mayor-analytics" aria-label="Simulation charts">
                   <div class="mayor-chart-grid">
                      <article class="mayor-chart-card">
                         <div class="mayor-card-head">
@@ -443,47 +494,107 @@
          </div>
       </footer>
 
+      <section class="mayor-decision-modal" id="decision-modal" hidden>
+         <div class="mayor-decision-card" role="dialog" aria-modal="true" aria-labelledby="decision-title">
+            <div class="mayor-summary-topbar">
+               <div>
+                  <p id="decision-kicker" class="mayor-summary-kicker">Weekly cabinet decision</p>
+                  <h2 id="decision-title" class="mayor-summary-heading mayor-summary-heading--decision">Choose the next move</h2>
+               </div>
+               <div id="decision-day-badge" class="mayor-day-badge">Week 1</div>
+            </div>
+            <p id="decision-copy" class="mayor-summary-copy">The city cabinet needs a quick call. Pick one option and the simulation will continue.</p>
+            <div id="decision-options" class="mayor-decision-grid"></div>
+         </div>
+      </section>
+
       <section class="mayor-summary-modal" id="summary-modal" hidden>
-         <div class="mayor-summary-card" role="dialog" aria-modal="true" aria-labelledby="summary-title">
-            <h2 id="summary-title" class="sr-only">Scenario summary</h2>
+         <div class="mayor-summary-card mayor-summary-card--legacy" role="dialog" aria-modal="true" aria-labelledby="summary-title">
+            <div class="mayor-summary-topbar">
+               <div>
+                  <p id="summary-edition" class="mayor-summary-kicker">Final city edition</p>
+                  <h2 id="summary-title" class="mayor-summary-heading">Your legacy as mayor</h2>
+               </div>
+               <div id="summary-grade" class="mayor-summary-grade" aria-label="Final city grade">A</div>
+            </div>
             <p id="summary-copy" class="mayor-summary-copy"></p>
-            <div class="mayor-summary-grid">
-               <div>
-                  <span>Public health</span>
-                  <strong id="summary-health">0</strong>
-               </div>
-               <div>
-                  <span>Economy</span>
-                  <strong id="summary-economy">0</strong>
-               </div>
-               <div>
-                  <span>Hospital pressure</span>
-                  <strong id="summary-hospital">0</strong>
-               </div>
-               <div>
-                  <span>Civic trust</span>
-                  <strong id="summary-trust">0</strong>
-               </div>
+
+            <div class="mayor-summary-layout">
+               <article class="mayor-summary-frontpage">
+                  <div class="mayor-summary-masthead">
+                     <span id="summary-paper-edition" class="mayor-summary-paper-edition">Late city edition</span>
+                     <strong class="mayor-summary-paper-name">The City Ledger</strong>
+                     <span id="summary-paper-date" class="mayor-summary-paper-date">Day 0</span>
+                  </div>
+
+                  <div class="mayor-summary-headline-row">
+                     <div>
+                        <span class="mayor-summary-mini-kicker">Front page</span>
+                        <h3 id="summary-headline" class="mayor-summary-story-headline">City steadies through the wave</h3>
+                        <p id="summary-dek" class="mayor-summary-dek"></p>
+                     </div>
+                     <div class="mayor-summary-score-card">
+                        <span>Final score</span>
+                        <strong id="summary-score">0</strong>
+                     </div>
+                  </div>
+
+                  <div class="mayor-summary-score-graph-card">
+                     <div class="mayor-summary-chart-head">
+                        <span>Score over time</span>
+                        <span class="mayor-summary-chart-caption">Whole scenario</span>
+                     </div>
+                     <div class="mayor-summary-chart-legend" aria-label="Score chart legend">
+                        <span><i class="is-score-line"></i>Score line</span>
+                        <span><i class="is-score-guide"></i>70-point guide</span>
+                     </div>
+                     <svg id="summary-score-chart" class="mayor-summary-score-chart" viewBox="0 0 280 120" aria-label="Score over time"></svg>
+                  </div>
+               </article>
+
+               <aside class="mayor-summary-sidebar">
+                  <div class="mayor-summary-grid">
+                     <div>
+                        <span>Public health</span>
+                        <strong id="summary-health">0</strong>
+                     </div>
+                     <div>
+                        <span>Economy</span>
+                        <strong id="summary-economy">0</strong>
+                     </div>
+                     <div>
+                        <span>Hospital resilience</span>
+                        <strong id="summary-hospital">0</strong>
+                     </div>
+                     <div>
+                        <span>Civic trust</span>
+                        <strong id="summary-trust">0</strong>
+                     </div>
+                  </div>
+
+                  <section class="mayor-summary-panel">
+                     <span class="mayor-summary-mini-kicker">Your legacy</span>
+                     <h3 id="summary-legacy-title" class="mayor-summary-panel-title">Guardian of the districts</h3>
+                     <p id="summary-legacy" class="mayor-summary-panel-copy"></p>
+                  </section>
+
+                  <section class="mayor-summary-panel">
+                     <span class="mayor-summary-mini-kicker">Key moments</span>
+                     <ul id="summary-key-moments" class="mayor-summary-key-moments"></ul>
+                  </section>
+               </aside>
             </div>
-            <div class="mayor-summary-score-row">
-               <div class="mayor-summary-score-card">
-                  <span>Score</span>
-                  <strong id="summary-score">0</strong>
-               </div>
-               <div class="mayor-summary-score-graph-card">
-                  <span>Score over time</span>
-                  <svg id="summary-score-chart" class="mayor-summary-score-chart" viewBox="0 0 280 120" aria-label="Score over time"></svg>
-               </div>
-            </div>
+
             <div class="mayor-summary-actions">
-               <button id="summary-dismiss" class="mayor-action-button is-secondary" type="button">Close overview</button>
+               <button id="summary-dismiss" class="mayor-action-button is-secondary" type="button">Close paper</button>
                <button id="summary-picker" class="mayor-action-button" type="button">Back to scenario picker</button>
             </div>
          </div>
       </section>
 
+      <div id="event-card" class="mayor-event-stack" aria-live="polite" hidden></div>
       <div id="mayor-tooltip" class="mayor-tooltip" role="tooltip" hidden></div>
-      <button id="mayor-audio-toggle" class="mayor-audio-toggle" type="button" aria-label="Mute background music" aria-pressed="true" hidden>
+      <button id="mayor-audio-toggle" class="mayor-audio-toggle" type="button" aria-label="Mute game audio" aria-pressed="true" hidden>
          <span id="mayor-audio-toggle-icon" class="mayor-audio-toggle-icon" aria-hidden="true"><i class="ri-volume-up-line"></i></span>
          <span id="mayor-audio-toggle-label" class="mayor-audio-toggle-label">Mute</span>
       </button>

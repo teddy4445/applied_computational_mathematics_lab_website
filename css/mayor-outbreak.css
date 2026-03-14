@@ -283,6 +283,11 @@
   margin-top: 0.25rem;
 }
 
+#hero-days {
+  white-space: nowrap;
+  color: var(--outbreak-ink) !important;
+}
+
 .mayor-howto-wrap,
 .mayor-sim-section {
   position: relative;
@@ -538,7 +543,7 @@
 
 .mayor-speed-row {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.6rem;
   margin-top: 0.9rem;
 }
@@ -1252,6 +1257,55 @@
   right: 1rem;
 }
 
+#district-card {
+  position: relative;
+  top: auto;
+  left: auto;
+  right: auto;
+  width: auto;
+  margin: 0.85rem 1rem 1rem;
+  z-index: 3;
+}
+
+#district-card .mayor-district-detail {
+  gap: 0.85rem;
+}
+
+#district-card .mayor-detail-rows {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+#district-card .mayor-detail-row {
+  padding: 0.7rem 0.8rem;
+  border-radius: 16px;
+  background: rgba(248, 250, 252, 0.88);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+}
+
+#event-card {
+  position: fixed;
+  left: 1rem;
+  bottom: 1rem;
+  top: auto;
+  right: auto;
+  width: min(24rem, calc(100vw - 2rem));
+  max-height: calc(100vh - 2rem);
+  display: grid;
+  gap: 0.75rem;
+  overflow: auto;
+  z-index: 90;
+  padding: 0;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+#event-card[hidden] {
+  display: none;
+}
+
 .mayor-floating-panel h4 {
   font-family: var(--outbreak-display);
   font-size: 1.05rem;
@@ -1295,6 +1349,20 @@
   gap: 0.75rem;
   font-size: 0.82rem;
   color: var(--outbreak-soft-ink);
+}
+
+.mayor-detail-row span,
+.mayor-detail-type,
+.mayor-detail-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.mayor-detail-row i,
+.mayor-detail-type i,
+.mayor-detail-chip i {
+  font-size: 0.95rem;
 }
 
 .mayor-detail-row strong {
@@ -1702,7 +1770,7 @@
 }
 
 .mayor-city-map {
-  width: calc(100% - 20rem);
+  width: 100%;
   max-width: 100%;
   margin: 0 auto;
 }
@@ -1731,13 +1799,21 @@
   .mayor-policy-fun-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-
-  .mayor-city-map {
-    width: calc(100% - 16rem);
-  }
 }
 
 @media (max-width: 1024px) {
+  .mayor-stage-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mayor-board-card {
+    order: 1;
+  }
+
+  .mayor-stats-sidebar {
+    order: 2;
+  }
+
   .mayor-city-map {
     width: 100%;
   }
@@ -1920,17 +1996,97 @@ body.mayor-outbreak-page[data-mayor-theme="winter-wave"] {
   visibility: hidden;
 }
 
-#event-card {
+.mayor-event-toast {
+  position: relative;
+  display: grid;
+  gap: 0.65rem;
+  padding: 0.95rem 1rem 1rem;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
   background:
-    radial-gradient(circle at top right, rgba(249, 115, 22, 0.16), transparent 34%),
-    rgba(255, 255, 255, 0.9);
+    radial-gradient(circle at top right, rgba(249, 115, 22, 0.22), transparent 34%),
+    rgba(15, 23, 42, 0.92);
+  color: #ffffff;
+  box-shadow: 0 24px 44px rgba(15, 23, 42, 0.24);
+  backdrop-filter: blur(18px);
 }
 
-#event-card.is-live-event {
+.mayor-event-toast-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.mayor-event-toast-meta {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.mayor-event-toast-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #cbd5f5;
+}
+
+.mayor-event-toast h4,
+.mayor-event-toast p {
+  color: #ffffff;
+}
+
+.mayor-event-toast h4 {
+  margin: 0;
+}
+
+.mayor-event-toast p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.84);
+  line-height: 1.6;
+}
+
+.mayor-event-toast .mayor-panel-close {
+  flex-shrink: 0;
+  color: #e2e8f0;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.mayor-event-toast .mayor-panel-close:hover,
+.mayor-event-toast .mayor-panel-close:focus-visible {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.mayor-event-toast-window {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: 999px;
+  padding: 0.42rem 0.78rem;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fde68a;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.mayor-event-toast-window.is-alert {
+  background: rgba(249, 115, 22, 0.16);
+  color: #fdba74;
+}
+
+.mayor-event-toast-window.is-danger {
+  background: rgba(239, 68, 68, 0.18);
+  color: #fecaca;
+}
+
+.mayor-event-toast.is-live-event {
   animation: mayor-event-bob 3.2s ease-in-out infinite;
 }
 
-#event-card.is-live-event::after {
+.mayor-event-toast.is-live-event::after {
   content: "";
   position: absolute;
   left: 0.9rem;
@@ -1939,8 +2095,7 @@ body.mayor-outbreak-page[data-mayor-theme="winter-wave"] {
   height: 4px;
   border-radius: 999px;
   background: linear-gradient(90deg, rgba(249, 115, 22, 0.92), rgba(239, 68, 68, 0.75));
-  transform-origin: left center;
-  animation: mayor-event-countdown 24s linear forwards;
+  opacity: 0.9;
 }
 
 @keyframes mayor-event-bob {
@@ -2075,26 +2230,39 @@ body.mayor-outbreak-page[data-mayor-theme="winter-wave"] {
     justify-content: flex-start;
   }
 
-  .mayor-map-day-anchor {
-    top: 4.85rem;
-  }
-
   .mayor-board-shell--graph .mayor-floating-panel {
     top: 7.1rem;
+  }
+
+  #district-card .mayor-detail-rows {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 700px) {
-  .mayor-map-day-anchor {
-    position: static;
-    transform: none;
-    display: flex;
-    justify-content: center;
-    padding: 0 1rem 0.75rem;
-  }
-
   .mayor-board-shell--graph .mayor-floating-panel {
     top: auto;
+  }
+
+  #district-card .mayor-detail-rows {
+    grid-template-columns: 1fr;
+  }
+
+  #event-card {
+    left: 0.75rem;
+    bottom: 0.75rem;
+    width: calc(100vw - 1.5rem);
+  }
+
+  .mayor-advisor-note-head {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .mayor-advisor-mini-chart {
+    min-width: 0;
+    width: 100%;
+    justify-content: flex-end;
   }
 }
 
@@ -2309,5 +2477,922 @@ body.mayor-outbreak-page[data-mayor-theme="winter-wave"] {
   .mayor-audio-toggle,
   .mayor-audio-toggle-label {
     transition: none;
+  }
+}
+
+.mayor-summary-modal {
+  overflow-y: auto;
+}
+
+.mayor-summary-card--legacy {
+  max-width: min(76rem, calc(100vw - 2rem));
+  margin: 2rem auto;
+  padding: 1.4rem;
+}
+
+.mayor-summary-topbar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.mayor-summary-kicker,
+.mayor-summary-mini-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #2563eb;
+}
+
+.mayor-summary-heading,
+.mayor-summary-story-headline,
+.mayor-summary-paper-name,
+.mayor-summary-panel-title {
+  font-family: var(--outbreak-display);
+  letter-spacing: -0.03em;
+}
+
+.mayor-summary-heading {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 0.96;
+  margin-top: 0.35rem;
+}
+
+.mayor-summary-grade {
+  min-width: 4.8rem;
+  min-height: 4.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 24px;
+  font-family: var(--outbreak-display);
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  font-weight: 800;
+  color: #0f172a;
+  background: linear-gradient(135deg, rgba(254, 249, 195, 0.95), rgba(255, 255, 255, 0.95));
+  border: 1px solid rgba(250, 204, 21, 0.38);
+  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.12);
+}
+
+.mayor-summary-grade.is-elite,
+.mayor-summary-grade.is-excellent {
+  background: linear-gradient(135deg, rgba(254, 249, 195, 0.96), rgba(255, 255, 255, 0.96));
+  border-color: rgba(234, 179, 8, 0.34);
+}
+
+.mayor-summary-grade.is-strong {
+  background: linear-gradient(135deg, rgba(219, 234, 254, 0.96), rgba(255, 255, 255, 0.96));
+  border-color: rgba(59, 130, 246, 0.24);
+}
+
+.mayor-summary-grade.is-steady {
+  background: linear-gradient(135deg, rgba(226, 232, 240, 0.96), rgba(255, 255, 255, 0.96));
+  border-color: rgba(100, 116, 139, 0.2);
+}
+
+.mayor-summary-grade.is-strained {
+  background: linear-gradient(135deg, rgba(255, 237, 213, 0.96), rgba(255, 255, 255, 0.96));
+  border-color: rgba(249, 115, 22, 0.24);
+}
+
+.mayor-summary-grade.is-crisis {
+  background: linear-gradient(135deg, rgba(254, 226, 226, 0.96), rgba(255, 255, 255, 0.96));
+  border-color: rgba(239, 68, 68, 0.26);
+}
+
+.mayor-summary-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.82fr);
+  gap: 1rem;
+  margin-top: 1rem;
+  align-items: start;
+}
+
+.mayor-summary-frontpage,
+.mayor-summary-panel {
+  border-radius: 30px;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: var(--outbreak-shadow-soft);
+}
+
+.mayor-summary-frontpage {
+  padding: 1.15rem;
+  background:
+    radial-gradient(circle at top right, rgba(249, 115, 22, 0.08), transparent 30%),
+    linear-gradient(180deg, rgba(255, 250, 240, 0.98), rgba(255, 255, 255, 0.94));
+}
+
+.mayor-summary-masthead {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.8rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.mayor-summary-paper-edition,
+.mayor-summary-paper-date,
+.mayor-summary-chart-caption {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.mayor-summary-paper-name {
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  text-align: center;
+}
+
+.mayor-summary-headline-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 12rem;
+  gap: 1rem;
+  align-items: start;
+  margin-top: 1rem;
+}
+
+.mayor-summary-story-headline {
+  font-size: clamp(2rem, 4.4vw, 3.3rem);
+  line-height: 0.94;
+  margin: 0.4rem 0 0.75rem;
+  text-transform: uppercase;
+}
+
+.mayor-summary-dek,
+.mayor-summary-panel-copy {
+  color: var(--outbreak-soft-ink);
+  line-height: 1.7;
+}
+
+.mayor-summary-sidebar {
+  display: grid;
+  gap: 1rem;
+}
+
+.mayor-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.mayor-summary-grid > div {
+  padding: 0.9rem 1rem;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.mayor-summary-panel {
+  padding: 1rem 1.05rem;
+}
+
+.mayor-summary-panel-title {
+  font-size: 1.35rem;
+  margin: 0.45rem 0 0.4rem;
+}
+
+.mayor-summary-key-moments {
+  list-style: none;
+  display: grid;
+  gap: 0.8rem;
+  margin: 0.75rem 0 0;
+  padding: 0;
+}
+
+.mayor-summary-key-moments li {
+  display: grid;
+  gap: 0.22rem;
+  padding: 0.8rem 0.9rem;
+  border-radius: 20px;
+  background: rgba(248, 250, 252, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+}
+
+.mayor-summary-key-moments strong {
+  font-size: 0.9rem;
+  color: #0f172a;
+}
+
+.mayor-summary-key-moments span {
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: var(--outbreak-soft-ink);
+}
+
+.mayor-summary-score-card {
+  min-height: 11rem;
+  display: grid;
+  align-content: start;
+  gap: 0.5rem;
+}
+
+.mayor-summary-score-card strong {
+  font-size: clamp(2.2rem, 4vw, 3.3rem);
+}
+
+.mayor-summary-chart-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.7rem;
+}
+
+.mayor-summary-score-graph-card {
+  margin-top: 1rem;
+}
+
+.mayor-summary-score-chart {
+  margin-top: 0.7rem;
+}
+
+.mayor-city-map .mayor-road-flow {
+  stroke-dasharray: var(--flow-dash, 14 12);
+  animation: mayor-traffic-shift var(--flow-duration, 2.8s) linear infinite;
+}
+
+.mayor-city-map .mayor-road-flow.is-hot {
+  filter: drop-shadow(0 0 5px rgba(249, 115, 22, 0.18));
+}
+
+.mayor-city-map .mayor-road-flow.is-critical {
+  filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.24));
+}
+
+.mayor-city-map .mayor-road-glow {
+  animation: mayor-road-breathe var(--road-glow-duration, 3.1s) ease-in-out infinite;
+}
+
+.mayor-city-map .mayor-district-group {
+  --district-pulse-duration: 3.2s;
+  --district-lift: 0px;
+}
+
+.mayor-city-map .mayor-district-aura,
+.mayor-city-map .mayor-district-pulse,
+.mayor-city-map .mayor-district-shell,
+.mayor-city-map .mayor-district-ring {
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+.mayor-city-map .mayor-district-aura {
+  opacity: 0.14;
+  filter: blur(12px);
+  transition: opacity 220ms ease, r 220ms ease, fill 220ms ease;
+}
+
+.mayor-city-map .mayor-district-pulse {
+  fill: none;
+  opacity: 0;
+  transition: opacity 220ms ease, r 220ms ease, stroke 220ms ease;
+}
+
+.mayor-city-map .mayor-district-group.is-watch .mayor-district-shell,
+.mayor-city-map .mayor-district-group.is-stressed .mayor-district-shell,
+.mayor-city-map .mayor-district-group.is-critical .mayor-district-shell,
+.mayor-city-map .mayor-district-group.is-overloaded .mayor-district-shell {
+  animation: mayor-district-thrum var(--district-pulse-duration, 2.8s) ease-in-out infinite;
+}
+
+.mayor-city-map .mayor-district-group.is-watch .mayor-district-pulse,
+.mayor-city-map .mayor-district-group.is-stressed .mayor-district-pulse,
+.mayor-city-map .mayor-district-group.is-critical .mayor-district-pulse,
+.mayor-city-map .mayor-district-group.is-overloaded .mayor-district-pulse {
+  opacity: 1;
+  animation: mayor-district-wave var(--district-pulse-duration, 2.8s) ease-out infinite;
+}
+
+.mayor-city-map .mayor-district-group.is-stressed .mayor-district-ring,
+.mayor-city-map .mayor-district-group.is-critical .mayor-district-ring {
+  filter: drop-shadow(0 0 7px rgba(249, 115, 22, 0.16));
+}
+
+.mayor-city-map .mayor-district-group.is-critical .mayor-district-shell {
+  filter: drop-shadow(0 0 9px rgba(249, 115, 22, 0.22));
+}
+
+.mayor-city-map .mayor-district-group.is-overloaded .mayor-district-ring {
+  animation: mayor-hospital-alert 0.95s ease-in-out infinite;
+}
+
+.mayor-city-map .mayor-district-group.is-overloaded .mayor-district-shell {
+  filter: drop-shadow(0 0 12px rgba(239, 68, 68, 0.32));
+}
+
+.mayor-city-map .mayor-district-group.is-overloaded .mayor-district-label {
+  font-weight: 800;
+}
+
+@keyframes mayor-traffic-shift {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -32; }
+}
+
+@keyframes mayor-road-breathe {
+  0%, 100% { opacity: 0.28; }
+  50% { opacity: 0.56; }
+}
+
+@keyframes mayor-district-wave {
+  0% {
+    opacity: 0.42;
+    transform: scale(0.94);
+  }
+  70% {
+    opacity: 0.08;
+    transform: scale(1.08);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.12);
+  }
+}
+
+@keyframes mayor-district-thrum {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(calc(var(--district-lift, 0px) * -1)) scale(1.035);
+  }
+}
+
+@keyframes mayor-hospital-alert {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 0.72;
+  }
+}
+
+@media (max-width: 1100px) {
+  .mayor-summary-layout,
+  .mayor-summary-headline-row {
+    grid-template-columns: 1fr;
+  }
+
+  .mayor-summary-score-card {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .mayor-summary-card--legacy {
+    margin: 1rem auto;
+    padding: 1rem;
+  }
+
+  .mayor-summary-topbar,
+  .mayor-summary-chart-head,
+  .mayor-summary-masthead {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .mayor-summary-grade {
+    min-width: 4rem;
+    min-height: 4rem;
+    border-radius: 20px;
+  }
+
+  .mayor-summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mayor-summary-masthead {
+    display: flex;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mayor-city-map .mayor-road-flow,
+  .mayor-city-map .mayor-road-glow,
+  .mayor-city-map .mayor-district-shell,
+  .mayor-city-map .mayor-district-ring,
+  .mayor-city-map .mayor-district-aura,
+  .mayor-city-map .mayor-district-pulse {
+    animation: none;
+  }
+}
+
+.mayor-advisor-panel {
+  padding: 1rem 1.05rem;
+}
+
+.mayor-advisor-row {
+  margin-top: 1rem;
+}
+
+.mayor-advisor-panel--row .mayor-advisor-list {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.mayor-advisor-list {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 0.8rem;
+}
+
+.mayor-advisor-note {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0.85rem 0.95rem;
+  border-radius: 20px;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.mayor-advisor-note-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.mayor-advisor-note-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.mayor-advisor-note-meta strong {
+  display: block;
+  margin-top: 0.12rem;
+  font-family: var(--outbreak-display);
+  font-size: 1rem;
+  color: var(--outbreak-ink);
+}
+
+.mayor-advisor-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.7rem;
+  height: 2.7rem;
+  border-radius: 18px;
+  font-size: 1.2rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.78);
+}
+
+.mayor-advisor-note.health {
+  box-shadow: inset 0 3px 0 rgba(239, 68, 68, 0.7);
+}
+
+.mayor-advisor-note.economy {
+  box-shadow: inset 0 3px 0 rgba(16, 185, 129, 0.72);
+}
+
+.mayor-advisor-note.trust {
+  box-shadow: inset 0 3px 0 rgba(37, 99, 235, 0.7);
+}
+
+.mayor-advisor-note.health .mayor-advisor-icon {
+  background: linear-gradient(135deg, rgba(254, 226, 226, 0.95), rgba(254, 242, 242, 0.92));
+  color: #dc2626;
+}
+
+.mayor-advisor-note.economy .mayor-advisor-icon {
+  background: linear-gradient(135deg, rgba(220, 252, 231, 0.95), rgba(236, 253, 245, 0.92));
+  color: #059669;
+}
+
+.mayor-advisor-note.trust .mayor-advisor-icon {
+  background: linear-gradient(135deg, rgba(219, 234, 254, 0.96), rgba(239, 246, 255, 0.92));
+  color: #2563eb;
+}
+
+.mayor-advisor-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #475569;
+}
+
+.mayor-advisor-mini-chart {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 0.18rem;
+  min-width: 4.8rem;
+  height: 2.6rem;
+}
+
+.mayor-advisor-mini-chart span {
+  width: 0.36rem;
+  min-height: 0.4rem;
+  border-radius: 999px;
+  opacity: 0.8;
+  transition: height 220ms ease;
+}
+
+.mayor-advisor-note.health .mayor-advisor-mini-chart span,
+.mayor-advisor-note.health .mayor-advisor-meter-fill {
+  background: linear-gradient(180deg, rgba(248, 113, 113, 0.98), rgba(239, 68, 68, 0.98));
+}
+
+.mayor-advisor-note.economy .mayor-advisor-mini-chart span,
+.mayor-advisor-note.economy .mayor-advisor-meter-fill {
+  background: linear-gradient(180deg, rgba(52, 211, 153, 0.98), rgba(16, 185, 129, 0.98));
+}
+
+.mayor-advisor-note.trust .mayor-advisor-mini-chart span,
+.mayor-advisor-note.trust .mayor-advisor-meter-fill {
+  background: linear-gradient(180deg, rgba(96, 165, 250, 0.98), rgba(37, 99, 235, 0.98));
+}
+
+.mayor-advisor-meter {
+  position: relative;
+  overflow: hidden;
+  height: 0.44rem;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.16);
+}
+
+.mayor-advisor-meter-fill {
+  display: block;
+  height: 100%;
+  width: 0%;
+  border-radius: inherit;
+  transition: width 220ms ease;
+}
+
+.mayor-advisor-note p {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--outbreak-soft-ink);
+  margin: 0;
+}
+
+.mayor-decision-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 88;
+  padding: 1.25rem;
+  background: rgba(15, 23, 42, 0.44);
+  backdrop-filter: blur(12px);
+}
+
+.mayor-decision-card {
+  max-width: min(76rem, calc(100vw - 2rem));
+  margin: min(8vh, 3rem) auto 0;
+  padding: 1.35rem;
+  border-radius: 32px;
+  background: var(--outbreak-panel);
+  border: 1px solid rgba(255, 255, 255, 0.74);
+  box-shadow: var(--outbreak-shadow);
+  backdrop-filter: blur(18px);
+}
+
+.mayor-summary-heading--decision {
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
+}
+
+.mayor-decision-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.95rem;
+  margin-top: 1rem;
+}
+
+.mayor-decision-option {
+  display: grid;
+  gap: 0.8rem;
+  padding: 1rem;
+  border-radius: 26px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  background:
+    radial-gradient(circle at top right, rgba(37, 99, 235, 0.08), transparent 26%),
+    rgba(255, 255, 255, 0.86);
+  text-align: left;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.mayor-decision-option:hover,
+.mayor-decision-option:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: var(--outbreak-shadow-soft);
+  border-color: rgba(37, 99, 235, 0.3);
+}
+
+.mayor-decision-option:focus-visible {
+  outline: 2px solid rgba(37, 99, 235, 0.24);
+  outline-offset: 2px;
+}
+
+.mayor-decision-option-head {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.mayor-decision-option h3 {
+  font-family: var(--outbreak-display);
+  font-size: 1.2rem;
+  line-height: 1.05;
+}
+
+.mayor-decision-option-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(37, 99, 235, 0.1);
+  color: #1d4ed8;
+}
+
+.mayor-decision-option p,
+.mayor-decision-impact {
+  color: var(--outbreak-soft-ink);
+}
+
+.mayor-decision-impact {
+  display: grid;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+}
+
+.mayor-decision-impact-box {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.7rem;
+  align-items: start;
+  padding: 0.7rem 0.8rem;
+  border-radius: 18px;
+  background: rgba(248, 250, 252, 0.92);
+}
+
+.mayor-decision-impact-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.mayor-decision-impact-copy {
+  display: grid;
+  gap: 0.18rem;
+}
+
+.mayor-decision-impact-copy span {
+  display: block;
+  line-height: 1.45;
+}
+
+.mayor-decision-impact strong {
+  font-weight: 800;
+}
+
+.mayor-decision-impact .is-positive strong {
+  color: #047857;
+}
+
+.mayor-decision-impact .is-positive .mayor-decision-impact-icon {
+  background: rgba(16, 185, 129, 0.12);
+  color: #047857;
+}
+
+.mayor-decision-impact .is-negative strong {
+  color: #b91c1c;
+}
+
+.mayor-decision-impact .is-negative .mayor-decision-impact-icon {
+  background: rgba(239, 68, 68, 0.12);
+  color: #b91c1c;
+}
+
+@media (max-width: 1100px) {
+  .mayor-decision-grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .mayor-decision-option {
+    width: min(100%, 38rem);
+  }
+}
+
+@media (max-width: 700px) {
+  .mayor-decision-modal {
+    padding: 0.75rem;
+  }
+
+  .mayor-decision-card {
+    padding: 1rem;
+    margin-top: 0.75rem;
+  }
+
+  .mayor-decision-option {
+    text-align: center;
+  }
+
+  .mayor-decision-option-head {
+    justify-content: center;
+  }
+
+  .mayor-decision-impact {
+    justify-items: center;
+  }
+
+  .mayor-decision-impact-box {
+    width: min(100%, 24rem);
+    text-align: left;
+  }
+}
+
+.mayor-summary-chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 0.7rem;
+  font-size: 0.76rem;
+  color: #64748b;
+}
+
+.mayor-summary-chart-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.mayor-summary-chart-legend i {
+  display: inline-block;
+  width: 1.3rem;
+  height: 0.45rem;
+  border-radius: 999px;
+}
+
+.mayor-summary-chart-legend .is-score-line {
+  background: #2563eb;
+}
+
+.mayor-summary-chart-legend .is-score-fill {
+  background: rgba(37, 99, 235, 0.5);
+}
+
+.mayor-summary-chart-legend .is-score-guide {
+  background: linear-gradient(90deg, rgba(245, 158, 11, 0.95), rgba(245, 158, 11, 0.25));
+}
+
+.mayor-city-map .mayor-road-flow.is-closed {
+  stroke: rgba(100, 116, 139, 0.7) !important;
+  stroke-dasharray: 6 8 !important;
+  opacity: 0.42 !important;
+}
+
+.mayor-sky-glow {
+  pointer-events: none;
+  transition: fill 220ms ease;
+}
+
+.mayor-night-shade {
+  pointer-events: none;
+  transition: fill 220ms ease;
+}
+
+.mayor-sun-disc {
+  fill: rgba(253, 224, 71, 0.92);
+  filter: drop-shadow(0 0 18px rgba(250, 204, 21, 0.28));
+  transition: cx 220ms ease, cy 220ms ease, opacity 220ms ease;
+}
+
+.mayor-moon-disc {
+  fill: rgba(226, 232, 240, 0.92);
+  filter: drop-shadow(0 0 14px rgba(148, 163, 184, 0.22));
+  transition: cx 220ms ease, cy 220ms ease, opacity 220ms ease;
+}
+
+.mayor-night-star {
+  fill: rgba(255, 255, 255, 0.9);
+  transition: opacity 220ms ease;
+}
+
+.mayor-event-marker {
+  animation: mayor-marker-bob 2.2s ease-in-out infinite;
+}
+
+.mayor-summary-score-chart .chart-grid-line {
+  stroke: rgba(148, 163, 184, 0.24);
+  stroke-width: 1;
+}
+
+.mayor-summary-score-chart .chart-axis,
+.mayor-summary-score-chart .chart-threshold {
+  stroke: rgba(71, 85, 105, 0.48);
+  stroke-width: 1.1;
+}
+
+.mayor-summary-score-chart .chart-threshold {
+  stroke-dasharray: 5 5;
+}
+
+.mayor-summary-score-chart .chart-line {
+  fill: none;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.mayor-summary-score-chart .chart-dot {
+  stroke: rgba(255, 255, 255, 0.88);
+  stroke-width: 1.6;
+}
+
+.mayor-summary-score-chart .chart-label {
+  fill: #475569;
+  font-family: var(--outbreak-body);
+  font-weight: 700;
+}
+
+.mayor-summary-score-chart .summary-axis-tick {
+  font-size: 6px;
+}
+
+.mayor-summary-score-chart .summary-axis-note {
+  font-size: 7px;
+}
+
+.mayor-event-pill {
+  fill: rgba(255, 255, 255, 0.94);
+  stroke: rgba(148, 163, 184, 0.28);
+  stroke-width: 1.2;
+  box-shadow: var(--outbreak-shadow-soft);
+}
+
+.mayor-event-icon {
+  pointer-events: none;
+}
+
+.mayor-hospital-beacon .mayor-beacon-ring {
+  fill: none;
+  stroke: rgba(239, 68, 68, 0.32);
+  stroke-width: 4;
+  animation: mayor-beacon-ring 1.4s ease-out infinite;
+}
+
+.mayor-hospital-beacon .mayor-beacon-ring.is-outer {
+  animation-delay: 0.45s;
+}
+
+.mayor-edge-blocker-pill {
+  fill: rgba(255, 255, 255, 0.94);
+  stroke: rgba(148, 163, 184, 0.26);
+  stroke-width: 1.2;
+}
+
+.mayor-edge-blocker-cross {
+  stroke: #ef4444;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+}
+
+@keyframes mayor-marker-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+@keyframes mayor-beacon-ring {
+  0% {
+    opacity: 0.58;
+    transform: scale(0.96);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.08);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mayor-event-marker,
+  .mayor-hospital-beacon .mayor-beacon-ring {
+    animation: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .mayor-advisor-panel--row .mayor-advisor-list {
+    grid-template-columns: 1fr;
   }
 }

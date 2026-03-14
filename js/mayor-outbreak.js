@@ -5,6 +5,19 @@
   const MAX_AGENTS = 44;
   const REDUCED_MOTION_AGENTS = 18;
   const GAME_AUDIO_TRACKS = ["assets/game1.mp3", "assets/game2.mp3"];
+  const GAME_SOUND_EFFECTS = {
+    mobility: "assets/policy-mobility.wav",
+    testing: "assets/policy-testing.wav",
+    protection: "assets/policy-protection.wav",
+    districtSelect: "assets/policy-protection.wav",
+    decisionNews: "assets/news.mp3",
+    decisionPick: "assets/policy-testing.wav",
+    newDay: "assets/new_day.mp3",
+    uiButton: "assets/btn.mp3",
+    summary: "assets/scenario-finish.wav",
+    hospitalAlert: "assets/scenario-finish.wav",
+    recovery: "assets/policy-protection.wav"
+  };
 
   const AUDIO = {
     player: null,
@@ -12,6 +25,11 @@
     trackIndex: 0,
     muted: false,
     playbackStarted: false
+  };
+
+  const SFX = {
+    pools: new Map(),
+    lastTriggeredAt: new Map()
   };
 
   const BASE_DISTRICTS = [
@@ -328,6 +346,120 @@
     }
   };
 
+  const DISTRICT_CRISIS_TEMPLATES = [
+    {
+      id: "school-absenteeism",
+      title: "Absenteeism wave",
+      eligibleTypes: ["school"],
+      durationRange: [4, 6],
+      iconType: "school",
+      body(district) {
+        return `${district.name} is seeing a spike in absenteeism. Classroom mixing falls, but families scramble, neighborhood routines wobble, and local economic use softens.`;
+      },
+      effects: {
+        economicMultiplier: 0.985,
+        trustDrift: -0.18,
+        localTransmissionMultiplier: 0.94,
+        localMovementScale: 0.84
+      }
+    },
+    {
+      id: "transit-worker-shortage",
+      title: "Transit worker shortage",
+      eligibleTypes: ["transit"],
+      durationRange: [4, 7],
+      iconType: "transit",
+      body(district) {
+        return `${district.name} is short on drivers and station staff. Routes run thin, connected roads choke, and the whole city feels the slowdown.`;
+      },
+      effects: {
+        mobilityScale: 0.93,
+        economicMultiplier: 0.975,
+        trustDrift: -0.26,
+        localMovementScale: 0.62
+      }
+    },
+    {
+      id: "hospital-staff-burnout",
+      title: "Hospital staff burnout",
+      eligibleTypes: ["hospital"],
+      durationRange: [5, 8],
+      iconType: "hospital",
+      body(district) {
+        return `${district.name} is dealing with staff burnout. Care teams thin out, recoveries slow, and hospital strain can snowball faster than usual.`;
+      },
+      effects: {
+        trustDrift: -0.42,
+        localRecoveryShift: -0.03,
+        localTransmissionMultiplier: 1.04
+      }
+    },
+    {
+      id: "market-supply-delays",
+      title: "Supply delay",
+      eligibleTypes: ["market", "industrial"],
+      durationRange: [4, 6],
+      iconType: "market",
+      body(district) {
+        return `${district.name} is stuck in a supply delay. Shops stay open, but logistics snarl, local trust slips, and commercial flow loses some rhythm.`;
+      },
+      effects: {
+        economicMultiplier: 0.98,
+        trustDrift: -0.16,
+        localMovementScale: 0.8
+      }
+    },
+    {
+      id: "park-crowding",
+      title: "Weekend crowding",
+      eligibleTypes: ["riverside", "residential", "downtown"],
+      durationRange: [3, 5],
+      iconType: "festival",
+      body(district) {
+        return `${district.name} is drawing unexpected crowds. Movement rises, local contacts spike, and public messaging gets harder to enforce.`;
+      },
+      effects: {
+        mobilityScale: 1.05,
+        trustDrift: -0.14,
+        localTransmissionMultiplier: 1.08,
+        localMovementScale: 1.14
+      }
+    }
+  ];
+
+  const WEEKLY_DECISION_LIBRARY = [
+    { id: "rapid-clinic-contract", tag: "Health", title: "Rapid clinic contract", summary: "Rent pop-up clinics across the city for one week.", positive: "Testing rises and active cases ease slightly.", negative: "Operating cost dents economic use.", effects: { immediateInfectionScale: 0.97, trustShift: -1, temporary: { duration: 7, testingShift: 0.08, economicMultiplier: 0.98 } } },
+    { id: "night-bus-curfew", tag: "Transit", title: "Night bus curfew", summary: "Trim late-night transit routes until the wave cools.", positive: "Cross-city mixing drops quickly.", negative: "Service workers lose mobility and revenue slips.", effects: { mobilityShift: 0.04, temporary: { duration: 7, mobilityScale: 0.92, transmissionMultiplier: 0.97, economicMultiplier: 0.97, trustDrift: -0.18 } } },
+    { id: "mask-push", tag: "Health", title: "Mask push", summary: "Flood stations and shops with free high-filtration masks.", positive: "Transmission falls and trust can rise.", negative: "Procurement spend drags the economy a bit.", effects: { protectionShift: 0.05, trustShift: 2, temporary: { duration: 7, protectionScale: 1.08, economicMultiplier: 0.985 } } },
+    { id: "merchant-relief", tag: "Economy", title: "Merchant relief", summary: "Cut permit fees and extend fast cash support to small shops.", positive: "Economic use rebounds and trust stabilizes.", negative: "Movement ticks up and spread gets a little more room.", effects: { trustShift: 2, temporary: { duration: 7, economicMultiplier: 1.03, mobilityScale: 1.04, transmissionMultiplier: 1.02 } } },
+    { id: "targeted-tracing", tag: "Operations", title: "Targeted tracing sprint", summary: "Concentrate tracing crews on the hottest districts only.", positive: "Testing becomes more efficient for a week.", negative: "Residents outside the hot zone feel ignored.", effects: { trustShift: -1, temporary: { duration: 7, testingShift: 0.07, transmissionMultiplier: 0.98, economicMultiplier: 0.99 } } },
+    { id: "remote-school-week", tag: "School", title: "Remote school week", summary: "Move the school system online for one week.", positive: "School-linked spread cools noticeably.", negative: "Parents lose work hours and trust softens.", effects: { immediateInfectionScale: 0.98, trustShift: -2, temporary: { duration: 7, transmissionMultiplier: 0.97, economicMultiplier: 0.975, mobilityScale: 0.95 } } },
+    { id: "festival-pass", tag: "Trust", title: "Permit the festival", summary: "Allow a planned public event to go ahead with light safeguards.", positive: "Trust and commerce jump for the week.", negative: "Mixing spikes and containment gets harder.", effects: { trustShift: 4, temporary: { duration: 5, economicMultiplier: 1.04, mobilityScale: 1.08, transmissionMultiplier: 1.08 } } },
+    { id: "quiet-weekend", tag: "Health", title: "Quiet weekend advisory", summary: "Push residents to keep the next weekend close to home.", positive: "Mobility and spread both dip.", negative: "Retail and hospitality take a hit.", effects: { trustShift: -1, temporary: { duration: 4, mobilityScale: 0.9, transmissionMultiplier: 0.96, economicMultiplier: 0.97 } } },
+    { id: "staff-rest-bonus", tag: "Hospital", title: "Hospital rest bonus", summary: "Fund overtime relief and rest rotations for medical staff.", positive: "Recovery performance improves and hospitals steady.", negative: "Budget stress weakens economic output a little.", effects: { temporary: { duration: 7, recoveryBoost: 0.03, economicMultiplier: 0.985, trustDrift: 0.12 } } },
+    { id: "mall-hours-extension", tag: "Economy", title: "Mall hours extension", summary: "Spread shoppers across longer opening hours.", positive: "Commerce improves without a full surge in crowding.", negative: "More staff movement pushes some extra mixing.", effects: { temporary: { duration: 7, economicMultiplier: 1.025, mobilityScale: 1.03, transmissionMultiplier: 1.01 } } },
+    { id: "free-test-day", tag: "Health", title: "Free test day", summary: "Run a citywide zero-cost testing day with mobile vans.", positive: "Active infections drop immediately and testing improves.", negative: "Queues and staffing strain the city for a few days.", effects: { immediateInfectionScale: 0.95, temporary: { duration: 5, testingShift: 0.05, economicMultiplier: 0.985 } } },
+    { id: "outdoor-dining", tag: "Economy", title: "Outdoor dining lanes", summary: "Open streets to outdoor commerce and temporary patios.", positive: "Economic use improves and trust lifts.", negative: "Movement rises and contact patterns loosen.", effects: { trustShift: 2, temporary: { duration: 7, economicMultiplier: 1.03, mobilityScale: 1.05, transmissionMultiplier: 1.015 } } },
+    { id: "isolation-support", tag: "Trust", title: "Isolation support stipends", summary: "Pay residents who isolate after a positive test.", positive: "Testing works better and trust climbs.", negative: "Budget pressure shaves some economic utilization.", effects: { trustShift: 3, temporary: { duration: 7, testingShift: 0.06, transmissionMultiplier: 0.98, economicMultiplier: 0.985 } } },
+    { id: "office-reopening", tag: "Economy", title: "Office reopening push", summary: "Encourage firms to bring staff back on-site.", positive: "Economy improves quickly.", negative: "Mobility and spread both rise for the week.", effects: { temporary: { duration: 7, economicMultiplier: 1.04, mobilityScale: 1.08, transmissionMultiplier: 1.05, trustDrift: -0.08 } } },
+    { id: "ventilation-retrofit", tag: "Health", title: "Ventilation retrofit grants", summary: "Fast-track filters and fresh-air upgrades in busy buildings.", positive: "Protection becomes more effective citywide.", negative: "Installation friction slows activity for a few days.", effects: { temporary: { duration: 7, protectionScale: 1.1, transmissionMultiplier: 0.97, economicMultiplier: 0.99 } } },
+    { id: "sports-weekend", tag: "Trust", title: "Sports weekend greenlight", summary: "Approve a packed sports weekend with crowd limits.", positive: "Trust and commerce pop upward.", negative: "Transit and market mixing intensify.", effects: { trustShift: 3, temporary: { duration: 4, economicMultiplier: 1.035, mobilityScale: 1.07, transmissionMultiplier: 1.05 } } },
+    { id: "public-comms-reset", tag: "Trust", title: "Public messaging reset", summary: "Relaunch city messaging with cleaner, simpler guidance.", positive: "Trust rises and protection compliance improves.", negative: "The direct epidemiology effect is modest.", effects: { trustShift: 4, temporary: { duration: 7, protectionScale: 1.06, economicMultiplier: 0.995 } } },
+    { id: "inspection-blitz", tag: "Operations", title: "Inspection blitz", summary: "Run aggressive inspections on crowded venues for one week.", positive: "Transmission risk falls and protection improves.", negative: "Business leaders react badly.", effects: { trustShift: -2, temporary: { duration: 7, protectionScale: 1.08, transmissionMultiplier: 0.97, economicMultiplier: 0.98 } } },
+    { id: "factory-bubble", tag: "Industry", title: "Factory bubble plan", summary: "Shift industrial crews into tighter cohort schedules.", positive: "Spread drops in high-output districts.", negative: "Output efficiency falls.", effects: { immediateInfectionScale: 0.985, temporary: { duration: 7, transmissionMultiplier: 0.98, economicMultiplier: 0.98 } } },
+    { id: "telework-grant", tag: "Economy", title: "Telework grant", summary: "Subsidize remote work kits for offices and service firms.", positive: "Mobility falls while much of the economy stays online.", negative: "Downtown foot traffic and shops suffer.", effects: { temporary: { duration: 7, mobilityScale: 0.9, transmissionMultiplier: 0.96, economicMultiplier: 0.985 } } },
+    { id: "neighborhood-wards", tag: "Health", title: "Neighborhood triage wards", summary: "Stand up temporary wards away from the main hospital.", positive: "Hospital strain eases and recoveries improve.", negative: "Cost and staffing strain the broader system.", effects: { temporary: { duration: 7, recoveryBoost: 0.025, economicMultiplier: 0.985, trustDrift: -0.05 } } },
+    { id: "commuter-pass-discount", tag: "Transit", title: "Commuter pass discount", summary: "Cheap transit passes to keep the city moving.", positive: "Economic activity rises fast.", negative: "Crowding and imported risk climb.", effects: { temporary: { duration: 7, economicMultiplier: 1.03, mobilityScale: 1.08, transmissionMultiplier: 1.03 } } },
+    { id: "household-kit-drop", tag: "Health", title: "Household protection kits", summary: "Deliver masks, tests, and care instructions door-to-door.", positive: "Protection and trust both improve.", negative: "Logistics cost money.", effects: { trustShift: 2, temporary: { duration: 7, protectionScale: 1.07, testingShift: 0.03, economicMultiplier: 0.988 } } },
+    { id: "nightlife-crackdown", tag: "Control", title: "Nightlife crackdown", summary: "Shut crowded nightlife venues earlier for one week.", positive: "Spread drops quickly in the busiest hours.", negative: "Trust and hospitality revenue both slide.", effects: { trustShift: -2, temporary: { duration: 7, mobilityScale: 0.93, transmissionMultiplier: 0.96, economicMultiplier: 0.975 } } },
+    { id: "student-volunteer-corps", tag: "Trust", title: "Student volunteer corps", summary: "Recruit students for support calls, deliveries, and outreach.", positive: "Trust rises and vulnerable residents cope better.", negative: "The effect is light on hard transmission numbers.", effects: { trustShift: 4, temporary: { duration: 7, economicMultiplier: 0.995, protectionScale: 1.03 } } },
+    { id: "rapid-border-checks", tag: "Control", title: "Rapid border checks", summary: "Tighten inbound checks at the busiest entry nodes.", positive: "Imported pressure drops.", negative: "Transit flow and commerce both slow.", effects: { temporary: { duration: 7, mobilityScale: 0.9, transmissionMultiplier: 0.97, economicMultiplier: 0.98, trustDrift: -0.12 } } },
+    { id: "city-bonus-pay", tag: "Economy", title: "Essential worker bonus pay", summary: "Boost pay for the most exposed city workers.", positive: "Trust and staffing resilience improve.", negative: "Budget drag dents short-run economic use.", effects: { trustShift: 3, temporary: { duration: 7, economicMultiplier: 0.99, recoveryBoost: 0.015 } } },
+    { id: "ward-neighborhood-bubbles", tag: "Health", title: "Neighborhood bubbles", summary: "Ask districts to socialize within small, repeated groups only.", positive: "Local transmission falls for the week.", negative: "Residents feel cabin pressure and trust softens.", effects: { trustShift: -1, temporary: { duration: 7, transmissionMultiplier: 0.965, mobilityScale: 0.95, economicMultiplier: 0.99 } } },
+    { id: "retail-promo-week", tag: "Economy", title: "Retail promo week", summary: "Coordinate citywide promotions to pull shoppers back.", positive: "Economic use gets a strong bump.", negative: "Crowding risk rises at the same time.", effects: { temporary: { duration: 7, economicMultiplier: 1.04, mobilityScale: 1.06, transmissionMultiplier: 1.035 } } },
+    { id: "precision-mask-order", tag: "Health", title: "Precision mask order", summary: "Mandate masks only on the busiest routes and venues.", positive: "Protection improves without a full city clampdown.", negative: "Partial rules can confuse residents.", effects: { trustShift: -1, temporary: { duration: 7, protectionScale: 1.06, transmissionMultiplier: 0.98, economicMultiplier: 0.995 } } }
+  ];
+
   const STATE = {
     scenarioKey: "balanced-city",
     setupDifficulty: "moderate",
@@ -346,21 +478,44 @@
     currentMetrics: null,
     currentControls: null,
     runtime: null,
+    dynamicEvents: [],
     gameVisible: false,
     latestEvent: null,
     activeEventIds: new Set(),
+    dismissedEventIds: new Set(),
     panelState: { district: false, event: false, legend: true },
     eventPanelTimeout: null,
     eventPanelEventId: null,
     summaryOpen: false,
+    weeklyDecisionOpen: false,
+    currentDecisionWeek: 0,
+    currentDecisionOptions: [],
+    lastDecisionWeek: 0,
     reducedMotion: false,
     history: null,
     stats: null,
+    audioSignals: {
+      hospitalAlertArmed: false,
+      trackedDay: 0,
+      dayStartInfections: 0,
+      lastRecoveryCueDay: -1
+    },
     agents: [],
     svgRefs: {
+      skyGlow: null,
+      nightShade: null,
+      sun: null,
+      moon: null,
+      starField: [],
+      decorLayer: null,
+      roadGlows: new Map(),
       roadFlows: new Map(),
       districtGroups: new Map(),
+      districtAuras: new Map(),
+      districtPulses: new Map(),
+      districtRings: new Map(),
       districtShells: new Map(),
+      districtGlosses: new Map(),
       districtLabels: new Map(),
       districtPercents: new Map(),
       districtSubs: new Map(),
@@ -376,6 +531,7 @@
     STATE.reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     cacheElements();
     initAudioController();
+    initSoundEffects();
     bindControls();
     bindTooltips();
     markToolsNavActive();
@@ -420,17 +576,24 @@
     EL.heroHospital = document.getElementById("hero-hospital");
     EL.heroEconomy = document.getElementById("hero-economy");
     EL.heroTrust = document.getElementById("hero-trust");
+    EL.heroDays = document.getElementById("hero-days");
     EL.heroScore = document.getElementById("hero-score");
     EL.heroStatusPill = document.getElementById("hero-status-pill");
+    EL.advisorHealthCopy = document.getElementById("advisor-health-copy");
+    EL.advisorEconomyCopy = document.getElementById("advisor-economy-copy");
+    EL.advisorTrustCopy = document.getElementById("advisor-trust-copy");
+    EL.advisorHealthMeter = document.getElementById("advisor-health-meter");
+    EL.advisorEconomyMeter = document.getElementById("advisor-economy-meter");
+    EL.advisorTrustMeter = document.getElementById("advisor-trust-meter");
+    EL.advisorHealthChart = document.getElementById("advisor-health-chart");
+    EL.advisorEconomyChart = document.getElementById("advisor-economy-chart");
+    EL.advisorTrustChart = document.getElementById("advisor-trust-chart");
     EL.dayCounter = document.getElementById("day-counter");
     EL.dayLimit = document.getElementById("day-limit");
-    EL.eventWindow = document.getElementById("event-window");
-    EL.eventTitle = document.getElementById("event-title");
-    EL.eventDescription = document.getElementById("event-description");
     EL.districtCard = document.getElementById("district-card");
+    EL.districtCardTitle = document.getElementById("district-card-title");
     EL.districtCardClose = document.getElementById("district-card-close");
     EL.eventCard = document.getElementById("event-card");
-    EL.eventCardClose = document.getElementById("event-card-close");
     EL.legendCard = document.getElementById("legend-card");
     EL.legendCardClose = document.getElementById("legend-card-close");
     EL.districtDetailPanel = document.getElementById("district-detail-panel");
@@ -438,12 +601,25 @@
     EL.summaryDismiss = document.getElementById("summary-dismiss");
     EL.summaryPicker = document.getElementById("summary-picker");
     EL.summaryCopy = document.getElementById("summary-copy");
+    EL.summaryEdition = document.getElementById("summary-edition");
+    EL.summaryGrade = document.getElementById("summary-grade");
     EL.summaryHealth = document.getElementById("summary-health");
     EL.summaryEconomy = document.getElementById("summary-economy");
     EL.summaryHospital = document.getElementById("summary-hospital");
     EL.summaryTrust = document.getElementById("summary-trust");
     EL.summaryScore = document.getElementById("summary-score");
     EL.summaryScoreChart = document.getElementById("summary-score-chart");
+    EL.summaryPaperEdition = document.getElementById("summary-paper-edition");
+    EL.summaryPaperDate = document.getElementById("summary-paper-date");
+    EL.summaryHeadline = document.getElementById("summary-headline");
+    EL.summaryDek = document.getElementById("summary-dek");
+    EL.summaryLegacyTitle = document.getElementById("summary-legacy-title");
+    EL.summaryLegacy = document.getElementById("summary-legacy");
+    EL.summaryKeyMoments = document.getElementById("summary-key-moments");
+    EL.decisionModal = document.getElementById("decision-modal");
+    EL.decisionDayBadge = document.getElementById("decision-day-badge");
+    EL.decisionCopy = document.getElementById("decision-copy");
+    EL.decisionOptions = document.getElementById("decision-options");
     EL.tooltip = document.getElementById("mayor-tooltip");
     EL.chartActive = document.getElementById("chart-active");
     EL.chartRt = document.getElementById("chart-rt");
@@ -494,19 +670,23 @@
 
     EL.pauseButton.addEventListener("click", () => {
       if (!STATE.city || STATE.finished) return;
+      playUiButtonSound();
       STATE.paused = true;
       renderHud();
     });
 
     EL.resumeButton.addEventListener("click", () => {
       if (!STATE.city || STATE.finished) return;
+      playUiButtonSound();
       STATE.paused = false;
       renderHud();
     });
 
-    EL.resetButton.addEventListener("click", () => {
-      goToScenarioPicker();
-    });
+    if (EL.resetButton) {
+      EL.resetButton.addEventListener("click", () => {
+        goToScenarioPicker();
+      });
+    }
 
     if (EL.audioToggleButton) {
       EL.audioToggleButton.addEventListener("click", toggleGameAudio);
@@ -516,16 +696,27 @@
       hideFloatingPanel("district");
     });
 
-    EL.eventCardClose.addEventListener("click", () => {
-      hideFloatingPanel("event");
-    });
+    if (EL.eventCard) {
+      EL.eventCard.addEventListener("click", (event) => {
+        const dismissButton = event.target.closest("[data-event-dismiss]");
+        if (!dismissButton) {
+          return;
+        }
+        STATE.dismissedEventIds.add(dismissButton.dataset.eventDismiss);
+        playUiButtonSound();
+        renderEventCard();
+      });
+    }
 
-    EL.legendCardClose.addEventListener("click", () => {
-      hideFloatingPanel("legend");
-    });
+    if (EL.legendCardClose) {
+      EL.legendCardClose.addEventListener("click", () => {
+        hideFloatingPanel("legend");
+      });
+    }
 
     EL.speedButtons.forEach((button) => {
       button.addEventListener("click", () => {
+        playUiButtonSound();
         STATE.speedMultiplier = Number(button.dataset.speed);
         if (STATE.city) {
           renderHud();
@@ -542,6 +733,13 @@
         if (!STATE.city) return;
         STATE.city.policies[key] = Number(input.value);
         refreshDerivedMetrics();
+        if (key === "mobility") {
+          playSoundEffect("mobility", {
+            volume: 0.12 + STATE.city.policies[key] * 0.08,
+            playbackRate: 0.98 + STATE.city.policies[key] * 0.12,
+            cooldown: 90
+          });
+        }
         renderHud();
         renderMapVisuals();
         renderCharts();
@@ -550,6 +748,7 @@
       input.addEventListener("change", () => {
         if (!STATE.city) return;
         recordPolicyMarker(key);
+        playPolicyChangeSound(key, Number(input.value));
         renderCharts();
       });
     });
@@ -562,6 +761,16 @@
       closeSummaryModal();
       goToScenarioPicker();
     });
+
+    if (EL.decisionOptions) {
+      EL.decisionOptions.addEventListener("click", (event) => {
+        const optionButton = event.target.closest("[data-decision-id]");
+        if (!optionButton || !STATE.weeklyDecisionOpen) {
+          return;
+        }
+        resolveWeeklyDecision(optionButton.dataset.decisionId);
+      });
+    }
 
     window.addEventListener("keydown", (event) => {
       if (event.key === "Escape" && STATE.summaryOpen) {
@@ -578,13 +787,71 @@
     AUDIO.player = new Audio(AUDIO.playlist[AUDIO.trackIndex]);
     AUDIO.player.preload = "auto";
     AUDIO.player.loop = false;
-    AUDIO.player.volume = 0.42;
+    AUDIO.player.volume = 0.042;
     AUDIO.player.muted = AUDIO.muted;
     AUDIO.player.addEventListener("ended", playNextGameTrack);
     AUDIO.player.addEventListener("play", syncAudioToggleButton);
     AUDIO.player.addEventListener("pause", syncAudioToggleButton);
     AUDIO.player.addEventListener("volumechange", syncAudioToggleButton);
     syncAudioToggleButton();
+  }
+
+  function initSoundEffects() {
+    Object.entries(GAME_SOUND_EFFECTS).forEach(([key, src]) => {
+      const pool = Array.from({ length: key === "summary" ? 2 : 3 }, () => {
+        const player = new Audio(src);
+        player.preload = "auto";
+        player.volume = key === "summary" ? 0.46 : 0.28;
+        return player;
+      });
+      SFX.pools.set(key, pool);
+    });
+  }
+
+  function playSoundEffect(key, options = {}) {
+    if (AUDIO.muted) {
+      return;
+    }
+
+    const pool = SFX.pools.get(key);
+    if (!pool || !pool.length) {
+      return;
+    }
+
+    const now = performance.now();
+    const cooldown = options.cooldown ?? 90;
+    const lastPlayedAt = SFX.lastTriggeredAt.get(key) || 0;
+    if (now - lastPlayedAt < cooldown) {
+      return;
+    }
+    SFX.lastTriggeredAt.set(key, now);
+
+    const player = pool.find((item) => item.paused || item.ended) || pool[0];
+    try {
+      player.pause();
+      player.currentTime = 0;
+      player.playbackRate = clamp(0.7, options.playbackRate ?? 1, 1.5);
+      player.volume = clamp(0.05, options.volume ?? player.volume, 1);
+      const playPromise = player.play();
+      if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch(() => {});
+      }
+    } catch (error) {
+      // Ignore transient media errors and keep the simulation responsive.
+    }
+  }
+
+  function playPolicyChangeSound(policyKey, value) {
+    const profiles = {
+      mobility: { volume: 0.18 + value * 0.18, playbackRate: 0.84 + value * 0.18 },
+      testing: { volume: 0.16 + value * 0.16, playbackRate: 1 + value * 0.15 },
+      protection: { volume: 0.17 + value * 0.17, playbackRate: 0.96 + value * 0.22 }
+    };
+    playSoundEffect(policyKey, { ...profiles[policyKey], cooldown: 120 });
+  }
+
+  function playUiButtonSound() {
+    playSoundEffect("uiButton", { volume: 0.28, playbackRate: 1, cooldown: 0 });
   }
 
   function setCurrentGameTrack() {
@@ -611,8 +878,8 @@
     EL.audioToggleButton.hidden = !STATE.gameVisible;
     EL.audioToggleButton.classList.toggle("is-muted", !isAudible);
     EL.audioToggleButton.setAttribute("aria-pressed", String(isAudible));
-    EL.audioToggleButton.setAttribute("aria-label", isAudible ? "Mute background music" : "Play background music");
-    EL.audioToggleButton.title = isAudible ? "Mute background music" : "Play background music";
+    EL.audioToggleButton.setAttribute("aria-label", isAudible ? "Mute game audio" : "Play game audio");
+    EL.audioToggleButton.title = isAudible ? "Mute game audio" : "Play game audio";
 
     if (EL.audioToggleLabel) {
       EL.audioToggleLabel.textContent = isAudible ? "Mute" : "Play";
@@ -760,6 +1027,7 @@
     });
     if (EL.eventCard) {
       EL.eventCard.classList.remove("is-live-event");
+      EL.eventCard.innerHTML = "";
     }
   }
 
@@ -786,6 +1054,11 @@
     if (!element) return;
     element.classList.remove("is-green", "is-yellow", "is-orange", "is-red");
     element.classList.add(`is-${tone}`);
+  }
+
+  function clearStatusTone(element) {
+    if (!element) return;
+    element.classList.remove("is-green", "is-yellow", "is-orange", "is-red");
   }
 
   function getMetricTone(metric, value) {
@@ -936,17 +1209,30 @@
     STATE.currentControls = null;
     STATE.history = null;
     STATE.runtime = null;
+    STATE.dynamicEvents = [];
     STATE.agents = [];
     STATE.finished = false;
     STATE.paused = false;
     STATE.summaryOpen = false;
+    STATE.weeklyDecisionOpen = false;
+    STATE.currentDecisionWeek = 0;
+    STATE.currentDecisionOptions = [];
+    STATE.lastDecisionWeek = 0;
     STATE.day = 0;
     STATE.dayAccumulator = 0;
     STATE.speedMultiplier = 1;
     STATE.latestEvent = null;
     STATE.activeEventIds = new Set();
+    STATE.dismissedEventIds = new Set();
     STATE.eventPanelEventId = null;
+    STATE.audioSignals = {
+      hospitalAlertArmed: false,
+      trackedDay: 0,
+      dayStartInfections: 0,
+      lastRecoveryCueDay: -1
+    };
     stopGameAudioPlayback({ resetToStart: true });
+    closeDecisionModal();
     resetFloatingPanels();
     closeSummaryModal();
     EL.gameShell.hidden = true;
@@ -1019,7 +1305,12 @@
     STATE.finished = false;
     STATE.paused = false;
     STATE.summaryOpen = false;
+    STATE.weeklyDecisionOpen = false;
+    STATE.currentDecisionWeek = 0;
+    STATE.currentDecisionOptions = [];
+    STATE.lastDecisionWeek = 0;
     STATE.activeEventIds = new Set();
+    STATE.dismissedEventIds = new Set();
     STATE.latestEvent = null;
     STATE.eventPanelEventId = null;
     resetFloatingPanels();
@@ -1043,6 +1334,14 @@
       sumScore: 0,
       samples: 0,
       cumulativeInfections: 0
+    };
+
+    STATE.dynamicEvents = generateRandomCrisisEvents(city, STATE.runtime.dayLimit);
+    STATE.audioSignals = {
+      hospitalAlertArmed: false,
+      trackedDay: 0,
+      dayStartInfections: 0,
+      lastRecoveryCueDay: -1
     };
 
     STATE.city = city;
@@ -1086,6 +1385,7 @@
     refreshDerivedMetrics();
     STATE.currentMetrics = computeMetrics(STATE.city.districts, STATE.currentControls, STATE.publicTrust);
     recordHistory(STATE.currentMetrics);
+    STATE.audioSignals.dayStartInfections = STATE.currentMetrics.activeInfections;
     renderMapScaffold();
     renderMapVisuals();
     initAgents();
@@ -1362,7 +1662,7 @@
     if (STATE.gameVisible && STATE.city && !STATE.finished && !STATE.paused) {
       const stepSize = 1 / SUBSTEPS_PER_DAY;
       STATE.dayAccumulator += (deltaSeconds * STATE.speedMultiplier) / BASE_DAY_SECONDS;
-      while (STATE.dayAccumulator >= stepSize && !STATE.finished) {
+      while (STATE.dayAccumulator >= stepSize && !STATE.finished && !STATE.paused) {
         stepSimulation(stepSize);
         STATE.dayAccumulator -= stepSize;
       }
@@ -1379,12 +1679,14 @@
       return;
     }
 
+    const previousWholeDay = Math.floor(STATE.day);
     STATE.currentControls = getEffectiveControls(STATE.day);
 
     const previousDistricts = STATE.city.districts.map((district) => ({ ...district }));
     const previousIndex = new Map(previousDistricts.map((district) => [district.id, district]));
     const hospitalInfo = getHospitalInfo(previousDistricts);
     const nextDistricts = previousDistricts.map((district) => {
+      const districtEventEffects = getDistrictEventEffects(STATE.day, district);
       const total = district.S + district.I + district.R;
       const localInfectious = getEffectiveInfectiousCount(district, hospitalInfo);
       const localFraction = localInfectious / Math.max(total, 1);
@@ -1394,21 +1696,20 @@
       getConnectedEdges(district.id).forEach((edge) => {
         const neighborId = edge.from === district.id ? edge.to : edge.from;
         const neighbor = previousIndex.get(neighborId);
+        const neighborEventEffects = getDistrictEventEffects(STATE.day, neighbor);
         const neighborTotal = neighbor.S + neighbor.I + neighbor.R;
         const neighborFraction = getEffectiveInfectiousCount(neighbor, hospitalInfo) / Math.max(neighborTotal, 1);
-        const travelWeight = edge.weight * STATE.currentControls.movementMultiplier * (1 - STATE.currentControls.testing * neighborFraction * 0.45);
+        const travelWeight = edge.weight
+          * STATE.currentControls.movementMultiplier
+          * Math.min(districtEventEffects.localMovementScale, neighborEventEffects.localMovementScale)
+          * (1 - STATE.currentControls.testing * neighborFraction * 0.45);
         importedPressure += travelWeight * neighborFraction;
         importedWeight += travelWeight;
       });
 
       const importedFraction = importedWeight > 0 ? importedPressure / importedWeight : 0;
-      const contactFactor = DISTRICT_MIX[district.typeId] || 1;
-      const betaEffective = STATE.runtime.beta
-        * (1 - 0.65 * STATE.currentControls.protection)
-        * (1 - 0.18 * STATE.city.policies.mobility)
-        * STATE.currentControls.transmissionMultiplier
-        * contactFactor;
-      const gammaEffective = clamp(0.05, STATE.runtime.gammaRate + 0.12 * STATE.currentControls.testing + STATE.currentControls.recoveryBoost, 0.42);
+      const betaEffective = getEffectiveTransmissionRate(district, STATE.currentControls, districtEventEffects);
+      const gammaEffective = getEffectiveRecoveryRate(STATE.currentControls, districtEventEffects);
       const pressure = Math.max(0, (localFraction * (1.1 - STATE.city.policies.mobility * 0.16)) + (importedFraction * 0.82));
       const hospitalizedCount = hospitalInfo.hospitalizedByDistrict.get(district.id) || 0;
       const communityInfectious = Math.max(0, district.I - hospitalizedCount);
@@ -1435,6 +1736,10 @@
     STATE.currentMetrics = metrics;
 
     STATE.day = Math.min(STATE.runtime.dayLimit, Number((STATE.day + stepSize).toFixed(6)));
+    handleThresholdAudio(metrics);
+    if (Math.floor(STATE.day) > previousWholeDay) {
+      handleDayBoundary(Math.floor(STATE.day), metrics);
+    }
     recordHistory(metrics);
     renderMapVisuals();
     renderCharts();
@@ -1454,10 +1759,11 @@
     STATE.city.edges.forEach((edge) => {
       const from = byId.get(edge.from);
       const to = byId.get(edge.to);
+      const edgeScale = getEdgeEventScale(STATE.day, from, to);
       const fromFraction = getEffectiveInfectiousCount(from, hospitalInfo) / Math.max(from.S + from.I + from.R, 1);
       const toFraction = getEffectiveInfectiousCount(to, hospitalInfo) / Math.max(to.S + to.I + to.R, 1);
-      const flowAB = from.population * 0.013 * edge.weight * controls.movementMultiplier * (1 - controls.testing * fromFraction * 0.42);
-      const flowBA = to.population * 0.013 * edge.weight * controls.movementMultiplier * (1 - controls.testing * toFraction * 0.42);
+      const flowAB = from.population * 0.013 * edge.weight * controls.movementMultiplier * edgeScale * (1 - controls.testing * fromFraction * 0.42);
+      const flowBA = to.population * 0.013 * edge.weight * controls.movementMultiplier * edgeScale * (1 - controls.testing * toFraction * 0.42);
       outgoing.set(from.id, outgoing.get(from.id) + flowAB);
       incoming.set(to.id, incoming.get(to.id) + flowAB);
       outgoing.set(to.id, outgoing.get(to.id) + flowBA);
@@ -1525,7 +1831,230 @@
     if (!STATE.scenario) {
       return [];
     }
-    return STATE.scenario.events.filter((event) => dayValue >= event.startDay && dayValue < event.startDay + event.duration);
+    return [...STATE.scenario.events, ...STATE.dynamicEvents]
+      .filter((event) => dayValue >= event.startDay && dayValue < event.startDay + event.duration)
+      .sort((left, right) => left.startDay - right.startDay);
+  }
+
+  function getDistrictEventEffects(dayValue, district) {
+    const modifiers = {
+      localTransmissionMultiplier: 1,
+      localMovementScale: 1,
+      localRecoveryShift: 0
+    };
+
+    getActiveEvents(dayValue).forEach((event) => {
+      if (!event.districtId || event.districtId !== district.id) {
+        return;
+      }
+      modifiers.localTransmissionMultiplier *= event.effects.localTransmissionMultiplier || 1;
+      modifiers.localMovementScale *= event.effects.localMovementScale || 1;
+      modifiers.localRecoveryShift += event.effects.localRecoveryShift || 0;
+    });
+
+    return modifiers;
+  }
+
+  function getEdgeEventScale(dayValue, fromDistrict, toDistrict) {
+    const fromEffects = getDistrictEventEffects(dayValue, fromDistrict);
+    const toEffects = getDistrictEventEffects(dayValue, toDistrict);
+    return Math.min(fromEffects.localMovementScale, toEffects.localMovementScale);
+  }
+
+  function generateRandomCrisisEvents(city, dayLimit) {
+    const crisisCount = Math.min(5, Math.max(3, Math.floor(dayLimit / 18)));
+    const events = [];
+    const usedSlots = new Set();
+
+    for (let index = 0; index < crisisCount; index += 1) {
+      const template = DISTRICT_CRISIS_TEMPLATES[Math.floor(Math.random() * DISTRICT_CRISIS_TEMPLATES.length)];
+      const eligibleDistricts = city.districts.filter((district) => template.eligibleTypes.includes(district.typeId));
+      if (!eligibleDistricts.length) {
+        continue;
+      }
+
+      const district = eligibleDistricts[Math.floor(Math.random() * eligibleDistricts.length)];
+      let startDay = 6 + Math.floor(Math.random() * Math.max(3, dayLimit - 12));
+      while (usedSlots.has(startDay)) {
+        startDay = Math.min(dayLimit - 4, startDay + 3);
+      }
+      usedSlots.add(startDay);
+
+      const duration = Math.round(randomBetween(template.durationRange[0], template.durationRange[1]));
+      events.push({
+        id: `crisis-${index + 1}-${template.id}-${district.id}`,
+        startDay,
+        duration,
+        title: `${district.name}: ${template.title}`,
+        body: template.body(district),
+        districtId: district.id,
+        source: "crisis",
+        iconType: template.iconType,
+        effects: { ...template.effects }
+      });
+    }
+
+    return events.sort((left, right) => left.startDay - right.startDay);
+  }
+
+  function handleThresholdAudio(metrics) {
+    if (metrics.hospitalUtilization >= 100 && !STATE.audioSignals.hospitalAlertArmed) {
+      playSoundEffect("hospitalAlert", { volume: 0.32, playbackRate: 0.78, cooldown: 0 });
+      STATE.audioSignals.hospitalAlertArmed = true;
+    } else if (metrics.hospitalUtilization < 96) {
+      STATE.audioSignals.hospitalAlertArmed = false;
+    }
+  }
+
+  function handleDayBoundary(wholeDay, metrics) {
+    playSoundEffect("newDay", { volume: 0.044, playbackRate: 1, cooldown: 0 });
+
+    if (metrics.activeInfections < STATE.audioSignals.dayStartInfections * 0.99 && STATE.audioSignals.lastRecoveryCueDay !== wholeDay) {
+      playSoundEffect("recovery", { volume: 0.24, playbackRate: 1.16, cooldown: 0 });
+      STATE.audioSignals.lastRecoveryCueDay = wholeDay;
+    }
+
+    STATE.audioSignals.trackedDay = wholeDay;
+    STATE.audioSignals.dayStartInfections = metrics.activeInfections;
+
+    const weekIndex = Math.floor(wholeDay / 7);
+    if (wholeDay > 0 && wholeDay % 7 === 0 && weekIndex > STATE.lastDecisionWeek && wholeDay < STATE.runtime.dayLimit) {
+      openWeeklyDecisionCard(weekIndex);
+    }
+  }
+
+  function openWeeklyDecisionCard(weekIndex) {
+    STATE.weeklyDecisionOpen = true;
+    STATE.currentDecisionWeek = weekIndex;
+    STATE.currentDecisionOptions = shuffleArray(WEEKLY_DECISION_LIBRARY).slice(0, 3);
+    STATE.paused = true;
+
+    if (EL.decisionDayBadge) {
+      EL.decisionDayBadge.textContent = `Week ${weekIndex}`;
+    }
+    if (EL.decisionCopy) {
+      EL.decisionCopy.textContent = "The cabinet wants a quick call before the next week begins. Pick one option and accept the upside and the downside.";
+    }
+
+    renderWeeklyDecisionOptions();
+    if (EL.decisionModal) {
+      EL.decisionModal.hidden = false;
+    }
+    playSoundEffect("decisionNews", { volume: 0.56, playbackRate: 1, cooldown: 0 });
+    renderHud();
+  }
+
+  function renderWeeklyDecisionOptions() {
+    if (!EL.decisionOptions) {
+      return;
+    }
+
+    EL.decisionOptions.innerHTML = "";
+    STATE.currentDecisionOptions.forEach((option) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "mayor-decision-option";
+      button.dataset.decisionId = option.id;
+      button.innerHTML = `
+        <div class="mayor-decision-option-head">
+          <div>
+            <span class="mayor-decision-option-tag">${option.tag}</span>
+            <h3>${option.title}</h3>
+          </div>
+        </div>
+        <p>${option.summary}</p>
+        <div class="mayor-decision-impact">
+          <div class="mayor-decision-impact-box is-positive">
+            <span class="mayor-decision-impact-icon" aria-hidden="true"><i class="ri-arrow-up-circle-fill"></i></span>
+            <div class="mayor-decision-impact-copy">
+              <strong>Upside</strong>
+              <span>${option.positive}</span>
+            </div>
+          </div>
+          <div class="mayor-decision-impact-box is-negative">
+            <span class="mayor-decision-impact-icon" aria-hidden="true"><i class="ri-alert-fill"></i></span>
+            <div class="mayor-decision-impact-copy">
+              <strong>Tradeoff</strong>
+              <span>${option.negative}</span>
+            </div>
+          </div>
+        </div>
+      `;
+      EL.decisionOptions.appendChild(button);
+    });
+  }
+
+  function resolveWeeklyDecision(decisionId) {
+    const choice = STATE.currentDecisionOptions.find((option) => option.id === decisionId);
+    if (!choice) {
+      return;
+    }
+
+    applyDecisionEffects(choice);
+    closeDecisionModal();
+    STATE.weeklyDecisionOpen = false;
+    STATE.lastDecisionWeek = STATE.currentDecisionWeek;
+    STATE.currentDecisionOptions = [];
+    STATE.paused = false;
+    refreshDerivedMetrics();
+    renderMapVisuals();
+    renderCharts();
+    renderHud();
+    playSoundEffect("decisionPick", { volume: 0.24, playbackRate: 0.78, cooldown: 0 });
+  }
+
+  function closeDecisionModal() {
+    if (EL.decisionModal) {
+      EL.decisionModal.hidden = true;
+    }
+  }
+
+  function applyDecisionEffects(choice) {
+    const effects = choice.effects || {};
+    if (effects.immediateInfectionScale) {
+      STATE.city.districts.forEach((district) => {
+        const reducedInfections = district.I * (1 - effects.immediateInfectionScale);
+        district.I *= effects.immediateInfectionScale;
+        district.R += reducedInfections;
+      });
+    }
+
+    if (typeof effects.trustShift === "number") {
+      STATE.publicTrust = clamp(24, STATE.publicTrust + effects.trustShift, 96);
+    }
+
+    if (typeof effects.mobilityShift === "number") {
+      STATE.city.policies.mobility = clamp(0, STATE.city.policies.mobility + effects.mobilityShift, 1);
+    }
+    if (typeof effects.testingShift === "number") {
+      STATE.city.policies.testing = clamp(0, STATE.city.policies.testing + effects.testingShift, 1);
+    }
+    if (typeof effects.protectionShift === "number") {
+      STATE.city.policies.protection = clamp(0, STATE.city.policies.protection + effects.protectionShift, 1);
+    }
+
+    if (effects.temporary) {
+      STATE.dynamicEvents.push({
+        id: `decision-${choice.id}-${Math.round(STATE.day * 10)}`,
+        startDay: STATE.day,
+        duration: effects.temporary.duration || 7,
+        title: `Cabinet move: ${choice.title}`,
+        body: `${choice.summary} ${choice.positive} ${choice.negative}`,
+        source: "decision",
+        iconType: "decision",
+        effects: {
+          mobilityScale: effects.temporary.mobilityScale || 1,
+          testingShift: effects.temporary.testingShift || 0,
+          protectionScale: effects.temporary.protectionScale || 1,
+          transmissionMultiplier: effects.temporary.transmissionMultiplier || 1,
+          recoveryBoost: effects.temporary.recoveryBoost || 0,
+          economicMultiplier: effects.temporary.economicMultiplier || 1,
+          trustDrift: effects.temporary.trustDrift || 0
+        }
+      });
+    }
+
+    syncControlInputs();
   }
 
   function getHospitalInfo(districts) {
@@ -1546,6 +2075,26 @@
 
   function getEffectiveInfectiousCount(district, hospitalInfo) {
     return Math.max(0, district.I - (hospitalInfo.hospitalizedByDistrict.get(district.id) || 0));
+  }
+
+  function getEffectiveTransmissionRate(district, controls, districtEventEffects = {}) {
+    const contactFactor = DISTRICT_MIX[district.typeId] || 1;
+    return STATE.runtime.beta
+      * (1 - 0.65 * controls.protection)
+      * (1 - 0.18 * STATE.city.policies.mobility)
+      * controls.transmissionMultiplier
+      * (districtEventEffects.localTransmissionMultiplier || 1)
+      * contactFactor;
+  }
+
+  function getEffectiveRecoveryRate(controls, districtEventEffects = {}) {
+    return clamp(
+      0.025,
+      (STATE.runtime.gammaRate * (1 + 1.1 * controls.testing))
+      + controls.recoveryBoost
+      + (districtEventEffects.localRecoveryShift || 0),
+      0.6
+    );
   }
 
   function computeMetrics(districts, controls, trustValue) {
@@ -1570,10 +2119,15 @@
       100
     );
     const hospitalRecoveryBoost = 1 + (0.5 * STATE.runtime.severeRate * hospitalInfo.hospitalCoverage);
+    const recoveryRate = getEffectiveRecoveryRate(controls);
+    const transmissionRate = STATE.runtime.beta
+      * controls.transmissionMultiplier
+      * (1 - 0.65 * controls.protection)
+      * (1 - 0.18 * STATE.city.policies.mobility);
     const spreadRate = clamp(
       0.25,
-      ((STATE.runtime.beta * controls.transmissionMultiplier * (1 - 0.65 * controls.protection))
-        / (Math.max(STATE.runtime.gammaRate + 0.12 * controls.testing + controls.recoveryBoost, 0.08) * hospitalRecoveryBoost))
+      (transmissionRate
+        / (Math.max(recoveryRate, 0.05) * hospitalRecoveryBoost))
         * susceptibleFraction
         * (0.45 + 0.5 * controls.movementMultiplier)
         * 0.58,
@@ -1656,6 +2210,7 @@
     setStatusTone(EL.heroHospital, getMetricTone("hospital", metrics.hospitalUtilization));
     setStatusTone(EL.heroEconomy, getMetricTone("economy", metrics.economyUtilization));
     setStatusTone(EL.heroTrust, getMetricTone("trust", STATE.publicTrust));
+    clearStatusTone(EL.heroDays);
     setStatusTone(EL.heroScore, getMetricTone("score", runningScore));
 
     EL.heroStatusPill.textContent = metrics.hospitalUtilization > 100 ? 'Hospital strain' : metrics.spreadRate > 1.15 ? 'Containment race' : 'Response stabilizing';
@@ -1677,8 +2232,8 @@
     EL.policyTestingCopy.textContent = getPolicyCopy('testing', STATE.city.policies.testing);
     EL.policyProtectionCopy.textContent = getPolicyCopy('protection', STATE.city.policies.protection);
 
-    EL.pauseButton.disabled = STATE.paused || STATE.finished;
-    EL.resumeButton.disabled = !STATE.paused || STATE.finished;
+    EL.pauseButton.disabled = STATE.paused || STATE.finished || STATE.weeklyDecisionOpen;
+    EL.resumeButton.disabled = !STATE.paused || STATE.finished || STATE.weeklyDecisionOpen;
     if (STATE.finished) {
       EL.pauseButton.classList.add('is-secondary');
       EL.resumeButton.classList.add('is-secondary');
@@ -1697,48 +2252,237 @@
 
     renderEventCard();
     renderDistrictDetail();
+    renderAdvisorDesk(metrics);
   }
+
+  function renderAdvisorDesk(metrics) {
+    if (!EL.advisorHealthCopy || !EL.advisorEconomyCopy || !EL.advisorTrustCopy) {
+      return;
+    }
+
+    const activeCrises = getActiveEvents(STATE.day).filter((event) => event.source === "crisis");
+    const liveCrisis = activeCrises[0];
+
+    EL.advisorHealthCopy.textContent = metrics.hospitalUtilization > 100
+      ? "Health advisor: hospitals are overloaded now. Buy recovery time immediately or the clinical side will start writing the story for you."
+      : metrics.spreadRate > 1.08
+        ? "Health advisor: the wave is still expanding. Push testing or protection before the next district turns orange."
+        : metrics.activeInfections < STATE.audioSignals.dayStartInfections
+          ? "Health advisor: cases are easing today. Hold steady long enough and the city can actually bank the improvement."
+          : "Health advisor: transmission is contained for the moment, but the city is still one careless week from a rebound.";
+
+    EL.advisorEconomyCopy.textContent = metrics.economyUtilization < 58
+      ? "Economic advisor: storefront energy is thinning out. Even a modest relief action would help stop the drag from compounding."
+      : metrics.economyUtilization > 82
+        ? "Economic advisor: the city is still moving. Protect that momentum without giving the outbreak cheap openings."
+        : "Economic advisor: output is middling. Your next cabinet choice will decide whether this becomes resilience or stagnation.";
+
+    EL.advisorTrustCopy.textContent = liveCrisis
+      ? `Civic advisor: ${liveCrisis.title.toLowerCase()} is reshaping the mood. Residents want to see that your response matches the local problem.`
+      : STATE.publicTrust < 55
+        ? "Civic advisor: trust is brittle. If the next move looks inconsistent, compliance will fade before the numbers do."
+        : "Civic advisor: public sentiment is workable. Clear decisions and visible follow-through can still keep people with you.";
+
+    const healthLevel = clamp(
+      8,
+      100
+      - metrics.activeFraction * 1100
+      - Math.max(metrics.spreadRate - 1, 0) * 28
+      - Math.max(metrics.hospitalUtilization - 80, 0) * 0.55,
+      100
+    );
+    const economyLevel = clamp(8, metrics.economyUtilization, 100);
+    const trustLevel = clamp(8, STATE.publicTrust, 100);
+
+    renderAdvisorVisual(
+      EL.advisorHealthMeter,
+      EL.advisorHealthChart,
+      healthLevel,
+      [
+        clamp(18, 100 - metrics.spreadRate * 26, 96),
+        clamp(18, 100 - metrics.hospitalUtilization * 0.52, 96),
+        clamp(18, 100 - metrics.activeFraction * 1450, 96),
+        clamp(18, 100 - Math.max(metrics.hospitalUtilization - 100, 0) * 1.1, 96),
+        clamp(18, healthLevel, 96)
+      ]
+    );
+    renderAdvisorVisual(
+      EL.advisorEconomyMeter,
+      EL.advisorEconomyChart,
+      economyLevel,
+      [
+        clamp(18, metrics.economyUtilization * 0.72, 96),
+        clamp(18, (1 - STATE.city.policies.mobility) * 92, 96),
+        clamp(18, (1 - STATE.city.policies.testing * 0.35) * 82, 96),
+        clamp(18, (1 - metrics.activeFraction * 7.5) * 86, 96),
+        clamp(18, economyLevel, 96)
+      ]
+    );
+    renderAdvisorVisual(
+      EL.advisorTrustMeter,
+      EL.advisorTrustChart,
+      trustLevel,
+      [
+        clamp(18, STATE.publicTrust * 0.62, 96),
+        clamp(18, (1 - Math.max(metrics.spreadRate - 1, 0) * 0.38) * 86, 96),
+        clamp(18, (1 - Math.max(100 - metrics.economyUtilization, 0) * 0.008) * 82, 96),
+        clamp(18, (1 - activeCrises.length * 0.16) * 84, 96),
+        clamp(18, trustLevel, 96)
+      ]
+    );
+  }
+
+  function renderAdvisorVisual(meterEl, chartEl, level, bars) {
+    if (meterEl) {
+      meterEl.style.width = `${clamp(8, level, 100).toFixed(1)}%`;
+    }
+    if (!chartEl) {
+      return;
+    }
+    Array.from(chartEl.children).forEach((bar, index) => {
+      const value = Array.isArray(bars) ? bars[index] : level;
+      bar.style.height = `${clamp(18, value ?? level, 100).toFixed(1)}%`;
+    });
+  }
+
   function renderEventCard() {
+    if (!EL.eventCard) {
+      return;
+    }
+
     const activeEvents = getActiveEvents(STATE.day);
     const activeIds = new Set(activeEvents.map((event) => event.id));
-    const startedEvent = activeEvents.find((event) => !STATE.activeEventIds.has(event.id));
+    const startedEvents = activeEvents.filter((event) => !STATE.activeEventIds.has(event.id));
     STATE.activeEventIds = activeIds;
 
-    if (startedEvent) {
-      STATE.latestEvent = startedEvent;
-      STATE.eventPanelEventId = startedEvent.id;
-      showFloatingPanel("event");
-      scheduleEventAutoClose();
+    STATE.dismissedEventIds = new Set(
+      [...STATE.dismissedEventIds].filter((eventId) => activeIds.has(eventId))
+    );
+
+    if (startedEvents.length) {
+      STATE.latestEvent = startedEvents[startedEvents.length - 1];
+      STATE.eventPanelEventId = STATE.latestEvent.id;
     } else if (activeEvents.length) {
       STATE.latestEvent = activeEvents[activeEvents.length - 1];
     }
 
-    const eventToShow = activeEvents[activeEvents.length - 1] || STATE.latestEvent;
-
-    if (!eventToShow) {
-      EL.eventCard.classList.remove("is-live-event");
-      EL.eventWindow.textContent = "No active event";
-      EL.eventTitle.textContent = "Calm briefing";
-      EL.eventDescription.textContent = "The current city pattern is driven mainly by your policy mix and district-to-district flow.";
+    const visibleEvents = activeEvents.filter((event) => !STATE.dismissedEventIds.has(event.id));
+    if (!visibleEvents.length) {
+      EL.eventCard.innerHTML = "";
+      STATE.eventPanelEventId = null;
+      hideFloatingPanel("event");
       return;
     }
 
-    const isLive = activeEvents.some((event) => event.id === eventToShow.id);
-    const eventEnd = Math.min(STATE.runtime.dayLimit, eventToShow.startDay + eventToShow.duration);
-    EL.eventWindow.className = "mayor-event-window";
-    EL.eventWindow.textContent = isLive ? `Day ${eventToShow.startDay} to ${eventEnd}` : "Recently passed";
-    EL.eventTitle.textContent = eventToShow.title;
-    EL.eventDescription.textContent = eventToShow.body;
-
-    if (!isLive || !STATE.panelState.event) {
-      EL.eventCard.classList.remove("is-live-event");
+    if (!visibleEvents.some((event) => event.id === STATE.eventPanelEventId)) {
+      STATE.eventPanelEventId = visibleEvents[visibleEvents.length - 1].id;
     }
 
-    if (eventToShow.effects.transmissionMultiplier && eventToShow.effects.transmissionMultiplier > 1.05) {
-      EL.eventWindow.classList.add("is-danger");
-    } else if (eventToShow.effects.transmissionMultiplier && eventToShow.effects.transmissionMultiplier > 1) {
-      EL.eventWindow.classList.add("is-alert");
+    showFloatingPanel("event");
+    EL.eventCard.innerHTML = visibleEvents
+      .map((event) => buildEventToastMarkup(event, event.id === STATE.eventPanelEventId))
+      .join("");
+  }
+
+  function buildEventToastMarkup(event, isFeatured = false) {
+    const startDay = Math.max(0, Math.round(event.startDay));
+    const eventEnd = Math.max(startDay, Math.round(Math.min(STATE.runtime.dayLimit, event.startDay + event.duration)));
+    const windowTone = getEventWindowTone(event);
+    const sourceLabel = getEventSourceLabel(event);
+    const safeTitle = escapeHtml(event.title);
+    const safeBody = escapeHtml(buildEventDescription(event));
+
+    return `
+      <article class="mayor-event-toast${isFeatured ? " is-live-event" : ""}" data-event-id="${event.id}">
+        <div class="mayor-event-toast-head">
+          <div class="mayor-event-toast-meta">
+            <span class="mayor-event-toast-label"><i class="ri-megaphone-line" aria-hidden="true"></i>${sourceLabel}</span>
+            <h4>${safeTitle}</h4>
+            <span class="mayor-event-toast-window${windowTone ? ` ${windowTone}` : ""}"><i class="ri-calendar-event-line" aria-hidden="true"></i>Day ${startDay} to ${eventEnd}</span>
+          </div>
+          <button class="mayor-panel-close" type="button" data-event-dismiss="${event.id}" aria-label="Dismiss city event">${"X"}</button>
+        </div>
+        <p>${safeBody}</p>
+      </article>
+    `;
+  }
+
+  function getEventWindowTone(event) {
+    const transmissionPressure = Math.max(
+      event.effects.transmissionMultiplier || 1,
+      event.effects.localTransmissionMultiplier || 1
+    );
+    if (transmissionPressure > 1.05) {
+      return "is-danger";
     }
+    if (transmissionPressure > 1) {
+      return "is-alert";
+    }
+    return "";
+  }
+
+  function getEventSourceLabel(event) {
+    if (event.source === "crisis") {
+      return "District crisis";
+    }
+    if (event.source === "decision") {
+      return "Cabinet effect";
+    }
+    return "City event";
+  }
+
+  function buildEventDescription(event) {
+    const impactSummary = describeEventImpacts(event.effects || {});
+    if (!impactSummary) {
+      return event.body;
+    }
+    return `${event.body} Impact: ${impactSummary}`;
+  }
+
+  function describeEventImpacts(effects) {
+    const impacts = [];
+
+    if (typeof effects.localTransmissionMultiplier === "number") {
+      if (effects.localTransmissionMultiplier > 1.01) impacts.push("local transmission rises");
+      if (effects.localTransmissionMultiplier < 0.99) impacts.push("local transmission eases");
+    }
+
+    if (typeof effects.transmissionMultiplier === "number") {
+      if (effects.transmissionMultiplier > 1.01) impacts.push("citywide spread pressure rises");
+      if (effects.transmissionMultiplier < 0.99) impacts.push("citywide spread pressure falls");
+    }
+
+    if (typeof effects.localMovementScale === "number" && effects.localMovementScale < 0.99) {
+      impacts.push("district traffic tightens");
+    }
+
+    if (typeof effects.mobilityScale === "number") {
+      if (effects.mobilityScale > 1.01) impacts.push("cross-city movement grows");
+      if (effects.mobilityScale < 0.99) impacts.push("cross-city movement slows");
+    }
+
+    if ((effects.recoveryBoost || 0) > 0 || (effects.localRecoveryShift || 0) > 0) {
+      impacts.push("recovery improves");
+    }
+    if ((effects.recoveryBoost || 0) < 0 || (effects.localRecoveryShift || 0) < 0) {
+      impacts.push("recovery slows");
+    }
+
+    if (typeof effects.economicMultiplier === "number") {
+      if (effects.economicMultiplier > 1.01) impacts.push("economic activity strengthens");
+      if (effects.economicMultiplier < 0.99) impacts.push("economic activity softens");
+    }
+
+    if (typeof effects.trustDrift === "number") {
+      if (effects.trustDrift > 0.05) impacts.push("trust drifts upward");
+      if (effects.trustDrift < -0.05) impacts.push("trust drifts downward");
+    }
+
+    if (!impacts.length) {
+      return "";
+    }
+
+    return `${impacts.slice(0, 3).join(", ")}.`;
   }
 
   function renderDistrictDetail() {
@@ -1748,24 +2492,30 @@
 
     const district = STATE.districtIndex.get(STATE.selectedDistrictId) || STATE.city.districts[0];
     const total = district.S + district.I + district.R;
-    const infectionPercent = (district.I / Math.max(total, 1)) * 100;
-    const mobilityIntensity = ((district.incomingFlow + district.outgoingFlow) / Math.max(district.population, 1)) * 100;
+    const infectionRate = district.I / Math.max(total, 1);
+    const infectionPercent = infectionRate * 100;
+    const mobilityShare = (district.incomingFlow + district.outgoingFlow) / Math.max(district.population, 1);
+    const mobilityIntensity = mobilityShare * 100;
+    const visualState = getDistrictVisualState(district, infectionRate, mobilityShare);
+
+    if (EL.districtCardTitle) {
+      EL.districtCardTitle.textContent = district.name;
+    }
 
     EL.districtDetailPanel.innerHTML = `
       <div class='mayor-detail-compact-chips'>
-        <span class='mayor-detail-type'>${district.typeLabel}</span>
-        <span class='mayor-detail-chip'>${formatPercent(infectionPercent)} infected</span>
+        <span class='mayor-detail-type'><i class='ri-map-pin-2-line' aria-hidden='true'></i>${district.typeLabel}</span>
+        <span class='mayor-detail-chip'><i class='ri-radar-line' aria-hidden='true'></i>${visualState.statusLabel}</span>
       </div>
       <div class='mayor-detail-rows'>
-        <div class='mayor-detail-row'><span>Name</span><strong>${district.name}</strong></div>
-        <div class='mayor-detail-row'><span>Population</span><strong>${formatCompactNumber(total)}</strong></div>
-        <div class='mayor-detail-row'><span>Susceptible</span><strong>${formatCompactNumber(district.S)}</strong></div>
-        <div class='mayor-detail-row'><span>Infectious</span><strong>${formatCompactNumber(district.I)}</strong></div>
-        <div class='mayor-detail-row'><span>Recovered</span><strong>${formatCompactNumber(district.R)}</strong></div>
-        <div class='mayor-detail-row'><span>Local infection</span><strong>${formatPercent(infectionPercent)}</strong></div>
-        <div class='mayor-detail-row'><span>Incoming mobility</span><strong>${formatCompactNumber(district.incomingFlow)}</strong></div>
-        <div class='mayor-detail-row'><span>Outgoing mobility</span><strong>${formatCompactNumber(district.outgoingFlow)}</strong></div>
-        <div class='mayor-detail-row'><span>Mobility intensity</span><strong>${formatPercent(mobilityIntensity)}</strong></div>
+        <div class='mayor-detail-row'><span><i class='ri-group-line' aria-hidden='true'></i>Population</span><strong>${formatCompactNumber(total)}</strong></div>
+        <div class='mayor-detail-row'><span><i class='ri-user-follow-line' aria-hidden='true'></i>Susceptible</span><strong>${formatCompactNumber(district.S)}</strong></div>
+        <div class='mayor-detail-row'><span><i class='ri-virus-line' aria-hidden='true'></i>Infectious</span><strong>${formatCompactNumber(district.I)}</strong></div>
+        <div class='mayor-detail-row'><span><i class='ri-shield-check-line' aria-hidden='true'></i>Recovered</span><strong>${formatCompactNumber(district.R)}</strong></div>
+        <div class='mayor-detail-row'><span><i class='ri-focus-3-line' aria-hidden='true'></i>Local infection</span><strong>${formatPercent(infectionPercent)}</strong></div>
+        <div class='mayor-detail-row'><span><i class='ri-arrow-left-right-line' aria-hidden='true'></i>Incoming mobility</span><strong>${formatCompactNumber(district.incomingFlow)}</strong></div>
+        <div class='mayor-detail-row'><span><i class='ri-route-line' aria-hidden='true'></i>Outgoing mobility</span><strong>${formatCompactNumber(district.outgoingFlow)}</strong></div>
+        <div class='mayor-detail-row'><span><i class='ri-road-map-line' aria-hidden='true'></i>Mobility intensity</span><strong>${formatPercent(mobilityIntensity)}</strong></div>
       </div>
     `;
   }
@@ -1912,17 +2662,33 @@
 
     const width = svg.viewBox.baseVal.width || 280;
     const height = svg.viewBox.baseVal.height || 120;
-    const padding = { top: 14, right: 10, bottom: 16, left: 10 };
+    const padding = { top: 16, right: 12, bottom: 22, left: 28 };
     const innerWidth = width - padding.left - padding.right;
     const innerHeight = height - padding.top - padding.bottom;
     const totalDays = STATE.runtime ? Math.max(STATE.runtime.dayLimit, 1) : 1;
 
     svg.innerHTML = "";
-    svg.appendChild(createSvgEl("rect", { x: 0, y: 0, width, height, rx: 18, fill: "rgba(248, 250, 252, 0.5)" }));
-    svg.appendChild(createSvgEl("line", { x1: padding.left, y1: height - padding.bottom, x2: width - padding.right, y2: height - padding.bottom, class: "chart-grid-line" }));
+    svg.appendChild(createSvgEl("rect", { x: 0, y: 0, width, height, rx: 18, fill: "rgba(248, 250, 252, 0.28)" }));
+
+    [0, 25, 50, 75, 100].forEach((tick) => {
+      const y = scaleY(tick, 0, 100, padding.top, innerHeight);
+      svg.appendChild(createSvgEl("line", { x1: padding.left, y1: y, x2: width - padding.right, y2: y, class: "chart-grid-line" }));
+      svg.appendChild(createSvgEl("text", { x: 2, y: y + 4, class: "chart-label summary-axis-tick" }, String(tick)));
+    });
+
+    svg.appendChild(createSvgEl("line", { x1: padding.left, y1: padding.top, x2: padding.left, y2: height - padding.bottom, class: "chart-axis" }));
+    svg.appendChild(createSvgEl("line", { x1: padding.left, y1: height - padding.bottom, x2: width - padding.right, y2: height - padding.bottom, class: "chart-axis" }));
+    [0, Math.floor(totalDays / 2), totalDays].forEach((dayLabel) => {
+      const x = padding.left + (dayLabel / Math.max(totalDays, 1)) * innerWidth;
+      svg.appendChild(createSvgEl("text", { x, y: height - 4, class: "chart-label summary-axis-tick", "text-anchor": "middle" }, `D${dayLabel}`));
+    });
+
+    const targetY = scaleY(70, 0, 100, padding.top, innerHeight);
+    svg.appendChild(createSvgEl("line", { x1: padding.left, y1: targetY, x2: width - padding.right, y2: targetY, class: "chart-threshold" }));
+    svg.appendChild(createSvgEl("text", { x: width - padding.right, y: targetY - 4, class: "chart-label summary-axis-note", "text-anchor": "end" }, "Guide 70"));
 
     if (!Array.isArray(values) || !values.length) {
-      svg.appendChild(createSvgEl("text", { x: width / 2, y: height / 2, class: "chart-label", "text-anchor": "middle" }, "No score history"));
+      svg.appendChild(createSvgEl("text", { x: width / 2, y: height / 2, class: "chart-label summary-axis-note", "text-anchor": "middle" }, "No score history"));
       return;
     }
 
@@ -1932,23 +2698,31 @@
       return [x, y];
     });
 
-    const fillPoints = [[points[0][0], height - padding.bottom], ...points, [points[points.length - 1][0], height - padding.bottom]];
-    svg.appendChild(createSvgEl("path", { d: pointsToPath(fillPoints), class: "chart-fill", fill: "#2563eb" }));
     svg.appendChild(createSvgEl("path", { d: pointsToPath(points), class: "chart-line", stroke: "#2563eb" }));
 
     const last = points[points.length - 1];
     svg.appendChild(createSvgEl("circle", { cx: last[0], cy: last[1], r: 4.5, class: "chart-dot", fill: "#1d4ed8" }));
-    svg.appendChild(createSvgEl("text", { x: padding.left, y: 12, class: "chart-label" }, "0"));
-    svg.appendChild(createSvgEl("text", { x: width - padding.right, y: 12, class: "chart-label", "text-anchor": "end" }, "100"));
+    svg.appendChild(createSvgEl("text", { x: width - padding.right, y: 12, class: "chart-label summary-axis-note", "text-anchor": "end" }, "Score"));
   }
 
   function renderMapScaffold() {
     const svg = EL.cityMap;
     svg.innerHTML = "";
     STATE.svgRefs = {
+      skyGlow: null,
+      nightShade: null,
+      sun: null,
+      moon: null,
+      starField: [],
+      decorLayer: null,
+      roadGlows: new Map(),
       roadFlows: new Map(),
       districtGroups: new Map(),
+      districtAuras: new Map(),
+      districtPulses: new Map(),
+      districtRings: new Map(),
       districtShells: new Map(),
+      districtGlosses: new Map(),
       districtLabels: new Map(),
       districtPercents: new Map(),
       districtSubs: new Map(),
@@ -1960,22 +2734,42 @@
     backdrop.appendChild(createSvgEl("ellipse", { cx: 720, cy: 114, rx: 82, ry: 42, fill: "rgba(34, 197, 94, 0.08)" }));
     backdrop.appendChild(createSvgEl("ellipse", { cx: 768, cy: 462, rx: 62, ry: 34, fill: "rgba(148, 163, 184, 0.08)" }));
     svg.appendChild(backdrop);
+    STATE.svgRefs.skyGlow = null;
+    STATE.svgRefs.nightShade = null;
+    STATE.svgRefs.sun = null;
+    STATE.svgRefs.moon = null;
+    STATE.svgRefs.starField = [];
+
     const roadLayer = createSvgEl("g");
     STATE.city.edges.forEach((edge) => {
       const pathD = buildEdgePath(edge);
-      roadLayer.appendChild(createSvgEl("path", { d: pathD, class: "mayor-road-glow" }));
+      const glowPath = createSvgEl("path", { d: pathD, class: "mayor-road-glow" });
+      roadLayer.appendChild(glowPath);
       roadLayer.appendChild(createSvgEl("path", { d: pathD, class: "mayor-road-base" }));
       const flowPath = createSvgEl("path", { d: pathD, class: "mayor-road-flow" });
       roadLayer.appendChild(flowPath);
+      STATE.svgRefs.roadGlows.set(edge.id, glowPath);
       STATE.svgRefs.roadFlows.set(edge.id, flowPath);
     });
     svg.appendChild(roadLayer);
 
     const districtLayer = createSvgEl("g");
     STATE.city.districts.forEach((district) => {
-      const group = createSvgEl("g", { class: "mayor-district-group", tabindex: "0", role: "button" });
+      const group = createSvgEl("g", { class: "mayor-district-group is-calm", tabindex: "0", role: "button" });
       group.dataset.id = district.id;
 
+      const aura = createSvgEl("circle", {
+        cx: district.x,
+        cy: district.y,
+        r: district.size + 18,
+        class: "mayor-district-aura"
+      });
+      const pulse = createSvgEl("circle", {
+        cx: district.x,
+        cy: district.y,
+        r: district.size + 10,
+        class: "mayor-district-pulse"
+      });
       const selection = createSvgEl("circle", {
         cx: district.x,
         cy: district.y,
@@ -2007,6 +2801,8 @@
       const percent = createSvgEl("text", { x: district.x, y: district.y + 6, class: "mayor-district-percent" }, "");
       const icon = createDistrictIcon(district);
 
+      group.appendChild(aura);
+      group.appendChild(pulse);
       group.appendChild(selection);
       group.appendChild(ring);
       group.appendChild(shell);
@@ -2019,16 +2815,25 @@
       districtLayer.appendChild(group);
 
       STATE.svgRefs.districtGroups.set(district.id, group);
+      STATE.svgRefs.districtAuras.set(district.id, aura);
+      STATE.svgRefs.districtPulses.set(district.id, pulse);
+      STATE.svgRefs.districtRings.set(district.id, ring);
       STATE.svgRefs.districtShells.set(district.id, shell);
+      STATE.svgRefs.districtGlosses.set(district.id, gloss);
       STATE.svgRefs.districtLabels.set(district.id, label);
       STATE.svgRefs.districtPercents.set(district.id, percent);
       STATE.svgRefs.districtSubs.set(district.id, sub);
     });
     svg.appendChild(districtLayer);
 
+    const decorLayer = createSvgEl("g");
+    svg.appendChild(decorLayer);
+    STATE.svgRefs.decorLayer = decorLayer;
+
     const agentLayer = createSvgEl("g");
     svg.appendChild(agentLayer);
     STATE.svgRefs.agentLayer = agentLayer;
+
   }
 
   function addDistrictListeners(group, districtId) {
@@ -2061,26 +2866,314 @@
     }
 
     const controls = STATE.currentControls;
+    const hospitalInfo = getHospitalInfo(STATE.city.districts);
     STATE.city.edges.forEach((edge) => {
+      const glowPath = STATE.svgRefs.roadGlows.get(edge.id);
       const flowPath = STATE.svgRefs.roadFlows.get(edge.id);
-      const strokeWidth = 4 + edge.weight * 10 * controls.movementMultiplier;
-      const tint = controls.movementMultiplier < 0.35 ? "rgba(148, 163, 184, 0.22)" : "rgba(37, 99, 235, 0.24)";
+      const from = STATE.districtIndex.get(edge.from);
+      const to = STATE.districtIndex.get(edge.to);
+      const fromTotal = from.S + from.I + from.R;
+      const toTotal = to.S + to.I + to.R;
+      const infectedMix = (
+        (getEffectiveInfectiousCount(from, hospitalInfo) / Math.max(fromTotal, 1))
+        + (getEffectiveInfectiousCount(to, hospitalInfo) / Math.max(toTotal, 1))
+      ) / 2;
+      const trafficIntensity = clamp(0, edge.weight * controls.movementMultiplier * 1.15, 1);
+      const contagionIntensity = clamp(0, infectedMix * (2.4 - controls.testing * 0.55), 1);
+      const roadStress = clamp(0, (trafficIntensity * 0.55) + (contagionIntensity * 0.8), 1);
+      const edgeEventScale = getEdgeEventScale(STATE.day, from, to);
+      const strokeWidth = 4.5 + edge.weight * 9 * controls.movementMultiplier + roadStress * 4.2;
+      const tint = roadStress > 0.72
+        ? "rgba(239, 68, 68, 0.8)"
+        : roadStress > 0.44
+          ? "rgba(249, 115, 22, 0.75)"
+          : "rgba(37, 99, 235, 0.42)";
+      const glowTint = roadStress > 0.72
+        ? "rgba(239, 68, 68, 0.42)"
+        : roadStress > 0.44
+          ? "rgba(249, 115, 22, 0.34)"
+          : "rgba(14, 165, 233, 0.22)";
+
+      if (glowPath) {
+        glowPath.setAttribute("stroke-width", (strokeWidth + 6 + roadStress * 10).toFixed(1));
+        glowPath.setAttribute("stroke", glowTint);
+        glowPath.setAttribute("opacity", (0.22 + trafficIntensity * 0.38 + roadStress * 0.24).toFixed(2));
+        glowPath.style.setProperty("--road-glow-duration", `${clamp(1.1, 3.2 - trafficIntensity * 1.2 - roadStress * 0.9, 3.6).toFixed(2)}s`);
+      }
+
       flowPath.setAttribute("stroke-width", strokeWidth.toFixed(1));
       flowPath.setAttribute("stroke", tint);
-      flowPath.setAttribute("opacity", (0.4 + controls.movementMultiplier * 0.55).toFixed(2));
+      flowPath.setAttribute("opacity", (0.34 + trafficIntensity * 0.48 + roadStress * 0.16).toFixed(2));
+      flowPath.style.setProperty("--flow-duration", `${clamp(0.9, 3.3 - trafficIntensity * 1.45 - roadStress * 0.85, 3.4).toFixed(2)}s`);
+      flowPath.style.setProperty("--flow-dash", `${(12 + trafficIntensity * 20).toFixed(1)} ${(8 + (1 - roadStress) * 10).toFixed(1)}`);
+      flowPath.classList.toggle("is-hot", roadStress > 0.44);
+      flowPath.classList.toggle("is-critical", roadStress > 0.72);
+      flowPath.classList.toggle("is-closed", edgeEventScale < 0.75);
     });
 
     STATE.city.districts.forEach((district) => {
       const total = district.S + district.I + district.R;
       const infectionRate = district.I / Math.max(total, 1);
+      const mobilityIntensity = (district.incomingFlow + district.outgoingFlow) / Math.max(district.population, 1);
+      const visualState = getDistrictVisualState(district, infectionRate, mobilityIntensity);
+      const aura = STATE.svgRefs.districtAuras.get(district.id);
+      const pulse = STATE.svgRefs.districtPulses.get(district.id);
+      const ring = STATE.svgRefs.districtRings.get(district.id);
       const shell = STATE.svgRefs.districtShells.get(district.id);
+      const gloss = STATE.svgRefs.districtGlosses.get(district.id);
+      const label = STATE.svgRefs.districtLabels.get(district.id);
+      const sub = STATE.svgRefs.districtSubs.get(district.id);
       const percentLabel = STATE.svgRefs.districtPercents.get(district.id);
       const group = STATE.svgRefs.districtGroups.get(district.id);
+
+      if (aura) {
+        aura.setAttribute("fill", visualState.auraColor);
+        aura.setAttribute("r", (district.size + 18 + visualState.pressure * 18 + visualState.hospitalStress * 8).toFixed(1));
+        aura.setAttribute("opacity", (0.12 + visualState.pressure * 0.24 + visualState.hospitalStress * 0.18).toFixed(2));
+      }
+
+      if (pulse) {
+        pulse.setAttribute("stroke", visualState.auraStroke);
+        pulse.setAttribute("stroke-width", (4 + visualState.pressure * 10 + visualState.hospitalStress * 4).toFixed(1));
+        pulse.setAttribute("r", (district.size + 10 + visualState.pressure * 22 + visualState.hospitalStress * 8).toFixed(1));
+        pulse.setAttribute("opacity", (0.18 + visualState.pressure * 0.28).toFixed(2));
+      }
+
+      if (ring) {
+        ring.setAttribute("stroke", visualState.ringColor);
+        ring.setAttribute("stroke-width", (5 + visualState.pressure * 2.4 + visualState.hospitalStress * 1.8).toFixed(1));
+      }
+
       shell.setAttribute("fill", infectionColor(infectionRate));
-      percentLabel.textContent = "";
+      shell.setAttribute("stroke", visualState.shellStroke);
+      if (gloss) {
+        gloss.setAttribute("opacity", (0.2 + (1 - visualState.pressure) * 0.16).toFixed(2));
+      }
+
+      if (label) {
+        label.setAttribute("fill", visualState.labelColor);
+      }
+
+      if (sub) {
+        sub.textContent = `${district.typeLabel} - ${visualState.statusLabel}`;
+        sub.setAttribute("fill", visualState.subColor);
+      }
+
+      percentLabel.textContent = formatPercent(infectionRate * 100);
+      applyDistrictVisualClasses(group, visualState);
+      group.style.setProperty("--district-pulse-duration", `${visualState.pulseDuration.toFixed(2)}s`);
+      group.style.setProperty("--district-lift", `${(visualState.pressure * 2.8).toFixed(2)}px`);
       group.classList.toggle("is-selected", district.id === STATE.selectedDistrictId);
-      group.setAttribute("aria-label", `${district.name}. ${formatPercent(infectionRate * 100)} infected. Click for details.`);
+      group.setAttribute("aria-label", `${district.name}. ${formatPercent(infectionRate * 100)} infected. ${visualState.statusLabel} district state. Click for details.`);
     });
+
+    renderMapDecorations();
+  }
+
+  function getDistrictVisualState(district, infectionRate, mobilityIntensity) {
+    const infectionStress = clamp(0, infectionRate / 0.1, 1);
+    const mobilityStress = clamp(0, mobilityIntensity / 0.16, 1);
+    const spreadStress = STATE.currentMetrics ? clamp(0, (STATE.currentMetrics.spreadRate - 0.88) / 0.55, 1) : 0;
+    const hospitalStress = district.typeId === "hospital" && STATE.currentMetrics
+      ? clamp(0, (STATE.currentMetrics.hospitalUtilization - 72) / 40, 1)
+      : 0;
+    const pressure = clamp(0, (infectionStress * 0.58) + (mobilityStress * 0.2) + (spreadStress * 0.16) + (hospitalStress * 0.34), 1);
+    const overload = district.typeId === "hospital" && STATE.currentMetrics && STATE.currentMetrics.hospitalUtilization > 100;
+
+    if (overload) {
+      return {
+        pressure,
+        hospitalStress,
+        pulseDuration: 0.92,
+        statusLabel: "Overflow",
+        auraColor: "rgba(239, 68, 68, 0.34)",
+        auraStroke: "rgba(239, 68, 68, 0.82)",
+        ringColor: "rgba(254, 202, 202, 0.92)",
+        shellStroke: "rgba(255, 255, 255, 0.98)",
+        labelColor: "#7f1d1d",
+        subColor: "#991b1b",
+        className: "is-overloaded"
+      };
+    }
+
+    if (pressure > 0.68) {
+      return {
+        pressure,
+        hospitalStress,
+        pulseDuration: clamp(1, 1.9 - pressure * 0.45, 2),
+        statusLabel: "Critical",
+        auraColor: "rgba(249, 115, 22, 0.3)",
+        auraStroke: "rgba(249, 115, 22, 0.78)",
+        ringColor: "rgba(251, 146, 60, 0.9)",
+        shellStroke: "rgba(255, 237, 213, 0.92)",
+        labelColor: "#9a3412",
+        subColor: "#c2410c",
+        className: "is-critical"
+      };
+    }
+
+    if (pressure > 0.38) {
+      return {
+        pressure,
+        hospitalStress,
+        pulseDuration: clamp(1.2, 2.4 - pressure * 0.65, 2.5),
+        statusLabel: "Strained",
+        auraColor: "rgba(250, 204, 21, 0.24)",
+        auraStroke: "rgba(250, 204, 21, 0.72)",
+        ringColor: "rgba(250, 204, 21, 0.82)",
+        shellStroke: "rgba(255, 251, 235, 0.94)",
+        labelColor: "#854d0e",
+        subColor: "#a16207",
+        className: "is-stressed"
+      };
+    }
+
+    if (pressure > 0.16) {
+      return {
+        pressure,
+        hospitalStress,
+        pulseDuration: clamp(1.8, 3 - pressure * 0.7, 3.1),
+        statusLabel: "Watching",
+        auraColor: "rgba(34, 197, 94, 0.18)",
+        auraStroke: "rgba(56, 189, 248, 0.58)",
+        ringColor: "rgba(191, 219, 254, 0.92)",
+        shellStroke: "rgba(255, 255, 255, 0.96)",
+        labelColor: "#0f172a",
+        subColor: "#1e3a8a",
+        className: "is-watch"
+      };
+    }
+
+    return {
+      pressure,
+      hospitalStress,
+      pulseDuration: 3.2,
+      statusLabel: "Calm",
+      auraColor: "rgba(16, 185, 129, 0.14)",
+      auraStroke: "rgba(16, 185, 129, 0.46)",
+      ringColor: "rgba(255, 255, 255, 0.92)",
+      shellStroke: "rgba(255, 255, 255, 0.96)",
+      labelColor: "#0f172a",
+      subColor: "#2563eb",
+      className: "is-calm"
+    };
+  }
+
+  function applyDistrictVisualClasses(group, visualState) {
+    group.classList.remove("is-calm", "is-watch", "is-stressed", "is-critical", "is-overloaded");
+    group.classList.add(visualState.className);
+  }
+
+  function renderMapDecorations() {
+    if (!STATE.svgRefs.decorLayer) {
+      return;
+    }
+
+    STATE.svgRefs.decorLayer.innerHTML = "";
+    const activeEvents = getActiveEvents(STATE.day);
+
+    activeEvents.forEach((event) => {
+      const districtId = event.districtId || getEventMapDistrictId(event);
+      if (!districtId) {
+        return;
+      }
+      const district = STATE.districtIndex.get(districtId);
+      if (!district) {
+        return;
+      }
+      STATE.svgRefs.decorLayer.appendChild(createEventMarker(district, event.iconType || inferEventIconType(event)));
+    });
+
+    if (STATE.currentMetrics && STATE.currentMetrics.hospitalUtilization > 100) {
+      const hospitalDistrict = STATE.city.districts.find((district) => district.typeId === "hospital");
+      if (hospitalDistrict) {
+        STATE.svgRefs.decorLayer.appendChild(createHospitalBeacon(hospitalDistrict));
+      }
+    }
+
+    STATE.city.edges.forEach((edge) => {
+      const from = STATE.districtIndex.get(edge.from);
+      const to = STATE.districtIndex.get(edge.to);
+      if (getEdgeEventScale(STATE.day, from, to) < 0.75) {
+        STATE.svgRefs.decorLayer.appendChild(createEdgeBlocker(edge));
+      }
+    });
+  }
+
+  function getEventMapDistrictId(event) {
+    const lookup = {
+      "holiday-weekend": "market",
+      "mobile-clinics": "hospital",
+      "commuter-surge": "transit",
+      "ventilation-retrofit": "downtown",
+      "school-reopening": "school",
+      "parent-cohorting": "school",
+      "cold-snap": "downtown",
+      "public-fatigue": "civic"
+    };
+    return lookup[event.id] || STATE.scenario.focusDistrict;
+  }
+
+  function inferEventIconType(event) {
+    if (event.iconType) {
+      return event.iconType;
+    }
+    if (event.id.includes("school")) return "school";
+    if (event.id.includes("hospital")) return "hospital";
+    if (event.id.includes("transit") || event.id.includes("commuter")) return "transit";
+    if (event.id.includes("holiday") || event.id.includes("weekend")) return "festival";
+    if (event.id.includes("market")) return "market";
+    return "decision";
+  }
+
+  function createEventMarker(district, iconType) {
+    const group = createSvgEl("g", { class: "mayor-event-marker", transform: `translate(${district.x - 22} ${district.y - district.size - 38})` });
+    group.appendChild(createSvgEl("rect", { x: 0, y: 0, width: 44, height: 28, rx: 14, class: "mayor-event-pill" }));
+    group.appendChild(createMiniMapIcon(iconType));
+    return group;
+  }
+
+  function createHospitalBeacon(district) {
+    const group = createSvgEl("g", { class: "mayor-hospital-beacon", transform: `translate(${district.x} ${district.y})` });
+    group.appendChild(createSvgEl("circle", { cx: 0, cy: 0, r: district.size + 20, class: "mayor-beacon-ring" }));
+    group.appendChild(createSvgEl("circle", { cx: 0, cy: 0, r: district.size + 30, class: "mayor-beacon-ring is-outer" }));
+    return group;
+  }
+
+  function createEdgeBlocker(edge) {
+    const midpoint = pointOnEdge(edge, edge.from, edge.to, 0.5);
+    const group = createSvgEl("g", { class: "mayor-edge-blocker", transform: `translate(${midpoint.x - 13} ${midpoint.y - 13})` });
+    group.appendChild(createSvgEl("rect", { x: 0, y: 0, width: 26, height: 26, rx: 13, class: "mayor-edge-blocker-pill" }));
+    group.appendChild(createSvgEl("path", { d: "M 7 7 L 19 19 M 19 7 L 7 19", class: "mayor-edge-blocker-cross" }));
+    return group;
+  }
+
+  function createMiniMapIcon(iconType) {
+    const icon = createSvgEl("g", { class: "mayor-event-icon", transform: "translate(7 5)" });
+
+    if (iconType === "school") {
+      icon.appendChild(createSvgEl("rect", { x: 1, y: 4, width: 16, height: 12, rx: 2, fill: "#1d4ed8" }));
+      icon.appendChild(createSvgEl("path", { d: "M 1 7 H 17", stroke: "#ffffff", "stroke-width": 2 }));
+    } else if (iconType === "hospital") {
+      icon.appendChild(createSvgEl("rect", { x: 2, y: 2, width: 14, height: 14, rx: 4, fill: "#ef4444" }));
+      icon.appendChild(createSvgEl("rect", { x: 8, y: 5, width: 2, height: 8, fill: "#ffffff" }));
+      icon.appendChild(createSvgEl("rect", { x: 5, y: 8, width: 8, height: 2, fill: "#ffffff" }));
+    } else if (iconType === "transit") {
+      icon.appendChild(createSvgEl("rect", { x: 1, y: 5, width: 16, height: 9, rx: 4, fill: "#2563eb" }));
+      icon.appendChild(createSvgEl("circle", { cx: 5, cy: 15, r: 2, fill: "#ffffff" }));
+      icon.appendChild(createSvgEl("circle", { cx: 13, cy: 15, r: 2, fill: "#ffffff" }));
+    } else if (iconType === "market") {
+      icon.appendChild(createSvgEl("rect", { x: 2, y: 7, width: 14, height: 9, rx: 2, fill: "#f97316" }));
+      icon.appendChild(createSvgEl("path", { d: "M 2 7 H 16 L 14 3 H 4 Z", fill: "#fde68a" }));
+    } else if (iconType === "festival") {
+      icon.appendChild(createSvgEl("path", { d: "M 1 4 H 17", stroke: "#1d4ed8", "stroke-width": 2, "stroke-linecap": "round" }));
+      icon.appendChild(createSvgEl("path", { d: "M 4 4 L 7 9 L 10 4 L 13 9 L 16 4", fill: "none", stroke: "#f97316", "stroke-width": 2, "stroke-linejoin": "round" }));
+    } else {
+      icon.appendChild(createSvgEl("circle", { cx: 9, cy: 9, r: 7, fill: "#0f172a" }));
+      icon.appendChild(createSvgEl("path", { d: "M 9 4 V 9 L 12 11", stroke: "#ffffff", "stroke-width": 2, "stroke-linecap": "round", "stroke-linejoin": "round" }));
+    }
+
+    return icon;
   }
 
   function initAgents() {
@@ -2194,6 +3287,51 @@
   }
 
   function openSummaryModal() {
+    const summary = buildScenarioSummary();
+
+    if (EL.summaryEdition) {
+      EL.summaryEdition.textContent = summary.edition;
+    }
+    if (EL.summaryGrade) {
+      EL.summaryGrade.textContent = summary.grade;
+      EL.summaryGrade.className = `mayor-summary-grade ${summary.gradeTone}`;
+    }
+
+    EL.summaryCopy.textContent = summary.copy;
+    EL.summaryHealth.textContent = `${Math.round(summary.publicHealthScore)}`;
+    EL.summaryEconomy.textContent = `${Math.round(summary.economyScore)}`;
+    EL.summaryHospital.textContent = `${Math.round(summary.hospitalScore)}`;
+    EL.summaryTrust.textContent = `${Math.round(summary.trustScore)}`;
+    EL.summaryScore.textContent = `${Math.round(summary.finalScore)}`;
+
+    if (EL.summaryPaperEdition) {
+      EL.summaryPaperEdition.textContent = summary.paperEdition;
+    }
+    if (EL.summaryPaperDate) {
+      EL.summaryPaperDate.textContent = summary.paperDate;
+    }
+    if (EL.summaryHeadline) {
+      EL.summaryHeadline.textContent = summary.headline;
+    }
+    if (EL.summaryDek) {
+      EL.summaryDek.textContent = summary.dek;
+    }
+    if (EL.summaryLegacyTitle) {
+      EL.summaryLegacyTitle.textContent = summary.legacyTitle;
+    }
+    if (EL.summaryLegacy) {
+      EL.summaryLegacy.textContent = summary.legacyCopy;
+    }
+
+    renderSummaryKeyMoments(summary.keyMoments);
+    renderMiniScoreChart(EL.summaryScoreChart, STATE.history.days, STATE.history.score);
+    EL.summaryModal.hidden = false;
+    EL.summaryDismiss.focus();
+    STATE.summaryOpen = true;
+    playSoundEffect("summary", { volume: 0.44, playbackRate: 1.03, cooldown: 0 });
+  }
+
+  function buildScenarioSummary() {
     const averageEconomy = STATE.stats.samples ? STATE.stats.sumEconomy / STATE.stats.samples : 0;
     const population = STATE.currentMetrics.totalPopulation;
     const cumulativeRate = STATE.stats.cumulativeInfections / Math.max(population, 1);
@@ -2202,26 +3340,267 @@
     const hospitalScore = clamp(0, 100 - Math.max(0, STATE.stats.peakHospital - 80) * 0.6, 100);
     const trustScore = clamp(0, Math.round(STATE.publicTrust), 100);
     const finalScore = STATE.stats.samples ? STATE.stats.sumScore / STATE.stats.samples : 0;
+    const gradeInfo = getSummaryGradeInfo(finalScore, publicHealthScore, economyScore, hospitalScore, trustScore);
+    const dominantPolicy = getDominantPolicyKey();
+    const peakInfections = getSeriesPeak(STATE.history.days, STATE.history.activeInfections);
+    const peakHospital = getSeriesPeak(STATE.history.days, STATE.history.hospitalUtilization);
+    const lowestEconomy = getSeriesLow(STATE.history.days, STATE.history.economyUtilization);
+    const containmentMoment = findContainmentMoment(STATE.history.days, STATE.history.spreadRate);
+    const legacy = buildLegacyNarrative(dominantPolicy, finalScore, publicHealthScore, economyScore, trustScore);
 
-    let copy = "Your score blends long-run economic use with the average share of residents who stay susceptible, so the best runs protect both city life and city health.";
-    if (finalScore >= 80) {
-      copy = "A strong finish. You protected enough residents and kept the city moving, which pushed the score into the top band.";
-    } else if (finalScore >= 65) {
-      copy = "A balanced finish. The city absorbed pressure, but your policy mix still kept the score comfortably above crisis territory.";
-    } else if (finalScore < 50) {
-      copy = "A rough finish. Too much spread, too much drag, or both pulled down the score across the full scenario.";
+    return {
+      publicHealthScore,
+      economyScore,
+      hospitalScore,
+      trustScore,
+      finalScore,
+      grade: gradeInfo.grade,
+      gradeTone: gradeInfo.toneClass,
+      edition: `${STATE.scenario.label} final edition`,
+      paperEdition: gradeInfo.paperEdition,
+      paperDate: `Day ${STATE.runtime.dayLimit}`,
+      copy: gradeInfo.copy,
+      headline: buildSummaryHeadline(finalScore, publicHealthScore, economyScore, hospitalScore),
+      dek: buildSummaryDek(publicHealthScore, economyScore, trustScore, containmentMoment, peakHospital),
+      legacyTitle: legacy.title,
+      legacyCopy: legacy.copy,
+      keyMoments: buildSummaryKeyMoments(peakInfections, peakHospital, lowestEconomy, containmentMoment)
+    };
+  }
+
+  function getSummaryGradeInfo(finalScore, publicHealthScore, economyScore, hospitalScore, trustScore) {
+    const composite = (finalScore * 0.45)
+      + (publicHealthScore * 0.23)
+      + (economyScore * 0.15)
+      + (hospitalScore * 0.1)
+      + (trustScore * 0.07);
+
+    if (composite >= 90) {
+      return {
+        grade: "A+",
+        toneClass: "is-elite",
+        paperEdition: "Victory edition",
+        copy: "A commanding finish. You kept the outbreak from defining the city, and your strongest choices held together under pressure."
+      };
+    }
+    if (composite >= 82) {
+      return {
+        grade: "A",
+        toneClass: "is-excellent",
+        paperEdition: "Late city edition",
+        copy: "A strong finish. The city bent, but your response kept health, trust, and motion aligned well enough to finish in the top band."
+      };
+    }
+    if (composite >= 70) {
+      return {
+        grade: "B",
+        toneClass: "is-strong",
+        paperEdition: "Evening edition",
+        copy: "A credible finish. You found stretches of stability, even if the city still paid a visible price for the outbreak."
+      };
+    }
+    if (composite >= 58) {
+      return {
+        grade: "C",
+        toneClass: "is-steady",
+        paperEdition: "Special report",
+        copy: "A mixed finish. Some parts of the response worked, but the city never fully escaped the tension between spread and economic drag."
+      };
+    }
+    if (composite >= 45) {
+      return {
+        grade: "D",
+        toneClass: "is-strained",
+        paperEdition: "Emergency bulletin",
+        copy: "A strained finish. The city stayed standing, but too many days were spent reacting instead of shaping the wave."
+      };
+    }
+    return {
+      grade: "F",
+      toneClass: "is-crisis",
+      paperEdition: "Crisis edition",
+      copy: "A rough finish. Too much spread, too much drag, or both kept the city from regaining control before the scenario closed."
+    };
+  }
+
+  function buildSummaryHeadline(finalScore, publicHealthScore, economyScore, hospitalScore) {
+    if (finalScore >= 82 && hospitalScore >= 78) {
+      return "Mayor steers the city through the wave";
+    }
+    if (publicHealthScore >= economyScore + 10) {
+      return "Health first strategy slows the outbreak";
+    }
+    if (economyScore >= publicHealthScore + 10) {
+      return "City stays open while hospitals feel the squeeze";
+    }
+    if (finalScore >= 65) {
+      return "City holds the line as pressure begins to ease";
+    }
+    if (finalScore >= 50) {
+      return "Mayor avoids collapse, but scars remain";
+    }
+    return "Outbreak leaves the city under heavy strain";
+  }
+
+  function buildSummaryDek(publicHealthScore, economyScore, trustScore, containmentMoment, peakHospital) {
+    const containmentCopy = containmentMoment
+      ? `${formatDayLabel(containmentMoment.day)} marked the first durable drop below a spread rate of 1.`
+      : "The city never found a fully durable containment phase before the clock ran out.";
+    return `${Math.round(publicHealthScore)} health, ${Math.round(economyScore)} economy, and ${Math.round(trustScore)} trust defined the run. Peak hospital pressure reached ${Math.round(peakHospital.value)}%. ${containmentCopy}`;
+  }
+
+  function buildLegacyNarrative(dominantPolicy, finalScore, publicHealthScore, economyScore, trustScore) {
+    if (finalScore < 50) {
+      return {
+        title: "Embattled incumbent",
+        copy: "History will remember a city that never found enough breathing room. Your administration was forced into visible damage control, with too little margin to build confidence."
+      };
     }
 
-    EL.summaryCopy.textContent = copy;
-    EL.summaryHealth.textContent = `${Math.round(publicHealthScore)}`;
-    EL.summaryEconomy.textContent = `${Math.round(economyScore)}`;
-    EL.summaryHospital.textContent = `${Math.round(hospitalScore)}`;
-    EL.summaryTrust.textContent = `${Math.round(trustScore)}`;
-    EL.summaryScore.textContent = `${Math.round(finalScore)}`;
-    renderMiniScoreChart(EL.summaryScoreChart, STATE.history.days, STATE.history.score);
-    EL.summaryModal.hidden = false;
-    EL.summaryDismiss.focus();
-    STATE.summaryOpen = true;
+    if (dominantPolicy === "mobility") {
+      return finalScore >= 75
+        ? {
+            title: "The iron gate mayor",
+            copy: "You were remembered for using movement controls decisively. The city traded comfort for control, and the districts responded to a firm hand."
+          }
+        : {
+            title: "Lockdown balancer",
+            copy: "Your instinct was to slow the city down to buy time. It worked in places, but the political and economic bill stayed visible throughout the run."
+          };
+    }
+
+    if (dominantPolicy === "testing") {
+      return publicHealthScore >= 72
+        ? {
+            title: "Data-driven crisis manager",
+            copy: "You leaned on case finding and isolation to keep transmission measurable. The legacy is one of dashboards, tracing, and steady operational pressure."
+          }
+        : {
+            title: "Late-diagnosis reformer",
+            copy: "You tried to outlearn the outbreak. The city saw flashes of control, but the system never fully turned information into dominance."
+          };
+    }
+
+    return trustScore >= 72
+      ? {
+          title: "Shield builder",
+          copy: "Your administration focused on public protection and social buy-in. The legacy is a city that responded through norms, not only through force."
+        }
+      : {
+          title: "Civic persuader",
+          copy: "You tried to guide the city with protection measures and public messaging. The approach worked best when trust held, and faltered when it did not."
+        };
+  }
+
+  function buildSummaryKeyMoments(peakInfections, peakHospital, lowestEconomy, containmentMoment) {
+    const moments = [
+      {
+        title: `${formatDayLabel(peakInfections.day)} - infections crest`,
+        body: `Active infections reached ${formatCompactNumber(peakInfections.value)} residents before beginning their sharpest turn.`
+      },
+      {
+        title: `${formatDayLabel(peakHospital.day)} - hospitals tighten`,
+        body: `Hospital utilization peaked at ${Math.round(peakHospital.value)}%, setting the most dangerous moment of the run.`
+      }
+    ];
+
+    if (containmentMoment) {
+      moments.push({
+        title: `${formatDayLabel(containmentMoment.day)} - containment turns`,
+        body: `The spread rate fell to ${formatDecimal(containmentMoment.value)} and finally slipped into a more stable phase.`
+      });
+    } else {
+      moments.push({
+        title: `${formatDayLabel(lowestEconomy.day)} - economy bottoms out`,
+        body: `Economic utilization hit ${Math.round(lowestEconomy.value)}%, showing the hardest cost of your response mix.`
+      });
+    }
+
+    return moments;
+  }
+
+  function renderSummaryKeyMoments(moments) {
+    if (!EL.summaryKeyMoments) {
+      return;
+    }
+
+    EL.summaryKeyMoments.innerHTML = "";
+    moments.forEach((moment) => {
+      const item = document.createElement("li");
+      const title = document.createElement("strong");
+      const body = document.createElement("span");
+      title.textContent = moment.title;
+      body.textContent = moment.body;
+      item.appendChild(title);
+      item.appendChild(body);
+      EL.summaryKeyMoments.appendChild(item);
+    });
+  }
+
+  function getDominantPolicyKey() {
+    const policyAverages = [
+      ["mobility", averageSeries(STATE.history.mobilityPolicy)],
+      ["testing", averageSeries(STATE.history.testingPolicy)],
+      ["protection", averageSeries(STATE.history.protectionPolicy)]
+    ];
+    policyAverages.sort((left, right) => right[1] - left[1]);
+    return policyAverages[0][0];
+  }
+
+  function averageSeries(values) {
+    if (!Array.isArray(values) || !values.length) {
+      return 0;
+    }
+    return values.reduce((sum, value) => sum + value, 0) / values.length;
+  }
+
+  function getSeriesPeak(days, values) {
+    if (!Array.isArray(values) || !values.length) {
+      return { day: 0, value: 0 };
+    }
+    let bestIndex = 0;
+    values.forEach((value, index) => {
+      if (value > values[bestIndex]) {
+        bestIndex = index;
+      }
+    });
+    return { day: days[bestIndex] || 0, value: values[bestIndex] || 0 };
+  }
+
+  function getSeriesLow(days, values) {
+    if (!Array.isArray(values) || !values.length) {
+      return { day: 0, value: 0 };
+    }
+    let bestIndex = 0;
+    values.forEach((value, index) => {
+      if (value < values[bestIndex]) {
+        bestIndex = index;
+      }
+    });
+    return { day: days[bestIndex] || 0, value: values[bestIndex] || 0 };
+  }
+
+  function findContainmentMoment(days, values) {
+    if (!Array.isArray(values) || !values.length) {
+      return null;
+    }
+
+    let sawExpansion = false;
+    for (let index = 0; index < values.length; index += 1) {
+      const value = values[index];
+      if (value > 1.05) {
+        sawExpansion = true;
+      }
+      if (sawExpansion && value <= 0.98) {
+        return { day: days[index] || 0, value };
+      }
+    }
+
+    return null;
+  }
+
+  function formatDayLabel(day) {
+    return `Day ${Math.max(1, Math.round(day || 0))}`;
   }
 
   function closeSummaryModal() {
@@ -2237,6 +3616,7 @@
 
   function selectDistrict(districtId) {
     STATE.selectedDistrictId = districtId;
+    playSoundEffect("districtSelect", { volume: 0.18, playbackRate: 1.24, cooldown: 0 });
     showFloatingPanel("district");
     renderMapVisuals();
     renderDistrictDetail();
@@ -2418,6 +3798,15 @@
 
   function formatTick(value, digits) {
     return Number(value).toFixed(digits);
+  }
+
+  function escapeHtml(value) {
+    return String(value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
   }
 
   function clamp(min, value, max) {
