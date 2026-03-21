@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Applied Computational Mathematics Lab - RL course interactive self-learn </title>
+  <meta content="Interactive reinforcement learning teaching demo connecting multi-armed bandits with gridworld exploration in the ACML lab website." name="description"/>
+  <meta content="keywords" content="reinforcement learning, bandits, gridworld, exploration, exploitation, ACML, Teddy Lazebnik" />
+  <meta content="Teddy Lazebnik" name="author"/>
+  <link href="img/favicon.ico" rel="icon" type="image/x-icon"/>
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/exploration-lab.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-50 font-['Inter']">
+    <nav
+      id="navbar"
+      class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30"
+    >
+      <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+        <div class="flex items-center gap-2">
+          <img src="img/logo.png" alt="acml logo" width="100px" />
+        </div>
+
+        <div class="hidden md:flex items-center">
+          <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+            <a
+              href="index.html"
+              class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm"
+              >Home</a
+            >
+            <a
+              href="team.html"
+              class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm"
+              >Our Team</a
+            >
+            <a
+              href="projects.html"
+              class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm"
+              >Projects</a
+            >
+            <a href="publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+          </div>
+          <a
+            href="index.html#contact"
+            class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm"
+            >Contact Us</a
+          >
+        </div>
+
+        <button
+          id="menu-btn"
+          class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100"
+        >
+          <i class="ri-menu-line text-xl"></i>
+        </button>
+      </div>
+
+      <div
+        id="mobile-menu"
+        class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out"
+      >
+        <a href="index.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+        <a href="team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+        <a href="projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+        <a href="publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+        <a
+          href="index.html#contact"
+          class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90"
+          >Contact Us</a
+        >
+      </div>
+    </nav>
+
+    <div class="h-20"></div>
+
+    <main class="min-h-screen">
+      <section class="py-16 bg-gradient-to-b from-gray-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid lg:grid-cols-2 gap-12 items-start">
+            <div class="space-y-6">
+              <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
+                Exploration RL Lab: From Bandits to Gridworld
+              </h1>
+              <p class="text-lg text-gray-600 leading-relaxed">
+                This lab introduces exploration versus exploitation in the simplest setting first, then carries that intuition into a compact reinforcement learning environment where state, delayed consequences, and path quality all matter.
+              </p>
+
+              <div class="flex flex-wrap gap-3">
+                <a
+                  href="#bandit-lab"
+                  class="bg-primary text-white px-6 py-3 rounded-full hover:bg-primary/90 transition font-semibold inline-flex items-center gap-2"
+                >
+                  <i class="ri-scales-3-line"></i>
+                  Start with bandits
+                </a>
+                <a
+                  href="#gridworld-lab"
+                  class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-6 py-3 text-gray-700 hover:border-primary/30 hover:text-primary transition font-semibold"
+                >
+                  <i class="ri-route-line"></i>
+                  Jump to gridworld
+                </a>
+              </div>
+
+            </div>
+
+            <div class="bg-gray-50 rounded-2xl shadow-sm border border-gray-100 p-6">
+              <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+                <div class="flex items-center justify-between mb-4">
+                  <h2 class="text-xl font-semibold text-gray-900">Learning arc</h2>
+                </div>
+
+                <div class="space-y-4">
+                  <div class="concept-flow-card">
+                    <div class="concept-flow-icon">
+                      <i class="ri-scales-3-line"></i>
+                    </div>
+                    <div>
+                      <div class="concept-flow-title">Stage 1: one state, many actions</div>
+                      <p class="concept-flow-copy">In a bandit, every decision starts from the same situation. The only question is which arm to trust next.</p>
+                    </div>
+                  </div>
+
+                  <div class="concept-flow-card">
+                    <div class="concept-flow-icon">
+                      <i class="ri-arrow-right-up-line"></i>
+                    </div>
+                    <div>
+                      <div class="concept-flow-title">Stage 2: feedback becomes delayed</div>
+                      <p class="concept-flow-copy">Once actions move the agent through space, each choice changes what can happen next and how rewards accumulate.</p>
+                    </div>
+                  </div>
+
+                  <div class="concept-flow-card">
+                    <div class="concept-flow-icon">
+                      <i class="ri-route-line"></i>
+                    </div>
+                    <div>
+                      <div class="concept-flow-title">Stage 3: policy quality is a path property</div>
+                      <p class="concept-flow-copy">In the gridworld, efficient exploration discovers a reliable route, avoids traps, and improves long-run returns.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-16" id="bandit-lab">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">
+            <div class="max-w-3xl">
+              <h2 class="text-3xl font-bold text-gray-900 mt-2">Explore action choice before state enters the picture</h2>
+              <p class="text-lg text-gray-600 mt-3 leading-relaxed">
+                The bandit setting isolates the exploration problem: there is no map, no future state, and no path planning. Each pull simply asks whether your current estimates are good enough to exploit or whether you should keep probing alternatives.
+              </p>
+            </div>
+          </div>
+
+          <div class="math-panel mb-8">
+            <div class="max-w-3xl mb-6">
+              <div class="section-kicker">Simple Math</div>
+              <h3 class="text-2xl font-bold text-gray-900 mt-2">How the bandit strategies decide which arm to pull</h3>
+              <p class="text-sm text-gray-600 mt-2 leading-relaxed">
+                Each method keeps a running estimate for every arm, then balances value and uncertainty in a different way when it picks the next action.
+              </p>
+            </div>
+            <div class="math-grid">
+              <article class="math-card">
+                <div class="math-card-title">epsilon-greedy</div>
+                <div class="formula-line">Explore with probability <span class="formula-chip">epsilon</span>.</div>
+                <div class="formula-line">Otherwise choose <span class="formula-chip">arg max_a q_hat(a)</span>.</div>
+                <p class="math-card-copy">Most steps exploit the best estimate so far, while a fixed random-exploration rate prevents early lock-in.</p>
+              </article>
+              <article class="math-card">
+                <div class="math-card-title">UCB</div>
+                <div class="formula-line"><span class="formula-chip">q_hat(a) + c * sqrt(log t / n(a))</span></div>
+                <p class="math-card-copy">Arms with less data receive a larger confidence bonus, so uncertainty itself becomes a reason to sample them.</p>
+              </article>
+              <article class="math-card">
+                <div class="math-card-title">Thompson sampling</div>
+                <div class="formula-line">Sample <span class="formula-chip">theta_a ~ Beta(alpha_a, beta_a)</span></div>
+                <div class="formula-line">Choose <span class="formula-chip">arg max_a theta_a</span></div>
+                <p class="math-card-copy">This strategy explores by acting on a plausible reward-rate sample from each arm's posterior rather than by adding an explicit bonus.</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="grid xl:grid-cols-[340px,1fr] gap-8">
+            <aside class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm space-y-6">
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900">Bandit controls</h3>
+                <p class="text-sm text-gray-600 mt-2">Change the number of arms, switch strategies, and decide whether the hidden reward chances stay fixed or drift.</p>
+              </div>
+
+              <div class="space-y-2">
+                <div class="flex items-center justify-between gap-3">
+                  <label for="banditArms" class="text-sm font-medium text-gray-700">Number of arms</label>
+                  <span id="banditArmsValue" class="control-value">5</span>
+                </div>
+                <input id="banditArms" type="range" min="3" max="10" step="1" value="5" class="w-full">
+              </div>
+
+              <div class="space-y-2">
+                <label for="banditStrategy" class="text-sm font-medium text-gray-700">Strategy</label>
+                <select id="banditStrategy" class="control-select">
+                  <option value="epsilon">epsilon-greedy</option>
+                  <option value="ucb">UCB</option>
+                  <option value="thompson">Thompson sampling</option>
+                </select>
+              </div>
+
+              <div class="space-y-3">
+                <div class="flex items-center justify-between gap-4">
+                  <div>
+                    <div class="text-sm font-medium text-gray-700">Drifting rewards</div>
+                    <p class="text-xs text-gray-500 mt-1">Let each arm's hidden mean wander over time.</p>
+                  </div>
+                  <label class="toggle">
+                    <input id="banditDrift" type="checkbox" />
+                    <span class="toggle-track"></span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="space-y-2">
+                <div class="flex items-center justify-between gap-3">
+                  <label id="banditParamLabel" for="banditParam" class="text-sm font-medium text-gray-700">Exploration rate (epsilon)</label>
+                  <span id="banditParamValue" class="control-value">0.12</span>
+                </div>
+                <input id="banditParam" type="range" min="0.02" max="0.40" step="0.01" value="0.12" class="w-full">
+                <p id="banditParamHint" class="text-xs text-gray-500">Higher epsilon forces more random exploration instead of greedy choice.</p>
+              </div>
+
+              <div class="grid grid-cols-2 gap-3">
+                <button id="banditStepBtn" type="button" class="control-button control-button-secondary">
+                  <i class="ri-skip-forward-line"></i>
+                  Step
+                </button>
+                <button id="banditEpisodeBtn" type="button" class="control-button control-button-primary">
+                  <i class="ri-play-circle-line"></i>
+                  Run Episode
+                </button>
+                <button id="banditBatchBtn" type="button" class="control-button control-button-secondary">
+                  <i class="ri-flashlight-line"></i>
+                  Run Batch
+                </button>
+                <button id="banditResetBtn" type="button" class="control-button control-button-ghost">
+                  <i class="ri-restart-line"></i>
+                  Reset
+                </button>
+              </div>
+
+              <div class="rounded-2xl bg-gray-50 border border-gray-100 p-4">
+                <div class="flex items-center justify-between gap-3">
+                  <div class="text-sm font-semibold text-gray-900">Strategy lens</div>
+                  <i id="banditStrategyIcon" class="ri-scales-3-line text-primary text-xl"></i>
+                </div>
+                <p id="banditStrategyBlurb" class="text-sm text-gray-600 mt-2 leading-relaxed">
+                  Epsilon-greedy mostly exploits the best estimate so far, but reserves a fixed random-exploration budget.
+                </p>
+              </div>
+            </aside>
+
+            <div class="space-y-6">
+              <div class="grid sm:grid-cols-2 xl:grid-cols-5 gap-4">
+                <div class="metric-tile">
+                  <div class="metric-label">Pulls</div>
+                  <div id="banditPulls" class="metric-value">0</div>
+                </div>
+                <div class="metric-tile">
+                  <div class="metric-label">Cumulative reward</div>
+                  <div id="banditReward" class="metric-value">0.00</div>
+                </div>
+                <div class="metric-tile">
+                  <div class="metric-label">Regret</div>
+                  <div id="banditRegret" class="metric-value">0.00</div>
+                </div>
+                <div class="metric-tile">
+                  <div class="metric-label">Average reward</div>
+                  <div id="banditAverage" class="metric-value">0.00</div>
+                </div>
+                <div class="metric-tile">
+                  <div class="metric-label">Best arm now</div>
+                  <div id="banditBestArm" class="metric-value">Arm 1</div>
+                </div>
+              </div>
+
+              <div class="grid lg:grid-cols-[1.2fr,0.8fr] gap-6">
+                <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+                  <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
+                    <div>
+                      <h3 class="text-xl font-semibold text-gray-900">Arm estimates and pull counts</h3>
+                      <p class="text-sm text-gray-600 mt-1">Each row compares the learned estimate with the current hidden reward chance used by the simulator.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-3 text-xs text-gray-500">
+                      <span class="line-swatch" style="--swatch: rgba(37, 99, 235, 0.85);">Estimated value</span>
+                      <span class="line-swatch" style="--swatch: rgba(244, 63, 94, 0.85);">Latent mean</span>
+                    </div>
+                  </div>
+                  <div id="banditArmRows" class="space-y-4"></div>
+                </div>
+
+                <div class="space-y-6">
+                  <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+                    <div class="flex items-center justify-between gap-4 mb-4">
+                      <div>
+                        <h3 class="text-xl font-semibold text-gray-900">Reward trail</h3>
+                        <p class="text-sm text-gray-600 mt-1">Compare realized reward with an oracle baseline that always picks the current best arm.</p>
+                      </div>
+                      <div class="text-right">
+                        <div class="text-xs text-gray-500">History shown</div>
+                        <div id="banditHistoryCount" class="text-lg font-semibold text-gray-900">0 pulls</div>
+                      </div>
+                    </div>
+                    <div class="chart-shell">
+                      <svg id="banditTrendChart" class="mini-chart" viewBox="0 0 560 220" preserveAspectRatio="none" role="img" aria-label="Bandit reward trail chart"></svg>
+                    </div>
+                    <div class="flex flex-wrap gap-4 text-xs text-gray-500 pt-3">
+                      <span class="line-swatch" style="--swatch: rgba(37, 99, 235, 0.9);">Cumulative reward</span>
+                      <span class="line-swatch" style="--swatch: rgba(16, 185, 129, 0.9);">Oracle reward</span>
+                    </div>
+                    <div class="mt-6">
+                      <div class="flex items-center justify-between gap-4 mb-3">
+                        <div>
+                          <h4 class="text-base font-semibold text-gray-900">Oracle gap summary</h4>
+                          <p class="text-xs text-gray-500 mt-1">This compares oracle minus learner over the whole run and over the most recent 50 pulls.</p>
+                        </div>
+                      </div>
+                      <div class="chart-shell chart-shell-compact">
+                        <svg id="banditDeltaChart" class="mini-chart" viewBox="0 0 560 220" preserveAspectRatio="none" role="img" aria-label="Oracle gap comparison chart"></svg>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+                    <div class="flex items-center justify-between gap-4 mb-4">
+                      <div>
+                        <h3 class="text-xl font-semibold text-gray-900">Recent decisions</h3>
+                        <p class="text-sm text-gray-600 mt-1">Use the log to spot when the policy commits or deliberately re-explores.</p>
+                      </div>
+                      <span id="banditStatusTag" class="status-pill" data-state="ready">Ready</span>
+                    </div>
+                    <div id="banditDecisionLog" class="decision-log"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-12 lg:px-12">
+          <div class="bridge-panel">
+            <div class="max-w-3xl">
+              <h2 class="text-3xl font-bold text-gray-900 mt-2">From isolated action choice to sequential decision making</h2>
+              <p class="text-lg text-gray-600 mt-3 leading-relaxed">
+                A bandit can be read as reinforcement learning with only one state: there are multiple actions, but every pull returns you to the same decision point. A gridworld adds many states, delayed consequences, and transitions, so the cost of a choice can propagate several steps into the future.
+              </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-4 mt-8">
+              <div class="bridge-card">
+                <div class="bridge-card-icon">
+                  <i class="ri-focus-2-line"></i>
+                </div>
+                <h3 class="bridge-card-title">Bandit = one state, many actions</h3>
+                <p class="bridge-card-copy">Exploration asks: which option seems best when feedback is immediate and the decision context never changes?</p>
+              </div>
+
+              <div class="bridge-card">
+                <div class="bridge-card-icon">
+                  <i class="ri-map-pin-line"></i>
+                </div>
+                <h3 class="bridge-card-title">Gridworld = many states, delayed consequences</h3>
+                <p class="bridge-card-copy">Now each move changes the next state. A poor exploratory step can lead toward a trap or away from the goal.</p>
+              </div>
+
+              <div class="bridge-card">
+                <div class="bridge-card-icon">
+                  <i class="ri-git-branch-line"></i>
+                </div>
+                <h3 class="bridge-card-title">Exploration still matters</h3>
+                <p class="bridge-card-copy">The same tension remains, but decisions now shape future opportunities. Learning a policy means learning where each action leads.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-16 bg-white" id="gridworld-lab">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">
+            <div class="max-w-3xl">
+              <h2 class="text-3xl font-bold text-gray-900 mt-2">Transfer the exploration lesson into a small RL environment</h2>
+              <p class="text-lg text-gray-600 mt-3 leading-relaxed">
+                The gridworld keeps the idea compact but introduces state, path dependence, and delayed rewards. Watch the agent trade off immediate moves against long-run return while the learned policy map gradually sharpens.
+              </p>
+            </div>
+          </div>
+
+          <div class="math-panel mb-8">
+            <div class="max-w-3xl mb-6">
+              <div class="section-kicker">Simple Math</div>
+              <h3 class="text-2xl font-bold text-gray-900 mt-2">How the gridworld learner updates its action values</h3>
+              <p class="text-sm text-gray-600 mt-2 leading-relaxed">
+                In reinforcement learning the estimate is attached to a state-action pair. After each move, the learner nudges that estimate toward a target built from the immediate reward and the next state's value.
+              </p>
+            </div>
+            <div class="math-grid math-grid-wide">
+              <article class="math-card">
+                <div class="math-card-title">Q-learning</div>
+                <div class="formula-line"><span class="formula-chip">Q(s,a) <- Q(s,a) + alpha [r + gamma max_a' Q(s',a') - Q(s,a)]</span></div>
+                <p class="math-card-copy">Q-learning looks ahead to the best possible next action, even if the behavior policy is still exploring.</p>
+              </article>
+              <article class="math-card">
+                <div class="math-card-title">SARSA</div>
+                <div class="formula-line"><span class="formula-chip">Q(s,a) <- Q(s,a) + alpha [r + gamma Q(s',a') - Q(s,a)]</span></div>
+                <p class="math-card-copy">SARSA updates toward the action the agent actually expects to take next, so it learns under its own exploratory behavior.</p>
+              </article>
+              <article class="math-card">
+                <div class="math-card-title">Exploration policy</div>
+                <div class="formula-line">Choose the greedy action most of the time, but explore with <span class="formula-chip">epsilon</span>.</div>
+                <p class="math-card-copy">Optional epsilon decay makes the learner search broadly at first and then become more stable once it has mapped the environment.</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="grid xl:grid-cols-[340px,1fr] gap-8">
+            <aside class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm space-y-6">
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900">Gridworld controls</h3>
+                <p class="text-sm text-gray-600 mt-2">Choose the learner, tune exploration, and decide whether training happens in a deterministic or noisy environment.</p>
+              </div>
+
+              <div class="space-y-2">
+                <label for="gridAlgorithm" class="text-sm font-medium text-gray-700">Learning algorithm</label>
+                <select id="gridAlgorithm" class="control-select">
+                  <option value="qlearning">Q-learning</option>
+                  <option value="sarsa">SARSA</option>
+                </select>
+              </div>
+
+              <div class="space-y-3">
+                <div class="flex items-center justify-between gap-4">
+                  <div>
+                    <div class="text-sm font-medium text-gray-700">Action noise</div>
+                    <p class="text-xs text-gray-500 mt-1">Allow occasional slips to a side direction.</p>
+                  </div>
+                  <label class="toggle">
+                    <input id="gridNoise" type="checkbox" />
+                    <span class="toggle-track"></span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="space-y-2">
+                <div class="flex items-center justify-between gap-3">
+                  <label for="gridEpsilon" class="text-sm font-medium text-gray-700">Exploration rate (epsilon)</label>
+                  <span id="gridEpsilonValue" class="control-value">0.18</span>
+                </div>
+                <input id="gridEpsilon" type="range" min="0.02" max="0.40" step="0.01" value="0.18" class="w-full">
+              </div>
+
+              <div class="space-y-2">
+                <div class="flex items-center justify-between gap-3">
+                  <label for="gridAlpha" class="text-sm font-medium text-gray-700">Learning rate</label>
+                  <span id="gridAlphaValue" class="control-value">0.30</span>
+                </div>
+                <input id="gridAlpha" type="range" min="0.05" max="0.80" step="0.01" value="0.30" class="w-full">
+              </div>
+
+              <div class="space-y-2">
+                <div class="flex items-center justify-between gap-3">
+                  <label for="gridGamma" class="text-sm font-medium text-gray-700">Discount factor</label>
+                  <span id="gridGammaValue" class="control-value">0.92</span>
+                </div>
+                <input id="gridGamma" type="range" min="0.50" max="0.99" step="0.01" value="0.92" class="w-full">
+              </div>
+
+              <div class="space-y-3">
+                <label class="option-chip">
+                  <input id="gridOptimistic" type="checkbox" />
+                  <span class="option-chip-box"></span>
+                  <span>
+                    <span class="text-sm font-medium text-gray-700 block">Optimistic initialization</span>
+                    <span class="text-xs text-gray-500">Start Q-values above zero to encourage early exploration.</span>
+                  </span>
+                </label>
+
+                <label class="option-chip">
+                  <input id="gridDecay" type="checkbox" checked />
+                  <span class="option-chip-box"></span>
+                  <span>
+                    <span class="text-sm font-medium text-gray-700 block">Epsilon decay</span>
+                    <span class="text-xs text-gray-500">Reduce exploration gradually as training proceeds.</span>
+                  </span>
+                </label>
+              </div>
+
+              <div class="space-y-2">
+                <div class="flex items-center justify-between gap-3">
+                  <label for="gridTrainEpisodes" class="text-sm font-medium text-gray-700">Train batch size</label>
+                  <span class="control-value">episodes</span>
+                </div>
+                <input id="gridTrainEpisodes" type="number" min="5" max="300" step="5" value="60" class="control-select">
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-1 gap-3">
+                <button id="gridStepBtn" type="button" class="control-button control-button-primary">
+                  <i class="ri-walk-line"></i>
+                  Step Episode
+                </button>
+                <button id="gridTrainBtn" type="button" class="control-button control-button-secondary">
+                  <i class="ri-rocket-line"></i>
+                  Train N Episodes
+                </button>
+                <button id="gridResetBtn" type="button" class="control-button control-button-ghost">
+                  <i class="ri-restart-line"></i>
+                  Reset
+                </button>
+              </div>
+
+              <div class="rounded-2xl bg-gray-50 border border-gray-100 p-4">
+                <div class="text-sm font-semibold text-gray-900">Environment legend</div>
+                <div class="mt-3 grid grid-cols-2 gap-3 text-sm text-gray-600">
+                  <div class="legend-detail"><span class="legend-dot legend-start"></span>Start</div>
+                  <div class="legend-detail"><span class="legend-dot legend-goal"></span>Goal</div>
+                  <div class="legend-detail"><span class="legend-dot legend-hazard"></span>Hazard</div>
+                  <div class="legend-detail"><span class="legend-dot legend-wall"></span>Wall</div>
+                </div>
+              </div>
+            </aside>
+
+            <div class="space-y-6">
+              <div class="grid sm:grid-cols-2 xl:grid-cols-5 gap-4">
+                <div class="metric-tile">
+                  <div class="metric-label">Episodes trained</div>
+                  <div id="gridEpisodes" class="metric-value">0</div>
+                </div>
+                <div class="metric-tile">
+                  <div class="metric-label">Current epsilon</div>
+                  <div id="gridCurrentEpsilon" class="metric-value">0.18</div>
+                </div>
+                <div class="metric-tile">
+                  <div class="metric-label">Last reward</div>
+                  <div id="gridLastReward" class="metric-value">0.00</div>
+                </div>
+                <div class="metric-tile">
+                  <div class="metric-label">Last episode length</div>
+                  <div id="gridLastLength" class="metric-value">0</div>
+                </div>
+                <div class="metric-tile">
+                  <div class="metric-label">Goal rate (last 20)</div>
+                  <div id="gridGoalRate" class="metric-value">0%</div>
+                </div>
+              </div>
+
+              <div class="grid lg:grid-cols-[1.05fr,0.95fr] gap-6">
+                <div class="bg-gray-50 rounded-2xl border border-gray-100 p-6 shadow-sm">
+                  <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
+                    <div>
+                      <h3 class="text-xl font-semibold text-gray-900">Policy and value map</h3>
+                      <p class="text-sm text-gray-600 mt-1">Cell shading reflects the current value estimate. Icons show the greedy action, and numbered badges mark the latest trajectory.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-3 text-xs text-gray-500">
+                      <span class="legend-chip"><i class="ri-compass-3-line"></i> Greedy action</span>
+                      <span class="legend-chip"><i class="ri-fire-line"></i> Path marker</span>
+                    </div>
+                  </div>
+                  <div id="gridBoard" class="gridworld-board" aria-live="polite"></div>
+                </div>
+
+                <div class="space-y-6">
+                  <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+                    <div class="flex items-center justify-between gap-4 mb-4">
+                      <div>
+                        <h3 class="text-xl font-semibold text-gray-900">Episode reward history</h3>
+                        <p class="text-sm text-gray-600 mt-1">Returns should rise as the policy discovers a safer, shorter route to the goal.</p>
+                      </div>
+                      <div class="text-right">
+                        <div class="text-xs text-gray-500">History shown</div>
+                        <div id="gridHistoryCount" class="text-lg font-semibold text-gray-900">0 episodes</div>
+                      </div>
+                    </div>
+                    <div class="chart-shell">
+                      <svg id="gridRewardChart" class="mini-chart" viewBox="0 0 560 220" preserveAspectRatio="none" role="img" aria-label="Gridworld episode reward chart"></svg>
+                    </div>
+                  </div>
+
+                  <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+                    <div class="flex items-center justify-between gap-4 mb-4">
+                      <div>
+                        <h3 class="text-xl font-semibold text-gray-900">Most recent trajectory</h3>
+                        <p class="text-sm text-gray-600 mt-1">This makes the last episode legible as a path rather than only as a scalar reward.</p>
+                      </div>
+                      <span id="gridStatusTag" class="status-pill" data-state="ready">Ready</span>
+                    </div>
+                    <div id="gridTrajectorySummary" class="trajectory-summary"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-12 mt-20">
+      <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+        <div>
+          <img src="img/LOGO_Blue.svg" alt="acml logo footer" width="100px" />
+          <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-3">Quick Links</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="team.html" class="hover:text-white">Team</a></li>
+            <li><a href="media.html" class="hover:text-white">Media</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-3">Resources</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="publications.html" class="hover:text-white">Publications</a></li>
+            <li><a href="tools.html" class="hover:text-white">Tools</a></li>
+            <li><a href="mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-3">Contact Info</h4>
+          <p class="text-gray-400">
+            Department of Information Systems,<br />
+            University of Haifa<br />
+            Department of Computing,<br />
+            Jonkoping University<br />
+            Lazebnik.teddy (at) gmail.com<br />
+          </p>
+        </div>
+      </div>
+      <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+        &copy; 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to
+        <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+      </div>
+    </footer>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/main.js"></script>
+    <script src="js/exploration-lab.js"></script>
+  </body>
+</html>
