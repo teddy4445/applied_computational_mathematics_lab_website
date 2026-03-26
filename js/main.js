@@ -230,54 +230,6 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
   enhanceAnimatedContent(document);
   initHeroParallax();
-
-  const yearFilter = document.getElementById('year-filter');
-  const categoryFilter = document.getElementById('category-filter');
-  const searchInput = document.getElementById('search-input');
-  const sortFilter = document.getElementById('sort-filter');
-  const publicationsContainer = document.getElementById('publications-container');
-
-  function filterAndSortPublications() {
-    const cards = Array.from(document.querySelectorAll('.publication-card'));
-    const yearValue = yearFilter.value;
-    const categoryValue = categoryFilter.value;
-    const searchValue = searchInput.value.toLowerCase();
-    const sortValue = sortFilter.value;
-
-    let filteredCards = cards.filter(card => {
-      const year = card.getAttribute('data-year');
-      const category = card.getAttribute('data-category');
-      const title = card.querySelector('h3').textContent.toLowerCase();
-      const authors = card.querySelector('p').textContent.toLowerCase();
-      const yearMatch = !yearValue || year === yearValue;
-      const categoryMatch = !categoryValue || category === categoryValue;
-      const searchMatch = !searchValue || title.includes(searchValue) || authors.includes(searchValue);
-      return yearMatch && categoryMatch && searchMatch;
-    });
-
-    filteredCards.sort((a, b) => {
-      const titleA = a.querySelector('h3').textContent;
-      const titleB = b.querySelector('h3').textContent;
-      const yearA = parseInt(a.getAttribute('data-year'));
-      const yearB = parseInt(b.getAttribute('data-year'));
-      switch (sortValue) {
-        case 'date-asc': return yearA - yearB;
-        case 'date-desc': return yearB - yearA;
-        case 'title': return titleA.localeCompare(titleB);
-        default: return yearB - yearA;
-      }
-    });
-
-    publicationsContainer.innerHTML = '';
-    filteredCards.forEach(card => publicationsContainer.appendChild(card));
-  }
-
-  [yearFilter, categoryFilter, searchInput, sortFilter].forEach(element => {
-    if (element) {
-      element.addEventListener('change', filterAndSortPublications);
-      element.addEventListener('input', filterAndSortPublications);
-    }
-  });
 });
 
 // Navbar background on scroll
@@ -415,17 +367,19 @@ window.addEventListener("scroll", () => {
   const container = document.getElementById('publications-container');
   const emptyEl = document.getElementById('pub-empty');
   const yearSel = document.getElementById('year-filter');
-  const catSel = document.getElementById('category-filter');
   const searchInp = document.getElementById('search-input');
   const sortSel = document.getElementById('sort-filter');
+  const loadState = document.getElementById('pub-load-state');
+  const sentinel = document.getElementById('pub-scroll-sentinel');
   const statsTotal = document.getElementById('stats-total')?.querySelector('strong');
   const paperCountHeader = document.getElementById('papers-count');
   const statsVisible = document.getElementById('stats-visible')?.querySelector('strong');
 
-  if (!container || !yearSel || !catSel || !searchInp || !sortSel) return; // not on this page
+  if (!container || !emptyEl || !yearSel || !searchInp || !sortSel || !loadState || !sentinel) return; // not on this page
 
-  // ---- 1) Load JSON from your URL (same-origin is ideal for CORS) ----
   const JSON_URL = 'data/academic-publications.json';
+  const PAGE_SIZE = 10;
+  const LOAD_MORE_DELAY_MS = 1200;
 
   async function loadData() {
     if (window.PUBLICATIONS_JSON?.publications) return window.PUBLICATIONS_JSON; // optional override
@@ -447,45 +401,46 @@ window.addEventListener("scroll", () => {
   if (paperCountHeader) window.ACMLAnimations?.refreshCount(paperCountHeader, ALL.length);
 
   // ---- 2) Helpers ----
-  const norm = s => (s ?? '').toString().trim();
-  const yearOf = p => Number(p.year) || 0;
-  const titleOf = p => norm(p.name);
-  const topicOf = p => norm(p.topic);
-  const statusOf = p => norm(p.publicationStatus);
-  const pubLine = p => {
+  const norm = (value) => (value ?? '').toString().trim();
+  const yearOf = (pub) => Number(pub.year) || 0;
+  const titleOf = (pub) => norm(pub.name);
+  const statusOf = (pub) => norm(pub.publicationStatus);
+  const pubLine = (pub) => {
     const bits = [];
-    if (p.publisher) bits.push(p.publisher);
-    const y = yearOf(p);
-    if (y) bits.push(y);
+    if (pub.publisher) bits.push(pub.publisher);
+    const year = yearOf(pub);
+    if (year) bits.push(year);
     return bits.join(', ');
   };
 
-  // Category mapping from your JSON "topic"
-  function mapTopicToCategory(topic) {
-    const t = (topic || '').toLowerCase();
-    if (t.includes('machine')) return 'Machine learning';
-    if (t.includes('biomath') || t.includes('bio')) return 'Biomathematics';
-    if (t.includes('econ')) return 'Computational Economics';
-    if (t.includes('math')) return 'Computational Mathematics';
-    return 'Others';
-  }
-
-  // Build dynamic Year options (desc) & Category options (alpha)
-  const years = [...new Set(ALL.map(yearOf).filter(Boolean))].sort((a,b)=>b-a);
-  years.forEach(y => {
+  const years = [...new Set(ALL.map(yearOf).filter(Boolean))].sort((a, b) => b - a);
+  years.forEach((year) => {
     const opt = document.createElement('option');
-    opt.value = String(y);
-    opt.textContent = String(y);
+    opt.value = String(year);
+    opt.textContent = String(year);
     yearSel.appendChild(opt);
   });
 
-  const cats = [...new Set(ALL.map(p => mapTopicToCategory(p.topic)).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
-  cats.forEach(c => {
-    const opt = document.createElement('option');
-    opt.value = c;
-    opt.textContent = c;
-    catSel.appendChild(opt);
-  });
+  let currentList = [];
+  let renderedCount = 0;
+  let fullRenderMode = false;
+  let isLoadingMore = false;
+  let hasScrolled = false;
+
+  function hasActiveFilters() {
+    return Boolean((searchInp.value || '').trim() || yearSel.value);
+  }
+
+  function setLoadState(visible) {
+    loadState.classList.toggle('hidden', !visible);
+    loadState.classList.toggle('flex', visible);
+  }
+
+  function updateVisibleStats() {
+    if (statsVisible) {
+      statsVisible.textContent = String(container.querySelectorAll('.publication-card').length);
+    }
+  }
 
   // ---- 3) Rendering ----
   function render(list) {
@@ -502,7 +457,6 @@ window.addEventListener("scroll", () => {
       const title = titleOf(p);
       const authors = norm(p.authors);
       const line = pubLine(p);
-      const cat = mapTopicToCategory(topicOf(p));
       const status = statusOf(p);
       const abstract = norm(p.description);
 
@@ -529,17 +483,11 @@ window.addEventListener("scroll", () => {
       const card = document.createElement('article');
       card.className = 'publication-card bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300';
       card.dataset.year = String(yearOf(p));
-      card.dataset.category = cat;
 
       card.innerHTML = `
         <h3 class="text-xl font-semibold mb-3">${title}</h3>
         <p class="text-gray-600 mb-2"><strong>Authors:</strong> ${authors || '—'}</p>
-        <div class="flex flex-wrap items-center gap-2 mb-4">
-          ${line ? `<span class="text-sm text-gray-500">${line}</span>` : ''}
-          <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs">${cat}</span>
-          ${status ? `<span class="px-2 py-1 bg-emerald-100 text-emerald-800 rounded text-xs">${status}</span>` : ''}
-          ${p.type ? `<span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded text-xs">${p.type}</span>` : ''}
-        </div>
+        ${[line, status, norm(p.type)].filter(Boolean).length ? `<p class="text-sm text-gray-500 mb-4">${[line, status, norm(p.type)].filter(Boolean).join(' • ')}</p>` : '<div class="mb-4"></div>'}
 
         ${abstract ? `
           <div class="mb-4">
@@ -578,39 +526,108 @@ window.addEventListener("scroll", () => {
     });
   }
 
-  // ---- 4) Filtering + Sorting ----
-  function applyFilters() {
-    const q = (searchInp.value || '').toLowerCase().trim();
+  function getFilteredSortedList() {
+    const query = (searchInp.value || '').toLowerCase().trim();
     const year = yearSel.value;
-    const cat = catSel.value;
-
-    let list = ALL.filter(p => {
-      const matchesYear = !year || String(yearOf(p)) === year;
-      const mapped = mapTopicToCategory(topicOf(p));
-      const matchesCat = !cat || mapped === cat;
-      const inTitle = titleOf(p).toLowerCase().includes(q);
-      return matchesYear && matchesCat && (!q || inTitle);
+    let list = ALL.filter((pub) => {
+      const matchesYear = !year || String(yearOf(pub)) === year;
+      const searchSource = `${titleOf(pub)} ${norm(pub.authors)}`.toLowerCase();
+      const matchesSearch = !query || searchSource.includes(query);
+      return matchesYear && matchesSearch;
     });
 
-    const mode = sortSel.value;
-    if (mode === 'title') {
-      list.sort((a,b) => titleOf(a).localeCompare(titleOf(b)));
-    } else if (mode === 'date-asc') {
-      list.sort((a,b) => yearOf(a) - yearOf(b));
+    if (sortSel.value === 'title') {
+      list.sort((a, b) => titleOf(a).localeCompare(titleOf(b)));
+    } else if (sortSel.value === 'date-asc') {
+      list.sort((a, b) => yearOf(a) - yearOf(b));
     } else {
-      list.sort((a,b) => yearOf(b) - yearOf(a));
+      list.sort((a, b) => yearOf(b) - yearOf(a));
     }
 
-    render(list);
+    return list;
   }
 
-  searchInp.addEventListener('input', applyFilters);
-  yearSel.addEventListener('change', applyFilters);
-  catSel.addEventListener('change', applyFilters);
-  sortSel.addEventListener('change', applyFilters);
+  function updateVisibilityState() {
+    const hasItems = currentList.length > 0;
+    emptyEl.classList.toggle('hidden', hasItems);
 
-  // Initial render
-  applyFilters();
+    if (!hasItems) {
+      container.innerHTML = '';
+      setLoadState(false);
+      sentinel.classList.add('hidden');
+      updateVisibleStats();
+      return;
+    }
+
+    const hasMore = !fullRenderMode && renderedCount < currentList.length;
+    sentinel.classList.toggle('hidden', !hasMore);
+    if (!hasMore) setLoadState(false);
+  }
+
+  function renderCurrent(resetToFirstPage = true) {
+    currentList = getFilteredSortedList();
+    fullRenderMode = hasActiveFilters();
+    renderedCount = resetToFirstPage ? 0 : renderedCount;
+
+    if (!currentList.length) {
+      updateVisibilityState();
+      return;
+    }
+
+    const nextCount = fullRenderMode ? currentList.length : Math.min(PAGE_SIZE, currentList.length);
+    renderedCount = nextCount;
+    render(currentList.slice(0, nextCount));
+    updateVisibilityState();
+  }
+
+  async function loadMore() {
+    if (isLoadingMore || fullRenderMode || renderedCount >= currentList.length || !hasScrolled) return;
+
+    isLoadingMore = true;
+    setLoadState(true);
+    await new Promise((resolve) => setTimeout(resolve, LOAD_MORE_DELAY_MS));
+
+    renderedCount = Math.min(renderedCount + PAGE_SIZE, currentList.length);
+    render(currentList.slice(0, renderedCount));
+
+    setLoadState(false);
+    updateVisibilityState();
+    isLoadingMore = false;
+  }
+
+  const onControlsChanged = () => {
+    isLoadingMore = false;
+    setLoadState(false);
+    renderCurrent(true);
+  };
+
+  searchInp.addEventListener('input', onControlsChanged);
+  yearSel.addEventListener('change', onControlsChanged);
+  sortSel.addEventListener('change', onControlsChanged);
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) hasScrolled = true;
+  }, { passive: true });
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) loadMore();
+      });
+    }, {
+      rootMargin: '0px 0px 22% 0px',
+      threshold: 0.1
+    });
+
+    observer.observe(sentinel);
+  } else {
+    window.addEventListener('scroll', () => {
+      const nearBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 180;
+      if (nearBottom) loadMore();
+    }, { passive: true });
+  }
+
+  renderCurrent(true);
 })();
 
 
