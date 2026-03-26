@@ -38,6 +38,185 @@ DEFAULT: '8px',
 }
 }
 
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const revealObserver = prefersReducedMotion ? null : new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('reveal-visible');
+    revealObserver.unobserve(entry.target);
+  });
+}, { threshold: 0.16, rootMargin: '0px 0px -8% 0px' });
+
+const countObserver = prefersReducedMotion ? null : new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    runCountUp(entry.target);
+    countObserver.unobserve(entry.target);
+  });
+}, { threshold: 0.55 });
+
+const partnerObserver = prefersReducedMotion ? null : new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('partner-visible');
+    partnerObserver.unobserve(entry.target);
+  });
+}, { threshold: 0.35 });
+
+function formatCountValue(value, decimals = 0) {
+  if (!Number.isFinite(value)) return '0';
+  return value.toLocaleString(undefined, {
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals
+  });
+}
+
+function runCountUp(el) {
+  if (!el || el.dataset.countAnimated === 'true') return;
+
+  const target = Number(el.dataset.countup);
+  if (!Number.isFinite(target)) return;
+
+  const suffix = el.dataset.suffix || '';
+  const prefix = el.dataset.prefix || '';
+  const decimals = Number(el.dataset.decimals ?? (String(el.dataset.countup).includes('.') ? String(el.dataset.countup).split('.')[1].length : 0));
+
+  if (prefersReducedMotion) {
+    el.textContent = `${prefix}${formatCountValue(target, decimals)}${suffix}`;
+    el.classList.remove('count-up-ready');
+    el.dataset.countAnimated = 'true';
+    return;
+  }
+
+  const duration = 1200;
+  const start = performance.now();
+  el.classList.remove('count-up-ready');
+
+  function step(now) {
+    const progress = Math.min(1, (now - start) / duration);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const value = target * eased;
+    el.textContent = `${prefix}${formatCountValue(value, decimals)}${suffix}`;
+
+    if (progress < 1) {
+      requestAnimationFrame(step);
+      return;
+    }
+
+    el.textContent = `${prefix}${formatCountValue(target, decimals)}${suffix}`;
+    el.dataset.countAnimated = 'true';
+    el.classList.add('count-up-complete');
+    setTimeout(() => el.classList.remove('count-up-complete'), 750);
+  }
+
+  requestAnimationFrame(step);
+}
+
+function refreshCountUp(el, value, suffix = el?.dataset?.suffix || '', prefix = el?.dataset?.prefix || '') {
+  if (!el || !Number.isFinite(Number(value))) return;
+  const numericValue = Number(value);
+  el.dataset.countup = String(numericValue);
+  el.dataset.suffix = suffix;
+  el.dataset.prefix = prefix;
+  el.dataset.countAnimated = 'false';
+  el.classList.add('count-up-ready');
+  el.textContent = `${prefix}${formatCountValue(0, Number(el.dataset.decimals ?? (String(numericValue).includes('.') ? String(numericValue).split('.')[1].length : 0)))}${suffix}`;
+  if (countObserver) countObserver.observe(el);
+  else runCountUp(el);
+}
+
+function wireAbstractToggles(root = document) {
+  root.querySelectorAll('.abstract-toggle').forEach((toggle) => {
+    if (toggle.dataset.abstractBound === 'true') return;
+    toggle.dataset.abstractBound = 'true';
+
+    const content = toggle.parentElement?.querySelector('.abstract-content');
+    const icon = toggle.querySelector('i');
+    const text = toggle.querySelector('span');
+    if (!content || !icon || !text) return;
+
+    toggle.setAttribute('aria-expanded', 'false');
+
+    toggle.addEventListener('click', function () {
+      const isOpen = content.classList.toggle('is-open');
+      icon.classList.toggle('rotate-180', isOpen);
+      text.textContent = isOpen ? 'Hide Abstract' : 'Show Abstract';
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+  });
+}
+
+function enhanceAnimatedContent(root = document) {
+  const scope = root instanceof Element || root instanceof Document ? root : document;
+
+  scope.querySelectorAll('.reveal-card').forEach((card, index) => {
+    if (!card.style.getPropertyValue('--reveal-order')) {
+      card.style.setProperty('--reveal-order', String(index % 8));
+    }
+    if (prefersReducedMotion) {
+      card.classList.add('reveal-visible');
+      return;
+    }
+    revealObserver?.observe(card);
+  });
+
+  scope.querySelectorAll('[data-countup]').forEach((counter) => {
+    if (prefersReducedMotion) {
+      runCountUp(counter);
+      return;
+    }
+    countObserver?.observe(counter);
+  });
+
+  scope.querySelectorAll('.partner-link').forEach((link, index) => {
+    if (!link.style.getPropertyValue('--partner-order')) {
+      link.style.setProperty('--partner-order', String(index % 8));
+    }
+    if (prefersReducedMotion) {
+      link.classList.add('partner-visible');
+      return;
+    }
+    partnerObserver?.observe(link);
+  });
+
+  wireAbstractToggles(scope);
+}
+
+function initHeroParallax() {
+  const hero = document.querySelector('.home-hero');
+  if (!hero || prefersReducedMotion) return;
+
+  const layers = Array.from(hero.querySelectorAll('[data-parallax-speed]'));
+  if (!layers.length) return;
+
+  let ticking = false;
+  const update = () => {
+    const rect = hero.getBoundingClientRect();
+    const progress = Math.max(-hero.offsetHeight, Math.min(hero.offsetHeight, -rect.top));
+    layers.forEach((layer) => {
+      const speed = Number(layer.dataset.parallaxSpeed || 0);
+      layer.style.transform = `translate3d(0, ${progress * speed}px, 0)`;
+    });
+    ticking = false;
+  };
+
+  const requestTick = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(update);
+  };
+
+  update();
+  window.addEventListener('scroll', requestTick, { passive: true });
+  window.addEventListener('resize', requestTick, { passive: true });
+}
+
+window.ACMLAnimations = {
+  enhance: enhanceAnimatedContent,
+  refreshCount: refreshCountUp
+};
+
 document.addEventListener('DOMContentLoaded', function () {
   const navLinks = document.querySelectorAll('.nav-link');
 
@@ -49,23 +228,8 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-  const abstractToggles = document.querySelectorAll('.abstract-toggle');
-  abstractToggles.forEach(toggle => {
-    toggle.addEventListener('click', function () {
-      const content = this.parentElement.querySelector('.abstract-content');
-      const icon = this.querySelector('i');
-      const text = this.querySelector('span');
-      if (content.classList.contains('hidden')) {
-        content.classList.remove('hidden');
-        icon.classList.add('rotate-180');
-        text.textContent = 'Hide Abstract';
-      } else {
-        content.classList.add('hidden');
-        icon.classList.remove('rotate-180');
-        text.textContent = 'Show Abstract';
-      }
-    });
-  });
+  enhanceAnimatedContent(document);
+  initHeroParallax();
 
   const yearFilter = document.getElementById('year-filter');
   const categoryFilter = document.getElementById('category-filter');
@@ -280,7 +444,7 @@ window.addEventListener("scroll", () => {
   }
 
   if (statsTotal) statsTotal.textContent = String(ALL.length);
-  if (paperCountHeader) paperCountHeader.textContent = String(ALL.length);
+  if (paperCountHeader) window.ACMLAnimations?.refreshCount(paperCountHeader, ALL.length);
 
   // ---- 2) Helpers ----
   const norm = s => (s ?? '').toString().trim();
@@ -383,8 +547,10 @@ window.addEventListener("scroll", () => {
               <span>Show Abstract</span>
               <i class="ri-arrow-down-s-line ml-1 transform transition-transform duration-200"></i>
             </button>
-            <div class="abstract-content hidden mt-3 p-4 bg-gray-50 rounded-lg pub-abstract">
-              <p class="text-gray-700 leading-relaxed">${abstract}</p>
+            <div class="abstract-content mt-3">
+              <div class="p-4 bg-gray-50 rounded-lg pub-abstract">
+                <p class="text-gray-700 leading-relaxed">${abstract}</p>
+              </div>
             </div>
           </div>` : ''}
 
@@ -396,18 +562,7 @@ window.addEventListener("scroll", () => {
       container.appendChild(card);
     });
 
-    // post-render wiring
-    container.querySelectorAll('.abstract-toggle').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const content = btn.parentElement.querySelector('.abstract-content');
-        const icon = btn.querySelector('i');
-        const textSpan = btn.querySelector('span');
-        const isHidden = content.classList.contains('hidden');
-        content.classList.toggle('hidden');
-        icon.classList.toggle('rotate-180', isHidden);
-        textSpan.textContent = isHidden ? 'Hide Abstract' : 'Show Abstract';
-      });
-    });
+    enhanceAnimatedContent(container);
 
     container.querySelectorAll('.copy-cite').forEach(btn => {
       btn.addEventListener('click', async () => {
@@ -506,7 +661,7 @@ window.addEventListener("scroll", () => {
       ? `${textCol}${imgCol}` : `${imgCol}${textCol}`;
 
     return `
-      <article class="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-shadow duration-300">
+      <article class="project-card bg-white border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-shadow duration-300">
         <div class="flex flex-col lg:flex-row ${prj.orientation === "right" ? "lg:flex-row-reverse" : ""} gap-8">
           ${order}
         </div>
@@ -514,5 +669,6 @@ window.addEventListener("scroll", () => {
   }
 
   container.innerHTML = DATA.projects.map(projectCard).join("");
+  enhanceAnimatedContent(container);
 })();
 

@@ -88,6 +88,7 @@ function placeColumnText(emojis, x, size, existing) {
       el.textContent = emojis[i];
     } else {
       el = mk('text', {
+        class: 'node-hotspot',
         'font-size': size,
         'text-anchor': 'middle',
         'dominant-baseline': 'middle',
@@ -122,7 +123,7 @@ function placeSymbolsWithCircles(emojis, x, size, existing) {
       text.textContent = emojis[i];
       group.setAttribute('transform', `translate(${x},${y})`);
     } else {
-      group = mk('g', { transform: `translate(${x},${y})` });
+      group = mk('g', { transform: `translate(${x},${y})`, class: 'node-hotspot' });
       circle = mk('circle', {
         r: R,
         cx: 0, cy: 0,
@@ -156,15 +157,16 @@ function clearEdges() {
   edges = [];
 }
 
-function addEdge(x1, y1, x2, y2) {
+function addEdge(x1, y1, x2, y2, meta = {}) {
   const line = mk('line', {
+    class: 'edge',
     x1, y1, x2, y2,
     stroke: '#000000',           // black
     'stroke-width': 2,
     'stroke-dasharray': '6 6'    // dashed
   });
   edgeLayer.appendChild(line);
-  edges.push({ line });
+  edges.push({ line, ...meta });
 }
 
 function rewire() {
@@ -173,25 +175,69 @@ function rewire() {
   // Guarantee: each user gets a path U→S→M
   for (let i = 0; i < users.length; i++) {
     const u = users[i];
-    const s = choice(subjects);
-    const m = choice(symbols);
-    addEdge(u.x, u.y, s.x, s.y);
-    addEdge(s.x, s.y, m.x, m.y);
+    const subjectIndex = randInt(subjects.length);
+    const symbolIndex = randInt(symbols.length);
+    const s = subjects[subjectIndex];
+    const m = symbols[symbolIndex];
+    addEdge(u.x, u.y, s.x, s.y, { kind: 'user-subject', userIndex: i, subjectIndex });
+    addEdge(s.x, s.y, m.x, m.y, { kind: 'subject-symbol', userIndex: i, subjectIndex, symbolIndex });
   }
 
   // Optional: a few extra edges for variety in a compact layout
   const extraUS = 2, extraSM = 2;
   for (let k = 0; k < extraUS; k++) {
-    const u = choice(users);
-    const s = choice(subjects);
-    addEdge(u.x, u.y, s.x, s.y);
+    const userIndex = randInt(users.length);
+    const subjectIndex = randInt(subjects.length);
+    const u = users[userIndex];
+    const s = subjects[subjectIndex];
+    addEdge(u.x, u.y, s.x, s.y, { kind: 'extra-user-subject', userIndex, subjectIndex });
   }
   for (let k = 0; k < extraSM; k++) {
-    const s = choice(subjects);
-    const m = choice(symbols);
-    addEdge(s.x, s.y, m.x, m.y);
+    const subjectIndex = randInt(subjects.length);
+    const symbolIndex = randInt(symbols.length);
+    const s = subjects[subjectIndex];
+    const m = symbols[symbolIndex];
+    addEdge(s.x, s.y, m.x, m.y, { kind: 'extra-subject-symbol', subjectIndex, symbolIndex });
   }
 }
+
+let activeResetTimer = null;
+
+function clearActiveGraphState() {
+  edges.forEach(({ line }) => line.classList.remove('edge-active'));
+  users.forEach((node) => node.el.classList.remove('node-active'));
+  subjects.forEach((node) => node.el.classList.remove('node-active'));
+  symbols.forEach((node) => node.groupEl.classList.remove('node-active'));
+}
+
+function activateGraphPath(seed = 0) {
+  if (!users.length || !subjects.length || !symbols.length) return;
+  clearActiveGraphState();
+
+  const userIndex = Math.abs(seed) % users.length;
+  const firstEdge = edges.find((edge) => edge.kind === 'user-subject' && edge.userIndex === userIndex);
+  if (!firstEdge) return;
+
+  const secondEdge = edges.find((edge) =>
+    edge.kind === 'subject-symbol' &&
+    edge.userIndex === userIndex &&
+    edge.subjectIndex === firstEdge.subjectIndex
+  );
+  if (!secondEdge) return;
+
+  firstEdge.line.classList.add('edge-active');
+  secondEdge.line.classList.add('edge-active');
+  users[userIndex]?.el.classList.add('node-active');
+  subjects[firstEdge.subjectIndex]?.el.classList.add('node-active');
+  symbols[secondEdge.symbolIndex]?.groupEl.classList.add('node-active');
+
+  clearTimeout(activeResetTimer);
+  activeResetTimer = setTimeout(clearActiveGraphState, 1100);
+}
+
+window.ACMLTeamGraph = {
+  activateForCard: activateGraphPath
+};
 
 // ------------------ init ------------------
 resize();
@@ -206,10 +252,6 @@ function tick() {
 
   const baseUsers = users.map(n => n.y);
   const baseSubjects = subjects.map(n => n.y);
-  const baseSymbols = symbols.map(n => n.groupEl.transform.baseVal.consolidate()
-    ? +symbols[i]?.groupEl?.transform?.baseVal?.consolidate()?.matrix?.f || symbols[i].y
-    : symbols[i].y
-  );
 
   users.forEach((n, i) => n.el.setAttribute('y', bob(i, baseUsers[i], 0.4, 1.0)));
   subjects.forEach((n, i) => n.el.setAttribute('y', bob(i, baseSubjects[i], 0.4, 0.9)));

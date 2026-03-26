@@ -179,6 +179,17 @@ const q1RatioFromMember = (m) => {
   return null;
 };
 
+function wireGraphActivation(grid) {
+  if (!grid) return;
+  grid.querySelectorAll('.team-card').forEach((card, index) => {
+    if (card.dataset.graphBound === 'true') return;
+    card.dataset.graphBound = 'true';
+    card.addEventListener('mouseenter', () => {
+      window.ACMLTeamGraph?.activateForCard(index);
+    });
+  });
+}
+
 function computeAndRenderStats(members) {
   // Notes implemented:
   // 1) Male/Female uses include_in_stats === true, split by e_date === "Current" for Now, and all for Overall
@@ -351,6 +362,12 @@ async function loadMembers() {
   const alumniCountEl = document.getElementById('alumni-count');
   if (teamCountEl)   teamCountEl.textContent   = `${current.length}`;
   if (alumniCountEl) alumniCountEl.textContent = `${alumni.length}`;
+
+  window.ACMLAnimations?.refreshCount(teamCountEl, current.length);
+  window.ACMLAnimations?.refreshCount(alumniCountEl, alumni.length);
+  window.ACMLAnimations?.enhance(currentGrid);
+  window.ACMLAnimations?.enhance(alumniGrid);
+  wireGraphActivation(currentGrid);
 
   // NEW: compute and render Lab Statistics
   computeAndRenderStats(members);

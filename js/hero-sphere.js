@@ -45,6 +45,7 @@ window.addEventListener('resize', resizeRenderer);
 // ------------------------------------------------------------------
 const group = new THREE.Group();
 scene.add(group);
+group.scale.setScalar(0.84);
 
 scene.add(new THREE.AmbientLight(0xffffff, 0.6));
 const keyLight = new THREE.PointLight(0xffffff, 0.8);
@@ -56,7 +57,7 @@ scene.add(rimLight);
 
 // Wire sphere
 const wire = new THREE.WireframeGeometry(new THREE.SphereGeometry(1, 32, 32));
-const wireMat = new THREE.LineBasicMaterial({ color: 0x60a5fa, transparent: true, opacity: 0.25 });
+const wireMat = new THREE.LineBasicMaterial({ color: 0x60a5fa, transparent: true, opacity: 0 });
 group.add(new THREE.LineSegments(wire, wireMat));
 
 // ------------------------------------------------------------------
@@ -85,22 +86,25 @@ const markerGeom = new THREE.SphereGeometry(0.02, 16, 16);
 const markerColors = [COLORS.primary, COLORS.secondary, COLORS.teal, COLORS.amber, COLORS.violet];
 
 const markers = [];
+const markerMaterials = [];
 const samples = fibonacciSphere(140);
 samples.forEach((pos, i) => {
   const color = markerColors[i % markerColors.length];
   const mat = new THREE.MeshStandardMaterial({
-    color, metalness: 0.2, roughness: 0.3, emissive: color, emissiveIntensity: 0.35
+    color, metalness: 0.2, roughness: 0.3, emissive: color, emissiveIntensity: 0.35, transparent: true, opacity: 0
   });
   const m = new THREE.Mesh(markerGeom, mat);
   m.position.copy(pos.clone().multiplyScalar(1.01));
+  m.scale.setScalar(0.001);
   m.userData.eq = equations[Math.floor(Math.random() * equations.length)];
   m.userData.kind = 'dot';
   markers.push(m);
+  markerMaterials.push(mat);
   group.add(m);
 });
 
 // faint motion trails (as before)
-const trailMat = new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.07 });
+const trailMat = new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0 });
 const trailGroup = new THREE.Group();
 group.add(trailGroup);
 markers.forEach((m, idx) => {
@@ -167,7 +171,7 @@ chosenIdx.forEach((idx, i) => {
 // Stronger connection lines BETWEEN symbol nodes (more visible)
 // ------------------------------------------------------------------
 const connectionMat = new THREE.LineBasicMaterial({
-  color: 0xffffff, transparent: true, opacity: 0.35 // more visible than trails
+  color: 0xffffff, transparent: true, opacity: 0 // more visible than trails
 });
 
 // Strategy: connect each symbol to its 2 nearest other symbols
@@ -249,11 +253,32 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
 if (prefersReducedMotion) container.setAttribute('data-reduced-motion', 'true');
 
 let t = 0;
+const introStartedAt = performance.now();
 function animate() {
   const rotSpeed = prefersReducedMotion ? 0.0006 : 0.0032;
+  const introDuration = prefersReducedMotion ? 1 : 1200;
+  const introProgress = Math.min(1, (performance.now() - introStartedAt) / introDuration);
+  const introEase = 1 - Math.pow(1 - introProgress, 3);
   t += 0.005;
   group.rotation.y += rotSpeed;
-  group.rotation.x = Math.sin(t) * (prefersReducedMotion ? 0.02 : 0.07);
+  group.rotation.x = Math.sin(t) * (prefersReducedMotion ? 0.02 : 0.07) - (1 - introEase) * 0.22;
+  group.scale.setScalar(0.84 + introEase * 0.16);
+  wireMat.opacity = 0.25 * introEase;
+  trailMat.opacity = 0.07 * introEase;
+  connectionMat.opacity = 0.35 * introEase;
+
+  markers.forEach((marker, index) => {
+    const localProgress = Math.max(0, Math.min(1, (introEase * 1.15) - (index / markers.length) * 0.22));
+    marker.material.opacity = localProgress;
+    const scale = 0.001 + (0.999 * localProgress);
+    marker.scale.setScalar(scale);
+  });
+
+  symbolSprites.forEach((sprite, index) => {
+    const localProgress = Math.max(0, Math.min(1, (introEase * 1.2) - (index / Math.max(symbolSprites.length, 1)) * 0.25));
+    sprite.material.opacity = localProgress;
+    sprite.scale.setScalar(0.05 + localProgress * 0.09);
+  });
 
   // Hover picking over both dots and symbols
   raycaster.setFromCamera(mouse, camera);
@@ -330,7 +355,7 @@ function makeTextSprite(text, size = 64, font = '24px sans-serif') {
 
   const tex = new THREE.CanvasTexture(canvas);
   tex.needsUpdate = true;
-  const mat = new THREE.SpriteMaterial({ map: tex, transparent: true });
+  const mat = new THREE.SpriteMaterial({ map: tex, transparent: true, opacity: 0 });
   const sprite = new THREE.Sprite(mat);
   const scale = 0.14; // visual size vs sphere
   sprite.scale.set(scale, scale, 1);
