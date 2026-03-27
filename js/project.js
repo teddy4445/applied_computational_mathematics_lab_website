@@ -23,7 +23,74 @@
   });
 })();
 
+const SITE_URL = "https://acml.teddylazebnik.com";
+
 function qs(id){ return document.getElementById(id); }
+function compactText(text) {
+  return String(text || "").replace(/\s+/g, " ").trim();
+}
+function clipText(text, maxLength = 180) {
+  const normalized = compactText(text);
+  if (normalized.length <= maxLength) return normalized;
+  return `${normalized.slice(0, maxLength - 3).trim()}...`;
+}
+function absoluteUrl(path) {
+  if (!path) return `${SITE_URL}/img/logo.png`;
+  if (/^https?:\/\//i.test(path)) return path;
+  return `${SITE_URL}/${String(path).replace(/^\/+/, "")}`;
+}
+function setMetaContent(id, value) {
+  const node = qs(id);
+  if (node && value) node.setAttribute("content", value);
+}
+function updateProjectSeo(project, slug) {
+  const canonicalUrl = `${SITE_URL}/project.html?pagename=${encodeURIComponent(slug)}`;
+  const title = `${project.title} | Research Project | Applied Computational Mathematics Laboratory`;
+  const description = clipText(
+    project.subtitle ||
+    project.summary ||
+    project.description ||
+    "Explore an ACML research project in computational mathematics, modeling, simulation, and applied AI."
+  );
+  const image = absoluteUrl(project.heroImage || project.image);
+
+  document.title = title;
+  setMetaContent("meta-description", description);
+  setMetaContent("og-title", title);
+  setMetaContent("og-description", description);
+  setMetaContent("og-url", canonicalUrl);
+  setMetaContent("og-image", image);
+  setMetaContent("twitter-title", title);
+  setMetaContent("twitter-description", description);
+  setMetaContent("twitter-image", image);
+
+  const canonicalLink = qs("canonical-link");
+  if (canonicalLink) canonicalLink.setAttribute("href", canonicalUrl);
+
+  const structuredData = qs("project-structured-data");
+  if (structuredData) {
+    structuredData.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ResearchProject",
+      "name": project.title,
+      "url": canonicalUrl,
+      "description": description,
+      "image": image,
+      "keywords": Array.isArray(project.tags) ? project.tags.join(", ") : undefined,
+      "member": Array.isArray(project.team)
+        ? project.team.map((member) => ({
+            "@type": "Person",
+            "name": member.name
+          }))
+        : undefined,
+      "publisher": {
+        "@type": "Organization",
+        "name": "Applied Computational Mathematics Laboratory",
+        "url": `${SITE_URL}/index.html`
+      }
+    }, null, 2);
+  }
+}
 function badge(text) {
   const span = document.createElement("span");
   span.className = "inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs bg-blue-100 text-blue-800";
@@ -96,6 +163,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const p = bySlug[slug];
 
     if (!p) {
+      document.title = "Project Not Found | Applied Computational Mathematics Laboratory";
       root.innerHTML = `
         <section class="py-24">
           <div class="max-w-3xl mx-auto px-6 text-center">
@@ -110,7 +178,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     // Titlebar + badges
-    document.title = `${p.title} • ACML`;
+    updateProjectSeo(p, slug);
     if (p.heroImage || p.image) qs("hero").style.backgroundImage = `url('${p.heroImage || p.image}')`;
     qs("proj-title").textContent = p.title || "";
     qs("proj-subtitle").textContent = p.subtitle || p.summary || "";
