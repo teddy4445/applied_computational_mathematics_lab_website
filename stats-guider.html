@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stats Guider | Applied Computational Mathematics Laboratory</title>
+  <meta content="Upload a CSV, map variables, receive a transparent statistical test recommendation, and run browser-side analysis without leaving the page." name="description"/>
+  <meta content="keywords" content="lazebnik, teddy lazebnik, applied computational mathematics, academic lab, statistics, csv analysis" />
+  <meta content="Teddy Lazebnik" name="author"/>
+  <link rel="canonical" href="https://acml.teddylazebnik.com/stats-guider.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="Applied Computational Mathematics Laboratory"/>
+  <meta property="og:title" content="Stats Guider | Applied Computational Mathematics Laboratory"/>
+  <meta property="og:description" content="Upload a CSV, map variables, receive a transparent statistical test recommendation, and run browser-side analysis without leaving the page."/>
+  <meta property="og:url" content="https://acml.teddylazebnik.com/stats-guider.html"/>
+  <meta property="og:image" content="https://acml.teddylazebnik.com/img/logo.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Stats Guider | Applied Computational Mathematics Laboratory"/>
+  <meta name="twitter:description" content="Upload a CSV, map variables, receive a transparent statistical test recommendation, and run browser-side analysis without leaving the page."/>
+  <meta name="twitter:image" content="https://acml.teddylazebnik.com/img/logo.png"/>
+  <link href="img/favicon.ico" rel="icon" type="image/x-icon"/>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Stats Guider",
+      "url": "https://acml.teddylazebnik.com/stats-guider.html",
+      "description": "Upload a CSV, map variables, receive a transparent statistical test recommendation, and run browser-side analysis without leaving the page.",
+      "applicationCategory": "ResearchApplication",
+      "operatingSystem": "Any",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Applied Computational Mathematics Laboratory",
+        "url": "https://acml.teddylazebnik.com/index.html"
+      }
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/stats-guider.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-50 font-['Inter']">
+    <!-- Navbar (same structure as team.html) -->
+    <nav
+      id="navbar"
+      class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30"
+    >
+      <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+        <!-- Logo -->
+        <div class="flex items-center gap-2">
+          <img src="img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px" />
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center">
+          <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+            <a
+              href="index.html"
+              class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm"
+              >Home</a
+            >
+            <a
+              href="team.html"
+              class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm"
+              >Our Team</a
+            >
+            <a
+              href="projects.html"
+              class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm"
+              >Projects</a
+            >
+            <a href="publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+          </div>
+          <a
+            href="index.html#contact"
+            class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm"
+            >Contact Us</a
+          >
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button
+          id="menu-btn"
+          class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100"
+        >
+          <i class="ri-menu-line text-xl"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Menu (animated) -->
+      <div
+        id="mobile-menu"
+        class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out"
+      >
+        <a href="index.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+        <a href="team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+        <a href="projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+        <a href="publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+        <a
+          href="index.html#contact"
+          class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90"
+          >Contact Us</a
+        >
+      </div>
+    </nav>
+
+    <!-- Same spacer as team.html -->
+    <div class="h-20"></div>
+
+    <main class="min-h-screen">
+      <section class="py-16 bg-gradient-to-b from-gray-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          <div class="mt-12 stats-shell reveal-card">
+            <div class="wizard-shell">
+              <div class="wizard-progress">
+                <ol class="wizard-steps" aria-label="Analysis steps">
+                  <li class="wizard-step is-active" data-step-indicator="upload">
+                    <span>1</span>
+                    <div>
+                      <strong>Upload CSV</strong>
+                      <small>Import and profile</small>
+                    </div>
+                  </li>
+                  <li class="wizard-step" data-step-indicator="map">
+                    <span>2</span>
+                    <div>
+                      <strong>Map variables</strong>
+                      <small>Roles and types</small>
+                    </div>
+                  </li>
+                  <li class="wizard-step" data-step-indicator="objective">
+                    <span>3</span>
+                    <div>
+                      <strong>Define objective</strong>
+                      <small>Study design</small>
+                    </div>
+                  </li>
+                  <li class="wizard-step" data-step-indicator="review">
+                    <span>4</span>
+                    <div>
+                      <strong>Review test</strong>
+                      <small>Recommendation</small>
+                    </div>
+                  </li>
+                  <li class="wizard-step" data-step-indicator="results">
+                    <span>5</span>
+                    <div>
+                      <strong>Run results</strong>
+                      <small>Execution output</small>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+
+              <div id="globalNotice" class="inline-feedback hidden" role="status" aria-live="polite"></div>
+
+              <section class="wizard-panel is-active" data-step="upload" aria-labelledby="uploadHeading">
+                <div class="wizard-panel-inner wizard-panel-upload">
+                  <div class="max-w-2xl mx-auto">
+                    <div class="text-center space-y-4 mb-8">
+                      <h3 id="uploadHeading" class="text-3xl font-bold text-gray-900">Upload Your Data CSV File</h3>
+                      <p class="text-gray-600 leading-relaxed">
+                        Drag and drop a CSV file or choose one manually - up to 1MB.
+                      </p>
+                    </div>
+
+                    <div
+                      id="uploadDropzone"
+                      class="upload-dropzone"
+                      tabindex="0"
+                      role="button"
+                      aria-describedby="uploadRequirements uploadError"
+                    >
+                      <input id="csvFileInput" class="sr-only" type="file" accept=".csv,text/csv" />
+                      <div class="upload-dropzone-icon">
+                        <i class="ri-upload-cloud-2-line"></i>
+                      </div>
+                      <div class="upload-dropzone-copy">
+                        <div class="text-xl font-semibold text-gray-900">Drop a CSV here</div>
+                        <p class="text-sm text-gray-600">or click to choose a file from your device</p>
+                      </div>
+                      <div class="upload-dropzone-meta" id="uploadRequirements">
+                        CSV only - maximum file size 1MB - browser-side parsing
+                      </div>
+                    </div>
+
+                    <div class="mt-5 flex flex-wrap items-center justify-center gap-3">
+                      <label class="inline-flex items-center gap-3 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm text-gray-700 shadow-sm">
+                        <input id="hasHeaderToggle" type="checkbox" class="rounded border-gray-300 text-primary focus:ring-primary" checked />
+                        Treat first row as column headers
+                      </label>
+                    </div>
+
+                    <div id="uploadFileMeta" class="text-center text-sm text-gray-500 mt-5"></div>
+                    <div id="uploadError" class="inline-feedback error hidden mt-6" role="alert"></div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="wizard-panel" data-step="map" aria-labelledby="mappingHeading" hidden>
+                <div class="wizard-panel-inner space-y-8">
+                  <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
+                    <div id="datasetSummaryChips" class="summary-chip-row"></div>
+                  </div>
+
+                  <div id="mappingDatasetWarnings" class="inline-feedback warning hidden" role="status" aria-live="polite"></div>
+                  <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+                    <div class="panel-table-wrap">
+                      <table class="profile-table">
+                        <thead>
+                          <tr>
+                            <th>Column</th>
+                            <th>Inferred</th>
+                            <th>Missing</th>
+                            <th>Unique</th>
+                            <th class="text-right">Override</th>
+                          </tr>
+                        </thead>
+                        <tbody id="profileTableBody"></tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  <section class="bg-gray-50 rounded-2xl border border-gray-100 p-5 shadow-sm space-y-5">
+                    <div>
+                      <div class="text-sm font-semibold text-gray-900 mb-2">Analysis roles</div>
+                      <p class="text-sm text-gray-600">Choose the variables the recommendation engine should use. Required roles depend on the objective selected in the next step.</p>
+                    </div>
+
+                    <div class="grid lg:grid-cols-2 gap-4">
+                      <label class="field-group">
+                        <span>Outcome variable</span>
+                        <select id="outcomeSelect" class="field-input"></select>
+                      </label>
+
+                      <label class="field-group">
+                        <span>Grouping variable</span>
+                        <select id="groupingSelect" class="field-input"></select>
+                      </label>
+
+                      <label class="field-group">
+                        <span>Pairing / subject ID</span>
+                        <select id="pairingSelect" class="field-input"></select>
+                      </label>
+
+                      <label class="field-group">
+                        <span>Optional covariates</span>
+                        <select id="covariatesSelect" class="field-input multi" multiple size="4"></select>
+                      </label>
+
+                      <label class="field-group lg:col-span-2">
+                        <span>Predictor variable(s)</span>
+                        <select id="predictorsSelect" class="field-input multi" multiple size="5"></select>
+                      </label>
+                    </div>
+
+                    <div class="wizard-actions wizard-actions-end">
+                      <button type="button" class="wizard-btn secondary" data-action="back-to-upload">
+                        <i class="ri-arrow-left-line"></i>
+                        Back
+                      </button>
+                      <button type="button" class="wizard-btn primary" id="mappingContinueBtn">
+                        Continue
+                        <i class="ri-arrow-right-line"></i>
+                      </button>
+                    </div>
+                    <div id="mappingError" class="inline-feedback error hidden" role="alert"></div>
+                  </section>
+                </div>
+              </section>
+
+              <section class="wizard-panel" data-step="objective" aria-labelledby="objectiveHeading" hidden>
+                <div class="wizard-panel-inner space-y-8">
+                  <div>
+                    <p class="text-sm font-semibold text-primary">Step 3</p>
+                    <h3 id="objectiveHeading" class="text-3xl font-bold text-gray-900">Define the objective</h3>
+                    <p class="mt-2 text-gray-600 max-w-3xl">
+                      Set the study goal, design, hypothesis direction, and analysis preference so the rule-based selector can narrow to a suitable method.
+                    </p>
+                  </div>
+
+                  <div id="objectiveError" class="inline-feedback error hidden" role="alert"></div>
+
+                  <div class="space-y-6">
+                    <div class="control-card">
+                      <div class="control-card-header">
+                        <h4>Goal</h4>
+                        <p>Choose the main question you want the analysis to answer.</p>
+                      </div>
+                      <div class="segmented-grid">
+                        <input type="radio" name="goal" id="goalCompare" value="compare-groups" checked>
+                        <label for="goalCompare">Compare groups</label>
+                        <input type="radio" name="goal" id="goalAssociation" value="test-association">
+                        <label for="goalAssociation">Test association</label>
+                        <input type="radio" name="goal" id="goalCorrelation" value="measure-correlation">
+                        <label for="goalCorrelation">Measure correlation</label>
+                        <input type="radio" name="goal" id="goalPredict" value="predict-outcome">
+                        <label for="goalPredict">Predict outcome</label>
+                      </div>
+                    </div>
+
+                    <div class="control-card">
+                      <div class="control-card-header">
+                        <h4>Design</h4>
+                        <p>Indicate whether observations are independent or paired by subject.</p>
+                      </div>
+                      <div class="segmented-grid segmented-grid-dual">
+                        <input type="radio" name="design" id="designIndependent" value="independent" checked>
+                        <label for="designIndependent">Independent</label>
+                        <input type="radio" name="design" id="designPaired" value="paired">
+                        <label for="designPaired">Paired</label>
+                      </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                      <div class="control-card">
+                        <div class="control-card-header">
+                          <h4>Hypothesis tail</h4>
+                          <p>Used when the selected method supports directional hypotheses.</p>
+                        </div>
+                        <div class="segmented-grid">
+                          <input type="radio" name="tail" id="tailTwoSided" value="two-sided" checked>
+                          <label for="tailTwoSided">Two-sided</label>
+                          <input type="radio" name="tail" id="tailGreater" value="greater">
+                          <label for="tailGreater">Greater</label>
+                          <input type="radio" name="tail" id="tailLess" value="less">
+                          <label for="tailLess">Less</label>
+                        </div>
+                      </div>
+
+                      <label class="control-card">
+                        <div class="control-card-header">
+                          <h4>Alpha level</h4>
+                          <p>The significance threshold used for interpretation.</p>
+                        </div>
+                        <input id="alphaInput" class="field-input" type="number" min="0.001" max="0.2" step="0.001" value="0.05">
+                      </label>
+                    </div>
+
+                    <label class="control-card">
+                      <div class="control-card-header">
+                        <h4>Parametric preference</h4>
+                        <p>Let the selector balance diagnostics automatically or force the preference.</p>
+                      </div>
+                      <select id="parametricPreference" class="field-input">
+                        <option value="auto">Auto</option>
+                        <option value="parametric-only">Parametric only</option>
+                        <option value="non-parametric-only">Non-parametric only</option>
+                      </select>
+                    </label>
+
+                    <div class="wizard-actions wizard-actions-end">
+                      <button type="button" class="wizard-btn secondary" data-action="back-to-map">
+                        <i class="ri-arrow-left-line"></i>
+                        Back
+                      </button>
+                      <button type="button" class="wizard-btn primary" id="objectiveContinueBtn">
+                        Generate recommendation
+                        <i class="ri-magic-line"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="wizard-panel" data-step="review" aria-labelledby="reviewHeading" hidden>
+                <div class="wizard-panel-inner space-y-8">
+                  <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
+                    <div>
+                      <p class="text-sm font-semibold text-primary">Step 4</p>
+                      <h3 id="reviewHeading" class="text-3xl font-bold text-gray-900">Review the suggested test</h3>
+                      <p class="mt-2 text-gray-600 max-w-3xl">
+                        Inspect the recommendation, assumptions, alternatives, and experiment summary before running the analysis.
+                      </p>
+                    </div>
+                    <div id="reviewStatusBadge" class="wizard-pill neutral">Awaiting recommendation</div>
+                  </div>
+
+                  <div id="reviewError" class="inline-feedback error hidden" role="alert"></div>
+
+                  <div class="space-y-6">
+                    <article class="review-card review-card-hero">
+                      <div class="review-card-header">
+                        <div>
+                          <p class="text-sm font-semibold text-primary">Recommended test</p>
+                          <h4 id="recommendedTestName" class="text-2xl font-bold text-gray-900">No recommendation yet</h4>
+                        </div>
+                        <div id="recommendedTestBadge" class="wizard-pill neutral">Pending</div>
+                      </div>
+                      <p id="recommendedTestSummary" class="text-gray-600 leading-relaxed">
+                        Complete the objective step to generate a recommendation.
+                      </p>
+                    </article>
+
+                    <article class="review-card">
+                      <div class="review-card-header">
+                        <h4>Why this fits</h4>
+                      </div>
+                      <ul id="reviewWhyList" class="detail-list"></ul>
+                    </article>
+
+                    <article class="review-card">
+                      <div class="review-card-header">
+                        <h4>How the test works</h4>
+                      </div>
+                      <p id="reviewExplanation" class="text-gray-600 leading-relaxed"></p>
+                    </article>
+
+                    <article class="review-card">
+                      <div class="review-card-header">
+                        <h4>Alternative candidates</h4>
+                      </div>
+                      <div id="reviewAlternatives" class="alternative-grid"></div>
+                    </article>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                      <article class="review-card">
+                        <div class="review-card-header">
+                          <h4>Assumptions</h4>
+                        </div>
+                        <ul id="reviewAssumptions" class="detail-list"></ul>
+                      </article>
+
+                      <article class="review-card">
+                        <div class="review-card-header">
+                          <h4>Warnings</h4>
+                        </div>
+                        <ul id="reviewWarnings" class="detail-list"></ul>
+                      </article>
+                    </div>
+
+                    <div class="wizard-actions wizard-actions-end">
+                      <button type="button" class="wizard-btn secondary" data-action="back-to-objective">
+                        <i class="ri-arrow-left-line"></i>
+                        Back
+                      </button>
+                      <button type="button" class="wizard-btn primary" id="runAnalysisBtn">
+                        Run analysis
+                        <i class="ri-play-circle-line"></i>
+                      </button>
+                    </div>
+
+                    <article class="review-card">
+                      <div class="review-card-header">
+                        <h4>Experiment specification</h4>
+                      </div>
+                      <div id="reviewSpecSummary" class="spec-summary-card"></div>
+                    </article>
+                  </div>
+                </div>
+              </section>
+
+              <section class="wizard-panel" data-step="results" aria-labelledby="resultsHeading" hidden>
+                <div class="wizard-panel-inner space-y-8">
+                  <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
+                    <div>
+                      <p class="text-sm font-semibold text-primary">Step 5</p>
+                      <h3 id="resultsHeading" class="text-3xl font-bold text-gray-900">Statistical execution and results</h3>
+                      <p class="mt-2 text-gray-600 max-w-3xl">
+                        The selected method has been executed in the browser. Review the headline results, diagnostics, and interpretation below.
+                      </p>
+                    </div>
+                    <div id="resultsBadge" class="wizard-pill">Ready</div>
+                  </div>
+
+                  <div id="resultsOverview" class="results-grid"></div>
+
+                  <div class="grid xl:grid-cols-[1.1fr,0.9fr] gap-6 items-start">
+                    <div class="space-y-6">
+                      <article class="review-card">
+                        <div class="review-card-header">
+                          <h4>Interpretation</h4>
+                        </div>
+                        <p id="resultInterpretation" class="text-gray-600 leading-relaxed"></p>
+                      </article>
+
+                      <article class="review-card">
+                        <div class="review-card-header">
+                          <h4>Analysis details</h4>
+                        </div>
+                        <div id="resultDetails" class="result-stack"></div>
+                      </article>
+
+                      <article class="review-card">
+                        <div class="review-card-header">
+                          <h4>Warnings and assumptions</h4>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-6">
+                          <ul id="resultWarnings" class="detail-list"></ul>
+                          <ul id="resultAssumptions" class="detail-list"></ul>
+                        </div>
+                      </article>
+                    </div>
+
+                    <aside class="space-y-6">
+                      <article class="review-card">
+                        <div class="review-card-header">
+                          <h4>Specification snapshot</h4>
+                        </div>
+                        <div id="resultSpecSummary" class="spec-summary-card"></div>
+                      </article>
+
+                      <article class="review-card">
+                        <div class="review-card-header">
+                          <h4>Model terms</h4>
+                        </div>
+                        <div id="resultCoefficients" class="panel-table-wrap"></div>
+                      </article>
+
+                      <div class="wizard-actions">
+                        <button type="button" class="wizard-btn secondary" data-action="back-to-review">
+                          <i class="ri-arrow-left-line"></i>
+                          Back
+                        </button>
+                        <button type="button" class="wizard-btn primary" id="restartWizardBtn">
+                          Start over
+                          <i class="ri-refresh-line"></i>
+                        </button>
+                      </div>
+                    </aside>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer (identical to team.html) -->
+    <footer class="bg-gray-900 text-white py-12 mt-20">
+      <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+        <div>
+               <img src="img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px" />
+          <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-3">Quick Links</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="team.html" class="hover:text-white">Team</a></li>
+            <li><a href="media.html" class="hover:text-white">Media</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-3">Resources</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="publications.html" class="hover:text-white">Publications</a></li>
+            <li><a href="tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
+                  <li><a href="http://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-3">Contact Info</h4>
+          <p class="text-gray-400">
+            Department of Information Systems,<br />
+            University of Haifa<br />
+            Department of Computing,<br />
+            Jonkoping University<br />
+            Lazebnik.teddy (at) gmail.com<br />
+          </p>
+        </div>
+      </div>
+      <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+        © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to
+        <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+      </div>
+    </footer>
+
+    <div id="statsLoader" class="stats-loader hidden" role="status" aria-live="polite" aria-busy="true">
+      <div class="stats-loader-card">
+        <div class="stats-loader-icon"><i class="ri-loader-4-line"></i></div>
+        <div class="stats-loader-title" id="statsLoaderTitle">Working through the dataset...</div>
+        <div class="stats-loader-subtitle" id="statsLoaderSubtitle">Please wait while the next step is prepared.</div>
+        <div class="stats-loader-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/main.js"></script>
+    <script type="module" src="js/stats-guider.js"></script>
+  </body>
+</html>
