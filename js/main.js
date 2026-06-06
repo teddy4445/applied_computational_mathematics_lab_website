@@ -375,6 +375,7 @@ window.addEventListener("scroll", () => {
   const paperCountHeader = document.getElementById('papers-count');
   const statsVisible = document.getElementById('stats-visible')?.querySelector('strong');
 
+  if (!window.ACMLUseLegacyPublications) return;
   if (!container || !emptyEl || !yearSel || !searchInp || !sortSel || !loadState || !sentinel) return; // not on this page
 
   const JSON_URL = 'data/academic-publications.json';
