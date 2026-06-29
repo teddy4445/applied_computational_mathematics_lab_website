@@ -331,13 +331,6 @@ async function loadMembers() {
   const json = await res.json();
 
   const members = Array.isArray(json.members) ? json.members.slice() : [];
-  // sort by "order" ascending, then by name
-  members.sort((a, b) => {
-    const ao = Number(a.order ?? 9999);
-    const bo = Number(b.order ?? 9999);
-    if (ao !== bo) return ao - bo;
-    return (a.name || '').localeCompare(b.name || '');
-  });
 
   // group
   const current = members.filter(m => isCurrent(m.category_name || ''));
