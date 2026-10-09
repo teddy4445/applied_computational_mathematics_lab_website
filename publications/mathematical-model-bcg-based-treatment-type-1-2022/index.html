@@ -105,10 +105,10 @@
     <header class="paper-hero">
       <div class="paper-wrap">
         <nav class="paper-crumbs" aria-label="Breadcrumb">
-          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Biomathematics</span>
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span data-pagefind-filter="Topic">Biomathematics</span>
         </nav>
         <p class="paper-kicker"><span><em>Dynamical Systems Applied To Biology And Natural Science</em> · 2022</span></p>
-        <h1 class="paper-title">Mathematical Model for the BCG-based Treatment of Type 1 Diabetes</h1>
+        <h1 class="paper-title" data-pagefind-meta="title" data-pagefind-filter="Year:2022">Mathematical Model for the BCG-based Treatment of Type 1 Diabetes</h1>
         <p class="paper-authors"><span class="author">Teddy Lazebnik and Svetlana Bunimovich-Mendrazitsky</span></p>
         
         <div class="paper-actions">
@@ -127,6 +127,10 @@
 
     <div class="paper-wrap paper-layout">
       <aside class="paper-aside">
+        <form class="paper-search" action="/publications.html" method="get" role="search">
+          <label for="paper-q" class="aside-title">Search all our papers</label>
+          <div class="paper-search-box"><i class="ri-search-line" aria-hidden="true"></i><input id="paper-q" name="q" type="search" placeholder="e.g. Thompson sampling" autocomplete="off"></div>
+        </form>
         <nav class="paper-toc" aria-label="On this page">
           <p class="aside-title">On this page</p>
           <ol>
@@ -139,20 +143,20 @@
         </div>
       </aside>
 
-      <article class="paper-body" id="full-text">
-        <details class="paper-toc-mobile">
+      <article class="paper-body" id="full-text" data-pagefind-body>
+        <details class="paper-toc-mobile" data-pagefind-ignore>
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
           </ol>
         </details>
         <section id="abstract" class="paper-abstract">
-          <h2>Abstract</h2>
+          <h2 id="abstract-heading">Abstract</h2>
           <p>We introduces a model of immunotherapy treatment, namely the Bacillus Calmette-Guerin (BCG) vac-cine, of type 1 diabetes (T1D).</p>
         </section>
+        
         <div class="paper-callout"><i class="ri-links-line" aria-hidden="true"></i> This is the conference version of <a href="/publications/mathematical-model-bcg-based-treatment-type-1/">Mathematical Model for the BCG-based Treatment Of Type 1 Diabetes</a>, which has the full text.</div>
 
-        
         
         
       </article>
@@ -214,6 +218,7 @@
          </div>
       </footer>
       
+      <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
           // menu and navbar (js/main.js expects to sit at the site root)

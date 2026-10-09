@@ -134,10 +134,10 @@
     <header class="paper-hero">
       <div class="paper-wrap">
         <nav class="paper-crumbs" aria-label="Breadcrumb">
-          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Machine Learning</span>
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span data-pagefind-filter="Topic">Machine Learning</span>
         </nav>
         <p class="paper-kicker"><span class="oa-badge"><i class="ri-lock-unlock-line" aria-hidden="true"></i>Open access</span><span><em>Scientific Reports</em> · 2026</span></p>
-        <h1 class="paper-title">Knowledge integration for physics-informed symbolic regression using pre-trained large language models</h1>
+        <h1 class="paper-title" data-pagefind-meta="title" data-pagefind-filter="Year:2026">Knowledge integration for physics-informed symbolic regression using pre-trained large language models</h1>
         <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Bilge Taskin</a></span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Wenxiong Xie</a></span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span></p>
         <details class="paper-affils"><summary>Affiliations</summary><ol><li value="1">Department of Computing, Jonkoping University, Jonkoping, Sweden.</li><li value="2">Department of Information Science, University of Haifa, Haifa, Israel. *email: lazebnik.teddy@gmail.com</li></ol></details>
         <div class="paper-actions">
@@ -152,10 +152,14 @@
       </div>
     </header>
 
-    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Physics-informed symbolic regression finds equations from data using domain knowledge, but current methods often need specialized formulations and manual feature engineering. We added a pre-trained large language model to the search&#x27;s loss function, so that it scores each candidate equation using what it learned from scientific literature. Tested with three symbolic regression algorithms, three language models and three physical systems, this consistently improved reconstruction of the dynamics and made results more robust to noise and complexity.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>A term reflecting the LLM&#x27;s evaluation of each produced equation was added to the symbolic regression loss function.</li><li>The method was evaluated with three SR algorithms (DEAP, gplearn, PySR) and three LLMs (Falcon, Mistral, LLama 2).</li><li>LLM integration consistently improved reconstruction of a dropping ball, simple harmonic motion and an electromagnetic wave, with greater robustness to noise and complexity.</li><li>More informative prompts significantly improved performance.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1798" height="565" alt="Fig. 1. A schematic view of the Large Language Model-based Knowledge Integration into the Symbolic Regression’s searching (and optimization) process."></a><figcaption><strong>Fig. 1</strong>. A schematic view of the Large Language Model-based Knowledge Integration into the Symbolic Regression’s searching (and optimization) process. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+    <section class="paper-glance" aria-labelledby="glance-title" data-pagefind-body><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Physics-informed symbolic regression finds equations from data using domain knowledge, but current methods often need specialized formulations and manual feature engineering. We added a pre-trained large language model to the search&#x27;s loss function, so that it scores each candidate equation using what it learned from scientific literature. Tested with three symbolic regression algorithms, three language models and three physical systems, this consistently improved reconstruction of the dynamics and made results more robust to noise and complexity.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>A term reflecting the LLM&#x27;s evaluation of each produced equation was added to the symbolic regression loss function.</li><li>The method was evaluated with three SR algorithms (DEAP, gplearn, PySR) and three LLMs (Falcon, Mistral, LLama 2).</li><li>LLM integration consistently improved reconstruction of a dropping ball, simple harmonic motion and an electromagnetic wave, with greater robustness to noise and complexity.</li><li>More informative prompts significantly improved performance.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1798" height="565" alt="Fig. 1. A schematic view of the Large Language Model-based Knowledge Integration into the Symbolic Regression’s searching (and optimization) process."></a><figcaption><strong>Fig. 1</strong>. A schematic view of the Large Language Model-based Knowledge Integration into the Symbolic Regression’s searching (and optimization) process. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
 
     <div class="paper-wrap paper-layout">
       <aside class="paper-aside">
+        <form class="paper-search" action="/publications.html" method="get" role="search">
+          <label for="paper-q" class="aside-title">Search all our papers</label>
+          <div class="paper-search-box"><i class="ri-search-line" aria-hidden="true"></i><input id="paper-q" name="q" type="search" placeholder="e.g. Thompson sampling" autocomplete="off"></div>
+        </form>
         <nav class="paper-toc" aria-label="On this page">
           <p class="aside-title">On this page</p>
           <ol>
@@ -175,8 +179,8 @@
         </div>
       </aside>
 
-      <article class="paper-body" id="full-text">
-        <details class="paper-toc-mobile">
+      <article class="paper-body" id="full-text" data-pagefind-body>
+        <details class="paper-toc-mobile" data-pagefind-ignore>
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
@@ -190,9 +194,10 @@
           </ol>
         </details>
         <section id="abstract" class="paper-abstract">
-          <h2>Abstract</h2>
+          <h2 id="abstract-heading">Abstract</h2>
           <p>Symbolic regression (SR) has emerged as a powerful tool for automated scientific discovery, enabling the derivation of governing equations from experimental data. A growing body of work illustrates the promise of integrating domain knowledge into the SR to improve the discovered equation’s generality and usefulness. Physics-informed SR (PiSR) addresses this by incorporating domain knowledge, but current methods often re- quire specialized formulations and manual feature engineering, limiting their adaptability only to domain experts. In this study, we leverage pre-trained Large Language Models (LLMs) to facilitate knowledge integration in PiSR. By harnessing the contextual understanding of LLMs trained on vast scientific literature, we aim to automate the incorporation of domain knowledge, reducing the need for manual intervention and making the process more accessible to a broader range of scientific problems. Namely, the LLM is integrated into the SR’s loss function, adding a term of the LLM’s evaluation of the SR’s produced equation. We extensively evaluate our method using three SR algorithms (DEAP, gplearn, and PySR) and three pre-trained LLMs (Falcon, Mistral, and LLama 2) across three physical dynamics (dropping ball, simple harmonic motion, and electromagnetic wave). The results demonstrate that LLM integration consistently improves the reconstruction of physical dynamics from data, enhancing the robustness of SR models to noise and complexity. We further explore the impact of prompt engineering, finding that more informative prompts significantly improve performance.</p>
         </section>
+        
         
 <div class="paper-text">
 <p>Scientific discovery is based on the interplay between empirical observation and theoretical modeling<sup><a href="#ref-1">1</a>,<a href="#ref-2">2</a></sup>. Throughout the subsequent centuries, this approach of expressing scientific knowledge through mathematical relationships has remained central to physics and other natural sciences<sup><a href="#ref-3">3</a>–<a href="#ref-7">7</a></sup>, mathematical formulations have consistently provided the language through which we articulate physical laws<sup><a href="#ref-8">8</a></sup>. These symbolic expressions serve not merely as descriptive tools but as engines of discovery<sup><a href="#ref-9">9</a></sup>, enabling scientists to derive new insights and make predictions beyond what has been directly observed.</p>
@@ -315,7 +320,8 @@
 <p>The data and code are freely available in the following Github repository: https://github.com/ bilgesi/SR-LLM-I ntegration.</p>
 <p>Received: 4 July 2025; Accepted: 5 January 2026</p>
 <h2 id="references">References</h2>
-<ol class="paper-refs"><li id="ref-1">Merton, R. K. The Sociology of Science: Theoretical and Empirical Investigations (University of Chicago press, 1973).</li>
+<ol class="paper-refs" data-pagefind-ignore>
+<li id="ref-1">Merton, R. K. The Sociology of Science: Theoretical and Empirical Investigations (University of Chicago press, 1973).</li>
 <li id="ref-2">Price, D. J. D. S. Little Science, Big Science (Columbia university press, 1963).</li>
 <li id="ref-3">Redish, E. F. Using math in physics: overview. Phys. Teacher 59 (5), 314–318 (2021).</li>
 <li id="ref-4">Yeargers, E. K., Herod, J. V. &amp; Shonkweiler, R. W. An Introduction to the Mathematics of Biology: with Computer Algebra Models (Springer Science &amp; Business Media, 2013).</li>
@@ -442,8 +448,7 @@
 </ol>
 </div>
         
-        
-        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Taskin et al. (2026), <em>Scientific Reports</em>, <a href="https://doi.org/10.1038/s41598-026-35327-6" target="_blank" rel="noopener">doi:10.1038/s41598-026-35327-6</a>, under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY 4.0</a> licence. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+        <p class="paper-source" data-pagefind-ignore><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Taskin et al. (2026), <em>Scientific Reports</em>, <a href="https://doi.org/10.1038/s41598-026-35327-6" target="_blank" rel="noopener">doi:10.1038/s41598-026-35327-6</a>, under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY 4.0</a> licence. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
       </article>
     </div>
 
@@ -506,6 +511,7 @@
          </div>
       </footer>
       
+      <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
           // menu and navbar (js/main.js expects to sit at the site root)

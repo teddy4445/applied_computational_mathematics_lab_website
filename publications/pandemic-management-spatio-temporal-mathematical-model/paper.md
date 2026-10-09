@@ -124,8 +124,9 @@ In addition, by dividing the time passed from the beginning of the temporal mode
 <figcaption><strong>Figure 4:</strong> Numerical simulation of trajectories of Eqs. (S1)–(S20) using the parameter values from Table. 1. The graphs show the evolution in time (days) of <em>S</em><sub>c</sub>(<em>t</em>), <em>S</em><sub>a</sub>(<em>t</em>), <em>I</em><sup>s</sup> <sub>c</sub>(<em>t</em>), <em>I</em><sup>a</sup> <sub>c</sub>(<em>t</em>), <em>I</em><sup>s</sup> <sub>a</sub>(<em>t</em>), <em>I</em><sup>a</sup> <sub>a</sub>(<em>t</em>), <em>R</em><sub>c</sub>(<em>t</em>), <em>R</em><sub>a</sub>(<em>t</em>), <em>D</em><sub>c</sub>(<em>t</em>), and <em>D</em><sub>a</sub>(<em>t</em>). Adult and children graphs are presented with a dotted and solid lines, respectively. Susceptible, symptomatic infected, asymptomatic infected, recovered, and dead are shown in green, dark red, red, blue, and black, respectively. The model’s parameter taken from Table 1.</figcaption>
 </figure>
 
-- 1. If *T* mod 24 = *t*<sup>d</sup> <sub>c</sub> , all of the children sub-population that is located at the *home* node moves to the *school* node.
-- 2. if *T* mod 24 = *t*<sup>d</sup>
+1. If *T* mod 24 = *t*<sup>d</sup> <sub>c</sub> , all of the children sub-population that is located at the *home* node moves to the *school* node.
+2. if *T* mod 24 = *t*<sup>d</sup>
+
 - <sub>a</sub>, all of the adult sub-population that is located at the *home* node moves to the *work* node. 3. if *T* mod 24 = 23, all of the adult sub-population that is located at the *work* node and all of the children sub-population that is located at the *school* node move to the *home* node.
 
 We assume the transition from home to either work or school and back is immediate and that everybody is following the same clock. Otherwise, the distribution of the population on the graph stays the same. Between each population movement on the graph, the temporal sub-model is performed simultaneously on all the graph’s nodes (Figure 4).

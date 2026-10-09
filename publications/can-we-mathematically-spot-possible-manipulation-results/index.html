@@ -130,10 +130,10 @@
     <header class="paper-hero">
       <div class="paper-wrap">
         <nav class="paper-crumbs" aria-label="Breadcrumb">
-          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Social</span>
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span data-pagefind-filter="Topic">Social</span>
         </nav>
         <p class="paper-kicker"><span><em>Scientometrics</em> · 31 October 2023</span></p>
-        <h1 class="paper-title">Can We Mathematically Spot the Possible Manipulation of Results in Research Manuscripts Using Benford’s Law?</h1>
+        <h1 class="paper-title" data-pagefind-meta="title" data-pagefind-filter="Year:2023">Can We Mathematically Spot the Possible Manipulation of Results in Research Manuscripts Using Benford’s Law?</h1>
         <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author">Gorlitsky Dan</span></p>
         <details class="paper-affils"><summary>Affiliations</summary><ol><li value="1">Department of Cancer Biology, Cancer Institute, University College London, London WC1E 6BT, UK</li><li value="2">Department of Economics, Reichman University, Herzliya 4610101, Israel</li></ol></details>
         <div class="paper-actions">
@@ -148,10 +148,14 @@
       </div>
     </header>
 
-    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">False claims in academic papers are increasingly common, but the raw data behind papers is usually unavailable. We adapted Benford&#x27;s law, a pattern in the leading digits of naturally occurring numbers, so it can flag possible manipulation using only the aggregated results reported in manuscripts. Our rules correctly predicted 79% of 100 open-source datasets and detected about half of known retracted manuscripts, and in 100 recent economics papers they predicted a 3% rate of result manipulation.</p><div class=glance-stats><div class="stat"><span class="stat-value">79%</span><span class="stat-label">open-source validation datasets predicted accurately</span></div><div class="stat"><span class="stat-value">48.6%</span><span class="stat-label">known retracted manuscripts detected</span></div><div class="stat"><span class="stat-value">3%</span><span class="stat-label">predicted manipulation rate in economics papers</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Validated on 100 open-source datasets, the adapted Benford&#x27;s law rules predicted 79% of them accurately.</li><li>The method detected around half (48.6%) of known retracted manuscripts.</li><li>Among 100 manuscripts from ten prominent economics journals, it predicted a 3% occurrence of result manipulation with a 96% confidence level.</li><li>The method can be an initial screening tool, but flagged manuscripts need further investigation because its prediction accuracy is relatively low.</li></ul></div><figure class="glance-figure"><a href="#fig-2"><img src="figures/fig-2.webp" width="1066" height="726" alt="Figure 2. An example of the mean operator of the adapted Benford’s law obtained numerically."></a><figcaption><strong>Figure 2.</strong> An example of the mean operator of the adapted Benford’s law obtained numerically. <a href="#fig-2">See it in the paper</a></figcaption></figure></div></div></section>
+    <section class="paper-glance" aria-labelledby="glance-title" data-pagefind-body><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">False claims in academic papers are increasingly common, but the raw data behind papers is usually unavailable. We adapted Benford&#x27;s law, a pattern in the leading digits of naturally occurring numbers, so it can flag possible manipulation using only the aggregated results reported in manuscripts. Our rules correctly predicted 79% of 100 open-source datasets and detected about half of known retracted manuscripts, and in 100 recent economics papers they predicted a 3% rate of result manipulation.</p><div class=glance-stats><div class="stat"><span class="stat-value">79%</span><span class="stat-label">open-source validation datasets predicted accurately</span></div><div class="stat"><span class="stat-value">48.6%</span><span class="stat-label">known retracted manuscripts detected</span></div><div class="stat"><span class="stat-value">3%</span><span class="stat-label">predicted manipulation rate in economics papers</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Validated on 100 open-source datasets, the adapted Benford&#x27;s law rules predicted 79% of them accurately.</li><li>The method detected around half (48.6%) of known retracted manuscripts.</li><li>Among 100 manuscripts from ten prominent economics journals, it predicted a 3% occurrence of result manipulation with a 96% confidence level.</li><li>The method can be an initial screening tool, but flagged manuscripts need further investigation because its prediction accuracy is relatively low.</li></ul></div><figure class="glance-figure"><a href="#fig-2"><img src="figures/fig-2.webp" width="1066" height="726" alt="Figure 2. An example of the mean operator of the adapted Benford’s law obtained numerically."></a><figcaption><strong>Figure 2.</strong> An example of the mean operator of the adapted Benford’s law obtained numerically. <a href="#fig-2">See it in the paper</a></figcaption></figure></div></div></section>
 
     <div class="paper-wrap paper-layout">
       <aside class="paper-aside">
+        <form class="paper-search" action="/publications.html" method="get" role="search">
+          <label for="paper-q" class="aside-title">Search all our papers</label>
+          <div class="paper-search-box"><i class="ri-search-line" aria-hidden="true"></i><input id="paper-q" name="q" type="search" placeholder="e.g. Thompson sampling" autocomplete="off"></div>
+        </form>
         <nav class="paper-toc" aria-label="On this page">
           <p class="aside-title">On this page</p>
           <ol>
@@ -171,8 +175,8 @@
         </div>
       </aside>
 
-      <article class="paper-body" id="full-text">
-        <details class="paper-toc-mobile">
+      <article class="paper-body" id="full-text" data-pagefind-body>
+        <details class="paper-toc-mobile" data-pagefind-ignore>
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
@@ -186,9 +190,10 @@
           </ol>
         </details>
         <section id="abstract" class="paper-abstract">
-          <h2>Abstract</h2>
+          <h2 id="abstract-heading">Abstract</h2>
           <p>The reproducibility of academic research has long been a persistent issue, contradicting one of the fundamental principles of science. Recently, there has been an increasing number of false claims found in academic manuscripts, casting doubt on the validity of reported results. In this paper, we utilize an adapted version of Benford’s law, a statistical phenomenon that describes the distribution of leading digits in naturally occurring datasets, to identify the potential manipulation of results in research manuscripts, solely using the aggregated data presented in those manuscripts rather than the commonly unavailable raw datasets. Our methodology applies the principles of Benford’s law to commonly employed analyses in academic manuscripts, thus reducing the need for the raw data itself. To validate our approach, we employed 100 open-source datasets and successfully predicted 79% of them accurately using our rules. Moreover, we tested the proposed method on known retracted manuscripts, showing that around half (48.6%) can be detected using the proposed method. Additionally, we analyzed 100 manuscripts published in the last two years across ten prominent economic journals, with 10 manuscripts randomly sampled from each journal. Our analysis predicted a 3% occurrence of results manipulation with a 96% confidence level. Our findings show that Benford’s law adapted for aggregated data, can be an initial tool for identifying data manipulation; however, it is not a silver bullet, requiring further investigation for each flagged manuscript due to the relatively low prediction accuracy.</p>
         </section>
+        
         
 <div class="paper-text">
 <h2 id="1-introduction">1. Introduction</h2>
@@ -273,9 +278,10 @@
 <p><strong>Informed Consent Statement:</strong> Not applicable.</p>
 <p><strong>Data Availability Statement:</strong> The code and data that have been used in this study are available upon request from the authors.</p>
 <p><strong>Conflicts of Interest:</strong> The authors declare no conflict of interest.</p>
-<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 17 October 2023 · Accepted 29 October 2023 · Published 31 October 2023</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>statistical analysis</li><li>anomaly detection</li><li>ﬁrst digit law</li><li>results reproduction</li></ul></dd></div></dl></section>
+<section id="article-notes" class="paper-notes" data-pagefind-ignore><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 17 October 2023 · Accepted 29 October 2023 · Published 31 October 2023</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>statistical analysis</li><li>anomaly detection</li><li>ﬁrst digit law</li><li>results reproduction</li></ul></dd></div></dl></section>
 <h2 id="references">References</h2>
-<ol class="paper-refs"><li id="ref-1">Franzen, M. Science Between Trust and Control: Non-Reproducibility in Scholarly Publishing. In Reproducibility; John Wiley &amp; Sons, Ltd.: Hoboken, NJ, USA, 2016; Chapter 22, pp. 467–485.</li>
+<ol class="paper-refs" data-pagefind-ignore>
+<li id="ref-1">Franzen, M. Science Between Trust and Control: Non-Reproducibility in Scholarly Publishing. In Reproducibility; John Wiley &amp; Sons, Ltd.: Hoboken, NJ, USA, 2016; Chapter 22, pp. 467–485.</li>
 <li id="ref-2">Fanelli, D. Do Pressures to Publish Increase Scientists’ Bias? An Empirical Support from US States Data. PLoS ONE 2010, 5, 1–7. <a href="https://doi.org/10.1371/journal.pone.0010271" target="_blank" rel="noopener">doi:10.1371/journal.pone.0010271</a></li>
 <li id="ref-3">Lee, H.; Lamb, S.E.; Bagg, M.K.; Toomey, E.; Cashin, A.G.; Moseley, G.L. Reproducible and replicable pain research: A critical review. Pain 2018, 159, 1683–1689. <a href="https://doi.org/10.1097/j.pain.0000000000001254" target="_blank" rel="noopener">doi:10.1097/j.pain.0000000000001254</a></li>
 <li id="ref-4">Lewis, C.C.; Fischer, S.; Weiner, B.J.; Stanick, C.; Kim, M.; Martinez, R.G. Outcomes for implementation science: An enhanced systematic review of instruments using evidence-based rating criteria. Implement. Sci. 2015, 10, 155. <a href="https://doi.org/10.1186/s13012-015-0342-x" target="_blank" rel="noopener">doi:10.1186/s13012-015-0342-x</a></li>
@@ -332,8 +338,7 @@
 </ol>
 </div>
         
-        
-        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2023), <em>Scientometrics</em>, <a href="https://doi.org/10.3390/data8110165" target="_blank" rel="noopener">doi:10.3390/data8110165</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+        <p class="paper-source" data-pagefind-ignore><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2023), <em>Scientometrics</em>, <a href="https://doi.org/10.3390/data8110165" target="_blank" rel="noopener">doi:10.3390/data8110165</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
       </article>
     </div>
 
@@ -396,6 +401,7 @@
          </div>
       </footer>
       
+      <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
           // menu and navbar (js/main.js expects to sit at the site root)

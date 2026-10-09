@@ -43,6 +43,8 @@
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="css/styles.css" rel="stylesheet">
       <link href="css/videos.css" rel="stylesheet">
+      <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+      <link href="css/paper-search.css" rel="stylesheet">
 
       <style>
         .publication-action-button {
@@ -155,6 +157,15 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
 
+    <!-- Full-text search over the paper pages (Pagefind index in /pagefind, made by tools/build_papers.py) -->
+    <div id="full-text-search" class="fts-card">
+      <div class="fts-head">
+        <h2 class="fts-title"><i class="ri-search-eye-line" aria-hidden="true"></i>Search inside our papers</h2>
+        <p class="fts-lead">Searches the full text, figure captions and summaries of every paper. Pick a result to jump to that place in the paper.</p>
+      </div>
+      <div id="paper-search"></div>
+    </div>
+
     <!-- Filter Panel -->
     <div class="bg-gray-50 rounded-xl p-6 mb-8">
       <div class="grid md:grid-cols-3 gap-4">
@@ -255,6 +266,22 @@
 
       <script src="js/main.js"> </script>
       <script src="js/publications-page.js"></script>
+      <script src="/pagefind/pagefind-ui.js"></script>
+      <script>
+        window.addEventListener('DOMContentLoaded', function () {
+          if (!window.PagefindUI) return;
+          var ui = new PagefindUI({
+            element: '#paper-search', showSubResults: true, showImages: false, highlightParam: 'highlight',
+            excerptLength: 24, resetStyles: false,
+            translations: { placeholder: 'Search the papers, e.g. Thompson sampling or BCG' }
+          });
+          var q = new URLSearchParams(location.search).get('q');
+          if (q) {
+            ui.triggerSearch(q);
+            document.getElementById('full-text-search').scrollIntoView({ block: 'start' });
+          }
+        });
+      </script>
       <script src="js/videos.js"></script>
 	  <script type="module" src="js/hero-pub.js"></script>	  
       <!-- end - js -->

@@ -88,9 +88,9 @@ Similarly, students who chose synchronous learning have significantly higher Isr
 
 Summarizing the prior information for group CG:
 
-- 1. The average grades of students who chose asynchronous learning with an audience were consistently lower than in the other groups and the significance is apparent in comparison with the students who chose synchronous learning.
-- 2. The grades of students who chose synchronous learning were consistently higher than the other groups and the significance is apparent in comparison to the asynchronous with audience group.
-- 3. We are unable to declare that the grades of the students who chose asynchronous learning were consistently lower than the other groups in both aspects of the prior information (namely the previous semester grade and the Israeli psychometric score). However, without the Israeli psychometric score, students who chose asynchronous learning had lower achievements than those who chose synchronously or asynchronous learning with an audience.
+1. The average grades of students who chose asynchronous learning with an audience were consistently lower than in the other groups and the significance is apparent in comparison with the students who chose synchronous learning.
+2. The grades of students who chose synchronous learning were consistently higher than the other groups and the significance is apparent in comparison to the asynchronous with audience group.
+3. We are unable to declare that the grades of the students who chose asynchronous learning were consistently lower than the other groups in both aspects of the prior information (namely the previous semester grade and the Israeli psychometric score). However, without the Israeli psychometric score, students who chose asynchronous learning had lower achievements than those who chose synchronously or asynchronous learning with an audience.
 
 The test after intervention shows that, in general, the differences that existed beforehand, continued to exist. The average grade of the students who chose synchronous learning (which was higher than the students who chose the other options to start with), continued to be higher than those who chose asynchronous learning (*p <* 0.05) . There is no significant evidence that there is a difference between the achievements between those who chose synchronous learning and those who chose asynchronous learning with an audience (*p >* 0.05) , or between those who chose asynchronous learning and those who chose asynchronous learning with an audience (*p >* 0.05).
 
@@ -110,15 +110,15 @@ Some of the features represented advantages of synchronous or asynchronous learn
 
 The features presented to the students were as follows:
 
-- 1. In a recorded lecture, I can watch again parts of the lecture that I didn’t understand.
-- 2. I can watch a recorded lecture at a time of my convenience.
-- 3. I can alter the speed of a recorded lecture.
-- 4. I can skip parts of a recorded lecture if I already understood them.
-- 5. There are no disturbances or breaks in a recorded lecture—the lecture is continuous.
-- 6. I cannot ask questions in a recorded lecture.
-- 7. I can ask questions in a synchronous lecture.
-- 8. When I watch a recorded lesson that was taught synchronously to a different class, I feel disparaged.
-- 9. In general, I study and practice only before an exam.
+1. In a recorded lecture, I can watch again parts of the lecture that I didn’t understand.
+2. I can watch a recorded lecture at a time of my convenience.
+3. I can alter the speed of a recorded lecture.
+4. I can skip parts of a recorded lecture if I already understood them.
+5. There are no disturbances or breaks in a recorded lecture—the lecture is continuous.
+6. I cannot ask questions in a recorded lecture.
+7. I can ask questions in a synchronous lecture.
+8. When I watch a recorded lesson that was taught synchronously to a different class, I feel disparaged.
+9. In general, I study and practice only before an exam.
 
 The general results are as follows: 88% of the students mentioned the importance to them of being able to rerun parts of the video that they had not understood. This emphasizes the importance of making the recording available, even if the lesson was conducted synchronously. A further basis for this recommendation is in that 73% of the students found it important that they could watch the lesson at a time that best suited them, 73% were in favor of being able to skip parts of the lesson that they already understood, and to 58% there needed to be no disturbances in a recorded lesson.
 
@@ -132,8 +132,8 @@ Table 3 shows the results for group CG. The left-hand column contains the featur
 
 One way analysis of variance revealed the following results:
 
-- 1. *In a recorded lecture I can watch again parts of the lecture that I didn’t understand.* There are no significant differences between the opinions of students who experienced the different learning formats (*F*<sub>2,75</sub> = 2.095, *p >* 0.05) ; However, all students agreed that this is an important feature of a recorded lecture, no matter which format they experienced themselves. This is apparent from the fact that for students from all the subgroups (according to learning format) the mean rank for this feature was greater than 4.
-- 2. *I can watch a recorded lecture at a time of my convenience.* This feature was significantly more important for the students in the subgroup who chose asyn-
+1. *In a recorded lecture I can watch again parts of the lecture that I didn’t understand.* There are no significant differences between the opinions of students who experienced the different learning formats (*F*<sub>2,75</sub> = 2.095, *p >* 0.05) ; However, all students agreed that this is an important feature of a recorded lecture, no matter which format they experienced themselves. This is apparent from the fact that for students from all the subgroups (according to learning format) the mean rank for this feature was greater than 4.
+2. *I can watch a recorded lecture at a time of my convenience.* This feature was significantly more important for the students in the subgroup who chose asyn-
 
 <figure class="table-figure" id="table-x3">
 <img src="figures/table-x3.webp" width="803" height="208" alt="Table" loading="lazy" decoding="async">
@@ -142,13 +142,13 @@ One way analysis of variance revealed the following results:
 
 chronous learning with an audience (*F*<sub>2.75</sub> = 4.127, *p <* 0.05) . The ranking given by students who chose asynchronous learning was significantly less than the ranking given by students who chose asynchronous learning with an audience (*p <* 0.001) and similarly the ranking by students who chose synchronous learning was significantly less than those who chose asynchronous learning with an audience (*p <* 0.04).
 
-- 3. *I can alter the speed of a recorded lecture.*There were no significant differences between the subgroups (*F*2, 75 = 1.221, *p >* 0.05) , but there is an agreement between most of the students (from all subgroups) that this is an important feature, as the mean rankings for each subgroup, and the total mean overall show.
-- 4. *I can skip parts of a recorded lecture if I already understood them.* There are no significant differences between the subgroups for this feature ( *F*<sub>2,75</sub> = 0.941, *p >* 0.05).
-- 5. *There are no disturbances or breaks in a recorded lecture—the lecture is continuous.* For this feature again there were no significant differences between the subgroups (*F*<sub>2,75</sub> = 0.132, *p >* 0.05).
-- 6. *I cannot ask questions in a recorded lecture.* Also for this feature no significant differences were observed (*F*<sub>2.75</sub> = 1.085, *p >* 0.05).
-- 7. *I can ask questions in a synchronous lecture.* Here too, there were no significant differences (*F*<sub>2,75</sub> = 1.648, *p >* 0.05).
-- 8. *When I watch a recorded lesson that was taught synchronously to a different class, I feel disparaged.* For this feature we discovered a significant difference (*F*<sub>2,75</sub> = 3.296, *p <* 0.05 . The subgroup of students who chose synchronous learning ranked this feature significantly higher than those who chose asynchronous learning with an audience (*p <* 0.05) . This observation leads us to believe that the feeling that the lecturer cared less for them was one of the reasons for students to choose synchronous learning.
-- 9. *In general, I study and practice only before an exam.* This feature displayed significant differences between the subgroups (*F*<sub>2,75</sub> = 8.745, *p <* 0.001) . The students who chose synchronous learning disagreed with this statement to a greater extent than those who chose asynchronous learning with an audience (*p <* 0.001) , and those who chose asynchronous learning (*p <* 0.05) . We see that the students who chose synchronous learning put in consistent effort in maintaining their learning during the semester and do not put off their studying until close to the exam and prefer to participate in the synchronous lecture rather than wait for the recording.
+3. *I can alter the speed of a recorded lecture.*There were no significant differences between the subgroups (*F*2, 75 = 1.221, *p >* 0.05) , but there is an agreement between most of the students (from all subgroups) that this is an important feature, as the mean rankings for each subgroup, and the total mean overall show.
+4. *I can skip parts of a recorded lecture if I already understood them.* There are no significant differences between the subgroups for this feature ( *F*<sub>2,75</sub> = 0.941, *p >* 0.05).
+5. *There are no disturbances or breaks in a recorded lecture—the lecture is continuous.* For this feature again there were no significant differences between the subgroups (*F*<sub>2,75</sub> = 0.132, *p >* 0.05).
+6. *I cannot ask questions in a recorded lecture.* Also for this feature no significant differences were observed (*F*<sub>2.75</sub> = 1.085, *p >* 0.05).
+7. *I can ask questions in a synchronous lecture.* Here too, there were no significant differences (*F*<sub>2,75</sub> = 1.648, *p >* 0.05).
+8. *When I watch a recorded lesson that was taught synchronously to a different class, I feel disparaged.* For this feature we discovered a significant difference (*F*<sub>2,75</sub> = 3.296, *p <* 0.05 . The subgroup of students who chose synchronous learning ranked this feature significantly higher than those who chose asynchronous learning with an audience (*p <* 0.05) . This observation leads us to believe that the feeling that the lecturer cared less for them was one of the reasons for students to choose synchronous learning.
+9. *In general, I study and practice only before an exam.* This feature displayed significant differences between the subgroups (*F*<sub>2,75</sub> = 8.745, *p <* 0.001) . The students who chose synchronous learning disagreed with this statement to a greater extent than those who chose asynchronous learning with an audience (*p <* 0.001) , and those who chose asynchronous learning (*p <* 0.05) . We see that the students who chose synchronous learning put in consistent effort in maintaining their learning during the semester and do not put off their studying until close to the exam and prefer to participate in the synchronous lecture rather than wait for the recording.
 
 ## A personalized optimal online learning pedagogic paradigm
 
@@ -214,15 +214,15 @@ where *M* = 1, 2, 3 is a recommendation for the synchronous learning, asynchrono
 
 The COVID-19 epidemic has forced educational institutions (schools, universities) around the world to switch to a distance-learning format. Lecturers, teachers, and instructors have had to reinvent themselves and experiment with teaching in different paradigms and methods (Lederman 2020). In this study, we focused on three online PPs that were in practical use during this period. Firstly, we had to define exactly what we mean by synchronous, asynchronous, and asynchronous learning with an audience. The necessity to sharpen these definitions arose for several reasons:
 
-- 1. In different articles we found different definitions of the concepts which could cause confusion and misunderstanding about what was done in our study. For example, in some sources, the definition of asynchronous learning does not necessarily involve instruction by a lecturer, rather distant communication through a course management system (Clark et al. 2015).
-- 2. Our definitions of the learning paradigms were based on new formats that emerged due to the hardship that both students and instructors were faced with, for example, lack of experience in distance learning, the lack of direct and interpersonal communication with the students that exist in regular classroom instruction, the "invisibility" factor—not being able to see whether the students understand.
-- 3. The asynchronous learning with an audience paradigm was not formally defined in any of the articles we reviewed.
+1. In different articles we found different definitions of the concepts which could cause confusion and misunderstanding about what was done in our study. For example, in some sources, the definition of asynchronous learning does not necessarily involve instruction by a lecturer, rather distant communication through a course management system (Clark et al. 2015).
+2. Our definitions of the learning paradigms were based on new formats that emerged due to the hardship that both students and instructors were faced with, for example, lack of experience in distance learning, the lack of direct and interpersonal communication with the students that exist in regular classroom instruction, the "invisibility" factor—not being able to see whether the students understand.
+3. The asynchronous learning with an audience paradigm was not formally defined in any of the articles we reviewed.
 
 The study had two main objectives. First, to develop a data-driven model allowing both students and course providers to allocate each student to the online PP’s that optimize the student’s learning processes (measured by a final score in an exam). Second, to deduce what is the format of online learning that yields better learning outcomes considering three aspects:
 
-- 1. Individual progress—which format would best advance the achievements of students starting with weaker backgrounds?
-- 2. The contribution of characteristics of the various formats—which features are important in a live online lesson, and which is a recorded lesson?
-- 3. A broad statement—which format was, in general, the most successful?
+1. Individual progress—which format would best advance the achievements of students starting with weaker backgrounds?
+2. The contribution of characteristics of the various formats—which features are important in a live online lesson, and which is a recorded lesson?
+3. A broad statement—which format was, in general, the most successful?
 
 The conclusion that is most prominent from the didactic point of view is that the asynchronous learning with an audience PP yields better results compared with both the synchronous and the asynchronous format, as shown in Table 2, for the group who were randomly assigned the learning format. We note that in the group who chose their learning format, students with better historical grades tended to sign up for the synchronous PP. In contrast, students with medium or low historical grades relative to the rest tended to register for the asynchronous PP 1.
 

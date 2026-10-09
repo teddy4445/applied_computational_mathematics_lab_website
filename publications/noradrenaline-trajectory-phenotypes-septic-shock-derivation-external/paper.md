@@ -167,13 +167,13 @@ Two design choices enhanced interpretability and robustness: (1) outcome-agnosti
 
 The core trajectory families were highly reproducible across the two health systems, with only two expected differences at the extremes of severity and duration.
 
-- 1. Cluster number differed slightly.
+1. Cluster number differed slightly.
 
 Sheba ultimately produced five stable clusters after the very small “Fulminant Shock’’ group—marked by extreme early NA requirements and very high early mortality—was absorbed during DTW refinement.
 
 This reflected a deliberate preference for a stable and reproducible phenotype structure over retention of very small extreme-tail groups as standalone clusters. While such rare micro-phenotypes may still be clinically informative, we considered them less suitable as primary phenotypes unless they met the prespecified minimum-size criterion. In contrast, MIMIC-IV retained six stable clusters.
 
-- 2. Prolonged-exposure phenotypes differed in duration. Sustained and late-escalating phenotypes (e.g., “Intermediate-dose Gradual Wean’’ and “Intermediate-dose Non-resolver”) persisted longer in Sheba, even though their shapes were nearly identical to their counterparts in MIMIC-IV.
+2. Prolonged-exposure phenotypes differed in duration. Sustained and late-escalating phenotypes (e.g., “Intermediate-dose Gradual Wean’’ and “Intermediate-dose Non-resolver”) persisted longer in Sheba, even though their shapes were nearly identical to their counterparts in MIMIC-IV.
 
 These discrepancies likely reflect institutional differences in aggressive support and end-of-life practices. Sheba commonly maintains full hemodynamic support for longer periods, generating both the brief, high-dose ‘Fulminant Shock’ trajectory and prolonged vasopressor courses in survivors. At the MIMIC-IV source hospital, earlier transition to comfort-focused care and a pharmacy/protocol norepinephrine ceiling of 0.5 µg/kg/min may have limited representation of very high dose exposures and shortened observable trajectories, thereby influencing the final cluster structure.
 

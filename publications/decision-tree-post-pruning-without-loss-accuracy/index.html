@@ -128,10 +128,10 @@
     <header class="paper-hero">
       <div class="paper-wrap">
         <nav class="paper-crumbs" aria-label="Breadcrumb">
-          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Machine Learning</span>
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span data-pagefind-filter="Topic">Machine Learning</span>
         </nav>
         <p class="paper-kicker"><span><em>Data &amp; Knowledge Engineering</em> · 4 March 2023</span></p>
-        <h1 class="paper-title is-long">Decision tree post-pruning without loss of accuracy using the SAT-PP algorithm with an empirical evaluation on clinical data</h1>
+        <h1 class="paper-title is-long" data-pagefind-meta="title" data-pagefind-filter="Year:2023">Decision tree post-pruning without loss of accuracy using the SAT-PP algorithm with an empirical evaluation on clinical data</h1>
         <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author">Svetlana Bunimovich-Mendrazitsky</span></p>
         
         <div class="paper-actions">
@@ -146,10 +146,14 @@
       </div>
     </header>
 
-    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Decision trees are popular, easy-to-explain prediction models, especially in medicine, but they can grow large, become hard to understand and misclassify new data. We propose SAT-PP, a pruning algorithm based on Boolean satisfiability (a logic-solving technique) that shrinks a tree after training while preserving its accuracy. On medical classification data sets, SAT-PP kept the same accuracy and F1 score as the unpruned tree while significantly reducing model size and, as a result, computation time (6.8%).</p><div class=glance-stats><div class="stat"><span class="stat-value">6.8%</span><span class="stat-label">reported reduction in computation time</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>SAT-PP is a new post-pruning algorithm based on Boolean satisfiability that reduces decision tree size while preserving the unpruned tree&#x27;s accuracy.</li><li>On medical-related classification data sets, SAT-PP produced the same accuracy and F1 score as the decision tree without pruning.</li><li>SAT-PP statistically significantly reduced model size and, as a result, computation time (6.8%).</li><li>Compared with other post-pruning algorithms, SAT-PP showed similar generalization capabilities.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="946" height="419" alt="Fig. 1. Schematic view of the SAT-PP Algorithm, divided into logical steps. The DT is given as input to the algorithms which is converted into branches such that all branches with the same leaves are converted into SAT dictionary and later reduced to return a pruned DT by converting each reduced SAT into a branch."></a><figcaption><strong>Fig. 1.</strong> Schematic view of the SAT-PP Algorithm, divided into logical steps. The DT is given as input to the algorithms which is converted into branches such that all branches with the same leaves are converted into SAT dictionary and later reduced to return a pruned DT by converting each reduced SAT into a branch. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+    <section class="paper-glance" aria-labelledby="glance-title" data-pagefind-body><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Decision trees are popular, easy-to-explain prediction models, especially in medicine, but they can grow large, become hard to understand and misclassify new data. We propose SAT-PP, a pruning algorithm based on Boolean satisfiability (a logic-solving technique) that shrinks a tree after training while preserving its accuracy. On medical classification data sets, SAT-PP kept the same accuracy and F1 score as the unpruned tree while significantly reducing model size and, as a result, computation time (6.8%).</p><div class=glance-stats><div class="stat"><span class="stat-value">6.8%</span><span class="stat-label">reported reduction in computation time</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>SAT-PP is a new post-pruning algorithm based on Boolean satisfiability that reduces decision tree size while preserving the unpruned tree&#x27;s accuracy.</li><li>On medical-related classification data sets, SAT-PP produced the same accuracy and F1 score as the decision tree without pruning.</li><li>SAT-PP statistically significantly reduced model size and, as a result, computation time (6.8%).</li><li>Compared with other post-pruning algorithms, SAT-PP showed similar generalization capabilities.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="946" height="419" alt="Fig. 1. Schematic view of the SAT-PP Algorithm, divided into logical steps. The DT is given as input to the algorithms which is converted into branches such that all branches with the same leaves are converted into SAT dictionary and later reduced to return a pruned DT by converting each reduced SAT into a branch."></a><figcaption><strong>Fig. 1.</strong> Schematic view of the SAT-PP Algorithm, divided into logical steps. The DT is given as input to the algorithms which is converted into branches such that all branches with the same leaves are converted into SAT dictionary and later reduced to return a pruned DT by converting each reduced SAT into a branch. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
 
     <div class="paper-wrap paper-layout">
       <aside class="paper-aside">
+        <form class="paper-search" action="/publications.html" method="get" role="search">
+          <label for="paper-q" class="aside-title">Search all our papers</label>
+          <div class="paper-search-box"><i class="ri-search-line" aria-hidden="true"></i><input id="paper-q" name="q" type="search" placeholder="e.g. Thompson sampling" autocomplete="off"></div>
+        </form>
         <nav class="paper-toc" aria-label="On this page">
           <p class="aside-title">On this page</p>
           <ol>
@@ -174,8 +178,8 @@
         </div>
       </aside>
 
-      <article class="paper-body" id="full-text">
-        <details class="paper-toc-mobile">
+      <article class="paper-body" id="full-text" data-pagefind-body>
+        <details class="paper-toc-mobile" data-pagefind-ignore>
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
@@ -194,9 +198,10 @@
           </ol>
         </details>
         <section id="abstract" class="paper-abstract">
-          <h2>Abstract</h2>
+          <h2 id="abstract-heading">Abstract</h2>
           <p>A decision tree (DT) is one of the most popular and efficient techniques in data mining. Specifically, in the clinical domain, DTs have been widely used thanks to their relatively easy explainable nature, efficient computation time, and relatively accurate predictions. However, some DT constriction algorithms may produce a large tree size structure which is difficult to understand and often leads to misclassification of data in the testing process due to poor generalization. Post pruning (PP) algorithms have been introduced to reduce the size of the tree structure with a minor (or not at all) decrease in the accuracy of classification while trying to improve the model’s generalization. In this paper, we propose a new Boolean satisfiability (SAT) based PP algorithm called SAT-PP. Our algorithm reduces the tree size while preserving the accuracy of the unpruned tree. We implemented our algorithm on a medical-related classification data sets since in medical-related tasks we emphatically try to avoid decreasing the model’s performance when better training is not an option. Namely, in the case of medical-related tasks, one may prefer an unpruned DT model to a pruned DT model with worse performance. Indeed, we empirically obtained that the SAT-PP algorithm produce the same accuracy and F1 score as the DT model without PP while statistically significantly reducing the model size and as a result computation time (6.8%). In addition, we compared the proposed algorithm with other PP algorithms and found similar generalization capabilities.</p>
         </section>
+        
         
 <div class="paper-text">
 <h2 id="1-introduction-and-related-work">1. Introduction and related work</h2>
@@ -269,33 +274,13 @@
 
 </figure>
 
-<ul>
-<li>
 <ol>
 <li><em>𝐷𝑇</em><sub>𝑟𝑒𝑝</sub> is obtained using the PART algorithm <span class="cite">[<a href="#ref-8">8</a>]</span>, which represents the REP group of algorithms.</li>
-</ol>
-</li>
-<li>
-<ol start="2">
 <li><em>𝐷𝑇</em><sub>𝑝𝑒𝑝</sub> is obtained using the algorithm presented in <span class="cite">[<a href="#ref-11">11</a>]</span>, which represents the PEP group of algorithms.</li>
-</ol>
-</li>
-<li>
-<ol start="3">
 <li><em>𝐷𝑇</em><sub>𝑚𝑒𝑝</sub> is obtained using the algorithm presented in <span class="cite">[<a href="#ref-50">50</a>]</span>, which represents the MEP group of algorithms.</li>
-</ol>
-</li>
-<li>
-<ol start="4">
 <li><em>𝐷𝑇</em><sub>𝑐𝑐𝑝</sub> is obtained using the algorithm presented in <span class="cite">[<a href="#ref-13">13</a>]</span>, which represents the CCP group of algorithms.</li>
-</ol>
-</li>
-<li>
-<ol start="5">
 <li><em>𝐷𝑇</em><sub>𝑠𝑎𝑡</sub> is obtained using the proposed SAT-PP algorithm.</li>
 </ol>
-</li>
-</ul>
 <p>Random Forest (RF) is a combination of tree predictors such that each tree depends on the values of a random vector sampled independently and with the same distribution for all trees in the forest <span class="cite">[<a href="#ref-51">51</a>]</span>. RF-based models are known for their robustness to noise in data as well as an accurate prediction in a wide spectrum of learning tasks <span class="cite">[<a href="#ref-52">52</a>]</span>. In our case, the RF model corresponding to each DT model is obtained using the same seed (to neglect the stochastic effect of the RF’s random process) with 100 trees in the forest. The number of trees is decided empirically to balance computation time and the generalization capabilities of the model. The PP algorithms are computed independently for each tree in the forest. We compare the DT model with the RF model as RF is considered the best practice in many ML challenges, mainly due to their superior predictive performance <span class="cite">[<a href="#ref-53">53</a>,<a href="#ref-54">54</a>]</span>. However, simple models like DT may be preferred over RF in cases in which the generated predictions must be efficient or explainable <span class="cite">[<a href="#ref-55">55</a>]</span>.</p>
 <p>All the models are evaluated on four matrices: accuracy, <em>𝐹</em><sub>1</sub> score, time to answer a query (in milliseconds), and training time to obtain each model. The accuracy and <em>𝐹</em><sub>1</sub> metrics are used to evaluate the model’s performance and generalization capabilities while the time to answer a query metric is used to evaluate the model’s response time due to the reduction in the model size as a result of the pruning process. The time to obtain the model metric is analyzed to evaluate the potential of using each of the proposed data in a realistic scenario. Namely, a model that takes significantly more time to obtain while providing just minor improvement in performance relative to a fast obtained model, may be inferior to the second in some cases. Of note, there are other performance metrics such as the number of false-positive cases <span class="cite">[<a href="#ref-56">56</a>]</span> that are commonly used to evaluate ML models in clinical settings <span class="cite">[<a href="#ref-57">57</a>]</span>. That said, as the accuracy and <em>𝐹</em><sub>1</sub> metrics are widely used and considered to be relatively ‘‘strict’’ metrics we limit our analysis to them.</p>
 <p>Moreover, we decided to evaluate the time to answer a query rather than model size after pruning in order to evaluate more applied metrics. That is to say, while the model size is easier to interpret, it is rather the symptom and not the illness itself as in the deployed model. A response time for a patient’s prediction is the parameter influencing the performance of the service while the size of the model is a by-product of the response time. Besides, using the model’s size hides two factors of the model. First, the inner distribution of the data over the model’s nodes is significant in imbalanced data. For example, assume there is an unbalanced DT with 12 nodes, where 90% of the time a query to the algorithm passes a branch with four decision nodes and the other 10% of the time a query passes a branch with two decision nodes. Second, the difference in the complexity of different decision nodes (in a general case DT model) can significantly change the response time while still counting as one node in the model’s size. Therefore, using the time to answer a query on average carried out on a large test set shows indirectly these factors while a simple comparison between model sizes does not.</p>
@@ -339,9 +324,10 @@
 <p><sup><a href="#ref-2">2</a></sup> https://www.kaggle.com/uciml/breast-cancer-wisconsin-data.</p>
 <p><sup><a href="#ref-3">3</a></sup> https://www.kaggle.com/yusufdede/lung-cancer-dataset.</p>
 <p><sup><a href="#ref-4">4</a></sup> https://datahub.io/machine-learning/cervical-cancer.</p>
-<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 30 November 2022 · Accepted 1 March 2023 · Published 4 March 2023</dd></div></dl></section>
+<section id="article-notes" class="paper-notes" data-pagefind-ignore><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 30 November 2022 · Accepted 1 March 2023 · Published 4 March 2023</dd></div></dl></section>
 <h2 id="references">References</h2>
-<ol class="paper-refs"><li id="ref-1">W.V. Jiawei, Data mining concepts and techniques, Assoc. Comput. Mach. 31 (2) (2002) 279–328. <a href="http://refhub.elsevier.com/S0169-023X%2823%2900033-2/sb1" target="_blank" rel="noopener">link</a></li>
+<ol class="paper-refs" data-pagefind-ignore>
+<li id="ref-1">W.V. Jiawei, Data mining concepts and techniques, Assoc. Comput. Mach. 31 (2) (2002) 279–328. <a href="http://refhub.elsevier.com/S0169-023X%2823%2900033-2/sb1" target="_blank" rel="noopener">link</a></li>
 <li id="ref-2">P.H. Swain, H. Hauska, The decision tree classifier: Design and potential, IEEE Trans. Geosci. Electron. 15 (3) (1977) 142–147. <a href="http://refhub.elsevier.com/S0169-023X%2823%2900033-2/sb2" target="_blank" rel="noopener">link</a></li>
 <li id="ref-3">G. Stiglic, S. Kocbek, I. Pernek, P. Kokol, Comprehensive decision tree models in bioinformatics, PLoS One 7 (3) (2012) e33812. <a href="http://refhub.elsevier.com/S0169-023X%2823%2900033-2/sb3" target="_blank" rel="noopener">link</a></li>
 <li id="ref-4">J. Quinlan, Simplifying decision trees, Int. J. Man-Mach. Stud. 27 (3) (1987) 221–234. <a href="http://refhub.elsevier.com/S0169-023X%2823%2900033-2/sb4" target="_blank" rel="noopener">link</a></li>
@@ -407,8 +393,7 @@
 </ol>
 </div>
         
-        
-        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2023), <em>Data &amp; Knowledge Engineering</em>, <a href="https://doi.org/10.1016/j.datak.2023.102173" target="_blank" rel="noopener">doi:10.1016/j.datak.2023.102173</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+        <p class="paper-source" data-pagefind-ignore><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2023), <em>Data &amp; Knowledge Engineering</em>, <a href="https://doi.org/10.1016/j.datak.2023.102173" target="_blank" rel="noopener">doi:10.1016/j.datak.2023.102173</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
       </article>
     </div>
 
@@ -471,6 +456,7 @@
          </div>
       </footer>
       
+      <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
           // menu and navbar (js/main.js expects to sit at the site root)

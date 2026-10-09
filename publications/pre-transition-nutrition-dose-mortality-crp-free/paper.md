@@ -40,13 +40,13 @@ The 40%/3-of-7 specifica cation was selected before the main MIMIC outcome model
 
 The transported rule preserved the conceptual structure of the published model but operationalized a locked derivation-refine ned CRP-free specifica cation [1]. Operationally, the transported MIMIC- IV rule consisted of two required components. First, the patient's steroid-corrected IRI trajectory had to demonstrate a sustained post-peak decline of at least 40%, meaning that the IRI remained below 60% of the individual peak for at least 24 h, allowing only limited short rebounds. Second, at least 3 of 7 available non-CRP recovery criteria had to be fulfill lled during the same recovery period. These criteria represented three recovery domains: hemodynamic improvement, inflam ammatory improvement, and attenuation of the acute-phase response. The 7 non-CRP criteria were.
 
-- 1. Lactate decrease or normalization;
-- 2. Norepinephrine reduction or cessation;
-- 3. Vasopressin reduction or cessation;
-- 4. Epinephrine/adrenaline reduction or cessation;
-- 5. WBC decrease or normalization;
-- 6. Neutrophil percentage decrease or normalization;
-- 7. Albumin stabilization or increase.
+1. Lactate decrease or normalization;
+2. Norepinephrine reduction or cessation;
+3. Vasopressin reduction or cessation;
+4. Epinephrine/adrenaline reduction or cessation;
+5. WBC decrease or normalization;
+6. Neutrophil percentage decrease or normalization;
+7. Albumin stabilization or increase.
 
 CRP was omitted because it was available in only 326/8732 stays (3.7%). Accordingly, the operational MIMIC rule required 3 of 7 observable non-CRP criteria rather than 3 of 8 original criteria. The object evaluated in the present study is therefore a locked derivation-refined CRP-free operational specifica cation within the published framework, not the untouched original rule. Supplementary bridge analyses place that refinement in context by comparing it with the original derivation rule, the closest CRP-free surrogate, and a more permissive alternative MIMIC candidate.
 

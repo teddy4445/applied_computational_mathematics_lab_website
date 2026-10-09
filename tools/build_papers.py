@@ -2,12 +2,14 @@
 """Build the web page of every paper that has a publications/<slug>/ folder.
 
     python tools/build_papers.py            (pip install markdown pillow)
+    python tools/build_papers.py --no-search   (skip the full-text search index)
 
 For each publications/<slug>/paper.md + paper.json it writes publications/<slug>/index.html from
 tools/templates/paper.html, plus:
     figures/share-<figure>.jpg   social-preview image made from the featured figure
     data/paper-pages.json        which papers have a page (the Publications list links to them)
     sitemap.xml, llms.txt        the paper pages, between the "paper pages" markers
+    pagefind/                    the full-text search index (needs `npm install` once; see update_search_index)
 It never changes paper.md / paper.json, so hand edits there are safe. Run it again after any edit.
 """
 import collections
@@ -146,14 +148,15 @@ def link_body(body, n_refs, ids):
                 in_sup += 1
             elif tag == '</sup>':
                 in_sup -= 1
-            elif tag.startswith('<h2') and 'id="references"' in tag:
-                seen_refs_heading = True
-            elif tag.startswith(('<ol', '<ul')) and seen_refs_heading and not in_refs:
-                in_refs = 1
-                part = part[:3] + ' class="paper-refs">'
+            elif tag.startswith('<h2'):
+                seen_refs_heading = 'id="references"' in tag
+            elif tag.startswith(('<ol', '<ul')) and seen_refs_heading:
+                in_refs += 1
+                if in_refs == 1:            # every list under the References heading
+                    start = re.search(r'start="\d+"', part)
+                    part = part[:3] + ' class="paper-refs"' + (' ' + start.group(0) if start else '') + '>'
             elif tag in ('</ol>', '</ul>') and in_refs:
-                in_refs = 0
-                seen_refs_heading = False
+                in_refs -= 1
             out.append(part)
             continue
         if not in_a and not in_refs and n_refs:
@@ -165,26 +168,85 @@ def link_body(body, n_refs, ids):
             part = re.sub(r'\b(Figs?\.?|Figures?|Tables?|Tab\.|Algorithms?)\s?([A-Z][.\-]?\d+|\d+|[IVX]+)\b', fig, part)
         out.append(part)
     body = ''.join(out)
-    counter = iter(range(1, 100000))
-    body = re.sub(r'<ol class="paper-refs">(.*?)</ol>',
-                  lambda m: '<ol class="paper-refs">' + re.sub(r'<li>', lambda _: f'<li id="ref-{next(counter)}">', m.group(1)) + '</ol>',
-                  body, flags=re.S)
-    body = re.sub(r'<ol class="paper-refs">\s*<li id="ref-1">', '<ol class="paper-refs"><li id="ref-1">', body)
     body = re.sub(r'<a href="(https?://[^"]+)"', r'<a href="\1" target="_blank" rel="noopener"', body)
     body = re.sub(r'(<figure id="fig-[\w-]+">\s*)(<img src="([^"]+)"[^>]*>)', r'\1<a class="fig-zoom" href="\3" aria-label="Open the figure full size">\2</a>', body)
     return body
 
 
 def fix_ref_numbers(body, body_md):
-    """Numbered reference lists that do not start at 1 keep their numbers (start=...)."""
+    """Numbered reference lists that do not start at 1 keep their numbers (start=...). Every reference
+    gets an id (ref-N) that citations link to."""
     m = re.search(r'^## References\s*\n\s*(\d+)\.', body_md, re.M)
     if m and m.group(1) != '1':
         body = body.replace('<ol class="paper-refs">', f'<ol class="paper-refs" start="{m.group(1)}">', 1)
-    return body
+
+    nxt = [1]
+
+    def number(m):
+        first = int(m.group(2)) if m.group(2) else nxt[0]
+        counter = iter(range(first, first + 100000))
+        items = re.sub(r'<li>', lambda _: f'<li id="ref-{next(counter)}">', m.group(3))
+        nxt[0] = next(counter)
+        return m.group(1) + items + m.group(4)
+    return re.sub(r'(<(?:ol|ul) class="paper-refs"(?: start="(\d+)")?>)(.*?)(</(?:ol|ul)>)', number, body, flags=re.S)
 
 
-def toc_html(tokens, extra_after=()):
-    items = ['<li><a href="#abstract">Abstract</a></li>']
+def ref_key(text):
+    """(first author's surname, year) of an author-year reference: 'Lazebnik, T., ... (2023a)' -> ('lazebnik', '2023a')."""
+    t = re.sub(r'<[^>]+>', '', html.unescape(text)).strip()
+    year = re.search(r'\b((?:19|20)\d{2})([a-z]?)\b', t)
+    if not year:
+        return None
+    first = re.split(r',|\(|\s(?:and|&)\s', t[:year.start()] or t, maxsplit=1)[0].strip()
+    words = [w for w in re.findall(r"[^\W\d_][\w'’\-]*", first) if not re.fullmatch(r'[A-Z]{1,3}|[A-Z]\.?', w)]
+    if not words:
+        return None
+    return fold(words[-1]), year.group(1) + year.group(2)
+
+
+def fold(word):
+    return ''.join(c for c in unicodedata.normalize('NFKD', word.lower()) if not unicodedata.combining(c)).replace('’', "'")
+
+
+def link_author_year(body):
+    """Author-year citations ('Smith et al. (2020)', '(Jones & Lee, 2019a)') -> links to the reference list."""
+    lst = re.search(r'<ul class="paper-refs">(.*?)</ul>', body, re.S)
+    if not lst:
+        return body
+    keys, seen = {}, collections.Counter()
+    for rid, item in re.findall(r'<li id="(ref-\d+)">(.*?)</li>', lst.group(1), re.S):
+        k = ref_key(item)
+        if k:
+            seen[k] += 1
+            keys[k] = rid
+    keys = {k: v for k, v in keys.items() if seen[k] == 1}      # two references with the same key: leave them alone
+    if not keys:
+        return body
+    name = r"[A-Z][\w'’\-]+"
+    cite_re = re.compile(rf"\b({name})((?:\s+et\s+al\.?|\s+(?:and|&|&amp;)\s+(?:[a-z]+\s+)*{name})?)(,?\s*)(\(?)((?:19|20)\d{{2}}[a-z]?)\b")
+
+    def repl(m):
+        rid = keys.get((fold(m.group(1)), m.group(5)))
+        if not rid:
+            return m.group(0)
+        if m.group(4):          # narrative: Smith et al. (2020) -> link the year
+            return f'{m.group(1)}{m.group(2)}{m.group(3)}{m.group(4)}<a class="cite-ay" href="#{rid}">{m.group(5)}</a>'
+        return f'<a class="cite-ay" href="#{rid}">{m.group(0)}</a>'
+    head, sep, tail = body.partition('<h2 id="references">')
+    parts = re.split(r'(<[^>]+>)', head)
+    in_a = 0
+    for i, part in enumerate(parts):
+        if part.startswith('<'):
+            tag = part.lower()
+            in_a += 1 if tag.startswith('<a ') or tag == '<a>' else -1 if tag == '</a>' else 0
+            continue
+        if not in_a and part.strip():
+            parts[i] = cite_re.sub(repl, part)
+    return ''.join(parts) + sep + tail
+
+
+def toc_html(tokens, extra_after=(), after_abstract=()):
+    items = ['<li><a href="#abstract">Abstract</a></li>', *after_abstract]
     for t in tokens:
         if t['id'] == 'references':
             continue
@@ -285,6 +347,7 @@ def build_one(folder, pub, ctx):
     n_refs = max([int(x) for x in re.findall(r'^(\d+)\.\s', refs_part, re.M)] or [0])
     body = link_body(body, n_refs, ids)
     body = fix_ref_numbers(body, body_md)
+    body = link_author_year(body)
 
     # authors
     affs = meta.get('affiliations') or {}
@@ -324,7 +387,7 @@ def build_one(folder, pub, ctx):
             feat = (f'<figure class="glance-figure"><a href="#{fig}"><img src="figures/{fig}.webp" width="{w}" height="{h}" '
                     f'alt="{esc(re.sub("<[^>]+>", "", cap.group(1)) if cap else "")}"></a>'
                     f'<figcaption>{cap.group(1) if cap else ""} <a href="#{fig}">See it in the paper</a></figcaption></figure>')
-        glance = (f'<section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card{"" if feat else " no-figure"}">'
+        glance = (f'<section class="paper-glance" aria-labelledby="glance-title" data-pagefind-body><div class="paper-wrap"><div class="glance-card{"" if feat else " no-figure"}">'
                   f'<div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2>'
                   f'<p class="glance-summary">{esc(meta["summary"])}</p>'
                   f'{"<div class=glance-stats>" + nums + "</div>" if nums else ""}'
@@ -359,7 +422,7 @@ def build_one(folder, pub, ctx):
     if meta.get('abbreviations'):
         ab = ''.join(f'<li><abbr>{esc(a)}</abbr> {esc(b)}</li>' for a, b in meta['abbreviations'])
         notes.append(f'<div><dt>Abbreviations</dt><dd><ul class="abbr-list">{ab}</ul></dd></div>')
-    notes_html = f'<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl>{"".join(notes)}</dl></section>' if notes else ''
+    notes_html = f'<section id="article-notes" class="paper-notes" data-pagefind-ignore><h2>Article notes</h2><dl>{"".join(notes)}</dl></section>' if notes else ''
 
     first = esc(meta['authors'][0]['family']) if meta.get('authors') else ''
     cite_short = f'{first}{" et al." if len(meta.get("authors", [])) > 1 else ""} ({esc(year)}), <em>{esc(meta.get("journal", ""))}</em>'
@@ -367,11 +430,11 @@ def build_one(folder, pub, ctx):
     if not has_body:
         source_html = ''
     elif lic.get('url'):
-        source_html = (f'<p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article {cite_short}{doi_link}, under the '
+        source_html = (f'<p class="paper-source" data-pagefind-ignore><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article {cite_short}{doi_link}, under the '
                        f'<a href="{esc(lic["url"])}" target="_blank" rel="license noopener">{esc(lic.get("name") or "open licence")}</a> licence. '
                        f'Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>')
     else:
-        source_html = (f'<p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article {cite_short}{doi_link}, '
+        source_html = (f'<p class="paper-source" data-pagefind-ignore><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article {cite_short}{doi_link}, '
                        f'with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; '
                        f'the PDF is the version of record.</p>')
     see_also = ''
@@ -392,10 +455,15 @@ def build_one(folder, pub, ctx):
         short = vid.get('format') == 'short'
         thumb = f'https://i.ytimg.com/vi/{vid["id"]}/{"sddefault" if short else "maxresdefault"}.jpg'
         watch = f'https://www.youtube.com/{"shorts/" + vid["id"] if short else "watch?v=" + vid["id"]}'
-        video_html = (f'<section id="video" class="paper-video"><h2>Watch the explainer</h2><div class="yt-player {"yt-9x16" if short else "yt-16x9"}" '
+        video_html = (f'<section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2>'
+                      f'<div class="paper-video-card{" is-short" if short else ""}"><div class="yt-player {"yt-9x16" if short else "yt-16x9"}" '
                       f'data-yt-id="{esc(vid["id"])}" data-yt-title="{esc(vid["title"])}"><a class="yt-play" href="{watch}" aria-label="Play video: {esc(vid["title"])}">'
                       f'<img src="{thumb}" data-yt-fallbacks="https://i.ytimg.com/vi/{esc(vid["id"])}/hqdefault.jpg" alt="" loading="lazy" decoding="async">'
-                      f'<span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div></section>')
+                      f'<span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div>'
+                      f'<div class="paper-video-text"><p class="paper-video-title">{esc(vid["title"])}</p>'
+                      f'{"<p>" + esc(vid["summary"]) + "</p>" if vid.get("summary") else ""}'
+                      f'<p class="paper-video-more"><a href="/videos.html#v-{esc(vid["id"])}">More videos from the lab</a> · <a href="{watch}" target="_blank" rel="noopener">Watch on YouTube</a></p>'
+                      f'</div></div></section>')
         video_btn = '<a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>'
     proj = pick_project(meta, pub, projects, sim, pvecs)
     if proj:
@@ -495,18 +563,23 @@ def build_one(folder, pub, ctx):
                                             '<i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>') if meta.get('doi') else '',
         'read_label': 'Read the paper' if has_body else 'Read the abstract', 'video_button': video_btn,
         'lab_authors': (f'<div class="lab-authors"><span class="lab-authors-label">ACML authors</span>{"".join(lab_chips)}</div>') if lab_chips else '',
-        'glance': glance, 'toc': toc_html(tokens, extra_toc), 'info': info_html,
+        'glance': glance, 'toc': toc_html(tokens, extra_toc, ['<li><a href="#video">Video</a></li>'] if vid else []), 'info': info_html,
+        'year': esc(year),
         'abstract': esc(meta.get('abstract', '')), 'body': body, 'notes': notes_html, 'source': source_html, 'see_also': see_also,
         'video_section': video_html, 'related': related_html,
         'apa': esc(apa), 'bibtex': esc(bib),
     }
+    values['body'] = re.sub(r'<(ol|ul) class="paper-refs"', r'<\1 class="paper-refs" data-pagefind-ignore', values['body'])
     page = string.Template(template.read_text(encoding='utf-8')).substitute(values)
     out = folder / 'index.html'
     changed = not out.exists() or out.read_text(encoding='utf-8') != page
     if changed:
         out.write_text(page, encoding='utf-8')
+    figs = [m for m in re.findall(r'<figure id="(fig-[\w-]+)">', body) if (folder / 'figures' / f'{m}.webp').exists()]
     return {'title': pub['name'], 'slug': slug, 'url': f'publications/{slug}/', 'doi': meta.get('doi', ''),
-            'summary': desc, 'changed': changed, 'full_text': has_body}
+            'summary': desc, 'changed': changed, 'full_text': has_body, 'year': year, 'journal': meta.get('journal', ''),
+            'authors': [a['name'] for a in meta['authors']], 'plain_summary': meta.get('summary') or '',
+            'abstract': meta.get('abstract', ''), 'figures': figs, 'video': bool(vid)}
 
 
 # ---------------------------------------------------------------- site files
@@ -520,18 +593,27 @@ def replace_block(text, start_line, end_line, new_lines):
     return None
 
 
+IMAGE_NS = 'xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"'
+
+
 def update_sitemap(pages, today):
+    """The paper pages (with their figures, for image search) between the markers in sitemap.xml."""
     path = ROOT / 'sitemap.xml'
     raw = path.read_bytes()
     bom = raw.startswith(b'\xef\xbb\xbf')
     text = raw.decode('utf-8-sig')
     eol = '\r\n' if '\r\n' in text else '\n'
+    if IMAGE_NS not in text:
+        text = text.replace('xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"', 'xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"' + eol + '  ' + IMAGE_NS, 1)
     old = dict(re.findall(r'<loc>(.*?)</loc>\s*<lastmod>(.*?)</lastmod>', text))
     lines = [f'  <!-- {MARK_START} -->']
     for p in pages:
         loc = f'{SITE}/{p["url"]}'
         lastmod = old.get(loc) if not p['changed'] and old.get(loc) else f'{today}T00:00:00.000Z'
-        lines += ['  <url>', f'    <loc>{loc}</loc>', f'    <lastmod>{lastmod}</lastmod>', '    <priority>0.70</priority>', '  </url>']
+        lines += ['  <url>', f'    <loc>{loc}</loc>', f'    <lastmod>{lastmod}</lastmod>', f'    <priority>{"0.80" if p["full_text"] else "0.60"}</priority>']
+        for fig in p['figures'][:50]:
+            lines.append(f'    <image:image><image:loc>{loc}figures/{fig}.webp</image:loc></image:image>')
+        lines.append('  </url>')
     lines.append(f'  <!-- {MARK_END} -->')
     block = eol.join(lines) + eol
     new = replace_block(text, MARK_START, MARK_END, block)
@@ -542,6 +624,8 @@ def update_sitemap(pages, today):
 
 
 def update_llms(pages):
+    """The paper pages, newest first, between the markers in llms.txt: title, authors, journal, DOI, a short
+    summary, and a link to the full text as Markdown (paper.md, easiest for language models to read)."""
     path = ROOT / 'llms.txt'
     if not path.exists():
         return
@@ -549,15 +633,51 @@ def update_llms(pages):
     bom = raw.startswith(b'\xef\xbb\xbf')
     text = raw.decode('utf-8-sig')
     eol = '\r\n' if '\r\n' in text else '\n'
-    lines = [f'<!-- {MARK_START} -->', '## Paper pages', '',
-             'Each ACML paper has its own page with the abstract, and for most papers the full text, figures, tables and references.', '']
-    lines += [f'- [{p["title"]}]({SITE}/{p["url"]}): {p["summary"]}' for p in pages]
-    lines += ['', f'<!-- {MARK_END} -->']
+    full = sum(1 for p in pages if p['full_text'])
+    lines = [f'<!-- {MARK_START} -->', '## Papers', '',
+             f'Every ACML paper has its own page ({len(pages)} pages, {full} with the full text). A page has the abstract, a plain-language '
+             'summary with key findings, the full text with figures, tables, equations and references, citation formats (APA, BibTeX), '
+             'a link to the PDF, and related papers and projects. The full text of each paper is also published as Markdown next to its page '
+             '(`paper.md`). The Publications page has a full-text search over all the papers: '
+             f'{SITE}/publications.html?q=your+words', '']
+    by_year = collections.defaultdict(list)
+    for p in pages:
+        by_year[str(p.get('year') or 'Other')].append(p)
+    for year in sorted(by_year, reverse=True):
+        lines += [f'### {year}', '']
+        for p in sorted(by_year[year], key=lambda x: x['title'].lower()):
+            names = p['authors']
+            who = ', '.join(names[:6]) + (' et al.' if len(names) > 6 else '')
+            where = f'*{p["journal"]}*, {year}' if p.get('journal') else str(year)
+            doi = f' DOI: {p["doi"]}.' if p.get('doi') else ''
+            about = p.get('plain_summary') or p['summary']
+            about = re.sub(r'\s+', ' ', about).strip()
+            sentences = re.split(r'(?<=[.!?])\s+(?=[A-Z])', about)
+            about = sentences[0] + (' ' + sentences[1] if len(sentences) > 1 and len(sentences[0]) + len(sentences[1]) < 330 else '')
+            md = f' Full text (Markdown): {SITE}/{p["url"]}paper.md' if p['full_text'] else ''
+            lines.append(f'- [{p["title"]}]({SITE}/{p["url"]}): {who}. {where}.{doi} {about}{md}')
+        lines.append('')
+    lines.append(f'<!-- {MARK_END} -->')
     block = eol.join(lines) + eol
     new = replace_block(text, MARK_START, MARK_END, block)
     if new is None:
         new = text.rstrip() + eol + eol + block
     path.write_bytes((b'\xef\xbb\xbf' if bom else b'') + new.encode('utf-8'))
+
+
+def update_search_index():
+    """Full-text search (Pagefind, https://pagefind.app): rebuild the index in pagefind/ when it is installed
+    (npm install, once). Without it the pages still build; run npm run build:search later."""
+    import shutil
+    import subprocess
+    npx = shutil.which('npx')
+    if not npx or not (ROOT / 'node_modules' / 'pagefind').exists():
+        print('Full-text search not updated: run  npm install  once, then  npm run build:search  (or run this script again).')
+        return
+    r = subprocess.run([npx, '--no-install', 'pagefind', '--site', str(ROOT), '--glob', 'publications/*/index.html', '--force-language', 'en'],
+                       cwd=ROOT, capture_output=True, text=True)
+    tail = (r.stdout or r.stderr).strip().splitlines()[-3:]
+    print('Full-text search index updated (pagefind/).' if r.returncode == 0 else 'Pagefind failed:\n' + '\n'.join(tail))
 
 
 def main():
@@ -596,6 +716,8 @@ def main():
     changed = sum(1 for p in built if p['changed'])
     print(f'{len(built)} paper pages ({sum(1 for p in built if p["full_text"])} with full text), {changed} rebuilt; '
           f'data/paper-pages.json, sitemap.xml and llms.txt updated.')
+    if '--no-search' not in sys.argv:
+        update_search_index()
 
 
 if __name__ == '__main__':

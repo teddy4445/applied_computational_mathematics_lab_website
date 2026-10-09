@@ -49,6 +49,15 @@ Add a new paper:
 
 `python tools/paper_extract.py all` extracts every paper again (reviewed papers are skipped unless you add `--force`). Each `paper.json` has an `extracted` block with the number of figures, tables and references found and a `check` list of things worth a look.
 
+What else the pages do:
+
+- **Full-text search.** The Publications page has a search box over the full text of every paper ([Pagefind](https://pagefind.app); the index is in `pagefind/`). A result opens the paper at the matching section with the words highlighted. `python tools/build_papers.py` rebuilds the index when Pagefind is installed (`npm install` once); otherwise run `npm run build:search` after it. Each paper page also has a small "Search all our papers" box.
+- **Reference previews.** Hovering over (or tapping) a citation, numbered or author-year, shows the reference (`js/paper-page.js`).
+- **Videos.** A video in `data/videos.json` whose `paper.title` matches the paper's title is shown under the abstract.
+- **Search engines and AI tools.** `sitemap.xml` lists every paper page with its figures, and `llms.txt` lists every paper with authors, journal, DOI, a short summary and a link to its full text as Markdown (`paper.md`).
+
+The site has a `.nojekyll` file so that GitHub Pages publishes the files as they are. Keep it: without it GitHub runs Jekyll, which tries to render every `paper.md` and fails.
+
 ## Images
 
 Large images have `.webp` copies next to the originals, and the pages and data files point at the `.webp` versions. Keep the originals: share previews (`og:image`) still use PNG/JPEG. When you add a large photo, add a `.webp` copy as well (for example with https://squoosh.app), roughly 800 px wide for team photos and 1000 to 1200 px for cards and project images.

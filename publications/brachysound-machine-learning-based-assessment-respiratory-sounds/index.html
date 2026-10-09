@@ -154,10 +154,10 @@
     <header class="paper-hero">
       <div class="paper-wrap">
         <nav class="paper-crumbs" aria-label="Breadcrumb">
-          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Machine Learning</span>
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span data-pagefind-filter="Topic">Machine Learning</span>
         </nav>
         <p class="paper-kicker"><span class="oa-badge"><i class="ri-lock-unlock-line" aria-hidden="true"></i>Open access</span><span><em>Scientific Reports</em> · 2023</span></p>
-        <h1 class="paper-title">BrachySound: machine learning based assessment of respiratory sounds in dogs</h1>
+        <h1 class="paper-title" data-pagefind-meta="title" data-pagefind-filter="Year:2023">BrachySound: machine learning based assessment of respiratory sounds in dogs</h1>
         <p class="paper-authors"><span class="author">Ariel Oren</span>, <span class="author">Jana D. Türkcü</span>, <span class="author">Sebastian Meller</span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author">Pia Wiegel</span>, <span class="author">Rebekka Mach</span>, <span class="author">Holger A. Volk &amp; Anna Zamansky</span></p>
         <details class="paper-affils"><summary>Affiliations</summary><ol><li value="1">Information Systems Department, University of Haifa, Haifa, Israel.</li><li value="2">Department of Small Animal Medicine and Surgery, University of Veterinary Medicine Hannover, Hannover, Germany.</li><li value="3">Cancer Institute, University College London, London, UK.</li><li value="4">Department of Mathematics, Ariel University, Ariel, Israel.</li></ol></details>
         <div class="paper-actions">
@@ -172,10 +172,14 @@
       </div>
     </header>
 
-    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Brachycephalic obstructive airway syndrome (BOAS) is an airway condition in dogs that owners often underestimate, and traditional diagnosis is subjective and time-consuming. We applied machine learning to 366 audio samples from Pugs and other brachycephalic breeds, recorded with an electronic stethoscope during a 15-minute standardized exercise test. Our models classified whether dogs were affected with a peak accuracy of 0.85 and detected laryngeal sounds with an F1 score of 0.80, pointing toward faster, more objective diagnosis.</p><div class=glance-stats><div class="stat"><span class="stat-value">366</span><span class="stat-label">stethoscope audio samples analyzed</span></div><div class="stat"><span class="stat-value">0.85</span><span class="stat-label">peak accuracy classifying BOAS test results in Pugs</span></div><div class="stat"><span class="stat-value">0.80</span><span class="stat-label">F1 score for detecting laryngeal sounds</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Models classifying BOAS test results reached a peak accuracy of 0.85 using subsets of the Pug data.</li><li>Predicting BOAS results from recordings at rest gave accuracies of 0.68 in Pugs and 0.65 across various brachycephalic breeds.</li><li>Detection of laryngeal sounds achieved an F1 score, a combined measure of precision and recall, of 0.80.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1800" height="725" alt="Figure 1. Schematic representation of the ensemble model architecture for predicting BOAS affectedness in brachycephalic dogs. Raw data undergoes a condensed preprocessing pipeline, including feature extraction with the openSMILE library and normalization. The primary focus of the architecture is the employment of two distinct KNN configurations: one accentuating immediate neighbors for local patterns and another capturing broader dataset patterns. These are complemented by a Decision Tree Classifier designed to unravel complex, non-linear relationships. A Majority Voting Classifier amalgamates the predictions from each model to produce a balanced final output, ensuring no undue emphasis on any single model."></a><figcaption><strong>Figure 1.</strong> Schematic representation of the ensemble model architecture for predicting BOAS affectedness in brachycephalic dogs. Raw data undergoes a condensed preprocessing pipeline, including feature extraction with the openSMILE library and normalization. The primary focus of the architecture is the employment of two distinct KNN configurations: one accentuating immediate neighbors for local patterns and another capturing broader dataset patterns. These are complemented by a Decision Tree Classifier designed to unravel complex, non-linear relationships. A Majority Voting Classifier amalgamates the predictions from each model to produce a balanced final output, ensuring no undue emphasis on any single model. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+    <section class="paper-glance" aria-labelledby="glance-title" data-pagefind-body><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Brachycephalic obstructive airway syndrome (BOAS) is an airway condition in dogs that owners often underestimate, and traditional diagnosis is subjective and time-consuming. We applied machine learning to 366 audio samples from Pugs and other brachycephalic breeds, recorded with an electronic stethoscope during a 15-minute standardized exercise test. Our models classified whether dogs were affected with a peak accuracy of 0.85 and detected laryngeal sounds with an F1 score of 0.80, pointing toward faster, more objective diagnosis.</p><div class=glance-stats><div class="stat"><span class="stat-value">366</span><span class="stat-label">stethoscope audio samples analyzed</span></div><div class="stat"><span class="stat-value">0.85</span><span class="stat-label">peak accuracy classifying BOAS test results in Pugs</span></div><div class="stat"><span class="stat-value">0.80</span><span class="stat-label">F1 score for detecting laryngeal sounds</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Models classifying BOAS test results reached a peak accuracy of 0.85 using subsets of the Pug data.</li><li>Predicting BOAS results from recordings at rest gave accuracies of 0.68 in Pugs and 0.65 across various brachycephalic breeds.</li><li>Detection of laryngeal sounds achieved an F1 score, a combined measure of precision and recall, of 0.80.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1800" height="725" alt="Figure 1. Schematic representation of the ensemble model architecture for predicting BOAS affectedness in brachycephalic dogs. Raw data undergoes a condensed preprocessing pipeline, including feature extraction with the openSMILE library and normalization. The primary focus of the architecture is the employment of two distinct KNN configurations: one accentuating immediate neighbors for local patterns and another capturing broader dataset patterns. These are complemented by a Decision Tree Classifier designed to unravel complex, non-linear relationships. A Majority Voting Classifier amalgamates the predictions from each model to produce a balanced final output, ensuring no undue emphasis on any single model."></a><figcaption><strong>Figure 1.</strong> Schematic representation of the ensemble model architecture for predicting BOAS affectedness in brachycephalic dogs. Raw data undergoes a condensed preprocessing pipeline, including feature extraction with the openSMILE library and normalization. The primary focus of the architecture is the employment of two distinct KNN configurations: one accentuating immediate neighbors for local patterns and another capturing broader dataset patterns. These are complemented by a Decision Tree Classifier designed to unravel complex, non-linear relationships. A Majority Voting Classifier amalgamates the predictions from each model to produce a balanced final output, ensuring no undue emphasis on any single model. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
 
     <div class="paper-wrap paper-layout">
       <aside class="paper-aside">
+        <form class="paper-search" action="/publications.html" method="get" role="search">
+          <label for="paper-q" class="aside-title">Search all our papers</label>
+          <div class="paper-search-box"><i class="ri-search-line" aria-hidden="true"></i><input id="paper-q" name="q" type="search" placeholder="e.g. Thompson sampling" autocomplete="off"></div>
+        </form>
         <nav class="paper-toc" aria-label="On this page">
           <p class="aside-title">On this page</p>
           <ol>
@@ -195,8 +199,8 @@
         </div>
       </aside>
 
-      <article class="paper-body" id="full-text">
-        <details class="paper-toc-mobile">
+      <article class="paper-body" id="full-text" data-pagefind-body>
+        <details class="paper-toc-mobile" data-pagefind-ignore>
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
@@ -210,9 +214,10 @@
           </ol>
         </details>
         <section id="abstract" class="paper-abstract">
-          <h2>Abstract</h2>
+          <h2 id="abstract-heading">Abstract</h2>
           <p>The early and accurate diagnosis of brachycephalic obstructive airway syndrome (BOAS) in dogs is pivotal for effective treatment and enhanced canine well-being. Owners often do underestimate the severity of BOAS in their dogs. In addition, traditional diagnostic methods, which include pharyngolaryngeal auscultation, are often compromised by subjectivity, are time-intensive and depend on the veterinary surgeon’s experience. Hence, new fast, reliable assessment methods for BOAS are required. The aim of the current study was to use machine learning techniques to bridge this scientific gap. In this study, machine learning models were employed to objectively analyze 366 audio samples from 69 Pugs and 79 other brachycephalic breeds, recorded with an electronic stethoscope during a 15-min standardized exercise test. In classifying the BOAS test results as to whether the dog is affected or not, our models achieved a peak accuracy of 0.85, using subsets from the Pugs dataset. For predictions of the BOAS results from recordings at rest in Pugs and various brachycephalic breeds, accuracies of 0.68 and 0.65 were observed, respectively. Notably, the detection of laryngeal sounds achieved an F1 score of 0.80. These results highlight the potential of machine learning models to significantly streamline the examination process, offering a more objective assessment than traditional methods. This research indicates a turning point towards a data-driven, objective, and efficient approach in canine health assessment, fostering standardized and objective BOAS diagnostics.</p>
         </section>
+        
         
 <div class="paper-text">
 <p>The demand for brachycephalic (flat-faced) dog breeds has increased dramatically over the last few years<sup><a href="#ref-1">1</a></sup>. As a result, the welfare concerns associated with extreme brachycephaly have entered the public consciousness<sup><a href="#ref-2">2</a>–<a href="#ref-5">5</a></sup>. In association with their conformation due to excessive breeding selection, primary abnormalities such as an oversized soft palate, stenotic nostrils, redundant pharyngeal folds, a hypoplastic trachea, obstruction of the nasal, pharyngeal, and laryngeal lumen, and other anatomic changes cause severe breed-related health problems<sup><a href="#ref-6">6</a>–<a href="#ref-8">8</a></sup>. The Brachycephalic Obstructive Airway Syndrome (BOAS) is a chronic, pathophysiological disorder frequently observed in many short-muzzled breeds<sup><a href="#ref-5">5</a>,<a href="#ref-7">7</a>,<a href="#ref-8">8</a></sup>. It leads to significant respiratory distress in affected individuals, including intolerance to heat and exercise, disrupted sleep patterns, cyanosis, and even collapses<sup><a href="#ref-9">9</a>–<a href="#ref-12">12</a></sup>.The excessive obstruction of the airways can lead to the manifestation of increased breathing noises such as stertor, stridor, and nasal sounds<sup><a href="#ref-7">7</a></sup>. In severe cases, this condition can cause tracheal and laryngeal collapse in dogs as well as syncope, which can be fatal<sup><a href="#ref-13">13</a>–<a href="#ref-15">15</a></sup>.It is noticeable that brachycephalic breeds, due to such health issues, generally have a shortened life expectancy-averaging a reduction of 4.1 years<sup><a href="#ref-16">16</a></sup>.</p>
@@ -250,28 +255,26 @@
 <p>All of the employed models share the same machine learning pipeline, utilizing a combination of K-Nearest Neighbors (KNN)<sup><a href="#ref-47">47</a></sup> and Decision Tree Classifier models<sup><a href="#ref-48">48</a></sup>, integrated within a Majority Voting classifier. The ensemble approach was chosen to leverage the strengths of each individual model and to provide a more robust and reliable classification<sup><a href="#ref-49">49</a></sup>.</p>
 <p>Two configurations of the KNN model were employed. The first KNN model was designed to give weight to immediate neighbors, capturing local patterns in the data. The second KNN model was configured to provide a more global perspective, capturing broader patterns across the dataset. This dual approach was based on the hypothesis that similar behaviors among pugs would be effectively captured at both local and global levels. The Decision Tree Classifier was used as an extrapolator to capture more complex, non-linear relationships in the data. The Majority Voting Classifier was then used to combine the predictions of the two KNN models and the Decision Tree Classifier. This approach ensures that the final prediction is not overly reliant on any single model. As we had two different datasets (Pugs and various breeds), we could investigate the generalizability of the approach across these groups of breeds. Thus, in the BOAS test result tasks, we experimented with different combinations for training/testing sets: pugs/pugs, various/various, pugs/various, various/pugs and pugs+various/pugs+various.</p>
 <p>The <em>leave-one-out</em> cross-validation method was employed<sup><a href="#ref-50">50</a>,<a href="#ref-51">51</a></sup>. In this method, if there are N data points in the dataset, the model is trained N times. Each time, the model is trained using N − 1 data points and tested on the one left out. This is repeated until each data point has been used as the test set once. The developed machine models addressed the following three tasks:</p>
-<ul>
-<li>
 <ol>
 <li>Classification of BOAS test results (pass/fail): The models were trained and tested on data from the following datasets:</li>
 </ol>
-</li>
+<ul>
 <li>Pugs at 5 min post-exercise ( Pugs5)</li>
 <li>Pugs at 10 min post-exercise ( Pugs10)</li>
 <li>Pugs at 15 min post-exercise ( Pugs15)</li>
 <li>Various breeds at 15 min post-exercise ( Var15)</li>
-<li>
+</ul>
 <ol start="2">
 <li>Prediction of BOAS test results (pass/fail): The models were trained and tested on data from the following datasets:</li>
 </ol>
-</li>
+<ul>
 <li>Remaining Pugs data ( Pugsrest)</li>
 <li>Remaining Various breeds data ( Varrest)</li>
-<li>
+</ul>
 <ol start="3">
 <li>Detection of laryngeal sounds (present/absent): The models were trained and tested on the following dataset:</li>
 </ol>
-</li>
+<ul>
 <li>Laryngeal sounds from Pugs ( Laryng)</li>
 </ul>
 <p>Parameters for each model have been optimized using the grid search method<sup><a href="#ref-52">52</a></sup> to maximize the performance, specifically using the F1 score. for the KNN models, we explored configurations with 3 or 5 neighbors using a distance weight and either an Euclidean or Manhattan metric and another set with 7 or 9 neighbors with both uniform and distance weights. For the Decision Tree Classifier, we varied the maximum depth from 2 to 5 and tested both the Gini and Entropy criteria<sup><a href="#ref-53">53</a></sup>.</p>
@@ -336,7 +339,8 @@
 <p><a class="xref" href="#table-4">Table 4</a> summarizes the names and descriptions of the features used as part of the proposed model.</p>
 <p>Received: 25 September 2023; Accepted: 11 November 2023</p>
 <h2 id="references">References</h2>
-<ol class="paper-refs"><li id="ref-1">Packer, R. M., Hendricks, A., Tivers, M. S. &amp; Burn, C. C. Impact of facial conformation on canine health: Brachycephalic obstructive airway syndrome. PLoS ONE 10, e0137496 (2015).</li>
+<ol class="paper-refs" data-pagefind-ignore>
+<li id="ref-1">Packer, R. M., Hendricks, A., Tivers, M. S. &amp; Burn, C. C. Impact of facial conformation on canine health: Brachycephalic obstructive airway syndrome. PLoS ONE 10, e0137496 (2015).</li>
 <li id="ref-2">Lilja-Maula, L. et al. Comparison of submaximal exercise test results and severity of brachycephalic obstructive airway syndrome in english bulldogs. Vet. J. 219, 22–26 (2017).</li>
 <li id="ref-3">Oechtering, G., Schlüter, C. &amp; Lippert, J. Brachycephaly in dog and cat: A “human induced’’ obstruction of the upper airways. Pneumologie (Stuttgart, Germany) 64, 450–452 (2010).</li>
 <li id="ref-4">Packer, R. M., O’Neill, D. G., Fletcher, F. &amp; Farnworth, M. J. Come for the looks, stay for the personality? A mixed methods investigation of reacquisition and owner recommendation of bulldogs, french bulldogs and pugs. PLoS ONE 15, e0237276 (2020).</li>
@@ -396,8 +400,7 @@
 </ol>
 </div>
         
-        
-        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Oren et al. (2023), <em>Scientific Reports</em>, <a href="https://doi.org/10.1038/s41598-023-47308-0" target="_blank" rel="noopener">doi:10.1038/s41598-023-47308-0</a>, under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY</a> licence. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+        <p class="paper-source" data-pagefind-ignore><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Oren et al. (2023), <em>Scientific Reports</em>, <a href="https://doi.org/10.1038/s41598-023-47308-0" target="_blank" rel="noopener">doi:10.1038/s41598-023-47308-0</a>, under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY</a> licence. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
       </article>
     </div>
 
@@ -460,6 +463,7 @@
          </div>
       </footer>
       
+      <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
           // menu and navbar (js/main.js expects to sit at the site root)

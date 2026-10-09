@@ -70,10 +70,10 @@ ${jsonld}
     <header class="paper-hero">
       <div class="paper-wrap">
         <nav class="paper-crumbs" aria-label="Breadcrumb">
-          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>${topic}</span>
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span data-pagefind-filter="Topic">${topic}</span>
         </nav>
         <p class="paper-kicker">${oa_badge}<span>${kicker}</span></p>
-        <h1 class="paper-title${title_class}">${title}</h1>
+        <h1 class="paper-title${title_class}" data-pagefind-meta="title" data-pagefind-filter="Year:${year}">${title}</h1>
         <p class="paper-authors">${authors_html}</p>
         ${affiliations}
         <div class="paper-actions">
@@ -92,6 +92,10 @@ ${jsonld}
 
     <div class="paper-wrap paper-layout">
       <aside class="paper-aside">
+        <form class="paper-search" action="/publications.html" method="get" role="search">
+          <label for="paper-q" class="aside-title">Search all our papers</label>
+          <div class="paper-search-box"><i class="ri-search-line" aria-hidden="true"></i><input id="paper-q" name="q" type="search" placeholder="e.g. Thompson sampling" autocomplete="off"></div>
+        </form>
         <nav class="paper-toc" aria-label="On this page">
           <p class="aside-title">On this page</p>
           <ol>
@@ -104,21 +108,21 @@ ${toc}
         </div>
       </aside>
 
-      <article class="paper-body" id="full-text">
-        <details class="paper-toc-mobile">
+      <article class="paper-body" id="full-text" data-pagefind-body>
+        <details class="paper-toc-mobile" data-pagefind-ignore>
           <summary>On this page</summary>
           <ol>
 ${toc}
           </ol>
         </details>
         <section id="abstract" class="paper-abstract">
-          <h2>Abstract</h2>
+          <h2 id="abstract-heading">Abstract</h2>
           <p>${abstract}</p>
         </section>
+        ${video_section}
         ${see_also}
 ${body}
         ${notes}
-        ${video_section}
         ${source}
       </article>
     </div>
@@ -174,6 +178,7 @@ ${body}
          </div>
       </footer>
       ${videos_js}
+      <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
           // menu and navbar (js/main.js expects to sit at the site root)

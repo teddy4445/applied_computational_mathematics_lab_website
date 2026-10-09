@@ -120,10 +120,10 @@
     <header class="paper-hero">
       <div class="paper-wrap">
         <nav class="paper-crumbs" aria-label="Breadcrumb">
-          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Machine Learning</span>
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span data-pagefind-filter="Topic">Machine Learning</span>
         </nav>
         <p class="paper-kicker"><span><em>Applied Intelligence</em> · 2024</span></p>
-        <h1 class="paper-title">Temporal graphs anomaly emergence detection: benchmarking for social media interactions</h1>
+        <h1 class="paper-title" data-pagefind-meta="title" data-pagefind-filter="Year:2024">Temporal graphs anomaly emergence detection: benchmarking for social media interactions</h1>
         <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author">Or Iny</span></p>
         <details class="paper-affils"><summary>Affiliations</summary><ol><li value="1">Department of Mathematics, Ariel University, Ariel, Israel</li><li value="2">Department of Cancer Biology, Cancer Institute, University College London, London, UK</li><li value="3">Department of Economy, The Academic College of Tel Aviv-Yaffo, Tel Aviv-Yaffo, Israel</li></ol></details>
         <div class="paper-actions">
@@ -138,10 +138,14 @@
       </div>
     </header>
 
-    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Temporal graphs capture how interactions between many agents change over time, and detecting anomalies in them matters for spotting emerging trends, network security, disease outbreaks and financial dynamics. We benchmarked 12 data-driven anomaly detection methods on two temporal graphs extracted from Twitter and Facebook, looking for anomalies in group interactions. Surprisingly, no clear best method emerged, which highlights how hard it is to detect emerging anomalies in large, dynamic systems.</p><div class=glance-stats><div class="stat"><span class="stat-value">12</span><span class="stat-label">anomaly detection methods compared</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>We compared 12 data-driven methods for anomaly detection in temporal graphs.</li><li>Experiments used two temporal graphs extracted from Twitter and Facebook to identify anomalies in group interactions.</li><li>The study revealed an unclear pattern regarding which method is best for detecting emerging anomalies.</li><li>The results point to a need for further research and new approaches for anomaly detection in dynamic systems.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1800" height="453" alt="Fig. 1 A schematic view of the experiments flow. First, we acquire data from a social media platform. Afterward, we represent the data as a temporal graph. Next, we define both temporal and spatial anomalies and"></a><figcaption><strong>Fig. 1</strong> A schematic view of the experiments flow. First, we acquire data from a social media platform. Afterward, we represent the data as a temporal graph. Next, we define both temporal and spatial anomalies and <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+    <section class="paper-glance" aria-labelledby="glance-title" data-pagefind-body><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Temporal graphs capture how interactions between many agents change over time, and detecting anomalies in them matters for spotting emerging trends, network security, disease outbreaks and financial dynamics. We benchmarked 12 data-driven anomaly detection methods on two temporal graphs extracted from Twitter and Facebook, looking for anomalies in group interactions. Surprisingly, no clear best method emerged, which highlights how hard it is to detect emerging anomalies in large, dynamic systems.</p><div class=glance-stats><div class="stat"><span class="stat-value">12</span><span class="stat-label">anomaly detection methods compared</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>We compared 12 data-driven methods for anomaly detection in temporal graphs.</li><li>Experiments used two temporal graphs extracted from Twitter and Facebook to identify anomalies in group interactions.</li><li>The study revealed an unclear pattern regarding which method is best for detecting emerging anomalies.</li><li>The results point to a need for further research and new approaches for anomaly detection in dynamic systems.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1800" height="453" alt="Fig. 1 A schematic view of the experiments flow. First, we acquire data from a social media platform. Afterward, we represent the data as a temporal graph. Next, we define both temporal and spatial anomalies and"></a><figcaption><strong>Fig. 1</strong> A schematic view of the experiments flow. First, we acquire data from a social media platform. Afterward, we represent the data as a temporal graph. Next, we define both temporal and spatial anomalies and <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
 
     <div class="paper-wrap paper-layout">
       <aside class="paper-aside">
+        <form class="paper-search" action="/publications.html" method="get" role="search">
+          <label for="paper-q" class="aside-title">Search all our papers</label>
+          <div class="paper-search-box"><i class="ri-search-line" aria-hidden="true"></i><input id="paper-q" name="q" type="search" placeholder="e.g. Thompson sampling" autocomplete="off"></div>
+        </form>
         <nav class="paper-toc" aria-label="On this page">
           <p class="aside-title">On this page</p>
           <ol>
@@ -161,8 +165,8 @@
         </div>
       </aside>
 
-      <article class="paper-body" id="full-text">
-        <details class="paper-toc-mobile">
+      <article class="paper-body" id="full-text" data-pagefind-body>
+        <details class="paper-toc-mobile" data-pagefind-ignore>
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
@@ -176,9 +180,10 @@
           </ol>
         </details>
         <section id="abstract" class="paper-abstract">
-          <h2>Abstract</h2>
+          <h2 id="abstract-heading">Abstract</h2>
           <p>Temporal graphs have become an essential tool for analyzing complex dynamic systems with multiple agents. Detecting anomalies in temporal graphs is crucial for various applications, including identifying emerging trends, monitoring network security, understanding social dynamics, tracking disease outbreaks, and understanding financial dynamics. In this paper, we present a comprehensive benchmarking study that compares 12 data-driven methods for anomaly detection in temporal graphs. We conduct experiments on two temporal graphs extracted from Twitter and Facebook, aiming to identify anomalies in group interactions. Surprisingly, our study reveals an unclear pattern regarding the best method for such tasks, highlighting the complexity and challenges involved in anomaly emergence detection in large and dynamic systems. The results underscore the need for further research and innovative approaches to effectively detect emerging anomalies in dynamic systems represented as temporal graphs.</p>
         </section>
+        
         
 <div class="paper-text">
 <h2 id="1-introduction">1 Introduction</h2>
@@ -274,9 +279,10 @@
 <p><strong>Data Availibility</strong> The data used as part of this study is available upon reasonable request from the authors.</p>
 <h3 id="declarations">Declarations</h3>
 <p><strong>Conflicts of Interest/Competing Interests</strong> None.</p>
-<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Accepted 28 August 2024</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>Dynamic systems</li><li>Social interactions</li><li>Anomaly detection</li><li>Emerging trends</li><li>Group interactions</li></ul></dd></div></dl></section>
+<section id="article-notes" class="paper-notes" data-pagefind-ignore><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Accepted 28 August 2024</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>Dynamic systems</li><li>Social interactions</li><li>Anomaly detection</li><li>Emerging trends</li><li>Group interactions</li></ul></dd></div></dl></section>
 <h2 id="references">References</h2>
-<ol class="paper-refs"><li id="ref-1">Robins G, Pattison P (2001) Random graph models for temporal processes in social networks. J Math Sociol 25(1):5–41</li>
+<ol class="paper-refs" data-pagefind-ignore>
+<li id="ref-1">Robins G, Pattison P (2001) Random graph models for temporal processes in social networks. J Math Sociol 25(1):5–41</li>
 <li id="ref-2">Zheng M, Domanskyi S, Piermarocchi C, Mais GI (2021) Visibility graph based temporal community detection with applications in biological time series. Sci Rep 11:5623</li>
 <li id="ref-3">Del Mondo G, Peng P, Gensel J, Claramunt C, Lu F (2021) Leveraging spatio-temporal graphs and knowledge graphs: perspectives in the field of maritime transportation. ISPRS Int J Geo-Inf 10(8)</li>
 <li id="ref-4">Zhao L, Song Y, Zhang C, Liu Y, Wang P, Lin T, Deng M, Li H (2020) T-gcn: a temporal graph convolutional network for traffic prediction. IEEE Trans Intell Transp Syst 21(9):3848–3858</li>
@@ -355,8 +361,7 @@
 </ol>
 </div>
         
-        
-        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2024), <em>Applied Intelligence</em>, <a href="https://doi.org/10.1007/s10489-024-05821-3" target="_blank" rel="noopener">doi:10.1007/s10489-024-05821-3</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+        <p class="paper-source" data-pagefind-ignore><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2024), <em>Applied Intelligence</em>, <a href="https://doi.org/10.1007/s10489-024-05821-3" target="_blank" rel="noopener">doi:10.1007/s10489-024-05821-3</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
       </article>
     </div>
 
@@ -417,6 +422,7 @@
          </div>
       </footer>
       
+      <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
           // menu and navbar (js/main.js expects to sit at the site root)

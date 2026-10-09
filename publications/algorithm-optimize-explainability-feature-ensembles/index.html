@@ -135,10 +135,10 @@
     <header class="paper-hero">
       <div class="paper-wrap">
         <nav class="paper-crumbs" aria-label="Breadcrumb">
-          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Machine Learning</span>
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span data-pagefind-filter="Topic">Machine Learning</span>
         </nav>
         <p class="paper-kicker"><span><em>Applied Intelligence</em> · 1 February 2024</span></p>
-        <h1 class="paper-title">An algorithm to optimize explainability using feature ensembles</h1>
+        <h1 class="paper-title" data-pagefind-meta="title" data-pagefind-filter="Year:2024">An algorithm to optimize explainability using feature ensembles</h1>
         <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author">Svetlana Bunimovich-Mendrazitsky</span>, <span class="author">Avi Rosenfeld</span></p>
         
         <div class="paper-actions">
@@ -153,10 +153,14 @@
       </div>
     </header>
 
-    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Feature ensembles help find the set of input variables that gives the best predictive accuracy, but existing methods ignore how explainable the resulting model is. We present OFEE (Optimizing Feature Ensembles for Explainability), a parameter-free algorithm that intersects feature sets to balance explainability and performance. On nine canonical datasets, OFEE outperformed other feature selection algorithms by an average of over 8% and 7% under size-based and stability-based explainability measures, respectively.</p><div class=glance-stats><div class="stat"><span class="stat-value">8%</span><span class="stat-label">average lead was above this, size-based measure</span></div><div class="stat"><span class="stat-value">7%</span><span class="stat-label">average lead was above this, stability-based measure</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>OFEE uses intersections of feature sets to produce a feature ensemble that balances explainability and performance.</li><li>OFEE is parameter-free, so it adapts itself to a given dataset and explainability requirements.</li><li>Across nine canonical datasets, OFEE outperformed other feature selection algorithms by averages of over 8% and 7% on size- and stability-based explainability measures.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="862" height="1384" alt="Fig. 1 The OFEE algorithm’s logical flow"></a><figcaption><strong>Fig. 1</strong> The OFEE algorithm’s logical flow <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+    <section class="paper-glance" aria-labelledby="glance-title" data-pagefind-body><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Feature ensembles help find the set of input variables that gives the best predictive accuracy, but existing methods ignore how explainable the resulting model is. We present OFEE (Optimizing Feature Ensembles for Explainability), a parameter-free algorithm that intersects feature sets to balance explainability and performance. On nine canonical datasets, OFEE outperformed other feature selection algorithms by an average of over 8% and 7% under size-based and stability-based explainability measures, respectively.</p><div class=glance-stats><div class="stat"><span class="stat-value">8%</span><span class="stat-label">average lead was above this, size-based measure</span></div><div class="stat"><span class="stat-value">7%</span><span class="stat-label">average lead was above this, stability-based measure</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>OFEE uses intersections of feature sets to produce a feature ensemble that balances explainability and performance.</li><li>OFEE is parameter-free, so it adapts itself to a given dataset and explainability requirements.</li><li>Across nine canonical datasets, OFEE outperformed other feature selection algorithms by averages of over 8% and 7% on size- and stability-based explainability measures.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="862" height="1384" alt="Fig. 1 The OFEE algorithm’s logical flow"></a><figcaption><strong>Fig. 1</strong> The OFEE algorithm’s logical flow <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
 
     <div class="paper-wrap paper-layout">
       <aside class="paper-aside">
+        <form class="paper-search" action="/publications.html" method="get" role="search">
+          <label for="paper-q" class="aside-title">Search all our papers</label>
+          <div class="paper-search-box"><i class="ri-search-line" aria-hidden="true"></i><input id="paper-q" name="q" type="search" placeholder="e.g. Thompson sampling" autocomplete="off"></div>
+        </form>
         <nav class="paper-toc" aria-label="On this page">
           <p class="aside-title">On this page</p>
           <ol>
@@ -176,8 +180,8 @@
         </div>
       </aside>
 
-      <article class="paper-body" id="full-text">
-        <details class="paper-toc-mobile">
+      <article class="paper-body" id="full-text" data-pagefind-body>
+        <details class="paper-toc-mobile" data-pagefind-ignore>
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
@@ -191,9 +195,10 @@
           </ol>
         </details>
         <section id="abstract" class="paper-abstract">
-          <h2>Abstract</h2>
+          <h2 id="abstract-heading">Abstract</h2>
           <p>Feature Ensembles are a robust and effective method for finding the feature set that yields the best predictive accuracy for learning agents. However, current feature ensemble algorithms do not consider explainability as a key factor in their construction. To address this limitation, we present an algorithm that optimizes for the explainability and performance of a model – the Optimizing Feature Ensembles for Explainability (OFEE) algorithm. OFEE uses intersections of feature sets to produce a feature ensemble that optimally balances explainability and performance. Furthermore, OFEE is parameter-free and as such optimizes itself to a given dataset and explainability requirements. To evaluated OFEE, we considered two explainability measures, one based on ensemble size and the other based on ensemble stability. We found that OFEE was overall extremely effective within the nine canonical datasets we considered. It outperformed other feature selection algorithms by an average of over 8% and 7% respectively when considering the size and stability explainability measures.</p>
         </section>
+        
         
 <div class="paper-text">
 <h2 id="1-introduction">1 Introduction</h2>
@@ -338,9 +343,10 @@
 <h3 id="declarations">Declarations</h3>
 <p><strong>Competing Interests</strong> The authors did not receive support from any organization for the submitted work.</p>
 <p><strong>Ethical standard</strong> The data used in this study does not require informed consent or ethical approval as the data is open accessed and generated by others.</p>
-<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Accepted 28 September 2023 · Published 1 February 2024</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>Explainable AI</li><li>Optimized feature selection</li><li>Ensemble feature selection</li><li>Machine learning</li></ul></dd></div></dl></section>
+<section id="article-notes" class="paper-notes" data-pagefind-ignore><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Accepted 28 September 2023 · Published 1 February 2024</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>Explainable AI</li><li>Optimized feature selection</li><li>Ensemble feature selection</li><li>Machine learning</li></ul></dd></div></dl></section>
 <h2 id="references">References</h2>
-<ol class="paper-refs"><li id="ref-1">Amir O, Gal K (2013) Plan recognition and visualization in exploratory learning environments. ACM Transactions on Interactive Intelligent Systems (TiiS) 3(3):16</li>
+<ol class="paper-refs" data-pagefind-ignore>
+<li id="ref-1">Amir O, Gal K (2013) Plan recognition and visualization in exploratory learning environments. ACM Transactions on Interactive Intelligent Systems (TiiS) 3(3):16</li>
 <li id="ref-2">Azaria A, Rabinovich Z, Goldman CV, Kraus S (2015) Strategic information disclosure to people with multiple alternatives. ACM Transactions on Intelligent Systems and Technology (TIST) 5(4):64</li>
 <li id="ref-3">Barrett S, Rosenfeld A, Kraus S, Stone P (2017) Making friends on the fly: Cooperating with new teammates. Artificial Intelligence 242:132–171</li>
 <li id="ref-4">Richardson A, Rosenfeld A (2018) A survey of interpretability and explainability in human-agent systems. XAI 2018, 137</li>
@@ -398,8 +404,7 @@
 </ol>
 </div>
         
-        
-        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2024), <em>Applied Intelligence</em>, <a href="https://doi.org/10.1007/s10489-023-05069-3" target="_blank" rel="noopener">doi:10.1007/s10489-023-05069-3</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+        <p class="paper-source" data-pagefind-ignore><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2024), <em>Applied Intelligence</em>, <a href="https://doi.org/10.1007/s10489-023-05069-3" target="_blank" rel="noopener">doi:10.1007/s10489-023-05069-3</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
       </article>
     </div>
 
@@ -462,6 +467,7 @@
          </div>
       </footer>
       
+      <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
           // menu and navbar (js/main.js expects to sit at the site root)

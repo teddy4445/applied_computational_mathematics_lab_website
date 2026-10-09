@@ -143,10 +143,10 @@
     <header class="paper-hero">
       <div class="paper-wrap">
         <nav class="paper-crumbs" aria-label="Breadcrumb">
-          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Machine Learning</span>
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span data-pagefind-filter="Topic">Machine Learning</span>
         </nav>
         <p class="paper-kicker"><span><em>NPJ natural hazards</em> · 2025</span></p>
-        <h1 class="paper-title">Fire weather indices tailored to regional patterns outperform global models</h1>
+        <h1 class="paper-title" data-pagefind-meta="title" data-pagefind-filter="Year:2025">Fire weather indices tailored to regional patterns outperform global models</h1>
         <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Assaf Shmuel</a></span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author">Eyal Heifetz</span>, <span class="author">Oren Glickman</span>, <span class="author">Colin Price</span></p>
         <details class="paper-affils"><summary>Affiliations</summary><ol><li value="1">Department of Geophysics, Tel Aviv University, Tel Aviv, Israel. 2Department of Computer Science, Bar Ilan University, Ramat Gan, Israel. 3Department of Information Systems, University of Haifa, Haifa, Israel.</li><li value="4">Department of Computing, Jonkoping University, Jonkoping, Sweden. e-mail: assafshmuel91@gmail.com</li></ol></details>
         <div class="paper-actions">
@@ -161,10 +161,14 @@
       </div>
     </header>
 
-    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Fire weather indices estimate wildfire risk but are usually designed for specific regions. We built country-specific indices and found that, of three widely used indices, the Canadian one performed best, with an ROC AUC (a standard accuracy measure where higher is better) of 0.69. Tuning it for each country with a genetic algorithm raised this to 0.79, a separate decision tree per country reached 0.86, and a single global tree did substantially worse.</p><div class=glance-stats><div class="stat"><span class="stat-value">0.69</span><span class="stat-label">ROC AUC of the Canadian fire weather index</span></div><div class="stat"><span class="stat-value">0.79</span><span class="stat-label">ROC AUC after per-country genetic algorithm tuning</span></div><div class="stat"><span class="stat-value">0.86</span><span class="stat-label">ROC AUC of per-country decision tree models</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Among three widely used indices evaluated across countries, the Canadian fire weather index performed best overall, with an ROC AUC of 0.69.</li><li>Tailoring the index to each country with a genetic algorithm raised the ROC AUC from 0.69 to 0.79.</li><li>A single interpretable decision tree model per country achieved an ROC AUC of 0.86.</li><li>A single global decision tree was substantially less accurate, underlining regional factors such as weather patterns, vegetation types and topography.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1800" height="1043" alt="Fig. 1 | Comparison of the FWI systems. ROC AUC values for a Canadian FWI, b Australian FWI, c American FWI, and d best performing FWI among the three FWI systems. The figure was generated using Python’s Cartopy library."></a><figcaption><strong>Fig. 1 | Comparison of the FWI systems.</strong> ROC AUC values for <strong>a</strong> Canadian FWI, <strong>b</strong> Australian FWI, <strong>c</strong> American FWI, and <strong>d</strong> best performing FWI among the three FWI systems. The figure was generated using Python’s Cartopy library. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+    <section class="paper-glance" aria-labelledby="glance-title" data-pagefind-body><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Fire weather indices estimate wildfire risk but are usually designed for specific regions. We built country-specific indices and found that, of three widely used indices, the Canadian one performed best, with an ROC AUC (a standard accuracy measure where higher is better) of 0.69. Tuning it for each country with a genetic algorithm raised this to 0.79, a separate decision tree per country reached 0.86, and a single global tree did substantially worse.</p><div class=glance-stats><div class="stat"><span class="stat-value">0.69</span><span class="stat-label">ROC AUC of the Canadian fire weather index</span></div><div class="stat"><span class="stat-value">0.79</span><span class="stat-label">ROC AUC after per-country genetic algorithm tuning</span></div><div class="stat"><span class="stat-value">0.86</span><span class="stat-label">ROC AUC of per-country decision tree models</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Among three widely used indices evaluated across countries, the Canadian fire weather index performed best overall, with an ROC AUC of 0.69.</li><li>Tailoring the index to each country with a genetic algorithm raised the ROC AUC from 0.69 to 0.79.</li><li>A single interpretable decision tree model per country achieved an ROC AUC of 0.86.</li><li>A single global decision tree was substantially less accurate, underlining regional factors such as weather patterns, vegetation types and topography.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1800" height="1043" alt="Fig. 1 | Comparison of the FWI systems. ROC AUC values for a Canadian FWI, b Australian FWI, c American FWI, and d best performing FWI among the three FWI systems. The figure was generated using Python’s Cartopy library."></a><figcaption><strong>Fig. 1 | Comparison of the FWI systems.</strong> ROC AUC values for <strong>a</strong> Canadian FWI, <strong>b</strong> Australian FWI, <strong>c</strong> American FWI, and <strong>d</strong> best performing FWI among the three FWI systems. The figure was generated using Python’s Cartopy library. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
 
     <div class="paper-wrap paper-layout">
       <aside class="paper-aside">
+        <form class="paper-search" action="/publications.html" method="get" role="search">
+          <label for="paper-q" class="aside-title">Search all our papers</label>
+          <div class="paper-search-box"><i class="ri-search-line" aria-hidden="true"></i><input id="paper-q" name="q" type="search" placeholder="e.g. Thompson sampling" autocomplete="off"></div>
+        </form>
         <nav class="paper-toc" aria-label="On this page">
           <p class="aside-title">On this page</p>
           <ol>
@@ -183,8 +187,8 @@
         </div>
       </aside>
 
-      <article class="paper-body" id="full-text">
-        <details class="paper-toc-mobile">
+      <article class="paper-body" id="full-text" data-pagefind-body>
+        <details class="paper-toc-mobile" data-pagefind-ignore>
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
@@ -197,9 +201,10 @@
           </ol>
         </details>
         <section id="abstract" class="paper-abstract">
-          <h2>Abstract</h2>
+          <h2 id="abstract-heading">Abstract</h2>
           <p>Fire weather indices (FWIs) are widely used to assess wildfire risk, but are typically designed for specific regions and not adapted globally. Here, we present a systematic effort to generate country-specific FWIs that capture regional fire-weather patterns. We evaluate three widely used indices across countries, finding that the Canadian FWI performs best overall (ROC AUC of 0.69). Tailoring the index to each country with a Genetic Algorithm significantly improves its accuracy, raising the ROC AUC from 0.69 to 0.79. To further improve accuracy while maintaining interpretability, we develop a single Decision Tree model per country, achieving an ROC AUC of 0.86. Attempts to develop a single global Decision Tree yielded substantially lower accuracy, highlighting the limitations of universal models and the importance of capturing regional characteristics such as weather patterns, vegetation types, and topography for accurately predicting wildfire risk. Adapting FWIs regionally is crucial under accelerating climate change conditions.</p>
         </section>
+        
         
 <div class="paper-text">
 <p>Wildfires pose risks to wildlife and human societies throughout the globe<sup><a href="#ref-1">1</a>,<a href="#ref-2">2</a></sup>, while also contributing to increasing emissions of aerosols and greenhouse gases into the atmosphere<sup><a href="#ref-3">3</a></sup>. Recently, the frequency of extreme wildfires has substantially increased due to Climate Change<sup><a href="#ref-4">4</a></sup>. A key element of wildfire preparedness is effective wildfire prediction<sup><a href="#ref-5">5</a></sup>. Prediction of wildfire occurrence provides firefighters with an opportunity to extinguish wildfires in their early stages and provide life-saving alerts to populations at risk<sup><a href="#ref-6">6</a></sup>. A common method of estimating wildfire risk is with Fire Weather Indices (FWIs), which are based on various meteorological factors and fuel loads and provide a fire danger indicator<sup><a href="#ref-7">7</a>,<a href="#ref-8">8</a></sup>.</p>
@@ -319,7 +324,8 @@
 <p>All the code developed in this study is available on our GitHub.</p>
 <p>Received: 30 April 2025; Accepted: 10 July 2025;</p>
 <h2 id="references">References</h2>
-<ol class="paper-refs"><li id="ref-1">Mcwethy, D. et al. Rethinking resilience to wildfire. Nat. Sustain. 2, 797–804 (2019).</li>
+<ol class="paper-refs" data-pagefind-ignore>
+<li id="ref-1">Mcwethy, D. et al. Rethinking resilience to wildfire. Nat. Sustain. 2, 797–804 (2019).</li>
 <li id="ref-2">Moritz, M. et al. Learning to coexist with wildfire. Nature 515, 58–66 (2014).</li>
 <li id="ref-3">Byrne, B. et al. Nature 633, 835–839 (2024).</li>
 <li id="ref-4">Di Virgilio, G. et al. Climate change increases the potential for extreme wildfires. Geophys. Res. Lett. 46, 8517–8526 (2019).</li>
@@ -388,8 +394,7 @@
 </ol>
 </div>
         
-        
-        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Shmuel et al. (2025), <em>NPJ natural hazards</em>, <a href="https://doi.org/10.1038/s44304-025-00126-y" target="_blank" rel="noopener">doi:10.1038/s44304-025-00126-y</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+        <p class="paper-source" data-pagefind-ignore><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Shmuel et al. (2025), <em>NPJ natural hazards</em>, <a href="https://doi.org/10.1038/s44304-025-00126-y" target="_blank" rel="noopener">doi:10.1038/s44304-025-00126-y</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
       </article>
     </div>
 
@@ -452,6 +457,7 @@
          </div>
       </footer>
       
+      <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
           // menu and navbar (js/main.js expects to sit at the site root)

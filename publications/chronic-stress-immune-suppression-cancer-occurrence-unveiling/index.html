@@ -130,10 +130,10 @@
     <header class="paper-hero">
       <div class="paper-wrap">
         <nav class="paper-crumbs" aria-label="Breadcrumb">
-          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Machine Learning</span>
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span data-pagefind-filter="Topic">Machine Learning</span>
         </nav>
         <p class="paper-kicker"><span><em>Medical Sciences</em> · 8 May 2026</span></p>
-        <h1 class="paper-title is-long">Chronic Stress, Immune Suppression, and Cancer Occurrence: Unveiling the Connection Using Survey Data and Predictive Models</h1>
+        <h1 class="paper-title is-long" data-pagefind-meta="title" data-pagefind-filter="Year:2026">Chronic Stress, Immune Suppression, and Cancer Occurrence: Unveiling the Connection Using Survey Data and Predictive Models</h1>
         <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author">Vered Aharonson</span></p>
         <details class="paper-affils"><summary>Affiliations</summary><ol><li value="1">Department of Information Science, University of Haifa, Haifa 3498838, Israel</li><li value="2">Department of Computing, Jonkoping University, 553 18 Jonkoping, Sweden</li><li value="3">Department of Basic and Clinical Sciences, Medical School, University of Nicosia, 2414 Nicosia, Cyprus; aharonson.v@unic.ac.cy</li><li value="4">School of Electrican and Information Engineering, University of the Witwatersrand, Johannesburg 2050, South Africa</li></ol></details>
         <div class="paper-actions">
@@ -148,10 +148,14 @@
       </div>
     </header>
 
-    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Chronic stress has been linked to cancer, but a direct causal connection has not been consistently established. Using self-reported survey data on stress, cancer history and demographics, we built predictive models to examine both a direct link and a possible pathway through immune suppression. Stress frequency, stress level and perceived health impact were significantly associated with cancer occurrence, and while stress alone had limited predictive power, adding socio-demographic and family cancer history data significantly improved accuracy.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Stress frequency, stress level and perceived health impact were significantly associated with cancer occurrence.</li><li>Stress alone showed limited predictive power, but adding socio-demographic and family cancer history data significantly enhanced model accuracy.</li><li>Stress emerged as a notable factor alongside genetic predisposition, supporting its treatment as a modifiable cancer risk factor.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1621" height="892" alt="Figure 1. A schematic view of the methodological flow of this study."></a><figcaption><strong>Figure 1.</strong> A schematic view of the methodological flow of this study. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+    <section class="paper-glance" aria-labelledby="glance-title" data-pagefind-body><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Chronic stress has been linked to cancer, but a direct causal connection has not been consistently established. Using self-reported survey data on stress, cancer history and demographics, we built predictive models to examine both a direct link and a possible pathway through immune suppression. Stress frequency, stress level and perceived health impact were significantly associated with cancer occurrence, and while stress alone had limited predictive power, adding socio-demographic and family cancer history data significantly improved accuracy.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Stress frequency, stress level and perceived health impact were significantly associated with cancer occurrence.</li><li>Stress alone showed limited predictive power, but adding socio-demographic and family cancer history data significantly enhanced model accuracy.</li><li>Stress emerged as a notable factor alongside genetic predisposition, supporting its treatment as a modifiable cancer risk factor.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1621" height="892" alt="Figure 1. A schematic view of the methodological flow of this study."></a><figcaption><strong>Figure 1.</strong> A schematic view of the methodological flow of this study. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
 
     <div class="paper-wrap paper-layout">
       <aside class="paper-aside">
+        <form class="paper-search" action="/publications.html" method="get" role="search">
+          <label for="paper-q" class="aside-title">Search all our papers</label>
+          <div class="paper-search-box"><i class="ri-search-line" aria-hidden="true"></i><input id="paper-q" name="q" type="search" placeholder="e.g. Thompson sampling" autocomplete="off"></div>
+        </form>
         <nav class="paper-toc" aria-label="On this page">
           <p class="aside-title">On this page</p>
           <ol>
@@ -172,8 +176,8 @@
         </div>
       </aside>
 
-      <article class="paper-body" id="full-text">
-        <details class="paper-toc-mobile">
+      <article class="paper-body" id="full-text" data-pagefind-body>
+        <details class="paper-toc-mobile" data-pagefind-ignore>
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
@@ -188,9 +192,10 @@
           </ol>
         </details>
         <section id="abstract" class="paper-abstract">
-          <h2>Abstract</h2>
+          <h2 id="abstract-heading">Abstract</h2>
           <p>Chronic stress has been implicated in cancer occurrence, but a direct causal connection has not been consistently established. Machine learning and causal modeling offer opportunities to explore complex causal interactions between psychological chronic stress and cancer occurrences. We developed predictive models employing variables from stress indicators, cancer history, and demographic data from self-reported surveys to examine the direct association between chronic stress and cancer occurrence, as well as a hypothesized immune-suppression-mediated pathway. The models were corroborated by traditional statistical methods. Our findings indicated significant associations between stress frequency, stress level, perceived health impact, and cancer occurrence. Although stress alone showed limited predictive power, integrating socio-demographic and familial cancer history data significantly enhanced model accuracy. These results highlight the multidimensional nature of cancer risk, with stress emerging as a notable factor alongside genetic predisposition. These findings strengthen the case for addressing chronic stress as a modifiable cancer risk factor, supporting its integration into personalized prevention strategies and public health interventions to reduce cancer incidence.</p>
         </section>
+        
         
 <div class="paper-text">
 <h2 id="1-introduction">1. Introduction</h2>
@@ -353,9 +358,10 @@
 <li>“In the past month, how often have you experienced difficulty concentrating?”: Never, Rarely, Sometimes, Often, All the time.</li>
 <li>“How much do you feel that stress has impacted your mental health in the past year?”: Not at all, A little, Moderately, Significantly, Extremely.</li>
 </ul>
-<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 12 March 2026 · Accepted 23 April 2026 · Published 8 May 2026</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>survey-based modeling</li><li>computational psychosocial oncology</li><li>predictive health</li><li>socio-demographic personalized medicine</li></ul></dd></div></dl></section>
+<section id="article-notes" class="paper-notes" data-pagefind-ignore><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 12 March 2026 · Accepted 23 April 2026 · Published 8 May 2026</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>survey-based modeling</li><li>computational psychosocial oncology</li><li>predictive health</li><li>socio-demographic personalized medicine</li></ul></dd></div></dl></section>
 <h2 id="references">References</h2>
-<ol class="paper-refs"><li id="ref-1">Bray, F.; Laversanne, M.; Weiderpass, E.; Soerjomataram, I. The ever-increasing importance of cancer as a leading cause of premature death worldwide. Cancer 2021, 127, 3029–3030. <a href="https://doi.org/10.1002/cncr.33587" target="_blank" rel="noopener">doi:10.1002/cncr.33587</a></li>
+<ol class="paper-refs" data-pagefind-ignore>
+<li id="ref-1">Bray, F.; Laversanne, M.; Weiderpass, E.; Soerjomataram, I. The ever-increasing importance of cancer as a leading cause of premature death worldwide. Cancer 2021, 127, 3029–3030. <a href="https://doi.org/10.1002/cncr.33587" target="_blank" rel="noopener">doi:10.1002/cncr.33587</a></li>
 <li id="ref-2">Ponder, B.A.J. Cancer genetics. Nature 2001, 411, 336–341. <a href="https://doi.org/10.1038/35077207" target="_blank" rel="noopener">doi:10.1038/35077207</a></li>
 <li id="ref-3">Boffetta, P.; Nyberg, F. Contribution of environmental factors to cancer risk. Br. Med Bull. 2003, 68, 71–94. <a href="https://doi.org/10.1093/bmp/ldg023" target="_blank" rel="noopener">doi:10.1093/bmp/ldg023</a></li>
 <li id="ref-4">Lutgendorf, S.K.; Sood, A.K. Biobehavioral factors and cancer progression: Physiological pathways and mechanisms. Psychosom. Med. 2011, 73, 724–730. <a href="https://doi.org/10.1097/PSY.0b013e318235be76" target="_blank" rel="noopener">doi:10.1097/PSY.0b013e318235be76</a></li>
@@ -371,7 +377,7 @@
 <li id="ref-14">Benrimoh, D.; Kleinerman, A.; Furukawa, T.A.; Reynolds, C.F., III; Lenze, E.J.; Karp, J.; Mulsant, B.; Armstrong, C.; Mehltretter, J.; Fratila, R.; et al. Towards outcome-driven patient subgroups: A machine learning analysis across six depression treatment studies. Am. J. Geriatr. Psychiatry 2024, 32, 280–292. <a href="https://doi.org/10.1016/j.jagp.2023.09.009" target="_blank" rel="noopener">doi:10.1016/j.jagp.2023.09.009</a></li>
 <li id="ref-15">Le Glaz, A.; Haralambous, Y.; Kim-Dufor, D.H.; Lenca, P.; Biliot, R.; Ryan, T.C.; Marsh, J.; DeVylder, J.; Walter, M.; Berrouiguet, S.; et al. Machine Learning and Natural Language Processing in Mental Health: Systematic Review. J. Med. Internet Res. 2021, 23, e15708. <a href="https://doi.org/10.2196/15708" target="_blank" rel="noopener">doi:10.2196/15708</a></li>
 <li id="ref-16">Yu, F.; Wei, C.; Deng, P.; Peng, T.; Hu, X. Deep exploration of random forest model boosts the interpretability of machine learning studies of complicated immune responses and lung burden of nanoparticles. Sci. Adv. 2021, 7, eabf4130. <a href="https://doi.org/10.1126/sciadv.abf4130" target="_blank" rel="noopener">doi:10.1126/sciadv.abf4130</a></li>
-<li id="ref-17">Pavlovi´c, M.; Scheffer, L.; Motwani, K.; Kanduri, C.; Kompova, R.; Vazov, N.; Waagan, K.; Bernal, F.L.M.; Costa, A.A.; Corrie, B.; et al. The immuneML ecosystem for machine learning analysis of adaptive immune receptor repertoires. Nat. Mach. Intell. 2021, 3, 936–944. <a href="https://doi.org/10.1038/s42256-021-00413-z" target="_blank" rel="noopener">doi:10.1038/s42256-021-00413-z</a></li>
+<li id="ref-17">Pavlovíc, M.; Scheffer, L.; Motwani, K.; Kanduri, C.; Kompova, R.; Vazov, N.; Waagan, K.; Bernal, F.L.M.; Costa, A.A.; Corrie, B.; et al. The immuneML ecosystem for machine learning analysis of adaptive immune receptor repertoires. Nat. Mach. Intell. 2021, 3, 936–944. <a href="https://doi.org/10.1038/s42256-021-00413-z" target="_blank" rel="noopener">doi:10.1038/s42256-021-00413-z</a></li>
 <li id="ref-18">Antoni, M.H.; Lutgendorf, S.K.; Cole, S.W.; Dhabhar, F.S.; Sephton, S.E.; McDonald, P.G.; Stefanek, M.E.; Sood, A.K. The influence of bio-behavioural factors on tumour biology: Pathways and mechanisms. Nat. Rev. Cancer 2006, 6, 240–248. <a href="https://doi.org/10.1038/nrc1820" target="_blank" rel="noopener">doi:10.1038/nrc1820</a></li>
 <li id="ref-19">Zhang, T.; Wang, S.; Li, D.; Wang, Y.; Cao, X. Burden and risk factors of colorectal cancer in Europe from 1990 to 2021. Eur. J. Cancer Prev. Off. J. Eur. Cancer Prev. Organ. 2025, 35, 38–52. <a href="https://doi.org/10.1097/CEJ.0000000000000963" target="_blank" rel="noopener">doi:10.1097/CEJ.0000000000000963</a></li>
 <li id="ref-20">Cui, B.; Peng, F.; Lu, J.; He, B.; Su, Q.; Luo, H.; Deng, Z.; Jiang, T.; Su, K.; Huang, Y.; et al. Cancer and stress: NextGen strategies. Brain Behav. Immun. 2020, 93, 368–383. <a href="https://doi.org/10.1016/j.bbi.2020.11.005" target="_blank" rel="noopener">doi:10.1016/j.bbi.2020.11.005</a></li>
@@ -435,7 +441,7 @@
 <li id="ref-78">Zar, J.H. Spearman rank correlation. Encycl. Biostat. 2005, 7. <a href="https://doi.org/10.1002/0470011815.b2a15150" target="_blank" rel="noopener">doi:10.1002/0470011815.b2a15150</a></li>
 <li id="ref-79">Franke, T.M.; Ho, T.; Christie, C.A. The chi-square test: Often used and more often misinterpreted. Am. J. Eval. 2012, 33, 448–458. <a href="https://doi.org/10.1177/1098214011426594" target="_blank" rel="noopener">doi:10.1177/1098214011426594</a></li>
 <li id="ref-80">Girden, E.R. ANOVA: Repeated Measures; Number 84; Sage: Thousand Oaks, CA, USA, 1992.</li>
-<li id="ref-81">Kalpi´c, D.; Hlupi´c, N.; Lovri´c, M. Student’s t-Tests. In International Encyclopedia of Statistical Science; Lovric, M., Ed.; Springer: Berlin/Heidelberg, Germany, 2011; pp. 1559–1563.</li>
+<li id="ref-81">Kalpíc, D.; Hlupíc, N.; Lovríc, M. Student’s t-Tests. In International Encyclopedia of Statistical Science; Lovric, M., Ed.; Springer: Berlin/Heidelberg, Germany, 2011; pp. 1559–1563.</li>
 <li id="ref-82">Draper, N.R.; Smith, H. Applied Regression Analysis; John Wiley &amp; Sons: Hoboken, NJ, USA, 1998; Volume 326.</li>
 <li id="ref-83">Shami, L.; Lazebnik, T. Implementing Machine Learning Methods in Estimating the Size of the Non-observed Economy. Comput. Econ. 2023, 63, 1459–1476. <a href="https://doi.org/10.1007/s10614-023-10369-4" target="_blank" rel="noopener">doi:10.1007/s10614-023-10369-4</a></li>
 <li id="ref-84">O’brien, R.M. A caution regarding rules of thumb for variance inflation factors. Qual. Quant. 2007, 41, 673–690. <a href="https://doi.org/10.1007/s11135-006-9018-6" target="_blank" rel="noopener">doi:10.1007/s11135-006-9018-6</a></li>
@@ -468,15 +474,14 @@
 <li id="ref-111">Meng, Y.; Yang, N.; Qian, Z.; Zhang, G. What makes an online review more helpful: An interpretation framework using XGBoost and SHAP values. J. Theor. Appl. Electron. Commer. Res. 2020, 16, 466–490. <a href="https://doi.org/10.3390/jtaer16030029" target="_blank" rel="noopener">doi:10.3390/jtaer16030029</a></li>
 <li id="ref-112">Imbens, G.W.; Rubin, D.B. Rubin causal model. In Microeconometrics; Springer: London, UK, 2010; pp. 229–241.</li>
 <li id="ref-113">Benedetto, U.; Head, S.J.; Angelini, G.D.; Blackstone, E.H. Statistical primer: Propensity score matching and its alternatives. Eur. J. Cardio-Thorac. Surg. 2018, 53, 1112–1117. <a href="https://doi.org/10.1093/ejcts/ezy167" target="_blank" rel="noopener">doi:10.1093/ejcts/ezy167</a></li>
-<li id="ref-114">Hanusz, Z.; Tarasi ´Nska, J. Simulation study on improved Shapiro–Wilk tests for normality. Commun. Stat.-Simul. Comput. 2014, 43, 2093–2105. <a href="https://doi.org/10.1080/03610918.2013.844835" target="_blank" rel="noopener">doi:10.1080/03610918.2013.844835</a></li>
+<li id="ref-114">Hanusz, Z.; Tarasi Ńska, J. Simulation study on improved Shapiro–Wilk tests for normality. Commun. Stat.-Simul. Comput. 2014, 43, 2093–2105. <a href="https://doi.org/10.1080/03610918.2013.844835" target="_blank" rel="noopener">doi:10.1080/03610918.2013.844835</a></li>
 <li id="ref-115">Ponce-Bobadilla, A.V.; Schmitt, V.; Maier, C.S.; Mensing, S.; Stodtmann, S. Practical guide to SHAP analysis: Explaining supervised machine learning model predictions in drug development. Clin. Transl. Sci. 2024, 17, e70056. <a href="https://doi.org/10.1111/cts.70056" target="_blank" rel="noopener">doi:10.1111/cts.70056</a></li>
 <li id="ref-116">Lazebnik, T. Evaluating supply chain resilience during pandemic using agent-based simulation. Phys. A Stat. Mech. Its Appl. 2025, 674, 130780. <a href="https://doi.org/10.1016/j.physa.2025.130780" target="_blank" rel="noopener">doi:10.1016/j.physa.2025.130780</a></li>
 <li id="ref-117">Bauer, M.E.; Jeckel, C.M.M.; Luz, C. The Role of Stress Factors during Aging of the Immune System. Ann. N. Y. Acad. Sci. 2009, 1153, 139–152. <a href="https://doi.org/10.1111/j.1749-6632.2008.03966.x" target="_blank" rel="noopener">doi:10.1111/j.1749-6632.2008.03966.x</a></li>
 </ol>
 </div>
         
-        
-        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2026), <em>Medical Sciences</em>, <a href="https://doi.org/10.3390/medsci14020245" target="_blank" rel="noopener">doi:10.3390/medsci14020245</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+        <p class="paper-source" data-pagefind-ignore><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2026), <em>Medical Sciences</em>, <a href="https://doi.org/10.3390/medsci14020245" target="_blank" rel="noopener">doi:10.3390/medsci14020245</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
       </article>
     </div>
 
@@ -539,6 +544,7 @@
          </div>
       </footer>
       
+      <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
           // menu and navbar (js/main.js expects to sit at the site root)

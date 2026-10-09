@@ -88,10 +88,10 @@ We primarily analyze quantitative outcome measures and supplemented these analys
 
 We evaluated four primary metrics:
 
-- 1. Perceived Clinical Utility: Assessed via post-phase questionnaire using a 5-point Likert scale.
-- 2. Perceived Impact on Decision Making: Assessed via post-phase questionnaire using a binary item.
-- 3. Time Spent: We measured the time the participants spent using each of the three schemes.
-- 4. Observed Impact on Decision Making: Automatically measured as a binary variable of “treatment change” –this was defined by comparing the participant’s initial unassisted choice (recorded prior to interacting with the AI-CDSS) with their final choice (recorded after interacting with the weighting scheme).
+1. Perceived Clinical Utility: Assessed via post-phase questionnaire using a 5-point Likert scale.
+2. Perceived Impact on Decision Making: Assessed via post-phase questionnaire using a binary item.
+3. Time Spent: We measured the time the participants spent using each of the three schemes.
+4. Observed Impact on Decision Making: Automatically measured as a binary variable of “treatment change” –this was defined by comparing the participant’s initial unassisted choice (recorded prior to interacting with the AI-CDSS) with their final choice (recorded after interacting with the weighting scheme).
 
 Due to the non-normal distribution of the data and the sample size (N = 22), we utilized the non-parametric Kruskal–Wallis test (29) for main effects across the three conditions, followed by Dunn’s test (30) for post-hoc pairwise comparisons.
 
@@ -232,7 +232,7 @@ Profile: 40-year-old female, lawyer/consultant, married. High-functioning profes
 
 - High concern for sexual dysfunction (marital strain).
 - High concern for weight gain.
-- Anxious about side effects in general (medication na¨ıve).
+- Anxious about side effects in general (medication naïve).
 
 Diagnosis: Moderate-Severe Depression.
 

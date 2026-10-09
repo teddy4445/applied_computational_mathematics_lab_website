@@ -124,10 +124,10 @@
     <header class="paper-hero">
       <div class="paper-wrap">
         <nav class="paper-crumbs" aria-label="Breadcrumb">
-          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Machine Learning</span>
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span data-pagefind-filter="Topic">Machine Learning</span>
         </nav>
         <p class="paper-kicker"><span class="oa-badge"><i class="ri-lock-unlock-line" aria-hidden="true"></i>Open access</span><span><em>IEEE Access</em> · 2026</span></p>
-        <h1 class="paper-title">Follow the Forest Trail: Distillation by Gradient Boosting Models to Enhance Symbolic Regression Performance</h1>
+        <h1 class="paper-title" data-pagefind-meta="title" data-pagefind-filter="Year:2026">Follow the Forest Trail: Distillation by Gradient Boosting Models to Enhance Symbolic Regression Performance</h1>
         <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Assaf Shmuel</a></span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author">Oren Glickman</span></p>
         <details class="paper-affils"><summary>Affiliations</summary><ol><li value="1">Department of Computer Science, Bar-Ilan University, Ramat Gan 5290002, Israel</li><li value="2">Information Systems Department, University of Haifa, Haifa 3498838, Israel</li><li value="3">Computing Department, Jönköping University, 55111 Jönköping, Sweden</li></ol></details>
         <div class="paper-actions">
@@ -142,10 +142,14 @@
       </div>
     </header>
 
-    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Symbolic regression produces short, explainable formulas but is usually less accurate than models such as random forests. We proposed a two-step teacher-student approach: a gradient boosting model is trained for accuracy, and a symbolic regression model is then trained on its outputs. Tested with three symbolic regression models on 10 regression datasets, the approach consistently improved accuracy by 3.3-6.7% over standard symbolic regression and also helps explain the decisions of complex models.</p><div class=glance-stats><div class="stat"><span class="stat-value">3.3-6.7%</span><span class="stat-label">accuracy gain over standard symbolic regression</span></div><div class="stat"><span class="stat-value">10</span><span class="stat-label">regression datasets in the evaluation</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>A gradient boosting model acts as the teacher, and a symbolic regression student model is trained on its output.</li><li>Across three symbolic regression models and 10 regression datasets, accuracy improved consistently by 3.3-6.7% over standard symbolic regression.</li><li>The process also serves as an explainability framework for interpreting the decisions of complex machine learning models.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="933" height="818" alt="FIGURE 1. A schematic view of the proposed experimental design."></a><figcaption><strong>FIGURE 1.</strong> A schematic view of the proposed experimental design. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+    <section class="paper-glance" aria-labelledby="glance-title" data-pagefind-body><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Symbolic regression produces short, explainable formulas but is usually less accurate than models such as random forests. We proposed a two-step teacher-student approach: a gradient boosting model is trained for accuracy, and a symbolic regression model is then trained on its outputs. Tested with three symbolic regression models on 10 regression datasets, the approach consistently improved accuracy by 3.3-6.7% over standard symbolic regression and also helps explain the decisions of complex models.</p><div class=glance-stats><div class="stat"><span class="stat-value">3.3-6.7%</span><span class="stat-label">accuracy gain over standard symbolic regression</span></div><div class="stat"><span class="stat-value">10</span><span class="stat-label">regression datasets in the evaluation</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>A gradient boosting model acts as the teacher, and a symbolic regression student model is trained on its output.</li><li>Across three symbolic regression models and 10 regression datasets, accuracy improved consistently by 3.3-6.7% over standard symbolic regression.</li><li>The process also serves as an explainability framework for interpreting the decisions of complex machine learning models.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="933" height="818" alt="FIGURE 1. A schematic view of the proposed experimental design."></a><figcaption><strong>FIGURE 1.</strong> A schematic view of the proposed experimental design. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
 
     <div class="paper-wrap paper-layout">
       <aside class="paper-aside">
+        <form class="paper-search" action="/publications.html" method="get" role="search">
+          <label for="paper-q" class="aside-title">Search all our papers</label>
+          <div class="paper-search-box"><i class="ri-search-line" aria-hidden="true"></i><input id="paper-q" name="q" type="search" placeholder="e.g. Thompson sampling" autocomplete="off"></div>
+        </form>
         <nav class="paper-toc" aria-label="On this page">
           <p class="aside-title">On this page</p>
           <ol>
@@ -162,8 +166,8 @@
         </div>
       </aside>
 
-      <article class="paper-body" id="full-text">
-        <details class="paper-toc-mobile">
+      <article class="paper-body" id="full-text" data-pagefind-body>
+        <details class="paper-toc-mobile" data-pagefind-ignore>
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
@@ -174,9 +178,10 @@
           </ol>
         </details>
         <section id="abstract" class="paper-abstract">
-          <h2>Abstract</h2>
+          <h2 id="abstract-heading">Abstract</h2>
           <p>In recent years, Machine Learning (ML) models have been introduced across diverse scientific fields, due to their strong predictive performance. However, in many applications the demand for interpretable models often surpasses the need for mere accuracy. Symbolic Regression (SR) offers a solution with its concise and explainable formulas, yet it typically falls short in accuracy when compared to other ML models such as Random Forests. This paper proposes a novel two-step ensemble approach, inspired by the student-teacher model in knowledge distillation. Initially, a Gradient Boosting Model (GBM) is trained to harness its high accuracy; this model acts as the ‘teacher.’ Subsequently, an SR ‘student’ model is trained on the output of the gradient boosting model, effectively distilling the knowledge into a form that combines interpretability with enhanced performance. We perform an extensive evaluation of this method across three different SR models and 10 regression datasets. Our findings show that the proposed method exhibits a consistent improvement of 3.3-6.7% in accuracy compared to standard SR models. Furthermore, this process serves as an explainability framework that helps to uncover and interpret the decisions of complex ML models.</p>
         </section>
+        
         
 <div class="paper-text">
 <h2 id="i-introduction">I. Introduction</h2>
@@ -320,9 +325,10 @@
 <h3 id="appendix">Appendix</h3>
 <h3 id="additional-experimental-results">Additional Experimental Results</h3>
 <p><a class="xref" href="#table-5">Table 5</a>, <a class="xref" href="#table-6">Table 6</a>, and <a class="xref" href="#table-7">Table 7</a> present the comprehensive results for each dataset in our analysis of the three SR models. <a class="xref" href="#fig-5">Figures 5</a>, 6, and 7 present additional robustness analyses of the main results. <a class="xref" href="#fig-5">Figure 5</a> shows that the observed trend holds across different symbolic regression frameworks, <a class="xref" href="#fig-6">Figure 6</a> demonstrates stability with respect to the XGB optimization time, and <a class="xref" href="#fig-7">Figure 7</a> compares different teacher models, highlighting the dependence of SR-ML gains on teacher quality. <a class="xref" href="#fig-8">Figure 8</a> compares the model complexity and computation time, with no significant differences in most cases.</p>
-<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 29 December 2025 · Accepted 15 January 2026</dd></div></dl></section>
+<section id="article-notes" class="paper-notes" data-pagefind-ignore><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 29 December 2025 · Accepted 15 January 2026</dd></div></dl></section>
 <h2 id="references">References</h2>
-<ol class="paper-refs"><li id="ref-1">A. Rosenfeld and A. Richardson, ‘‘Explainability in human–agent systems,’’ Auto. Agents Multi-Agent Syst., vol. 33, no. 6, pp. 673–705, Nov. 2019.</li>
+<ol class="paper-refs" data-pagefind-ignore>
+<li id="ref-1">A. Rosenfeld and A. Richardson, ‘‘Explainability in human–agent systems,’’ Auto. Agents Multi-Agent Syst., vol. 33, no. 6, pp. 673–705, Nov. 2019.</li>
 <li id="ref-2">A. Rosenfeld, ‘‘Better metrics for evaluating explainable artificial intelligence,’’ in Proc. Int. Joint Conf. Auto. Agents Multiagent Syst., May 2021, pp. 45–50.</li>
 <li id="ref-3">P. Linardatos, V. Papastefanopoulos, and S. Kotsiantis, ‘‘Explainable AI: A review of machine learning interpretability methods,’’ Entropy, vol. 23, no. 1, p. 18, Dec. 2020.</li>
 <li id="ref-4">A. Goldstein, A. Kapelner, J. Bleich, and E. Pitkin, ‘‘Peeking inside the black box: Visualizing statistical learning with plots of individual conditional expectation,’’ J. Comput. Graph. Statist., vol. 24, no. 1, pp. 44–65, Jan. 2015.</li>
@@ -396,8 +402,7 @@
 </ol>
 </div>
         
-        
-        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Shmuel et al. (2026), <em>IEEE Access</em>, <a href="https://doi.org/10.1109/ACCESS.2026.3657793" target="_blank" rel="noopener">doi:10.1109/ACCESS.2026.3657793</a>, under the <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="license noopener">CC BY-NC-ND 4.0</a> licence. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+        <p class="paper-source" data-pagefind-ignore><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Shmuel et al. (2026), <em>IEEE Access</em>, <a href="https://doi.org/10.1109/ACCESS.2026.3657793" target="_blank" rel="noopener">doi:10.1109/ACCESS.2026.3657793</a>, under the <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="license noopener">CC BY-NC-ND 4.0</a> licence. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
       </article>
     </div>
 
@@ -458,6 +463,7 @@
          </div>
       </footer>
       
+      <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
           // menu and navbar (js/main.js expects to sit at the site root)

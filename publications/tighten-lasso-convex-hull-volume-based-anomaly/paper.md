@@ -280,7 +280,7 @@ Table 7 summarizes the computational requirements of the baseline anomaly detect
 38. Wang, T., Cai, M., Ouyang, X., Cao, Z., Cai, T., Tan, X., Lu, X.: Anomaly detection based on convex analysis: a survey. Front. Phys. 10, 873848 (2022)
 39. Li, P., Niggemann, O.: Improving clustering based anomaly detection with concave hull: an application in fault diagnosis of wind turbines. In: 2016 IEEE 14th International Conference on Industrial Informatics (INDIN), pp. 463–466. IEEE (2016)
 40. Olteanu, M., Rossi, F., Yger, F.: Meta-survey on outlier and anomaly detection. Neurocomputing 555, 126634 (2023)
-41. Novoa-Paradela, D., Fontenla-Romero, O., Guijarro-Berdin˜as, B.: Online learning for anomaly detection via subdivisible convex hulls. In: 2020 International Joint Conference on Neural Networks (IJCNN), pp. 1–8. IEEE (2020)
+41. Novoa-Paradela, D., Fontenla-Romero, O., Guijarro-Berdinãs, B.: Online learning for anomaly detection via subdivisible convex hulls. In: 2020 International Joint Conference on Neural Networks (IJCNN), pp. 1–8. IEEE (2020)
 42. Jove, E., Casteleiro-Roca, J.-L., Quintián, H., Mendez-Perez, J.-A., Calvo-Rolle, J.L.: A new method for anomaly detection based on non-convex boundaries with random two-dimensional projections. Inf. Fus. 65, 50–57 (2021)
 43. Li, P., Niggemann, O., Hammer, B.: A geometric approach to clustering based anomaly detection for industrial applications. In: IECON 2018—44th Annual Conference of the IEEE Industrial Electronics Society, pp. 5345–5352. IEEE (2018)
 44. Liu, Z., Liu, J.G., Pan, C., Wang, G.: A novel geometric approach to binary classification based on scaled convex hulls. IEEE Trans. Neural Netw. 20, 1215–1220 (2009)

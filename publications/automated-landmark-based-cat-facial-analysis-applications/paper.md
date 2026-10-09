@@ -60,9 +60,9 @@ The cat facial landmark detector used here is presented in Martvel et al. (33). 
 
 We have formulated the following benchmark tasks to be addressed:
 
-- 1. Cat breed recognition: given a facial image of a cat, detect the cat’s breed out of 18 classes (the full list of the 18 breeds is presented in Table 1).
-- 2. Cephalic type recognition: given a facial image of a cat, detect its cephalic type out of 3 classes (dolichocephalic, mesocephalic or brachycephalic, see Table 1).
-- 3. Pain recognition: given a facial image of a cat, detect whether it is in pain (binary “Pain”/“No pain” classification).
+1. Cat breed recognition: given a facial image of a cat, detect the cat’s breed out of 18 classes (the full list of the 18 breeds is presented in Table 1).
+2. Cephalic type recognition: given a facial image of a cat, detect its cephalic type out of 3 classes (dolichocephalic, mesocephalic or brachycephalic, see Table 1).
+3. Pain recognition: given a facial image of a cat, detect whether it is in pain (binary “Pain”/“No pain” classification).
 
 Figure 3 presents a high-level overview of the AI pipelines studied.
 

@@ -135,10 +135,10 @@
     <header class="paper-hero">
       <div class="paper-wrap">
         <nav class="paper-crumbs" aria-label="Breadcrumb">
-          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Machine Learning</span>
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span data-pagefind-filter="Topic">Machine Learning</span>
         </nav>
         <p class="paper-kicker"><span><em>Sustainability</em> · 19 July 2023</span></p>
-        <h1 class="paper-title">Benchmarking Biologically-Inspired Automatic Machine Learning for Economic Tasks</h1>
+        <h1 class="paper-title" data-pagefind-meta="title" data-pagefind-filter="Year:2023">Benchmarking Biologically-Inspired Automatic Machine Learning for Economic Tasks</h1>
         <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Tzach Fleischer</a></span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Amit Yaniv-Rosenfeld</a></span></p>
         <details class="paper-affils"><summary>Affiliations</summary><ol><li value="1">Department of Cancer Biology, Cancer Institute, University College London, London WC1E 6BT, UK</li><li value="2">Department of Computer Science, Holon Institute of Technology, Holon 5810201, Israel</li><li value="3">Shalvata Mental Health Care Center, Hod Hasharon 45100, Israel</li><li value="4">Sacklar Faculty of Medicine, Tel-Aviv University, Tel-Aviv 6997801, Israel</li><li value="5">Department of Management, Bar-Ilan University, Ramat-Gan 529002, Israel</li></ol></details>
         <div class="paper-actions">
@@ -153,10 +153,14 @@
       </div>
     </header>
 
-    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card no-figure"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Machine learning can help solve complex economic tasks, but using it requires expertise that is not standard in economics, and automated machine learning (AutoML) tools aim to bridge this gap. We benchmarked four AutoML models, including biologically inspired ones, alongside two baseline methods on 50 diverse economic tasks. Biologically inspired AutoML slightly outperformed non-biological AutoML, and all AutoML models outperformed the traditional methods.</p><div class=glance-stats><div class="stat"><span class="stat-value">50</span><span class="stat-label">economic tasks in the benchmark</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>We evaluated four AutoML models alongside two baseline methods on a set of 50 diverse economic tasks.</li><li>Biologically inspired AutoML models slightly outperformed non-biological AutoML models on economic tasks.</li><li>All AutoML models outperformed the traditional methods.</li></ul></div></div></div></section>
+    <section class="paper-glance" aria-labelledby="glance-title" data-pagefind-body><div class="paper-wrap"><div class="glance-card no-figure"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Machine learning can help solve complex economic tasks, but using it requires expertise that is not standard in economics, and automated machine learning (AutoML) tools aim to bridge this gap. We benchmarked four AutoML models, including biologically inspired ones, alongside two baseline methods on 50 diverse economic tasks. Biologically inspired AutoML slightly outperformed non-biological AutoML, and all AutoML models outperformed the traditional methods.</p><div class=glance-stats><div class="stat"><span class="stat-value">50</span><span class="stat-label">economic tasks in the benchmark</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>We evaluated four AutoML models alongside two baseline methods on a set of 50 diverse economic tasks.</li><li>Biologically inspired AutoML models slightly outperformed non-biological AutoML models on economic tasks.</li><li>All AutoML models outperformed the traditional methods.</li></ul></div></div></div></section>
 
     <div class="paper-wrap paper-layout">
       <aside class="paper-aside">
+        <form class="paper-search" action="/publications.html" method="get" role="search">
+          <label for="paper-q" class="aside-title">Search all our papers</label>
+          <div class="paper-search-box"><i class="ri-search-line" aria-hidden="true"></i><input id="paper-q" name="q" type="search" placeholder="e.g. Thompson sampling" autocomplete="off"></div>
+        </form>
         <nav class="paper-toc" aria-label="On this page">
           <p class="aside-title">On this page</p>
           <ol>
@@ -177,8 +181,8 @@
         </div>
       </aside>
 
-      <article class="paper-body" id="full-text">
-        <details class="paper-toc-mobile">
+      <article class="paper-body" id="full-text" data-pagefind-body>
+        <details class="paper-toc-mobile" data-pagefind-ignore>
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
@@ -193,9 +197,10 @@
           </ol>
         </details>
         <section id="abstract" class="paper-abstract">
-          <h2>Abstract</h2>
+          <h2 id="abstract-heading">Abstract</h2>
           <p>Data-driven economic tasks have gained significant attention in economics, allowing researchers and policymakers to make better decisions and design efficient policies. Recently, with the advancement of machine learning (ML) and other artificial intelligence (AI) methods, researchers can now solve complex economic tasks with previously unseen performance and ease. However, to use such methods, one is required to have a non-trivial level of expertise in ML or AI, which currently is not standard knowledge in economics. In order to bridge this gap, automatic machine learning (AutoML) models have been developed, allowing non-experts to efficiently use advanced ML models with their data. Nonetheless, not all AutoML models are created equal in general, particularly for the unique properties associated with economic data. In this paper, we present a benchmarking study of biologically inspired and other AutoML techniques for economic tasks. We evaluate four different AutoML models alongside two baseline methods using a set of 50 diverse economic tasks. Our results show that biologically inspired AutoML models (slightly) outperformed non-biological AutoML in economic tasks, while all AutoML models outperformed the traditional methods. Based on our results, we conclude that biologically inspired AutoML has the potential to improve our economic understanding while shifting a large portion of the analysis burden from the economist to a computer.</p>
         </section>
+        
         
 <div class="paper-text">
 <h2 id="1-introduction">1. Introduction</h2>
@@ -243,9 +248,10 @@
 <h2 id="abbreviations">Abbreviations</h2>
 <p>The following abbreviations are used in this manuscript:</p>
 <p>ML Machine learning AI Artificial intelligence AutoML Automatic machine learning</p>
-<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 19 May 2023 · Accepted 17 July 2023 · Published 19 July 2023</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>automatic machine learning</li><li>economy–biology interactions</li><li>data-driven economic tasks</li><li>evolutionary computation</li></ul></dd></div></dl></section>
+<section id="article-notes" class="paper-notes" data-pagefind-ignore><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 19 May 2023 · Accepted 17 July 2023 · Published 19 July 2023</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>automatic machine learning</li><li>economy–biology interactions</li><li>data-driven economic tasks</li><li>evolutionary computation</li></ul></dd></div></dl></section>
 <h2 id="references">References</h2>
-<ol class="paper-refs"><li id="ref-1">Coglianese, C. Optimizing Regulation for an Optimizing Economy; Institute for Law and Economics, University of Pennsylvania: Philadelphia, PA, USA, 2018; pp. 18–35.</li>
+<ol class="paper-refs" data-pagefind-ignore>
+<li id="ref-1">Coglianese, C. Optimizing Regulation for an Optimizing Economy; Institute for Law and Economics, University of Pennsylvania: Philadelphia, PA, USA, 2018; pp. 18–35.</li>
 <li id="ref-2">Lee, D.; Saez, E. Optimal minimum wage policy in competitive labor markets. J. Public Econ. 2012, 96, 739–749. <a href="https://doi.org/10.1016/j.jpubeco.2012.06.001" target="_blank" rel="noopener">doi:10.1016/j.jpubeco.2012.06.001</a></li>
 <li id="ref-3">Brannlund, R.; Nordstrom, J. Carbon tax simulations using a household demand model. Eur. Econ. Rev. 2004, 48, 211–233. <a href="https://doi.org/10.1016/S0014-2921%2802%2900263-5" target="_blank" rel="noopener">doi:10.1016/S0014-2921(02)00263-5</a></li>
 <li id="ref-4">Shrestha, R.M.; Marpaung, C.O.P. Supply- and demand-side effects of carbon tax in the Indonesian power sector: An integrated resource planning analysis. Energy Policy 1999, 27, 185–194. <a href="https://doi.org/10.1016/S0301-4215%2899%2900003-8" target="_blank" rel="noopener">doi:10.1016/S0301-4215(99)00003-8</a></li>
@@ -254,7 +260,7 @@
 <li id="ref-7">Willenborg, M. Empirical Analysis of the Economic Demand for Auditing in the Initial Public Offerings Market. J. Account. Res. 1999, 37, 225–238. <a href="https://doi.org/10.2307/2491405" target="_blank" rel="noopener">doi:10.2307/2491405</a></li>
 <li id="ref-8">Arrow, K.J. Statistics and Economic Policy. Econometrica 1957, 25, 523–531. <a href="https://doi.org/10.2307/1905381" target="_blank" rel="noopener">doi:10.2307/1905381</a></li>
 <li id="ref-9">Shami, L.; Cohen, G.; Akirav, O.; Herscovici, A.; Yehuda, L.; Barel-Shaked, S. Informal Self-Employment within the Non-Observed Economy of Israel. Int. J. Entrep. Small Bus. 2021, forthcoming.</li>
-<li id="ref-10">Dybka, P.; Kowalczuk, M.; Olesi´nski, B.; Torój, A.; Rozkrut, M. Currency demand and MIMIC models: Towards a structured hybrid method of measuring the shadow economy. Int. Tax Public Financ. 2019, 26, 4–40. <a href="https://doi.org/10.1007/s10797-018-9504-5" target="_blank" rel="noopener">doi:10.1007/s10797-018-9504-5</a></li>
+<li id="ref-10">Dybka, P.; Kowalczuk, M.; Olesínski, B.; Torój, A.; Rozkrut, M. Currency demand and MIMIC models: Towards a structured hybrid method of measuring the shadow economy. Int. Tax Public Financ. 2019, 26, 4–40. <a href="https://doi.org/10.1007/s10797-018-9504-5" target="_blank" rel="noopener">doi:10.1007/s10797-018-9504-5</a></li>
 <li id="ref-11">Ha, L.T.; Dung, H.P.; Thanh, T.T. Economic complexity and shadow economy: A multi-dimensional analysis. Econ. Anal. Policy 2021, 72, 408–422. <a href="https://doi.org/10.1016/j.eap.2021.09.011" target="_blank" rel="noopener">doi:10.1016/j.eap.2021.09.011</a></li>
 <li id="ref-12">Guinee, J.B.; Heijungs, R.; Huppes, G. Economic allocation: Examples and derived decision tree. Int. J. Life Cycle Assess. 2004, 9, 23–33. <a href="https://doi.org/10.1007/BF02978533" target="_blank" rel="noopener">doi:10.1007/BF02978533</a></li>
 <li id="ref-13">Drabiková, E.; Škrabulakova, E.F. Decision trees—A powerful tool in mathematical and economic modeling. In Proceedings of the 2017 18th International Carpathian Control Conference (ICCC), Sinaia, Romania, 28–31 May 2017; pp. 34–39.</li>
@@ -327,8 +333,7 @@
 </ol>
 </div>
         
-        
-        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2023), <em>Sustainability</em>, <a href="https://doi.org/10.3390/su151411232" target="_blank" rel="noopener">doi:10.3390/su151411232</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+        <p class="paper-source" data-pagefind-ignore><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2023), <em>Sustainability</em>, <a href="https://doi.org/10.3390/su151411232" target="_blank" rel="noopener">doi:10.3390/su151411232</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
       </article>
     </div>
 
@@ -391,6 +396,7 @@
          </div>
       </footer>
       
+      <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
           // menu and navbar (js/main.js expects to sit at the site root)

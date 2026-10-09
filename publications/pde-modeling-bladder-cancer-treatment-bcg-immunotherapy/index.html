@@ -115,10 +115,10 @@
     <header class="paper-hero">
       <div class="paper-wrap">
         <nav class="paper-crumbs" aria-label="Breadcrumb">
-          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Biomathematics</span>
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span data-pagefind-filter="Topic">Biomathematics</span>
         </nav>
         <p class="paper-kicker"><span><em>Functional Differential Equations conference</em> · 2020</span></p>
-        <h1 class="paper-title">PDE Modeling of Bladder Cancer Treatment Using BCG Immunotherapy</h1>
+        <h1 class="paper-title" data-pagefind-meta="title" data-pagefind-filter="Year:2020">PDE Modeling of Bladder Cancer Treatment Using BCG Immunotherapy</h1>
         <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author">Shlomo Yanetz</span>, <span class="author">and Svetlana Bunimovich-Mendrazitsky</span></p>
         
         <div class="paper-actions">
@@ -137,6 +137,10 @@
 
     <div class="paper-wrap paper-layout">
       <aside class="paper-aside">
+        <form class="paper-search" action="/publications.html" method="get" role="search">
+          <label for="paper-q" class="aside-title">Search all our papers</label>
+          <div class="paper-search-box"><i class="ri-search-line" aria-hidden="true"></i><input id="paper-q" name="q" type="search" placeholder="e.g. Thompson sampling" autocomplete="off"></div>
+        </form>
         <nav class="paper-toc" aria-label="On this page">
           <p class="aside-title">On this page</p>
           <ol>
@@ -149,20 +153,20 @@
         </div>
       </aside>
 
-      <article class="paper-body" id="full-text">
-        <details class="paper-toc-mobile">
+      <article class="paper-body" id="full-text" data-pagefind-body>
+        <details class="paper-toc-mobile" data-pagefind-ignore>
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
           </ol>
         </details>
         <section id="abstract" class="paper-abstract">
-          <h2>Abstract</h2>
+          <h2 id="abstract-heading">Abstract</h2>
           <p>Immunotherapy with Bacillus Calmette-Guérin (BCG) – an attenuated strain of Mycobacterium bovis (M. bovis) used for antituberculosis immunization – is a clinically established procedure for the treatment of superficial bladder cancer. Bunimovich-Mendrazitsky et al. studied the role of BCG immunotherapy in bladder cancer dynamics in a system of nonlinear ODEs. The purpose of this paper is to develop a first mathematical model that uses PDEs to describe tumor-immune interactions in the bladder as a result of BCG therapy considering the geometrical configuration of the human bladder. A mathematical analysis of the BCG as a PDE model identifies multiple equilibrium points, and their stability properties are identified so that treatment that has potential to result in a tumor-free equilibrium can be determined. Estimating parameters and validating the model using published data are taken from in vitro, mouse and human studies. The model makes clear that intensity of immunotherapy must be kept within limited bounds. We use numerical analysis methods to find the solution of the PDE describing the tumor-immune interaction; in particular, analysis of the solution’s stability for a given parameters is presented using Computer Vision methodologies.</p>
         </section>
+        
         <div class="paper-callout"><i class="ri-links-line" aria-hidden="true"></i> This is the conference version of <a href="/publications/treatment-bladder-cancer-bcg-immunotherapy-pde-modeling/">Treatment of Bladder Cancer Using BCG Immunotherapy: PDE Modeling</a>, which has the full text.</div>
 
-        
         
         
       </article>
@@ -224,6 +228,7 @@
          </div>
       </footer>
       
+      <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
           // menu and navbar (js/main.js expects to sit at the site root)

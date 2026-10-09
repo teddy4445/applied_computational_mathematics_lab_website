@@ -129,10 +129,10 @@
     <header class="paper-hero">
       <div class="paper-wrap">
         <nav class="paper-crumbs" aria-label="Breadcrumb">
-          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Machine Learning</span>
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span data-pagefind-filter="Topic">Machine Learning</span>
         </nav>
         <p class="paper-kicker"><span class="oa-badge"><i class="ri-lock-unlock-line" aria-hidden="true"></i>Open access</span><span><em>Scientific Reports</em> · 2026</span></p>
-        <h1 class="paper-title">Moving from table to graph in physics-informed spatio-temporal symbolic regression</h1>
+        <h1 class="paper-title" data-pagefind-meta="title" data-pagefind-filter="Year:2026">Moving from table to graph in physics-informed spatio-temporal symbolic regression</h1>
         <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author">Alex Liberzon</span></p>
         <details class="paper-affils"><summary>Affiliations</summary><ol><li value="1">Department of Information Systems, University of Haifa, Haifa, Israel.</li><li value="2">Department of Computing, Jonkoping University, Jonkoping, Sweden.</li><li value="3">Turbulence Structure Laboratory, School of Mechanical Engineering, Tel Aviv University, Tel Aviv, Israel. *email: lazebnik.teddy@gmail.com</li></ol></details>
         <div class="paper-actions">
@@ -147,10 +147,14 @@
       </div>
     </header>
 
-    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Symbolic regression searches for mathematical formulas that describe data, but it usually treats data as a flat table and ignores how physical systems change across space and time. We paired the usual table with a graph whose nodes hold points in space and time and whose edges link neighbors, letting existing solvers recover differential equations without changing their search. On synthetic benchmarks, including noisy ones, this improved a wide range of symbolic regression tools out of the box.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Combining a tabular and a graph-based spatio-temporal representation enhances existing symbolic regression solvers without modifying their internal search mechanism.</li><li>The graph representation allows direct generation of differential equations by implicitly incorporating spatio-temporal patterns and constraints.</li><li>Benchmarks from functional, ordinary and partial differential, integral and delayed equations showed accurate recovery of governing equations, even with noise.</li><li>The framework assumes a meaningful spatio-temporal neighborhood can be built and was validated mainly on controlled synthetic benchmarks.</li></ul></div><figure class="glance-figure"><a href="#fig-2"><img src="figures/fig-2.webp" width="1796" height="834" alt="Fig. 2. Schematic view of the proposed model."></a><figcaption><strong>Fig. 2</strong>. Schematic view of the proposed model. <a href="#fig-2">See it in the paper</a></figcaption></figure></div></div></section>
+    <section class="paper-glance" aria-labelledby="glance-title" data-pagefind-body><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Symbolic regression searches for mathematical formulas that describe data, but it usually treats data as a flat table and ignores how physical systems change across space and time. We paired the usual table with a graph whose nodes hold points in space and time and whose edges link neighbors, letting existing solvers recover differential equations without changing their search. On synthetic benchmarks, including noisy ones, this improved a wide range of symbolic regression tools out of the box.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Combining a tabular and a graph-based spatio-temporal representation enhances existing symbolic regression solvers without modifying their internal search mechanism.</li><li>The graph representation allows direct generation of differential equations by implicitly incorporating spatio-temporal patterns and constraints.</li><li>Benchmarks from functional, ordinary and partial differential, integral and delayed equations showed accurate recovery of governing equations, even with noise.</li><li>The framework assumes a meaningful spatio-temporal neighborhood can be built and was validated mainly on controlled synthetic benchmarks.</li></ul></div><figure class="glance-figure"><a href="#fig-2"><img src="figures/fig-2.webp" width="1796" height="834" alt="Fig. 2. Schematic view of the proposed model."></a><figcaption><strong>Fig. 2</strong>. Schematic view of the proposed model. <a href="#fig-2">See it in the paper</a></figcaption></figure></div></div></section>
 
     <div class="paper-wrap paper-layout">
       <aside class="paper-aside">
+        <form class="paper-search" action="/publications.html" method="get" role="search">
+          <label for="paper-q" class="aside-title">Search all our papers</label>
+          <div class="paper-search-box"><i class="ri-search-line" aria-hidden="true"></i><input id="paper-q" name="q" type="search" placeholder="e.g. Thompson sampling" autocomplete="off"></div>
+        </form>
         <nav class="paper-toc" aria-label="On this page">
           <p class="aside-title">On this page</p>
           <ol>
@@ -171,8 +175,8 @@
         </div>
       </aside>
 
-      <article class="paper-body" id="full-text">
-        <details class="paper-toc-mobile">
+      <article class="paper-body" id="full-text" data-pagefind-body>
+        <details class="paper-toc-mobile" data-pagefind-ignore>
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
@@ -187,9 +191,10 @@
           </ol>
         </details>
         <section id="abstract" class="paper-abstract">
-          <h2>Abstract</h2>
+          <h2 id="abstract-heading">Abstract</h2>
           <p>Symbolic Regression (SR) is a powerful technique for discovering analytical mathematical expressions that describe observed numerical data. Traditionally, SR models work on data in tabular form, imposing a purely functional mapping without considering the underlying spatio-temporal dependencies or the governing physical laws. Such approaches are ill-suited for physical problems, where data evolves dynamically across time and space and is governed by ordinary/partial differential equations (ODEs/PDEs). Moreover, as SR are commonly measured by their ability to obtain generalized equations from a relatively small amount of data, representing the data efficiently plays a central role in the performance of such models. In this study, we propose a simple yet powerful solver-agnostic approach for SR fitting by using a dual representation — one that preserves explainability, while the other is physically informed. Our main novelty lies in combining the standard tabular representation with a graph-based spatio-temporal representation in a unified SR fitting framework that can enhance existing SR solvers without modifying their internal search mechanism. Namely, the method uses both tabular and graph-based data representation, where nodes in the graph are associated with spatio-temporal coordinates and dynamic state variables, while edges encode spatial or temporal dependencies. This approach allows for the direct generation of differential equations that describe the underlying physical system by implicitly incorporating spatio-temporal patterns and constraints. Benchmarks across multiple synthetic datasets originated from functional, ordinary/partial different equations (O/PDE), integral, and delayed ODE, demonstrate the ability of the proposed method to recover governing equations with high accuracy, even in noisy settings, improving a wide range of SR out-of-the box. These results indicate that enriching SR with graph-based spatio-temporal structure provides a practical pathway toward more robust and physically consistent equation discovery. At the same time, the current framework assumes that a meaningful spatio-temporal neighborhood structure can be constructed and is validated primarily on controlled synthetic benchmark systems.</p>
         </section>
+        
         
 <div class="paper-text">
 <p>The pursuit of mathematical models that capture the governing principles of natural and engineered systems is a cornerstone of scientific inquiry<sup><a href="#ref-1">1</a>–<a href="#ref-5">5</a></sup>. Across disciplines such as physics<sup><a href="#ref-6">6</a></sup>, biology<sup><a href="#ref-7">7</a></sup>, and economics<sup><a href="#ref-8">8</a></sup>, researchers aim to identify concise and interpretable formulations that describe observed dynamics. To be exact, scientific inquiry, from as early as Isaac Newton, proceeds through a three-step cycle of observation, hypothesis generation, and hypothesis validation<sup><a href="#ref-9">9</a>,<a href="#ref-10">10</a></sup>. Traditionally, researchers begin by collecting data about the world (observation), which they then use to develop explanatory hypotheses (hypothesis generation). A good hypothesis is required to allow for extrapolation and the prediction of new data within the observed system during the hypothesis validation stage<sup><a href="#ref-11">11</a>–<a href="#ref-13">13</a></sup>. Modern science, in general, and modern exact science, in particular, is based on an equation-based formalization of hypothesis<sup><a href="#ref-14">14</a>,<a href="#ref-15">15</a></sup>. This process, more often than not, requires a comprehensive understanding of a field, deep familiarity with the collected observations, and a decent amount of creativity and mathematical expertise<sup><a href="#ref-16">16</a>,<a href="#ref-17">17</a></sup>.</p>
@@ -382,7 +387,8 @@
 <p>To provide an intuitive, multi-dimensional view of how robustness and data efficiency interact, we visualize the dual-representation performance over the joint grid of noise intensity <em>inline-eq-IEq251</em> and number of experiments <em>K</em>. Each point in <a class="xref" href="#fig-7">Fig. 7</a> corresponds to one i<em>nli n</em>e-eq-IEq252 setting, and the vertical axis shows the aggregated metric value (mean across SR solvers and benchmark systems). These 3D views complement the 1D sensitivity curves (<a class="xref" href="#fig-4">Figs. 4</a>–5) by making it easier to identify regimes where performance degrades most strongly (high noise / low data) and how quickly it recovers as more experiments are available.</p>
 <p>Received: 17 March 2026; Accepted: 14 May 2026</p>
 <h2 id="references">References</h2>
-<ol class="paper-refs"><li id="ref-1">Garrison, J. W. Newton and the relation of mathematics to natural philosophy. J. Hist. Ideas 48(4), 609–627 (1987).</li>
+<ol class="paper-refs" data-pagefind-ignore>
+<li id="ref-1">Garrison, J. W. Newton and the relation of mathematics to natural philosophy. J. Hist. Ideas 48(4), 609–627 (1987).</li>
 <li id="ref-2">Guicciardini, N. Isaac Newton on Mathematical Certainty and Method (Mit Press, 2009).</li>
 <li id="ref-3">Shmuel, A., Glickman, O. &amp; Lazebnik, T. Symbolic regression as a feature engineering method for machine and deep learning regression tasks. Mach. Learn.: Sci. Technol. 5(2), 025065 (2024).</li>
 <li id="ref-4">Grabiner, J. V. Newton, maclaurin, and the authority of mathematics. Am. Math. Mon. 111(10), 841–852 (2004).</li>
@@ -500,12 +506,11 @@
 </ol>
 </div>
         
-        
-        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2026), <em>Scientific Reports</em>, <a href="https://doi.org/10.1038/s41598-026-53882-w" target="_blank" rel="noopener">doi:10.1038/s41598-026-53882-w</a>, under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY 4.0</a> licence. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+        <p class="paper-source" data-pagefind-ignore><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2026), <em>Scientific Reports</em>, <a href="https://doi.org/10.1038/s41598-026-53882-w" target="_blank" rel="noopener">doi:10.1038/s41598-026-53882-w</a>, under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY 4.0</a> licence. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
       </article>
     </div>
 
-    <section class="paper-related" aria-labelledby="related-title"><div class="paper-wrap"><h2 id="related-title">Related research</h2><div class="related-grid"><a class="related-card related-project" href="/project.html?pagename=diffusion-sr"><img src="/img/projects/project8.webp" alt="" loading="lazy" decoding="async"><span class="related-kind"><i class="ri-flask-line" aria-hidden="true"></i>Research project</span><strong>Physics-Informed Diffusion Models for Symbolic Regression</strong><span class="related-text">Developing physics-informed temporal diffusion models as a data-enrichment method for symbolic regression.</span></a><a class="related-card" href="/publications/computational-framework-physics-informed-symbolic-regression-straightforward/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2022</span><strong>A computational framework for physics-informed symbolic regression with straightforward integration of domain knowledge</strong><span class="related-text">Scientific Reports</span></a><a class="related-card" href="/publications/transforming-norm-based-graph-based-spatial-representation/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2026</span><strong>Transforming norm-based to graph-based spatial representation for spatio-temporal epidemiological models</strong><span class="related-text">Engineering Applications of Artificial Intelligence</span></a></div><p class="related-more"><a href="/publications.html">All publications</a></p></div></section>
+    <section class="paper-related" aria-labelledby="related-title"><div class="paper-wrap"><h2 id="related-title">Related research</h2><div class="related-grid"><a class="related-card related-project" href="/project.html?pagename=diffusion-sr"><img src="/img/projects/project8.webp" alt="" loading="lazy" decoding="async"><span class="related-kind"><i class="ri-flask-line" aria-hidden="true"></i>Research project</span><strong>Physics-Informed Diffusion Models for Symbolic Regression</strong><span class="related-text">Developing physics-informed temporal diffusion models as a data-enrichment method for symbolic regression.</span></a><a class="related-card" href="/publications/computational-framework-physics-informed-symbolic-regression-straightforward/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2022</span><strong>A computational framework for physics-informed symbolic regression with straightforward integration of domain knowledge</strong><span class="related-text">Scientific Reports</span></a><a class="related-card" href="/publications/physics-informed-symbolic-regression-reveals-delayed-oscillatory/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2026</span><strong>Physics-informed symbolic regression reveals a delayed oscillatory closure for particle–interface dynamics</strong><span class="related-text">Machine Learning: Science and Technology</span></a></div><p class="related-more"><a href="/publications.html">All publications</a></p></div></section>
   </main>
 
   <dialog id="cite-dialog" class="paper-dialog" aria-labelledby="cite-title">
@@ -564,6 +569,7 @@
          </div>
       </footer>
       
+      <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
           // menu and navbar (js/main.js expects to sit at the site root)

@@ -142,7 +142,7 @@ Teddy Lazebnik (lazebnik.teddy@gmail.com): Conceptualization (Equal), Data curat
 - Koltun, V. & Hafner, D. (2021). The h-index is no longer an effective correlate of scientific reputation. PLoS One, 16(6): e0253397.
 - Kozak, M. & Bornmann, L. (2012). A new family of cumulative indexes for measuring scientific performance. PloS one, 7(10): e47679.
 - Kpolovie, P. J., Onoshagbegbe, E. S.(2017). Research productivity: h-index and i10-index of academics in nigerian universities. International Journal of Quantitative and Qualitative Research Methods, 5(2), 62–123.
-- Kulczycki, E., Korzen´, M., & Korytkowski, P. (2017). Toward an excellence-based research funding system: Evidence from poland. Journal of Informetrics, 11(1), 282–298.
+- Kulczycki, E., Korzeń, M., & Korytkowski, P. (2017). Toward an excellence-based research funding system: Evidence from poland. Journal of Informetrics, 11(1), 282–298.
 - Kumar, D., Bhowmick, P. K., & Paik, J. (2023). Researcher influence prediction (resip) using academic genealogy network. Journal of Informetrics, 17(2), 101392.
 - Kusakunniran, W., Ponn, T., Boonsom, N., Wahakit, S., & Thongkanchorn, K. (2021). Construction of h5-index for conference ranking indicator and its correlation to era. Journal of Information & Knowledge Management, 20(01):2150011.
 - Leibel, C. & Bornmann, L. (2024). What do we know about the disruption index in scientometrics? an overview of the literature. Scientometrics, 129(1), 601–639.

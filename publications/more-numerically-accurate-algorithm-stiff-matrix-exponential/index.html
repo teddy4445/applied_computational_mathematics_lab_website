@@ -130,10 +130,10 @@
     <header class="paper-hero">
       <div class="paper-wrap">
         <nav class="paper-crumbs" aria-label="Breadcrumb">
-          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Biomathematics</span>
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span data-pagefind-filter="Topic">Biomathematics</span>
         </nav>
         <p class="paper-kicker"><span><em>Mathematics</em> · 11 April 2024</span></p>
-        <h1 class="paper-title">More Numerically Accurate Algorithm for Stiff Matrix Exponential</h1>
+        <h1 class="paper-title" data-pagefind-meta="title" data-pagefind-filter="Year:2024">More Numerically Accurate Algorithm for Stiff Matrix Exponential</h1>
         <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author">Svetlana Bunimovich-Mendrazitsky</span></p>
         <details class="paper-affils"><summary>Affiliations</summary><ol><li value="1">Department of Mathematics, Ariel University, Ariel 4070000, Israel; svetlanabu@ariel.ac.il</li><li value="2">Department of Cancer Biology, Cancer Institute, University College London, London WC1E 6BT, UK</li></ol></details>
         <div class="paper-actions">
@@ -148,10 +148,14 @@
       </div>
     </header>
 
-    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">We propose a new, highly accurate numerical algorithm for computing matrix exponentials, built by approximating Putzer&#x27;s algorithm through analytically solving and approximating its coefficients. It outperforms other matrix exponential algorithms for stiff matrices of several sizes while keeping computation and memory costs asymptotically similar. We also built a decision tree model, using machine learning and genetic programming, that picks a good algorithm for a given matrix based on its properties, since no single algorithm is best for all.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>The new algorithm outperforms other matrix exponential algorithms for stiff matrices across several matrix sizes.</li><li>Its computation and memory consumption remain asymptotically similar to those of existing algorithms.</li><li>A decision tree model optimized for numerical error and complexity selects an efficient algorithm for each matrix.</li><li>No single matrix exponential algorithm outperforms the others, but a good one can be found for any matrix from its properties.</li></ul></div><figure class="glance-figure"><a href="#fig-2"><img src="figures/fig-2.webp" width="995" height="619" alt="Figure 2. Average relative numerical error of the five ME algorithms across the five types of matrices divided by matrix size. * The values for the (1000 × 1000) case are the average of the matrices from types 1 and 6 (see Table 1) rather than all seven types."></a><figcaption><strong>Figure 2.</strong> Average relative numerical error of the five ME algorithms across the five types of matrices divided by matrix size. * The values for the (1000 <em>×</em> 1000) case are the average of the matrices from types 1 and 6 (see Table 1) rather than all seven types. <a href="#fig-2">See it in the paper</a></figcaption></figure></div></div></section>
+    <section class="paper-glance" aria-labelledby="glance-title" data-pagefind-body><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">We propose a new, highly accurate numerical algorithm for computing matrix exponentials, built by approximating Putzer&#x27;s algorithm through analytically solving and approximating its coefficients. It outperforms other matrix exponential algorithms for stiff matrices of several sizes while keeping computation and memory costs asymptotically similar. We also built a decision tree model, using machine learning and genetic programming, that picks a good algorithm for a given matrix based on its properties, since no single algorithm is best for all.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>The new algorithm outperforms other matrix exponential algorithms for stiff matrices across several matrix sizes.</li><li>Its computation and memory consumption remain asymptotically similar to those of existing algorithms.</li><li>A decision tree model optimized for numerical error and complexity selects an efficient algorithm for each matrix.</li><li>No single matrix exponential algorithm outperforms the others, but a good one can be found for any matrix from its properties.</li></ul></div><figure class="glance-figure"><a href="#fig-2"><img src="figures/fig-2.webp" width="995" height="619" alt="Figure 2. Average relative numerical error of the five ME algorithms across the five types of matrices divided by matrix size. * The values for the (1000 × 1000) case are the average of the matrices from types 1 and 6 (see Table 1) rather than all seven types."></a><figcaption><strong>Figure 2.</strong> Average relative numerical error of the five ME algorithms across the five types of matrices divided by matrix size. * The values for the (1000 <em>×</em> 1000) case are the average of the matrices from types 1 and 6 (see Table 1) rather than all seven types. <a href="#fig-2">See it in the paper</a></figcaption></figure></div></div></section>
 
     <div class="paper-wrap paper-layout">
       <aside class="paper-aside">
+        <form class="paper-search" action="/publications.html" method="get" role="search">
+          <label for="paper-q" class="aside-title">Search all our papers</label>
+          <div class="paper-search-box"><i class="ri-search-line" aria-hidden="true"></i><input id="paper-q" name="q" type="search" placeholder="e.g. Thompson sampling" autocomplete="off"></div>
+        </form>
         <nav class="paper-toc" aria-label="On this page">
           <p class="aside-title">On this page</p>
           <ol>
@@ -171,8 +175,8 @@
         </div>
       </aside>
 
-      <article class="paper-body" id="full-text">
-        <details class="paper-toc-mobile">
+      <article class="paper-body" id="full-text" data-pagefind-body>
+        <details class="paper-toc-mobile" data-pagefind-ignore>
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
@@ -186,9 +190,10 @@
           </ol>
         </details>
         <section id="abstract" class="paper-abstract">
-          <h2>Abstract</h2>
+          <h2 id="abstract-heading">Abstract</h2>
           <p>In this paper, we propose a novel, highly accurate numerical algorithm for matrix exponentials (MEs). The algorithm is based on approximating Putzer’s algorithm by analytically solving the ordinary differential equation (ODE)-based coefficients and approximating them. We show that the algorithm outperforms other ME algorithms for stiff matrices for several matrix sizes while keeping the computation and memory consumption asymptotically similar to these algorithms. In addition, we propose a numerical-error- and complexity-optimized decision tree model for efficient ME computation based on machine learning and genetic programming methods. We show that, while there is not one ME algorithm that outperforms the others, one can find a good algorithm for any given matrix according to its properties.</p>
         </section>
+        
         
 <div class="paper-text">
 <h2 id="1-introduction-and-related-work">1. Introduction and Related Work</h2>
@@ -280,45 +285,21 @@
 <p>In comparison with other algorithms, L-EXPM’s storage requirements and complexity are asymptotically equal to the ones of the algorithms with the lowest storage requirements and complexity <span class="cite">[<a href="#ref-8">8</a>]</span>. To evaluate the performance of L-EXPM compared to the state-of-the-art ME algorithms, a general case matrix may be required. Nevertheless, since ME algorithms provide large errors if the given matrix has a specific property, several families of stiff and non-stiff matrices should be used to obtain a general case analysis of the algorithm’s performance.</p>
 <h3 id="31-artificial-stiff-matrices-analysis">3.1. Artificial Stiff Matrices Analysis</h3>
 <p>We evaluate the performance of L-EXPM with respect to four state-of-the-art ME algorithms: Taylor, Pade, Newton, and Lagrange. For each algorithm, the parameters and tolerances are obtained using the grid search method <span class="cite">[<a href="#ref-30">30</a>]</span>. Namely, for the Taylor algorithm, the number of terms is determined. In a similar manner, for the Pade algorithm, the fixed degrees combined with scaling and squaring <span class="cite">[<a href="#ref-31">31</a>,<a href="#ref-32">32</a>]</span> and the tolerance parameter are determined using the grid search method. The evaluation of the algorithms is performed using their MATLAB implementations (version 2020b). Since all five algorithms handle random, non-stiff matrices, we compared these algorithms on seven types of stiff matrices:</p>
-<ul>
-<li>
 <ol>
 <li>Matrices for which the difference between the eigenvalues of the matrix is small but not negligible: we randomly pick a value (<em>a &gt;</em> 0) and an amplitude (<em>ϵ &lt;&lt;</em> 1) and generate matrices with eigenvalues that are in the range (<em>a ± ϵ</em>).</li>
-</ol>
-</li>
-<li>
-<ol start="2">
 <li>Matrices for which the eigenvalues are approaching 0: we generate matrices with eigenvalues that satisfy the following formula: 1 <em>≤ i ≤ n</em>, <em>λ</em><sub>i</sub> = <sup><a href="#ref-1">1</a></sup> <sub>(i+2)</sub>2 .</li>
-</ol>
-</li>
-<li>
-<ol start="3">
 <li>Matrices with large diameters: we generate matrices with eigenvalues that satisfy the formula</li>
 </ol>
-</li>
+<ul>
 <li>0 <em>≤ i ≤ n</em>, <em>λ</em><sub>i</sub> = <em>a −</em> <sup>(a−b)i</sup> <em>n</em></li>
 <li>, where <em>a</em> and <em>b</em> are picked randomly such that <em>b &gt;&gt; a</em>.</li>
-<li>
+</ul>
 <ol start="4">
 <li>Matrices that have a large condition number: we generate matrices with eigenvalues that satisfy the formula 1 <em>≤ i ≤ n</em>, <em>λ</em><sub>i</sub> <em>∈</em> [<em>a</em>, <em>b</em>], such that <sup>|b|</sup> <sub>|a|</sub> <em>&gt;&gt;</em> 1.</li>
-</ol>
-</li>
-<li>
-<ol start="5">
 <li>Matrices that have eigenvalues with significant algebraic multiplicity: we generate matrices with eigenvalues with an algebraic multiplicity of at least two.</li>
-</ol>
-</li>
-<li>
-<ol start="6">
 <li>Matrices with a single eigenvalue: we generate matrices with a single eigenvalue picked at random.</li>
-</ol>
-</li>
-<li>
-<ol start="7">
 <li>Matrices with complex eigenvalues with a large imaginary part: we generate matrices with eigenvalues that satisfy the formula 0 <em>≤ j ≤ n</em>, <em>λ</em><sub>i</sub> = <em>a</em> + 10<em>i · a</em>, where <em>a ∈</em> [<em>−</em>100, 100] is a random number.</li>
 </ol>
-</li>
-</ul>
 <p>The matrices are generated as follows. First, a Jordan matrix (<em>J</em>) with the required eigenvalues is randomly generated. Then, a random matrix <em>P</em> with the same size of <em>J</em> is generated such that the condition number of <em>P</em> is less than two, and its determinant 0.5 <em>≤ det</em>(<em>P</em>) <em>≤</em> 1.5. The random matrix used in the analysis is obtained by computing <em>M</em> = <em>P</em><sup>−1</sup><em>JP</em>. For each type of matrix, we examine the performance of each algorithm on matrices with sizes 3 <em>×</em> 3, 10 <em>×</em> 10, 100 <em>×</em> 100, and 1000 <em>×</em> 1000 to determine the growth of the error as a function of the matrix’s size. Each value is obtained as the average of <em>n</em> = 100 repetitions, and the values of the matrices are generated using a normal distribution with mean <em>µ</em> = 0 and standard deviation <em>σ</em> = 300.</p>
 <p>The numerical relative error is calculated using the <em>L</em><sub>2</sub> distance between the analytically obtained (ground truth) ME matrix and the numerically obtained one: <em>Error</em> = <em>||A</em>(<em>M</em>) <em>− e</em><sup>M</sup> <sub>gt</sub> <em>||</em><sub>L2</sub>, where <em>A</em> is a numerical ME algorithm. The ground truth ME is obtained analytically by calculating the ME of the <em>J</em> matrix to obtain <em>e</em><sup>M</sup> <sub>gt</sub> = <em>P</em><sup>−1</sup><em>e</em><sup>J</sup><em>P</em>. While (<em>e</em><sup>M</sup> <sub>gt</sub> is a closed form, it is not guaranteed to be exact since the matrix (<em>e</em><sup>M</sup> <sub>gt</sub> is a product of performing finite arithmetic. However, matrix (<em>e</em><sup>M</sup> <sub>gt</sub> is computed as an ME of a diagonal matrix, which is formed by computing exactly the exponential of a floating point number and is assumed to be an accurate computation (up to <em>ϵ</em>-machine), and the multiplication with a random matrix with a small condition number (smaller than 2) is numerically stable <span class="cite">[<a href="#ref-33">33</a>]</span>. Therefore, while the matrix (<em>e</em><sup>M</sup> <sub>gt</sub> is not guaranteed to be exact, it is close enough to the ground truth for any applied purpose. The results of this analysis are shown in <a class="xref" href="#table-1">Table 1</a>.</p>
 <figure class="table-figure" id="table-1">
@@ -376,9 +357,10 @@
 <p><strong>Funding:</strong> This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors.</p>
 <p><strong>Data Availability Statement:</strong> All the data that were used were computed.</p>
 <p><strong>Conflicts of Interest:</strong> The authors have no conflicts of interest to declare that are relevant to the content of this article.</p>
-<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 12 March 2024 · Accepted 8 April 2024 · Published 11 April 2024</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>decision tree for a numerical algorithm</li><li>stiff matrix exponential</li><li>Putzer approximation</li></ul></dd></div></dl></section>
+<section id="article-notes" class="paper-notes" data-pagefind-ignore><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 12 March 2024 · Accepted 8 April 2024 · Published 11 April 2024</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>decision tree for a numerical algorithm</li><li>stiff matrix exponential</li><li>Putzer approximation</li></ul></dd></div></dl></section>
 <h2 id="references">References</h2>
-<ol class="paper-refs"><li id="ref-1">Dunn, S.M.; Constantinides, A.; Moghe, P.V. Chapter 7—Dynamic Systems: Ordinary Differential Equations. In Numerical Methods in Biomedical Engineering; Academic Press: Cambridge, MA, USA, 2006; pp. 209–287.</li>
+<ol class="paper-refs" data-pagefind-ignore>
+<li id="ref-1">Dunn, S.M.; Constantinides, A.; Moghe, P.V. Chapter 7—Dynamic Systems: Ordinary Differential Equations. In Numerical Methods in Biomedical Engineering; Academic Press: Cambridge, MA, USA, 2006; pp. 209–287.</li>
 <li id="ref-2">Van Loan, C. Computing integrals involving the matrix exponential. IEEE Trans. Autom. Control 1978, 23, 395–404. <a href="https://doi.org/10.1109/TAC.1978.1101743" target="_blank" rel="noopener">doi:10.1109/TAC.1978.1101743</a></li>
 <li id="ref-3">Al-Mohy, A.H.; Higham, N.J. Computing the Action of the Matrix Exponential, with an Application to Exponential Integrators. SIAM J. Sci. Comput. 2011, 33, 488–511. <a href="https://doi.org/10.1137/100788860" target="_blank" rel="noopener">doi:10.1137/100788860</a></li>
 <li id="ref-4">Aboanber, A.E.; Nahla, A.A.; El-Mhlawy, A.M.; Maher, O. An efficient exponential representation for solving the two-energy group point telegraph kinetics model. Ann. Nucl. Energy 2022, 166, 108698. <a href="https://doi.org/10.1016/j.anucene.2021.108698" target="_blank" rel="noopener">doi:10.1016/j.anucene.2021.108698</a></li>
@@ -426,8 +408,7 @@
 </ol>
 </div>
         
-        
-        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2024), <em>Mathematics</em>, <a href="https://doi.org/10.3390/math12081151" target="_blank" rel="noopener">doi:10.3390/math12081151</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+        <p class="paper-source" data-pagefind-ignore><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2024), <em>Mathematics</em>, <a href="https://doi.org/10.3390/math12081151" target="_blank" rel="noopener">doi:10.3390/math12081151</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
       </article>
     </div>
 
@@ -490,6 +471,7 @@
          </div>
       </footer>
       
+      <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
           // menu and navbar (js/main.js expects to sit at the site root)

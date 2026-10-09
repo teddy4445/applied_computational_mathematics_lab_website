@@ -142,9 +142,9 @@ A firm entity is defined by a tuple *𝑓* = (*𝜔, 𝜈,* P*, 𝑑*<sub>𝑡</
 
 The model has a synchronized clock. With each clock tick (marked by *𝑡*<sub>𝑖</sub> for the *𝑖*<sub>𝑡ℎ</sub> tic) the following three actions take place:
 
-- 1. The population of workers, *𝑊* , is moving heterogeneously for each individual on the graph according to Eq. (8).
-- 2. For each individual in the population, in a random order, Eq. (9) and a pair-wise infection interaction with other individuals allocated in the same node, *𝑣* ∈ *𝐺*, are performed.
-- 3. For each firm, *𝑓* ∈ *𝐹*, the firm decides how much product to generate and sell (and therefore to buy). The order of the computation is obtained once at the beginning of the simulation using a topological sort of the supply chains.
+1. The population of workers, *𝑊* , is moving heterogeneously for each individual on the graph according to Eq. (8).
+2. For each individual in the population, in a random order, Eq. (9) and a pair-wise infection interaction with other individuals allocated in the same node, *𝑣* ∈ *𝐺*, are performed.
+3. For each firm, *𝑓* ∈ *𝐹*, the firm decides how much product to generate and sell (and therefore to buy). The order of the computation is obtained once at the beginning of the simulation using a topological sort of the supply chains.
 
 ## 3. Results
 

@@ -185,7 +185,7 @@ Last, we must revisit Lipsky’s (2010) crucial insight, which remains relevant 
 
 ### Note
 
-- 1. The DoWhy causal framework is an open-source Python library for causal inference from observational data.
+1. The DoWhy causal framework is an open-source Python library for causal inference from observational data.
 
 ### Acknowledgments
 

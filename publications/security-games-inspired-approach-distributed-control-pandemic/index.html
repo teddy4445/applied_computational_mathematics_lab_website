@@ -133,10 +133,10 @@
     <header class="paper-hero">
       <div class="paper-wrap">
         <nav class="paper-crumbs" aria-label="Breadcrumb">
-          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Epidemiology</span>
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span data-pagefind-filter="Topic">Epidemiology</span>
         </nav>
         <p class="paper-kicker"><span><em>Advanced Theory and Simulations</em> · 2022</span></p>
-        <h1 class="paper-title">A Security Games Inspired Approach for Distributed Control of Pandemic Spread</h1>
+        <h1 class="paper-title" data-pagefind-meta="title" data-pagefind-filter="Year:2022">A Security Games Inspired Approach for Distributed Control of Pandemic Spread</h1>
         <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Ariel Alexi</a></span>, <span class="author">Ariel Rosenfeld</span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span></p>
         
         <div class="paper-actions">
@@ -151,10 +151,14 @@
       </div>
     </header>
 
-    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Once a pandemic starts, policymakers must control it over time and space. Taking inspiration from security games, we propose an intervention policy that strategically places inspection units on a graph representing the environment; the units sample people passing through, and those found infected are removed until they recover or die. Realistic simulations of Influenza A with synthetic and real-world data show potential significant benefits for mitigating spread, complementing measures such as social distancing and mask-wearing.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>We propose a pandemic intervention policy based on strategically deploying inspection units that sample individuals passing through nodes of a graph.</li><li>Sampled individuals identified as infected are extracted from the environment until they recover or die.</li><li>Simulations of Influenza A using synthetic and real-world data show potential significant benefits in mitigating pandemic spread.</li><li>The policy can complement standard policies such as social distancing and mask-wearing.</li></ul></div><figure class="glance-figure"><a href="#fig-3"><img src="figures/fig-3.webp" width="1379" height="1682" alt="Figure 3. A sensitivity analysis of the average reproduction number (E[Rt]) while using the optimal inspection units (IU) pandemic intervention policy. The results shown as mean ± standard deviation of n = 1000 repetitions."></a><figcaption><strong>Figure 3.</strong> A sensitivity analysis of the average reproduction number (<em>E</em>[<em>R</em><sub>t</sub>]) while using the optimal inspection units (IU) pandemic intervention policy. The results shown as mean ± standard deviation of <em>n</em> = 1000 repetitions. <a href="#fig-3">See it in the paper</a></figcaption></figure></div></div></section>
+    <section class="paper-glance" aria-labelledby="glance-title" data-pagefind-body><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Once a pandemic starts, policymakers must control it over time and space. Taking inspiration from security games, we propose an intervention policy that strategically places inspection units on a graph representing the environment; the units sample people passing through, and those found infected are removed until they recover or die. Realistic simulations of Influenza A with synthetic and real-world data show potential significant benefits for mitigating spread, complementing measures such as social distancing and mask-wearing.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>We propose a pandemic intervention policy based on strategically deploying inspection units that sample individuals passing through nodes of a graph.</li><li>Sampled individuals identified as infected are extracted from the environment until they recover or die.</li><li>Simulations of Influenza A using synthetic and real-world data show potential significant benefits in mitigating pandemic spread.</li><li>The policy can complement standard policies such as social distancing and mask-wearing.</li></ul></div><figure class="glance-figure"><a href="#fig-3"><img src="figures/fig-3.webp" width="1379" height="1682" alt="Figure 3. A sensitivity analysis of the average reproduction number (E[Rt]) while using the optimal inspection units (IU) pandemic intervention policy. The results shown as mean ± standard deviation of n = 1000 repetitions."></a><figcaption><strong>Figure 3.</strong> A sensitivity analysis of the average reproduction number (<em>E</em>[<em>R</em><sub>t</sub>]) while using the optimal inspection units (IU) pandemic intervention policy. The results shown as mean ± standard deviation of <em>n</em> = 1000 repetitions. <a href="#fig-3">See it in the paper</a></figcaption></figure></div></div></section>
 
     <div class="paper-wrap paper-layout">
       <aside class="paper-aside">
+        <form class="paper-search" action="/publications.html" method="get" role="search">
+          <label for="paper-q" class="aside-title">Search all our papers</label>
+          <div class="paper-search-box"><i class="ri-search-line" aria-hidden="true"></i><input id="paper-q" name="q" type="search" placeholder="e.g. Thompson sampling" autocomplete="off"></div>
+        </form>
         <nav class="paper-toc" aria-label="On this page">
           <p class="aside-title">On this page</p>
           <ol>
@@ -180,8 +184,8 @@
         </div>
       </aside>
 
-      <article class="paper-body" id="full-text">
-        <details class="paper-toc-mobile">
+      <article class="paper-body" id="full-text" data-pagefind-body>
+        <details class="paper-toc-mobile" data-pagefind-ignore>
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
@@ -201,9 +205,10 @@
           </ol>
         </details>
         <section id="abstract" class="paper-abstract">
-          <h2>Abstract</h2>
+          <h2 id="abstract-heading">Abstract</h2>
           <p>Pandemics are a source of extensive mortality, economic impairment, and dramatic social fluctuation. Once a pandemic occurs, policymakers are faced with the highly challenging task of controlling it over time and space. In this article, a novel pandemic intervention policy that relies on the strategic deployment of inspection units (IUs) is proposed. These IUs are allocated in the environment, represented as a graph, and sample individuals who pass through the same node. If a sampled individual is identified as infected, she is extracted from the environment until she recovers (or dies). A realistic simulation‐based evaluation of the Influenza A pathogen using both synthetic and real‐world data is provided. The results demonstrate potential significant benefits of the proposed PIP in mitigating a pandemic spread which can complement other standard policies such as social distancing and mask-wearing.</p>
         </section>
+        
         
 <div class="paper-text">
 <h2 id="1-introduction">1. Introduction</h2>
@@ -312,7 +317,8 @@
 <p>pandemic control, pandemic intervention policy, security games, spatio-temporal model</p>
 <p>Received: August 31, 2022 Revised: November 1, 2022 Published online: December 15, 2022</p>
 <h2 id="references">References</h2>
-<ol class="paper-refs"><li id="ref-1">R. Baber, Climacteric 2020, 23, 211.</li>
+<ol class="paper-refs" data-pagefind-ignore>
+<li id="ref-1">R. Baber, Climacteric 2020, 23, 211.</li>
 <li id="ref-2">E. A. Haddad, F. S. Perobelli, I. F. Araújo, K. S. S. Bugarin, Spat. Econ. Anal. 2021, 16, 252.</li>
 <li id="ref-3">A. Brodeur, D. Gray, A. Islam, S. Bhuiyan, J. Econ. Surv. 2021, 35, 1007.</li>
 <li id="ref-4">E. E. Team, Eurosurveillance 2020, 25, 200131e.</li>
@@ -420,8 +426,7 @@
 </ol>
 </div>
         
-        
-        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Alexi et al. (2022), <em>Advanced Theory and Simulations</em>, <a href="https://doi.org/10.1002/adts.202200631" target="_blank" rel="noopener">doi:10.1002/adts.202200631</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+        <p class="paper-source" data-pagefind-ignore><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Alexi et al. (2022), <em>Advanced Theory and Simulations</em>, <a href="https://doi.org/10.1002/adts.202200631" target="_blank" rel="noopener">doi:10.1002/adts.202200631</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
       </article>
     </div>
 
@@ -484,6 +489,7 @@
          </div>
       </footer>
       
+      <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
           // menu and navbar (js/main.js expects to sit at the site root)

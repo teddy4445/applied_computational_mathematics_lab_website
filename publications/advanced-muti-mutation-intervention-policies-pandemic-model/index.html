@@ -121,10 +121,10 @@
     <header class="paper-hero">
       <div class="paper-wrap">
         <nav class="paper-crumbs" aria-label="Breadcrumb">
-          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Epidemiology</span>
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span data-pagefind-filter="Topic">Epidemiology</span>
         </nav>
         <p class="paper-kicker"><span class="oa-badge"><i class="ri-lock-unlock-line" aria-hidden="true"></i>Open access</span><span><em>IEEE Access</em> · 2022</span></p>
-        <h1 class="paper-title">Advanced Muti-Mutation with Intervention Policies Pandemic Model</h1>
+        <h1 class="paper-title" data-pagefind-meta="title" data-pagefind-filter="Year:2022">Advanced Muti-Mutation with Intervention Policies Pandemic Model</h1>
         <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author">Gaddi Blumrosen</span></p>
         <details class="paper-affils"><summary>Affiliations</summary><ol><li value="1">Department of Cancer Biology, Cancer Institute, University College London, UK</li><li value="2">Department of Digital Medical Technologies, Holon Institute Of Technology, Israel</li><li value="3">Department of Computer Science, Holon Institute Of Technology, Israel</li></ol></details>
         <div class="paper-actions">
@@ -139,10 +139,14 @@
       </div>
     </header>
 
-    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Most pandemic models assume a single pathogen and ignore how mutations and policies such as vaccinations and lockdowns shape the data. We introduce SIVRI (Suspected-Infected-Vaccinated-Recovered-reInfected), a model that accounts for multiple pathogen mutations and intervention policies, with a new procedure for fitting it to data. On COVID-19 in Israel, covering four mutations, vaccination and lockdowns, SIVRI fit historical data accurately and outperformed SIRS and XGboost models in key predictions.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>SIVRI extends the SIRS model to incorporate knowledge about different pathogen mutations together with multiple intervention policies.</li><li>A new fitting procedure supports the complex social, epidemiological and clinical dynamics that occur during a pandemic.</li><li>On Israeli COVID-19 data with four mutations, SIVRI fit the historical data accurately.</li><li>SIVRI outperformed SIRS and XGboost in predicting the basic reproduction number, mortality rate and severely infected individuals rate.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1084" height="477" alt="Figure 1: A schematic view of the SIR, SEIR, SIS, and SIRS models."></a><figcaption>Figure 1: A schematic view of the <em>SIR</em>, <em>SEIR</em>, <em>SIS</em>, and <em>SIRS</em> models. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+    <section class="paper-glance" aria-labelledby="glance-title" data-pagefind-body><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Most pandemic models assume a single pathogen and ignore how mutations and policies such as vaccinations and lockdowns shape the data. We introduce SIVRI (Suspected-Infected-Vaccinated-Recovered-reInfected), a model that accounts for multiple pathogen mutations and intervention policies, with a new procedure for fitting it to data. On COVID-19 in Israel, covering four mutations, vaccination and lockdowns, SIVRI fit historical data accurately and outperformed SIRS and XGboost models in key predictions.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>SIVRI extends the SIRS model to incorporate knowledge about different pathogen mutations together with multiple intervention policies.</li><li>A new fitting procedure supports the complex social, epidemiological and clinical dynamics that occur during a pandemic.</li><li>On Israeli COVID-19 data with four mutations, SIVRI fit the historical data accurately.</li><li>SIVRI outperformed SIRS and XGboost in predicting the basic reproduction number, mortality rate and severely infected individuals rate.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1084" height="477" alt="Figure 1: A schematic view of the SIR, SEIR, SIS, and SIRS models."></a><figcaption>Figure 1: A schematic view of the <em>SIR</em>, <em>SEIR</em>, <em>SIS</em>, and <em>SIRS</em> models. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
 
     <div class="paper-wrap paper-layout">
       <aside class="paper-aside">
+        <form class="paper-search" action="/publications.html" method="get" role="search">
+          <label for="paper-q" class="aside-title">Search all our papers</label>
+          <div class="paper-search-box"><i class="ri-search-line" aria-hidden="true"></i><input id="paper-q" name="q" type="search" placeholder="e.g. Thompson sampling" autocomplete="off"></div>
+        </form>
         <nav class="paper-toc" aria-label="On this page">
           <p class="aside-title">On this page</p>
           <ol>
@@ -164,8 +168,8 @@
         </div>
       </aside>
 
-      <article class="paper-body" id="full-text">
-        <details class="paper-toc-mobile">
+      <article class="paper-body" id="full-text" data-pagefind-body>
+        <details class="paper-toc-mobile" data-pagefind-ignore>
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
@@ -181,9 +185,10 @@
           </ol>
         </details>
         <section id="abstract" class="paper-abstract">
-          <h2>Abstract</h2>
+          <h2 id="abstract-heading">Abstract</h2>
           <p>A pandemic is a threat to humanity with potentially millions of deaths worldwide. Epidemiological models can be used to better understand pandemic dynamics and assist policymakers in optimizing their Intervention Policies (IPs). Most existing epidemiological models assume, sometimes incorrectly, that a pandemic is caused by a single pathogen, ignoring pathogen mutations over time that result in different pathogen variants with different characteristics. In addition, the existing models do not incorporate the effect of IPs like vaccinations and lockdowns during the fitting phase. In this work, we introduce a new multi-mutation model called Suspected-Infected-Vaccinated-Recovered-reInfected (SIVRI). This model extends the SIRS model with adaptation to incorporate available knowledge related to the different pathogen mutations together with multiple IPs. In order to find the model parameters we propose a new fitting procedure that supports the complex social, epidemiological, and clinical dynamics that occur during a pandemic. We examine the suggested SIVRI model in comparison to the SIRS and XGboost models on the COVID-19 pandemic in Israel that includes four COVID-19 mutations, and the vaccination and lockdown IPs. We show that the proposed model can fit accurately to the historical data and outperform the existing models in predictions of basic reproduction number, mortality rate, and severely infected individuals rate.</p>
         </section>
+        
         
 <div class="paper-text">
 <h2 id="1-introduction">1 Introduction</h2>
@@ -369,9 +374,10 @@
 <p><sup><a href="#ref-2">2</a></sup>https://data.gov.il/dataset/covid-19</p>
 <p><sup><a href="#ref-3">3</a></sup>https://www.gov.il/en/</p>
 <p><sup><a href="#ref-4">4</a></sup>The original code can be found at https://github.com/dmlc/xgboost</p>
-<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Keywords</dt><dd><ul class="kw-list"><li>pandemic with mutations</li><li>agent-based model ﬁtting</li><li>biological-epidemiological model</li></ul></dd></div></dl></section>
+<section id="article-notes" class="paper-notes" data-pagefind-ignore><h2>Article notes</h2><dl><div><dt>Keywords</dt><dd><ul class="kw-list"><li>pandemic with mutations</li><li>agent-based model ﬁtting</li><li>biological-epidemiological model</li></ul></dd></div></dl></section>
 <h2 id="references">References</h2>
-<ol class="paper-refs"><li id="ref-1">A. A. Conti. “Historical and methodological highlights of quarantine measures: from ancient plague epidemics to current coronavirus disease (COVID-19) pandemic”. In: Acta bio-medica : Atenei Parmensis 91.2 (2020), pp. 226–229.</li>
+<ol class="paper-refs" data-pagefind-ignore>
+<li id="ref-1">A. A. Conti. “Historical and methodological highlights of quarantine measures: from ancient plague epidemics to current coronavirus disease (COVID-19) pandemic”. In: Acta bio-medica : Atenei Parmensis 91.2 (2020), pp. 226–229.</li>
 <li id="ref-2">H-F. Huo, Q. Yang, and H. Xiang. “Dynamics of an edge-based SEIR model for sexually transmitted diseases”. In: Mathematical Biosciences and Engineering 17 (2019), pp. 669–699.</li>
 <li id="ref-3">X. Wang, Z. Wang, and H. Shen. “Dynamical analysis of a discrete-time SIS epidemic model on complex networks”. In: Applied Mathematics Letters 94 (2019), pp. 292–299.</li>
 <li id="ref-4">I. Cooper, A. Mondal, and C. G. Antonopoulos. “A SIR model assumption for the spread of COVID-19 in different communities”. In: Chaos, Solitons Fractals 139 (2020), p. 110057.</li>
@@ -410,14 +416,14 @@
 <li id="ref-37">E. F. Arruda, S. S. Das, C. M. Dias, and D. H. Pastore. “Modelling and optimal control of multi strain epidemics, with application to COVID-19”. In: PLOS ONE 16.9 (2021), pp. 1–18.</li>
 <li id="ref-38">M. Fudolig and R. Howard. “The local stability of a modified multi-strain SIR model for emerging viral strains”. In: PLOS ONE 15.12 (2020), e0243408.</li>
 <li id="ref-39">M. Alim, G-H. Ye, P. Guan, D-S. Huang, B-S. Zhou, and W. Wu. “Comparison of ARIMA model and XGBoost model for prediction of human brucellosis in mainland China: a time-series study”. In: BMJ Open 10.12 (2020).</li>
-<li id="ref-40">L. R. Kolozsv´ari, T. B´erczes, A. Hajdu, R. Gesztelyi, A. Tiba, I. Varga, and J. Zsuga. “Predicting the epidemic curve of the coronavirus (SARS-CoV-2) disease (COVID-19) using artificial intelligence: An application on the first and second waves”. In: Informatics in Medicine Unlocked (2021).</li>
+<li id="ref-40">L. R. Kolozsvári, T. Bérczes, A. Hajdu, R. Gesztelyi, A. Tiba, I. Varga, and J. Zsuga. “Predicting the epidemic curve of the coronavirus (SARS-CoV-2) disease (COVID-19) using artificial intelligence: An application on the first and second waves”. In: Informatics in Medicine Unlocked (2021).</li>
 <li id="ref-41">A. Karthikeyan, A. Garg, P. K. Vinod, and U. D. Priyakumar. “Machine learning based clinical decision support system for early COVID-19 mortality prediction”. In: Frontiers in public health, 9 (2021).</li>
 <li id="ref-42">C. Tianqi and G. Carlos. “XGBoost: A Scalable Tree Boosting System”. In: Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining. Association for Computing Machinery, 2016, pp. 785–794.</li>
 <li id="ref-43">Y. Suzuki, A. Suzuki, S. Nakamura, T. Ishikawa, and A. Kinoshita. “Machine learning model estimating number of COVID-19 infection cases over coming 24 days in every province of South Korea (XGBoost and MultiOutputRegressor)”. In: medRxiv (2020).</li>
 <li id="ref-44">A. Casadevall. “Passive Antibody Administration (Immediate Immunity) as a Specific Defense Against Biological Weapons”. In: Emerg Infect Dis (2002).</li>
 <li id="ref-45">S. S. Chaves, G. Fischer, J. Groeger, P. R. Patel, N. D. Thompson, E. H. Teshale, K. Stevenson, V. M. Yano, G. L. Armstrong, T. Samandari, S. Kamili, and D. J. Drobeniuc J. Hu. “Persistence of long-term immunity to hepatitis B among adolescents immunized at birth”. In: Vaccine 30.9 (2012), pp. 1644–1649.</li>
 <li id="ref-46">E. Papachristodoulou, L. Kakoullis, K. Parperis, and G. Panos. “Long-term and herd immunity against SARS-CoV-2: implications from current and past knowledge”. In: Pathogens and Disease 78 (2020).</li>
-<li id="ref-47">M. Koblischke, M.T. Traugott, I. Medits, F.S. Spitzer, A. Zoufaly, L. Weseslindtner, C. Simonitsch, T. Seitz, W. Hoepler, E. Puchhammer-St¨ockl, S.W. Aberle, M. F¨odinger, A. Bergthaler, M. Kundi, F.X. Heinz, K. Stiasny, and J.H. Aberle. “Dynamics of CD4 T cell and antibody responses in COVID-19 patients with different disease severity”. In: Frontiers in medicine (2020).</li>
+<li id="ref-47">M. Koblischke, M.T. Traugott, I. Medits, F.S. Spitzer, A. Zoufaly, L. Weseslindtner, C. Simonitsch, T. Seitz, W. Hoepler, E. Puchhammer-Stöckl, S.W. Aberle, M. Födinger, A. Bergthaler, M. Kundi, F.X. Heinz, K. Stiasny, and J.H. Aberle. “Dynamics of CD4 T cell and antibody responses in COVID-19 patients with different disease severity”. In: Frontiers in medicine (2020).</li>
 <li id="ref-48">R. J. Cox and K. A. Brokstad. “Not just antibodies: B cells and T cells mediate immunity to COVID-19”. In: Nature Reviews Immunology 20 (2020), pp. 581–582.</li>
 <li id="ref-49">D. A. Winer, S. Winder, L. Shen, P. P. Wadia, J. Yantha, G. Paltser, H. Tsui, P. Wu, M. G. Davidson, M. N. Alonso, H. X. Leong, A. Glassford, M. Caimol, J. A. Kenkel, T. F. Tedder, T. McLaughlin, D. B. Miklos, H-M. Dosch, and E. G. Engleman. “B-cells promote insulin resistance through modulation of T cells and production of pathogenic IgG antibodies”. In: Nature Medicine 17 (2011), pp. 610–617.</li>
 <li id="ref-50">M. Hellerstein. “What are the roles of antibodies versus a durable, high quality T-cell response in protective immunity against SARS-CoV-2?” In: Vaccine (2020).</li>
@@ -456,8 +462,7 @@
 </ol>
 </div>
         
-        
-        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2022), <em>IEEE Access</em>, <a href="https://doi.org/10.1109/ACCESS.2022.3149956" target="_blank" rel="noopener">doi:10.1109/ACCESS.2022.3149956</a>, under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY 4.0</a> licence. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+        <p class="paper-source" data-pagefind-ignore><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2022), <em>IEEE Access</em>, <a href="https://doi.org/10.1109/ACCESS.2022.3149956" target="_blank" rel="noopener">doi:10.1109/ACCESS.2022.3149956</a>, under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY 4.0</a> licence. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
       </article>
     </div>
 
@@ -518,6 +523,7 @@
          </div>
       </footer>
       
+      <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
           // menu and navbar (js/main.js expects to sit at the site root)

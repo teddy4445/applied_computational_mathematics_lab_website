@@ -1,6 +1,6 @@
 ## 1 Introduction and related work
 
-Bladder Cancer (BC) is the seventh most common cancer worldwide. It is estimated that around 400,000 new cases are diagnosed annually and 150,000 people die directly from BC every year [1]. Bacillus Calmette–Gu´erin (BCG) has been used to treat non-invasive BC for more than 40 years [2]. It is one of the most successful biotherapies for cancer in use. Despite long clinical experience with BCG, the mechanism of its therapeutic effect is still under investigation. BCG-immunotherapy has proven to reduce both recurrence and progression of BC and, therefore, represents an important tool in the treatment of BC. BCG treatment protocols differ mainly by the amount of the injected dosage, the injection rate, and the schedule of the treatment [3].
+Bladder Cancer (BC) is the seventh most common cancer worldwide. It is estimated that around 400,000 new cases are diagnosed annually and 150,000 people die directly from BC every year [1]. Bacillus Calmette–Guérin (BCG) has been used to treat non-invasive BC for more than 40 years [2]. It is one of the most successful biotherapies for cancer in use. Despite long clinical experience with BCG, the mechanism of its therapeutic effect is still under investigation. BCG-immunotherapy has proven to reduce both recurrence and progression of BC and, therefore, represents an important tool in the treatment of BC. BCG treatment protocols differ mainly by the amount of the injected dosage, the injection rate, and the schedule of the treatment [3].
 
 Mathematical modeling of biological processes in general and medical processes in particular is an active field of study. The benefit gained from describing a system using mathematical modeling is the ability to analyze and understand it better by using only theoretical analysis, which decreases the need for clinical experiments to further understand the system in question [4]. Several mathematical models that describe the interactions of the immune system with tumor cells based on ODE are [5-11]. Study of the bladder cancer using mathematical modeling has been researched in the past from different angles [12-15].
 
@@ -214,7 +214,7 @@ This study develops a numerical method for the stability analysis of PDE’s sol
 ## References
 
 1. Jemal A., Bray F., Center M. M., Ferlay J., Ward E., Forman D., Global Cancer Statistics, CA:A Cancer J. for Clinicians 61, 2011, 69–90.
-2. Morales A., Eidinger D., Bruce A.W., Intracavity Bacillus Calmette- Gu´erin in the treatment of superficial bladder tumors, J. Urol., 116, 1976, 180-183.
+2. Morales A., Eidinger D., Bruce A.W., Intracavity Bacillus Calmette- Guérin in the treatment of superficial bladder tumors, J. Urol., 116, 1976, 180-183.
 3. Guzev E., Halachmi S., Bunimovich-Mendrazitsky S., Additional extension of the mathematical model for BCG immunotherapy of bladder cancer and its validation by auxiliary tool, International Journal Of Nonlinear Sciences And Numerical Simulation, 2019.
 4. Byrne, H.M., Dissecting cancer through mathematics: from the cell to the animal model, Nature Reviews Cancer, Vol. 10(3), 2010, 221-230.
 5. Kuznetsov V.A., Makalkin I.A., Taylor M.A., Perelson A.S., Nonlinear dynamics of immunogenic tumours: parameter estimation and global bifurcation analysis, Bull. Math. Biol. 56, 1994, 295–321.
@@ -230,4 +230,4 @@ This study develops a numerical method for the stability analysis of PDE’s sol
 15. Shaikhet L., Bunimovich-Mendrazitsky S., Stability analysis of delayed immune response BCG infection in bladder cancer treatment model by stochastic perturbations, Computational And Mathematical Methods In Medicine, 2018.
 16. Bunimovich-Mendrazitsky S., Shochat E., Stone L., Mathematical model of BCG immunotherapy in superficial bladder cancer. Bull. Math. Biol. 69(6), 2007, 1847-1870.
 17. Skeel, R. D., Berzins M., A Method for the Spatial Discretization of Parabolic Equations in One Space Variable, SIAM Journal on Scientific and Statistical Computing, Vol. 11, 1990, 1–32. 20 T. Lazebnik, S. Yanetz, S. Bunimovich-Mendrazitsky, N. Aaroni
-18. Bj¨orck, ˚A., Numerical Methods for Least Squares Problems, SIAM Journal on Scientific and Statistical Computing, Book OT51, 1996.
+18. Björck, Å., Numerical Methods for Least Squares Problems, SIAM Journal on Scientific and Statistical Computing, Book OT51, 1996.

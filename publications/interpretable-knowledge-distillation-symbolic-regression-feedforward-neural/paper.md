@@ -172,7 +172,7 @@ To qualitatively illustrate the interpretability of the proposed neuron-level sy
 
 As a reference, we first train a single symbolic regressor directly on the input features to predict bike rental demand. The resulting simplified symbolic expression is:
 
-<div class="equation" id="eq-1"><img src="figures/eq-1.webp" width="512" height="29" alt="ˆy = 0.74 · atemp −weathersit_3 + yr_1 −0.56, (1)" loading="lazy" decoding="async"></div>
+<div class="equation" id="eq-1"><img src="figures/eq-1.webp" width="512" height="29" alt="ŷ = 0.74 · atemp −weathersit_3 + yr_1 −0.56, (1)" loading="lazy" decoding="async"></div>
 
 where atemp denotes apparent temperature, weathersit\_3 indicates adverse weather conditions, and yr\_1 denotes the second year of data.
 

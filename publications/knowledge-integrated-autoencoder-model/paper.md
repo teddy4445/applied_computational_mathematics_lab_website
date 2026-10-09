@@ -75,11 +75,11 @@ Specifically, to test out KiAE on data from these scientific fields, we used thr
 
 To define *𝑀*<sub>𝑇</sub> for each dataset, we integrated the following knowledge:
 
-- 1. The distance between a sample to itself is *𝛼*<sub>𝑖𝑖</sub> = 0, by definition.
-- 2. Samples of the same category are closer to one another than to samples from a different category. Therefore, the distance between two samples of the same category is randomly sampled from a uniform distribution between *𝛼*<sub>1</sub> and *𝛼*<sub>2</sub>. We arbitrarily chose *𝛼*<sub>1</sub> = 0 and *𝛼*<sub>2</sub> = 1.
-- 3. The distance between sample *𝑖* and sample *𝑗*, which are from two different groups, *𝑥* and *𝑦* respectively, are randomly sampled from a uniform distribution between *𝛾*<sub>𝑥𝑦</sub> and *𝛾*<sub>𝑥𝑦</sub> + 1, such that ∀*𝑥, 𝑦* ∶ *𝛾*<sub>𝑥𝑦</sub> *> 𝛼*<sub>2</sub>. The order of *𝛾*<sub>𝑥𝑦</sub> is determined per dataset as it reflects the domain-specific knowledge of relative distances between the categories of the data.
-- 4. In the economic and physics datasets the order of *𝛾*<sub>𝑖𝑗</sub> between each pair of categories is set to *𝛾*<sub>𝑖𝑗</sub> = 1. In the biology dataset, as Chimpanzees (group 1) are closest to Macaca mulattas (group 2), we set *𝛾*<sub>12</sub> = 1. As humans (group 3) are more similar to Chimpanzees than to Macaca mulattas, we set *𝛾*<sub>13</sub> = 2 and *𝛾*<sub>23</sub> = 3.
-- 5. For the Noisy KiAE, the matrix *𝑀*<sub>𝑇</sub> is filled with values ranging between 0 and 1 at random with a uniform distribution.
+1. The distance between a sample to itself is *𝛼*<sub>𝑖𝑖</sub> = 0, by definition.
+2. Samples of the same category are closer to one another than to samples from a different category. Therefore, the distance between two samples of the same category is randomly sampled from a uniform distribution between *𝛼*<sub>1</sub> and *𝛼*<sub>2</sub>. We arbitrarily chose *𝛼*<sub>1</sub> = 0 and *𝛼*<sub>2</sub> = 1.
+3. The distance between sample *𝑖* and sample *𝑗*, which are from two different groups, *𝑥* and *𝑦* respectively, are randomly sampled from a uniform distribution between *𝛾*<sub>𝑥𝑦</sub> and *𝛾*<sub>𝑥𝑦</sub> + 1, such that ∀*𝑥, 𝑦* ∶ *𝛾*<sub>𝑥𝑦</sub> *> 𝛼*<sub>2</sub>. The order of *𝛾*<sub>𝑥𝑦</sub> is determined per dataset as it reflects the domain-specific knowledge of relative distances between the categories of the data.
+4. In the economic and physics datasets the order of *𝛾*<sub>𝑖𝑗</sub> between each pair of categories is set to *𝛾*<sub>𝑖𝑗</sub> = 1. In the biology dataset, as Chimpanzees (group 1) are closest to Macaca mulattas (group 2), we set *𝛾*<sub>12</sub> = 1. As humans (group 3) are more similar to Chimpanzees than to Macaca mulattas, we set *𝛾*<sub>13</sub> = 2 and *𝛾*<sub>23</sub> = 3.
+5. For the Noisy KiAE, the matrix *𝑀*<sub>𝑇</sub> is filled with values ranging between 0 and 1 at random with a uniform distribution.
 
 Of note, with this approach, we were able to use classification data previously tagged by experts during the creation of these datasets to approximate a domain expert’s knowledge without any actual knowledge of these domains. In a more realistic scenario, more precise domain knowledge will define the distances in *𝑀*<sub>𝑇</sub>. Moreover, such configuration produces a full *𝑀*<sub>𝑇</sub> which does not require the usage of the partial distance regressor component.
 

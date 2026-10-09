@@ -144,10 +144,10 @@
     <header class="paper-hero">
       <div class="paper-wrap">
         <nav class="paper-crumbs" aria-label="Breadcrumb">
-          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Machine Learning</span>
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span data-pagefind-filter="Topic">Machine Learning</span>
         </nav>
         <p class="paper-kicker"><span class="oa-badge"><i class="ri-lock-unlock-line" aria-hidden="true"></i>Open access</span><span><em>Scientific Reports</em> · 2025</span></p>
-        <h1 class="paper-title is-long">Global lightning-ignited wildfires prediction and climate change projections based on explainable machine learning models</h1>
+        <h1 class="paper-title is-long" data-pagefind-meta="title" data-pagefind-filter="Year:2025">Global lightning-ignited wildfires prediction and climate change projections based on explainable machine learning models</h1>
         <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Assaf Shmuel</a></span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author">Oren Glickman</span>, <span class="author">Eyal Heifetz</span>, <span class="author">Colin Price</span></p>
         <details class="paper-affils"><summary>Affiliations</summary><ol><li value="1">Department of Computer Science, Bar Ilan University, Ramat Gan, Israel.</li><li value="2">Department of Mathematics, Ariel University, Ariel, Israel.</li><li value="3">Department of Cancer Biology, Cancer Institute, University College London, London, UK.</li><li value="4">Porter School of the Environment and Earth Sciences, Tel Aviv University, Tel Aviv, Israel. *email: assafshmuel91@gmail.com</li></ol></details>
         <div class="paper-actions">
@@ -162,10 +162,14 @@
       </div>
     </header>
 
-    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Lightning-ignited wildfires are less frequent than human-caused ones but account for the majority of burned areas in some regions, and existing prediction models are usually region-specific. We built global machine learning models that tell lightning-ignited from human-caused fires and estimate the probability that lightning ignites a fire from factors such as weather and vegetation. We found significant differences between the two fire types and that, within less than a decade, climate change has steadily raised the global risk of lightning-ignited fires.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>The models classify lightning-ignited versus anthropogenic wildfires and estimate with high accuracy the probability that lightning ignites a fire.</li><li>Explainable AI frameworks were used to analyze how features such as meteorological conditions and vegetation influence the models.</li><li>We found significant global differences between anthropogenic and lightning-ignited wildfires.</li><li>Even over less than a decade, climate change has steadily increased the global risk of lightning-ignited wildfires.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1798" height="1331" alt="Fig. 1. A Pearson correlation matrix between the source features and themselves and between the source features and the target feature."></a><figcaption><strong>Fig. 1</strong>. A Pearson correlation matrix between the source features and themselves and between the source features and the target feature. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+    <section class="paper-glance" aria-labelledby="glance-title" data-pagefind-body><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Lightning-ignited wildfires are less frequent than human-caused ones but account for the majority of burned areas in some regions, and existing prediction models are usually region-specific. We built global machine learning models that tell lightning-ignited from human-caused fires and estimate the probability that lightning ignites a fire from factors such as weather and vegetation. We found significant differences between the two fire types and that, within less than a decade, climate change has steadily raised the global risk of lightning-ignited fires.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>The models classify lightning-ignited versus anthropogenic wildfires and estimate with high accuracy the probability that lightning ignites a fire.</li><li>Explainable AI frameworks were used to analyze how features such as meteorological conditions and vegetation influence the models.</li><li>We found significant global differences between anthropogenic and lightning-ignited wildfires.</li><li>Even over less than a decade, climate change has steadily increased the global risk of lightning-ignited wildfires.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1798" height="1331" alt="Fig. 1. A Pearson correlation matrix between the source features and themselves and between the source features and the target feature."></a><figcaption><strong>Fig. 1</strong>. A Pearson correlation matrix between the source features and themselves and between the source features and the target feature. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
 
     <div class="paper-wrap paper-layout">
       <aside class="paper-aside">
+        <form class="paper-search" action="/publications.html" method="get" role="search">
+          <label for="paper-q" class="aside-title">Search all our papers</label>
+          <div class="paper-search-box"><i class="ri-search-line" aria-hidden="true"></i><input id="paper-q" name="q" type="search" placeholder="e.g. Thompson sampling" autocomplete="off"></div>
+        </form>
         <nav class="paper-toc" aria-label="On this page">
           <p class="aside-title">On this page</p>
           <ol>
@@ -183,8 +187,8 @@
         </div>
       </aside>
 
-      <article class="paper-body" id="full-text">
-        <details class="paper-toc-mobile">
+      <article class="paper-body" id="full-text" data-pagefind-body>
+        <details class="paper-toc-mobile" data-pagefind-ignore>
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
@@ -196,9 +200,10 @@
           </ol>
         </details>
         <section id="abstract" class="paper-abstract">
-          <h2>Abstract</h2>
+          <h2 id="abstract-heading">Abstract</h2>
           <p>Wildfires pose a significant natural disaster risk to populations and contribute to accelerated climate change. As wildfires are also affected by climate change, extreme wildfires are becoming increasingly frequent. Although they occur less frequently globally than those sparked by human activities, lightning-ignited wildfires play a substantial role in carbon emissions and account for the majority of burned areas in certain regions. While existing computational models, especially those based on machine learning, aim to predict lightning-ignited wildfires, they are typically tailored to specific regions with unique characteristics, limiting their global applicability. In this study, we present machine learning models designed to characterize and predict lightning-ignited wildfires on a global scale. Our approach involves classifying lightning-ignited versus anthropogenic wildfires, and estimating with high accuracy the probability of lightning to ignite a fire based on a wide spectrum of factors such as meteorological conditions and vegetation. Utilizing these models, we analyze seasonal and spatial trends in lightning-ignited wildfires shedding light on the impact of climate change on this phenomenon. We analyze the influence of various features on the models using eXplainable Artificial Intelligence (XAI) frameworks. Our findings highlight significant global differences between anthropogenic and lightning-ignited wildfires. Moreover, we demonstrate that, even over a short time span of less than a decade, climate changes have steadily increased the global risk of lightning-ignited wildfires. This distinction underscores the imperative need for dedicated predictive models and fire weather indices tailored specifically to each type of wildfire.</p>
         </section>
+        
         
 <div class="paper-text">
 <p>Wildfires are among the most hazardous natural disasters on Earth. Although studies have found a decrease in global burned areas due to anthropogenic activity<sup><a href="#ref-1">1</a></sup>, the frequency of extratropical lightning-ignited wildfires appears to be on the rise as the Earth’s climate changes<sup><a href="#ref-2">2</a></sup>. For example, the frequency of extreme lightning-ignited wildfires has drastically increased in California in the last decades<sup><a href="#ref-3">3</a></sup>. Lightning is the main cause for wildfire activity in high latitudes both in terms of wildfire occurrence and in terms of burned areas<sup><a href="#ref-4">4</a></sup>. This trend is of considerable concern, as extratropical forests are responsible for a substantial portion of carbon emissions. Lightning-ignited wildfires differ from anthropogenic wildfires in several aspects; for example, lightning-ignited wildfires tend to ignite in remote locations in which firefighters have difficulty extinguishing them before they evolve into extreme dimensions. These fires also tend to ignite in clusters<sup><a href="#ref-5">5</a></sup> while forest managers are less likely to fight these fires if they are not impacting settlements and infrastructures. While recent studies have developed machine learning (ML) models to predict wildfires on a global scale<sup><a href="#ref-6">6</a></sup>, the different nature of lightning-ignited wildfires requires dedicated models to predict and analyze them separately.</p>
@@ -301,7 +306,8 @@
 <p>The datasets generated during and/or analyzed during the current study are available from the corresponding author upon reasonable request.</p>
 <p>Received: 23 January 2024; Accepted: 25 February 2025</p>
 <h2 id="references">References</h2>
-<ol class="paper-refs"><li id="ref-1">Andela, N. et al. A human-driven decline in global burned area. Science 356(6345), 1356–1362 (2017).</li>
+<ol class="paper-refs" data-pagefind-ignore>
+<li id="ref-1">Andela, N. et al. A human-driven decline in global burned area. Science 356(6345), 1356–1362 (2017).</li>
 <li id="ref-2">Janssen, T. A. et al. Extratropical forests increasingly at risk due to lightning fires. Nat. Geosci. 16, 1136–1144 (2023).</li>
 <li id="ref-3">Li, S. &amp; Banerjee, T. Spatial and temporal pattern of wildfires in California from 2000 to 2019. Sci. Rep. 11(1), 8779 (2021).</li>
 <li id="ref-4">Hanes, C. C. et al. Fire-regime changes in Canada over the last half century. Can. J. For. Res. 49(3), 256–269 (2019).</li>
@@ -355,8 +361,7 @@
 </ol>
 </div>
         
-        
-        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Shmuel et al. (2025), <em>Scientific Reports</em>, <a href="https://doi.org/10.1038/s41598-025-92171-w" target="_blank" rel="noopener">doi:10.1038/s41598-025-92171-w</a>, under the <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="license noopener">CC BY-NC</a> licence. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+        <p class="paper-source" data-pagefind-ignore><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Shmuel et al. (2025), <em>Scientific Reports</em>, <a href="https://doi.org/10.1038/s41598-025-92171-w" target="_blank" rel="noopener">doi:10.1038/s41598-025-92171-w</a>, under the <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="license noopener">CC BY-NC</a> licence. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
       </article>
     </div>
 
@@ -419,6 +424,7 @@
          </div>
       </footer>
       
+      <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
           // menu and navbar (js/main.js expects to sit at the site root)

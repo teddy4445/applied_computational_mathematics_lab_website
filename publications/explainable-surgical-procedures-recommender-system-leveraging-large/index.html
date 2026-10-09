@@ -123,10 +123,10 @@
     <header class="paper-hero">
       <div class="paper-wrap">
         <nav class="paper-crumbs" aria-label="Breadcrumb">
-          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Machine Learning</span>
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span data-pagefind-filter="Topic">Machine Learning</span>
         </nav>
         <p class="paper-kicker"><span><em>ACM Transactions on Recommender Systems</em> · 2025</span></p>
-        <h1 class="paper-title">Explainable Surgical Procedures Recommender System Leveraging Large Language Models</h1>
+        <h1 class="paper-title" data-pagefind-meta="title" data-pagefind-filter="Year:2025">Explainable Surgical Procedures Recommender System Leveraging Large Language Models</h1>
         <p class="paper-authors"><span class="author">Adir Solomon</span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Maxim Glebov</a></span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span></p>
         <details class="paper-affils"><summary>Affiliations</summary><ol><li value="2">Department of Information Systems, University of Haifa, Haifa, Israel and Department of Computing, Jonkoping University, Jonkoping, Sweden</li></ol></details>
         <div class="paper-actions">
@@ -141,10 +141,14 @@
       </div>
     </header>
 
-    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Recommender systems usually suggest items to users, while large language models (LLMs) handle text tasks such as translation and summarization. We combined the two to suggest suitable surgical procedures for patients, using several LLMs to represent and enrich clinical text written in a morphologically rich language and to explain each recommendation. Tested on real-world clinical data and in an experiment with clinicians, the approach showed high performance and improved explanations.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Integrating recommender system models with recent LLMs can effectively suggest appropriate surgical procedures for patients.</li><li>The LLMs served three roles: representing clinical information, enriching it, and explaining the recommender system&#x27;s surgical procedure suggestions.</li><li>The method was evaluated on real-world clinical data, taking into account patients&#x27; demographic attributes and health conditions.</li><li>An extensive experiment with several clinicians assessed explainability, and the results indicated high performance and improved explanations.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="862" height="902" alt="Fig. 1. Overview of Phase 1 used for enriching information on the surgical procedure and representing patients’ medical records."></a><figcaption>Fig. 1. Overview of Phase 1 used for enriching information on the surgical procedure and representing patients’ medical records. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+    <section class="paper-glance" aria-labelledby="glance-title" data-pagefind-body><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Recommender systems usually suggest items to users, while large language models (LLMs) handle text tasks such as translation and summarization. We combined the two to suggest suitable surgical procedures for patients, using several LLMs to represent and enrich clinical text written in a morphologically rich language and to explain each recommendation. Tested on real-world clinical data and in an experiment with clinicians, the approach showed high performance and improved explanations.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Integrating recommender system models with recent LLMs can effectively suggest appropriate surgical procedures for patients.</li><li>The LLMs served three roles: representing clinical information, enriching it, and explaining the recommender system&#x27;s surgical procedure suggestions.</li><li>The method was evaluated on real-world clinical data, taking into account patients&#x27; demographic attributes and health conditions.</li><li>An extensive experiment with several clinicians assessed explainability, and the results indicated high performance and improved explanations.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="862" height="902" alt="Fig. 1. Overview of Phase 1 used for enriching information on the surgical procedure and representing patients’ medical records."></a><figcaption>Fig. 1. Overview of Phase 1 used for enriching information on the surgical procedure and representing patients’ medical records. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
 
     <div class="paper-wrap paper-layout">
       <aside class="paper-aside">
+        <form class="paper-search" action="/publications.html" method="get" role="search">
+          <label for="paper-q" class="aside-title">Search all our papers</label>
+          <div class="paper-search-box"><i class="ri-search-line" aria-hidden="true"></i><input id="paper-q" name="q" type="search" placeholder="e.g. Thompson sampling" autocomplete="off"></div>
+        </form>
         <nav class="paper-toc" aria-label="On this page">
           <p class="aside-title">On this page</p>
           <ol>
@@ -168,8 +172,8 @@
         </div>
       </aside>
 
-      <article class="paper-body" id="full-text">
-        <details class="paper-toc-mobile">
+      <article class="paper-body" id="full-text" data-pagefind-body>
+        <details class="paper-toc-mobile" data-pagefind-ignore>
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
@@ -187,9 +191,10 @@
           </ol>
         </details>
         <section id="abstract" class="paper-abstract">
-          <h2>Abstract</h2>
+          <h2 id="abstract-heading">Abstract</h2>
           <p>Significant advancements have recently been made in the fields of recommender systems and natural language processing, particularly with large language models (LLMs). In most cases, recommender systems have been used to suggest items and enhance personalization for users, while LLMs have been applied to textual tasks such as text completion, translation, and summarization. In this study, we demonstrate that integrating recommender system models with recent LLMs can effectively suggest appropriate surgical procedures for patients. We employ several LLMs to process clinical text in a morphologically rich language, serving three crucial roles: information representation, information enrichment, and explaining the surgical procedure suggestions made by the recommender system. Our method was evaluated using real-world clinical data, considering patients’ demographic attributes and health conditions. To assess the explainability of our method, we conducted an extensive experiment involving several clinicians. The results achieved by our method indicate that using recommender systems and LLMs can lead to high performance and improved explanations. Our study has the potential to enhance the personalization of healthcare and could be adopted by health services to assist healthcare professionals in recommending appropriate surgical procedures.</p>
         </section>
+        
         
 <div class="paper-text">
 <h2 id="1-introduction">1 Introduction</h2>
@@ -435,31 +440,29 @@
 <h2 id="a-appendix-s-examples-of-generated-explanations">A Appendix ś Examples of Generated Explanations</h2>
 <p>To further contextualize the evaluation of explanation quality, we provide two illustrative examples from our dataset. The irst example received high ratings from the clinical experts, with average scores of 4.3 for accuracy, 3.3 for clarity, 2.3 for comprehensiveness, and 4.6 for ease of understanding (see Section 5.3). This explanation was perceived as clinically relevant, well-organized, and informative:</p>
 <p>Okay, doctor, let’s get straight to the key points for this TKR case:</p>
-<ul>
-<li>
 <ol>
 <li>Medical Indications:</li>
 </ol>
-</li>
+<ul>
 <li>Severe Knee Osteoarthritis: Signiicant pain, limited mobility, and radiographic evidence of end-stage OA in both knees (left prioritized).</li>
 <li>Failure of Conservative Treatment: Implied by the severity of symptoms despite likely prior nonoperative measures.</li>
 <li>Improved Quality of Life: Addressing pain and restoring function is crucial for this active patient.</li>
 <li>Oncology Clearance: Required and obtained.</li>
-<li>
+</ul>
 <ol start="2">
 <li>Preoperative Preparation (Key Steps):</li>
 </ol>
-</li>
+<ul>
 <li>Medical Evaluation: Comprehensive history, physical (musculoskeletal, cardiac), oncology and anesthesia consultations. Address slightly reduced LVEF and potential myocardial issues.</li>
 <li>Investigations: Standard bloodwork, ECG, recent chest imaging, recent knee X-rays. Cardiology likely ordered.</li>
 <li>Medication Management: Speciic oncology instructions for holding/resuming Entrectinib. Manage cardiac medications (Triteace, Amlodipine). Assess need for DVT/VTE prophylaxis.</li>
 <li>Patient Education: Discuss procedure, risks, benefits, recovery, and obtain informed consent.</li>
 <li>Optimization: Consider pre-hab PT, nutritional support (high protein recommended), address potential anemia.</li>
-<li>
+</ul>
 <ol start="3">
 <li>Surgical Procedure (Concise Steps):</li>
 </ol>
-</li>
+<ul>
 <li>Anesthesia (general or regional).</li>
 <li>Positioning, prepping, tourniquet.</li>
 <li>Anterior knee incision.</li>
@@ -470,11 +473,11 @@
 <li>Closure of layers, potential drain.</li>
 <li>Sterile dressing.</li>
 <li>Key Intraoperative Considerations: Infection risk (underlying cancer), potential for fragile bones, careful cardiovascular monitoring, gentle tissue handling.</li>
-<li>
+</ul>
 <ol start="4">
 <li>Postoperative Care (Key Guidelines &amp; Potential Complications):</li>
 </ol>
-</li>
+<ul>
 <li>Immediate: Pain control (multimodal), wound care (monitor for infection), early mobilization (PT starts day 1), DVT/VTE prophylaxis (pharmacological &amp; mechanical), pulmonary hygiene, monitor vitals. Resume Entrectinib per oncology.</li>
 <li>Rehabilitation (Outpatient PT): Focus on range of motion, strengthening, gait training, functional activities.</li>
 <li>Medication Management: Continue pain meds, DVT prophylaxis, resume pre-op meds (including Entrectinib, cardiac meds).</li>
@@ -483,36 +486,30 @@
 <p>28 • A. Solomon et al.</p>
 <ul>
 <li>Potential Complications (Focus on High-Risk): Infection (higher risk due to cancer), DVT/PE, periprosthetic fracture (if falls), implant loosening (long-term), stiffness, cardiovascular events (due to history).</li>
-<li>
+</ul>
 <ol start="5">
 <li>Expected Outcomes and Recovery:</li>
 </ol>
-</li>
+<ul>
 <li>Expected Outcomes: Signiicant pain relief, improved mobility and function, enhanced quality of life. Aim to allow return to activities (lecturing).</li>
 <li>Typical Recovery: Hospital: 3-7 days. Early Rehab (6 weeks): Pain/swelling control, initial ROM and strength. Intermediate (6-12 weeks): Continued strengthening, improved gait. Late (3-12 months): Max functional recovery. Full benefit up to 1 year. Prognosis Note: Knee function improvement is likely, but overall long-term prognosis also depends on her lung cancer management. Close collaboration is key.</li>
 </ul>
 <p>In contrast, the following example was rated lower, with average scores of 3 for accuracy, 2.6 for clarity, 1.6 for comprehensiveness, and 4.3 for ease of understanding. While factually grounded, it was perceived as less coherent and less accessible in structure and tone:</p>
 <p>Okay, for this 79-year-old male with a right-sided CSDH:</p>
-<ul>
-<li>
 <ol>
 <li>Medical Indications: Symptomatic right CSDH causing worsening dizziness, new left-sided weakness, and midline shift seen on CT.</li>
-</ol>
-</li>
-<li>
-<ol start="2">
 <li>Preoperative Preparation:</li>
 </ol>
-</li>
+<ul>
 <li>Detailed neuro exam, review current CT showing right CSDH with mass effect.</li>
 <li>Standard blood tests (CBC, electrolytes, coagulation), blood type and screen (crossmatch ordered). ECG due to age and hypertension.</li>
 <li>Discuss surgery benefits, risks (bleeding, infection, recurrence, new deficits), and obtain informed consent.</li>
 <li>NPO for at least 8 hours. Administer prophylactic antibiotics. Clip hair at surgical site. Position supine, head turned slightly left, secured. General anesthesia planned. Review home medications (Atorvastatin, Bisoprolol, Dutasteride, Methotrexate, Prednisone, Serenada), likely continue Bisoprolol, discuss others with anesthesia.</li>
-<li>
+</ul>
 <ol start="3">
 <li>Surgical Procedure (Burr Hole Evacuation of Right CSDH):</li>
 </ol>
-</li>
+<ul>
 <li>Sterile skin prep and draping on the right side of the head.</li>
 <li>Make one or two small incisions over the maximal hematoma collection.</li>
 <li>Elevate periosteum, create burr hole(s) through the skull.</li>
@@ -520,11 +517,11 @@
 <li>Gently evacuate the dark, viscous hematoma luid via gravity, irrigation with saline, and/or gentle suction. Irrigate to remove remaining clots.</li>
 <li>A soft subdural drain is likely placed in the cavity.</li>
 <li>Close periosteum and skin with sutures or staples. Apply sterile dressing.</li>
-<li>
+</ul>
 <ol start="4">
 <li>Postoperative Care:</li>
 </ol>
-</li>
+<ul>
 <li>Frequent neurological checks (consciousness, pupils, strength). Monitor vital signs. Manage pain.</li>
 <li>Monitor drain output (amount, color); remove typically in 24-72 hours. Keep incision clean and dry, watch for infection.</li>
 <li>Encourage early mobilization with physical therapy. Consider DVT prophylaxis.</li>
@@ -543,7 +540,8 @@
 <p><sup><a href="#ref-4">4</a></sup>All clinicians hold a medical łexpertž title according to the Israeli ranking system.</p>
 <p><sup><a href="#ref-5">5</a></sup>https://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassiier.html</p>
 <h2 id="references">References</h2>
-<ol class="paper-refs"><li id="ref-1">Pegah Malekpour Alamdari, Nima Jafari Navimipour, Mehdi Hosseinzadeh, Ali Asghar Safaei, and Aso Darwesh. 2020. A systematic study on the recommender systems in the E-commerce. Ieee Access 8 (2020), 115694ś115716.</li>
+<ol class="paper-refs" data-pagefind-ignore>
+<li id="ref-1">Pegah Malekpour Alamdari, Nima Jafari Navimipour, Mehdi Hosseinzadeh, Ali Asghar Safaei, and Aso Darwesh. 2020. A systematic study on the recommender systems in the E-commerce. Ieee Access 8 (2020), 115694ś115716.</li>
 <li id="ref-2">I. Arawjo, C. Swoopes, P. Vaithilingam, M. Wattenberg, and E. L. Glassman. 2024. ChainForge: A Visual Toolkit for Prompt Engineering and LLM Hypothesis Testing. In Proceedings of the CHI Conference on Human Factors in Computing Systems. Association for Computing Machinery.</li>
 <li id="ref-3">Alejandro Ariza-Casabona, Ludovico Boratto, and Maria Salamó. 2024. A Comparative Analysis of Text-Based Explainable Recommender Systems. In Proceedings of the 18th ACM Conference on Recommender Systems. 105ś115.</li>
 <li id="ref-4">Quinlan D Buchlak, Nazanin Esmaili, Jean-Christophe Leveque, Farrokh Farrokhi, Christine Bennett, Massimo Piccardi, and Rajiv K Sethi. 2020. Machine learning applications to clinical decision support in neurosurgery: an artiicial intelligence augmented systematic review. Neurosurgical review 43 (2020), 1235ś1253.</li>
@@ -654,8 +652,7 @@
 </ol>
 </div>
         
-        
-        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Solomon et al. (2025), <em>ACM Transactions on Recommender Systems</em>, <a href="https://doi.org/10.1145/3767326" target="_blank" rel="noopener">doi:10.1145/3767326</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+        <p class="paper-source" data-pagefind-ignore><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Solomon et al. (2025), <em>ACM Transactions on Recommender Systems</em>, <a href="https://doi.org/10.1145/3767326" target="_blank" rel="noopener">doi:10.1145/3767326</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
       </article>
     </div>
 
@@ -716,6 +713,7 @@
          </div>
       </footer>
       
+      <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
           // menu and navbar (js/main.js expects to sit at the site root)

@@ -130,10 +130,10 @@
     <header class="paper-hero">
       <div class="paper-wrap">
         <nav class="paper-crumbs" aria-label="Breadcrumb">
-          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Biomathematics</span>
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span data-pagefind-filter="Topic">Biomathematics</span>
         </nav>
         <p class="paper-kicker"><span class="oa-badge"><i class="ri-lock-unlock-line" aria-hidden="true"></i>Open access</span><span><em>Plos One</em> · 10 May 2023</span></p>
-        <h1 class="paper-title">Collective evolution learning model for vision-based collective motion with collision avoidance</h1>
+        <h1 class="paper-title" data-pagefind-meta="title" data-pagefind-filter="Year:2023">Collective evolution learning model for vision-based collective motion with collision avoidance</h1>
         <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Ariel Alexi</a></span></p>
         
         <div class="paper-actions">
@@ -148,10 +148,14 @@
       </div>
     </header>
 
-    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Animal groups such as fish schools, bird flocks and locust swarms move together while avoiding collisions, guided by senses such as vision. We propose a vision-based model in which each agent learns, by trial and error over many attempts, to move with its neighbors and avoid collisions, so that group-wide collective motion emerges. We evaluated it on locust swarms, showing how these swarm behaviors can evolve from the learning of individuals.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>We propose VCMCA, a vision-based model of collective motion with collision avoidance that simulates a collective evolution learning process.</li><li>Each agent learns local collective motion with collision avoidance from visual input through trial and error over multiple attempts.</li><li>Locally learned behaviors give rise to global collective motion with collision avoidance across the group.</li><li>Evaluated on locust swarms, the model shows these behaviors evolving from the learning process of individuals.</li></ul></div><figure class="glance-figure"><a href="#fig-2"><img src="figures/fig-2.webp" width="1526" height="833" alt="Fig 2. A schematic view of the vision sensing mechanism of an agent. The computation is presented for a single focal agent but performed symmetrically for all the agents in the population. (a) Spatial view from a single agent’s point of view. (b) Computation interaction from a single agent’s point of view."></a><figcaption><strong>Fig 2. A schematic view of the vision sensing mechanism of an agent.</strong> The computation is presented for a single focal agent but performed symmetrically for all the agents in the population. (a) Spatial view from a single agent’s point of view. (b) Computation interaction from a single agent’s point of view. <a href="#fig-2">See it in the paper</a></figcaption></figure></div></div></section>
+    <section class="paper-glance" aria-labelledby="glance-title" data-pagefind-body><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Animal groups such as fish schools, bird flocks and locust swarms move together while avoiding collisions, guided by senses such as vision. We propose a vision-based model in which each agent learns, by trial and error over many attempts, to move with its neighbors and avoid collisions, so that group-wide collective motion emerges. We evaluated it on locust swarms, showing how these swarm behaviors can evolve from the learning of individuals.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>We propose VCMCA, a vision-based model of collective motion with collision avoidance that simulates a collective evolution learning process.</li><li>Each agent learns local collective motion with collision avoidance from visual input through trial and error over multiple attempts.</li><li>Locally learned behaviors give rise to global collective motion with collision avoidance across the group.</li><li>Evaluated on locust swarms, the model shows these behaviors evolving from the learning process of individuals.</li></ul></div><figure class="glance-figure"><a href="#fig-2"><img src="figures/fig-2.webp" width="1526" height="833" alt="Fig 2. A schematic view of the vision sensing mechanism of an agent. The computation is presented for a single focal agent but performed symmetrically for all the agents in the population. (a) Spatial view from a single agent’s point of view. (b) Computation interaction from a single agent’s point of view."></a><figcaption><strong>Fig 2. A schematic view of the vision sensing mechanism of an agent.</strong> The computation is presented for a single focal agent but performed symmetrically for all the agents in the population. (a) Spatial view from a single agent’s point of view. (b) Computation interaction from a single agent’s point of view. <a href="#fig-2">See it in the paper</a></figcaption></figure></div></div></section>
 
     <div class="paper-wrap paper-layout">
       <aside class="paper-aside">
+        <form class="paper-search" action="/publications.html" method="get" role="search">
+          <label for="paper-q" class="aside-title">Search all our papers</label>
+          <div class="paper-search-box"><i class="ri-search-line" aria-hidden="true"></i><input id="paper-q" name="q" type="search" placeholder="e.g. Thompson sampling" autocomplete="off"></div>
+        </form>
         <nav class="paper-toc" aria-label="On this page">
           <p class="aside-title">On this page</p>
           <ol>
@@ -174,8 +178,8 @@
         </div>
       </aside>
 
-      <article class="paper-body" id="full-text">
-        <details class="paper-toc-mobile">
+      <article class="paper-body" id="full-text" data-pagefind-body>
+        <details class="paper-toc-mobile" data-pagefind-ignore>
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
@@ -192,9 +196,10 @@
           </ol>
         </details>
         <section id="abstract" class="paper-abstract">
-          <h2>Abstract</h2>
+          <h2 id="abstract-heading">Abstract</h2>
           <p>Collective motion (CM) takes many forms in nature; schools of fish, flocks of birds, and swarms of locusts to name a few. Commonly, during CM the individuals of the group avoid collisions. These CM and collision avoidance (CA) behaviors are based on input from the environment such as smell, air pressure, and vision, all of which are processed by the individual and defined action. In this work, a novel vision-based CM with CA model (i.e., VCMCA) simulating the collective evolution learning process is proposed. In this setting, a learning agent obtains a visual signal about its environment, and throughout trial-and-error over multiple attempts, the individual learns to perform a local CM with CA which emerges into a global CM with CA dynamics. The proposed algorithm was evaluated in the case of locusts’ swarms, showing the evolution of these behaviors in a swarm from the learning process of the individual in the swarm. Thus, this work proposes a biologically-inspired learning process to obtain multi-agent multi-objective dynamics.</p>
         </section>
+        
         
 <div class="paper-text">
 <h2 id="1-introduction">1 Introduction</h2>
@@ -390,9 +395,10 @@
 <p><strong>Visualization:</strong> Teddy Lazebnik.</p>
 <p><strong>Writing – original draft:</strong> David L. Krongauz, Teddy Lazebnik.</p>
 <p><strong>Writing – review &amp; editing:</strong> David L. Krongauz, Teddy Lazebnik.</p>
-<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 6 June 2022 · Accepted 9 March 2023 · Published 10 May 2023</dd></div><div><dt>Funding</dt><dd>The authors received no specific funding for this work. The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.</dd></div><div><dt>Competing interests</dt><dd>The authors have declared that no competing interests exist.</dd></div><div><dt>Data availability</dt><dd>All relevant data are within the paper and its Supporting information files.</dd></div></dl></section>
+<section id="article-notes" class="paper-notes" data-pagefind-ignore><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 6 June 2022 · Accepted 9 March 2023 · Published 10 May 2023</dd></div><div><dt>Funding</dt><dd>The authors received no specific funding for this work. The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.</dd></div><div><dt>Competing interests</dt><dd>The authors have declared that no competing interests exist.</dd></div><div><dt>Data availability</dt><dd>All relevant data are within the paper and its Supporting information files.</dd></div></dl></section>
 <h2 id="references">References</h2>
-<ol class="paper-refs"><li id="ref-1">Chate H, Ginelli F, Peruani F, Raynaud F. Modeling collective motion: variations on the Vicsek model. The European Physical Journal B. 2008; 64:451–456. <a href="https://doi.org/10.1140/epjb/e2008-00275-9" target="_blank" rel="noopener">doi:10.1140/epjb/e2008-00275-9</a></li>
+<ol class="paper-refs" data-pagefind-ignore>
+<li id="ref-1">Chate H, Ginelli F, Peruani F, Raynaud F. Modeling collective motion: variations on the Vicsek model. The European Physical Journal B. 2008; 64:451–456. <a href="https://doi.org/10.1140/epjb/e2008-00275-9" target="_blank" rel="noopener">doi:10.1140/epjb/e2008-00275-9</a></li>
 <li id="ref-2">Baglietto G, Albano EV. Nature of the order-disorder transition in the Vicsek model for the collective motion of self-propelled particles. Physical Review E. 2009; 80:050103. <a href="https://doi.org/10.1103/PhysRevE.80.050103" target="_blank" rel="noopener">doi:10.1103/PhysRevE.80.050103</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/20364937/" target="_blank" rel="noopener">PubMed 20364937</a></li>
 <li id="ref-3">Deutsch A, Theraulaz G, Vicsek T. Collective motion in biological systems. Interface Focus. 2012; 2 (6):050103. <a href="https://doi.org/10.1098/rsfs.2012.0048" target="_blank" rel="noopener">doi:10.1098/rsfs.2012.0048</a></li>
 <li id="ref-4">Warren WH. Collective Motion in Human Crowds. Current Directions in Psychological Science. 2018; 27(4):232–240. <a href="https://doi.org/10.1177/0963721417746743" target="_blank" rel="noopener">doi:10.1177/0963721417746743</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/30197472/" target="_blank" rel="noopener">PubMed 30197472</a></li>
@@ -434,7 +440,7 @@
 <li id="ref-40">Lemasson BH, Anderson JJ, Goodwin RA. Collective motion in animal groups from a neurobiological perspective: The adaptive benefits of dynamic sensory loads and selective attention. Journal of Theoretical Biology. 2009; 261(4):501–510. <a href="https://doi.org/10.1016/j.jtbi.2009.08.013" target="_blank" rel="noopener">doi:10.1016/j.jtbi.2009.08.013</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/19699212/" target="_blank" rel="noopener">PubMed 19699212</a></li>
 <li id="ref-41">Lemasson BH, Anderson JJ, Goodwin RA. Motion-guided attention promotes adaptive communications during social navigation. Proceedings of the Royal Society B: Biological Sciences. 2013; 280 (1754):20122003. <a href="https://doi.org/10.1098/rspb.2012.2003" target="_blank" rel="noopener">doi:10.1098/rspb.2012.2003</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/23325772/" target="_blank" rel="noopener">PubMed 23325772</a></li>
 <li id="ref-42">Strandburg-Peshkin A, Twomey CR, Bode NWF, Kao AB, Katz Y, Ioannou CC, et al. Visual sensory networks and effective information transfer in animal groups. Current Biology. 2013; 23(17):R709– R711. <a href="https://doi.org/10.1016/j.cub.2013.07.059" target="_blank" rel="noopener">doi:10.1016/j.cub.2013.07.059</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/24028946/" target="_blank" rel="noopener">PubMed 24028946</a></li>
-<li id="ref-43">Collignon B, Se´guret A, Halloy J. A stochastic vision-based model inspired by zebrafish collective behaviour in heterogeneous environments. Royal Society open science. 2016; 3(1):150473. <a href="https://doi.org/10.1098/rsos.150473" target="_blank" rel="noopener">doi:10.1098/rsos.150473</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/26909173/" target="_blank" rel="noopener">PubMed 26909173</a></li>
+<li id="ref-43">Collignon B, Séguret A, Halloy J. A stochastic vision-based model inspired by zebrafish collective behaviour in heterogeneous environments. Royal Society open science. 2016; 3(1):150473. <a href="https://doi.org/10.1098/rsos.150473" target="_blank" rel="noopener">doi:10.1098/rsos.150473</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/26909173/" target="_blank" rel="noopener">PubMed 26909173</a></li>
 <li id="ref-44">Bastien R, Romanczuk P. A model of collective behavior based purely on vision. Science advances. 2020; 6(6). <a href="https://doi.org/10.1126/sciadv.aay0792" target="_blank" rel="noopener">doi:10.1126/sciadv.aay0792</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/32076645/" target="_blank" rel="noopener">PubMed 32076645</a></li>
 <li id="ref-45">Qi J, Bai L, Xiao Y, Wei Y, Wu W. The emergence of collective obstacle avoidance based on a visual perception mechanism. Information Sciences. 2022; 582:850–864. <a href="https://doi.org/10.1016/j.ins.2021.10.039" target="_blank" rel="noopener">doi:10.1016/j.ins.2021.10.039</a></li>
 <li id="ref-46">Durve M, Peruani F, Celani A. Learning to flock through reinforcement. Physical Review E. 2020; 102:012601. <a href="https://doi.org/10.1103/PhysRevE.102.012601" target="_blank" rel="noopener">doi:10.1103/PhysRevE.102.012601</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/32794942/" target="_blank" rel="noopener">PubMed 32794942</a></li>
@@ -471,8 +477,7 @@
 </ol>
 </div>
         
-        
-        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2023), <em>Plos One</em>, <a href="https://doi.org/10.1371/journal.pone.0270318" target="_blank" rel="noopener">doi:10.1371/journal.pone.0270318</a>, under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY</a> licence. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+        <p class="paper-source" data-pagefind-ignore><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2023), <em>Plos One</em>, <a href="https://doi.org/10.1371/journal.pone.0270318" target="_blank" rel="noopener">doi:10.1371/journal.pone.0270318</a>, under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY</a> licence. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
       </article>
     </div>
 
@@ -536,6 +541,7 @@
          </div>
       </footer>
       
+      <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
           // menu and navbar (js/main.js expects to sit at the site root)

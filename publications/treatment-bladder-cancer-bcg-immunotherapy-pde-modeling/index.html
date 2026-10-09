@@ -123,10 +123,10 @@
     <header class="paper-hero">
       <div class="paper-wrap">
         <nav class="paper-crumbs" aria-label="Breadcrumb">
-          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Biomathematics</span>
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span data-pagefind-filter="Topic">Biomathematics</span>
         </nav>
         <p class="paper-kicker"><span><em>Functional Differential Equations</em> · 2019</span></p>
-        <h1 class="paper-title">Treatment of Bladder Cancer Using BCG Immunotherapy: PDE Modeling</h1>
+        <h1 class="paper-title" data-pagefind-meta="title" data-pagefind-filter="Year:2019">Treatment of Bladder Cancer Using BCG Immunotherapy: PDE Modeling</h1>
         <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author">Shlomo Yanetz</span>, <span class="author">Svetlana Bunimovich-Mendrazitsky</span>, <span class="author">and Niva Aaroni</span></p>
         
         <div class="paper-actions">
@@ -141,10 +141,14 @@
       </div>
     </header>
 
-    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">BCG immunotherapy is an established treatment for superficial bladder cancer. We developed a first mathematical model that uses partial differential equations to describe how the tumor and the immune system interact in the bladder during BCG therapy, taking the bladder&#x27;s shape into account. Analyzing the model&#x27;s equilibrium points and their stability shows which treatments can lead to a tumor-free state, and that the intensity of immunotherapy must be kept within limited bounds.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>A first partial differential equation model of tumor-immune interactions in the bladder during BCG therapy that considers the bladder&#x27;s geometry.</li><li>The analysis identifies multiple equilibrium points and their stability, showing which treatments can lead to a tumor-free equilibrium.</li><li>Parameters were estimated and the model validated with published in vitro, mouse and human data.</li><li>The intensity of immunotherapy must be kept within limited bounds.</li></ul></div><figure class="glance-figure"><a href="#fig-2"><img src="figures/fig-2.webp" width="875" height="573" alt="Figure 2: Cell population over time."></a><figcaption>Figure 2: Cell population over time. <a href="#fig-2">See it in the paper</a></figcaption></figure></div></div></section>
+    <section class="paper-glance" aria-labelledby="glance-title" data-pagefind-body><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">BCG immunotherapy is an established treatment for superficial bladder cancer. We developed a first mathematical model that uses partial differential equations to describe how the tumor and the immune system interact in the bladder during BCG therapy, taking the bladder&#x27;s shape into account. Analyzing the model&#x27;s equilibrium points and their stability shows which treatments can lead to a tumor-free state, and that the intensity of immunotherapy must be kept within limited bounds.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>A first partial differential equation model of tumor-immune interactions in the bladder during BCG therapy that considers the bladder&#x27;s geometry.</li><li>The analysis identifies multiple equilibrium points and their stability, showing which treatments can lead to a tumor-free equilibrium.</li><li>Parameters were estimated and the model validated with published in vitro, mouse and human data.</li><li>The intensity of immunotherapy must be kept within limited bounds.</li></ul></div><figure class="glance-figure"><a href="#fig-2"><img src="figures/fig-2.webp" width="875" height="573" alt="Figure 2: Cell population over time."></a><figcaption>Figure 2: Cell population over time. <a href="#fig-2">See it in the paper</a></figcaption></figure></div></div></section>
 
     <div class="paper-wrap paper-layout">
       <aside class="paper-aside">
+        <form class="paper-search" action="/publications.html" method="get" role="search">
+          <label for="paper-q" class="aside-title">Search all our papers</label>
+          <div class="paper-search-box"><i class="ri-search-line" aria-hidden="true"></i><input id="paper-q" name="q" type="search" placeholder="e.g. Thompson sampling" autocomplete="off"></div>
+        </form>
         <nav class="paper-toc" aria-label="On this page">
           <p class="aside-title">On this page</p>
           <ol>
@@ -164,8 +168,8 @@
         </div>
       </aside>
 
-      <article class="paper-body" id="full-text">
-        <details class="paper-toc-mobile">
+      <article class="paper-body" id="full-text" data-pagefind-body>
+        <details class="paper-toc-mobile" data-pagefind-ignore>
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
@@ -179,13 +183,14 @@
           </ol>
         </details>
         <section id="abstract" class="paper-abstract">
-          <h2>Abstract</h2>
+          <h2 id="abstract-heading">Abstract</h2>
           <p>Immunotherapy with Bacillus Calmette-Guérin (BCG) – an attenuated strain of Mycobacterium bovis (M. bovis) used for antituberculosis immunization – is a clinically established procedure for the treatment of superficial bladder cancer. Bunimovich-Mendrazitsky et al. studied the role of BCG immunotherapy in bladder cancer dynamics in a system of nonlinear ODEs. The purpose of this paper is to develop a first mathematical model that uses PDEs to describe tumor-immune interactions in the bladder as a result of BCG therapy considering the geometrical configuration of the human bladder. A mathematical analysis of the BCG as a PDE model identifies multiple equilibrium points, and their stability properties are identified so that treatment that has potential to result in a tumor-free equilibrium can be determined. Estimating parameters and validating the model using published data are taken from in vitro, mouse and human studies. The model makes clear that intensity of immunotherapy must be kept within limited bounds. We use numerical analysis methods to find the solution of the PDE describing the tumor-immune interaction; in particular, analysis of the solution’s stability for a given parameters is presented using Computer Vision methodologies.</p>
         </section>
         
+        
 <div class="paper-text">
 <h2 id="1-introduction-and-related-work">1 Introduction and related work</h2>
-<p>Bladder Cancer (BC) is the seventh most common cancer worldwide. It is estimated that around 400,000 new cases are diagnosed annually and 150,000 people die directly from BC every year <span class="cite">[<a href="#ref-1">1</a>]</span>. Bacillus Calmette–Gu´erin (BCG) has been used to treat non-invasive BC for more than 40 years <span class="cite">[<a href="#ref-2">2</a>]</span>. It is one of the most successful biotherapies for cancer in use. Despite long clinical experience with BCG, the mechanism of its therapeutic effect is still under investigation. BCG-immunotherapy has proven to reduce both recurrence and progression of BC and, therefore, represents an important tool in the treatment of BC. BCG treatment protocols differ mainly by the amount of the injected dosage, the injection rate, and the schedule of the treatment <span class="cite">[<a href="#ref-3">3</a>]</span>.</p>
+<p>Bladder Cancer (BC) is the seventh most common cancer worldwide. It is estimated that around 400,000 new cases are diagnosed annually and 150,000 people die directly from BC every year <span class="cite">[<a href="#ref-1">1</a>]</span>. Bacillus Calmette–Guérin (BCG) has been used to treat non-invasive BC for more than 40 years <span class="cite">[<a href="#ref-2">2</a>]</span>. It is one of the most successful biotherapies for cancer in use. Despite long clinical experience with BCG, the mechanism of its therapeutic effect is still under investigation. BCG-immunotherapy has proven to reduce both recurrence and progression of BC and, therefore, represents an important tool in the treatment of BC. BCG treatment protocols differ mainly by the amount of the injected dosage, the injection rate, and the schedule of the treatment <span class="cite">[<a href="#ref-3">3</a>]</span>.</p>
 <p>Mathematical modeling of biological processes in general and medical processes in particular is an active field of study. The benefit gained from describing a system using mathematical modeling is the ability to analyze and understand it better by using only theoretical analysis, which decreases the need for clinical experiments to further understand the system in question <span class="cite">[<a href="#ref-4">4</a>]</span>. Several mathematical models that describe the interactions of the immune system with tumor cells based on ODE are <span class="cite">[<a href="#ref-5">5</a>-<a href="#ref-11">11</a>]</span>. Study of the bladder cancer using mathematical modeling has been researched in the past from different angles <span class="cite">[<a href="#ref-12">12</a>-<a href="#ref-15">15</a>]</span>.</p>
 <p>One of the models was invented by Bunimovich-Mendrazitsky et al. <span class="cite">[<a href="#ref-16">16</a>]</span>. Their model assumed continuous BCG instillation and allowing both exponential and logistic growth for tumor cells inside the bladder. They studied the equilibria when the stability and analysis of the system’s bifurcation was the main focus. It was found that bistability excises so that a treatment may result in the tumor-free equilibrium or high-tumor state, depending on the initial tumor size reflected by the cancer cell count. The equations describe a balance between a high dosage which <strong>caused</strong> the patient to suffer from side effects and too little dosage caused inefficient treatment.</p>
 <p>The mathematical model proposed by Bunimovich - Mendrazitsky et al. <span class="cite">[<a href="#ref-16">16</a>]</span> is as follows:</p>
@@ -337,10 +342,11 @@
 <p>On the other hand, after five weeks of treatment, the delta between the models converges to a constant for each population function (<em>E, B, T</em><sub>i</sub><em>, T</em><sub>u</sub>) and basically indicates a complete linear correlation between the ODE and PDE models (<em>R</em><sup><a href="#ref-2">2</a></sup> <em>→</em> 1).</p>
 <p>The difference between the models is initially associated with the introduction of the geometry reflected in the diffusion coefficients introduced into the dynamics of the system. In fact, from the very beginning there is a disagreement between the models: for PDE there is diffusion dynamics, and for ODE there is an instant reaction to the introduction of BCG. After diffusion spreads throughout the space, it behaves like an instantaneous response, and therefore the ODE and PDE models ultimately work identically, as can be seen from the calculation of the delta between the models.</p>
 <p>This study develops a numerical method for the stability analysis of PDE’s solutions of a mathematical model with pulsed BCG immunotherapy based on well-known algorithms from the field of computer vision. We can make few clinical conclusions based on analysis of function (20): 1) BCG injected with a rate smaller then sixty thousand cells almost does not have an effect. 2) In the case of bladder cancer when there are 10 percent or less cancer cells from the overall population and BCG is injected at a rate of eighty thousand cells then the cancer can be cured in ninety percent of the cases for a treatment that is given between eight and ten weeks. 3) There is a strong linear correlation between the amount of BCG injected and the time of the treatment in the successful cases when the cancer’s cell population is around five percent of the overall cell population at the beginning of the treatment.</p>
-<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Keywords</dt><dd><ul class="kw-list"><li>Numerical Analysis</li><li>PDE’s solution stability</li><li>PDE’s param- eters’ sensitivity analysis</li><li>34A34</li><li>35A25</li><li>35A30</li><li>65M60</li><li>68W25. ∗Bar-Ilan University</li><li>Dept. of Mathematics †Ariel University</li><li>Dept. of Mathematics</li></ul></dd></div></dl></section>
+<section id="article-notes" class="paper-notes" data-pagefind-ignore><h2>Article notes</h2><dl><div><dt>Keywords</dt><dd><ul class="kw-list"><li>Numerical Analysis</li><li>PDE’s solution stability</li><li>PDE’s param- eters’ sensitivity analysis</li><li>34A34</li><li>35A25</li><li>35A30</li><li>65M60</li><li>68W25. ∗Bar-Ilan University</li><li>Dept. of Mathematics †Ariel University</li><li>Dept. of Mathematics</li></ul></dd></div></dl></section>
 <h2 id="references">References</h2>
-<ol class="paper-refs"><li id="ref-1">Jemal A., Bray F., Center M. M., Ferlay J., Ward E., Forman D., Global Cancer Statistics, CA:A Cancer J. for Clinicians 61, 2011, 69–90.</li>
-<li id="ref-2">Morales A., Eidinger D., Bruce A.W., Intracavity Bacillus Calmette- Gu´erin in the treatment of superficial bladder tumors, J. Urol., 116, 1976, 180-183.</li>
+<ol class="paper-refs" data-pagefind-ignore>
+<li id="ref-1">Jemal A., Bray F., Center M. M., Ferlay J., Ward E., Forman D., Global Cancer Statistics, CA:A Cancer J. for Clinicians 61, 2011, 69–90.</li>
+<li id="ref-2">Morales A., Eidinger D., Bruce A.W., Intracavity Bacillus Calmette- Guérin in the treatment of superficial bladder tumors, J. Urol., 116, 1976, 180-183.</li>
 <li id="ref-3">Guzev E., Halachmi S., Bunimovich-Mendrazitsky S., Additional extension of the mathematical model for BCG immunotherapy of bladder cancer and its validation by auxiliary tool, International Journal Of Nonlinear Sciences And Numerical Simulation, 2019.</li>
 <li id="ref-4">Byrne, H.M., Dissecting cancer through mathematics: from the cell to the animal model, Nature Reviews Cancer, Vol. 10(3), 2010, 221-230.</li>
 <li id="ref-5">Kuznetsov V.A., Makalkin I.A., Taylor M.A., Perelson A.S., Nonlinear dynamics of immunogenic tumours: parameter estimation and global bifurcation analysis, Bull. Math. Biol. 56, 1994, 295–321.</li>
@@ -356,12 +362,11 @@
 <li id="ref-15">Shaikhet L., Bunimovich-Mendrazitsky S., Stability analysis of delayed immune response BCG infection in bladder cancer treatment model by stochastic perturbations, Computational And Mathematical Methods In Medicine, 2018.</li>
 <li id="ref-16">Bunimovich-Mendrazitsky S., Shochat E., Stone L., Mathematical model of BCG immunotherapy in superficial bladder cancer. Bull. Math. Biol. 69(6), 2007, 1847-1870.</li>
 <li id="ref-17">Skeel, R. D., Berzins M., A Method for the Spatial Discretization of Parabolic Equations in One Space Variable, SIAM Journal on Scientific and Statistical Computing, Vol. 11, 1990, 1–32. 20 T. Lazebnik, S. Yanetz, S. Bunimovich-Mendrazitsky, N. Aaroni</li>
-<li id="ref-18">Bj¨orck, ˚A., Numerical Methods for Least Squares Problems, SIAM Journal on Scientific and Statistical Computing, Book OT51, 1996.</li>
+<li id="ref-18">Björck, Å., Numerical Methods for Least Squares Problems, SIAM Journal on Scientific and Statistical Computing, Book OT51, 1996.</li>
 </ol>
 </div>
         
-        
-        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2019), <em>Functional Differential Equations</em>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+        <p class="paper-source" data-pagefind-ignore><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2019), <em>Functional Differential Equations</em>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
       </article>
     </div>
 
@@ -421,6 +426,7 @@
          </div>
       </footer>
       
+      <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
           // menu and navbar (js/main.js expects to sit at the site root)

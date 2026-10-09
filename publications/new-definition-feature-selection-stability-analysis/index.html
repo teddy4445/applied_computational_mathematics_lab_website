@@ -121,10 +121,10 @@
     <header class="paper-hero">
       <div class="paper-wrap">
         <nav class="paper-crumbs" aria-label="Breadcrumb">
-          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Machine Learning</span>
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span data-pagefind-filter="Topic">Machine Learning</span>
         </nav>
         <p class="paper-kicker"><span class="oa-badge"><i class="ri-lock-unlock-line" aria-hidden="true"></i>Open access</span><span><em>Annals of Mathematics and Artificial Intelligence</em> · 2024</span></p>
-        <h1 class="paper-title">A new definition for feature selection stability analysis</h1>
+        <h1 class="paper-title" data-pagefind-meta="title" data-pagefind-filter="Year:2024">A new definition for feature selection stability analysis</h1>
         <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author">Avi Rosenfeld</span></p>
         <details class="paper-affils"><summary>Affiliations</summary><ol><li value="1">Department of Mathematics, Ariel University, Ariel, Israel</li><li value="2">Department of Cancer Biology, Cancer Institute, University College London, London, UK</li></ol></details>
         <div class="paper-actions">
@@ -139,10 +139,14 @@
       </div>
     </header>
 
-    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Feature selection stability, whether a method keeps choosing the same input variables, helps build reliable machine learning models that are less prone to overfitting and adversarial attacks. We show that existing stability metrics miss key aspects of many datasets, such as resilience to data drift or unevenly distributed missing values, and propose a new definition inspired by Lyapunov stability from dynamical systems. On 90 datasets, the new definition was statistically different from classical record-stability.</p><div class=glance-stats><div class="stat"><span class="stat-value">90</span><span class="stat-label">datasets used to compare stability definitions</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Existing feature selection stability metrics fail to quantify resilience to data drift or non-uniformly distributed missing values.</li><li>We propose a new stability definition inspired by Lyapunov stability in dynamic systems.</li><li>On 90 datasets, the proposed definition was statistically different from the classical record-stability.</li><li>We describe three scenarios, each best suited to one of the three stability metrics considered.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1221" height="342" alt="Fig. 1 A schematic view of the synthetic datasets generation process for the three experiments. Panel (a) stands for the concept drift case; panel (b) stands for the missing values case; and panel (c) stands for supervised feature selection case"></a><figcaption><strong>Fig. 1</strong> A schematic view of the synthetic datasets generation process for the three experiments. Panel (a) stands for the concept drift case; panel (b) stands for the missing values case; and panel (c) stands for supervised feature selection case <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+    <section class="paper-glance" aria-labelledby="glance-title" data-pagefind-body><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Feature selection stability, whether a method keeps choosing the same input variables, helps build reliable machine learning models that are less prone to overfitting and adversarial attacks. We show that existing stability metrics miss key aspects of many datasets, such as resilience to data drift or unevenly distributed missing values, and propose a new definition inspired by Lyapunov stability from dynamical systems. On 90 datasets, the new definition was statistically different from classical record-stability.</p><div class=glance-stats><div class="stat"><span class="stat-value">90</span><span class="stat-label">datasets used to compare stability definitions</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Existing feature selection stability metrics fail to quantify resilience to data drift or non-uniformly distributed missing values.</li><li>We propose a new stability definition inspired by Lyapunov stability in dynamic systems.</li><li>On 90 datasets, the proposed definition was statistically different from the classical record-stability.</li><li>We describe three scenarios, each best suited to one of the three stability metrics considered.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1221" height="342" alt="Fig. 1 A schematic view of the synthetic datasets generation process for the three experiments. Panel (a) stands for the concept drift case; panel (b) stands for the missing values case; and panel (c) stands for supervised feature selection case"></a><figcaption><strong>Fig. 1</strong> A schematic view of the synthetic datasets generation process for the three experiments. Panel (a) stands for the concept drift case; panel (b) stands for the missing values case; and panel (c) stands for supervised feature selection case <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
 
     <div class="paper-wrap paper-layout">
       <aside class="paper-aside">
+        <form class="paper-search" action="/publications.html" method="get" role="search">
+          <label for="paper-q" class="aside-title">Search all our papers</label>
+          <div class="paper-search-box"><i class="ri-search-line" aria-hidden="true"></i><input id="paper-q" name="q" type="search" placeholder="e.g. Thompson sampling" autocomplete="off"></div>
+        </form>
         <nav class="paper-toc" aria-label="On this page">
           <p class="aside-title">On this page</p>
           <ol>
@@ -165,8 +169,8 @@
         </div>
       </aside>
 
-      <article class="paper-body" id="full-text">
-        <details class="paper-toc-mobile">
+      <article class="paper-body" id="full-text" data-pagefind-body>
+        <details class="paper-toc-mobile" data-pagefind-ignore>
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
@@ -183,9 +187,10 @@
           </ol>
         </details>
         <section id="abstract" class="paper-abstract">
-          <h2>Abstract</h2>
+          <h2 id="abstract-heading">Abstract</h2>
           <p>Feature selection (FS) stability is an important topic of recent interest. Finding stable features is important for creating reliable, non-overfitted feature sets, which in turn can be used to generate machine learning models with better accuracy and explanations and are less prone to adversarial attacks. There are currently several definitions of FS stability that are widely used. In this paper, we demonstrate that existing stability metrics fail to quantify certain key elements of many datasets such as resilience to data drift or non-uniformly distributed missing values. To address this shortcoming, we propose a new definition for FS stability inspired by Lyapunov stability in dynamic systems. We show the proposed definition is statistically different from the classical record-stability on (n=90) datasets. We present the advantages and disadvantages of using Lyapunov and other stability definitions and demonstrate three scenarios in which each one of the three proposed stability metrics is best suited.</p>
         </section>
+        
         
 <div class="paper-text">
 <h2 id="1-introduction">1 Introduction</h2>
@@ -315,9 +320,10 @@
 <p><strong>Competing interests</strong> The authors have no relevant financial or non-financial interests to disclose.</p>
 <h2 id="notes">Notes</h2>
 <p>1 https://www.kaggle.com/</p>
-<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Accepted 11 February 2024</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>Lyapunov stability</li><li>Feature stability</li><li>Record stability</li><li>Stable feature selection</li><li>90-05</li></ul></dd></div></dl></section>
+<section id="article-notes" class="paper-notes" data-pagefind-ignore><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Accepted 11 February 2024</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>Lyapunov stability</li><li>Feature stability</li><li>Record stability</li><li>Stable feature selection</li><li>90-05</li></ul></dd></div></dl></section>
 <h2 id="references">References</h2>
-<ol class="paper-refs"><li id="ref-1">Ling, C.X., Huang, J., Zhang, H.: AUC: a better measure than accuracy in comparing learning algorithms. Adv. Artif. Intell. (2003)</li>
+<ol class="paper-refs" data-pagefind-ignore>
+<li id="ref-1">Ling, C.X., Huang, J., Zhang, H.: AUC: a better measure than accuracy in comparing learning algorithms. Adv. Artif. Intell. (2003)</li>
 <li id="ref-2">Huang, J., Ling, C.X.: Using auc and accuracy in evaluating learning algorithms. Adv. Artif. Intell. 17(3), 299–310 (2005)</li>
 <li id="ref-3">Al-Jarrah, O.Y., Yoo, P.D., Muhaidat, S., Karagiannidis, G.K., Taha, K.: Efficient machine learning for big data: a review. Big Data Res. 2(3), 87–93 (2015)</li>
 <li id="ref-4">Jordan, M.I., Mitchell, T.M.: Machine learning: trends, perspectives, and prospects. Science 349(6245), 255–260 (2015)</li>
@@ -395,8 +401,7 @@
 </ol>
 </div>
         
-        
-        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2024), <em>Annals of Mathematics and Artificial Intelligence</em>, <a href="https://doi.org/10.1007/s10472-024-09936-8" target="_blank" rel="noopener">doi:10.1007/s10472-024-09936-8</a>, under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY 4.0</a> licence. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+        <p class="paper-source" data-pagefind-ignore><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2024), <em>Annals of Mathematics and Artificial Intelligence</em>, <a href="https://doi.org/10.1007/s10472-024-09936-8" target="_blank" rel="noopener">doi:10.1007/s10472-024-09936-8</a>, under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY 4.0</a> licence. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
       </article>
     </div>
 
@@ -457,6 +462,7 @@
          </div>
       </footer>
       
+      <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
           // menu and navbar (js/main.js expects to sit at the site root)

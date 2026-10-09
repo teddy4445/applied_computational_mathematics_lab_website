@@ -135,10 +135,10 @@
     <header class="paper-hero">
       <div class="paper-wrap">
         <nav class="paper-crumbs" aria-label="Breadcrumb">
-          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Machine Learning</span>
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span data-pagefind-filter="Topic">Machine Learning</span>
         </nav>
         <p class="paper-kicker"><span class="oa-badge"><i class="ri-lock-unlock-line" aria-hidden="true"></i>Open access</span><span><em>VLDP</em> · 2023</span></p>
-        <h1 class="paper-title">SubStrat: A Subset-Based Optimization Strategy for Faster AutoML</h1>
+        <h1 class="paper-title" data-pagefind-meta="title" data-pagefind-filter="Year:2023">SubStrat: A Subset-Based Optimization Strategy for Faster AutoML</h1>
         <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author">Amit Somech</span>, <span class="author">Abraham Itzhak Weinberg</span></p>
         
         <div class="paper-actions">
@@ -153,10 +153,14 @@
       </div>
     </header>
 
-    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Automated machine learning (AutoML) tools search millions of possible model pipelines, but on large datasets they take increasingly long to run. We present SubStrat, which wraps existing AutoML tools and uses a genetic-based algorithm to find a small but representative subset of the data. AutoML runs on this subset, and the resulting pipeline is then refined by a restricted, much shorter AutoML run on the full dataset.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>SubStrat targets long AutoML running times on large datasets by tackling data size rather than the configuration space.</li><li>A genetic-based algorithm finds a small, representative data subset that preserves a particular characteristic of the full data.</li><li>After AutoML runs on the subset, a restricted, much shorter AutoML process on the full dataset refines the pipeline.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="639" height="742" alt="Figure 1: SubStrat Workflow"></a><figcaption><strong>Figure 1: SubStrat Workflow</strong> <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+    <section class="paper-glance" aria-labelledby="glance-title" data-pagefind-body><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Automated machine learning (AutoML) tools search millions of possible model pipelines, but on large datasets they take increasingly long to run. We present SubStrat, which wraps existing AutoML tools and uses a genetic-based algorithm to find a small but representative subset of the data. AutoML runs on this subset, and the resulting pipeline is then refined by a restricted, much shorter AutoML run on the full dataset.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>SubStrat targets long AutoML running times on large datasets by tackling data size rather than the configuration space.</li><li>A genetic-based algorithm finds a small, representative data subset that preserves a particular characteristic of the full data.</li><li>After AutoML runs on the subset, a restricted, much shorter AutoML process on the full dataset refines the pipeline.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="639" height="742" alt="Figure 1: SubStrat Workflow"></a><figcaption><strong>Figure 1: SubStrat Workflow</strong> <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
 
     <div class="paper-wrap paper-layout">
       <aside class="paper-aside">
+        <form class="paper-search" action="/publications.html" method="get" role="search">
+          <label for="paper-q" class="aside-title">Search all our papers</label>
+          <div class="paper-search-box"><i class="ri-search-line" aria-hidden="true"></i><input id="paper-q" name="q" type="search" placeholder="e.g. Thompson sampling" autocomplete="off"></div>
+        </form>
         <nav class="paper-toc" aria-label="On this page">
           <p class="aside-title">On this page</p>
           <ol>
@@ -175,8 +179,8 @@
         </div>
       </aside>
 
-      <article class="paper-body" id="full-text">
-        <details class="paper-toc-mobile">
+      <article class="paper-body" id="full-text" data-pagefind-body>
+        <details class="paper-toc-mobile" data-pagefind-ignore>
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
@@ -189,9 +193,10 @@
           </ol>
         </details>
         <section id="abstract" class="paper-abstract">
-          <h2>Abstract</h2>
+          <h2 id="abstract-heading">Abstract</h2>
           <p>Automated machine learning (AutoML) frameworks have become important tools in the data scientist arsenal, as they dramatically reduce the manual work devoted to the construction of ML pipelines. Such frameworks intelligently search among millions of possible ML pipelines - typically containing feature engineering, model selection, and hyper parameters tuning steps - and finally output an optimal pipeline in terms of predictive accuracy. However, when the dataset is large, each individual configuration takes longer to execute, therefore the overall AutoML running times become increasingly high. To this end, we present SubStrat, an AutoML optimization strategy that tackles the data size, rather than configuration space. It wraps existing AutoML tools, and instead of executing them directly on the entire dataset, SubStrat uses a genetic-based algorithm to find a small yet representative data subset that preserves a particular characteristic of the full data. It then employs the AutoML tool on the small subset, and finally, it refines the resulting pipeline by executing a restricted, much shorter, AutoML process on the large dataset.</p>
         </section>
+        
         
 <div class="paper-text">
 <h2 id="1-introduction">1 Introduction</h2>
@@ -342,7 +347,8 @@
 <h2 id="notes">Notes</h2>
 <p><sup><a href="#ref-2">2</a></sup>In case the size of 𝑐<sub>𝑎𝑏</sub> or 𝑐<sub>𝑏𝑎</sub> is smaller than 𝑚, we insert the required amount of columns at random, while also making sure the target column 𝑦 is contained in both.</p>
 <h2 id="references">References</h2>
-<ol class="paper-refs"><li id="ref-1">Ziawasch Abedjan, Lukasz Golab, and Felix Naumann. 2015. Profiling relational data: a survey. The VLDB Journal 24, 4 (2015), 557ś581.</li>
+<ol class="paper-refs" data-pagefind-ignore>
+<li id="ref-1">Ziawasch Abedjan, Lukasz Golab, and Felix Naumann. 2015. Profiling relational data: a survey. The VLDB Journal 24, 4 (2015), 557ś581.</li>
 <li id="ref-2">Bernd Bischl, Giuseppe Casalicchio, Matthias Feurer, Frank Hutter, Michel Lang, Rafael G Mantovani, Jan N van Rijn, and Joaquin Vanschoren. 2017. Openml benchmarking suites. arXiv preprint arXiv:1708.03731 (2017).</li>
 <li id="ref-3">David M Blei, Alp Kucukelbir, and Jon D McAuliffe. 2017. Variational inference: A review for statisticians. Journal of the American statistical Association 112, 518 (2017), 859ś877.</li>
 <li id="ref-4">Z. W. Bo, L. Z. Hua, and Z. G. Yu. 2006. Optimization of process route by genetic algorithms. Robotics and Computer-Integrated Manufacturing 22 (2006), 180ś188.</li>
@@ -399,8 +405,7 @@
 </ol>
 </div>
         
-        
-        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2023), <em>VLDP</em>, <a href="https://doi.org/10.14778/3574245.3574261" target="_blank" rel="noopener">doi:10.14778/3574245.3574261</a>, under the <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="license noopener">CC BY-NC-ND 4.0</a> licence. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+        <p class="paper-source" data-pagefind-ignore><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2023), <em>VLDP</em>, <a href="https://doi.org/10.14778/3574245.3574261" target="_blank" rel="noopener">doi:10.14778/3574245.3574261</a>, under the <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="license noopener">CC BY-NC-ND 4.0</a> licence. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
       </article>
     </div>
 
@@ -464,6 +469,7 @@
          </div>
       </footer>
       
+      <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
           // menu and navbar (js/main.js expects to sit at the site root)

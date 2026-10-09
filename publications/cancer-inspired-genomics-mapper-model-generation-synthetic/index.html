@@ -128,10 +128,10 @@
     <header class="paper-hero">
       <div class="paper-wrap">
         <nav class="paper-crumbs" aria-label="Breadcrumb">
-          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Machine Learning</span>
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span data-pagefind-filter="Topic">Machine Learning</span>
         </nav>
         <p class="paper-kicker"><span><em>Computers in Biology and Medicine</em> · 10 July 2023</span></p>
-        <h1 class="paper-title">Cancer-inspired genomics mapper model for the generation of synthetic DNA sequences with desired genomics signatures</h1>
+        <h1 class="paper-title" data-pagefind-meta="title" data-pagefind-filter="Year:2023">Cancer-inspired genomics mapper model for the generation of synthetic DNA sequences with desired genomics signatures</h1>
         <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Liron Simon-Keren</a></span></p>
         
         <div class="paper-actions">
@@ -146,10 +146,14 @@
       </div>
     </header>
 
-    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Genome data are vital to modern medicine, but obtaining suitable genomes for a specific study is hard, and current synthetic genome generators ignore the biological relations behind the patterns they copy. We propose the cancer-inspired genomics mapper model (CGMM), which combines a genetic algorithm with deep learning to mimic mutation processes and turn available control genomes into genomes with desired traits. Its synthetic genomes, for traits such as ancestry and cancer, were indistinguishable from real ones by clustering, and it outperformed four existing generators.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>CGMM combines a genetic algorithm and deep learning to mimic processes that generate genetic variations and mutations.</li><li>It transforms readily available control genomes into synthetic genomes with selected phenotypes such as ancestry and cancer.</li><li>Based on unsupervised clustering, the synthetic genomes were indistinguishable from real genomes with the same phenotypes.</li><li>CGMM outperformed four state-of-the-art genomics generators on two different tasks.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1800" height="726" alt="Fig. 1. A schematic view of the model’s training and inference phases. First, the input data is divided, leaving a specified part of the control samples (𝑧 samples) for inference. The rest of the input data proceeds into the training phase, where: (1) The evolution processes linking each pair of control and case samples are estimated (RBGA process). (2) Each step in the process is encoded to a smaller, latent space (AE component). (3) A predictive model is trained to predict the next encoded step of an evolution process (NMP component). During the inference phase, the 𝑧 control samples are used to generate encoded vectors of the first step in an evolution process (Encoder part). Then, the trained NMP component predicts a series of mutation steps, until reaching the desired genomic signatures. Finally, the last predicted step, representing an encoded, synthetic, case sample, is decoded into VCF format (Decoder part)."></a><figcaption><strong>Fig. 1.</strong> A schematic view of the model’s training and inference phases. First, the input data is divided, leaving a specified part of the <em>control</em> samples (<em>𝑧</em> samples) for inference. The rest of the input data proceeds into the training phase, where: (1) The evolution processes linking each pair of <em>control</em> and <em>case</em> samples are estimated (RBGA process). (2) Each step in the process is encoded to a smaller, <em>latent space</em> (AE component). (3) A predictive model is trained to predict the next encoded step of an evolution process (NMP component). During the inference phase, the <em>𝑧 control</em> samples are used to generate encoded vectors of the first step in an evolution process (Encoder part). Then, the trained NMP component predicts a series of mutation steps, until reaching the desired genomic signatures. Finally, the last predicted step, representing an encoded, synthetic, <em>case</em> sample, is decoded into VCF format (Decoder part). <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+    <section class="paper-glance" aria-labelledby="glance-title" data-pagefind-body><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Genome data are vital to modern medicine, but obtaining suitable genomes for a specific study is hard, and current synthetic genome generators ignore the biological relations behind the patterns they copy. We propose the cancer-inspired genomics mapper model (CGMM), which combines a genetic algorithm with deep learning to mimic mutation processes and turn available control genomes into genomes with desired traits. Its synthetic genomes, for traits such as ancestry and cancer, were indistinguishable from real ones by clustering, and it outperformed four existing generators.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>CGMM combines a genetic algorithm and deep learning to mimic processes that generate genetic variations and mutations.</li><li>It transforms readily available control genomes into synthetic genomes with selected phenotypes such as ancestry and cancer.</li><li>Based on unsupervised clustering, the synthetic genomes were indistinguishable from real genomes with the same phenotypes.</li><li>CGMM outperformed four state-of-the-art genomics generators on two different tasks.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1800" height="726" alt="Fig. 1. A schematic view of the model’s training and inference phases. First, the input data is divided, leaving a specified part of the control samples (𝑧 samples) for inference. The rest of the input data proceeds into the training phase, where: (1) The evolution processes linking each pair of control and case samples are estimated (RBGA process). (2) Each step in the process is encoded to a smaller, latent space (AE component). (3) A predictive model is trained to predict the next encoded step of an evolution process (NMP component). During the inference phase, the 𝑧 control samples are used to generate encoded vectors of the first step in an evolution process (Encoder part). Then, the trained NMP component predicts a series of mutation steps, until reaching the desired genomic signatures. Finally, the last predicted step, representing an encoded, synthetic, case sample, is decoded into VCF format (Decoder part)."></a><figcaption><strong>Fig. 1.</strong> A schematic view of the model’s training and inference phases. First, the input data is divided, leaving a specified part of the <em>control</em> samples (<em>𝑧</em> samples) for inference. The rest of the input data proceeds into the training phase, where: (1) The evolution processes linking each pair of <em>control</em> and <em>case</em> samples are estimated (RBGA process). (2) Each step in the process is encoded to a smaller, <em>latent space</em> (AE component). (3) A predictive model is trained to predict the next encoded step of an evolution process (NMP component). During the inference phase, the <em>𝑧 control</em> samples are used to generate encoded vectors of the first step in an evolution process (Encoder part). Then, the trained NMP component predicts a series of mutation steps, until reaching the desired genomic signatures. Finally, the last predicted step, representing an encoded, synthetic, <em>case</em> sample, is decoded into VCF format (Decoder part). <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
 
     <div class="paper-wrap paper-layout">
       <aside class="paper-aside">
+        <form class="paper-search" action="/publications.html" method="get" role="search">
+          <label for="paper-q" class="aside-title">Search all our papers</label>
+          <div class="paper-search-box"><i class="ri-search-line" aria-hidden="true"></i><input id="paper-q" name="q" type="search" placeholder="e.g. Thompson sampling" autocomplete="off"></div>
+        </form>
         <nav class="paper-toc" aria-label="On this page">
           <p class="aside-title">On this page</p>
           <ol>
@@ -176,8 +180,8 @@
         </div>
       </aside>
 
-      <article class="paper-body" id="full-text">
-        <details class="paper-toc-mobile">
+      <article class="paper-body" id="full-text" data-pagefind-body>
+        <details class="paper-toc-mobile" data-pagefind-ignore>
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
@@ -198,9 +202,10 @@
           </ol>
         </details>
         <section id="abstract" class="paper-abstract">
-          <h2>Abstract</h2>
+          <h2 id="abstract-heading">Abstract</h2>
           <p>Genome data are crucial in modern medicine, offering significant potential for diagnosis and treatment. Thanks to technological advancements, many millions of healthy and diseased genomes have already been sequenced; however, obtaining the most suitable data for a specific study, and specifically for validation studies, remains challenging with respect to scale and access. Therefore, in silico genomics sequence generators have been proposed as a possible solution. However, the current generators produce inferior data using mostly shallow (stochastic) connections, detected with limited computational complexity in the training data. This means they do not take the appropriate biological relations and constraints, that originally caused the observed connections, into consideration. To address this issue, we propose cancer-inspired genomics mapper model (CGMM), that combines genetic algorithm (GA) and deep learning (DL) methods to tackle this challenge. CGMM mimics processes that generate genetic variations and mutations to transform readily available control genomes into genomes with the desired phenotypes. We demonstrate that CGMM can generate synthetic genomes of selected phenotypes such as ancestry and cancer that are indistinguishable from real genomes of such phenotypes, based on unsupervised clustering. Our results show that CGMM outperforms four current state-of-the-art genomics generators on two different tasks, suggesting that CGMM will be suitable for a wide range of purposes in genomic medicine, especially for much-needed validation studies.</p>
         </section>
+        
         
 <div class="paper-text">
 <h2 id="1-introduction">1. Introduction</h2>
@@ -292,9 +297,10 @@
 <p>This research received no specific grant from funding agencies in the public, commercial, or not-for-profit sectors.</p>
 <h2 id="appendix">Appendix</h2>
 <p>The proposed model’s hyperparameters descriptions and values have been used as part of the presented experiments. These values are chosen throughout the trial and error process during the development of CGMM for a subset of the samples used in the presented Exp 1.</p>
-<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 8 May 2023 · Accepted 30 June 2023 · Published 10 July 2023</dd></div></dl></section>
+<section id="article-notes" class="paper-notes" data-pagefind-ignore><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 8 May 2023 · Accepted 30 June 2023 · Published 10 July 2023</dd></div></dl></section>
 <h2 id="references">References</h2>
-<ol class="paper-refs"><li id="ref-1">C.M. Fraser, A genome to celebrate, Science 371 (6529) (2021) 545. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb1" target="_blank" rel="noopener">link</a></li>
+<ol class="paper-refs" data-pagefind-ignore>
+<li id="ref-1">C.M. Fraser, A genome to celebrate, Science 371 (6529) (2021) 545. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb1" target="_blank" rel="noopener">link</a></li>
 <li id="ref-2">A.J. Gates, D.M. Gysi, M. Kellis, A.-L. Barabasi, A wealth of discovery built on the Human Genome Project — by the numbers, Nature 590 (2021) 212–215. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb2" target="_blank" rel="noopener">link</a></li>
 <li id="ref-3">F.S. Alkuraya, How the human genome transformed study of rare diseases, Am. J. Hum. Genet. 97 (2) (2015) 199–215. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb3" target="_blank" rel="noopener">link</a></li>
 <li id="ref-4">J. Berg, M. Khoury, J. Evans, Deploying whole genome sequencing in clinical practice and public health: Meeting the challenge one bin at a time, Genet. Med. 13 (2011) 499–504. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb4" target="_blank" rel="noopener">link</a></li>
@@ -381,8 +387,7 @@
 </ol>
 </div>
         
-        
-        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2023), <em>Computers in Biology and Medicine</em>, <a href="https://doi.org/10.1016/j.compbiomed.2023.107221" target="_blank" rel="noopener">doi:10.1016/j.compbiomed.2023.107221</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+        <p class="paper-source" data-pagefind-ignore><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2023), <em>Computers in Biology and Medicine</em>, <a href="https://doi.org/10.1016/j.compbiomed.2023.107221" target="_blank" rel="noopener">doi:10.1016/j.compbiomed.2023.107221</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
       </article>
     </div>
 
@@ -445,6 +450,7 @@
          </div>
       </footer>
       
+      <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
           // menu and navbar (js/main.js expects to sit at the site root)

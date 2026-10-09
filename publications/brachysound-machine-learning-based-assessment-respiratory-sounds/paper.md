@@ -54,15 +54,20 @@ Two configurations of the KNN model were employed. The first KNN model was desig
 
 The *leave-one-out* cross-validation method was employed<sup>50,51</sup>. In this method, if there are N data points in the dataset, the model is trained N times. Each time, the model is trained using N − 1 data points and tested on the one left out. This is repeated until each data point has been used as the test set once. The developed machine models addressed the following three tasks:
 
-- 1. Classification of BOAS test results (pass/fail): The models were trained and tested on data from the following datasets:
+1. Classification of BOAS test results (pass/fail): The models were trained and tested on data from the following datasets:
+
 - Pugs at 5 min post-exercise ( Pugs5)
 - Pugs at 10 min post-exercise ( Pugs10)
 - Pugs at 15 min post-exercise ( Pugs15)
 - Various breeds at 15 min post-exercise ( Var15)
-- 2. Prediction of BOAS test results (pass/fail): The models were trained and tested on data from the following datasets:
+
+2. Prediction of BOAS test results (pass/fail): The models were trained and tested on data from the following datasets:
+
 - Remaining Pugs data ( Pugsrest)
 - Remaining Various breeds data ( Varrest)
-- 3. Detection of laryngeal sounds (present/absent): The models were trained and tested on the following dataset:
+
+3. Detection of laryngeal sounds (present/absent): The models were trained and tested on the following dataset:
+
 - Laryngeal sounds from Pugs ( Laryng)
 
 Parameters for each model have been optimized using the grid search method<sup>52</sup> to maximize the performance, specifically using the F1 score. for the KNN models, we explored configurations with 3 or 5 neighbors using a distance weight and either an Euclidean or Manhattan metric and another set with 7 or 9 neighbors with both uniform and distance weights. For the Decision Tree Classifier, we varied the maximum depth from 2 to 5 and tested both the Gini and Entropy criteria<sup>53</sup>.

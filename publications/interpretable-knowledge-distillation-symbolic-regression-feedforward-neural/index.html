@@ -141,10 +141,10 @@
     <header class="paper-hero">
       <div class="paper-wrap">
         <nav class="paper-crumbs" aria-label="Breadcrumb">
-          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Machine Learning</span>
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span data-pagefind-filter="Topic">Machine Learning</span>
         </nav>
         <p class="paper-kicker"><span class="oa-badge"><i class="ri-lock-unlock-line" aria-hidden="true"></i>Open access</span><span><em> Neural Computing and Applications</em> · 2 April 2026</span></p>
-        <h1 class="paper-title">Interpretable knowledge distillation via symbolic regression for feedforward neural networks</h1>
+        <h1 class="paper-title" data-pagefind-meta="title" data-pagefind-filter="Year:2026">Interpretable knowledge distillation via symbolic regression for feedforward neural networks</h1>
         <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Assaf Shmuel</a></span>, <span class="author">Nir Koren</span>, <span class="author">Oren Glickman</span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span></p>
         
         <div class="paper-actions">
@@ -159,14 +159,19 @@
       </div>
     </header>
 
-    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Neural networks predict well but are hard to interpret, while symbolic regression produces readable mathematical formulas that are usually less accurate. We proposed a knowledge distillation method that uses symbolic regression to approximate the activations of a trained network&#x27;s final hidden layer. Across 20 diverse datasets, this improved prediction error (RMSE) by 7-21% compared with baseline symbolic regression models, while retaining a substantial share of the network&#x27;s predictive performance.</p><div class=glance-stats><div class="stat"><span class="stat-value">20</span><span class="stat-label">diverse datasets used for evaluation</span></div><div class="stat"><span class="stat-value">7-21%</span><span class="stat-label">RMSE improvement over baseline symbolic regression</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Symbolic regression models are used to approximate the final hidden layer activations of a trained feedforward neural network.</li><li>The approach enhances interpretability while retaining a substantial fraction of the network&#x27;s predictive performance on structured data.</li><li>Across 20 diverse datasets, it improved RMSE by 7-21% over baseline symbolic regression models.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1800" height="845" alt="Fig. 1 Overview of the proposed framework for Neural Network approximation using SR. Stage 1 involves training a neural network on the input data, with activations from the final hidden layer serving as feature representations. In Stage 2, each activation is approximated by a SR model using the original input features, resulting in interpretable symbolic expressions. In Stage 3, the neural network mapping from the input to the final hidden layer is replaced by a composite SR layer, and the output layer is fine tuned, preserving the model’s predictive performance while enhancing interpretability"></a><figcaption><strong>Fig. 1</strong> Overview of the proposed framework for Neural Network approximation using SR. Stage 1 involves training a neural network on the input data, with activations from the final hidden layer serving as feature representations. In Stage 2, each activation is approximated by a SR model using the original input features, resulting in interpretable symbolic expressions. In Stage 3, the neural network mapping from the input to the final hidden layer is replaced by a composite SR layer, and the output layer is fine tuned, preserving the model’s predictive performance while enhancing interpretability <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+    <section class="paper-glance" aria-labelledby="glance-title" data-pagefind-body><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Neural networks predict well but are hard to interpret, while symbolic regression produces readable mathematical formulas that are usually less accurate. We proposed a knowledge distillation method that uses symbolic regression to approximate the activations of a trained network&#x27;s final hidden layer. Across 20 diverse datasets, this improved prediction error (RMSE) by 7-21% compared with baseline symbolic regression models, while retaining a substantial share of the network&#x27;s predictive performance.</p><div class=glance-stats><div class="stat"><span class="stat-value">20</span><span class="stat-label">diverse datasets used for evaluation</span></div><div class="stat"><span class="stat-value">7-21%</span><span class="stat-label">RMSE improvement over baseline symbolic regression</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Symbolic regression models are used to approximate the final hidden layer activations of a trained feedforward neural network.</li><li>The approach enhances interpretability while retaining a substantial fraction of the network&#x27;s predictive performance on structured data.</li><li>Across 20 diverse datasets, it improved RMSE by 7-21% over baseline symbolic regression models.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1800" height="845" alt="Fig. 1 Overview of the proposed framework for Neural Network approximation using SR. Stage 1 involves training a neural network on the input data, with activations from the final hidden layer serving as feature representations. In Stage 2, each activation is approximated by a SR model using the original input features, resulting in interpretable symbolic expressions. In Stage 3, the neural network mapping from the input to the final hidden layer is replaced by a composite SR layer, and the output layer is fine tuned, preserving the model’s predictive performance while enhancing interpretability"></a><figcaption><strong>Fig. 1</strong> Overview of the proposed framework for Neural Network approximation using SR. Stage 1 involves training a neural network on the input data, with activations from the final hidden layer serving as feature representations. In Stage 2, each activation is approximated by a SR model using the original input features, resulting in interpretable symbolic expressions. In Stage 3, the neural network mapping from the input to the final hidden layer is replaced by a composite SR layer, and the output layer is fine tuned, preserving the model’s predictive performance while enhancing interpretability <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
 
     <div class="paper-wrap paper-layout">
       <aside class="paper-aside">
+        <form class="paper-search" action="/publications.html" method="get" role="search">
+          <label for="paper-q" class="aside-title">Search all our papers</label>
+          <div class="paper-search-box"><i class="ri-search-line" aria-hidden="true"></i><input id="paper-q" name="q" type="search" placeholder="e.g. Thompson sampling" autocomplete="off"></div>
+        </form>
         <nav class="paper-toc" aria-label="On this page">
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1 Introduction</a></li>
 <li><a href="#2-related-work">2 Related work</a></li><li class="toc-sub"><a href="#21-knowledge-distillation">2.1 Knowledge distillation</a></li><li class="toc-sub"><a href="#22-neural-networks-for-tabular-data">2.2 Neural networks for tabular data</a></li><li class="toc-sub"><a href="#23-symbolic-regression">2.3 Symbolic regression</a></li>
 <li><a href="#3-neural-network-approximation-using-symbolic-regression">3 Neural network approximation using symbolic regression</a></li>
@@ -185,11 +190,12 @@
         </div>
       </aside>
 
-      <article class="paper-body" id="full-text">
-        <details class="paper-toc-mobile">
+      <article class="paper-body" id="full-text" data-pagefind-body>
+        <details class="paper-toc-mobile" data-pagefind-ignore>
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1 Introduction</a></li>
 <li><a href="#2-related-work">2 Related work</a></li><li class="toc-sub"><a href="#21-knowledge-distillation">2.1 Knowledge distillation</a></li><li class="toc-sub"><a href="#22-neural-networks-for-tabular-data">2.2 Neural networks for tabular data</a></li><li class="toc-sub"><a href="#23-symbolic-regression">2.3 Symbolic regression</a></li>
 <li><a href="#3-neural-network-approximation-using-symbolic-regression">3 Neural network approximation using symbolic regression</a></li>
@@ -203,9 +209,10 @@
           </ol>
         </details>
         <section id="abstract" class="paper-abstract">
-          <h2>Abstract</h2>
+          <h2 id="abstract-heading">Abstract</h2>
           <p>Neural networks (NNs) are widely used for modeling complex, high-dimensional relationships but often lack interpretability, limiting their adoption in critical domains such as healthcare, finance, and engineering. Symbolic regression (SR), in contrast, generates explicit mathematical expressions that enhance transparency but typically underperform in predictive accuracy. To bridge this gap, we propose a knowledge distillation framework that approximates the activations of a trained feedforward NN’s final hidden layer using SR models. This approach enhances interpretability while retaining a substantial fraction of the neural network’s predictive performance in structured data settings. Our method is evaluated across 20 diverse datasets, demonstrating a 7-21% improvement in RMSE over baseline SR models. These results highlight the potential of symbolic knowledge distillation as a practical tool for enhancing model transparency in structured data applications.</p>
         </section>
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="gleSQMKECUA" data-yt-title="Symbolic Distillation in Neural Networks"><a class="yt-play" href="https://www.youtube.com/shorts/gleSQMKECUA" aria-label="Play video: Symbolic Distillation in Neural Networks"><img src="https://i.ytimg.com/vi/gleSQMKECUA/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/gleSQMKECUA/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">Symbolic Distillation in Neural Networks</p><p>Opening the black box: distilling a trained neural network into equations people can read.</p><p class="paper-video-more"><a href="/videos.html#v-gleSQMKECUA">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/gleSQMKECUA" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <h2 id="1-introduction">1 Introduction</h2>
@@ -324,7 +331,7 @@
 <h3 id="a1-representative-symbolic-regression-example">A.1 Representative symbolic regression example</h3>
 <p>To qualitatively illustrate the interpretability of the proposed neuron-level symbolic distillation approach, we report representative SR formulas for a small and well-studied regression task: the daily bike rental demand dataset. The dataset contains 731 daily observations and includes calendar and weather-related features: season, year, month, weekday, holiday indicator, working-day indicator, weather situation, temperature, apparent temperature, humidity, and wind speed. Identifier variables, such as dates and row indices, are excluded. All symbolic expressions in this example are learned using gplearn.</p>
 <p>As a reference, we first train a single symbolic regressor directly on the input features to predict bike rental demand. The resulting simplified symbolic expression is:</p>
-<div class="equation" id="eq-1"><img src="figures/eq-1.webp" width="512" height="29" alt="ˆy = 0.74 · atemp −weathersit_3 + yr_1 −0.56, (1)" loading="lazy" decoding="async"></div>
+<div class="equation" id="eq-1"><img src="figures/eq-1.webp" width="512" height="29" alt="ŷ = 0.74 · atemp −weathersit_3 + yr_1 −0.56, (1)" loading="lazy" decoding="async"></div>
 
 <p>where atemp denotes apparent temperature, weathersit_3 indicates adverse weather conditions, and yr_1 denotes the second year of data.</p>
 <p>This baseline model captures expected monotonic relationships: higher apparent temperature and later years are associated with increased bike rentals, while adverse weather conditions reduce demand.</p>
@@ -348,9 +355,10 @@
 <p><strong>Data availability</strong> The datasets used and analyzed in this study are publicly available.</p>
 <h3 id="declarations">Declarations</h3>
 <p><strong>Conflict of interest</strong> The authors have no conflict of interest to declare that are relevant to the content of this article.</p>
-<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 31 August 2025 · Accepted 25 February 2026 · Published 2 April 2026</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>Interpretable machine learning</li><li>Symbolic regression</li><li>Knowledge distillation</li><li>Neural network compression</li></ul></dd></div></dl></section>
+<section id="article-notes" class="paper-notes" data-pagefind-ignore><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 31 August 2025 · Accepted 25 February 2026 · Published 2 April 2026</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>Interpretable machine learning</li><li>Symbolic regression</li><li>Knowledge distillation</li><li>Neural network compression</li></ul></dd></div></dl></section>
 <h2 id="references">References</h2>
-<ol class="paper-refs"><li id="ref-1">Veturi YA, Woof W, Lazebnik T, Moghul I, Woodward-Court P, Wagner SK, Cabral de Guimaraes TA, Varela MD, Liefers B, Patel PJ, Beck S, Webster AR, Mahroo O, Keane PA, Michaelides M, Balaskas K, Pontikos N (2022) Syntheye: Investigating the impact of synthetic data on ai-assisted gene diagnosis of inherited retinal disease. Ophthalmology Science, page 100258,</li>
+<ol class="paper-refs" data-pagefind-ignore>
+<li id="ref-1">Veturi YA, Woof W, Lazebnik T, Moghul I, Woodward-Court P, Wagner SK, Cabral de Guimaraes TA, Varela MD, Liefers B, Patel PJ, Beck S, Webster AR, Mahroo O, Keane PA, Michaelides M, Balaskas K, Pontikos N (2022) Syntheye: Investigating the impact of synthetic data on ai-assisted gene diagnosis of inherited retinal disease. Ophthalmology Science, page 100258,</li>
 <li id="ref-2">Lazebnik T (2024) Going a step deeper down the rabbit hole: deep learning model to measure the size of the unregistered economy activity. Comput Econ. <a href="https://doi.org/10.1007/s10614-024-10606-4" target="_blank" rel="noopener">doi:10.1007/s10614-024-10606-4</a></li>
 <li id="ref-3">Wang J, Ma Y, Zhang L, Gao RX, Wu D (2018) Deep learning for smart manufacturing: methods and applications. J Manuf Syst 48:144–156 <a href="https://doi.org/10.1007/s10614-024-10606-4" target="_blank" rel="noopener">doi:10.1007/s10614-024-10606-4</a></li>
 <li id="ref-4">Nguyen H, Kieu L-M, Wen T, Cai C (2018) Deep learning methods in transportation domain: a review. IET Intell Transp Syst 12(9):998–1004</li>
@@ -407,8 +415,7 @@
 </ol>
 </div>
         
-        <section id="video" class="paper-video"><h2>Watch the explainer</h2><div class="yt-player yt-9x16" data-yt-id="gleSQMKECUA" data-yt-title="Symbolic Distillation in Neural Networks"><a class="yt-play" href="https://www.youtube.com/shorts/gleSQMKECUA" aria-label="Play video: Symbolic Distillation in Neural Networks"><img src="https://i.ytimg.com/vi/gleSQMKECUA/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/gleSQMKECUA/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div></section>
-        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Shmuel et al. (2026), <em> Neural Computing and Applications</em>, <a href="https://doi.org/10.1007/s00521-026-12067-2" target="_blank" rel="noopener">doi:10.1007/s00521-026-12067-2</a>, under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY</a> licence. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+        <p class="paper-source" data-pagefind-ignore><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Shmuel et al. (2026), <em> Neural Computing and Applications</em>, <a href="https://doi.org/10.1007/s00521-026-12067-2" target="_blank" rel="noopener">doi:10.1007/s00521-026-12067-2</a>, under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY</a> licence. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
       </article>
     </div>
 
@@ -471,6 +478,7 @@
          </div>
       </footer>
       <script src="/js/videos.js"></script>
+      <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
           // menu and navbar (js/main.js expects to sit at the site root)

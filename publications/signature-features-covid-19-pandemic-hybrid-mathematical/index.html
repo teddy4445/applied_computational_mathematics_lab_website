@@ -113,10 +113,10 @@
     <header class="paper-hero">
       <div class="paper-wrap">
         <nav class="paper-crumbs" aria-label="Breadcrumb">
-          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Epidemiology</span>
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span data-pagefind-filter="Topic">Epidemiology</span>
         </nav>
         <p class="paper-kicker"><span><em>Advanced Theory and Simulations</em> · 2021</span></p>
-        <h1 class="paper-title is-long">The signature features of COVID-19 pandemic in a hybrid mathematical model - implications for optimal work-school lockdown policy</h1>
+        <h1 class="paper-title is-long" data-pagefind-meta="title" data-pagefind-filter="Year:2021">The signature features of COVID-19 pandemic in a hybrid mathematical model - implications for optimal work-school lockdown policy</h1>
         <p class="paper-authors"><span class="author">Teddy Lazebnik and Svetlana Bunimovich-Mendrazitsky</span></p>
         
         <div class="paper-actions">
@@ -131,10 +131,14 @@
       </div>
     </header>
 
-    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Most countries adopted lockdowns against COVID-19, but these damaged the economic and moral fabric of society. We present a hybrid model that combines an age-structured SIRD model, which tracks susceptible, infected, recovered and dead people, with a spatio-temporal computer simulation, using Israeli COVID-19 data. We also introduce a method to estimate the reproduction number in real time from daily case reports, and the model matched Israel&#x27;s lockdown experience with a mean square error of 0.205 over two weeks.</p><div class=glance-stats><div class="stat"><span class="stat-value">0.205</span><span class="stat-label">mean square error against Israeli lockdown data</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>The hybrid model combines an age-structured SIRD model with an in silico spatio-temporal model, analyzing COVID-19 data from Israel.</li><li>We introduce a method for estimating an epidemic&#x27;s reproduction number in real time from daily case notifications.</li><li>Results were confirmed by the Israeli lockdown experience with a mean square error of 0.205 over two weeks.</li><li>Contact details for children and adults, time-of-day interactions and several locations give a new look at infection spread and control.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1015" height="867" alt="Figure 1. Schematic view of the hybrid model’s components and relationship between the ODE and the spatial models."></a><figcaption><strong>Figure 1.</strong> Schematic view of the hybrid model’s components and relationship between the ODE and the spatial models. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+    <section class="paper-glance" aria-labelledby="glance-title" data-pagefind-body><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Most countries adopted lockdowns against COVID-19, but these damaged the economic and moral fabric of society. We present a hybrid model that combines an age-structured SIRD model, which tracks susceptible, infected, recovered and dead people, with a spatio-temporal computer simulation, using Israeli COVID-19 data. We also introduce a method to estimate the reproduction number in real time from daily case reports, and the model matched Israel&#x27;s lockdown experience with a mean square error of 0.205 over two weeks.</p><div class=glance-stats><div class="stat"><span class="stat-value">0.205</span><span class="stat-label">mean square error against Israeli lockdown data</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>The hybrid model combines an age-structured SIRD model with an in silico spatio-temporal model, analyzing COVID-19 data from Israel.</li><li>We introduce a method for estimating an epidemic&#x27;s reproduction number in real time from daily case notifications.</li><li>Results were confirmed by the Israeli lockdown experience with a mean square error of 0.205 over two weeks.</li><li>Contact details for children and adults, time-of-day interactions and several locations give a new look at infection spread and control.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1015" height="867" alt="Figure 1. Schematic view of the hybrid model’s components and relationship between the ODE and the spatial models."></a><figcaption><strong>Figure 1.</strong> Schematic view of the hybrid model’s components and relationship between the ODE and the spatial models. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
 
     <div class="paper-wrap paper-layout">
       <aside class="paper-aside">
+        <form class="paper-search" action="/publications.html" method="get" role="search">
+          <label for="paper-q" class="aside-title">Search all our papers</label>
+          <div class="paper-search-box"><i class="ri-search-line" aria-hidden="true"></i><input id="paper-q" name="q" type="search" placeholder="e.g. Thompson sampling" autocomplete="off"></div>
+        </form>
         <nav class="paper-toc" aria-label="On this page">
           <p class="aside-title">On this page</p>
           <ol>
@@ -153,8 +157,8 @@
         </div>
       </aside>
 
-      <article class="paper-body" id="full-text">
-        <details class="paper-toc-mobile">
+      <article class="paper-body" id="full-text" data-pagefind-body>
+        <details class="paper-toc-mobile" data-pagefind-ignore>
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
@@ -167,9 +171,10 @@
           </ol>
         </details>
         <section id="abstract" class="paper-abstract">
-          <h2>Abstract</h2>
+          <h2 id="abstract-heading">Abstract</h2>
           <p>The new COVID-19 pandemic has challenged policymakers on key issues. Most countries have adopted “lockdown” policies to reduce the spatial spread of COVID-19, but they have damaged the economic and moral fabric of society. Mathematical modeling in non-pharmaceutical intervention policy management has proven to be a major weapon in this fight due to the lack of an effective COVID-19 vaccine. We present a new extit{hybrid} model for COVID-19 dynamics using both an age-structured mathematical model based on the SIRD model and spatio-temporal model in silico, analyzing the data of COVID-19 in Israel. Using the extit{hybrid} model, we have introduced a method for estimating the reproduction number of an epidemic in real-time from the data of daily notification of cases. The results of the proposed model are confirmed by the Israeli Lockdown experience with a mean square error of 0.205 over two weeks. The use of mathematical models promises to reduce the uncertainty in the choice of “Lockdown” policies. Our unique use of contact details from 2 classes (children and adults), the interaction of populations depending on the time of day, and several physical locations, allowed a new look at the differential dynamics of the spread and control of infection.</p>
         </section>
+        
         
 <div class="paper-text">
 <h2 id="1-introduction-and-related-work">1. Introduction and Related Work</h2>
@@ -311,18 +316,18 @@
 <p>The equilibria <em>EQ</em><sub>2</sub><em>, EQ</em><sub>3</sub>, and <em>EQ</em><sub>4</sub> are not stable because in each of the cases, either <em>I</em><sub>a</sub> <em>&gt;</em> 0 or <em>I</em><sub>c</sub> <em>&gt;</em> 0. Assuming, the equilibria is kept until some time <em>t</em><sup>∗</sup> such that <em>t</em><sup>∗</sup> is defined as the first time <em>t</em></p>
 <h3 id="22-spatial-model">2.2. Spatial Model</h3>
 <p><strong><a class="xref" href="#fig-5">Figure 5</a></strong> shows the spatial model schema presenting the populations distribution and locations (work/school, and home) at some time of the day. In addition to the ODE model’s parameters (shown in <a class="xref" href="#table-1">Table 1</a>), the following parameters are added to the hybrid model as part of the spatial model:</p>
-<ul>
-<li>1) <em>𝜙</em><sub>ac</sub>, the average number of meeting events between adults and children per hour.</li>
-<li>2) <em>𝜙</em><sub>aa</sub>, the average number of meeting events between adults and adults per hour.</li>
-<li>3) <em>𝜙</em><sub>cc</sub>, the average number of meeting events between children and children per hour.</li>
-<li>4) <em>t</em><sup>d</sup> <sub>c</sub>, hours of the day that children are at home and <em>t</em><sup>n</sup> <sub>c</sub> = 24 − <em>t</em><sup>d</sup> <em>c</em> hours of the day that children are at school. 5) <em>t</em><sup>d</sup> <sub>a</sub>, hours of the day that adults are at home and <em>t</em><sup>n</sup> <sub>a</sub> = 24 − <em>t</em><sup>d</sup> <em>a</em> hours of the day that adults are at work.</li>
-</ul>
+<ol>
+<li><em>𝜙</em><sub>ac</sub>, the average number of meeting events between adults and children per hour.</li>
+<li><em>𝜙</em><sub>aa</sub>, the average number of meeting events between adults and adults per hour.</li>
+<li><em>𝜙</em><sub>cc</sub>, the average number of meeting events between children and children per hour.</li>
+<li><em>t</em><sup>d</sup> <sub>c</sub>, hours of the day that children are at home and <em>t</em><sup>n</sup> <sub>c</sub> = 24 − <em>t</em><sup>d</sup> <em>c</em> hours of the day that children are at school. 5) <em>t</em><sup>d</sup> <sub>a</sub>, hours of the day that adults are at home and <em>t</em><sup>n</sup> <sub>a</sub> = 24 − <em>t</em><sup>d</sup> <em>a</em> hours of the day that adults are at work.</li>
+</ol>
 <p>We assume the transition from home to either work or school and back is immediate and that everybody is following the same clock. Each simulation step simulates 1 h. The population size is constant during the simulation and initialized in the beginning of each iteration by setting children population size <em>N</em><sub>c</sub> and adult population size <em>N</em><sub>a</sub>. In each simulation step, the following three actions take place:</p>
-<ul>
-<li>1) If a member is in the susceptible group and meets other members of the infected group, there is a change of <em>𝛽</em><sub>aa</sub><em>, 𝛽</em><sub>ac</sub><em>, 𝛽</em><sub>ca</sub>, or <em>𝛽</em><sub>cc</sub> according to the age-class of the two members that the first will be infected.</li>
-<li>2) Each infected child or adult that was infected for <sup><a href="#ref-1">1</a></sup> <sub>𝛾c</sub> <em>,</em> <sup><a href="#ref-1">1</a></sup> <sub>𝛾a</sub> simulation steps becomes either recovered or deceased, respectively.</li>
-<li>3) According to the hour of the day, the adults transition to home or work and the children to home or school.</li>
-</ul>
+<ol>
+<li>If a member is in the susceptible group and meets other members of the infected group, there is a change of <em>𝛽</em><sub>aa</sub><em>, 𝛽</em><sub>ac</sub><em>, 𝛽</em><sub>ca</sub>, or <em>𝛽</em><sub>cc</sub> according to the age-class of the two members that the first will be infected.</li>
+<li>Each infected child or adult that was infected for <sup><a href="#ref-1">1</a></sup> <sub>𝛾c</sub> <em>,</em> <sup><a href="#ref-1">1</a></sup> <sub>𝛾a</sub> simulation steps becomes either recovered or deceased, respectively.</li>
+<li>According to the hour of the day, the adults transition to home or work and the children to home or school.</li>
+</ol>
 <p>The spatial model adds day–night circle and three main locations to the dynamics of the hybrid model. A description of the whole of the hybrid model. The <em>x</em>-axis is the time (in days) that has passed from the beginning of the epidemic and the <em>y</em>-axis is the normalized size of each population, respectively. The parameters used in the simulations are <em>t</em><sup>d</sup> <sub>c</sub> = <em>t</em><sup>d</sup> <sub>a</sub> = 12<em>, 𝜙</em><sub>ac</sub> = <em>𝜙</em><sub>aa</sub> = <em>𝜙</em><sub>cc</sub> = 1<em>, N</em> = 1000<em>, N</em><sub>c</sub> = 280<em>, N</em><sub>a</sub> = 720.</p>
 <figure id="fig-5">
 <a class="fig-zoom" href="figures/fig-5.webp" aria-label="Open the figure full size"><img src="figures/fig-5.webp" width="582" height="463" alt="The panel of the spatial model" loading="lazy" decoding="async"></a>
@@ -347,10 +352,10 @@
 
 <p><strong>Definition 2.</strong> For given initial condition and model’s parameter (ℙ). A solution of Equations (11) and (12) is defined as outbreak dynamics if ∃<em>t</em> ∈ ℕ : <em>R</em><sub>0</sub>(<em>t</em>) <em>&gt;</em> 1.</p>
 <p>We will examine two policies, based on this condition, to determine if each one is possible to fulfill the condition. If so, the optimal NPI policy is based on the parameter-space criteria:</p>
-<ul>
-<li>1) The influence of the duration of the work/school day.</li>
-<li>2) Lockdown in homes with partial to full separation between individuals.</li>
-</ul>
+<ol>
+<li>The influence of the duration of the work/school day.</li>
+<li>Lockdown in homes with partial to full separation between individuals.</li>
+</ol>
 <h3 id="32-duration-of-working-and-schooling-day">3.2. Duration of Working and Schooling Day</h3>
 <p>We will assume that children meet only children in school and adults meet only adults at work and at home adults and children meet each other. This is a good approximation of the real dynamics as a relatively small percent of adults work with children during the day which keeps the interactions between children and adults at this time relatively small to the extent of interaction when both adults and children are at home and therefore can be neglected.</p>
 <p>Based on the proposed spatial model, we change the number of hours children and adults spend in school and work each day, respectively. <strong><a class="xref" href="#fig-7">Figure 7</a></strong>a shows the average <em>R</em><sub>0</sub> as a function of the duration in hours of the working (<em>d</em><sub>W</sub>) and schooling (<em>d</em><sub>S</sub>) day. The dots are the calculated values from the simulator and the surface is a fitting function <em>R</em><sub>0</sub>(<em>d</em><sub>W</sub><em>, d</em><sub>S</sub>). The fitting function is calculated using the least mean square (LMS) method.<sup><span class="cite">[<a href="#ref-34">34</a>]</span></sup> In order to use the LMS method, one needs to define the family function approximating a function. The family function</p>
@@ -440,7 +445,8 @@
 <p>COVID-19 spread dynamics, hybrid models, spatio-temporal models, two-age group SIR</p>
 <p>Received: November 19, 2020 Revised: January 30, 2021 Published online:</p>
 <h2 id="references">References</h2>
-<ol class="paper-refs"><li id="ref-1">J. Chen, T. Qi, L. Liu, Y. Ling, Z. Qian, T. Li, F. Li, Q. Xu, Y. Zhang, S. Xu, Z. Song, Y. Zeng, Y. Shen, Y. Shi, T. Zhu, H. Lu, The Journal of infection 2020, 80, e1.</li>
+<ol class="paper-refs" data-pagefind-ignore>
+<li id="ref-1">J. Chen, T. Qi, L. Liu, Y. Ling, Z. Qian, T. Li, F. Li, Q. Xu, Y. Zhang, S. Xu, Z. Song, Y. Zeng, Y. Shen, Y. Shi, T. Zhu, H. Lu, The Journal of infection 2020, 80, e1.</li>
 <li id="ref-2">F.-W. C. Jasper S. Yuan, K. H. Kok, T, K. K., H. Chu, J. Yang, F. Xing, J. Liu, C. C. Yip, R. W. Poon, H. Tsoi, S. K. Lo, K. Chan, V. K. Poon, W. Chan, J. D. Ip, J. Cai, V. C. Cheng, H. Chen, C. K. Hiu, Lancet 2020, 395, 514.</li>
 <li id="ref-3">Eurosurveillance Editorial Team, Euro Surveill 2020, 25, 200131e.</li>
 <li id="ref-4">WHO Coronavirus Disease (COVID-19) Dashboard, 2020. https://covid19.who.int/ <a href="https://covid19.who.int/" target="_blank" rel="noopener">link</a></li>
@@ -480,8 +486,7 @@
 </ol>
 </div>
         
-        
-        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Bunimovich-Mendrazitsky (2021), <em>Advanced Theory and Simulations</em>, <a href="https://doi.org/10.1002/adts.202000298" target="_blank" rel="noopener">doi:10.1002/adts.202000298</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+        <p class="paper-source" data-pagefind-ignore><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Bunimovich-Mendrazitsky (2021), <em>Advanced Theory and Simulations</em>, <a href="https://doi.org/10.1002/adts.202000298" target="_blank" rel="noopener">doi:10.1002/adts.202000298</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
       </article>
     </div>
 
@@ -542,6 +547,7 @@
          </div>
       </footer>
       
+      <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
           // menu and navbar (js/main.js expects to sit at the site root)

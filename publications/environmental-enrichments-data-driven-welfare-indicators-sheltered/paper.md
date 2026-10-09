@@ -110,10 +110,10 @@ After implantation of the telemeter, the aforementioned physiological parameters
 
 </figure>
 
-- 1. Baseline (BL): Standard housing condition, the dog was alone in the pen without any kind of enrichment; in the pen, there was only a wooden platform to sleep, a metal bowl for the food, and one for the water.
-- 2. Objects (OB): enrichment was provided in the pen in the form of a cot, a perforated rubber ball containing kibble, a rubber ball, a rubber chewing toy, a knotted rag soaked in urine from a female dog unknown to the test subject, and a natural beef bone. In mid-week, the enrichment was renewed by bringing in more biscuits and again impregnating the rag with the smell of a female.
-- 3. Human Presence (HP): once a day, after the morning husbandry chores, one female volunteer, familiar to the dogs, interacted with each dog for two hours (playing, cuddling, or just keeping the dog company if it did not want to physically interact) inside their home pen; the same person visited the same dog for the duration of the HP week.
-- 4. Female Dog (FD): the dog shared its own home pen with an unknown, spayed female; a second wooden platform and a second food bowl were added. A few days before introducing the female into the pen, dogs were tested for compatibility, as it is normal practice in shelters when choosing two partners to cohabit in the same space. During the study, neither aggression nor bites were recorded between the partners matched for the purposes of this study.
+1. Baseline (BL): Standard housing condition, the dog was alone in the pen without any kind of enrichment; in the pen, there was only a wooden platform to sleep, a metal bowl for the food, and one for the water.
+2. Objects (OB): enrichment was provided in the pen in the form of a cot, a perforated rubber ball containing kibble, a rubber ball, a rubber chewing toy, a knotted rag soaked in urine from a female dog unknown to the test subject, and a natural beef bone. In mid-week, the enrichment was renewed by bringing in more biscuits and again impregnating the rag with the smell of a female.
+3. Human Presence (HP): once a day, after the morning husbandry chores, one female volunteer, familiar to the dogs, interacted with each dog for two hours (playing, cuddling, or just keeping the dog company if it did not want to physically interact) inside their home pen; the same person visited the same dog for the duration of the HP week.
+4. Female Dog (FD): the dog shared its own home pen with an unknown, spayed female; a second wooden platform and a second food bowl were added. A few days before introducing the female into the pen, dogs were tested for compatibility, as it is normal practice in shelters when choosing two partners to cohabit in the same space. During the study, neither aggression nor bites were recorded between the partners matched for the purposes of this study.
 
 ### Telemetry‑Based welfare metrics
 

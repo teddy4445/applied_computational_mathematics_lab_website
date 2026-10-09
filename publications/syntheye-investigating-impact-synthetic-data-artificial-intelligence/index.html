@@ -194,10 +194,10 @@
     <header class="paper-hero">
       <div class="paper-wrap">
         <nav class="paper-crumbs" aria-label="Breadcrumb">
-          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Machine Learning</span>
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span data-pagefind-filter="Topic">Machine Learning</span>
         </nav>
         <p class="paper-kicker"><span class="oa-badge"><i class="ri-lock-unlock-line" aria-hidden="true"></i>Open access</span><span><em>Ophthalmology Science</em> · 2023</span></p>
-        <h1 class="paper-title is-long">SynthEye: Investigating the Impact of Synthetic Data on Artificial Intelligence assisted Gene Diagnosis of Inherited Retinal Disease</h1>
+        <h1 class="paper-title is-long" data-pagefind-meta="title" data-pagefind-filter="Year:2023">SynthEye: Investigating the Impact of Synthetic Data on Artificial Intelligence assisted Gene Diagnosis of Inherited Retinal Disease</h1>
         <p class="paper-authors"><span class="author">Yoga Advaith Veturi</span>, <span class="author">William Woof</span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author">Ismail Moghul</span>, <span class="author">Peter Woodward-Court</span>, <span class="author">Siegfried K. Wagner</span>, <span class="author">Thales Antonio Cabral de Guimarães</span>, <span class="author">Malena Daich Varela</span>, <span class="author">Bart Liefers</span>, <span class="author">Praveen J. Patel</span>, <span class="author">Stephan Beck</span>, <span class="author">Andrew R. Webster</span>, <span class="author">Omar Mahroo</span>, <span class="author">Pearse A. Keane</span>, <span class="author">Michel Michaelides</span>, <span class="author">Konstantinos Balaskas</span>, <span class="author">Nikolas Pontikos</span></p>
         
         <div class="paper-actions">
@@ -212,10 +212,14 @@
       </div>
     </header>
 
-    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">We studied whether synthetic images can support AI-assisted gene diagnosis of inherited retinal disease (IRD). Generating realistic synthetic IRD images (FAF images) proved feasible. Adding synthetic images to real data did not improve classification, but synthetic data alone performed similarly to real data and may serve as a proxy for it.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Generating realistic synthetic FAF images of inherited retinal disease is feasible.</li><li>Augmenting the data with synthetic images did not improve classification performance.</li><li>Synthetic data alone performed similarly to real data and may be useful as a proxy for real data.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1800" height="1006" alt="Figure 1. Distribution of the fundus autofluorescence (FAF) dataset for 36 genes, obtained from the Moorfields Eye Hospital inherited retinal disease cohort. There is a significant class imbalance where ABCA4 dominates the remaining genes."></a><figcaption><strong>Figure 1.</strong> Distribution of the fundus autofluorescence (FAF) dataset for 36 genes, obtained from the Moorfields Eye Hospital inherited retinal disease cohort. There is a significant class imbalance where ABCA4 dominates the remaining genes. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+    <section class="paper-glance" aria-labelledby="glance-title" data-pagefind-body><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">We studied whether synthetic images can support AI-assisted gene diagnosis of inherited retinal disease (IRD). Generating realistic synthetic IRD images (FAF images) proved feasible. Adding synthetic images to real data did not improve classification, but synthetic data alone performed similarly to real data and may serve as a proxy for it.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Generating realistic synthetic FAF images of inherited retinal disease is feasible.</li><li>Augmenting the data with synthetic images did not improve classification performance.</li><li>Synthetic data alone performed similarly to real data and may be useful as a proxy for real data.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1800" height="1006" alt="Figure 1. Distribution of the fundus autofluorescence (FAF) dataset for 36 genes, obtained from the Moorfields Eye Hospital inherited retinal disease cohort. There is a significant class imbalance where ABCA4 dominates the remaining genes."></a><figcaption><strong>Figure 1.</strong> Distribution of the fundus autofluorescence (FAF) dataset for 36 genes, obtained from the Moorfields Eye Hospital inherited retinal disease cohort. There is a significant class imbalance where ABCA4 dominates the remaining genes. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
 
     <div class="paper-wrap paper-layout">
       <aside class="paper-aside">
+        <form class="paper-search" action="/publications.html" method="get" role="search">
+          <label for="paper-q" class="aside-title">Search all our papers</label>
+          <div class="paper-search-box"><i class="ri-search-line" aria-hidden="true"></i><input id="paper-q" name="q" type="search" placeholder="e.g. Thompson sampling" autocomplete="off"></div>
+        </form>
         <nav class="paper-toc" aria-label="On this page">
           <p class="aside-title">On this page</p>
           <ol>
@@ -233,8 +237,8 @@
         </div>
       </aside>
 
-      <article class="paper-body" id="full-text">
-        <details class="paper-toc-mobile">
+      <article class="paper-body" id="full-text" data-pagefind-body>
+        <details class="paper-toc-mobile" data-pagefind-ignore>
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
@@ -246,9 +250,10 @@
           </ol>
         </details>
         <section id="abstract" class="paper-abstract">
-          <h2>Abstract</h2>
+          <h2 id="abstract-heading">Abstract</h2>
           <p>Synthetic generation of realistic IRD FAF images is feasible. Synthetic data augmentation does not deliver improvements in classification performance. However, synthetic data alone deliver a similar performance as real data, and hence may be useful as a proxy to real data.Financial Disclosure(s): Proprietary or commercial disclosure may be found after the references.</p>
         </section>
+        
         
 <div class="paper-text">
 <p>There is a lack of understanding of rare eye conditions due to their data scarcity and a shortage of experts familiar with these conditions, causing delays in diagnosis and disparities in access to care.<sup><a href="#ref-1">1</a>,<a href="#ref-2">2</a></sup> A subtype of rare eye diseases are inherited retinal diseases (IRDs), a diverse group of monogenic retinal disorders causing visual impairment or blindness.<sup><a href="#ref-3">3</a></sup> A genetic diagnosis is considered crucial for the management and care of these conditions. With advances in retinal imaging technology, such as fundus autofluorescence (FAF) scans, gene-specific patterns of photoreceptor dysfunction and apoptosis in IRDs can be detected to help guide genetic diagnosis.<sup><a href="#ref-4">4</a></sup> However, this pattern recognition task remains challenging,<sup><a href="#ref-5">5</a>,<a href="#ref-6">6</a></sup> since even in countries with wide access to genetic testing and dedicated eye genetics services, a genetic diagnosis is elusive in &gt; 40% of the cases.<sup>7e10</sup> Therefore, Decision Support Systems, in the form of deep learning (DL) based prediction models, may be of assistance.<sup>11e13</sup> Recently, we developed Eye2Gene, a DL model that can assist a genetic diagnosis from input images of either FAF, infrared, or OCT modalities.<sup><a href="#ref-14">14</a></sup> While Eye2Gene was able to achieve expert-level performance (top-5 accuracy, 85.6%), we found that the performance of the classifiers is limited by the natural class imbalance in our IRD dataset, where gene-associated disease classes such as ABCA4 and USH2A are typical 10-fold more common than NRE23 and TIMP3 (Supplementary <a class="xref" href="#fig-1">Fig 1</a>).<sup><a href="#ref-15">15</a></sup> As a result of this imbalance, the prediction models tend to over predict common classes and under predict rarer ones.<sup><a href="#ref-16">16</a></sup></p>
@@ -268,11 +273,11 @@
 <p>We trained a StyleGAN2-ADA model developed by NVIDIA- Labs, for creating synthetic retinal images (https://github.com/NVlabs/stylegan2-ada-pytorch). This model was primarily chosen due to its state-of-the-art image quality, short training time, and relatively low compute cost. Additionally, from initial experiments with multiscale gradient GANs, we found that the types of images generated were not diverse in terms of the types of lesions and anatomical structures (Supplementary <a class="xref" href="#fig-5">Fig 5</a>). Hence, we believed that StyleGAN2, due to its adaptation of elements from the neural style transfer domain, would be capable of higher-quality and higher-diversity image generation.<sup><a href="#ref-30">30</a>,<a href="#ref-31">31</a></sup> Details on model training and hyperparameter selection are presented in Supplementary <a class="xref" href="#table-1">Table 1</a>. Using our trained StyleGAN2 model, we generated new synthetic data by providing randomly sampled Gaussian noise vectors and the gene class indices.</p>
 <h3 id="synthetic-data-evaluation">Synthetic Data Evaluation</h3>
 <p>Currently, the most popular metrics for synthetic data evaluation include the Fréchet Inception Distance and Inception Score, which analyze image quality with reference to feature statistics computed over a set of synthetic and real samples. However, these metrics express the notion of quality into a single number for which there is no upper bound, which makes them difficult to interpret.<sup><a href="#ref-28">28</a>,<a href="#ref-29">29</a></sup> Furthermore, with medical imaging data, it is essential that synthetic images are studied on a dataset and pixel level to ensure that samples are novel and clinically plausible and specific patient imaging features are not memorized. With that in mind, we put forward 3 primary considerations:</p>
-<ul>
-<li>1) Fidelity: Do the synthetic images have a visual appearance similar to the real images?</li>
-<li>2) Diversity: Is the distribution of the synthetic data similar to that of the real data?</li>
-<li>3) Generalization: Has the GAN generated novel images or merely copied the training images?</li>
-</ul>
+<ol>
+<li>Fidelity: Do the synthetic images have a visual appearance similar to the real images?</li>
+<li>Diversity: Is the distribution of the synthetic data similar to that of the real data?</li>
+<li>Generalization: Has the GAN generated novel images or merely copied the training images?</li>
+</ol>
 <p>We use a panel of qualitative and quantitative approaches to answer these questions, which we describe subsequently.</p>
 <h3 id="subjective-visual-quality-evaluation">Subjective Visual Quality Evaluation</h3>
 <p>To address question (1), we define a visually coherent synthetic image as one that experts, when not told it is synthetic, cannot confidently classify as synthetic. This is studied by conducting a Visual Turing Test with the help of specialists from MEH. Specifically, we developed a web-based quiz platform (https://syntheye.com/,<sup><a href="#ref-1">1</a></sup>) for grading our images which was shared with 4 clinical experts, 2 junior, and 2 senior ophthalmologists with expertise in IRDs. The quiz presents a user with a real or synthetic image with 50% probability, which can be graded as “Real,” “Synthetic,” or “Unsure.” For our quiz databank, we focus on images from 3 disease classes, namely ABCA4, BEST1, and PRPH2, as these have distinct and well-studied imaging phenotypes that trained ophthalmologists can recognize. The genetic disease is provided along with the FAF image to the user for grading, as this can be informative. Adapting the terminology from Chuquicusma et al., 2018,<sup><a href="#ref-32">32</a></sup> we measure the True Recognition Rate (TRR) and Fake Recognition Rate (FRR). Fake recognition rate is the percentage of synthetic images that were classified as synthetic and TRR is the percentage of real images classified as real. Additionally, we study the interobserver agreement to see which images were often confused as real and which images were unanimously considered to be fake.</p>
@@ -365,7 +370,8 @@
 <p>Keywords: Synthetic data, Deep Learning, Generative Adversarial Networks, Inherited Retinal Diseases, Class imbalance, Clinical Decision-Support Model. Correspondence:</p>
 <p>Nikolas Pontikos, PhD, University College London Institute of Ophthalmology, 11-43 Bath Street, London EC1V 9EL, UK. E-mail: n.pontikos@ucl.ac.uk</p>
 <h2 id="references">References</h2>
-<ol class="paper-refs"><li id="ref-1">Black GC, Sergouniotis P, Sodi A, et al. The need for widely available genomic testing in rare eye diseases: an ERN-EYE position statement. Orphanet J Rare Dis. 2021;16(1):142. <a href="http://refhub.elsevier.com/S2666-9145%2822%2900147-6/sref1" target="_blank" rel="noopener">link</a></li>
+<ol class="paper-refs" data-pagefind-ignore>
+<li id="ref-1">Black GC, Sergouniotis P, Sodi A, et al. The need for widely available genomic testing in rare eye diseases: an ERN-EYE position statement. Orphanet J Rare Dis. 2021;16(1):142. <a href="http://refhub.elsevier.com/S2666-9145%2822%2900147-6/sref1" target="_blank" rel="noopener">link</a></li>
 <li id="ref-2">100,000 Genomes Project Pilot Investigators, Smedley D, Smith KR, Martin A, et al. 100,000 Genomes Pilot on Rare- Disease Diagnosis in Health Care - preliminary Report. N Engl J Med. 2021;385(20):1868e1880. <a href="http://refhub.elsevier.com/S2666-9145%2822%2900147-6/sref2" target="_blank" rel="noopener">link</a></li>
 <li id="ref-3">Henderson RH. Inherited retinal dystrophies. Paediatr Child Health. 2020;30(1):19e27. <a href="http://refhub.elsevier.com/S2666-9145%2822%2900147-6/sref3" target="_blank" rel="noopener">link</a></li>
 <li id="ref-4">Heiferman MJ, Fawzi AA. Discordance between blue-light autofluorescence and near-infrared autofluorescence in age-related macular degeneration. Retina. 2016;36(Suppl 1): S137eS146. <a href="http://refhub.elsevier.com/S2666-9145%2822%2900147-6/sref4" target="_blank" rel="noopener">link</a></li>
@@ -412,8 +418,7 @@
 </ol>
 </div>
         
-        
-        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Veturi et al. (2023), <em>Ophthalmology Science</em>, <a href="https://doi.org/10.1016/j.xops.2022.100258" target="_blank" rel="noopener">doi:10.1016/j.xops.2022.100258</a>, under the <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="license noopener">CC BY-NC-ND 4.0</a> licence. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+        <p class="paper-source" data-pagefind-ignore><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Veturi et al. (2023), <em>Ophthalmology Science</em>, <a href="https://doi.org/10.1016/j.xops.2022.100258" target="_blank" rel="noopener">doi:10.1016/j.xops.2022.100258</a>, under the <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="license noopener">CC BY-NC-ND 4.0</a> licence. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
       </article>
     </div>
 
@@ -474,6 +479,7 @@
          </div>
       </footer>
       
+      <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
           // menu and navbar (js/main.js expects to sit at the site root)

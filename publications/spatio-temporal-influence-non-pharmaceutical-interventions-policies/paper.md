@@ -111,9 +111,9 @@ In addition, by dividing the time passed from the beginning of the temporal mode
 <figcaption>Figure 5. The panel of the spatial model. From top to bottom: the time from the beginning of the simulation. Distribution of the population to susceptible, infected, recovered, and dead groups. The distribution of the population to susceptible, infected, recovered, and dead groups with separation to children and adults and their current location (home, work, school). The R<sub>0</sub> at a certain time and the average R<sub>0</sub> from the beginning of the simulation. Source: Authors generated.</figcaption>
 </figure>
 
-- 1. If T mod24 = t<sup>d</sup> <sub>c</sub> , all of the children sub-population that is located at the home node moves to the school node.
-- 2. If T mod24 = t<sup>d</sup> <sub>a</sub>, all of the adult sub-population that is located at the home node moves to the work node.
-- 3. If , all of the adult sub-population that is located at the work node and all of the children sub-population that is located at the school node move to the home node.
+1. If T mod24 = t<sup>d</sup> <sub>c</sub> , all of the children sub-population that is located at the home node moves to the school node.
+2. If T mod24 = t<sup>d</sup> <sub>a</sub>, all of the adult sub-population that is located at the home node moves to the work node.
+3. If , all of the adult sub-population that is located at the work node and all of the children sub-population that is located at the school node move to the home node.
 
 We assume the transition from home to either work or school and back is immediate and that everybody is following the same clock. Otherwise, the distribution of the population on the graph stays the same. Between each population movement on the graph, the temporal sub-model is performed simultaneously on all the graph’s nodes. Figure 5 shows the spatial model schema presenting the population distribution and locations at some point in time. Each simulation step simulates for one hour.
 

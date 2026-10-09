@@ -121,10 +121,10 @@
     <header class="paper-hero">
       <div class="paper-wrap">
         <nav class="paper-crumbs" aria-label="Breadcrumb">
-          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Biomathematics</span>
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span data-pagefind-filter="Topic">Biomathematics</span>
         </nav>
         <p class="paper-kicker"><span class="oa-badge"><i class="ri-lock-unlock-line" aria-hidden="true"></i>Open access</span><span><em>Frontiers in Medicine</em> · 23 May 2024</span></p>
-        <h1 class="paper-title">Predicting lung cancer&#x27;s metastats&#x27; locations using bioclinical model</h1>
+        <h1 class="paper-title" data-pagefind-meta="title" data-pagefind-filter="Year:2024">Predicting lung cancer&#x27;s metastats&#x27; locations using bioclinical model</h1>
         <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author">Svetlana Bunimovich-Mendrazitsky</span></p>
         <details class="paper-affils"><summary>Affiliations</summary><ol><li value="1">Department of Cancer Biology, Cancer Institute, University College London, London, United Kingdom</li><li value="2">Department of Mathematics, Ariel University, Ariel, Israel</li></ol></details>
         <div class="paper-actions">
@@ -139,10 +139,14 @@
       </div>
     </header>
 
-    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Metastasis, the spread of cancer to other parts of the body, strongly affects lung cancer treatment outcomes, yet conventional imaging struggles to detect small metastases. We developed a bioclinical model that uses three-dimensional CT scans and a three-layer biological model to predict where lung cancer is likely to spread. Validated on real-world data from 10 patients, the model predicted metastasis locations with 74% accuracy, showing the promise of combining biophysical and machine learning models.</p><div class=glance-stats><div class="stat"><span class="stat-value">74%</span><span class="stat-label">accuracy in predicting metastasis locations</span></div><div class="stat"><span class="stat-value">10</span><span class="stat-label">patients in the real-world validation data</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>We built a bioclinical model using three-dimensional CT scans to predict the spatial spread of lung cancer metastasis.</li><li>A three-layer biological model identified regions with a high probability of metastasis colonization.</li><li>Validated on real-world data from 10 patients, the model reached 74% accuracy in predicting metastasis locations.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1435" height="868" alt="FIGURE 1 A schematic view of the model’s components and the interactions between them."></a><figcaption>FIGURE 1 A schematic view of the model’s components and the interactions between them. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+    <section class="paper-glance" aria-labelledby="glance-title" data-pagefind-body><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Metastasis, the spread of cancer to other parts of the body, strongly affects lung cancer treatment outcomes, yet conventional imaging struggles to detect small metastases. We developed a bioclinical model that uses three-dimensional CT scans and a three-layer biological model to predict where lung cancer is likely to spread. Validated on real-world data from 10 patients, the model predicted metastasis locations with 74% accuracy, showing the promise of combining biophysical and machine learning models.</p><div class=glance-stats><div class="stat"><span class="stat-value">74%</span><span class="stat-label">accuracy in predicting metastasis locations</span></div><div class="stat"><span class="stat-value">10</span><span class="stat-label">patients in the real-world validation data</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>We built a bioclinical model using three-dimensional CT scans to predict the spatial spread of lung cancer metastasis.</li><li>A three-layer biological model identified regions with a high probability of metastasis colonization.</li><li>Validated on real-world data from 10 patients, the model reached 74% accuracy in predicting metastasis locations.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1435" height="868" alt="FIGURE 1 A schematic view of the model’s components and the interactions between them."></a><figcaption>FIGURE 1 A schematic view of the model’s components and the interactions between them. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
 
     <div class="paper-wrap paper-layout">
       <aside class="paper-aside">
+        <form class="paper-search" action="/publications.html" method="get" role="search">
+          <label for="paper-q" class="aside-title">Search all our papers</label>
+          <div class="paper-search-box"><i class="ri-search-line" aria-hidden="true"></i><input id="paper-q" name="q" type="search" placeholder="e.g. Thompson sampling" autocomplete="off"></div>
+        </form>
         <nav class="paper-toc" aria-label="On this page">
           <p class="aside-title">On this page</p>
           <ol>
@@ -163,8 +167,8 @@
         </div>
       </aside>
 
-      <article class="paper-body" id="full-text">
-        <details class="paper-toc-mobile">
+      <article class="paper-body" id="full-text" data-pagefind-body>
+        <details class="paper-toc-mobile" data-pagefind-ignore>
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
@@ -179,9 +183,10 @@
           </ol>
         </details>
         <section id="abstract" class="paper-abstract">
-          <h2>Abstract</h2>
+          <h2 id="abstract-heading">Abstract</h2>
           <p>Background: Lung cancer is a global leading cause of cancer-related deaths, and metastasis profoundly influences treatment outcomes. The limitations of conventional imaging in detecting small metastases highlight the crucial need for advanced diagnostic approaches. Methods: This study developed a bioclinical model using three-dimensional CT scans to predict the spatial spread of lung cancer metastasis. Utilizing a three-layer biological model, we identified regions with a high probability of metastasis colonization and validated the model on real-world data from 10 patients. Findings: The validated bioclinical model demonstrated a promising 74% accuracy in predicting metastasis locations, showcasing the potential of integrating biophysical and machine learning models. These findings underscore the significance of a more comprehensive approach to lung cancer diagnosis and treatment. Interpretation: This study&#x27;s integration of biophysical and machine learning models contributes to advancing lung cancer diagnosis and treatment, providing nuanced insights for informed decision-making.</p>
         </section>
+        
         
 <div class="paper-text">
 <h2 id="1-background">1 Background</h2>
@@ -247,9 +252,10 @@
 <p>The raw data supporting the conclusions of this article will be made available by the authors, without undue reservation.</p>
 <h2 id="author-contributions">Author contributions</h2>
 <p>TL: Conceptualization, Formal analysis, Funding acquisition, Investigation, Methodology, Project administration, Resources, Software, Visualization, Writing – original draft, Writing – review &amp; editing. SB-M: Data curation, Writing – original draft, Writing – review &amp; editing.</p>
-<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 20 February 2024 · Accepted 13 May 2024 · Published 23 May 2024</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>spatial biology</li><li>biophysical model</li><li>clinical computer vision</li><li>diagnosis support model</li><li>metastasis detection</li></ul></dd></div></dl></section>
+<section id="article-notes" class="paper-notes" data-pagefind-ignore><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 20 February 2024 · Accepted 13 May 2024 · Published 23 May 2024</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>spatial biology</li><li>biophysical model</li><li>clinical computer vision</li><li>diagnosis support model</li><li>metastasis detection</li></ul></dd></div></dl></section>
 <h2 id="references">References</h2>
-<ol class="paper-refs"><li id="ref-1">Torre LA, Siegel RL, Jemal A. Lung cancer statistics. Adv Exp Med Biol. (2016) 893:1–19. <a href="https://doi.org/10.1007/978-3-319-24223-1_1" target="_blank" rel="noopener">doi:10.1007/978-3-319-24223-1_1</a></li>
+<ol class="paper-refs" data-pagefind-ignore>
+<li id="ref-1">Torre LA, Siegel RL, Jemal A. Lung cancer statistics. Adv Exp Med Biol. (2016) 893:1–19. <a href="https://doi.org/10.1007/978-3-319-24223-1_1" target="_blank" rel="noopener">doi:10.1007/978-3-319-24223-1_1</a></li>
 <li id="ref-2">Yuan M, Huang LL, Chen JH, Wu J, Xu Q. The emerging treatment landscape of targeted therapy in non-small-cell lung cancer. Signal Transduct Target Ther. (2019) 4:61. <a href="https://doi.org/10.1038/s41392-019-0099-9" target="_blank" rel="noopener">doi:10.1038/s41392-019-0099-9</a></li>
 <li id="ref-3">Reck M, Popat S, Reinmuth N, De Ruysscher D, Kerr KM, Peters S. Metastatic non-small-cell lung cancer (NSCLC): ESMO Clinical Practice Guidelines for diagnosis, treatment and follow-up. Ann Oncol. (2014). 25:III27–39. <a href="https://doi.org/10.1093/annonc/mdu199" target="_blank" rel="noopener">doi:10.1093/annonc/mdu199</a></li>
 <li id="ref-4">Wang M, Herbst RS, Boshoff C. Toward personalized treatment approaches for non-small-cell lung cancer. Nat Med. (2021) 27:1345–56. <a href="https://doi.org/10.1038/s41591-021-01450-2" target="_blank" rel="noopener">doi:10.1038/s41591-021-01450-2</a></li>
@@ -303,8 +309,7 @@
 </ol>
 </div>
         
-        
-        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2024), <em>Frontiers in Medicine</em>, <a href="https://doi.org/10.3389/fmed.2024.1388702" target="_blank" rel="noopener">doi:10.3389/fmed.2024.1388702</a>, under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY</a> licence. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+        <p class="paper-source" data-pagefind-ignore><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2024), <em>Frontiers in Medicine</em>, <a href="https://doi.org/10.3389/fmed.2024.1388702" target="_blank" rel="noopener">doi:10.3389/fmed.2024.1388702</a>, under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY</a> licence. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
       </article>
     </div>
 
@@ -365,6 +370,7 @@
          </div>
       </footer>
       
+      <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
           // menu and navbar (js/main.js expects to sit at the site root)

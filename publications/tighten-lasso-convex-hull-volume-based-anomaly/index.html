@@ -135,10 +135,10 @@
     <header class="paper-hero">
       <div class="paper-wrap">
         <nav class="paper-crumbs" aria-label="Breadcrumb">
-          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Machine Learning</span>
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span data-pagefind-filter="Topic">Machine Learning</span>
         </nav>
         <p class="paper-kicker"><span><em>International Journal of Data Science and Analytics</em> · 2025</span></p>
-        <h1 class="paper-title">Tighten the lasso: a convex hull volume-based anomaly detection method</h1>
+        <h1 class="paper-title" data-pagefind-meta="title" data-pagefind-filter="Year:2025">Tighten the lasso: a convex hull volume-based anomaly detection method</h1>
         <p class="paper-authors"><span class="author">Uri Itai</span>, <span class="author">Asael Bar Ilan</span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span></p>
         <details class="paper-affils"><summary>Affiliations</summary><ol><li value="1">Department of Mathematics, The Guangdong Technion-Israel Institute of Technology, Shantou, China</li></ol></details>
         <div class="paper-actions">
@@ -153,10 +153,14 @@
       </div>
     </header>
 
-    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Spotting out-of-distribution data, samples unlike those a model was built on, is critical for keeping machine learning models reliable. We propose an anomaly detection algorithm based on the convex hull, the smallest shape that encloses a dataset: it removes samples step by step while tracking the hull&#x27;s volume, and stops when removals no longer change it significantly. Tested against seven widely used methods on ten datasets, it performed comparably to state-of-the-art techniques.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>The method exploits the observation that out-of-distribution samples add more to the convex hull&#x27;s volume than in-distribution samples do.</li><li>Evaluated against seven widely used anomaly detection methods across ten datasets, it performed comparably to state-of-the-art techniques.</li><li>We also introduce a computationally efficient criterion for identifying datasets where the method outperforms existing state-of-the-art approaches.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1800" height="853" alt="Fig. 1 A simplistic example of a 2D dataset with an anomaly and its influence on the CH’s volume. On the left, there is the dataset without anomalies with a volume of 2.537, while as shown on the right, two anomaly samples increase the CH’s volume to 3.793, almost 50% increase"></a><figcaption><strong>Fig. 1</strong> A simplistic example of a 2D dataset with an anomaly and its influence on the CH’s volume. On the left, there is the dataset without anomalies with a volume of 2.537, while as shown on the right, two anomaly samples increase the CH’s volume to 3.793, almost 50% increase <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+    <section class="paper-glance" aria-labelledby="glance-title" data-pagefind-body><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Spotting out-of-distribution data, samples unlike those a model was built on, is critical for keeping machine learning models reliable. We propose an anomaly detection algorithm based on the convex hull, the smallest shape that encloses a dataset: it removes samples step by step while tracking the hull&#x27;s volume, and stops when removals no longer change it significantly. Tested against seven widely used methods on ten datasets, it performed comparably to state-of-the-art techniques.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>The method exploits the observation that out-of-distribution samples add more to the convex hull&#x27;s volume than in-distribution samples do.</li><li>Evaluated against seven widely used anomaly detection methods across ten datasets, it performed comparably to state-of-the-art techniques.</li><li>We also introduce a computationally efficient criterion for identifying datasets where the method outperforms existing state-of-the-art approaches.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1800" height="853" alt="Fig. 1 A simplistic example of a 2D dataset with an anomaly and its influence on the CH’s volume. On the left, there is the dataset without anomalies with a volume of 2.537, while as shown on the right, two anomaly samples increase the CH’s volume to 3.793, almost 50% increase"></a><figcaption><strong>Fig. 1</strong> A simplistic example of a 2D dataset with an anomaly and its influence on the CH’s volume. On the left, there is the dataset without anomalies with a volume of 2.537, while as shown on the right, two anomaly samples increase the CH’s volume to 3.793, almost 50% increase <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
 
     <div class="paper-wrap paper-layout">
       <aside class="paper-aside">
+        <form class="paper-search" action="/publications.html" method="get" role="search">
+          <label for="paper-q" class="aside-title">Search all our papers</label>
+          <div class="paper-search-box"><i class="ri-search-line" aria-hidden="true"></i><input id="paper-q" name="q" type="search" placeholder="e.g. Thompson sampling" autocomplete="off"></div>
+        </form>
         <nav class="paper-toc" aria-label="On this page">
           <p class="aside-title">On this page</p>
           <ol>
@@ -179,8 +183,8 @@
         </div>
       </aside>
 
-      <article class="paper-body" id="full-text">
-        <details class="paper-toc-mobile">
+      <article class="paper-body" id="full-text" data-pagefind-body>
+        <details class="paper-toc-mobile" data-pagefind-ignore>
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
@@ -197,9 +201,10 @@
           </ol>
         </details>
         <section id="abstract" class="paper-abstract">
-          <h2>Abstract</h2>
+          <h2 id="abstract-heading">Abstract</h2>
           <p>Detecting out-of-distribution (OOD) data is a critical task for maintaining model reliability and robustness. In this study, we propose a novel anomaly detection algorithm that leverages the convex hull (CH) property of a dataset by exploiting the observation that OOD samples marginally increase the CH’s volume compared to in-distribution samples. Thus, we establish a decision boundary between OOD and in-distribution data by iteratively computing the CH’s volume as samples are removed, stopping when such removal does not significantly alter the CH’s volume. The proposed algorithm is evaluated against seven widely used anomaly detection methods across ten datasets, demonstrating performance comparable to state-of-the-art (SOTA) techniques. Furthermore, we introduce a computationally efficient criterion for identifying datasets where the proposed method outperforms existing SOTA approaches.</p>
         </section>
+        
         
 <div class="paper-text">
 <h2 id="1-introduction">1 Introduction</h2>
@@ -353,9 +358,10 @@
 <p><strong>Data and code availability</strong> The data is freely available in the following GitHub repository: https://github.com/asaelbarilan/Anomaly_Dete ction_Using_Convex_Hull.</p>
 <h3 id="declarations">Declarations</h3>
 <p><strong>Conflict of interest</strong> The authors declare no competing interests.</p>
-<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 5 April 2025 · Accepted 22 September 2025</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>Outlier detection</li><li>Convex hull</li><li>Out-of-distribution</li><li>Geometry of a set</li><li>Hypervolume</li></ul></dd></div></dl></section>
+<section id="article-notes" class="paper-notes" data-pagefind-ignore><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 5 April 2025 · Accepted 22 September 2025</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>Outlier detection</li><li>Convex hull</li><li>Out-of-distribution</li><li>Geometry of a set</li><li>Hypervolume</li></ul></dd></div></dl></section>
 <h2 id="references">References</h2>
-<ol class="paper-refs"><li id="ref-1">Khan, A.Q., El Jaouhari, S., Tamani, N., Mroueh, L.: Knowledge-based anomaly detection: survey, challenges, and future directions. Eng. Appl. Artif. Intell. 136, 108996 (2024)</li>
+<ol class="paper-refs" data-pagefind-ignore>
+<li id="ref-1">Khan, A.Q., El Jaouhari, S., Tamani, N., Mroueh, L.: Knowledge-based anomaly detection: survey, challenges, and future directions. Eng. Appl. Artif. Intell. 136, 108996 (2024)</li>
 <li id="ref-2">Chandola, V., Banerjee, A., Kumar, V.: Anomaly detection: a survey. ACM Comput. Surv. (CSUR) 41(3), 1–58 (2009)</li>
 <li id="ref-3">Zamanzadeh Darban, Z., Webb, G.I., Pan, S., Aggarwal, C., Salehi, M.: Deep learning for time series anomaly detection: a survey. ACM Comput. Surv. 57(1), 1–42 (2024)</li>
 <li id="ref-4">Fährmann, D., Martín, L., Sánchez, L., Damer, N.: Anomaly detection in smart environments: a comprehensive survey. IEEE Access 12, 64006–64049 (2024)</li>
@@ -395,7 +401,7 @@
 <li id="ref-38">Wang, T., Cai, M., Ouyang, X., Cao, Z., Cai, T., Tan, X., Lu, X.: Anomaly detection based on convex analysis: a survey. Front. Phys. 10, 873848 (2022)</li>
 <li id="ref-39">Li, P., Niggemann, O.: Improving clustering based anomaly detection with concave hull: an application in fault diagnosis of wind turbines. In: 2016 IEEE 14th International Conference on Industrial Informatics (INDIN), pp. 463–466. IEEE (2016)</li>
 <li id="ref-40">Olteanu, M., Rossi, F., Yger, F.: Meta-survey on outlier and anomaly detection. Neurocomputing 555, 126634 (2023)</li>
-<li id="ref-41">Novoa-Paradela, D., Fontenla-Romero, O., Guijarro-Berdin˜as, B.: Online learning for anomaly detection via subdivisible convex hulls. In: 2020 International Joint Conference on Neural Networks (IJCNN), pp. 1–8. IEEE (2020)</li>
+<li id="ref-41">Novoa-Paradela, D., Fontenla-Romero, O., Guijarro-Berdinãs, B.: Online learning for anomaly detection via subdivisible convex hulls. In: 2020 International Joint Conference on Neural Networks (IJCNN), pp. 1–8. IEEE (2020)</li>
 <li id="ref-42">Jove, E., Casteleiro-Roca, J.-L., Quintián, H., Mendez-Perez, J.-A., Calvo-Rolle, J.L.: A new method for anomaly detection based on non-convex boundaries with random two-dimensional projections. Inf. Fus. 65, 50–57 (2021)</li>
 <li id="ref-43">Li, P., Niggemann, O., Hammer, B.: A geometric approach to clustering based anomaly detection for industrial applications. In: IECON 2018—44th Annual Conference of the IEEE Industrial Electronics Society, pp. 5345–5352. IEEE (2018)</li>
 <li id="ref-44">Liu, Z., Liu, J.G., Pan, C., Wang, G.: A novel geometric approach to binary classification based on scaled convex hulls. IEEE Trans. Neural Netw. 20, 1215–1220 (2009)</li>
@@ -436,8 +442,7 @@
 </ol>
 </div>
         
-        
-        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Itai et al. (2025), <em>International Journal of Data Science and Analytics</em>, <a href="https://doi.org/10.1007/s41060-025-00928-3" target="_blank" rel="noopener">doi:10.1007/s41060-025-00928-3</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+        <p class="paper-source" data-pagefind-ignore><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Itai et al. (2025), <em>International Journal of Data Science and Analytics</em>, <a href="https://doi.org/10.1007/s41060-025-00928-3" target="_blank" rel="noopener">doi:10.1007/s41060-025-00928-3</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
       </article>
     </div>
 
@@ -500,6 +505,7 @@
          </div>
       </footer>
       
+      <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
           // menu and navbar (js/main.js expects to sit at the site root)

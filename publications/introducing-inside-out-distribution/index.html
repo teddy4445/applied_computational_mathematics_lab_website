@@ -126,10 +126,10 @@
     <header class="paper-hero">
       <div class="paper-wrap">
         <nav class="paper-crumbs" aria-label="Breadcrumb">
-          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Machine Learning</span>
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span data-pagefind-filter="Topic">Machine Learning</span>
         </nav>
         <p class="paper-kicker"><span class="oa-badge"><i class="ri-lock-unlock-line" aria-hidden="true"></i>Open access</span><span><em>International Journal of Data Science and Analytics</em> · 2025</span></p>
-        <h1 class="paper-title">Introducing “Inside” out of distribution</h1>
+        <h1 class="paper-title" data-pagefind-meta="title" data-pagefind-filter="Year:2025">Introducing “Inside” out of distribution</h1>
         <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span></p>
         <details class="paper-affils"><summary>Affiliations</summary><ol><li value="1">Department of Information Systems, University of Haifa, Haifa, Israel</li><li value="2">Department of Computing, Jonkoping University, Jonkoping, Sweden</li></ol></details>
         <div class="paper-actions">
@@ -144,10 +144,14 @@
       </div>
     </header>
 
-    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Machine learning models can fail on out-of-distribution samples, data unlike what they were trained on, but research has mostly focused on samples that fall outside the training range. We proposed dividing such cases into inside (interpolatory) and outside (extrapolatory) types and tested their effects on model performance using synthetic datasets. Different inside-outside profiles affected performance in distinct ways, with outside cases generally causing greater degradation on average.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Out-of-distribution samples can be divided into inside (interpolatory) and outside (extrapolatory) cases.</li><li>Different inside-outside profiles have unique effects on model performance, measured by normalized RMSE and F1 score on synthetic datasets.</li><li>Outside out-of-distribution samples generally caused greater performance degradation, on average.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1800" height="439" alt="Fig. 1 An example of inside and outside out of distribution (OOD) for a one, b two, and c five dimensions"></a><figcaption><strong>Fig. 1</strong> An example of inside and outside out of distribution (OOD) for <strong>a</strong> one, <strong>b</strong> two, and <strong>c</strong> five dimensions <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+    <section class="paper-glance" aria-labelledby="glance-title" data-pagefind-body><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Machine learning models can fail on out-of-distribution samples, data unlike what they were trained on, but research has mostly focused on samples that fall outside the training range. We proposed dividing such cases into inside (interpolatory) and outside (extrapolatory) types and tested their effects on model performance using synthetic datasets. Different inside-outside profiles affected performance in distinct ways, with outside cases generally causing greater degradation on average.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Out-of-distribution samples can be divided into inside (interpolatory) and outside (extrapolatory) cases.</li><li>Different inside-outside profiles have unique effects on model performance, measured by normalized RMSE and F1 score on synthetic datasets.</li><li>Outside out-of-distribution samples generally caused greater performance degradation, on average.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1800" height="439" alt="Fig. 1 An example of inside and outside out of distribution (OOD) for a one, b two, and c five dimensions"></a><figcaption><strong>Fig. 1</strong> An example of inside and outside out of distribution (OOD) for <strong>a</strong> one, <strong>b</strong> two, and <strong>c</strong> five dimensions <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
 
     <div class="paper-wrap paper-layout">
       <aside class="paper-aside">
+        <form class="paper-search" action="/publications.html" method="get" role="search">
+          <label for="paper-q" class="aside-title">Search all our papers</label>
+          <div class="paper-search-box"><i class="ri-search-line" aria-hidden="true"></i><input id="paper-q" name="q" type="search" placeholder="e.g. Thompson sampling" autocomplete="off"></div>
+        </form>
         <nav class="paper-toc" aria-label="On this page">
           <p class="aside-title">On this page</p>
           <ol>
@@ -167,8 +171,8 @@
         </div>
       </aside>
 
-      <article class="paper-body" id="full-text">
-        <details class="paper-toc-mobile">
+      <article class="paper-body" id="full-text" data-pagefind-body>
+        <details class="paper-toc-mobile" data-pagefind-ignore>
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
@@ -182,9 +186,10 @@
           </ol>
         </details>
         <section id="abstract" class="paper-abstract">
-          <h2>Abstract</h2>
+          <h2 id="abstract-heading">Abstract</h2>
           <p>Detecting and understanding out-of-distribution (OOD) samples is crucial in machine learning (ML) to ensure reliable modelperformance. Current OOD studies primarily focus on extrapolatory (outside) OOD, neglecting potential cases of interpolatory(inside) OOD. In this study, we introduce a novel perspective on OOD by suggesting that it can be divided into inside andoutside cases. We examine the inside–outside OOD profiles of datasets and their impact on ML model performance, usingnormalized root mean squared error (RMSE) and F1 score as the performance metrics on synthetically generated datasets withboth inside and outside OOD. Our analysis demonstrates that different inside–outside OOD profiles lead to unique effects onML model performance, with outside OOD generally causing greater performance degradation, on average. These findingshighlight the importance of distinguishing between inside and outside OOD for developing effective counter-OOD methods.</p>
         </section>
+        
         
 <div class="paper-text">
 <h2 id="1-introduction">1 Introduction</h2>
@@ -283,9 +288,10 @@
 <p><strong>Code availability</strong> The code used for this study is freely available at: https://github.com/teddy4445/inside_ood.</p>
 <h3 id="declarations">Declarations</h3>
 <p><strong>Conflict of interest</strong> The author declares no conflict of interest.</p>
-<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 13 March 2025 · Accepted 28 August 2025</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>Machine learning robustness</li><li>Performance evaluation</li><li>Out-of-distribution proﬁle</li><li>High-dimensional analysis</li></ul></dd></div></dl></section>
+<section id="article-notes" class="paper-notes" data-pagefind-ignore><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 13 March 2025 · Accepted 28 August 2025</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>Machine learning robustness</li><li>Performance evaluation</li><li>Out-of-distribution proﬁle</li><li>High-dimensional analysis</li></ul></dd></div></dl></section>
 <h2 id="references">References</h2>
-<ol class="paper-refs"><li id="ref-1">Virgolin, M., Wang, Z., Alderliesten, T., Bosman, P.A.N.: Machine learning for the prediction of pseudorealistic pediatric abdominal phantoms for radiation dose reconstruction. J. Med. Imag. 7(4), 046501 (2020)</li>
+<ol class="paper-refs" data-pagefind-ignore>
+<li id="ref-1">Virgolin, M., Wang, Z., Alderliesten, T., Bosman, P.A.N.: Machine learning for the prediction of pseudorealistic pediatric abdominal phantoms for radiation dose reconstruction. J. Med. Imag. 7(4), 046501 (2020)</li>
 <li id="ref-2">Kutz, J.N.: Deep learning in fluid dynamics. J. Fluid Mech. 814, 1–4 (2017)</li>
 <li id="ref-3">Reichstein, M., Camps-Valls, G., Stevens, B., Jung, M., Denzler, J., Carvalhais, N., et al.: Deep learning and process understanding for data-driven earth system science. Nature 566(7743), 195–204 (2019)</li>
 <li id="ref-4">Alzubaidi, L., Zhang, J., Amjad J.H., Al-Dujaili, A., Duan, Y., Al-Shamma, O., Santamarıa, J., Fadhel, M.A., Al-Amidie, M., Farhan, L.: Review of deep learning: Concepts, cnn architectures, challenges, applications, future directions. J. Big Data,8(1), 1–74 (2021).</li>
@@ -324,7 +330,7 @@
 <li id="ref-37">Ye, N., Li, K., Bai, H., Yu, R., Hong, L., Zhou, F., Li, Z., Zhu, J.: Ood-bench: Quantifying and understanding two dimensions of out-of-distribution generalization. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), pp 7947–7958 (2022).</li>
 <li id="ref-38">Liu, W., Wang, X., Owens, J., Li, Y.: Energy-based out-of-distribution detection. In H. Larochelle, M. Ranzato, R. Hadsell, M.F. Balcan, and H. Lin, editors, Advances in Neural Information Processing Systems, vol 33, pp 21464–21475. Curran Associates, Inc., 2020.</li>
 <li id="ref-39">S. Fort, J. Ren, and B. Lakshminarayanan. Exploring the limits of out-of-distribution detection. In M. Ranzato, A. Beygelzimer, Y. Dauphin, P.S. Liang, and J. Wortman Vaughan, editors, Advances in Neural Information Processing Systems, volume 34, pages 7068–7081. Curran Associates, Inc., New York (2021).</li>
-<li id="ref-40">Wenzel, F., Dittadi, A.., Gehler, P., Simon-Gabriel, C.-J., Horn, M., Zietlow, D., Kernert, D., Russell, C., Brox, T., Schiele, B., Scho¨lkopf, B., Locatello, F.: Assaying out-of-distribution generalization in transfer learning. In S. Koyejo, S. Mohamed, A. Agarwal, D. Belgrave, K. Cho, and A. Oh, editors, Advances in Neural Information Processing Systems, vol 35, pp 7181–7198. Curran Associates, Inc., New York (2022).</li>
+<li id="ref-40">Wenzel, F., Dittadi, A.., Gehler, P., Simon-Gabriel, C.-J., Horn, M., Zietlow, D., Kernert, D., Russell, C., Brox, T., Schiele, B., Schölkopf, B., Locatello, F.: Assaying out-of-distribution generalization in transfer learning. In S. Koyejo, S. Mohamed, A. Agarwal, D. Belgrave, K. Cho, and A. Oh, editors, Advances in Neural Information Processing Systems, vol 35, pp 7181–7198. Curran Associates, Inc., New York (2022).</li>
 <li id="ref-41">Hendrycks, D., Basart, S., Mu, N., Kadavath, S., Wang, F., Dorundo, E., Desai, R., Zhu, T., Parajuli, S., Guo, M., Song, D., Steinhardt, J., Gilmer, J.: The many faces of robustness: A critical analysis of out-of-distribution generalization. In Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV), pp 8340–8349 (2021).</li>
 <li id="ref-42">Krueger, D., Caballero, E., Jacobsen, J.-H., Zhang, A., Binas, J., Zhang, D., Priol, R.L., Courville, A.: Out-of-distribution generalization via risk extrapolation (rex). In M. Meila and T. Zhang, editors, Proceedings of the 38th International Conference on Machine Learning, pp 5815–5826. PMLR, New York (2021).</li>
 <li id="ref-43">Yao, H., Wang, Y., Li, S., Zhang, L., Liang, W., Zou, J., Finn, C.: Improving out-of-distribution robustness via selective augmentation. In K. Chaudhuri, S. Jegelka, L. Song, C. Szepesvari, G. Niu, and S. Sabato, editors, Proceedings of the 39th International Conference on Machine Learning, vol 162, pp 25407–25437. PMLR, New York (2022).</li>
@@ -373,8 +379,7 @@
 </ol>
 </div>
         
-        
-        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik (2025), <em>International Journal of Data Science and Analytics</em>, <a href="https://doi.org/10.1007/s41060-025-00947-0" target="_blank" rel="noopener">doi:10.1007/s41060-025-00947-0</a>, under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY 4.0</a> licence. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+        <p class="paper-source" data-pagefind-ignore><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik (2025), <em>International Journal of Data Science and Analytics</em>, <a href="https://doi.org/10.1007/s41060-025-00947-0" target="_blank" rel="noopener">doi:10.1007/s41060-025-00947-0</a>, under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY 4.0</a> licence. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
       </article>
     </div>
 
@@ -437,6 +442,7 @@
          </div>
       </footer>
       
+      <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
           // menu and navbar (js/main.js expects to sit at the site root)

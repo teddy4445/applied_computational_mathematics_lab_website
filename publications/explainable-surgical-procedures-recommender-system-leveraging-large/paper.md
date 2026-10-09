@@ -352,18 +352,23 @@ To further contextualize the evaluation of explanation quality, we provide two i
 
 Okay, doctor, let’s get straight to the key points for this TKR case:
 
-- 1. Medical Indications:
+1. Medical Indications:
+
 - Severe Knee Osteoarthritis: Signiicant pain, limited mobility, and radiographic evidence of end-stage OA in both knees (left prioritized).
 - Failure of Conservative Treatment: Implied by the severity of symptoms despite likely prior nonoperative measures.
 - Improved Quality of Life: Addressing pain and restoring function is crucial for this active patient.
 - Oncology Clearance: Required and obtained.
-- 2. Preoperative Preparation (Key Steps):
+
+2. Preoperative Preparation (Key Steps):
+
 - Medical Evaluation: Comprehensive history, physical (musculoskeletal, cardiac), oncology and anesthesia consultations. Address slightly reduced LVEF and potential myocardial issues.
 - Investigations: Standard bloodwork, ECG, recent chest imaging, recent knee X-rays. Cardiology likely ordered.
 - Medication Management: Speciic oncology instructions for holding/resuming Entrectinib. Manage cardiac medications (Triteace, Amlodipine). Assess need for DVT/VTE prophylaxis.
 - Patient Education: Discuss procedure, risks, benefits, recovery, and obtain informed consent.
 - Optimization: Consider pre-hab PT, nutritional support (high protein recommended), address potential anemia.
-- 3. Surgical Procedure (Concise Steps):
+
+3. Surgical Procedure (Concise Steps):
+
 - Anesthesia (general or regional).
 - Positioning, prepping, tourniquet.
 - Anterior knee incision.
@@ -374,7 +379,9 @@ Okay, doctor, let’s get straight to the key points for this TKR case:
 - Closure of layers, potential drain.
 - Sterile dressing.
 - Key Intraoperative Considerations: Infection risk (underlying cancer), potential for fragile bones, careful cardiovascular monitoring, gentle tissue handling.
-- 4. Postoperative Care (Key Guidelines & Potential Complications):
+
+4. Postoperative Care (Key Guidelines & Potential Complications):
+
 - Immediate: Pain control (multimodal), wound care (monitor for infection), early mobilization (PT starts day 1), DVT/VTE prophylaxis (pharmacological & mechanical), pulmonary hygiene, monitor vitals. Resume Entrectinib per oncology.
 - Rehabilitation (Outpatient PT): Focus on range of motion, strengthening, gait training, functional activities.
 - Medication Management: Continue pain meds, DVT prophylaxis, resume pre-op meds (including Entrectinib, cardiac meds).
@@ -383,7 +390,9 @@ Okay, doctor, let’s get straight to the key points for this TKR case:
 28 • A. Solomon et al.
 
 - Potential Complications (Focus on High-Risk): Infection (higher risk due to cancer), DVT/PE, periprosthetic fracture (if falls), implant loosening (long-term), stiffness, cardiovascular events (due to history).
-- 5. Expected Outcomes and Recovery:
+
+5. Expected Outcomes and Recovery:
+
 - Expected Outcomes: Signiicant pain relief, improved mobility and function, enhanced quality of life. Aim to allow return to activities (lecturing).
 - Typical Recovery: Hospital: 3-7 days. Early Rehab (6 weeks): Pain/swelling control, initial ROM and strength. Intermediate (6-12 weeks): Continued strengthening, improved gait. Late (3-12 months): Max functional recovery. Full benefit up to 1 year. Prognosis Note: Knee function improvement is likely, but overall long-term prognosis also depends on her lung cancer management. Close collaboration is key.
 
@@ -391,13 +400,16 @@ In contrast, the following example was rated lower, with average scores of 3 for
 
 Okay, for this 79-year-old male with a right-sided CSDH:
 
-- 1. Medical Indications: Symptomatic right CSDH causing worsening dizziness, new left-sided weakness, and midline shift seen on CT.
-- 2. Preoperative Preparation:
+1. Medical Indications: Symptomatic right CSDH causing worsening dizziness, new left-sided weakness, and midline shift seen on CT.
+2. Preoperative Preparation:
+
 - Detailed neuro exam, review current CT showing right CSDH with mass effect.
 - Standard blood tests (CBC, electrolytes, coagulation), blood type and screen (crossmatch ordered). ECG due to age and hypertension.
 - Discuss surgery benefits, risks (bleeding, infection, recurrence, new deficits), and obtain informed consent.
 - NPO for at least 8 hours. Administer prophylactic antibiotics. Clip hair at surgical site. Position supine, head turned slightly left, secured. General anesthesia planned. Review home medications (Atorvastatin, Bisoprolol, Dutasteride, Methotrexate, Prednisone, Serenada), likely continue Bisoprolol, discuss others with anesthesia.
-- 3. Surgical Procedure (Burr Hole Evacuation of Right CSDH):
+
+3. Surgical Procedure (Burr Hole Evacuation of Right CSDH):
+
 - Sterile skin prep and draping on the right side of the head.
 - Make one or two small incisions over the maximal hematoma collection.
 - Elevate periosteum, create burr hole(s) through the skull.
@@ -405,7 +417,9 @@ Okay, for this 79-year-old male with a right-sided CSDH:
 - Gently evacuate the dark, viscous hematoma luid via gravity, irrigation with saline, and/or gentle suction. Irrigate to remove remaining clots.
 - A soft subdural drain is likely placed in the cavity.
 - Close periosteum and skin with sutures or staples. Apply sterile dressing.
-- 4. Postoperative Care:
+
+4. Postoperative Care:
+
 - Frequent neurological checks (consciousness, pupils, strength). Monitor vital signs. Manage pain.
 - Monitor drain output (amount, color); remove typically in 24-72 hours. Keep incision clean and dry, watch for infection.
 - Encourage early mobilization with physical therapy. Consider DVT prophylaxis.

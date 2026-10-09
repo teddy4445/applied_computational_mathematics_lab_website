@@ -26,16 +26,16 @@ These 1027 articles were screened in two stages, first considering just the titl
 
 The following information was extracted from each selected article:
 
-- 1. Digital object identifier (DOI).
-- 2. Paper ID (surname and year) as given in the article itself (e.g., [13]).
-- 3. Year of publication.
-- 4. Type of study (e.g., an experiment, a review).
-- 5. Number of individuals included in the study (if available).
-- 6. Information on the species included in the papers: scientific and common names (e.g., spiny chromis, *Acanthochromis polyacanthus*), type of species (based on taxonomic details of the study and the ecology of the organism, e.g., bony fish, elasmobranch), life stage (e.g., eggs, larvae, adults), life strategy (e.g., tropical, benthic, coastal), and species total body length.
-- 7. Geographical sources of the individuals (e.g., Lungsod ng Cebu, Philippines; Gullmar Fjord, Sweden).
-- 8. Climatic parameters (CO2, pH, temperature, salinity) for experiment and control.
-- 9. Acclimation periods (in days), if available.
-- 10. Parameters tested and the climatic effects on them, whether positive (e.g., greater biomass in all food chain levels—[27]), negative (e.g., lower ability to hunt effectively—[37]), or neutral (e.g., no change in predation avoidance—[38]).
+1. Digital object identifier (DOI).
+2. Paper ID (surname and year) as given in the article itself (e.g., [13]).
+3. Year of publication.
+4. Type of study (e.g., an experiment, a review).
+5. Number of individuals included in the study (if available).
+6. Information on the species included in the papers: scientific and common names (e.g., spiny chromis, *Acanthochromis polyacanthus*), type of species (based on taxonomic details of the study and the ecology of the organism, e.g., bony fish, elasmobranch), life stage (e.g., eggs, larvae, adults), life strategy (e.g., tropical, benthic, coastal), and species total body length.
+7. Geographical sources of the individuals (e.g., Lungsod ng Cebu, Philippines; Gullmar Fjord, Sweden).
+8. Climatic parameters (CO2, pH, temperature, salinity) for experiment and control.
+9. Acclimation periods (in days), if available.
+10. Parameters tested and the climatic effects on them, whether positive (e.g., greater biomass in all food chain levels—[27]), negative (e.g., lower ability to hunt effectively—[37]), or neutral (e.g., no change in predation avoidance—[38]).
 
 <figure id="fig-1">
 <img src="figures/fig-1.webp" width="602" height="708" alt="The flowchart of stages we followed in the review, based on the PRISMA approach to a systematic review [39]" loading="lazy" decoding="async">
@@ -208,7 +208,7 @@ Ocean acidification is a complex process that requires several levels of conside
 37. Pistevos, J.C.A. Early Life Behaviour and Sensory Ecology of Predatory Fish Under Climate Change and Ocean Acidification. Ph.D. Dissertation, School of biological Science, University of Adelaide, Adelaide, Austraila. 2016. [doi:10.4225/55/58c0ef4b37022](https://doi.org/10.4225/55/58c0ef4b37022)
 38. Jutfelt, F.; Hedgärde, M. Atlantic cod actively avoid CO2 and predator odour, even after long‐term CO2 exposure. Front. Zool. 2013, 10, 81. [doi:10.1186/1742‐9994‐10‐81](https://doi.org/10.1186/1742‐9994‐10‐81)
 39. Page, M.J.; McKenzie, J.E.; Bossuyt, P.M.; Boutron, I.; Hoffmann, T.C.; Mulrow, C.D.; Shamseer, L.; Tetzlaff, J.M.; Akl, E.A.; Brennan, S.E.; et al. The PRISMA 2020 statement: An updated guideline for reporting systematic reviews. Int. J. Surg. 2021, 88, 105906. n71. [doi:10.1136/bmj](https://doi.org/10.1136/bmj)
-40. 40. De Winter, J.C.F. Using the student’s t‐test with extremely small sample sizes. Pract. Assess. Res. Eval. 2013, 18, 10.
+40. De Winter, J.C.F. Using the student’s t‐test with extremely small sample sizes. Pract. Assess. Res. Eval. 2013, 18, 10.
 41. Simpson, S.D.; Munday, P.L.; Wittenrich, M.L.; Manassa, R.; Dixson, D.L.; Gagliano, M.; Yan, H.Y. Ocean acidification erodes crucial auditory behaviour in a marine fish. Biol. Lett. 2011, 7, 917–920. [doi:10.1098/rsbl.2011.0293](https://doi.org/10.1098/rsbl.2011.0293)
 42. Clements, J.C.; Hunt, H.L. Marine animal behaviour in a high CO2 Ocean. Mar. Ecol. Prog. Ser. 2015, 536, 259–279. [doi:10.3354/meps11426](https://doi.org/10.3354/meps11426)
 43. Schwieterman, G.D.; Crear, D.P.; Anderson, B.N.; Lavoie, D.R.; Sulikowski, J.A.; Bushnell, P.G.; Brill, R.W. Combined effects of acute temperature change and elevated pCO2 on the metabolic rates and hypoxia tolerances of clearnose skate (Rostroraja eglanteria), summer flounder (Paralichthys dentatus), and thorny skate (Amblyraja radiata). Biology 2019, 8, 56. [doi:10.3390/biology8030056](https://doi.org/10.3390/biology8030056)
@@ -221,7 +221,7 @@ Ocean acidification is a complex process that requires several levels of conside
 50. Ashur, M.M.; Johnston, N.K.; Dixson, D.L. Impacts of ocean acidification on sensory function in marine organisms. Integr. Comp. Biol. 2017, 57, 63–80. [doi:10.1093/icb/icx010](https://doi.org/10.1093/icb/icx010)
 51. Pistevos, J.C.; Nagelkerken, I.; Rossi, T.; Connell, S.D. Antagonistic effects of ocean acidification and warming on hunting sharks. Oikos 2017a, 126, 241–247. [doi:10.1111/oik.03182](https://doi.org/10.1111/oik.03182)
 52. Gobler, C.J.; Baumann, H. Hypoxia and acidification in ocean ecosystems: Coupled dynamics and effects on marine life. Biol. Lett. 2016, 12, 20150976. [doi:10.1098/rsbl.2015.0976](https://doi.org/10.1098/rsbl.2015.0976)
-53. 53. Santos, C.P.; Sampaio, E.; Pereira, B.P.; Pegado, M.R.; Borges, F.O.; Wheeler, C.R.; Bouyoucos. I.A.; Rummer, J.L.; Santos, C.F.; Rosa, R. Elasmobranch Responses to Experimental Warming, Acidification, and Oxygen Loss—A Meta‐Analysis. Front. Mar. Sci. 2021, 1380. [doi:10.3389/fmars.2021.735377](https://doi.org/10.3389/fmars.2021.735377)
+53. Santos, C.P.; Sampaio, E.; Pereira, B.P.; Pegado, M.R.; Borges, F.O.; Wheeler, C.R.; Bouyoucos. I.A.; Rummer, J.L.; Santos, C.F.; Rosa, R. Elasmobranch Responses to Experimental Warming, Acidification, and Oxygen Loss—A Meta‐Analysis. Front. Mar. Sci. 2021, 1380. [doi:10.3389/fmars.2021.735377](https://doi.org/10.3389/fmars.2021.735377)
 54. Rosa, R.; Pimentel, M.; Galan, J.G.; Baptista, M.; Lopes, V.M.; Couto, A.; Guerreiro, M.; Sampaio, E.; Castro, J.; Santos, C.; et al. Deficit in digestive capabilities of bamboo shark early stages under climate change. Mar. Biol. 2016b, 163, 60. [doi:10.1007/s00227‐016‐2840‐z](https://doi.org/10.1007/s00227‐016‐2840‐z)
 55. Klein, R.D.; Borges, V.D.; Rosa, C.E.; Colares, E.P.; Robaldo, R.B.; Martinez, P.E.; Bianchini, A. Effects of increasing temperature on antioxidant defense system and oxidative stress parameters in the Antarctic fish Notothenia coriiceps and Notothenia rossii. J. Therm. Biol. 2017, 68, 110–118.
 56. Ishimatsu, A.; Hayashi, M.; Kikkawa, T. Fishes in high‐CO2, acidified oceans. Mar. Ecol. Prog. Ser. 2008, 373, 295–302. [doi:10.3354/meps07823](https://doi.org/10.3354/meps07823)

@@ -103,11 +103,11 @@ We train and compare 12 models, that can be divided by two properties: the ML al
 
 </figure>
 
-- 1. *𝐷𝑇*<sub>𝑟𝑒𝑝</sub> is obtained using the PART algorithm [8], which represents the REP group of algorithms.
-- 2. *𝐷𝑇*<sub>𝑝𝑒𝑝</sub> is obtained using the algorithm presented in [11], which represents the PEP group of algorithms.
-- 3. *𝐷𝑇*<sub>𝑚𝑒𝑝</sub> is obtained using the algorithm presented in [50], which represents the MEP group of algorithms.
-- 4. *𝐷𝑇*<sub>𝑐𝑐𝑝</sub> is obtained using the algorithm presented in [13], which represents the CCP group of algorithms.
-- 5. *𝐷𝑇*<sub>𝑠𝑎𝑡</sub> is obtained using the proposed SAT-PP algorithm.
+1. *𝐷𝑇*<sub>𝑟𝑒𝑝</sub> is obtained using the PART algorithm [8], which represents the REP group of algorithms.
+2. *𝐷𝑇*<sub>𝑝𝑒𝑝</sub> is obtained using the algorithm presented in [11], which represents the PEP group of algorithms.
+3. *𝐷𝑇*<sub>𝑚𝑒𝑝</sub> is obtained using the algorithm presented in [50], which represents the MEP group of algorithms.
+4. *𝐷𝑇*<sub>𝑐𝑐𝑝</sub> is obtained using the algorithm presented in [13], which represents the CCP group of algorithms.
+5. *𝐷𝑇*<sub>𝑠𝑎𝑡</sub> is obtained using the proposed SAT-PP algorithm.
 
 Random Forest (RF) is a combination of tree predictors such that each tree depends on the values of a random vector sampled independently and with the same distribution for all trees in the forest [51]. RF-based models are known for their robustness to noise in data as well as an accurate prediction in a wide spectrum of learning tasks [52]. In our case, the RF model corresponding to each DT model is obtained using the same seed (to neglect the stochastic effect of the RF’s random process) with 100 trees in the forest. The number of trees is decided empirically to balance computation time and the generalization capabilities of the model. The PP algorithms are computed independently for each tree in the forest. We compare the DT model with the RF model as RF is considered the best practice in many ML challenges, mainly due to their superior predictive performance [53,54]. However, simple models like DT may be preferred over RF in cases in which the generated predictions must be efficient or explainable [55].
 

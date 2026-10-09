@@ -30,8 +30,8 @@ Our objective is to demonstrate that the combination of historical data on socia
 
 We develop a tool, called EMIT (Epidemic and Media Impact Tool), that:
 
-- 1. predicts the next epidemiological wave (Section 2.2), and
-- 2. estimates the impact of social interactions on the population’s compliance by using various Pandemic Intervention Policies (PIPs).
+1. predicts the next epidemiological wave (Section 2.2), and
+2. estimates the impact of social interactions on the population’s compliance by using various Pandemic Intervention Policies (PIPs).
 
 ### 2.1. Data Collection
 

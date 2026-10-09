@@ -59,7 +59,7 @@ where *δ*<sub>F</sub> is the diffusion coefficient of *F*, and *F*<sub>0</sub> 
 
 where *λ*<sub>MTβ</sub> is the growth rate of *M* induced directly by *T*<sub>β</sub>. This notation follows the convention that the first subscript denotes the species whose equation is affected and the second subscript denotes the regulator. Thus, *λ*<sub>MTβ</sub> refers to *T*<sub>β</sub>-induced growth of myofibroblasts, whereas *λ*<sub>Tβ M</sub>, used below in Eq. (3), refers to production of *T*<sub>β</sub> by myofibroblasts. The first term on the right-hand side of Eq. (2) is not an independent source of myofibroblasts. Rather, it is the same transition flux *J*<sub>F→M</sub> that appears with negative sign in Eq. (1) and with positive sign in Eq. (2). The part of *J*<sub>F→M</sub> proportional to *α*<sup>Tβ</sup> <sub>F→M</sub> therefore represents the *T*<sub>β</sub>-induced increase in the fibroblast-to-myofibroblast transition rate, whereas *λ*<sub>MTβ</sub> *MT*<sub>β</sub>*/(K*<sub>Tβ</sub> +*T*<sub>β</sub>*)* represents proliferation/expansion of the existing myofibroblast population in response to *T*<sub>β</sub>.
 
-**Equation for** *T*<sub>ˇ</sub>**.** *T*<sub>β</sub> is produced by both fibroblasts and myofibroblasts, so that:
+**Equation for** *Ť* **.** *T*<sub>β</sub> is produced by both fibroblasts and myofibroblasts, so that:
 
 <div class="equation" id="eq-4"><img src="figures/eq-4.webp" width="363" height="41" alt="∂Tβ ∂t −δTβ∇2Tβ = λTβ F F + λTβ M M −dTβ Tβ, (3)" loading="lazy" decoding="async"></div>
 

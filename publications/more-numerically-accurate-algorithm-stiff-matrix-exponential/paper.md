@@ -132,15 +132,17 @@ In comparison with other algorithms, L-EXPM’s storage requirements and complex
 
 We evaluate the performance of L-EXPM with respect to four state-of-the-art ME algorithms: Taylor, Pade, Newton, and Lagrange. For each algorithm, the parameters and tolerances are obtained using the grid search method [30]. Namely, for the Taylor algorithm, the number of terms is determined. In a similar manner, for the Pade algorithm, the fixed degrees combined with scaling and squaring [31,32] and the tolerance parameter are determined using the grid search method. The evaluation of the algorithms is performed using their MATLAB implementations (version 2020b). Since all five algorithms handle random, non-stiff matrices, we compared these algorithms on seven types of stiff matrices:
 
-- 1. Matrices for which the difference between the eigenvalues of the matrix is small but not negligible: we randomly pick a value (*a >* 0) and an amplitude (*ϵ <<* 1) and generate matrices with eigenvalues that are in the range (*a ± ϵ*).
-- 2. Matrices for which the eigenvalues are approaching 0: we generate matrices with eigenvalues that satisfy the following formula: 1 *≤ i ≤ n*, *λ*<sub>i</sub> = <sup>1</sup> <sub>(i+2)</sub>2 .
-- 3. Matrices with large diameters: we generate matrices with eigenvalues that satisfy the formula
+1. Matrices for which the difference between the eigenvalues of the matrix is small but not negligible: we randomly pick a value (*a >* 0) and an amplitude (*ϵ <<* 1) and generate matrices with eigenvalues that are in the range (*a ± ϵ*).
+2. Matrices for which the eigenvalues are approaching 0: we generate matrices with eigenvalues that satisfy the following formula: 1 *≤ i ≤ n*, *λ*<sub>i</sub> = <sup>1</sup> <sub>(i+2)</sub>2 .
+3. Matrices with large diameters: we generate matrices with eigenvalues that satisfy the formula
+
 - 0 *≤ i ≤ n*, *λ*<sub>i</sub> = *a −* <sup>(a−b)i</sup> *n*
 - , where *a* and *b* are picked randomly such that *b >> a*.
-- 4. Matrices that have a large condition number: we generate matrices with eigenvalues that satisfy the formula 1 *≤ i ≤ n*, *λ*<sub>i</sub> *∈* [*a*, *b*], such that <sup>|b|</sup> <sub>|a|</sub> *>>* 1.
-- 5. Matrices that have eigenvalues with significant algebraic multiplicity: we generate matrices with eigenvalues with an algebraic multiplicity of at least two.
-- 6. Matrices with a single eigenvalue: we generate matrices with a single eigenvalue picked at random.
-- 7. Matrices with complex eigenvalues with a large imaginary part: we generate matrices with eigenvalues that satisfy the formula 0 *≤ j ≤ n*, *λ*<sub>i</sub> = *a* + 10*i · a*, where *a ∈* [*−*100, 100] is a random number.
+
+4. Matrices that have a large condition number: we generate matrices with eigenvalues that satisfy the formula 1 *≤ i ≤ n*, *λ*<sub>i</sub> *∈* [*a*, *b*], such that <sup>|b|</sup> <sub>|a|</sub> *>>* 1.
+5. Matrices that have eigenvalues with significant algebraic multiplicity: we generate matrices with eigenvalues with an algebraic multiplicity of at least two.
+6. Matrices with a single eigenvalue: we generate matrices with a single eigenvalue picked at random.
+7. Matrices with complex eigenvalues with a large imaginary part: we generate matrices with eigenvalues that satisfy the formula 0 *≤ j ≤ n*, *λ*<sub>i</sub> = *a* + 10*i · a*, where *a ∈* [*−*100, 100] is a random number.
 
 The matrices are generated as follows. First, a Jordan matrix (*J*) with the required eigenvalues is randomly generated. Then, a random matrix *P* with the same size of *J* is generated such that the condition number of *P* is less than two, and its determinant 0.5 *≤ det*(*P*) *≤* 1.5. The random matrix used in the analysis is obtained by computing *M* = *P*<sup>−1</sup>*JP*. For each type of matrix, we examine the performance of each algorithm on matrices with sizes 3 *×* 3, 10 *×* 10, 100 *×* 100, and 1000 *×* 1000 to determine the growth of the error as a function of the matrix’s size. Each value is obtained as the average of *n* = 100 repetitions, and the values of the matrices are generated using a normal distribution with mean *µ* = 0 and standard deviation *σ* = 300.
 

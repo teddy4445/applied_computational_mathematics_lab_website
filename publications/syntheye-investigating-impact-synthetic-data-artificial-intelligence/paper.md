@@ -32,9 +32,9 @@ We trained a StyleGAN2-ADA model developed by NVIDIA- Labs, for creating synthet
 
 Currently, the most popular metrics for synthetic data evaluation include the Fréchet Inception Distance and Inception Score, which analyze image quality with reference to feature statistics computed over a set of synthetic and real samples. However, these metrics express the notion of quality into a single number for which there is no upper bound, which makes them difficult to interpret.<sup>28,29</sup> Furthermore, with medical imaging data, it is essential that synthetic images are studied on a dataset and pixel level to ensure that samples are novel and clinically plausible and specific patient imaging features are not memorized. With that in mind, we put forward 3 primary considerations:
 
-- 1) Fidelity: Do the synthetic images have a visual appearance similar to the real images?
-- 2) Diversity: Is the distribution of the synthetic data similar to that of the real data?
-- 3) Generalization: Has the GAN generated novel images or merely copied the training images?
+1. Fidelity: Do the synthetic images have a visual appearance similar to the real images?
+2. Diversity: Is the distribution of the synthetic data similar to that of the real data?
+3. Generalization: Has the GAN generated novel images or merely copied the training images?
 
 We use a panel of qualitative and quantitative approaches to answer these questions, which we describe subsequently.
 

@@ -89,8 +89,8 @@ Due to the relatively small amount of data, the classical train-test validation 
 
 In addition, exploring the ability of the proposed model to implicitly construct useful features, we designed three features that have been constructed using variables in our pre-existing dataset coupled with pre-existing information from the research literature. This includes:
 
-- 1. **Dyad composition**, which combines information about the signaler ID and recipient ID for each signal. Communication is a dyadic process, and the identities (and associated rankings) of the chimpanzees (both signaler and recipient) are likely to influence how communicative interactions unfold over time. Indeed, previous research has shown differences in communication strategies based on the social ranks of individual chimpanzees (de Waal 1986).
-- 2. **Sex signaling interactions**, which combine information about the sex of the chimpanzees along with their roles in communicative interactions, either as signalers or recipients. Since males and females have different social rankings and employ distinct strategies to achieve those rankings (Foerster et al. 2016), we anticipate variations in behavior based on
+1. **Dyad composition**, which combines information about the signaler ID and recipient ID for each signal. Communication is a dyadic process, and the identities (and associated rankings) of the chimpanzees (both signaler and recipient) are likely to influence how communicative interactions unfold over time. Indeed, previous research has shown differences in communication strategies based on the social ranks of individual chimpanzees (de Waal 1986).
+2. **Sex signaling interactions**, which combine information about the sex of the chimpanzees along with their roles in communicative interactions, either as signalers or recipients. Since males and females have different social rankings and employ distinct strategies to achieve those rankings (Foerster et al. 2016), we anticipate variations in behavior based on
 
 <figure class="table-figure" id="table-3">
 <figcaption><strong>TABLE 3</strong> The proposed model’s social hierarchy predictions are divided into years. Females are italicized.</figcaption>
@@ -100,7 +100,7 @@ In addition, exploring the ability of the proposed model to implicitly construct
 
 both sex and communication roles. For example, a female chimpanzee initiating a social interaction with a male may have different social ranking and interaction implications than a male initiating a social interaction with a female.
 
-- 3. **Age signaling interactions**, which combine information about the age of the chimpanzees along with their roles in communicative interactions, either as signalers or recipients. Infant social rankings can change as they grow and form relationships within their troop, and their behavioral patterns also vary as a result of their age group. Therefore, we expect that the communicative interactions between adult–infant pairs will differ significantly from those between adult–adult pairs.
+3. **Age signaling interactions**, which combine information about the age of the chimpanzees along with their roles in communicative interactions, either as signalers or recipients. Infant social rankings can change as they grow and form relationships within their troop, and their behavioral patterns also vary as a result of their age group. Therefore, we expect that the communicative interactions between adult–infant pairs will differ significantly from those between adult–adult pairs.
 
 ## 3 Results
 

@@ -1,0 +1,21 @@
+/* Full-text search on publications.html (Pagefind's search box, https://pagefind.app) */
+.fts-card { margin-bottom: 2rem; padding: 1.5rem; border: 1px solid #dbeafe; border-radius: 1rem; background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%); }
+.fts-head { margin-bottom: 1rem; }
+.fts-title { display: flex; align-items: center; gap: .5rem; font-size: 1.25rem; font-weight: 700; color: #111827; }
+.fts-title i { color: #2563eb; }
+.fts-lead { margin-top: .35rem; font-size: .95rem; color: #4b5563; }
+#paper-search {
+  --pagefind-ui-scale: .85;
+  --pagefind-ui-primary: #2563eb;
+  --pagefind-ui-text: #1f2937;
+  --pagefind-ui-background: #ffffff;
+  --pagefind-ui-border: #d1d5db;
+  --pagefind-ui-tag: #eff6ff;
+  --pagefind-ui-border-width: 1px;
+  --pagefind-ui-border-radius: 12px;
+  --pagefind-ui-font: Inter, system-ui, sans-serif;
+}
+#paper-search .pagefind-ui__result-link { color: #1d4ed8; }
+#paper-search .pagefind-ui__result-title { font-weight: 600; }
+#paper-search mark { background: #fef08a; color: inherit; border-radius: 2px; }
+@media (max-width: 640px) { .fts-card { padding: 1rem; } }

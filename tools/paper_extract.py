@@ -351,6 +351,19 @@ def page_spans(page, fonts):
                         continue                        # superscripts, subscripts
                     if (c2['bbox'][0] - c1['bbox'][2]) / size > max(0.12, 2.5 * med + 0.06):
                         space_before.add(id(c2))
+            # TeX-made PDFs print accents as separate characters ("G´orska", "Pen˜a"): put each on the letter it sits over
+            accent_on = {}
+            convention = accent_convention(page.parent) if any(c['c'] in SPACING_ACCENTS for _, c in chars) else 'next'
+            for i, (sa, ca) in enumerate(chars):
+                if ca['c'] not in SPACING_ACCENTS:
+                    continue
+                prev = chars[i - 1][1] if i > 0 else None
+                nxt = chars[i + 1][1] if i + 1 < len(chars) else None
+                side = accent_target(ca['c'], prev['c'] if prev else '', nxt['c'] if nxt else '', convention)
+                if side:
+                    target = prev if side == 'prev' else nxt
+                    accent_on[id(target)] = accented(target['c'], ca['c'])
+                    accent_on[id(ca)] = ''
             pending = ''
             for s in l['spans']:
                 f = fonts.get(s['font'])
@@ -358,6 +371,9 @@ def page_spans(page, fonts):
                 txt = ''
                 for c in s['chars']:
                     ch = c['c']
+                    if id(c) in accent_on:
+                        txt += accent_on[id(c)]
+                        continue
                     if pi is not None:
                         ch = pi(ch)
                     elif f:
@@ -367,6 +383,8 @@ def page_spans(page, fonts):
                                 pending = r
                                 continue
                             ch = r
+                    elif '\x80' <= ch <= '\x9f':                # C1 control codes: Minion Math's '=' is 0x88, the rest are unknown
+                        ch = '=' if ch == '\x88' and 'MinionMath' in s['font'] else ''
                     elif '\udc00' <= ch <= '\udfff':           # half of a math letter (U+1D400...)
                         ch = chr(0x1d400 + ord(ch) - 0xdc00)
                     elif ord(ch) < 32 or ch in '\u200b\ufeff\u2060\ue9d9' or '\ud800' <= ch <= '\udbff':
@@ -534,6 +552,55 @@ class Joiner:
                 text = text + ' ' + line
         text = re.sub(r'\xad\s*', '', text)
         return re.sub(r'\s+', ' ', text).strip()
+
+
+SPACING_ACCENTS = {'´': '\u0301', '˜': '\u0303', '¨': '\u0308', 'ˆ': '\u0302', 'ˇ': '\u030c', '˚': '\u030a'}
+
+
+def accent_convention(doc):
+    """'next' when the PDF prints accents before their letter (TeX: 'G´orska'), 'prev' when after ('Sarrace´n').
+    Decided by where the vowel is in the clear cases."""
+    key = ('accent', id(doc))
+    if key not in _ADV:
+        votes = collections.Counter()
+        for p in doc:
+            for m in re.finditer(r'([^\W\d_])([´¨ˆ])([^\W\d_])', p.get_text()):
+                pv, nv = m.group(1).lower() in 'aeiouy', m.group(3).lower() in 'aeiouyı'
+                if pv != nv:
+                    votes['prev' if pv else 'next'] += 1
+        _ADV[key] = 'prev' if votes['prev'] > votes['next'] else 'next'
+    return _ADV[key]
+
+
+def accent_target(accent, prev, nxt, convention='next'):
+    """Which neighbour a spacing accent belongs to ('prev', 'next' or None): the document's convention, as long as
+    the pair makes a real accented letter ("don´t" stays as it is)."""
+    def ok(letter):
+        return bool(letter) and letter.isalpha() and len(accented(letter, accent)) == 1
+    other = 'prev' if convention == 'next' else 'next'
+    side_letter = {'prev': prev, 'next': nxt}
+    if ok(side_letter[convention]):
+        return convention
+    if ok(side_letter[other]) and not (side_letter[convention] or ' ').isalpha():
+        return other
+    return None
+
+
+def accented(letter, accent):
+    return unicodedata.normalize('NFC', ('i' if letter == 'ı' else letter) + SPACING_ACCENTS[accent])
+
+
+def fix_accents(text, convention='next'):
+    """'G´orska', 'Durr¨es', 'Plzeˇn' -> 'Górska', 'Durrës', 'Plzeň' in text that has no glyph positions (tables)."""
+    def join(m):
+        prev, acc, nxt = m.group(1) or '', m.group(2), m.group(3) or ''
+        side = accent_target(acc, prev, nxt, convention)
+        if side == 'prev':
+            return accented(prev, acc) + nxt
+        if side == 'next':
+            return prev + accented(nxt, acc)
+        return m.group(0)
+    return re.sub(r'([^\W\d_])?([´˜¨ˆˇ˚])([^\W\d_])?', join, text)
 
 
 def fix_rtl(line):
@@ -1537,7 +1604,10 @@ class Extractor:
             return ''
         if cap is not None:
             h = self.strip_caption(h)
-        if re.search(r'[\x00-\x08\x0b-\x1f\ue000-\uf8ff\ufffd¼½þÞð]', h):
+        h = fix_accents(h, accent_convention(self.doc))
+        if '\x88' in h and any('MinionMath' in f[3] for f in self.doc[tb.page].get_fonts()):
+            h = h.replace('\x88', '=')
+        if re.search(r'[\x00-\x08\x0b-\x1f\x80-\x9f\ue000-\uf8ff\ufffd¼½þÞð]', h):
             return ''                                   # characters the layout model could not decode: show the image
         cells = re.findall(r'<t[dh][^>]*>(.*?)</t[dh]>', h, re.S)
         if not cells or sum(1 for c in cells if not c.strip()) > 0.6 * len(cells):
@@ -1662,7 +1732,8 @@ class Extractor:
         page_links = {p: [(pymupdf.Rect(k['from']), k['uri']) for k in self.doc[p].get_links() if k.get('uri')] for p in {pno for pno, _ in lines}}
         texts = [(pno, l, runs_to_md(line_runs(l))) for pno, l in lines]
         m_br = [re.match(r'^\s*\[(\d{1,3})\]', plain(t)) for _, _, t in texts]
-        m_dot = [re.match(r'^\s*(\d{1,3})(?:[.)]?\s+(?=\S)|[.)](?=[^\W\d_])|[.)]?\s*$)', plain(t)) for _, _, t in texts]
+        m_dot = [re.match(r'^\s*(\d{1,3})(?:[.)]?\s+(?=\S)|[.)](?=[^\W\d_])|[.)]?\s*$|(?=[A-Z]\.\s?[A-Z\-]))', plain(t))
+                 or re.match(r'^\s*<sup>(\d{1,3})</sup>(?=\s*\S)', t) for _, _, t in texts]       # AIP: a superscript number
         def run_length(marks):
             last, run = 0, 0
             for m in marks:
@@ -1680,7 +1751,10 @@ class Extractor:
                     if cur:
                         refs.append(cur)
                     cur = {'n': n, 'lines': [], 'where': []}
-                    t = re.sub(r'^\s*(\*\*)?\[?\d{1,3}[\].)]?(\*\*)?\s*', '', t, count=1)
+                    if re.match(r'^\s*<sup>\d{1,3}</sup>', t):
+                        t = re.sub(r'^\s*<sup>\d{1,3}</sup>\s*', '', t, count=1)
+                    else:
+                        t = re.sub(r'^\s*(\*\*)?\[?\d{1,3}[\].)]?(\*\*)?\s*', '', t, count=1)
                     expect = n + 1
                 if cur is None:
                     cur = {'n': None, 'lines': [], 'where': []}
@@ -1750,7 +1824,11 @@ class Extractor:
                 line = re.sub(r'^([#>+\-=|])', r'\\\1', line)
                 md.append(line)
             elif t == 'li':
-                md.append('- ' + b['text'])
+                num = re.match(r'^(\d{1,2})[.)]\s+(?=\S)', b['text'])
+                if num:                         # "1. Cat breed recognition: ..." is a numbered list item
+                    md.append(f'{num.group(1)}. ' + b['text'][num.end():])
+                else:
+                    md.append('- ' + re.sub(r'^[-*+]\s+', '', b['text']))
             elif t == 'figure':
                 f = self.figures[b['id']]
                 cap = re.sub(r'\s*https?://doi\.org/\S+$', '', f['caption'] or '').strip()
@@ -1780,7 +1858,9 @@ class Extractor:
             if not x:
                 continue
             if body:
-                body += '\n' if x.startswith('- ') and md[i - 1].startswith('- ') else '\n\n'
+                item = re.compile(r'^(- |\d{1,2}\. )')
+                body += '\n' if item.match(x) and item.match(md[i - 1]) and x[:2] == '- ' == md[i - 1][:2] or (
+                    x[:1].isdigit() and md[i - 1][:1].isdigit() and item.match(x) and item.match(md[i - 1])) else '\n\n'
             body += x
         if self.footnotes:
             body += '\n\n## Notes\n\n' + '\n\n'.join(self.footnotes)
@@ -1800,7 +1880,10 @@ class Extractor:
                 if r['doi']:
                     text = re.sub(r'\s*(?:https?://(?:dx\.)?doi\.org/|doi:\s*)' + re.escape(r['doi']) + r'\.?', '', text, flags=re.I)
                 text = re.sub(r'\s*PMID:?\s*\d+\s*', ' ', text).strip()
+                if self.ref_style == 'num' and r['n'] is not None:
+                    text = re.sub(rf'^\[?{r["n"]}[.)\]]\s+', '', text)        # the number printed twice ("40. 40. De Winter")
                 text = md_escape(text)
+                text = re.sub(r'^(\d+)([.)])(\s)', r'\1\\\2\3', text)          # a leading "12. " would start a nested list
                 if self.ref_style == 'num':
                     n = r['n'] if r['n'] is not None else i + 1
                     body += f'{n}. {text}' + (' ' + ' · '.join(extra) if extra else '') + '\n'

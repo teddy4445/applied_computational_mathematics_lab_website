@@ -1,12 +1,14 @@
 {
   "name": "acml-website",
   "private": true,
-  "description": "Builds the site's Tailwind CSS files (css/tailwind.css and css/tailwind-default.css).",
+  "description": "Builds the site's Tailwind CSS files (css/tailwind.css and css/tailwind-default.css) and the full-text search index of the paper pages (pagefind/).",
   "scripts": {
-    "build:css": "tailwindcss -c tailwind.config.js -i css/tailwind.src.css -o css/tailwind.css --minify && cross-env TAILWIND_THEME=default tailwindcss -c tailwind.config.js -i css/tailwind.src.css -o css/tailwind-default.css --minify"
+    "build:css": "tailwindcss -c tailwind.config.js -i css/tailwind.src.css -o css/tailwind.css --minify && cross-env TAILWIND_THEME=default tailwindcss -c tailwind.config.js -i css/tailwind.src.css -o css/tailwind-default.css --minify",
+    "build:search": "pagefind --site . --glob \"publications/*/index.html\" --force-language en"
   },
   "devDependencies": {
     "cross-env": "7.0.3",
-    "tailwindcss": "3.4.16"
+    "tailwindcss": "3.4.16",
+    "pagefind": "1.5.2"
   }
 }

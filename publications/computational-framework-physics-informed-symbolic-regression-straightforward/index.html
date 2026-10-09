@@ -134,10 +134,10 @@
     <header class="paper-hero">
       <div class="paper-wrap">
         <nav class="paper-crumbs" aria-label="Breadcrumb">
-          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Machine Learning</span>
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span data-pagefind-filter="Topic">Machine Learning</span>
         </nav>
         <p class="paper-kicker"><span class="oa-badge"><i class="ri-lock-unlock-line" aria-hidden="true"></i>Open access</span><span><em>Scientific Reports</em> · 2022</span></p>
-        <h1 class="paper-title">A computational framework for physics-informed symbolic regression with straightforward integration of domain knowledge</h1>
+        <h1 class="paper-title" data-pagefind-meta="title" data-pagefind-filter="Year:2022">A computational framework for physics-informed symbolic regression with straightforward integration of domain knowledge</h1>
         <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Liron Simon-Keren</a></span>, <span class="author">Alex Liberzon</span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span></p>
         <details class="paper-affils"><summary>Affiliations</summary><ol><li value="1">Turbulence Structure Laboratory, School of Mechanical Engineering, Tel Aviv University, Tel Aviv, Israel.</li><li value="2">Department of Cancer Biology, Cancer Institute, University College London, London, UK. *email: lirons.gb@gmail.com</li></ol></details>
         <div class="paper-actions">
@@ -152,10 +152,14 @@
       </div>
     </header>
 
-    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Finding a mathematical formula that explains experimental data, a task called symbolic regression, is a core challenge in many sciences. We present SciMED, an open-source framework that brings a scientist&#x27;s domain knowledge into the loop and combines genetic algorithm-based feature selection, automatic machine learning and two levels of symbolic regression. Tested on five settling-sphere setups, including nonlinear drag and noisy measurements, SciMED recovered the correct physical formulas and performed better on these tasks than state-of-the-art symbolic regression packages.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>SciMED combines a genetic algorithm-based wrapper selection method with automatic machine learning and two levels of symbolic regression.</li><li>On five settling-sphere configurations, including excessive measurement noise, SciMED robustly discovered the correct physically meaningful expressions.</li><li>SciMED performed better than state-of-the-art symbolic regression packages even with no integrated knowledge, and integrating domain knowledge enhanced its performance.</li><li>Unlike most current symbolic regression systems, SciMED can alert the user about possible missing features.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1800" height="772" alt="Figure 1. A schematic illustration of SciMED’s structure. It is constructed from four components that each can be independently switched off or on. Theoretical knowledge or hypothesis can be entered at five input junctions, affecting the equation SciMED finds."></a><figcaption><strong>Figure 1.</strong> A schematic illustration of SciMED’s structure. It is constructed from four components that each can be independently switched off or on. Theoretical knowledge or hypothesis can be entered at five input junctions, affecting the equation SciMED finds. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+    <section class="paper-glance" aria-labelledby="glance-title" data-pagefind-body><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Finding a mathematical formula that explains experimental data, a task called symbolic regression, is a core challenge in many sciences. We present SciMED, an open-source framework that brings a scientist&#x27;s domain knowledge into the loop and combines genetic algorithm-based feature selection, automatic machine learning and two levels of symbolic regression. Tested on five settling-sphere setups, including nonlinear drag and noisy measurements, SciMED recovered the correct physical formulas and performed better on these tasks than state-of-the-art symbolic regression packages.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>SciMED combines a genetic algorithm-based wrapper selection method with automatic machine learning and two levels of symbolic regression.</li><li>On five settling-sphere configurations, including excessive measurement noise, SciMED robustly discovered the correct physically meaningful expressions.</li><li>SciMED performed better than state-of-the-art symbolic regression packages even with no integrated knowledge, and integrating domain knowledge enhanced its performance.</li><li>Unlike most current symbolic regression systems, SciMED can alert the user about possible missing features.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1800" height="772" alt="Figure 1. A schematic illustration of SciMED’s structure. It is constructed from four components that each can be independently switched off or on. Theoretical knowledge or hypothesis can be entered at five input junctions, affecting the equation SciMED finds."></a><figcaption><strong>Figure 1.</strong> A schematic illustration of SciMED’s structure. It is constructed from four components that each can be independently switched off or on. Theoretical knowledge or hypothesis can be entered at five input junctions, affecting the equation SciMED finds. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
 
     <div class="paper-wrap paper-layout">
       <aside class="paper-aside">
+        <form class="paper-search" action="/publications.html" method="get" role="search">
+          <label for="paper-q" class="aside-title">Search all our papers</label>
+          <div class="paper-search-box"><i class="ri-search-line" aria-hidden="true"></i><input id="paper-q" name="q" type="search" placeholder="e.g. Thompson sampling" autocomplete="off"></div>
+        </form>
         <nav class="paper-toc" aria-label="On this page">
           <p class="aside-title">On this page</p>
           <ol>
@@ -175,8 +179,8 @@
         </div>
       </aside>
 
-      <article class="paper-body" id="full-text">
-        <details class="paper-toc-mobile">
+      <article class="paper-body" id="full-text" data-pagefind-body>
+        <details class="paper-toc-mobile" data-pagefind-ignore>
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
@@ -190,9 +194,10 @@
           </ol>
         </details>
         <section id="abstract" class="paper-abstract">
-          <h2>Abstract</h2>
+          <h2 id="abstract-heading">Abstract</h2>
           <p>Discovering a meaningful symbolic expression that explains experimental data is a fundamental challenge in many scientific fields. We present a novel, open-source computational framework called Scientist-Machine Equation Detector (SciMED), which integrates scientific discipline wisdom in a scientist-in-the-loop approach, with state-of-the-art symbolic regression (SR) methods. SciMED combines a wrapper selection method, that is based on a genetic algorithm, with automatic machine learning and two levels of SR methods. We test SciMED on five configurations of a settling sphere, with and without aerodynamic non-linear drag force, and with excessive noise in the measurements. We show that SciMED is sufficiently robust to discover the correct physically meaningful symbolic expressions from the data, and demonstrate how the integration of domain knowledge enhances its performance. Our results indicate better performance on these tasks than the state-of-the-art SR software packages , even in cases where no knowledge is integrated. Moreover, we demonstrate how SciMED can alert the user about possible missing features, unlike the majority of current SR systems.</p>
         </section>
+        
         
 <div class="paper-text">
 <p>Modern research is constructed from three main phases: observation, hypothesis generation, and hypothesis validation<sup><a href="#ref-1">1</a>–<a href="#ref-3">3</a></sup>. During the observation phase, researchers collect data about the world, which later, during the hypothesis generation phase, is used to generate a hypothesis that explains this data. A good explanation commonly allows for extrapolation and, thus, the prediction of new data of the same observed system during the hypothesis validation phase<sup><a href="#ref-4">4</a>,<a href="#ref-5">5</a></sup>. A common way of hypothesis generation is Symbolic Regression (SR), where researchers discover a symbolic expression (sometimes noted as an equation or a symbolic function) that accurately matches a given dataset<sup><a href="#ref-6">6</a>–<a href="#ref-8">8</a></sup>. To be exact, researchers assume a set of measurements or features are taking part in some natural phenomena and record samples of these measurements. Intuitively, the SR task is to unveil a symbolic expression for the function connecting the experimental measurements<sup><a href="#ref-9">9</a></sup>.</p>
@@ -259,33 +264,13 @@
 <p>A user may opt to direct the stochastic search process by introducing two types of knowledge: a) a hypothesis for the structure of the optimal solution, and b) a sampling strategy believed to obtain an optimal solution faster.</p>
 <p>Notably, as this component is computationally heavy, a user can avoid it entirely and settle for the previous GA-based SR. Furthermore, this waiver can be automatically implemented if the results obtained from the GA-based SR are consistent, appearing over a pre-defined portion of the outcomes from multiple runs and maintaining the T-test’s p value and coefficient of determination ( R<sup><a href="#ref-2">2</a></sup> ) of over a user-defined percentage, χ.</p>
 <p><strong>Scientist‑in‑the‑loop integration points.</strong> SciMED’s design allows the user to integrate knowledge into the search and optimization process in five distinct but related places, as shown in <a class="xref" href="#fig-1">Fig. 1</a>, alongside a reach set of hyperparameters that can be customized to direct the search efforts and their computational resources. The five knowledge integration points in SciMED’s design are:</p>
-<ul>
-<li>
 <ol>
 <li>Division into distinct feature groups: Providing the feature groups, , allows SciMED to search for the most informative subset of features such that each feature belongs to one group. This allows the user to examine multiple hypotheses or educated guesses without increasing the search space for the SR, eliminating the need to solve Eq. (1).</li>
-</ol>
-</li>
-<li>
-<ol start="2">
 <li>Loss function selection: for the GA-SR component. Provides the user with the option of replacing our loss function (Eq. (2)) with one that is believed to provide a better fit for the specific SR task.</li>
-</ol>
-</li>
-<li>
-<ol start="3">
 <li>Allocation of feature weights: for the GA-SR component. Suppose the user believes one feature is more likely to play a role in the dynamics than another. In that case, he can allocate more weight to it to increase its chance of being included in the next generation of candidate functions. Then, the GA algorithms would stochastically spend more resources to try candidates with this feature. A user can also assign less weight to a feature to reduce its likelihood of being included in candidate functions.</li>
-</ol>
-</li>
-<li>
-<ol start="4">
 <li>Candidate sampling strategy: for the LV-SR component. Users can direct the random sampling of the FBT’s topology and allocations. Similar to the allocation of feature weights in the GA component, the user may direct the search effort by enforcing that the LV-SR component will sample FBTs with specific features for x% of the time, and the remaining options for the rest (100 − x)% . In addition, the user may allocate more resources toward examining FBTs of a specific size. Hence, for example, the user suggests that the solution can be represented with a FBT of size between 3 and 13. However, the user believes it is probably either 7 or 9. Thus, the user can enforce that FBTs of these sizes would be sampled x% of the time, and FBTs of other sizes for the remaining time.</li>
-</ol>
-</li>
-<li>
-<ol start="5">
 <li>Equation structure constraint: for the the LV-SR component. Users can enforce constraints on the FBT’s topology or feature allocation. For example, if the user is confident that the final solution should contain a specific feature, he can use an allocation constraint to narrow the search space. Another option is to condition all candidate functions by topology and allocation assumptions, enforcing a sub-FBT that must be included in them. For instance, search only FBTs that have feature f<sub>1</sub> and feature f<sub>2</sub> with a sum function between them (e.g., f<sub>1</sub> + f<sub>2</sub>).</li>
 </ol>
-</li>
-</ul>
 <p>It is encouraged to provide SciMED with non-dimensional datasets, meaning that the user performed the dimensional analysis independently. This is because it guarantees that the units of the target variable agree with the units obtained by the solution. Additionally, during the independent analysis, the user can construct non-dimensional ratios known or suspected to be informative about the target that might not result from an automatic analysis. Furthermore, SciMED SciMED has many hyperparameters that can affect its performance. <a class="xref" href="#table-1">Table 1</a> lists and describes these parameters and their default values. Below, we provide guidance on choosing appropriate values for several key hyperparameters.</p>
 <p>First, the number of folds in the cross-validation ( k ) is a critical parameter in the AutoML component. Increasing k improves the performance of each model, but reduces the number of ML pipelines that can be evaluated in the same amount of time. Therefore, the value of k should be chosen based on the size of the dataset. For example, values of 5 or 10 are often used because they provide a good balance between computational time and evaluation accuracy in many cases<sup><a href="#ref-93">93</a></sup>.</p>
 <p>Second, τ , the number of samples added by the data extrapolation performed by the AutoML component. A value of τ that is too small does not contribute much to the other components while just slightly increasing the computation time. However, a large value of τ may result in drift, and the connections detected by the AutoML component would override the original connections inside the data. As such, τ should be a relatively small portion of the original dataset. Recent work shows that integrating up to 25% of synthetic data obtained by an ML model or generative adversarial neural networks can contribute to classification and regression tasks<sup><a href="#ref-94">94</a>–<a href="#ref-96">96</a></sup>. Following these results, we suggest setting τ between 5% and 20% of the original data set size.</p>
@@ -367,7 +352,8 @@
 <p>The datasets generated and analyzed with the open source Python library presented in this study are available in the SciMED repository, https://github.com/LironSimon/SciMED. The appendix is available in the supplementary materials.</p>
 <p>Received: 19 September 2022; Accepted: 17 January 2023</p>
 <h2 id="references">References</h2>
-<ol class="paper-refs"><li id="ref-1">Rip, A. &amp; van der Meulen, B. J. R. The post-modern research system. Science and Public Policy 23, 343–352 (1996).</li>
+<ol class="paper-refs" data-pagefind-ignore>
+<li id="ref-1">Rip, A. &amp; van der Meulen, B. J. R. The post-modern research system. Science and Public Policy 23, 343–352 (1996).</li>
 <li id="ref-2">Miller, D. C. &amp; Salkind, N. J. Handbook of Research Design and Social Measurement (Sage Publishing, 2002).</li>
 <li id="ref-3">Sobh, R. &amp; Perry, C. Research design and data analysis in realism research. Eur. J. Mark. 40, 1194–1209 (2006).</li>
 <li id="ref-4">Michopoulos, J. &amp; Lambrakos, S. On the fundamental tautology of validating data-driven models and simulations. In 5th International Conference, vol. 3515, 1194–1209 (Atlanta, GA, USA, 2005).</li>
@@ -486,12 +472,11 @@
 </ol>
 </div>
         
-        
-        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Simon-Keren et al. (2022), <em>Scientific Reports</em>, <a href="https://doi.org/10.1038/s41598-023-28328-2" target="_blank" rel="noopener">doi:10.1038/s41598-023-28328-2</a>, under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY</a> licence. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+        <p class="paper-source" data-pagefind-ignore><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Simon-Keren et al. (2022), <em>Scientific Reports</em>, <a href="https://doi.org/10.1038/s41598-023-28328-2" target="_blank" rel="noopener">doi:10.1038/s41598-023-28328-2</a>, under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY</a> licence. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
       </article>
     </div>
 
-    <section class="paper-related" aria-labelledby="related-title"><div class="paper-wrap"><h2 id="related-title">Related research</h2><div class="related-grid"><a class="related-card related-project" href="/project.html?pagename=physics-inspired-symbolic-regression"><img src="/img/projects/project4.webp" alt="" loading="lazy" decoding="async"><span class="related-kind"><i class="ri-flask-line" aria-hidden="true"></i>Research project</span><strong>Developing the Next Step of Physics-Inspired Symbolic Regression</strong><span class="related-text">Advancing physics-informed symbolic regression for interpretable models discovered from data.</span></a><a class="related-card" href="/publications/improved-prediction-settling-behavior-solid-particles-through/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2024</span><strong>Improved prediction of settling behavior of solid particles through machine learning analysis of experimental retention time data</strong><span class="related-text">International Journal of Multiphase Flow</span></a><a class="related-card" href="/publications/moving-table-graph-physics-informed-spatio-temporal/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2026</span><strong>Moving from table to graph in physics-informed spatio-temporal symbolic regression</strong><span class="related-text">Scientific Reports</span></a></div><p class="related-more"><a href="/publications.html">All publications</a></p></div></section>
+    <section class="paper-related" aria-labelledby="related-title"><div class="paper-wrap"><h2 id="related-title">Related research</h2><div class="related-grid"><a class="related-card related-project" href="/project.html?pagename=physics-inspired-symbolic-regression"><img src="/img/projects/project4.webp" alt="" loading="lazy" decoding="async"><span class="related-kind"><i class="ri-flask-line" aria-hidden="true"></i>Research project</span><strong>Developing the Next Step of Physics-Inspired Symbolic Regression</strong><span class="related-text">Advancing physics-informed symbolic regression for interpretable models discovered from data.</span></a><a class="related-card" href="/publications/physics-informed-symbolic-regression-reveals-delayed-oscillatory/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2026</span><strong>Physics-informed symbolic regression reveals a delayed oscillatory closure for particle–interface dynamics</strong><span class="related-text">Machine Learning: Science and Technology</span></a><a class="related-card" href="/publications/improved-prediction-settling-behavior-solid-particles-through/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2024</span><strong>Improved prediction of settling behavior of solid particles through machine learning analysis of experimental retention time data</strong><span class="related-text">International Journal of Multiphase Flow</span></a></div><p class="related-more"><a href="/publications.html">All publications</a></p></div></section>
   </main>
 
   <dialog id="cite-dialog" class="paper-dialog" aria-labelledby="cite-title">
@@ -550,6 +535,7 @@
          </div>
       </footer>
       
+      <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
           // menu and navbar (js/main.js expects to sit at the site root)

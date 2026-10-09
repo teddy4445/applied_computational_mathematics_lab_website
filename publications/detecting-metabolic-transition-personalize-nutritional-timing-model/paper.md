@@ -16,8 +16,8 @@ Observational and interventional studies highlight substantial inter-patient var
 
 To address this gap, we developed and tested a reproducible, trajectory-based model to detect the catabolic-to-anabolic transition in a large ICU cohort. The model integrates insulin resistance dynamics with hemodynamic, inflammatory, and metabolic parameters, applying predefined criteria for transition. We hypothesized that:
 
-- 1. Earlier transition, as identified by this model, would be associated with improved 90-day mortality,
-- 2. The provision of full caloric delivery before transition would be associated with increased mortality.
+1. Earlier transition, as identified by this model, would be associated with improved 90-day mortality,
+2. The provision of full caloric delivery before transition would be associated with increased mortality.
 
 This framework may provide a physiology-based foundation for individualized, physiology guided nutrition strategies in critical care.
 

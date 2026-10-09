@@ -130,10 +130,10 @@
     <header class="paper-hero">
       <div class="paper-wrap">
         <nav class="paper-crumbs" aria-label="Breadcrumb">
-          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Epidemiology</span>
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span data-pagefind-filter="Topic">Epidemiology</span>
         </nav>
         <p class="paper-kicker"><span><em>Mathematics</em> · 13 January 2023</span></p>
-        <h1 class="paper-title">High Resolution Spatio-Temporal Model for Room-Level Airborne Pandemic Spread</h1>
+        <h1 class="paper-title" data-pagefind-meta="title" data-pagefind-filter="Year:2023">High Resolution Spatio-Temporal Model for Room-Level Airborne Pandemic Spread</h1>
         <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Ariel Alexi</a></span></p>
         <details class="paper-affils"><summary>Affiliations</summary><ol><li value="1">Department of Cancer Biology, Cancer Institute, University College London, London WC1E 6BT, UK</li><li value="2">Department of Information Science, Bar-Ilan University, Ramat-Gan 5290002, Israel</li></ol></details>
         <div class="paper-actions">
@@ -148,10 +148,14 @@
       </div>
     </header>
 
-    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">More and more infections happen in shared rooms, yet airborne pandemic models have mostly neglected the scale of a single room. We built a high-resolution model in Python that combines 3D room data from a LiDAR (laser scanning) device, computational fluid dynamics for airflow and an epidemiological model of exposure and infection. Testing four types of rooms showed significant differences even for short exposures, and the room&#x27;s layout and where people are placed determine how well ventilation reduces spread.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Modeling airborne pandemic dynamics at the scale of a single room has been mostly neglected, although more infections occur in shared rooms.</li><li>The model combines LiDAR-based 3D room data, computational fluid dynamics for airflow and a Susceptible-Exposed-Infected epidemiological model.</li><li>Pandemic spread differed significantly across four types of rooms, even for a short exposure duration.</li><li>A room&#x27;s topology and how individuals are distributed in it define how well air ventilation reduces pandemic spread.</li></ul></div><figure class="glance-figure"><a href="#fig-2"><img src="figures/fig-2.webp" width="1095" height="423" alt="Figure 2. A schematic view of the simulator’s process, including the integration of the agent-based with the breathing dynamic."></a><figcaption><strong>Figure 2.</strong> A schematic view of the simulator’s process, including the integration of the agent-based with the breathing dynamic. <a href="#fig-2">See it in the paper</a></figcaption></figure></div></div></section>
+    <section class="paper-glance" aria-labelledby="glance-title" data-pagefind-body><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">More and more infections happen in shared rooms, yet airborne pandemic models have mostly neglected the scale of a single room. We built a high-resolution model in Python that combines 3D room data from a LiDAR (laser scanning) device, computational fluid dynamics for airflow and an epidemiological model of exposure and infection. Testing four types of rooms showed significant differences even for short exposures, and the room&#x27;s layout and where people are placed determine how well ventilation reduces spread.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Modeling airborne pandemic dynamics at the scale of a single room has been mostly neglected, although more infections occur in shared rooms.</li><li>The model combines LiDAR-based 3D room data, computational fluid dynamics for airflow and a Susceptible-Exposed-Infected epidemiological model.</li><li>Pandemic spread differed significantly across four types of rooms, even for a short exposure duration.</li><li>A room&#x27;s topology and how individuals are distributed in it define how well air ventilation reduces pandemic spread.</li></ul></div><figure class="glance-figure"><a href="#fig-2"><img src="figures/fig-2.webp" width="1095" height="423" alt="Figure 2. A schematic view of the simulator’s process, including the integration of the agent-based with the breathing dynamic."></a><figcaption><strong>Figure 2.</strong> A schematic view of the simulator’s process, including the integration of the agent-based with the breathing dynamic. <a href="#fig-2">See it in the paper</a></figcaption></figure></div></div></section>
 
     <div class="paper-wrap paper-layout">
       <aside class="paper-aside">
+        <form class="paper-search" action="/publications.html" method="get" role="search">
+          <label for="paper-q" class="aside-title">Search all our papers</label>
+          <div class="paper-search-box"><i class="ri-search-line" aria-hidden="true"></i><input id="paper-q" name="q" type="search" placeholder="e.g. Thompson sampling" autocomplete="off"></div>
+        </form>
         <nav class="paper-toc" aria-label="On this page">
           <p class="aside-title">On this page</p>
           <ol>
@@ -171,8 +175,8 @@
         </div>
       </aside>
 
-      <article class="paper-body" id="full-text">
-        <details class="paper-toc-mobile">
+      <article class="paper-body" id="full-text" data-pagefind-body>
+        <details class="paper-toc-mobile" data-pagefind-ignore>
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
@@ -186,9 +190,10 @@
           </ol>
         </details>
         <section id="abstract" class="paper-abstract">
-          <h2>Abstract</h2>
+          <h2 id="abstract-heading">Abstract</h2>
           <p>Airborne pandemics have caused millions of deaths worldwide, large-scale economic losses, and catastrophic sociological shifts in human history. Researchers have developed multiple mathematical models and computational frameworks to investigate and predict pandemic spread on various levels and scales such as countries, cities, large social events, and even buildings. However, attempts of modeling airborne pandemic dynamics on the smallest scale, a single room, have been mostly neglected. As time indoors increases due to global urbanization processes, more infections occur in shared rooms. In this study, a high-resolution spatio-temporal epidemiological model with airflow dynamics to evaluate airborne pandemic spread is proposed. The model is implemented, using Python, with high-resolution 3D data obtained from a light detection and ranging (LiDAR) device and computing model based on the Computational Fluid Dynamics (CFD) model for the airflow and the Susceptible–Exposed–Infected (SEI) model for the epidemiological dynamics. The pandemic spread is evaluated in four types of rooms, showing significant differences even for a short exposure duration. We show that the room’s topology and individual distribution in the room define the ability of air ventilation to reduce pandemic spread throughout breathing zone infection.</p>
         </section>
+        
         
 <div class="paper-text">
 <h2 id="1-background">1. Background</h2>
@@ -311,9 +316,10 @@
 <p><strong>Data Availability Statement:</strong> The room’s raw topological data is not available due to security reasons, according to Israeli law. In addition, the data used are provided in the manuscript with the relevant sources.</p>
 <p><strong>Acknowledgments:</strong> The authors wish to thank Noa Vardi for her statistical consulting and Guy Masad for the thought-provoking discussions.</p>
 <p><strong>Conflicts of Interest:</strong> The authors declare no conflict of interest.</p>
-<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 28 December 2022 · Accepted 11 January 2023 · Published 13 January 2023</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>agent-based simulation</li><li>indoor pandemic</li><li>airborne pathogens</li><li>SEI model</li><li>CFD</li></ul></dd></div></dl></section>
+<section id="article-notes" class="paper-notes" data-pagefind-ignore><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 28 December 2022 · Accepted 11 January 2023 · Published 13 January 2023</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>agent-based simulation</li><li>indoor pandemic</li><li>airborne pathogens</li><li>SEI model</li><li>CFD</li></ul></dd></div></dl></section>
 <h2 id="references">References</h2>
-<ol class="paper-refs"><li id="ref-1">Brodeur, A.; Gray, D.; Islam, A.; Bhuiyan, S. A Literature Review of the Economics of COVID-19. IZA Discussion Paper No. 13411, 2020. Available online: https://ssrn.com/abstract=3636640 (accessed on 1 August 2022). <a href="https://ssrn.com/abstract=3636640" target="_blank" rel="noopener">link</a></li>
+<ol class="paper-refs" data-pagefind-ignore>
+<li id="ref-1">Brodeur, A.; Gray, D.; Islam, A.; Bhuiyan, S. A Literature Review of the Economics of COVID-19. IZA Discussion Paper No. 13411, 2020. Available online: https://ssrn.com/abstract=3636640 (accessed on 1 August 2022). <a href="https://ssrn.com/abstract=3636640" target="_blank" rel="noopener">link</a></li>
 <li id="ref-2">Conti, A.A. Historical and methodological highlights of quarantine measures: From ancient plague epidemics to current coronavirus disease (COVID-19) pandemic. Acta Bio Medica Atenei Parm. 2020, 91, 226–229.</li>
 <li id="ref-3">Eurosurveillance Editorial Team. Note from the editors: World Health Organization declares novel coronavirus (2019-nCoV) sixth public health emergency of international concern. Eurosurveillance 2020, 25, 200131e.</li>
 <li id="ref-4">Lederberg, J. Medical Science, Infectious Disease, and the Unity of Humankind. JAMA 1988, 260, 684–685. <a href="https://doi.org/10.1001/jama.1988.03410050104039" target="_blank" rel="noopener">doi:10.1001/jama.1988.03410050104039</a></li>
@@ -421,8 +427,7 @@
 </ol>
 </div>
         
-        
-        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2023), <em>Mathematics</em>, <a href="https://doi.org/10.3390/math11020426" target="_blank" rel="noopener">doi:10.3390/math11020426</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+        <p class="paper-source" data-pagefind-ignore><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2023), <em>Mathematics</em>, <a href="https://doi.org/10.3390/math11020426" target="_blank" rel="noopener">doi:10.3390/math11020426</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
       </article>
     </div>
 
@@ -485,6 +490,7 @@
          </div>
       </footer>
       
+      <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
           // menu and navbar (js/main.js expects to sit at the site root)

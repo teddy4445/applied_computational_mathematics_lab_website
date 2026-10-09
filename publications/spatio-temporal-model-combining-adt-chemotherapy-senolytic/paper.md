@@ -344,7 +344,7 @@ In Fig. 4, we simulated three color maps of *𝑆*(*̂𝛾*<sub>𝑃</sub>*, ̂�
 
 The model has several limitations:
 
-- 1. Since there is always uncertainty in estimating parameters, we included in the model only the most important biological entities that are needed to consider the effects of the three drugs (*𝐴, 𝑃 , 𝐹*) on reducing tumor volume. We naturally included *𝑇* cells that kill cancer cells and their activation by dendritic cells by secreting *𝐼*<sub>12</sub>, and VEGF, which plays a central role in the interactions between cancer and *𝑃* and *𝐹*; finally, we included
+1. Since there is always uncertainty in estimating parameters, we included in the model only the most important biological entities that are needed to consider the effects of the three drugs (*𝐴, 𝑃 , 𝐹*) on reducing tumor volume. We naturally included *𝑇* cells that kill cancer cells and their activation by dendritic cells by secreting *𝐼*<sub>12</sub>, and VEGF, which plays a central role in the interactions between cancer and *𝑃* and *𝐹*; finally, we included
 
 <figure id="fig-7">
 <img src="figures/fig-7.webp" width="335" height="947" alt="Cancer volume (𝑚𝑚3) after ten weeks under treatment 𝐼 𝑉 with variable doses of 𝐹 and 𝑃" loading="lazy" decoding="async">
@@ -353,14 +353,14 @@ The model has several limitations:
 
 endothelial cells, and oxygen in order to express the angiogenesis effect of VEGF.
 
-- 2. The ‘‘minimal’’ model still has many parameters; some were estimated (under some assumptions) or directly determined from
+2. The ‘‘minimal’’ model still has many parameters; some were estimated (under some assumptions) or directly determined from
 
 previous biological papers, some were assumed for this paper, and the remaining parameters were derived by fitting to experiments with mice inoculated with prostate cancer cells, which were treated with A, P, and F.
 
-- 3. In order to simulate the dynamics of the cancer, in particular the movement of its boundary, we made the assumptions that the combined densities of all cells is constant in space and time (Eq. (1)), and that all cells move with same advection velocity.
-- 4. Since the space of initial conditions is high dimensional, we limited our simulation to one set of initial conditions (Eq. (26)) and *𝑅*(0) = 0*.*05 cm. We expect a moderate change in the initial conditions will not significantly affect the results of the paper.
-- 5. We assumed that drugs action is linear (e.g. *𝐴𝐶*, *𝑃 𝐶*, *𝐹 𝐶*<sub>𝑠</sub>), which is only justified under limited dosage.
-- 6. We made a simplified assumption on the PK profile of the drugs, assuming exponential decrease, for instance, *𝑒*<sup>−𝛼 𝑡</sup>, where *𝛼* is the half-life of the drug.
+3. In order to simulate the dynamics of the cancer, in particular the movement of its boundary, we made the assumptions that the combined densities of all cells is constant in space and time (Eq. (1)), and that all cells move with same advection velocity.
+4. Since the space of initial conditions is high dimensional, we limited our simulation to one set of initial conditions (Eq. (26)) and *𝑅*(0) = 0*.*05 cm. We expect a moderate change in the initial conditions will not significantly affect the results of the paper.
+5. We assumed that drugs action is linear (e.g. *𝐴𝐶*, *𝑃 𝐶*, *𝐹 𝐶*<sub>𝑠</sub>), which is only justified under limited dosage.
+6. We made a simplified assumption on the PK profile of the drugs, assuming exponential decrease, for instance, *𝑒*<sup>−𝛼 𝑡</sup>, where *𝛼* is the half-life of the drug.
 
 A comprehensive review of prognostic implications of cellular senescence in many types of cancer is given in Domen et al. (2022), and comprehensive description of senolytic therapies is given in Schmitt et al. (2022). The methods developed in the present paper could be useful in the study of treatments and prognostics of other cancers with other combinations of chemotherapy and senolytic drugs.
 

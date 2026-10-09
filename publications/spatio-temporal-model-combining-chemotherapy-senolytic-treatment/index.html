@@ -128,10 +128,10 @@
     <header class="paper-hero">
       <div class="paper-wrap">
         <nav class="paper-crumbs" aria-label="Breadcrumb">
-          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Biomathematics</span>
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span data-pagefind-filter="Topic">Biomathematics</span>
         </nav>
         <p class="paper-kicker"><span><em>Mathematical Biosciences</em> · 23 November 2024</span></p>
-        <h1 class="paper-title">Spatio-Temporal Model of Combining Chemotherapy with Senolytic Treatment in Lung Cancer</h1>
+        <h1 class="paper-title" data-pagefind-meta="title" data-pagefind-filter="Year:2024">Spatio-Temporal Model of Combining Chemotherapy with Senolytic Treatment in Lung Cancer</h1>
         <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author">Avner Friedman</span></p>
         
         <div class="paper-actions">
@@ -146,10 +146,14 @@
       </div>
     </header>
 
-    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Chemotherapy kills cancer cells but can leave some in a senescent state, alive but no longer dividing, and in lung cancer these cells release VEGF, which triggers new blood vessel growth that helps the tumor grow. We developed a spatio-temporal mathematical model of chemotherapy combined with a senolytic drug that eliminates senescent cells. Simulations matched mouse experiments combining cyclophosphamide with the senolytic fisetin, and the model can compare drug combinations and schedules for optimal tumor reduction.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Because some cancer cells become senescent under chemotherapy, adding a senolytic drug is expected to significantly improve chemotherapy&#x27;s efficacy.</li><li>Simulated tumor volume growth agreed with mouse experiments combining cyclophosphamide with the senolytic drug fisetin.</li><li>The model can assess different drug combinations and schedules to achieve optimal tumor volume reduction.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1014" height="875" alt="Fig. 1. A schematic view of the biological model including five cell populations and five free chemicals. The treatment-related components are marked by dashed borders."></a><figcaption><strong>Fig. 1.</strong> A schematic view of the biological model including five cell populations and five free chemicals. The treatment-related components are marked by dashed borders. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+    <section class="paper-glance" aria-labelledby="glance-title" data-pagefind-body><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Chemotherapy kills cancer cells but can leave some in a senescent state, alive but no longer dividing, and in lung cancer these cells release VEGF, which triggers new blood vessel growth that helps the tumor grow. We developed a spatio-temporal mathematical model of chemotherapy combined with a senolytic drug that eliminates senescent cells. Simulations matched mouse experiments combining cyclophosphamide with the senolytic fisetin, and the model can compare drug combinations and schedules for optimal tumor reduction.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Because some cancer cells become senescent under chemotherapy, adding a senolytic drug is expected to significantly improve chemotherapy&#x27;s efficacy.</li><li>Simulated tumor volume growth agreed with mouse experiments combining cyclophosphamide with the senolytic drug fisetin.</li><li>The model can assess different drug combinations and schedules to achieve optimal tumor volume reduction.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1014" height="875" alt="Fig. 1. A schematic view of the biological model including five cell populations and five free chemicals. The treatment-related components are marked by dashed borders."></a><figcaption><strong>Fig. 1.</strong> A schematic view of the biological model including five cell populations and five free chemicals. The treatment-related components are marked by dashed borders. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
 
     <div class="paper-wrap paper-layout">
       <aside class="paper-aside">
+        <form class="paper-search" action="/publications.html" method="get" role="search">
+          <label for="paper-q" class="aside-title">Search all our papers</label>
+          <div class="paper-search-box"><i class="ri-search-line" aria-hidden="true"></i><input id="paper-q" name="q" type="search" placeholder="e.g. Thompson sampling" autocomplete="off"></div>
+        </form>
         <nav class="paper-toc" aria-label="On this page">
           <p class="aside-title">On this page</p>
           <ol>
@@ -185,8 +189,8 @@
         </div>
       </aside>
 
-      <article class="paper-body" id="full-text">
-        <details class="paper-toc-mobile">
+      <article class="paper-body" id="full-text" data-pagefind-body>
+        <details class="paper-toc-mobile" data-pagefind-ignore>
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
@@ -216,9 +220,10 @@
           </ol>
         </details>
         <section id="abstract" class="paper-abstract">
-          <h2>Abstract</h2>
+          <h2 id="abstract-heading">Abstract</h2>
           <p>Senescent cells are cells that stop dividing but sustain viability. Cellular senescence is the hallmark of aging, but senescence also appears in cancer, triggered by cells stress, tumor suppression of gene activation, and oncogene activity. In lung cancer, senescent cancer cells secrete VEGF, which initiates a process of angiogenesis, enabling the cancer to grow and proliferate. Chemotherapy kills cancer cells, but some cancer cells become senescent. Hence, a senolytic drug, a drug that eliminates senescent cells, should significantly improve the efficacy of chemotherapy. In this paper, we developed a mathematical spatio-temporal model of combination chemotherapy with senolytic drug in treatment of lung cancer. Model’s simulations of tumor volume growth are shown to agree with mouse experiments in the case where cyclophosphamide is combined with the senolytic drug fisetin. It is then shown how the model can be used to assess the benefits of treatments with different combinations and different schedules of the two drugs in order to achieve optimal tumor volume reduction.</p>
         </section>
+        
         
 <div class="paper-text">
 <h2 id="1-introduction">1. Introduction</h2>
@@ -416,34 +421,18 @@
 
 <p>We also gave an example of repeated application of the same Treatment <em>𝐼</em>, with some rest time between them. In that example, we show that the optimal rest time should be not too short but not too long.</p>
 <p>The model has several limitations.</p>
-<ul>
-<li>
 <ol>
 <li>In developing a mathematical model there is always uncertainty in estimating parameters, hence the model should be ‘‘minimal’’, it should include only the biological entities that are absolutely necessary to address the posed biological questions. It should exclude entities that are presumed to affect very little the conclusions of the study; this is a judgment call. In our case, we needed of course to include the pro-cancer angiogenesis effect of senescent cells (VEG, endothelial cells, and oxygen), the cytotoxic T cells that kill cancer cells, and some activators of dendritic cells that detect cancer, and the messenger IL-12 (<em>𝐼</em>). But we did include, for instance, other anti- and pro-cancer immune cells (e.g., macrophages and related cytokines).</li>
-</ol>
-</li>
-<li>
-<ol start="2">
 <li>The ‘‘minimal’’ model still has many unknown parameters, which we estimated by fitting to experimental results in mice model <span class="cite">[<a href="#ref-7">7</a>]</span>. Although we performed a sensitivity analysis, we do not know the full range of parameters for which the conclusions of the paper remain valid. This limitation could be improved when new experimental data become available.</li>
-</ol>
-</li>
-<li>
-<ol start="3">
 <li>Our spatio-temporal model is represented by a system of PDEs within the tumor. The tumor boundary is moving in time, and in order to solve the system we had to impose a condition on the dynamic of the unknown boundary. For simplicity, we considered a spherically symmetric tumor, and imposed the condition that the sum of all cells density in the moving tumor is constant (Eq. (1)). This enabled us to proceed to solve the model</li>
 </ol>
-</li>
+<ul>
 <li>and to compute the tumor boundary. The assumption in Eq. (1) is another limitation of the model.</li>
-<li>
+</ul>
 <ol start="4">
 <li>We did not include in this paper the negative side effects of the drugs, particularly cyclophosphamide</li>
-</ol>
-</li>
-<li>
-<ol start="5">
 <li>We did not consider the effect of drug resistance, which impairs many treatments of cancer; these topics are beyond the scope of the present paper.</li>
 </ol>
-</li>
-</ul>
 <p>A comprehensive review of prognostic implications of cellular senescence in many cancers is given in <span class="cite">[<a href="#ref-35">35</a>]</span>, and comprehensive descriptions of senolytic therapies are reviewed in <span class="cite">[<a href="#ref-36">36</a>]</span>. The methods developed in this paper could be useful in the study of treatments and in prognostic of other cancers with other combinations of chemotherapy and senolytic drugs.</p>
 <h2 id="credit-authorship-contribution-statement">CRediT authorship contribution statement</h2>
 <p><strong>Teddy Lazebnik:</strong> Writing – review &amp; editing, Visualization, Software, Resources, Project administration, Methodology, Investigation, Formal analysis, Conceptualization. <strong>Avner Friedman:</strong> Writing – review &amp; editing, Writing – original draft, Validation, Investigation, Formal analysis, Data curation, Conceptualization.</p>
@@ -511,9 +500,10 @@
 <p><a class="xref" href="#fig-9">Fig. 9</a> shows that <em>𝜇</em><sub>𝐹</sub> and <em>𝜇</em><sub>𝑃</sub> are negatively correlated. Indeed, when these parameters increase then the washout rate of the drugs increases, and the decrease in the effective drugs will reduce their anti-cancer efficacy. If <em>𝜇</em><sub>𝑃 𝑇</sub> is increased then <em>𝑇</em> is decreased, and if <em>𝜇</em><sub>𝐹 𝑉</sub> is increased then VEGF is decreased, hence both parameters are positively correlated. If <em>𝜆</em><sub>𝑃 𝐶𝑠</sub> is increased then <em>𝐶</em><sub>𝑠</sub> is increased, and if <em>𝜇</em><sub>𝐹 𝐶𝑠</sub> is increased then <em>𝐶</em><sub>𝑠</sub> is decreased, hence <em>𝜆</em><sub>𝑃 𝐶𝑠</sub> is positively correlated while <em>𝜇</em><sub>𝐹 𝐶𝑠</sub> is negatively correlated. Finally, the parameters <em>𝜇</em><sub>𝐶𝑠𝐹</sub><em>, 𝜇</em><sub>𝑉 𝑃</sub><em>, 𝜇</em><sub>𝐶 𝑃</sub><em>, 𝜇</em><sub>𝑇 𝑃</sub> are positively correlated since if they increase then the drugs <em>𝐹</em> + <em>𝑃</em> are decreased.</p>
 <h2 id="data-availability">Data availability</h2>
 <p>No data was used for the research described in the article.</p>
-<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Published 23 November 2024</dd></div></dl></section>
+<section id="article-notes" class="paper-notes" data-pagefind-ignore><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Published 23 November 2024</dd></div></dl></section>
 <h2 id="references">References</h2>
-<ol class="paper-refs"><li id="ref-1">L. Wyld, B. I, T. Tchkonia, J. Morgan, O. Turner, F. Foss, J. George, S. Danson, J.L. Kirkland, Senescence and cancer: A review of clinical implications of sensescence and senotherapies, Cancers (2020). <a href="http://refhub.elsevier.com/S0025-5564%2824%2900202-5/sb1" target="_blank" rel="noopener">link</a></li>
+<ol class="paper-refs" data-pagefind-ignore>
+<li id="ref-1">L. Wyld, B. I, T. Tchkonia, J. Morgan, O. Turner, F. Foss, J. George, S. Danson, J.L. Kirkland, Senescence and cancer: A review of clinical implications of sensescence and senotherapies, Cancers (2020). <a href="http://refhub.elsevier.com/S0025-5564%2824%2900202-5/sb1" target="_blank" rel="noopener">link</a></li>
 <li id="ref-2">B. Wang, J. Kohil, M. Demaria, Senescent cells in cancer therapy: Friends or foes, Trends Cancer 6 (10) (2020) 838–857. <a href="http://refhub.elsevier.com/S0025-5564%2824%2900202-5/sb2" target="_blank" rel="noopener">link</a></li>
 <li id="ref-3">W. Huang, L.J. Hickson, A. Eirin, J.L. Kirkland, L.O. Lerman, Cellular senescence: the good, the bad, and the unknown, Nat. Rev. Nephrol. 18 (2022) 611–627. <a href="http://refhub.elsevier.com/S0025-5564%2824%2900202-5/sb3" target="_blank" rel="noopener">link</a></li>
 <li id="ref-4">J. Yang, M. Liu, D. Hong, M. Zeng, X. Zhang, The paradoxical role of cellular senescence in cancer, Front. Cell Dev. Biol. (2021) 722205. <a href="http://refhub.elsevier.com/S0025-5564%2824%2900202-5/sb4" target="_blank" rel="noopener">link</a></li>
@@ -561,8 +551,7 @@
 </ol>
 </div>
         
-        
-        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2024), <em>Mathematical Biosciences</em>, <a href="https://doi.org/10.1016/j.mbs.2024.109342" target="_blank" rel="noopener">doi:10.1016/j.mbs.2024.109342</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+        <p class="paper-source" data-pagefind-ignore><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2024), <em>Mathematical Biosciences</em>, <a href="https://doi.org/10.1016/j.mbs.2024.109342" target="_blank" rel="noopener">doi:10.1016/j.mbs.2024.109342</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
       </article>
     </div>
 
@@ -625,6 +614,7 @@
          </div>
       </footer>
       
+      <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
           // menu and navbar (js/main.js expects to sit at the site root)

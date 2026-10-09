@@ -196,16 +196,16 @@ The equilibria *EQ*<sub>2</sub>*, EQ*<sub>3</sub>, and *EQ*<sub>4</sub> are not 
 
 **Figure 5** shows the spatial model schema presenting the populations distribution and locations (work/school, and home) at some time of the day. In addition to the ODE model’s parameters (shown in Table 1), the following parameters are added to the hybrid model as part of the spatial model:
 
-- 1) *𝜙*<sub>ac</sub>, the average number of meeting events between adults and children per hour.
-- 2) *𝜙*<sub>aa</sub>, the average number of meeting events between adults and adults per hour.
-- 3) *𝜙*<sub>cc</sub>, the average number of meeting events between children and children per hour.
-- 4) *t*<sup>d</sup> <sub>c</sub>, hours of the day that children are at home and *t*<sup>n</sup> <sub>c</sub> = 24 − *t*<sup>d</sup> *c* hours of the day that children are at school. 5) *t*<sup>d</sup> <sub>a</sub>, hours of the day that adults are at home and *t*<sup>n</sup> <sub>a</sub> = 24 − *t*<sup>d</sup> *a* hours of the day that adults are at work.
+1. *𝜙*<sub>ac</sub>, the average number of meeting events between adults and children per hour.
+2. *𝜙*<sub>aa</sub>, the average number of meeting events between adults and adults per hour.
+3. *𝜙*<sub>cc</sub>, the average number of meeting events between children and children per hour.
+4. *t*<sup>d</sup> <sub>c</sub>, hours of the day that children are at home and *t*<sup>n</sup> <sub>c</sub> = 24 − *t*<sup>d</sup> *c* hours of the day that children are at school. 5) *t*<sup>d</sup> <sub>a</sub>, hours of the day that adults are at home and *t*<sup>n</sup> <sub>a</sub> = 24 − *t*<sup>d</sup> *a* hours of the day that adults are at work.
 
 We assume the transition from home to either work or school and back is immediate and that everybody is following the same clock. Each simulation step simulates 1 h. The population size is constant during the simulation and initialized in the beginning of each iteration by setting children population size *N*<sub>c</sub> and adult population size *N*<sub>a</sub>. In each simulation step, the following three actions take place:
 
-- 1) If a member is in the susceptible group and meets other members of the infected group, there is a change of *𝛽*<sub>aa</sub>*, 𝛽*<sub>ac</sub>*, 𝛽*<sub>ca</sub>, or *𝛽*<sub>cc</sub> according to the age-class of the two members that the first will be infected.
-- 2) Each infected child or adult that was infected for <sup>1</sup> <sub>𝛾c</sub> *,* <sup>1</sup> <sub>𝛾a</sub> simulation steps becomes either recovered or deceased, respectively.
-- 3) According to the hour of the day, the adults transition to home or work and the children to home or school.
+1. If a member is in the susceptible group and meets other members of the infected group, there is a change of *𝛽*<sub>aa</sub>*, 𝛽*<sub>ac</sub>*, 𝛽*<sub>ca</sub>, or *𝛽*<sub>cc</sub> according to the age-class of the two members that the first will be infected.
+2. Each infected child or adult that was infected for <sup>1</sup> <sub>𝛾c</sub> *,* <sup>1</sup> <sub>𝛾a</sub> simulation steps becomes either recovered or deceased, respectively.
+3. According to the hour of the day, the adults transition to home or work and the children to home or school.
 
 The spatial model adds day–night circle and three main locations to the dynamics of the hybrid model. A description of the whole of the hybrid model. The *x*-axis is the time (in days) that has passed from the beginning of the epidemic and the *y*-axis is the normalized size of each population, respectively. The parameters used in the simulations are *t*<sup>d</sup> <sub>c</sub> = *t*<sup>d</sup> <sub>a</sub> = 12*, 𝜙*<sub>ac</sub> = *𝜙*<sub>aa</sub> = *𝜙*<sub>cc</sub> = 1*, N* = 1000*, N*<sub>c</sub> = 280*, N*<sub>a</sub> = 720.
 
@@ -240,8 +240,8 @@ One of the major hopes of politicians is for an NPI policy in which the epidemic
 
 We will examine two policies, based on this condition, to determine if each one is possible to fulfill the condition. If so, the optimal NPI policy is based on the parameter-space criteria:
 
-- 1) The influence of the duration of the work/school day.
-- 2) Lockdown in homes with partial to full separation between individuals.
+1. The influence of the duration of the work/school day.
+2. Lockdown in homes with partial to full separation between individuals.
 
 ### 3.2. Duration of Working and Schooling Day
 

@@ -140,10 +140,10 @@
     <header class="paper-hero">
       <div class="paper-wrap">
         <nav class="paper-crumbs" aria-label="Breadcrumb">
-          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Biomathematics</span>
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span data-pagefind-filter="Topic">Biomathematics</span>
         </nav>
         <p class="paper-kicker"><span><em>Mathematics</em> · 28 February 2023</span></p>
-        <h1 class="paper-title">Scheduling BCG and IL-2 Injections for Bladder Cancer Immunotherapy Treatment</h1>
+        <h1 class="paper-title" data-pagefind-meta="title" data-pagefind-filter="Year:2023">Scheduling BCG and IL-2 Injections for Bladder Cancer Immunotherapy Treatment</h1>
         <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Amit Yaniv-Rosenfeld</a></span>, <span class="author">Elizaveta Savchenko</span>, <span class="author">Ariel Rosenfeld</span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span></p>
         <details class="paper-affils"><summary>Affiliations</summary><ol><li value="1">Shalvata Mental Health Care Center, Hod Hasharon 45100, Israel</li><li value="2">Department of Management, Bar-Ilan University, Ramat-Gan 52900, Israel</li><li value="3">Independent Researcher, Ramat-Gan 52900, Israel</li><li value="4">Department of Information Sciences, Bar-Ilan University, Ramat-Gan 52900, Israel</li><li value="5">Department of Cancer Biology, Cancer Institute, University College London, London WC1E 6DD, UK</li></ol></details>
         <div class="paper-actions">
@@ -158,10 +158,14 @@
       </div>
     </header>
 
-    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Bladder cancer is commonly treated with a weekly immunotherapy protocol of BCG and IL-2 injections, yet results vary widely between patients, and existing models often describe a non-existent average patient. We built the most extensive model of BCG treatment to date based on ordinary differential equations (equations describing how quantities change over time) and paired it with a deep learning-based scheduling method to produce personalized treatment schedules. These schedules compared favorably with current standard practice and with the current state-of-the-art scheduling approach.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Outcomes of the standard weekly BCG and IL-2 protocol vary significantly among patients because of complex interactions between the immune system, treatment and cancer cells.</li><li>We propose the most extensive ordinary differential equation-based biological model of BCG treatment to date.</li><li>A deep learning-based scheduling approach produces a personalized treatment schedule for each patient.</li><li>The resulting schedules compare favorably with current standard practices and the current state-of-the-art scheduling approach.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="987" height="632" alt="Figure 1. Our schematic view of the biological model proposed by [22]."></a><figcaption><strong>Figure 1.</strong> Our schematic view of the biological model proposed by <span class="cite">[<a href="#ref-22">22</a>]</span>. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+    <section class="paper-glance" aria-labelledby="glance-title" data-pagefind-body><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Bladder cancer is commonly treated with a weekly immunotherapy protocol of BCG and IL-2 injections, yet results vary widely between patients, and existing models often describe a non-existent average patient. We built the most extensive model of BCG treatment to date based on ordinary differential equations (equations describing how quantities change over time) and paired it with a deep learning-based scheduling method to produce personalized treatment schedules. These schedules compared favorably with current standard practice and with the current state-of-the-art scheduling approach.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Outcomes of the standard weekly BCG and IL-2 protocol vary significantly among patients because of complex interactions between the immune system, treatment and cancer cells.</li><li>We propose the most extensive ordinary differential equation-based biological model of BCG treatment to date.</li><li>A deep learning-based scheduling approach produces a personalized treatment schedule for each patient.</li><li>The resulting schedules compare favorably with current standard practices and the current state-of-the-art scheduling approach.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="987" height="632" alt="Figure 1. Our schematic view of the biological model proposed by [22]."></a><figcaption><strong>Figure 1.</strong> Our schematic view of the biological model proposed by <span class="cite">[<a href="#ref-22">22</a>]</span>. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
 
     <div class="paper-wrap paper-layout">
       <aside class="paper-aside">
+        <form class="paper-search" action="/publications.html" method="get" role="search">
+          <label for="paper-q" class="aside-title">Search all our papers</label>
+          <div class="paper-search-box"><i class="ri-search-line" aria-hidden="true"></i><input id="paper-q" name="q" type="search" placeholder="e.g. Thompson sampling" autocomplete="off"></div>
+        </form>
         <nav class="paper-toc" aria-label="On this page">
           <p class="aside-title">On this page</p>
           <ol>
@@ -181,8 +185,8 @@
         </div>
       </aside>
 
-      <article class="paper-body" id="full-text">
-        <details class="paper-toc-mobile">
+      <article class="paper-body" id="full-text" data-pagefind-body>
+        <details class="paper-toc-mobile" data-pagefind-ignore>
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
@@ -196,9 +200,10 @@
           </ol>
         </details>
         <section id="abstract" class="paper-abstract">
-          <h2>Abstract</h2>
+          <h2 id="abstract-heading">Abstract</h2>
           <p>Cancer is one of the most common families of diseases today with millions of new patients every year around the world. Bladder cancer (BC) is one of the most prevalent types of cancer affecting both genders, and it is not known to be associated with a specific group in the population. The current treatment standard for BC follows a standard weekly Bacillus Calmette–Guérin (BCG) immunotherapy-based therapy protocol which includes BCG and IL-2 injections. Unfortunately, due to the biological and clinical complexity of the interactions between the immune system, treatment, and cancer cells, clinical outcomes vary significantly among patients. Unfortunately, existing models are commonly developed for a non-existing average patient or pose strict, unrealistic, expectations on the treatment process. In this work, we propose the most extensive ordinary differential equation-based biological model of BCG treatment to date and a deep learning-based scheduling approach to obtain a personalized treatment schedule. Our results show that resulting treatment schedules favorably compare with the current standard practices and the current state-of-the-art scheduling approach.</p>
         </section>
+        
         
 <div class="paper-text">
 <h2 id="1-introduction">1. Introduction</h2>
@@ -318,9 +323,10 @@
 <p><strong>Data Availability Statement:</strong> The data that has been used is presented in the manuscript with the relevant sources.</p>
 <p><strong>Acknowledgments:</strong> The authors wish to thank Svetlana Bunimovich-Mendrazitsky and Ekaterina Guzev for sharing the code of their model and the clinical data used in this research.</p>
 <p><strong>Conflicts of Interest:</strong> The authors have no financial or proprietary interests in any material discussed in this article.</p>
-<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 9 February 2023 · Accepted 25 February 2023 · Published 28 February 2023</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>personalized BCG treatment</li><li>personalized scheduling of treatment</li><li>cancer treatment</li><li>personalized clinical treatment</li></ul></dd></div></dl></section>
+<section id="article-notes" class="paper-notes" data-pagefind-ignore><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 9 February 2023 · Accepted 25 February 2023 · Published 28 February 2023</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>personalized BCG treatment</li><li>personalized scheduling of treatment</li><li>cancer treatment</li><li>personalized clinical treatment</li></ul></dd></div></dl></section>
 <h2 id="references">References</h2>
-<ol class="paper-refs"><li id="ref-1">Cao, W.; Chen, H.D.; Yu, Y.W.; Li, N.; Chen, W.Q.; Ni, J. Changing profiles of cancer burden worldwide and in China: A secondary analysis of the global cancer statistics 2020. Chin. Med. J. 2021, 134, 783–791. <a href="https://doi.org/10.1097/CM9.0000000000001474" target="_blank" rel="noopener">doi:10.1097/CM9.0000000000001474</a></li>
+<ol class="paper-refs" data-pagefind-ignore>
+<li id="ref-1">Cao, W.; Chen, H.D.; Yu, Y.W.; Li, N.; Chen, W.Q.; Ni, J. Changing profiles of cancer burden worldwide and in China: A secondary analysis of the global cancer statistics 2020. Chin. Med. J. 2021, 134, 783–791. <a href="https://doi.org/10.1097/CM9.0000000000001474" target="_blank" rel="noopener">doi:10.1097/CM9.0000000000001474</a></li>
 <li id="ref-2">Weinberg, R.A. How Cancer Arises. Sci. Am. 1996, 275, 62–70. <a href="https://doi.org/10.1038/scientificamerican0996-62" target="_blank" rel="noopener">doi:10.1038/scientificamerican0996-62</a></li>
 <li id="ref-3">Mohammadian, M.; Safari, A.; Bakeshei, K.A.; Bakeshei, F.A.; Asti, A.; Mohammadian-Hafshejani, A.; Salehiniya, H.; Emaiyan, M.; Khapour, H. Recent Patterns of Bladder Cancer Incidence and Mortality: A Global Overview. World Cancer Res. J. 2020, 7, e1464.</li>
 <li id="ref-4">Knowles, M.A. Molecular subtypes of bladder cancer: Jekyll and Hyde or chalk and cheese? Carcinogenesis 2006, 27, 361–373. <a href="https://doi.org/10.1093/carcin/bgi310" target="_blank" rel="noopener">doi:10.1093/carcin/bgi310</a></li>
@@ -378,8 +384,7 @@
 </ol>
 </div>
         
-        
-        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Yaniv-Rosenfeld et al. (2023), <em>Mathematics</em>, <a href="https://doi.org/10.3390/math11051192" target="_blank" rel="noopener">doi:10.3390/math11051192</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+        <p class="paper-source" data-pagefind-ignore><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Yaniv-Rosenfeld et al. (2023), <em>Mathematics</em>, <a href="https://doi.org/10.3390/math11051192" target="_blank" rel="noopener">doi:10.3390/math11051192</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
       </article>
     </div>
 
@@ -442,6 +447,7 @@
          </div>
       </footer>
       
+      <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
           // menu and navbar (js/main.js expects to sit at the site root)

@@ -125,10 +125,10 @@
     <header class="paper-hero">
       <div class="paper-wrap">
         <nav class="paper-crumbs" aria-label="Breadcrumb">
-          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Scientometrics</span>
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span data-pagefind-filter="Topic">Scientometrics</span>
         </nav>
         <p class="paper-kicker"><span><em>Algorithms</em> · 1 August 2026</span></p>
-        <h1 class="paper-title">A Portfolio-Theoretic Algorithm for Institutional Research Planning Under Scientometric Objectives</h1>
+        <h1 class="paper-title" data-pagefind-meta="title" data-pagefind-filter="Year:2026">A Portfolio-Theoretic Algorithm for Institutional Research Planning Under Scientometric Objectives</h1>
         <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span></p>
         <details class="paper-affils"><summary>Affiliations</summary><ol><li value="1">Department of Information System, University of Haifa, Haifa 3103301, Israel; teddy.lazebnik@ju.se</li><li value="2">Department of Computing, Jonkoping University, SE-551 11 Jonkoping, Sweden</li></ol></details>
         <div class="paper-actions">
@@ -143,10 +143,14 @@
       </div>
     </header>
 
-    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Academic departments must decide how to invest scarce resources in laboratories, early-career scholars, infrastructure and new topics, while the payoff in publications, citations and grants is delayed and uncertain. Borrowing from financial portfolio optimization, we proposed DEPO, a decision-support heuristic that weighs expected return, uncertainty, spillovers, diversity, strategic alignment and adjustment costs. In simulated environments, DEPO was competitive with classical baselines while keeping portfolios diverse and allocations relatively smooth.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Across stable, emerging-field, monoculture and budget-shock simulations, DEPO was competitive with classical portfolio and heuristic baselines.</li><li>DEPO preserved high portfolio diversity, low topic concentration and relatively smooth allocation dynamics in several settings.</li><li>In the emerging-field setting, DEPO kept funding uncertain opportunities, but this did not give a clear cumulative-return advantage over the strongest baselines in all conditions.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="831" height="531" alt="Figure 1. Cumulative scientometric return over time in the stable scientific environment. Curves show the mean over Monte Carlo replications, with shaded regions representing confidence intervals."></a><figcaption><strong>Figure 1.</strong> Cumulative scientometric return over time in the stable scientific environment. Curves show the mean over Monte Carlo replications, with shaded regions representing confidence intervals. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+    <section class="paper-glance" aria-labelledby="glance-title" data-pagefind-body><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Academic departments must decide how to invest scarce resources in laboratories, early-career scholars, infrastructure and new topics, while the payoff in publications, citations and grants is delayed and uncertain. Borrowing from financial portfolio optimization, we proposed DEPO, a decision-support heuristic that weighs expected return, uncertainty, spillovers, diversity, strategic alignment and adjustment costs. In simulated environments, DEPO was competitive with classical baselines while keeping portfolios diverse and allocations relatively smooth.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Across stable, emerging-field, monoculture and budget-shock simulations, DEPO was competitive with classical portfolio and heuristic baselines.</li><li>DEPO preserved high portfolio diversity, low topic concentration and relatively smooth allocation dynamics in several settings.</li><li>In the emerging-field setting, DEPO kept funding uncertain opportunities, but this did not give a clear cumulative-return advantage over the strongest baselines in all conditions.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="831" height="531" alt="Figure 1. Cumulative scientometric return over time in the stable scientific environment. Curves show the mean over Monte Carlo replications, with shaded regions representing confidence intervals."></a><figcaption><strong>Figure 1.</strong> Cumulative scientometric return over time in the stable scientific environment. Curves show the mean over Monte Carlo replications, with shaded regions representing confidence intervals. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
 
     <div class="paper-wrap paper-layout">
       <aside class="paper-aside">
+        <form class="paper-search" action="/publications.html" method="get" role="search">
+          <label for="paper-q" class="aside-title">Search all our papers</label>
+          <div class="paper-search-box"><i class="ri-search-line" aria-hidden="true"></i><input id="paper-q" name="q" type="search" placeholder="e.g. Thompson sampling" autocomplete="off"></div>
+        </form>
         <nav class="paper-toc" aria-label="On this page">
           <p class="aside-title">On this page</p>
           <ol>
@@ -170,8 +174,8 @@
         </div>
       </aside>
 
-      <article class="paper-body" id="full-text">
-        <details class="paper-toc-mobile">
+      <article class="paper-body" id="full-text" data-pagefind-body>
+        <details class="paper-toc-mobile" data-pagefind-ignore>
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
@@ -189,9 +193,10 @@
           </ol>
         </details>
         <section id="abstract" class="paper-abstract">
-          <h2>Abstract</h2>
+          <h2 id="abstract-heading">Abstract</h2>
           <p>Academic departments allocate scarce research resources under deep uncertainty as today’s choices about laboratories, early-career scholars, infrastructure, and emerging topics shape future publications, citations, grants, and scientific capacity. Unfortunately, the connection between the two is delayed, noisy, and interdependent. Economic portfolio optimization offers an established framework for such decisions, as it evaluates investments not only by expected return but also by risk, diversification, and dependence among assets. Nevertheless, research opportunities are not financial assets: their returns are multidimensional, scientometric, cumulative, and shaped by spillovers, strategic priorities, and institutional inertia. In this study, we formulate departmental research planning as a Departmental Scientometric Portfolio Optimization problem, and propose Departmental Epistemic Portfolio Optimization, an integrative decision-support heuristic that allocates resources using expected scientometric return, uncertainty, covariance, spillovers, diversity, concentration, strategic alignment, and adjustment costs. Using in silico experiments covering stable, emerging-field, monoculture, and budget-shock environments, we show that DEPO is competitive with classical portfolio and heuristic baselines while preserving high portfolio diversity, low topic concentration, and relatively smooth allocation dynamics in several settings. In the emerging-field environment, DEPO allocated sustained resources to uncertain and under-observed opportunities, demonstrating the operation of its exploration mechanism; however, this behavior did not produce a clear cumulative-return or oracle-regret advantage over the strongest feasible baselines for all tested conditions. Overall, the results suggest that departments may benefit from portfolio-based decision support when they seek to make explicit trade-offs among performance, exploration, diversity, concentration control, and institutional stability.</p>
         </section>
+        
         
 <div class="paper-text">
 <h2 id="1-introduction">1. Introduction</h2>
@@ -510,9 +515,10 @@
 
 </figure>
 
-<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 10 June 2026 · Accepted 30 July 2026 · Published 1 August 2026</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>research governance</li><li>faculty planning</li><li>innovation management</li><li>research prioritization</li><li>science policy simulation</li></ul></dd></div></dl></section>
+<section id="article-notes" class="paper-notes" data-pagefind-ignore><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 10 June 2026 · Accepted 30 July 2026 · Published 1 August 2026</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>research governance</li><li>faculty planning</li><li>innovation management</li><li>research prioritization</li><li>science policy simulation</li></ul></dd></div></dl></section>
 <h2 id="references">References</h2>
-<ol class="paper-refs"><li id="ref-1">Chen, C.l.; Bullington, S.F. Development of a strategic research plan for an academic department through the use of quality function deployment. Comput. Ind. Eng. 1993, 25, 49–52. <a href="https://doi.org/10.1016/0360-8352%2893%2990218-m" target="_blank" rel="noopener">doi:10.1016/0360-8352(93)90218-m</a></li>
+<ol class="paper-refs" data-pagefind-ignore>
+<li id="ref-1">Chen, C.l.; Bullington, S.F. Development of a strategic research plan for an academic department through the use of quality function deployment. Comput. Ind. Eng. 1993, 25, 49–52. <a href="https://doi.org/10.1016/0360-8352%2893%2990218-m" target="_blank" rel="noopener">doi:10.1016/0360-8352(93)90218-m</a></li>
 <li id="ref-2">Nguyen, H.T.L.; Van Gramberg, B. University strategic research planning: A key to reforming university research in Vietnam? Stud. High. Educ. 2018, 43, 2130–2147.</li>
 <li id="ref-3">Arnold, E.; Rush, H.; Bessant, J.; Hobday, M. Strategic planning in research and technology institutes. R D Manag. 1998, 28, 89–100. <a href="https://doi.org/10.1111/1467-9310.00085" target="_blank" rel="noopener">doi:10.1111/1467-9310.00085</a></li>
 <li id="ref-4">Santos, J.L. Resource allocation in public research universities. Rev. High. Educ. 2007, 30, 125–144. <a href="https://doi.org/10.1353/rhe.2006.0077" target="_blank" rel="noopener">doi:10.1353/rhe.2006.0077</a></li>
@@ -526,7 +532,7 @@
 <li id="ref-12">Rosenfeld, A.; Alexi, A.; Mushiev, L.; Lazebnik, T. The Academic Midas Touch: A citation-based indicator of research excellence. J. Data Inf. Sci. 2025, 10, 78–91. <a href="https://doi.org/10.2478/jdis-2025-0038" target="_blank" rel="noopener">doi:10.2478/jdis-2025-0038</a></li>
 <li id="ref-13">Waltman, L. A Review of the Literature on Citation Impact Indicators. J. Inf. 2016, 10, 365–391. <a href="https://doi.org/10.1016/j.joi.2016.02.007" target="_blank" rel="noopener">doi:10.1016/j.joi.2016.02.007</a></li>
 <li id="ref-14">Garfield, E. Citation Analysis as a Tool in Journal Evaluation. Science 1972, 178, 471–479. <a href="https://doi.org/10.1126/science.178.4060.471" target="_blank" rel="noopener">doi:10.1126/science.178.4060.471</a></li>
-<li id="ref-15">Fortunato, S.; Bergstrom, C.T.; Börner, K.; Evans, J.A.; Helbing, D.; Milojevi´c, S.; Petersen, A.M.; Radicchi, F.; Sinatra, R.; Uzzi, B.; et al. Science of Science. Science 2018, 359, eaao0185. <a href="https://doi.org/10.1126/science.aao0185" target="_blank" rel="noopener">doi:10.1126/science.aao0185</a></li>
+<li id="ref-15">Fortunato, S.; Bergstrom, C.T.; Börner, K.; Evans, J.A.; Helbing, D.; Milojevíc, S.; Petersen, A.M.; Radicchi, F.; Sinatra, R.; Uzzi, B.; et al. Science of Science. Science 2018, 359, eaao0185. <a href="https://doi.org/10.1126/science.aao0185" target="_blank" rel="noopener">doi:10.1126/science.aao0185</a></li>
 <li id="ref-16">Lazebnik, T.; Beck, S.; Shami, L. Academic co-authorship is a risky game. Scientometrics 2023, 128, 6495–6507. <a href="https://doi.org/10.1007/s11192-023-04843-x" target="_blank" rel="noopener">doi:10.1007/s11192-023-04843-x</a></li>
 <li id="ref-17">Goldstein, K.; Yair, G.; Rotem, N. Mount Horribilis: Examining Productivity Gaps in American Research Universities. High. Educ. 2026. <a href="https://doi.org/10.1007/s10734-026-01665-7" target="_blank" rel="noopener">doi:10.1007/s10734-026-01665-7</a></li>
 <li id="ref-18">Jacob, B.A.; Lefgren, L. The Impact of Research Grant Funding on Scientific Productivity. J. Public Econ. 2011, 95, 1168–1177. <a href="https://doi.org/10.1016/j.jpubeco.2011.05.005" target="_blank" rel="noopener">doi:10.1016/j.jpubeco.2011.05.005</a></li>
@@ -599,8 +605,7 @@
 </ol>
 </div>
         
-        
-        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik (2026), <em>Algorithms</em>, <a href="https://doi.org/10.3390/a19080635" target="_blank" rel="noopener">doi:10.3390/a19080635</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+        <p class="paper-source" data-pagefind-ignore><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik (2026), <em>Algorithms</em>, <a href="https://doi.org/10.3390/a19080635" target="_blank" rel="noopener">doi:10.3390/a19080635</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
       </article>
     </div>
 
@@ -663,6 +668,7 @@
          </div>
       </footer>
       
+      <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
           // menu and navbar (js/main.js expects to sit at the site root)

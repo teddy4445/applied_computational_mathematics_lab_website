@@ -120,10 +120,10 @@
     <header class="paper-hero">
       <div class="paper-wrap">
         <nav class="paper-crumbs" aria-label="Breadcrumb">
-          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Biomathematics</span>
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span data-pagefind-filter="Topic">Biomathematics</span>
         </nav>
         <p class="paper-kicker"><span><em>Disaster Medicine and Public Health Preparedness</em> · 2025</span></p>
-        <h1 class="paper-title is-long">Spatio-Temporal SIR Model of Pandemic Spread During Warfare with Optimal Dual-use Health Care System Administration using Deep Reinforcement Learning</h1>
+        <h1 class="paper-title is-long" data-pagefind-meta="title" data-pagefind-filter="Year:2025">Spatio-Temporal SIR Model of Pandemic Spread During Warfare with Optimal Dual-use Health Care System Administration using Deep Reinforcement Learning</h1>
         <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Adi Shuchami</a></span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span></p>
         <details class="paper-affils"><summary>Affiliations</summary><ol><li value="1">Department of Mathematics, Ariel University, Ariel, Israel and</li><li value="2">Department of Cancer Biology, Cancer Institute, University College London, London, UK</li></ol></details>
         <div class="paper-actions">
@@ -138,10 +138,14 @@
       </div>
     </header>
 
-    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Wars and pandemics can occur at the same time, yet how warfare affects epidemic spread is underexplored. We combined the SIR epidemic model with the Lanchester model of war dynamics and added a health care system serving both soldiers and civilians. Using agent-based simulation data, we trained a deep reinforcement learning model to choose health care policies, and found chaotic dynamics in which the best choice depends on which option causes more immediate deaths.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>We integrated the SIR (susceptible-infected-recovered) epidemic model with the Lanchester war dynamics model to study their combined effect on mortality.</li><li>A deep Q-network reinforcement learning model was trained on agent-based simulation data to set dual-use military and civil health care policy.</li><li>A pandemic during war leads to chaotic dynamics, where care should prioritize soldiers or civilians based on immediate mortality, ignoring long-term objectives.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1768" height="513" alt="Figure 1. A schematic view of the study’s design."></a><figcaption><strong>Figure 1.</strong> A schematic view of the study’s design. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+    <section class="paper-glance" aria-labelledby="glance-title" data-pagefind-body><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Wars and pandemics can occur at the same time, yet how warfare affects epidemic spread is underexplored. We combined the SIR epidemic model with the Lanchester model of war dynamics and added a health care system serving both soldiers and civilians. Using agent-based simulation data, we trained a deep reinforcement learning model to choose health care policies, and found chaotic dynamics in which the best choice depends on which option causes more immediate deaths.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>We integrated the SIR (susceptible-infected-recovered) epidemic model with the Lanchester war dynamics model to study their combined effect on mortality.</li><li>A deep Q-network reinforcement learning model was trained on agent-based simulation data to set dual-use military and civil health care policy.</li><li>A pandemic during war leads to chaotic dynamics, where care should prioritize soldiers or civilians based on immediate mortality, ignoring long-term objectives.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1768" height="513" alt="Figure 1. A schematic view of the study’s design."></a><figcaption><strong>Figure 1.</strong> A schematic view of the study’s design. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
 
     <div class="paper-wrap paper-layout">
       <aside class="paper-aside">
+        <form class="paper-search" action="/publications.html" method="get" role="search">
+          <label for="paper-q" class="aside-title">Search all our papers</label>
+          <div class="paper-search-box"><i class="ri-search-line" aria-hidden="true"></i><input id="paper-q" name="q" type="search" placeholder="e.g. Thompson sampling" autocomplete="off"></div>
+        </form>
         <nav class="paper-toc" aria-label="On this page">
           <p class="aside-title">On this page</p>
           <ol>
@@ -170,8 +174,8 @@
         </div>
       </aside>
 
-      <article class="paper-body" id="full-text">
-        <details class="paper-toc-mobile">
+      <article class="paper-body" id="full-text" data-pagefind-body>
+        <details class="paper-toc-mobile" data-pagefind-ignore>
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
@@ -194,9 +198,10 @@
           </ol>
         </details>
         <section id="abstract" class="paper-abstract">
-          <h2>Abstract</h2>
+          <h2 id="abstract-heading">Abstract</h2>
           <p>Objectives: Large-scale crises, including wars and pandemics, have repeatedly shaped human history, and their simultaneous occurrence presents profound challenges to societies. Understanding the dynamics of epidemic spread during warfare is essential for developing effective containment strategies in complex conflict zones. While research has explored epidemic models in various settings, the impact of warfare on epidemic dynamics remains underexplored. Methods: We proposed a novel mathematical model that integrates the epidemiological SIR (susceptible-infected-recovered) model with the war dynamics Lanchester model to explore the dual influence of war and pandemic on a population’s mortality. Moreover, we consider a dual-use military and civil health care system that aims to reduce the overall mortality rate, which can use different administration policies such as prioritizing soldiers over civilians. Using an agent-based simulation to generate in silico data, we trained a deep reinforcement learning model based on the deep Q-network algorithm for health care administration policy and conducted an intensive investigation on its performance.Results: Our results show that a pandemic during war conduces chaotic dynamics where the health care system should either prioritize war-injured soldiers or pandemic-infected civilians based on the immediate amount of mortality from each option, ignoring long-term objectives. Conclusions: Our findings highlight the importance of integrating conflict-related factors into epidemic modeling to enhance preparedness and response strategies in conflict-affected areas.</p>
         </section>
+        
         
 <div class="paper-text">
 <p>Throughout history, pandemics have significantly influenced societal structures, economic stability, political systems, and impacted mortality rates.<sup><a href="#ref-17">17</a></sup> In recent decades, the ongoing threat of emerging and reemerging pandemics and epidemics has posed a significant challenge to humanity.<sup><a href="#ref-11">11</a></sup> In a similar yet distinct manner, the overall number of wars and conflicts worldwide has shown a concerning increase recently, following a relatively peaceful period after World War II.<sup><a href="#ref-18">18</a>,<a href="#ref-19">19</a></sup></p>
@@ -327,9 +332,10 @@
 <p>Teddy Lazebnik: Conceptualization, Data curation, Formal Analysis, Investigation, Methodology, Supervision, Visualization, Writing – original draft, Writing – review &amp; editing.</p>
 <p><strong>Funding statement.</strong> This study received no funding.</p>
 <p><strong>Competing interests.</strong> The authors declare none.</p>
-<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 24 January 2025 · Accepted 25 April 2025</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>agent-based simulation</li><li>reinforcement learning</li><li>resource allocation task</li><li>spatio- temporal SIR model</li><li>Lanchester model Corresponding author: Teddy Lazebnik</li></ul></dd></div></dl></section>
+<section id="article-notes" class="paper-notes" data-pagefind-ignore><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 24 January 2025 · Accepted 25 April 2025</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>agent-based simulation</li><li>reinforcement learning</li><li>resource allocation task</li><li>spatio- temporal SIR model</li><li>Lanchester model Corresponding author: Teddy Lazebnik</li></ul></dd></div></dl></section>
 <h2 id="references">References</h2>
-<ol class="paper-refs"><li id="ref-1">Adiga A, Dubhashi D, Lewis B, et al. Mathematical models for COVID-19 pandemic: a comparative analysis. J Indian Inst Sci. 2020;100(4):793–807.</li>
+<ol class="paper-refs" data-pagefind-ignore>
+<li id="ref-1">Adiga A, Dubhashi D, Lewis B, et al. Mathematical models for COVID-19 pandemic: a comparative analysis. J Indian Inst Sci. 2020;100(4):793–807.</li>
 <li id="ref-2">Aguas R, White L, Hupert N, et al. Modelling the COVID-19 pandemic in context: an international participatory approach. BMJ Glob Health. 2020; 5(12):e003126.</li>
 <li id="ref-3">Alagar VA, Periyasamy K. Extended finite state machine. In: Specification of Software Systems. Springer: 2011;105–128.</li>
 <li id="ref-4">Alexi A, Rosenfeld A, Lazebnik T. Multi-species prey–predator dynamics during a multi-strain pandemic. Chaos. 2023;33(7):073106.</li>
@@ -429,8 +435,7 @@
 </ol>
 </div>
         
-        
-        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Shuchami et al. (2025), <em>Disaster Medicine and Public Health Preparedness</em>, <a href="https://doi.org/10.1017/dmp.2025.10062" target="_blank" rel="noopener">doi:10.1017/dmp.2025.10062</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+        <p class="paper-source" data-pagefind-ignore><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Shuchami et al. (2025), <em>Disaster Medicine and Public Health Preparedness</em>, <a href="https://doi.org/10.1017/dmp.2025.10062" target="_blank" rel="noopener">doi:10.1017/dmp.2025.10062</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
       </article>
     </div>
 
@@ -491,6 +496,7 @@
          </div>
       </footer>
       
+      <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
           // menu and navbar (js/main.js expects to sit at the site root)
