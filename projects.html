@@ -19,22 +19,85 @@
       <meta name="twitter:image" content="https://acml.teddylazebnik.com/img/logo.png"/>
       <link href="img/favicon.ico" rel="icon" type="image/x-icon"/>
       <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "CollectionPage",
-          "name": "Projects | Applied Computational Mathematics Laboratory",
-          "url": "https://acml.teddylazebnik.com/projects.html",
-          "description": "Explore ACML research projects across epidemiology, AI, scientometrics, animal behavior, economics, and applied computational mathematics.",
-          "about": {
-            "@type": "Organization",
-            "name": "Applied Computational Mathematics Laboratory",
-            "url": "https://acml.teddylazebnik.com/"
-          },
-          "mainEntity": {
-            "@type": "ItemList",
-            "name": "ACML research projects"
-          }
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Projects | Applied Computational Mathematics Laboratory",
+        "url": "https://acml.teddylazebnik.com/projects.html",
+        "description": "Explore ACML research projects across epidemiology, AI, scientometrics, animal behavior, economics, and applied computational mathematics.",
+        "about": {
+          "@type": "Organization",
+          "name": "Applied Computational Mathematics Laboratory",
+          "url": "https://acml.teddylazebnik.com/"
+        },
+        "mainEntity": {
+          "@type": "ItemList",
+          "name": "ACML research projects",
+          "numberOfItems": 10,
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "url": "https://acml.teddylazebnik.com/projects/pandemic-modeling-and-allocation/",
+              "name": "Understanding Pandemic Spread and Optimizing Resource Allocation"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "url": "https://acml.teddylazebnik.com/projects/biomath-cancer-and-beyond/",
+              "name": "Biomathematical Modeling of Cancer and Beyond"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "url": "https://acml.teddylazebnik.com/projects/personalized-medicine-ai/",
+              "name": "Data-Driven Precise and Personalized Medicine"
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "url": "https://acml.teddylazebnik.com/projects/physics-inspired-symbolic-regression/",
+              "name": "Developing the Next Step of Physics-Inspired Symbolic Regression"
+            },
+            {
+              "@type": "ListItem",
+              "position": 5,
+              "url": "https://acml.teddylazebnik.com/projects/informal-economy-ai/",
+              "name": "Moving Computational Economy To the AI Era"
+            },
+            {
+              "@type": "ListItem",
+              "position": 6,
+              "url": "https://acml.teddylazebnik.com/projects/bio-informed-scientometrics/",
+              "name": "A Biologically-Informed and Data-Driven Approach to Scientometrics"
+            },
+            {
+              "@type": "ListItem",
+              "position": 7,
+              "url": "https://acml.teddylazebnik.com/projects/animal-wellness-ai/",
+              "name": "Understanding Animals' Behavior and Improving Their Wellness using AI"
+            },
+            {
+              "@type": "ListItem",
+              "position": 8,
+              "url": "https://acml.teddylazebnik.com/projects/diffusion-sr/",
+              "name": "Physics-Informed Diffusion Models for Symbolic Regression"
+            },
+            {
+              "@type": "ListItem",
+              "position": 9,
+              "url": "https://acml.teddylazebnik.com/projects/economy-physics-rl/",
+              "name": "Data-Driven Economic Dynamics with Physics and Reinforcement Learning"
+            },
+            {
+              "@type": "ListItem",
+              "position": 10,
+              "url": "https://acml.teddylazebnik.com/projects/cyber-federated-learning/",
+              "name": "Cybersecurity Federated Learning"
+            }
+          ]
         }
+      }
       </script>
 	  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
       <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,6 +106,7 @@
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="css/styles.css" rel="stylesheet">
       <link href="css/tailwind.css" rel="stylesheet">
+      <link href="/css/project.css" rel="stylesheet">
    </head>
    <body class="bg-gray-50 font-['Inter']">
       
@@ -84,7 +148,7 @@
   </nav>
       <div class="h-20"></div>
       <main class="min-h-screen">
-         <section class="py-16 bg-gradient-to-b from-gray-50 to-white">
+         <section class="py-16 bg-gradient-to-b from-gray-50 to-white" style="overflow-x: clip">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
             <div class="space-y-6">
@@ -129,8 +193,120 @@
       <p class="text-xl text-gray-600">What is keeping us excited nowadays</p>
     </div>
 
-    <!-- Container for dynamic projects -->
-    <div id="projects-container" class="space-y-8"></div>
+    <!-- project list: start (made by tools/build_projects.py) -->
+    <div id="project-list" class="pl-list">
+      <article class="pl-card">
+        <a class="pl-media" href="/projects/pandemic-modeling-and-allocation/" tabindex="-1" aria-hidden="true"><img src="/img/projects/project7.webp" alt="" loading="lazy" decoding="async"></a>
+        <div>
+          <p class="pl-meta"><span class="status is-ongoing">Ongoing</span><span>Epidemiology</span><span>Mar 2024 – Jul 2026</span></p>
+          <h3 class="pl-title"><a href="/projects/pandemic-modeling-and-allocation/">Understanding Pandemic Spread and Optimizing Resource Allocation</a></h3>
+          <p class="pl-summary">Mathematical models and simulations to predict infectious disease spread and guide resource allocation.</p>
+          <p class="pl-counts"><span><i class="ri-article-line" aria-hidden="true"></i>31 papers</span><span><i class="ri-team-line" aria-hidden="true"></i>5 lab members</span><span><i class="ri-play-circle-line" aria-hidden="true"></i>2 videos</span></p>
+          <div class="proj-tags"><span class="proj-tag">SIR</span><span class="proj-tag">SEIR+</span><span class="proj-tag">Spatial Modeling</span><span class="proj-tag">Optimization</span><span class="proj-tag">Simulation</span></div>
+          <div class="pl-foot"><div class="pl-team"><img src="/img/lab/teddy.webp" alt="Prof. Teddy Lazebnik" title="Prof. Teddy Lazebnik" loading="lazy" decoding="async" width="34" height="34"><img src="/img/lab/leeor.webp" alt="Lee-or Alon" title="Lee-or Alon" loading="lazy" decoding="async" width="34" height="34"><img src="/img/lab/inbar.webp" alt="Inbar Kirshenboim" title="Inbar Kirshenboim" loading="lazy" decoding="async" width="34" height="34"><img src="/img/lab/adi.webp" alt="Dr. Adi Shuchami" title="Dr. Adi Shuchami" loading="lazy" decoding="async" width="34" height="34"><img src="/img/lab/userm.webp" alt="Yonatan Herskowitz" title="Yonatan Herskowitz" loading="lazy" decoding="async" width="34" height="34"></div><a class="pl-more" href="/projects/pandemic-modeling-and-allocation/">Explore the project <i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+        </div>
+      </article>
+      <article class="pl-card">
+        <a class="pl-media" href="/projects/biomath-cancer-and-beyond/" tabindex="-1" aria-hidden="true"><img src="/img/projects/project2.webp" alt="" loading="lazy" decoding="async"></a>
+        <div>
+          <p class="pl-meta"><span class="status is-ongoing">Ongoing</span><span>Biomathematics</span><span>Mar 2024 – Jan 2027</span></p>
+          <h3 class="pl-title"><a href="/projects/biomath-cancer-and-beyond/">Biomathematical Modeling of Cancer and Beyond</a></h3>
+          <p class="pl-summary">Developing bio-mathematical models for cancer spread and treatment, and for additional diseases, using ODEs, PDEs, and simulations.</p>
+          <p class="pl-counts"><span><i class="ri-article-line" aria-hidden="true"></i>16 papers</span><span><i class="ri-team-line" aria-hidden="true"></i>2 lab members</span></p>
+          <div class="proj-tags"><span class="proj-tag">ODE/PDE</span><span class="proj-tag">Cancer</span><span class="proj-tag">Agent-Based Models</span><span class="proj-tag">Treatment Optimization</span><span class="proj-tag">Mechanistic Modeling</span></div>
+          <div class="pl-foot"><div class="pl-team"><img src="/img/lab/teddy.webp" alt="Prof. Teddy Lazebnik" title="Prof. Teddy Lazebnik" loading="lazy" decoding="async" width="34" height="34"><img src="/img/lab/eden.webp" alt="Eden Aloni" title="Eden Aloni" loading="lazy" decoding="async" width="34" height="34"></div><a class="pl-more" href="/projects/biomath-cancer-and-beyond/">Explore the project <i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+        </div>
+      </article>
+      <article class="pl-card">
+        <a class="pl-media" href="/projects/personalized-medicine-ai/" tabindex="-1" aria-hidden="true"><img src="/img/projects/project1.webp" alt="" loading="lazy" decoding="async"></a>
+        <div>
+          <p class="pl-meta"><span class="status is-ongoing">Ongoing</span><span>AI in Medicine</span><span>Oct 2023 – Sep 2028</span></p>
+          <h3 class="pl-title"><a href="/projects/personalized-medicine-ai/">Data-Driven Precise and Personalized Medicine</a></h3>
+          <p class="pl-summary">Harnessing AI to tailor treatments to individuals and improve medical resource allocation at the community level.</p>
+          <p class="pl-counts"><span><i class="ri-article-line" aria-hidden="true"></i>19 papers</span><span><i class="ri-team-line" aria-hidden="true"></i>12 lab members</span></p>
+          <div class="proj-tags"><span class="proj-tag">Healthcare AI</span><span class="proj-tag">Personalized Medicine</span><span class="proj-tag">Clinical Prediction</span><span class="proj-tag">Explainability</span><span class="proj-tag">Decision Support</span></div>
+          <div class="pl-foot"><div class="pl-team"><img src="/img/lab/teddy.webp" alt="Prof. Teddy Lazebnik" title="Prof. Teddy Lazebnik" loading="lazy" decoding="async" width="34" height="34"><img src="/img/lab/amit.webp" alt="Dr. Amit Yaniv Rosenfeld" title="Dr. Amit Yaniv Rosenfeld" loading="lazy" decoding="async" width="34" height="34"><img src="/img/lab/meirav.webp" alt="Dr. Meirav Har Even" title="Dr. Meirav Har Even" loading="lazy" decoding="async" width="34" height="34"><img src="/img/lab/max.webp" alt="Dr. Maxim Glebov" title="Dr. Maxim Glebov" loading="lazy" decoding="async" width="34" height="34"><img src="/img/lab/leeor.webp" alt="Lee-or Alon" title="Lee-or Alon" loading="lazy" decoding="async" width="34" height="34"><img src="/img/lab/gilat.webp" alt="Gilat Rotkop" title="Gilat Rotkop" loading="lazy" decoding="async" width="34" height="34"><img src="/img/lab/daria.webp" alt="Daria Glikman" title="Daria Glikman" loading="lazy" decoding="async" width="34" height="34"><span>+5</span></div><a class="pl-more" href="/projects/personalized-medicine-ai/">Explore the project <i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+        </div>
+      </article>
+      <article class="pl-card">
+        <a class="pl-media" href="/projects/physics-inspired-symbolic-regression/" tabindex="-1" aria-hidden="true"><img src="/img/projects/project4.webp" alt="" loading="lazy" decoding="async"></a>
+        <div>
+          <p class="pl-meta"><span class="status is-ongoing">Ongoing</span><span>Scientific ML</span><span>Mar 2023 – Sep 2027</span></p>
+          <h3 class="pl-title"><a href="/projects/physics-inspired-symbolic-regression/">Developing the Next Step of Physics-Inspired Symbolic Regression</a></h3>
+          <p class="pl-summary">Advancing physics-informed symbolic regression for interpretable models discovered from data.</p>
+          <p class="pl-counts"><span><i class="ri-article-line" aria-hidden="true"></i>12 papers</span><span><i class="ri-team-line" aria-hidden="true"></i>6 lab members</span><span><i class="ri-play-circle-line" aria-hidden="true"></i>1 video</span></p>
+          <div class="proj-tags"><span class="proj-tag">Symbolic Regression</span><span class="proj-tag">Physics-Informed ML</span><span class="proj-tag">Interpretable AI</span><span class="proj-tag">Scientific Discovery</span><span class="proj-tag">OOD Generalization</span></div>
+          <div class="pl-foot"><div class="pl-team"><img src="/img/lab/teddy.webp" alt="Prof. Teddy Lazebnik" title="Prof. Teddy Lazebnik" loading="lazy" decoding="async" width="34" height="34"><img src="/img/lab/gilad.webp" alt="Gilad Ilani" title="Gilad Ilani" loading="lazy" decoding="async" width="34" height="34"><img src="/img/lab/assaf.webp" alt="Dr. Assaf Shmuel" title="Dr. Assaf Shmuel" loading="lazy" decoding="async" width="34" height="34"><img src="/img/lab/bilge.webp" alt="Bilge Taskin" title="Bilge Taskin" loading="lazy" decoding="async" width="34" height="34"><img src="/img/lab/liron.webp" alt="Liron Simon-Keren" title="Liron Simon-Keren" loading="lazy" decoding="async" width="34" height="34"><img src="/img/lab/Wenxiong.webp" alt="Wenxiong Xie" title="Wenxiong Xie" loading="lazy" decoding="async" width="34" height="34"></div><a class="pl-more" href="/projects/physics-inspired-symbolic-regression/">Explore the project <i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+        </div>
+      </article>
+      <article class="pl-card">
+        <a class="pl-media" href="/projects/informal-economy-ai/" tabindex="-1" aria-hidden="true"><img src="/img/projects/project3.webp" alt="" loading="lazy" decoding="async"></a>
+        <div>
+          <p class="pl-meta"><span class="status is-ongoing">Ongoing</span><span>Computational Social Science</span><span>Oct 2023 – Sep 2028</span></p>
+          <h3 class="pl-title"><a href="/projects/informal-economy-ai/">Moving Computational Economy To the AI Era</a></h3>
+          <p class="pl-summary">Using AI to uncover patterns, behaviors, and socio-economic impacts in the formal and informal economy.</p>
+          <p class="pl-counts"><span><i class="ri-article-line" aria-hidden="true"></i>16 papers</span><span><i class="ri-team-line" aria-hidden="true"></i>3 lab members</span><span><i class="ri-play-circle-line" aria-hidden="true"></i>1 video</span></p>
+          <div class="proj-tags"><span class="proj-tag">Informal Economy</span><span class="proj-tag">Economic AI</span><span class="proj-tag">Agent-Based Modeling</span><span class="proj-tag">Policy Simulation</span><span class="proj-tag">Institutional Behavior</span></div>
+          <div class="pl-foot"><div class="pl-team"><img src="/img/lab/teddy.webp" alt="Prof. Teddy Lazebnik" title="Prof. Teddy Lazebnik" loading="lazy" decoding="async" width="34" height="34"><img src="/img/lab/inbar.webp" alt="Inbar Kirshenboim" title="Inbar Kirshenboim" loading="lazy" decoding="async" width="34" height="34"><img src="/img/lab/amir.webp" alt="Amir Noiboar" title="Amir Noiboar" loading="lazy" decoding="async" width="34" height="34"></div><a class="pl-more" href="/projects/informal-economy-ai/">Explore the project <i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+        </div>
+      </article>
+      <article class="pl-card">
+        <a class="pl-media" href="/projects/bio-informed-scientometrics/" tabindex="-1" aria-hidden="true"><img src="/img/projects/project5.webp" alt="" loading="lazy" decoding="async"></a>
+        <div>
+          <p class="pl-meta"><span class="status is-ongoing">Ongoing</span><span>Meta-Science</span><span>Nov 2023 – Sep 2028</span></p>
+          <h3 class="pl-title"><a href="/projects/bio-informed-scientometrics/">A Biologically-Informed and Data-Driven Approach to Scientometrics</a></h3>
+          <p class="pl-summary">Leveraging biological principles and advanced analytics to evaluate scientific impact and trends.</p>
+          <p class="pl-counts"><span><i class="ri-article-line" aria-hidden="true"></i>9 papers</span><span><i class="ri-team-line" aria-hidden="true"></i>5 lab members</span><span><i class="ri-play-circle-line" aria-hidden="true"></i>1 video</span></p>
+          <div class="proj-tags"><span class="proj-tag">Scientometrics</span><span class="proj-tag">Network Science</span><span class="proj-tag">Meta-Science</span><span class="proj-tag">Writing Dynamics</span><span class="proj-tag">Research Evaluation</span></div>
+          <div class="pl-foot"><div class="pl-team"><img src="/img/lab/teddy.webp" alt="Prof. Teddy Lazebnik" title="Prof. Teddy Lazebnik" loading="lazy" decoding="async" width="34" height="34"><img src="/img/lab/amit-bengiat.webp" alt="Amit Bengiat" title="Amit Bengiat" loading="lazy" decoding="async" width="34" height="34"><img src="/img/lab/ariel.webp" alt="Ariel Alexi" title="Ariel Alexi" loading="lazy" decoding="async" width="34" height="34"><img src="/img/lab/arie.webp" alt="Arie Stoliarsky" title="Arie Stoliarsky" loading="lazy" decoding="async" width="34" height="34"><img src="/img/lab/userf.webp" alt="Liel Mushiev" title="Liel Mushiev" loading="lazy" decoding="async" width="34" height="34"></div><a class="pl-more" href="/projects/bio-informed-scientometrics/">Explore the project <i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+        </div>
+      </article>
+      <article class="pl-card">
+        <a class="pl-media" href="/projects/animal-wellness-ai/" tabindex="-1" aria-hidden="true"><img src="/img/projects/project6.webp" alt="" loading="lazy" decoding="async"></a>
+        <div>
+          <p class="pl-meta"><span class="status is-ongoing">Ongoing</span><span>AI for Animals</span><span>Jun 2023 – Sep 2026</span></p>
+          <h3 class="pl-title"><a href="/projects/animal-wellness-ai/">Understanding Animals&#x27; Behavior and Improving Their Wellness using AI</a></h3>
+          <p class="pl-summary">Analyzing behavioral and sensorial data to derive insights into animal health and welfare.</p>
+          <p class="pl-counts"><span><i class="ri-article-line" aria-hidden="true"></i>19 papers</span><span><i class="ri-team-line" aria-hidden="true"></i>2 lab members</span><span><i class="ri-play-circle-line" aria-hidden="true"></i>1 video</span></p>
+          <div class="proj-tags"><span class="proj-tag">Animal Welfare</span><span class="proj-tag">Computer Vision</span><span class="proj-tag">Signal Processing</span><span class="proj-tag">Behavior Analysis</span><span class="proj-tag">Ethology</span></div>
+          <div class="pl-foot"><div class="pl-team"><img src="/img/lab/teddy.webp" alt="Prof. Teddy Lazebnik" title="Prof. Teddy Lazebnik" loading="lazy" decoding="async" width="34" height="34"><img src="/img/lab/daniel.webp" alt="Daniel Oren" title="Daniel Oren" loading="lazy" decoding="async" width="34" height="34"></div><a class="pl-more" href="/projects/animal-wellness-ai/">Explore the project <i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+        </div>
+      </article>
+      <article class="pl-card">
+        <a class="pl-media" href="/projects/diffusion-sr/" tabindex="-1" aria-hidden="true"><img src="/img/projects/project8.webp" alt="" loading="lazy" decoding="async"></a>
+        <div>
+          <p class="pl-meta"><span class="status is-completed">Completed</span><span>Scientific ML</span><span>Oct 2025 – Jun 2026</span></p>
+          <h3 class="pl-title"><a href="/projects/diffusion-sr/">Physics-Informed Diffusion Models for Symbolic Regression</a></h3>
+          <p class="pl-summary">Developing physics-informed temporal diffusion models as a data-enrichment method for symbolic regression.</p>
+          <p class="pl-counts"><span><i class="ri-article-line" aria-hidden="true"></i>3 papers</span><span><i class="ri-team-line" aria-hidden="true"></i>5 lab members</span></p>
+          <div class="proj-tags"><span class="proj-tag">Diffusion Models</span><span class="proj-tag">Symbolic Regression</span><span class="proj-tag">Physics-Informed ML</span><span class="proj-tag">Data Enrichment</span><span class="proj-tag">Time Series</span></div>
+          <div class="pl-foot"><div class="pl-team"><img src="/img/lab/teddy.webp" alt="Prof. Teddy Lazebnik" title="Prof. Teddy Lazebnik" loading="lazy" decoding="async" width="34" height="34"><img src="/img/lab/bilge.webp" alt="Bilge Taskin" title="Bilge Taskin" loading="lazy" decoding="async" width="34" height="34"><img src="/img/lab/simon.webp" alt="Simon De Reuver" title="Simon De Reuver" loading="lazy" decoding="async" width="34" height="34"><img src="/img/lab/userm.webp" alt="Tamas Kristof Toth" title="Tamas Kristof Toth" loading="lazy" decoding="async" width="34" height="34"><img src="/img/lab/Wenxiong.webp" alt="Wenxiong Xie" title="Wenxiong Xie" loading="lazy" decoding="async" width="34" height="34"></div><a class="pl-more" href="/projects/diffusion-sr/">Explore the project <i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+        </div>
+      </article>
+      <article class="pl-card">
+        <a class="pl-media" href="/projects/economy-physics-rl/" tabindex="-1" aria-hidden="true"><img src="/img/projects/project9.webp" alt="" loading="lazy" decoding="async"></a>
+        <div>
+          <p class="pl-meta"><span class="status is-completed">Completed</span><span>Computational Economy</span><span>Jul 2024 – Sep 2026</span></p>
+          <h3 class="pl-title"><a href="/projects/economy-physics-rl/">Data-Driven Economic Dynamics with Physics and Reinforcement Learning</a></h3>
+          <p class="pl-summary">Using reinforcement learning and ideas from physics to model and control microeconomic processes from data.</p>
+          <p class="pl-counts"><span><i class="ri-article-line" aria-hidden="true"></i>6 papers</span><span><i class="ri-team-line" aria-hidden="true"></i>5 lab members</span></p>
+          <div class="proj-tags"><span class="proj-tag">Reinforcement Learning</span><span class="proj-tag">Computational Economy</span><span class="proj-tag">Control</span><span class="proj-tag">Simulation</span><span class="proj-tag">Complex Systems</span></div>
+          <div class="pl-foot"><div class="pl-team"><img src="/img/lab/teddy.webp" alt="Prof. Teddy Lazebnik" title="Prof. Teddy Lazebnik" loading="lazy" decoding="async" width="34" height="34"><img src="/img/lab/isac.webp" alt="Isac Paulsson" title="Isac Paulsson" loading="lazy" decoding="async" width="34" height="34"><img src="/img/lab/lukas.webp" alt="Lukas Toral" title="Lukas Toral" loading="lazy" decoding="async" width="34" height="34"><img src="/img/lab/userm.webp" alt="Mahmut Osmanovic" title="Mahmut Osmanovic" loading="lazy" decoding="async" width="34" height="34"><img src="/img/lab/tzach.webp" alt="Tzach Fleischer" title="Tzach Fleischer" loading="lazy" decoding="async" width="34" height="34"></div><a class="pl-more" href="/projects/economy-physics-rl/">Explore the project <i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+        </div>
+      </article>
+      <article class="pl-card">
+        <a class="pl-media" href="/projects/cyber-federated-learning/" tabindex="-1" aria-hidden="true"><img src="/img/projects/project10.webp" alt="" loading="lazy" decoding="async"></a>
+        <div>
+          <p class="pl-meta"><span class="status is-completed">Completed</span><span>Cybersecurity ML</span><span>Nov 2025 – Aug 2026</span></p>
+          <h3 class="pl-title"><a href="/projects/cyber-federated-learning/">Cybersecurity Federated Learning</a></h3>
+          <p class="pl-summary">Developing and applying federated learning techniques to enhance cybersecurity defenses without sharing sensitive raw data.</p>
+          <p class="pl-counts"><span><i class="ri-team-line" aria-hidden="true"></i>3 lab members</span></p>
+          <div class="proj-tags"><span class="proj-tag">Federated Learning</span><span class="proj-tag">Cybersecurity</span><span class="proj-tag">Privacy</span><span class="proj-tag">Anomaly Detection</span><span class="proj-tag">Distributed Systems</span></div>
+          <div class="pl-foot"><div class="pl-team"><img src="/img/lab/teddy.webp" alt="Prof. Teddy Lazebnik" title="Prof. Teddy Lazebnik" loading="lazy" decoding="async" width="34" height="34"><img src="/img/lab/userm.webp" alt="Ivo Osterberg Nillsson" title="Ivo Osterberg Nillsson" loading="lazy" decoding="async" width="34" height="34"><img src="/img/lab/maximilian.webp" alt="Maximilian Engwall" title="Maximilian Engwall" loading="lazy" decoding="async" width="34" height="34"></div><a class="pl-more" href="/projects/cyber-federated-learning/">Explore the project <i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+        </div>
+      </article>
+    </div>
+    <!-- project list: end -->
   </div>
 </section>
 

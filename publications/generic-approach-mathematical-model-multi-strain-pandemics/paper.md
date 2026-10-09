@@ -205,7 +205,7 @@ The model validation is divided into two phases: parameter estimation and histor
 
 <div class="equation" id="eq-21"><img src="figures/eq-21.webp" width="514" height="45" alt="F(H; P)[t0;tf ]≔ ∑ tf t=t0((H[S](t) − P[S](t)) 2 + (H[R](t) − P[R](t)) 2 + (H[I](t) − P[I](t)) 2) √ ; (18)" loading="lazy" decoding="async"></div>
 
-where *H*[*X*](*t*) is the historical size of the population at the epidemiological state *X* at time *t* and *P*[*X*](*t*) is the model’s prediction size of the population at the epidemiological state *X* at time *t*. The model’s *P*[*I*] and *P*[*R*] refer to all states for the form *R*<sub>j</sub>*I*<sub>i</sub> and *R*<sub>j</sub>, respectively.
+where *H*\[*X*\](*t*) is the historical size of the population at the epidemiological state *X* at time *t* and *P*\[*X*\](*t*) is the model’s prediction size of the population at the epidemiological state *X* at time *t*. The model’s *P*[*I*] and *P*[*R*] refer to all states for the form *R*<sub>j</sub>*I*<sub>i</sub> and *R*<sub>j</sub>, respectively.
 
 <figure id="fig-6">
 <img src="figures/fig-6.webp" width="486" height="142" alt="A schematic view of the fitting method" loading="lazy" decoding="async">

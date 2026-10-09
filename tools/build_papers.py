@@ -309,17 +309,19 @@ def citation_texts(meta, year):
     return apa, '\n'.join(bib) + '\n}'
 
 
-def pick_project(meta, pub, projects, sim, pvecs):
+def pick_project(meta, pub, projects, sim, pvecs, slug=''):
+    """The research project a paper belongs to: "related_project" in paper.json, else the project whose "papers" list
+    in data/projects-info.json has it (the closest by topic when several do). Without such lists: the closest project
+    by topic and team."""
     if meta.get('related_project'):
         return next((p for p in projects if p.get('slug') == meta['related_project']), None)
-    pdf = next((l['link'] for l in pub.get('fileLinks', []) if l.get('type') == 1), '').rsplit('/', 1)[-1]
-    for p in projects:
-        for item in p.get('publications', []) + p.get('links_buttons', []):
-            href = (item.get('href') or '').rsplit('/', 1)[-1]
-            if (pdf and href == pdf) or norm(item.get('title') or item.get('label')) == norm(pub['name']):
-                return p
-    mine = {norm(a) for a in re.split(r',\s*', pub.get('authors', ''))} - {PI}
     v = sim.vec(pub['name'] + ' ' + pub.get('description', ''))
+    listed = [p for p in projects if slug and slug in p.get('papers', [])]
+    if listed:
+        return max(listed, key=lambda p: Similarity.cos(v, pvecs[p['slug']]))
+    if any('papers' in p for p in projects):        # the projects list their papers: a paper in none of them has no project
+        return None
+    mine = {norm(a) for a in re.split(r',\s*(?:(?:and|&)\s+)?|\s+(?:and|&)\s+', pub.get('authors', '')) if a.strip()} - {PI}
     best, best_s = None, 0.0
     for p in projects:
         team = {norm(re.sub(r'^(Prof\.|Dr\.)\s+', '', t.get('name', ''))) for t in p.get('team', [])} - {PI}
@@ -465,11 +467,11 @@ def build_one(folder, pub, ctx):
                       f'<p class="paper-video-more"><a href="/videos.html#v-{esc(vid["id"])}">More videos from the lab</a> · <a href="{watch}" target="_blank" rel="noopener">Watch on YouTube</a></p>'
                       f'</div></div></section>')
         video_btn = '<a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>'
-    proj = pick_project(meta, pub, projects, sim, pvecs)
+    proj = pick_project(meta, pub, projects, sim, pvecs, slug)
     if proj:
         summary = proj.get('summary') or proj.get('subtitle') or proj.get('description') or ''
         img = f'<img src="/{esc(proj["image"])}" alt="" loading="lazy" decoding="async">' if proj.get('image') else ''
-        related.append(f'<a class="related-card related-project" href="/project.html?pagename={esc(proj["slug"])}">{img}'
+        related.append(f'<a class="related-card related-project" href="/projects/{esc(proj["slug"])}/">{img}'
                        f'<span class="related-kind"><i class="ri-flask-line" aria-hidden="true"></i>Research project</span>'
                        f'<strong>{esc(proj.get("title", ""))}</strong><span class="related-text">{esc(clip(re.sub("<[^>]+>", "", summary), 170))}</span></a>')
     mine = {norm(a['name']) for a in meta['authors']} - {PI}
@@ -479,7 +481,7 @@ def build_one(folder, pub, ctx):
         key = norm(p['name'])
         if key == norm(pub['name']) or (meta.get('see_also') and pages_index.get(key) == meta['see_also']):
             continue
-        theirs = {norm(x) for x in re.split(r',\s*', p.get('authors', ''))} - {PI}
+        theirs = {norm(x) for x in re.split(r',\s*(?:(?:and|&)\s+)?|\s+(?:and|&)\s+', p.get('authors', ''))} - {PI}
         s = Similarity.cos(v, vecs[key]) + 0.08 * len(mine & theirs) + (0.03 if p.get('topic') == topic else 0)
         scored.append((s, p.get('year', 0), p))
     for _, _, p in sorted(scored, key=lambda x: (-x[0], -x[1]))[:3 - len(related)]:

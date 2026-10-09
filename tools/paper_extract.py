@@ -67,6 +67,11 @@ FLAGS = (pymupdf.TEXTFLAGS_DICT & ~pymupdf.TEXT_PRESERVE_LIGATURES & ~pymupdf.TE
 
 
 # ================================================================ small helpers
+def split_authors(text):
+    """'A. Smith, B. Jones and C. Lee' / '... & C. Lee' -> ['A. Smith', 'B. Jones', 'C. Lee']."""
+    return [a.strip() for a in re.split(r',\s*(?:(?:and|&)\s+)?|\s+(?:and|&)\s+', text or '') if a.strip() and a.strip().lower() not in ('and', '&')]
+
+
 def slugify(text, max_words=7):
     text = unicodedata.normalize('NFKD', text).encode('ascii', 'ignore').decode().lower()
     words = [w for w in re.findall(r'[a-z0-9]+', text) if w not in STOP]
@@ -1165,7 +1170,7 @@ class Extractor:
         first_pages = sorted(self.pages)[:3]
         abs_tokens = collections.Counter(tokens(pub.get('description', '')))
         title_tokens = set(tokens(pub['name']))
-        surnames = {norm(a.split()[-1]) for a in re.split(r',\s*', pub.get('authors', '')) if a.strip()}
+        surnames = {norm(a.split()[-1]) for a in split_authors(pub.get('authors', ''))}
         live = [bx for bx in self.boxes if bx.kind != 'drop']
 
         # sidebars: PLOS, Frontiers, MDPI and IOP print metadata down a narrow left column on the first pages
@@ -1892,7 +1897,7 @@ class Extractor:
         body = body.strip() + '\n'
         (out / 'paper.md').write_text(body, encoding='utf-8')
 
-        names = [a.strip() for a in re.split(r',\s*', pub.get('authors', '')) if a.strip()]
+        names = split_authors(pub.get('authors', ''))
         authors = [{'name': n, 'given': ' '.join(n.split()[:-1]), 'family': n.split()[-1]} for n in names]
         fm = parse_front(self.front_text + '\n' + '\n'.join(f'{k}: {v}' for k, v in self.side.items()), self.side)
         doi = find_doi(self.front_text) or find_doi(self.doc.metadata.get('subject') or '')
@@ -2002,7 +2007,7 @@ def abstract_only(pub, slug, see_also='', force=False):
     out.mkdir(parents=True, exist_ok=True)
     (out / 'paper.md').write_text('', encoding='utf-8')
     link = next((l['link'] for l in pub['fileLinks'] if l.get('type') == 1), '')
-    names = [a.strip() for a in re.split(r',\s*', pub.get('authors', '')) if a.strip()]
+    names = split_authors(pub.get('authors', ''))
     meta = {'title': pub['name'], 'pub_type': pub.get('type', 'Paper'), 'short_title': '', 'authors': [{'name': n, 'given': ' '.join(n.split()[:-1]), 'family': n.split()[-1]} for n in names],
             'affiliations': {}, 'journal': pub.get('publisher', ''), 'year': pub.get('year'), 'volume': '', 'issue': '', 'pages': '', 'doi': '',
             'published': '', 'abstract': re.sub(r'\s+', ' ', pub.get('description', '')).strip(), 'keywords': [], 'license': {},

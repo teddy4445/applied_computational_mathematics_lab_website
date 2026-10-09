@@ -1,201 +1,37 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
+<!-- The project pages moved to /projects/<slug>/ (plain HTML made by tools/build_projects.py).
+     This page only sends old links (project.html?pagename=<slug>) to the new address. -->
 <html lang="en">
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Research Project | Applied Computational Mathematics Laboratory</title>
-      <meta id="meta-description" content="Explore an ACML research project in computational mathematics, modeling, simulation, and applied AI. Metadata updates dynamically for each project entry." name="description"/>
-      <meta content="Teddy Lazebnik" name="author"/>
-      <link id="canonical-link" rel="canonical" href="https://acml.teddylazebnik.com/project.html"/>
-      <meta property="og:type" content="website"/>
-      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory"/>
-      <meta id="og-title" property="og:title" content="Research Project | Applied Computational Mathematics Laboratory"/>
-      <meta id="og-description" property="og:description" content="Explore an ACML research project in computational mathematics, modeling, simulation, and applied AI. Metadata updates dynamically for each project entry."/>
-      <meta id="og-url" property="og:url" content="https://acml.teddylazebnik.com/project.html"/>
-      <meta id="og-image" property="og:image" content="https://acml.teddylazebnik.com/img/logo.png"/>
-      <meta name="twitter:card" content="summary_large_image"/>
-      <meta id="twitter-title" name="twitter:title" content="Research Project | Applied Computational Mathematics Laboratory"/>
-      <meta id="twitter-description" name="twitter:description" content="Explore an ACML research project in computational mathematics, modeling, simulation, and applied AI. Metadata updates dynamically for each project entry."/>
-      <meta id="twitter-image" name="twitter:image" content="https://acml.teddylazebnik.com/img/logo.png"/>
-      <link href="img/favicon.ico" rel="icon" type="image/x-icon"/>
-      <script id="project-structured-data" type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "ResearchProject",
-          "name": "ACML Research Project",
-          "url": "https://acml.teddylazebnik.com/project.html",
-          "description": "Explore an ACML research project in computational mathematics, modeling, simulation, and applied AI.",
-          "publisher": {
-            "@type": "Organization",
-            "name": "Applied Computational Mathematics Laboratory",
-            "url": "https://acml.teddylazebnik.com/"
-          }
-        }
+      <meta name="robots" content="noindex, follow">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/projects.html">
+      <link href="img/favicon.ico" rel="icon" type="image/x-icon">
+      <script>
+        (function () {
+          var known = ["pandemic-modeling-and-allocation", "biomath-cancer-and-beyond", "personalized-medicine-ai", "physics-inspired-symbolic-regression", "informal-economy-ai", "bio-informed-scientometrics", "diffusion-sr", "economy-physics-rl", "cyber-federated-learning", "animal-wellness-ai"];
+          var slug = new URLSearchParams(location.search).get('pagename');
+          location.replace(known.indexOf(slug) !== -1 ? '/projects/' + slug + '/' + location.hash : '/projects.html');
+        })();
       </script>
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
-      <link href="css/styles.css" rel="stylesheet">
-      <link href="css/tailwind-default.css" rel="stylesheet">
+      <style>body{font-family:Inter,system-ui,sans-serif;max-width:40rem;margin:4rem auto;padding:0 1.5rem;color:#374151;line-height:1.6}a{color:#2563eb}</style>
    </head>
-   <body class="bg-gray-50 font-['Inter']">
-      
-  <!-- Navbar -->
-  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
-    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
-      <!-- Logo -->
-      <div class="flex items-center gap-2">
-        <a href="/" aria-label="ACML home"><img src="img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
-      </div>
-
-      <!-- Desktop Menu -->
-      <div class="hidden md:flex items-center">
-        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
-          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
-          <a href="team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
-          <a href="projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
-          <a href="publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
-          <a href="tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
-        </div>
-        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
-      </div>
-
-      <!-- Mobile Menu Button -->
-      <button id="menu-btn" aria-label="Open menu" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100">
-        <i class="ri-menu-line text-xl"></i>
-      </button>
-    </div>
-
-    <!-- Mobile Menu (animated) -->
-    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
-      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
-      <a href="team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
-      <a href="projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
-      <a href="publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
-      <a href="tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
-      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
-    </div>
-  </nav>
-    <div class="h-20"></div>
-
-    <main id="project-root" class="min-h-screen">
-      <!-- HERO -->
-      <header id="hero" class="relative hero-bg">
-        <div class="absolute inset-0 hero-overlay"></div>
-        <div class="relative max-w-7xl mx-auto px-6 py-16 lg:py-24">
-          <div class="mb-4">
-            <a href="projects.html" class="inline-flex items-center text-white/90 hover:text-white">
-              <i class="ri-arrow-left-line mr-2"></i> Back to Projects
-            </a>
-          </div>
-
-          <div class="text-white">
-            <div class="flex items-center gap-3 mb-4">
-              <span id="proj-category" class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs bg-white/20"></span>
-              <span id="proj-status" class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs bg-white/20"></span>
-              <span id="proj-period" class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs bg-white/20"></span>
-            </div>
-            <h1 id="proj-title" class="text-3xl md:text-5xl font-bold leading-tight"></h1>
-            <p id="proj-subtitle" class="mt-4 text-lg md:text-xl text-white/90 max-w-3xl"></p>
-          </div>
-        </div>
-      </header>
-
-      <!-- CONTENT -->
-      <section class="py-12 lg:py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-          <div class="grid lg:grid-cols-3 gap-10">
-            <!-- Main column -->
-            <article class="lg:col-span-2 space-y-10">
-              <!-- Summary -->
-              <div id="proj-summary" class="prose prose-lg max-w-none"></div>
-
-              <!-- Methods / Tech -->
-              <div id="proj-methods" class="bg-gray-50 border border-gray-200 rounded-2xl p-6">
-                <h2 class="text-xl font-semibold mb-3">Methods &amp; Stack</h2>
-                <div id="proj-methods-list" class="flex flex-wrap gap-2"></div>
-              </div>
-
-              <!-- Results / Outcomes -->
-              <div id="proj-outcomes" class="bg-white border border-gray-200 rounded-2xl p-6">
-                <h2 class="text-xl font-semibold mb-3">Key Outcomes</h2>
-                <ul id="proj-outcomes-list" class="list-disc pl-6 space-y-2"></ul>
-              </div>
-
-              <!-- Timeline -->
-              <div id="proj-timeline" class="bg-white border border-gray-200 rounded-2xl p-6">
-                <h2 class="text-xl font-semibold mb-6">Timeline</h2>
-                <ol id="proj-timeline-list" class="relative border-s border-gray-200 ps-4 space-y-6"></ol>
-              </div>
-            </article>
-
-            <!-- Sidebar -->
-            <aside class="space-y-6">
-
-              <div id="proj-team" class="bg-white border border-gray-200 rounded-2xl p-6">
-                <h3 class="text-lg font-semibold mb-4">Team</h3>
-                <div id="proj-team-list" class="space-y-3"></div>
-              </div>
-
-              <div id="proj-links" class="bg-white border border-gray-200 rounded-2xl p-6">
-                <h3 class="text-lg font-semibold mb-3">Links</h3>
-                <div id="proj-links-list" class="grid gap-2"></div>
-              </div>
-
-              <div id="proj-pubs" class="bg-white border border-gray-200 rounded-2xl p-6">
-                <h3 class="text-lg font-semibold mb-4">Related Publications</h3>
-                <ul id="proj-pubs-list" class="list-disc pl-5 space-y-2"></ul>
-              </div>
-
-              <div class="bg-white border border-gray-200 rounded-2xl p-6">
-                <h3 class="text-lg font-semibold mb-3">Tags</h3>
-                <div id="proj-tags" class="flex flex-wrap gap-2"></div>
-              </div>
-            </aside>
-          </div>
-        </div>
-      </section>
-    </main>
-
-      <!-- Footer -->
-      <footer class="bg-gray-900 text-white py-12 mt-20">
-         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
-            <div>
-               <img loading="lazy" decoding="async" src="img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
-               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
-            </div>
-            <div>
-               <h4 class="font-semibold mb-3">Games</h4>
-               <ul class="space-y-2 text-gray-400">
-                  <li><a href="mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
-                  <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
-                  <li><a href="https://rl.teddylazebnik.com/" class="hover:text-white">Pirate War RL Game</a></li>
-                  <li><a href="https://eh.teddylazebnik.com/" class="hover:text-white">Echo Heist</a></li>
-               </ul>
-            </div>
-            <div>
-               <h4 class="font-semibold mb-3">Resources</h4>
-               <ul class="space-y-2 text-gray-400">
-                  <li><a href="publications.html" class="hover:text-white">Publications</a></li>
-                  <li><a href="tools.html" class="hover:text-white">Tools</a></li>
-                  <li><a href="media.html" class="hover:text-white">Media</a></li>
-                  <li><a href="videos.html" class="hover:text-white">Videos</a></li>
-               </ul>
-            </div>
-            <div>
-               <h4 class="font-semibold mb-3">Contact Info</h4>
-               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
-            </div>
-         </div>
-         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
-            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
-         </div>
-      </footer>
-      <!-- js -->
-    <script src="js/project.js"></script>
-  </body>
+   <body>
+      <h1>This page has moved</h1>
+      <p>Each research project now has its own page. Pick one below, or see <a href="/projects.html">all projects</a>.</p>
+      <ul>
+          <li><a href="/projects/pandemic-modeling-and-allocation/">Understanding Pandemic Spread and Optimizing Resource Allocation</a></li>
+          <li><a href="/projects/biomath-cancer-and-beyond/">Biomathematical Modeling of Cancer and Beyond</a></li>
+          <li><a href="/projects/personalized-medicine-ai/">Data-Driven Precise and Personalized Medicine</a></li>
+          <li><a href="/projects/physics-inspired-symbolic-regression/">Developing the Next Step of Physics-Inspired Symbolic Regression</a></li>
+          <li><a href="/projects/informal-economy-ai/">Moving Computational Economy To the AI Era</a></li>
+          <li><a href="/projects/bio-informed-scientometrics/">A Biologically-Informed and Data-Driven Approach to Scientometrics</a></li>
+          <li><a href="/projects/diffusion-sr/">Physics-Informed Diffusion Models for Symbolic Regression</a></li>
+          <li><a href="/projects/economy-physics-rl/">Data-Driven Economic Dynamics with Physics and Reinforcement Learning</a></li>
+          <li><a href="/projects/cyber-federated-learning/">Cybersecurity Federated Learning</a></li>
+          <li><a href="/projects/animal-wellness-ai/">Understanding Animals' Behavior and Improving Their Wellness using AI</a></li>
+      </ul>
+   </body>
 </html>
-
-
-

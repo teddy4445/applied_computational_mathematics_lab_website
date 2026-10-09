@@ -636,10 +636,12 @@ window.addEventListener("scroll", () => {
 
 
 (async function () {
-  const res = await fetch("data/projects.json");
-  const DATA = await res.json();
+  // projects.html now has the project cards as plain HTML (made by tools/build_projects.py);
+  // this only runs on a page that still has an empty #projects-container
   const container = document.getElementById("projects-container");
   if (!container) return;
+  const res = await fetch("data/projects.json");
+  const DATA = await res.json();
 
   function badge(label, color = "blue") {
     return `<span class="px-3 py-1 bg-${color}-100 text-${color}-800 rounded-full text-sm">${label}</span>`;
@@ -675,7 +677,7 @@ window.addEventListener("scroll", () => {
           ${prj.tags?.map((t, idx) => badge(t, ["blue","green","purple","orange","indigo"][idx%5])).join("")}
         </div>
         ${prj.team?.length ? `<div class="space-y-3 mb-4">${prj.team.map(person).join("")}</div>` : ""}
-        ${prj.links?.read_more ? `<a class="text-primary font-medium hover:text-secondary transition-colors duration-200" href="project.html?pagename=${prj.links.read_more}">Learn More →</a>` : ""}
+        ${prj.links?.read_more ? `<a class="text-primary font-medium hover:text-secondary transition-colors duration-200" href="/projects/${prj.links.read_more}/">Learn More →</a>` : ""}
       </div>`;
 
     const order = (prj.orientation === "right" || (prj.orientation == null && i % 2 === 1))

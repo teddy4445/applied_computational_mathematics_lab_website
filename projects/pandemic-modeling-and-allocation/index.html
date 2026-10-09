@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_projects.py from data/projects-info.json (and data/lab.json, the paper pages, videos, media and tools). Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Understanding Pandemic Spread and Optimizing Resource Allocation | ACML research project</title>
+      <meta name="description" content="Mathematical models and simulations to predict infectious disease spread and guide resource allocation. Spatial epidemiology, outbreak forecasting, and…">
+      <meta name="author" content="Teddy Lazebnik">
+      <meta name="keywords" content="SIR, SEIR+, Spatial Modeling, Optimization, Simulation, Public Health, Epidemiology">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/projects/pandemic-modeling-and-allocation/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Understanding Pandemic Spread and Optimizing Resource Allocation">
+      <meta property="og:description" content="Mathematical models and simulations to predict infectious disease spread and guide resource allocation. Spatial epidemiology, outbreak forecasting, and…">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/projects/pandemic-modeling-and-allocation/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/projects/pandemic-modeling-and-allocation/share.jpg">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Understanding Pandemic Spread and Optimizing Resource Allocation">
+      <meta name="twitter:description" content="Mathematical models and simulations to predict infectious disease spread and guide resource allocation. Spatial epidemiology, outbreak forecasting, and…">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/projects/pandemic-modeling-and-allocation/share.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ResearchProject",
+      "@id": "https://acml.teddylazebnik.com/projects/pandemic-modeling-and-allocation/#project",
+      "name": "Understanding Pandemic Spread and Optimizing Resource Allocation",
+      "url": "https://acml.teddylazebnik.com/projects/pandemic-modeling-and-allocation/",
+      "description": "This project serves as the lab's umbrella effort for spatially explicit epidemic modeling, public-health decision support, and resource allocation under uncertainty. The work combines extended SIR and SEIR families, room-level and regional simulations, policy optimization, and reinforcement-learning-based control to study airborne outbreaks, wartime disruption, agricultural pandemics, and dual-use healthcare systems. Where data are sparse, we use calibrated mechanistic models and scenario analysis to produce actionable recommendations rather than black-box forecasts alone.",
+      "disambiguatingDescription": "Spatial epidemiology, outbreak forecasting, and intervention design across human, veterinary, and agricultural settings.",
+      "image": "https://acml.teddylazebnik.com/img/projects/project7.webp",
+      "keywords": "SIR, SEIR+, Spatial Modeling, Optimization, Simulation, Public Health",
+      "knowsAbout": [
+        "Extended SIR and SEIR modeling",
+        "Spatial and room-level simulations",
+        "Optimal control and policy search",
+        "Agent-based modeling",
+        "Deep reinforcement learning",
+        "Scenario calibration and sensitivity analysis"
+      ],
+      "foundingDate": "2024-03",
+      "founder": {
+        "@type": "Person",
+        "name": "Teddy Lazebnik",
+        "url": "https://teddylazebnik.com"
+      },
+      "parentOrganization": {
+        "@type": "ResearchOrganization",
+        "name": "Applied Computational Mathematics Laboratory",
+        "alternateName": "ACML",
+        "url": "https://acml.teddylazebnik.com/"
+      },
+      "member": [
+        {
+          "@type": "Person",
+          "name": "Teddy Lazebnik",
+          "jobTitle": "Principal investigator",
+          "sameAs": "https://teddylazebnik.com"
+        },
+        {
+          "@type": "Person",
+          "name": "Lee-or Alon",
+          "jobTitle": "PhD Student",
+          "sameAs": "https://scholar.google.com/citations?user=-nKuz4AAAAAJ"
+        },
+        {
+          "@type": "Person",
+          "name": "Inbar Kirshenboim",
+          "jobTitle": "PhD Student",
+          "sameAs": "https://www.linkedin.com/in/inbarkir/"
+        },
+        {
+          "@type": "Person",
+          "name": "Adi Shuchami",
+          "jobTitle": "PhD (alumni)",
+          "sameAs": "https://scholar.google.com/citations?user=vbN5b1EAAAAJ&hl=en"
+        },
+        {
+          "@type": "Person",
+          "name": "Yonatan Herskowitz",
+          "jobTitle": "MSc (alumni)",
+          "sameAs": "https://www.sciencedirect.com/science/article/pii/S0303264723000916"
+        }
+      ],
+      "subjectOf": [
+        {
+          "@type": "ScholarlyArticle",
+          "headline": "Modeling the effects of pandemics on physiology-related fertility decline in society",
+          "url": "https://acml.teddylazebnik.com/publications/modeling-effects-pandemics-physiology-related-fertility-decline/",
+          "datePublished": "2026-09-16",
+          "sameAs": "https://doi.org/10.3389/fepid.2026.1740829"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "headline": "An empirically-parameterized spatio-temporal extended-SIR model for combined dilution and vaccination mitigation for rabies outbreaks in wild jackals",
+          "url": "https://acml.teddylazebnik.com/publications/empirically-parameterized-spatio-temporal-extended-sir-model/",
+          "datePublished": "2026",
+          "sameAs": "https://doi.org/10.1016/j.ecolmodel.2026.111487"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "headline": "Transforming norm-based to graph-based spatial representation for spatio-temporal epidemiological models",
+          "url": "https://acml.teddylazebnik.com/publications/transforming-norm-based-graph-based-spatial-representation/",
+          "datePublished": "2025-12-27",
+          "sameAs": "https://doi.org/10.1016/j.engappai.2025.113619"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "headline": "Evaluating supply chain resilience during pandemic using agent-based simulation",
+          "url": "https://acml.teddylazebnik.com/publications/evaluating-supply-chain-resilience-during-pandemic-agent/",
+          "datePublished": "2025-06-28",
+          "sameAs": "https://doi.org/10.1016/j.physa.2025.130780"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "headline": "Spatio-Temporal SIR Model of Pandemic Spread During Warfare with Optimal Dual-use Health Care System Administration using Deep Reinforcement Learning",
+          "url": "https://acml.teddylazebnik.com/publications/spatio-temporal-sir-model-pandemic-spread-during/",
+          "datePublished": "2025",
+          "sameAs": "https://doi.org/10.1017/dmp.2025.10062"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "headline": "Individual Variation Affects Outbreak Magnitude and Predictability in Multi-Pathogen Model of Pigeons Vising Dairy Farms",
+          "url": "https://acml.teddylazebnik.com/publications/individual-variation-affects-outbreak-magnitude-predictability-multi/",
+          "datePublished": "2024-11-11",
+          "sameAs": "https://doi.org/10.1016/j.ecolmodel.2024.110925"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "headline": "Economical–epidemiological analysis of the coffee trees rust pandemic",
+          "url": "https://acml.teddylazebnik.com/publications/economicalepidemiological-analysis-coffee-trees-rust-pandemic/",
+          "datePublished": "2024-11-06",
+          "sameAs": "https://doi.org/10.1063/5.0221945"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "headline": "Cost-optimal Seeding Strategy During a Botanical Pandemic in Domesticated Fields",
+          "url": "https://acml.teddylazebnik.com/publications/cost-optimal-seeding-strategy-during-botanical-pandemic/",
+          "datePublished": "2024-03-18",
+          "sameAs": "https://doi.org/10.1063/5.0192426"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "headline": "Mathematical model of dating apps’ influence on sexually transmitted diseases spread",
+          "url": "https://acml.teddylazebnik.com/publications/mathematical-model-dating-apps-influence-sexually-transmitted/",
+          "datePublished": "2024",
+          "sameAs": "https://doi.org/10.1007/s13278-024-01351-5"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "headline": "Multi-species prey–predator dynamics during a multi-strain pandemic ",
+          "url": "https://acml.teddylazebnik.com/publications/multi-species-preypredator-dynamics-during-multi-strain/",
+          "datePublished": "2023-07-05",
+          "sameAs": "https://doi.org/10.1063/5.0154968"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "headline": "The Causal Role of Lockdowns in COVID-19: Conclusions From Daily Epidemiological, Psychological, and Sociological Data",
+          "url": "https://acml.teddylazebnik.com/publications/causal-role-lockdowns-covid-19-conclusions-daily/",
+          "datePublished": "2023-06-10",
+          "sameAs": "https://doi.org/10.1007/s11126-023-10035-w"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "headline": "Mathematical model of coffee tree’s rust control using snails as biological agents",
+          "url": "https://acml.teddylazebnik.com/publications/mathematical-model-coffee-trees-rust-control-snails/",
+          "datePublished": "2023-05-12",
+          "sameAs": "https://doi.org/10.1016/j.biosystems.2023.104916"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "headline": "Intervention Policy Influence on the Effect of Epidemiological Crisis on Industry-Level Production Through Input-Output Networks",
+          "url": "https://acml.teddylazebnik.com/publications/intervention-policy-influence-effect-epidemiological-crisis-industry/",
+          "datePublished": "2023-02-25",
+          "sameAs": "https://doi.org/10.1016/j.seps.2023.101553"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "headline": "High Resolution Spatio-Temporal Model for Room-Level Airborne Pandemic Spread",
+          "url": "https://acml.teddylazebnik.com/publications/high-resolution-spatio-temporal-model-room-level/",
+          "datePublished": "2023-01-13",
+          "sameAs": "https://doi.org/10.3390/math11020426"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "headline": "Financing and managing epidemiological-economic crises: Are we ready for another outbreak?",
+          "url": "https://acml.teddylazebnik.com/publications/financing-managing-epidemiological-economic-crises-we-ready/",
+          "datePublished": "2023",
+          "sameAs": "https://doi.org/10.1016/j.jpolmod.2023.02.003"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "headline": "Computational Applications of Extended SIR Models: A Review Focused on Airborne Pandemics",
+          "url": "https://acml.teddylazebnik.com/publications/computational-applications-extended-sir-models-review-focused/",
+          "datePublished": "2023",
+          "sameAs": "https://doi.org/10.1016/j.ecolmodel.2023.110422"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "headline": "Bounding Pandemic Spread By Heat Spread",
+          "url": "https://acml.teddylazebnik.com/publications/bounding-pandemic-spread-heat-spread/",
+          "datePublished": "2023",
+          "sameAs": "https://doi.org/10.1007/s10665-022-10253-4"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "headline": "A Hybrid Mathematical Model for Optimal Border Closure Policy during Pandemic",
+          "url": "https://acml.teddylazebnik.com/publications/hybrid-mathematical-model-optimal-border-closure-policy/",
+          "datePublished": "2023",
+          "sameAs": "https://doi.org/10.34768/amcs-2023-0042"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "headline": "Early Detection and Control of the Next Epidemic Wave Using Health Communications: Development of an Artificial Intelligence-Based Tool and Its Validation on COVID-19 Data from the US",
+          "url": "https://acml.teddylazebnik.com/publications/early-detection-control-next-epidemic-wave-health/",
+          "datePublished": "2022-11-30",
+          "sameAs": "https://doi.org/10.3390/ijerph192316023"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "headline": "The Trade-Off between Airborne Pandemic Control and Energy Consumption Using Air Ventilation Solutions",
+          "url": "https://acml.teddylazebnik.com/publications/trade-off-between-airborne-pandemic-control-energy/",
+          "datePublished": "2022-11-08",
+          "sameAs": "https://doi.org/10.3390/s22228594"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "headline": "Economic aspects of the detection of new strains in a multi-strain epidemiological–mathematical model",
+          "url": "https://acml.teddylazebnik.com/publications/economic-aspects-detection-new-strains-multi-strain/",
+          "datePublished": "2022-11-01",
+          "sameAs": "https://doi.org/10.1016/j.chaos.2022.112823"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "headline": "Generic approach for mathematical model of multi-strain pandemics",
+          "url": "https://acml.teddylazebnik.com/publications/generic-approach-mathematical-model-multi-strain-pandemics/",
+          "datePublished": "2022-04-28",
+          "sameAs": "https://doi.org/10.1371/journal.pone.0260683"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "headline": "Advanced Muti-Mutation with Intervention Policies Pandemic Model",
+          "url": "https://acml.teddylazebnik.com/publications/advanced-muti-mutation-intervention-policies-pandemic-model/",
+          "datePublished": "2022",
+          "sameAs": "https://doi.org/10.1109/ACCESS.2022.3149956"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "headline": "A Security Games Inspired Approach for Distributed Control of Pandemic Spread",
+          "url": "https://acml.teddylazebnik.com/publications/security-games-inspired-approach-distributed-control-pandemic/",
+          "datePublished": "2022",
+          "sameAs": "https://doi.org/10.1002/adts.202200631"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "headline": "Comparison of pandemic intervention policies in several building types using heterogeneous population model",
+          "url": "https://acml.teddylazebnik.com/publications/comparison-pandemic-intervention-policies-several-building-types/",
+          "datePublished": "2021-12-11",
+          "sameAs": "https://doi.org/10.1016/j.cnsns.2021.106176"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "headline": "Pandemic Management by a Spatio-temporal Mathematical Model",
+          "url": "https://acml.teddylazebnik.com/publications/pandemic-management-spatio-temporal-mathematical-model/",
+          "datePublished": "2021-08-09",
+          "sameAs": "https://doi.org/10.1515/ijnsns-2021-0063"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "headline": "Novel Method to Analytically Obtain the Asymptotic Stable Equilibria States of Extended SIR-Type Epidemiological Models",
+          "url": "https://acml.teddylazebnik.com/publications/novel-method-analytically-obtain-asymptotic-stable-equilibria/",
+          "datePublished": "2021-06-23",
+          "sameAs": "https://doi.org/10.3390/sym13071120"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "headline": "The signature features of COVID-19 pandemic in a hybrid mathematical model - implications for optimal work-school lockdown policy",
+          "url": "https://acml.teddylazebnik.com/publications/signature-features-covid-19-pandemic-hybrid-mathematical/",
+          "datePublished": "2021",
+          "sameAs": "https://doi.org/10.1002/adts.202000298"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "headline": "Spatio-Temporal influence of Non-Pharmaceutical interventions policies on pandemic dynamics and the economy: the case of COVID-19",
+          "url": "https://acml.teddylazebnik.com/publications/spatio-temporal-influence-non-pharmaceutical-interventions-policies/",
+          "datePublished": "2021",
+          "sameAs": "https://doi.org/10.1080/1331677X.2021.1925573"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "headline": "Optimal Intervention Policies for the COVID-19 Pandemic Emerge from Socioeconomic-Heterogeneous Dynamics",
+          "url": "https://acml.teddylazebnik.com/publications/optimal-intervention-policies-covid-19-pandemic-emerge/",
+          "datePublished": "2021"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "headline": "Epidemiological-Economical Pandemic Management By A Spatio-Temporal Mathematical Model",
+          "url": "https://acml.teddylazebnik.com/publications/epidemiological-economical-pandemic-management-spatio-temporal-mathematical/",
+          "datePublished": "2021"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://acml.teddylazebnik.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Projects",
+          "item": "https://acml.teddylazebnik.com/projects.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Understanding Pandemic Spread and Optimizing Resource Allocation",
+          "item": "https://acml.teddylazebnik.com/projects/pandemic-modeling-and-allocation/"
+        }
+      ]
+    }
+  ]
+}
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      <link href="/css/videos.css" rel="stylesheet">
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/project.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="proj-page bg-white">
+    <header class="proj-hero">
+      <div class="proj-wrap proj-hero-grid">
+        <div>
+          <nav class="proj-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/projects.html">Projects</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Epidemiology</span></nav>
+          <p class="proj-kicker"><span class="status is-ongoing">Ongoing</span><span><i class="ri-calendar-line" aria-hidden="true"></i>Mar 2024 – Jul 2026</span><span><i class="ri-price-tag-3-line" aria-hidden="true"></i>Epidemiology</span></p>
+          <h1 class="proj-title">Understanding Pandemic Spread and Optimizing Resource Allocation</h1>
+          <p class="proj-subtitle">Spatial epidemiology, outbreak forecasting, and intervention design across human, veterinary, and agricultural settings.</p>
+          <div class="proj-stats"><div class="proj-stat"><strong>31</strong><span>publications</span></div><div class="proj-stat"><strong>5</strong><span>lab members, current and past</span></div><div class="proj-stat"><strong>3</strong><span>collaborators and frequent co-authors</span></div><div class="proj-stat"><strong class=is-long>2021–2026</strong><span>years of papers</span></div></div>
+          <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="#publications"><i class="ri-article-line" aria-hidden="true"></i>See the papers</a><a class="proj-btn" href="#team"><i class="ri-team-line" aria-hidden="true"></i>Meet the team</a><a class="proj-btn" href="#videos"><i class="ri-play-circle-line" aria-hidden="true"></i>Watch</a><a class="proj-btn proj-btn-quiet" href="/#contact"><i class="ri-mail-line" aria-hidden="true"></i>Contact us</a></div>
+        </div>
+        <figure class="proj-hero-img"><img src="/img/projects/project7.webp" alt="Understanding Pandemic Spread and Optimizing Resource Allocation" width="1200" height="800" fetchpriority="high" decoding="async"></figure>
+      </div>
+    </header>
+    <nav class="proj-subnav" aria-label="Sections of this page"><div class="proj-wrap"><ul><li><a href="#overview">Overview</a></li><li><a href="#approach">Approach</a></li><li><a href="#findings">Findings</a></li><li><a href="#publications">Publications</a></li><li><a href="#team">Team</a></li><li><a href="#timeline">Timeline</a></li><li><a href="#videos">Videos</a></li><li><a href="#tools">Tools</a></li><li><a href="#related">Related</a></li></ul></div></nav>
+    <section id="overview" class="proj-section" aria-labelledby="overview-title"><div class="proj-wrap">
+      <div class="proj-overview">
+        <div class="proj-about">
+          <p class="proj-label"><i class="ri-compass-3-line" aria-hidden="true"></i>About the project</p>
+          <h2 id="overview-title" class="proj-h2" style="margin-top:.5rem">What this project is about</h2>
+          <p class=proj-about-lead>Mathematical models and simulations to predict infectious disease spread and guide resource allocation.</p>
+          <p>This project serves as the lab&#x27;s umbrella effort for spatially explicit epidemic modeling, public-health decision support, and resource allocation under uncertainty. The work combines extended SIR and SEIR families, room-level and regional simulations, policy optimization, and reinforcement-learning-based control to study airborne outbreaks, wartime disruption, agricultural pandemics, and dual-use healthcare systems. Where data are sparse, we use calibrated mechanistic models and scenario analysis to produce actionable recommendations rather than black-box forecasts alone.</p>
+        </div>
+        <aside class="proj-glance"><p class="proj-label"><i class="ri-information-line" aria-hidden="true"></i>At a glance</p><dl><div><dt>Status</dt><dd><span class="status is-ongoing">Ongoing</span></dd></div><div><dt>Period</dt><dd>Mar 2024 – Jul 2026</dd></div><div><dt>Research area</dt><dd>Epidemiology</dd></div><div><dt>Principal investigator</dt><dd><a href="https://teddylazebnik.com" target="_blank" rel="noopener">Prof. Teddy Lazebnik</a></dd></div><div><dt>Lab members</dt><dd>3 current · 2 past</dd></div><div><dt>Publications</dt><dd><a href="#publications">31 papers</a> (2021–2026)</dd></div><div><dt>Keywords</dt><dd><div class="proj-tags"><span class="proj-tag">SIR</span><span class="proj-tag">SEIR+</span><span class="proj-tag">Spatial Modeling</span><span class="proj-tag">Optimization</span><span class="proj-tag">Simulation</span><span class="proj-tag">Public Health</span></div></dd></div></dl></aside>
+      </div>
+    </div></section>
+    <section id="approach" class="proj-section is-soft" aria-labelledby="approach-title"><div class="proj-wrap">
+      <h2 id="approach-title" class="proj-h2">Approach and outcomes</h2>
+      <p class="proj-lead">The methods the project relies on and what it has produced so far.</p>
+      <div class="proj-two">
+        <div class="proj-card"><h3 class="proj-h3">Methods</h3><ul class="proj-checks"><li><i class="ri-checkbox-circle-line" aria-hidden="true"></i>Extended SIR and SEIR modeling</li><li><i class="ri-checkbox-circle-line" aria-hidden="true"></i>Spatial and room-level simulations</li><li><i class="ri-checkbox-circle-line" aria-hidden="true"></i>Optimal control and policy search</li><li><i class="ri-checkbox-circle-line" aria-hidden="true"></i>Agent-based modeling</li><li><i class="ri-checkbox-circle-line" aria-hidden="true"></i>Deep reinforcement learning</li><li><i class="ri-checkbox-circle-line" aria-hidden="true"></i>Scenario calibration and sensitivity analysis</li></ul></div>
+        <div class="proj-card"><h3 class="proj-h3">Key outcomes</h3><ul class="proj-checks"><li><i class="ri-flag-2-line" aria-hidden="true"></i>Decision-support models for outbreak control under mobility, warfare, and infrastructure constraints</li><li><i class="ri-flag-2-line" aria-hidden="true"></i>Resource-allocation frameworks for dual-use hospital and community health systems</li><li><i class="ri-flag-2-line" aria-hidden="true"></i>Cross-domain epidemic analyses spanning airborne, zoonotic, and agricultural pathogens</li></ul></div>
+      </div>
+    </div></section>
+    <section id="findings" class="proj-section" aria-labelledby="findings-title"><div class="proj-wrap">
+      <p class="proj-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>Recent results</p>
+      <h2 id="findings-title" class="proj-h2" style="margin-top:.5rem">Selected findings</h2>
+      <p class="proj-lead">A key finding from each of the project's latest papers. Every paper page has the full text, figures and a plain-language summary.</p>
+      <div class="proj-highlights"><a class="hl-card" href="/publications/modeling-effects-pandemics-physiology-related-fertility-decline/"><div class="hl-fig"><img src="/publications/modeling-effects-pandemics-physiology-related-fertility-decline/figures/fig-2.webp" alt="Figure from: Modeling the effects of pandemics on physiology-related fertility decline in society" loading="lazy" decoding="async" width="1800" height="689"></div><div class="hl-body"><p class="hl-meta">Frontiers in Epidemiology · 2026</p><p class="hl-title">Modeling the effects of pandemics on physiology-related fertility decline in society</p><p class="hl-text">Infection-related fertility decline can create demographic ripple effects that last for generations, well beyond the immediate pandemic period.</p><span class="hl-more">Read the paper <i class="ri-arrow-right-line" aria-hidden="true"></i></span></div></a><a class="hl-card" href="/publications/empirically-parameterized-spatio-temporal-extended-sir-model/"><div class="hl-fig"><img src="/publications/empirically-parameterized-spatio-temporal-extended-sir-model/figures/fig-1.webp" alt="Figure from: An empirically-parameterized spatio-temporal extended-SIR model for combined dilution and vaccination mitigation for rabies outbreaks in wild jackals" loading="lazy" decoding="async" width="1235" height="687"></div><div class="hl-body"><p class="hl-meta">Ecological Modelling · 2026</p><p class="hl-title">An empirically-parameterized spatio-temporal extended-SIR model for combined dilution and vaccination mitigation for rabies outbreaks in wild jackals</p><p class="hl-text">The effectiveness of vaccination and dilution was not influenced much by jackal population size but was sensitive to dispersal between adjacent activity centers.</p><span class="hl-more">Read the paper <i class="ri-arrow-right-line" aria-hidden="true"></i></span></div></a><a class="hl-card" href="/publications/transforming-norm-based-graph-based-spatial-representation/"><div class="hl-fig"><img src="/publications/transforming-norm-based-graph-based-spatial-representation/figures/fig-1.webp" alt="Figure from: Transforming norm-based to graph-based spatial representation for spatio-temporal epidemiological models" loading="lazy" decoding="async" width="1800" height="991"></div><div class="hl-body"><p class="hl-meta">Engineering Applications of Artificial Intelligence · 2026</p><p class="hl-title">Transforming norm-based to graph-based spatial representation for spatio-temporal epidemiological models</p><p class="hl-text">No analytical mapping exists between norm-based and graph-based spatial representations, so numerical approximation methods are required.</p><span class="hl-more">Read the paper <i class="ri-arrow-right-line" aria-hidden="true"></i></span></div></a></div>
+    </div></section>
+    <section id="publications" class="proj-section is-soft" aria-labelledby="publications-title"><div class="proj-wrap">
+      <div class="pub-head">
+        <div><h2 id="publications-title" class="proj-h2">Publications</h2>
+        <p class="proj-lead">Every paper from this project, newest first. Lab members are in bold; each title opens the paper's own page with the abstract, a plain-language summary and, for most papers, the full text.</p></div>
+        <label class="pub-filter"><i class="ri-search-line" aria-hidden="true"></i><input id="pub-filter-input" type="search" placeholder="Filter these papers" aria-label="Filter the papers by title, author, journal or words in the summary" autocomplete="off"></label>
+      </div>
+      <div class="pub-chart" role="img" aria-label="Papers per year"><div class="pub-bar" title="2021: 7 papers"><b>7</b><span style="height:64%"></span></div><div class="pub-bar" title="2022: 6 papers"><b>6</b><span style="height:55%"></span></div><div class="pub-bar" title="2023: 9 papers"><b>9</b><span style="height:82%"></span></div><div class="pub-bar" title="2024: 4 papers"><b>4</b><span style="height:36%"></span></div><div class="pub-bar" title="2025: 2 papers"><b>2</b><span style="height:18%"></span></div><div class="pub-bar" title="2026: 3 papers"><b>3</b><span style="height:27%"></span></div></div><div class="pub-years" aria-hidden="true"><span>2021</span><span>2022</span><span>2023</span><span>2024</span><span>2025</span><span>2026</span></div>
+      <p class="pub-count" id="pub-count" aria-live="polite">31 papers</p>
+      <div class="pub-year"><h3>2026 <small>3 papers</small></h3><ul class="pub-list"><li class="pub-item"><a class="pub-title" href="/publications/modeling-effects-pandemics-physiology-related-fertility-decline/">Modeling the effects of pandemics on physiology-related fertility decline in society</a><p class="pub-authors"><strong>Teddy Lazebnik</strong>, Svetlana Bunimovich-Medrazitsky, <strong>Ariel Alexi</strong></p><p class="pub-venue"><span><em>Frontiers in Epidemiology</em> · 2026</span><span class="pub-badge"><i class="ri-file-text-line" aria-hidden="true"></i>Full text on the site</span></p><p class="pub-summary">Pandemics can reduce people&#x27;s physical ability to have children, but this effect is rarely included when we study how populations grow. We built an extended Susceptible-Infected-Recovered (SIR) epidemic model that tracks age groups, genders, births, deaths…</p><p class="pub-links"><a href="/publications/modeling-effects-pandemics-physiology-related-fertility-decline/"><i class="ri-article-line" aria-hidden="true"></i>Paper page</a><a href="https://teddylazebnik.com/files/pandemic_fertility.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>PDF</a><a href="https://doi.org/10.3389/fepid.2026.1740829" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>DOI</a></p></li><li class="pub-item"><a class="pub-title" href="/publications/empirically-parameterized-spatio-temporal-extended-sir-model/">An empirically-parameterized spatio-temporal extended-SIR model for combined dilution and vaccination mitigation for rabies outbreaks in wild jackals</a><p class="pub-authors"><strong>Teddy Lazebnik</strong>, Yehuda Samuel, Jonathan Tichon, Roi Lapid, Roni King, Tomer Nissimyan, Orr Spiegel</p><p class="pub-venue"><span><em>Ecological Modelling</em> · 2026</span><span class="pub-badge"><i class="ri-file-text-line" aria-hidden="true"></i>Full text on the site</span></p><p class="pub-summary">Israeli authorities fight rabies in golden jackals by spreading oral vaccines and by dilution, removing animals to reduce local density, but how these two measures interact is poorly understood. We built a spatio-temporal extended SIR epidemic model on a…</p><p class="pub-links"><a href="/publications/empirically-parameterized-spatio-temporal-extended-sir-model/"><i class="ri-article-line" aria-hidden="true"></i>Paper page</a><a href="https://teddylazebnik.com/files/jackals_pandemic.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>PDF</a><a href="https://doi.org/10.1016/j.ecolmodel.2026.111487" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>DOI</a></p></li><li class="pub-item"><a class="pub-title" href="/publications/transforming-norm-based-graph-based-spatial-representation/">Transforming norm-based to graph-based spatial representation for spatio-temporal epidemiological models</a><p class="pub-authors"><strong>Teddy Lazebnik</strong></p><p class="pub-venue"><span><em>Engineering Applications of Artificial Intelligence</em> · 2026</span><span class="pub-badge"><i class="ri-file-text-line" aria-hidden="true"></i>Full text on the site</span></p><p class="pub-summary">Spatial epidemic models come in two kinds: norm-based models, which are more accurate but need more computing and data, and graph-based models, which are cheaper but less accurate. We showed that no exact analytical conversion between the two exists and…</p><p class="pub-links"><a href="/publications/transforming-norm-based-graph-based-spatial-representation/"><i class="ri-article-line" aria-hidden="true"></i>Paper page</a><a href="https://teddylazebnik.com/files/norm_to_graph.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>PDF</a><a href="https://doi.org/10.1016/j.engappai.2025.113619" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>DOI</a></p></li></ul></div><div class="pub-year"><h3>2025 <small>2 papers</small></h3><ul class="pub-list"><li class="pub-item"><a class="pub-title" href="/publications/evaluating-supply-chain-resilience-during-pandemic-agent/">Evaluating supply chain resilience during pandemic using agent-based simulation</a><p class="pub-authors"><strong>Teddy Lazebnik</strong></p><p class="pub-venue"><span><em>Physica A: Statistical Mechanics and its Applications</em> · 2025</span><span class="pub-badge"><i class="ri-file-text-line" aria-hidden="true"></i>Full text on the site</span></p><p class="pub-summary">Pandemics expose weaknesses in supply chains and leave business owners torn between short-term profit and long-term resilience. We built an agent-based simulation combining an epidemic model, a supply and demand economic model and a spatial supply chain…</p><p class="pub-links"><a href="/publications/evaluating-supply-chain-resilience-during-pandemic-agent/"><i class="ri-article-line" aria-hidden="true"></i>Paper page</a><a href="https://teddylazebnik.com/files/supply_chain_pandemic.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>PDF</a><a href="https://doi.org/10.1016/j.physa.2025.130780" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>DOI</a></p></li><li class="pub-item"><a class="pub-title" href="/publications/spatio-temporal-sir-model-pandemic-spread-during/">Spatio-Temporal SIR Model of Pandemic Spread During Warfare with Optimal Dual-use Health Care System Administration using Deep Reinforcement Learning</a><p class="pub-authors"><strong>Adi Shuchami</strong>, <strong>Teddy Lazebnik</strong></p><p class="pub-venue"><span><em>Disaster Medicine and Public Health Preparedness</em> · 2025</span><span class="pub-badge"><i class="ri-file-text-line" aria-hidden="true"></i>Full text on the site</span></p><p class="pub-summary">Wars and pandemics can occur at the same time, yet how warfare affects epidemic spread is underexplored. We combined the SIR epidemic model with the Lanchester model of war dynamics and added a health care system serving both soldiers and civilians. Using…</p><p class="pub-links"><a href="/publications/spatio-temporal-sir-model-pandemic-spread-during/"><i class="ri-article-line" aria-hidden="true"></i>Paper page</a><a href="https://teddylazebnik.com/files/pandemic_war.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>PDF</a><a href="https://doi.org/10.1017/dmp.2025.10062" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>DOI</a></p></li></ul></div><div class="pub-year"><h3>2024 <small>4 papers</small></h3><ul class="pub-list"><li class="pub-item"><a class="pub-title" href="/publications/individual-variation-affects-outbreak-magnitude-predictability-multi/">Individual Variation Affects Outbreak Magnitude and Predictability in Multi-Pathogen Model of Pigeons Vising Dairy Farms</a><p class="pub-authors"><strong>Teddy Lazebnik</strong>, Orr Spigel</p><p class="pub-venue"><span><em>Ecological modeling</em> · 2024</span><span class="pub-badge"><i class="ri-file-text-line" aria-hidden="true"></i>Full text on the site</span></p><p class="pub-summary">Pigeons that visit dairy farms can transmit disease to indoor cows, putting livestock, nearby people and other wildlife at risk. We built a spatio-temporal multi-pathogen model, run as an agent-based simulation with field data, that captures transmission…</p><p class="pub-links"><a href="/publications/individual-variation-affects-outbreak-magnitude-predictability-multi/"><i class="ri-article-line" aria-hidden="true"></i>Paper page</a><a href="https://teddylazebnik.com/files/cows.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>PDF</a><a href="https://doi.org/10.1016/j.ecolmodel.2024.110925" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>DOI</a></p></li><li class="pub-item"><a class="pub-title" href="/publications/economicalepidemiological-analysis-coffee-trees-rust-pandemic/">Economical–epidemiological analysis of the coffee trees rust pandemic</a><p class="pub-authors"><strong>Teddy Lazebnik</strong></p><p class="pub-venue"><span><em>Chaos</em> · 2024</span><span class="pub-badge"><i class="ri-file-text-line" aria-hidden="true"></i>Full text on the site</span></p><p class="pub-summary">Coffee leaf rust is a plant disease that reduces coffee supply and quality worldwide, and the interventions on the market give farmers only partial relief. We built a detailed model of how the rust spreads across coffee farms over space and time, together…</p><p class="pub-links"><a href="/publications/economicalepidemiological-analysis-coffee-trees-rust-pandemic/"><i class="ri-article-line" aria-hidden="true"></i>Paper page</a><a href="https://teddylazebnik.com/files/coffee_eco_paper.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>PDF</a><a href="https://doi.org/10.1063/5.0221945" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>DOI</a></p></li><li class="pub-item"><a class="pub-title" href="/publications/cost-optimal-seeding-strategy-during-botanical-pandemic/">Cost-optimal Seeding Strategy During a Botanical Pandemic in Domesticated Fields</a><p class="pub-authors"><strong>Teddy Lazebnik</strong></p><p class="pub-venue"><span><em>Chaos</em> · 2024</span><span class="pub-badge"><i class="ri-file-text-line" aria-hidden="true"></i>Full text on the site</span></p><p class="pub-summary">Plant disease pandemics cause enormous economic damage and food shortages, and they are here to stay in the short to medium term. We built a mathematical model linking the spread of a plant disease across a field to the field&#x27;s economic profit, along with an…</p><p class="pub-links"><a href="/publications/cost-optimal-seeding-strategy-during-botanical-pandemic/"><i class="ri-article-line" aria-hidden="true"></i>Paper page</a><a href="https://teddylazebnik.com/files/eco_pandemic_in_the_field.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>PDF</a><a href="https://doi.org/10.1063/5.0192426" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>DOI</a></p></li><li class="pub-item"><a class="pub-title" href="/publications/mathematical-model-dating-apps-influence-sexually-transmitted/">Mathematical model of dating apps’ influence on sexually transmitted diseases spread</a><p class="pub-authors"><strong>Teddy Lazebnik</strong></p><p class="pub-venue"><span><em>Social Network Analysis and Mining</em> · 2024</span><span class="pub-badge"><i class="ri-file-text-line" aria-hidden="true"></i>Full text on the site</span></p><p class="pub-summary">Dating apps are designed to bring users back and mostly lead to casual sexual encounters, which raises the number of casual partners. We extended a standard epidemic model, in which infected people become susceptible again after recovering, to study how…</p><p class="pub-links"><a href="/publications/mathematical-model-dating-apps-influence-sexually-transmitted/"><i class="ri-article-line" aria-hidden="true"></i>Paper page</a><a href="https://teddylazebnik.com/files/std_pandemic_model.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>PDF</a><a href="https://doi.org/10.1007/s13278-024-01351-5" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>DOI</a></p></li></ul></div><div class="pub-year"><h3>2023 <small>9 papers</small></h3><ul class="pub-list"><li class="pub-item"><a class="pub-title" href="/publications/multi-species-preypredator-dynamics-during-multi-strain/">Multi-species prey–predator dynamics during a multi-strain pandemic </a><p class="pub-authors"><strong>Ariel Alexi</strong>, Ariel Rosenfeld, <strong>Teddy Lazebnik</strong></p><p class="pub-venue"><span><em>Chaos</em> · 2023</span><span class="pub-badge"><i class="ri-file-text-line" aria-hidden="true"></i>Full text on the site</span></p><p class="pub-summary">Pandemics in nature often start with a single strain of a pathogen and soon become multi-strain through mutation, causing ecological and biological shifts in ecosystems. We propose an eco-epidemiological model that combines the classic Lotka–Volterra…</p><p class="pub-links"><a href="/publications/multi-species-preypredator-dynamics-during-multi-strain/"><i class="ri-article-line" aria-hidden="true"></i>Paper page</a><a href="https://teddylazebnik.com/files/msms.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>PDF</a><a href="https://doi.org/10.1063/5.0154968" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>DOI</a></p></li><li class="pub-item"><a class="pub-title" href="/publications/causal-role-lockdowns-covid-19-conclusions-daily/">The Causal Role of Lockdowns in COVID-19: Conclusions From Daily Epidemiological, Psychological, and Sociological Data</a><p class="pub-authors">Vardi Noa, <strong>Teddy Lazebnik</strong></p><p class="pub-venue"><span><em>Psychiatric Quarterly</em> · 2023</span><span class="pub-badge"><i class="ri-file-text-line" aria-hidden="true"></i>Full text on the site</span></p><p class="pub-summary">We asked whether COVID-19 lockdowns themselves drove emotional and behavioral distress. Using daily epidemiological, psychological and sociological data, including support requests to the Sahar organization and emergency and domestic violence reports to the…</p><p class="pub-links"><a href="/publications/causal-role-lockdowns-covid-19-conclusions-daily/"><i class="ri-article-line" aria-hidden="true"></i>Paper page</a><a href="https://teddylazebnik.com/files/psycho.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>PDF</a><a href="https://doi.org/10.1007/s11126-023-10035-w" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>DOI</a></p></li><li class="pub-item"><a class="pub-title" href="/publications/mathematical-model-coffee-trees-rust-control-snails/">Mathematical model of coffee tree’s rust control using snails as biological agents</a><p class="pub-authors"><strong>Yonatan Herskowitz</strong>, Svetlana Bunimovich-Mendrazitsky, <strong>Teddy Lazebnik</strong></p><p class="pub-venue"><span><em>Biosystems</em> · 2023</span><span class="pub-badge"><i class="ri-file-text-line" aria-hidden="true"></i>Full text on the site</span></p><p class="pub-summary">Coffee rust is a major disease of coffee plantations, and snails used as biological control agents are a promising remedy, but they are an invasive species that can be devastating if overused. We developed an ecological-epidemiological mathematical model of…</p><p class="pub-links"><a href="/publications/mathematical-model-coffee-trees-rust-control-snails/"><i class="ri-article-line" aria-hidden="true"></i>Paper page</a><a href="https://teddylazebnik.com/files/coffee_first.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>PDF</a><a href="https://doi.org/10.1016/j.biosystems.2023.104916" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>DOI</a></p></li><li class="pub-item"><a class="pub-title" href="/publications/intervention-policy-influence-effect-epidemiological-crisis-industry/">Intervention Policy Influence on the Effect of Epidemiological Crisis on Industry-Level Production Through Input-Output Networks</a><p class="pub-authors"><strong>Teddy Lazebnik</strong>, Labib Shami, Svetlana Bunimovich-Mendrazitsky</p><p class="pub-venue"><span><em>Socio-Economic Planning Sciences</em> · 2023</span><span class="pub-badge"><i class="ri-file-text-line" aria-hidden="true"></i>Full text on the site</span></p><p class="pub-summary">Lockdowns and border closures during a pandemic disrupt supply chains, and industries depend on each other through input-output links, meaning they buy from and sell to one another. We built a mathematical model with epidemiological, social and economic parts…</p><p class="pub-links"><a href="/publications/intervention-policy-influence-effect-epidemiological-crisis-industry/"><i class="ri-article-line" aria-hidden="true"></i>Paper page</a><a href="https://teddylazebnik.com/files/covid_eco_networks.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>PDF</a><a href="https://doi.org/10.1016/j.seps.2023.101553" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>DOI</a></p></li><li class="pub-item"><a class="pub-title" href="/publications/high-resolution-spatio-temporal-model-room-level/">High Resolution Spatio-Temporal Model for Room-Level Airborne Pandemic Spread</a><p class="pub-authors"><strong>Teddy Lazebnik</strong>, <strong>Ariel Alexi</strong></p><p class="pub-venue"><span><em>Mathematics</em> · 2023</span><span class="pub-badge"><i class="ri-file-text-line" aria-hidden="true"></i>Full text on the site</span></p><p class="pub-summary">More and more infections happen in shared rooms, yet airborne pandemic models have mostly neglected the scale of a single room. We built a high-resolution model in Python that combines 3D room data from a LiDAR (laser scanning) device, computational fluid…</p><p class="pub-links"><a href="/publications/high-resolution-spatio-temporal-model-room-level/"><i class="ri-article-line" aria-hidden="true"></i>Paper page</a><a href="https://teddylazebnik.com/files/aura_1.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>PDF</a><a href="https://doi.org/10.3390/math11020426" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>DOI</a></p></li><li class="pub-item"><a class="pub-title" href="/publications/financing-managing-epidemiological-economic-crises-we-ready/">Financing and managing epidemiological-economic crises: Are we ready for another outbreak?</a><p class="pub-authors">Labib Shami, <strong>Teddy Lazebnik</strong></p><p class="pub-venue"><span><em>Journal of Policy Modeling</em> · 2023</span><span class="pub-badge"><i class="ri-file-text-line" aria-hidden="true"></i>Full text on the site</span></p><p class="pub-summary">Besides the health threat, a combined epidemiological and economic crisis brings a growing government deficit and a shortage of essential workers. We outline how countries can be economically ready for a future crisis, and a pandemic outbreak in particular.…</p><p class="pub-links"><a href="/publications/financing-managing-epidemiological-economic-crises-we-ready/"><i class="ri-article-line" aria-hidden="true"></i>Paper page</a><a href="https://teddylazebnik.com/files/economy_for_pandemic.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>PDF</a><a href="https://doi.org/10.1016/j.jpolmod.2023.02.003" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>DOI</a></p></li><li class="pub-item"><a class="pub-title" href="/publications/computational-applications-extended-sir-models-review-focused/">Computational Applications of Extended SIR Models: A Review Focused on Airborne Pandemics</a><p class="pub-authors"><strong>Teddy Lazebnik</strong></p><p class="pub-venue"><span><em>Ecological Modelling</em> · 2023</span><span class="pub-badge"><i class="ri-file-text-line" aria-hidden="true"></i>Full text on the site</span></p><p class="pub-summary">Mathematical epidemic models help policymakers explore pandemic scenarios and intervention policies, but turning them into practical tools means defining them efficiently, building software and fitting them to historical data. We critically review models that…</p><p class="pub-links"><a href="/publications/computational-applications-extended-sir-models-review-focused/"><i class="ri-article-line" aria-hidden="true"></i>Paper page</a><a href="https://teddylazebnik.com/files/sir_review.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>PDF</a><a href="https://doi.org/10.1016/j.ecolmodel.2023.110422" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>DOI</a></p></li><li class="pub-item"><a class="pub-title" href="/publications/bounding-pandemic-spread-heat-spread/">Bounding Pandemic Spread By Heat Spread</a><p class="pub-authors"><strong>Teddy Lazebnik</strong>, Uri Itai</p><p class="pub-venue"><span><em>Journal of Engineering Mathematics  </em> · 2023</span><span class="pub-badge"><i class="ri-file-text-line" aria-hidden="true"></i>Full text on the site</span></p><p class="pub-summary">Early in a pandemic, policymakers must act while knowledge about the disease is limited, which makes complex models hard to use. We propose analytical and stochastic bounds on pandemic spread based on heat spread, treating infection moving across a social…</p><p class="pub-links"><a href="/publications/bounding-pandemic-spread-heat-spread/"><i class="ri-article-line" aria-hidden="true"></i>Paper page</a><a href="https://teddylazebnik.com/files/sir_heat_spread.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>PDF</a><a href="https://doi.org/10.1007/s10665-022-10253-4" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>DOI</a></p></li><li class="pub-item"><a class="pub-title" href="/publications/hybrid-mathematical-model-optimal-border-closure-policy/">A Hybrid Mathematical Model for Optimal Border Closure Policy during Pandemic</a><p class="pub-authors"><strong>Teddy Lazebnik</strong>, Labib Shami, Svetlana Bunimovich-Mendrazitsky</p><p class="pub-venue"><span><em>International Journal of Applied Mathematics and Computer Science</em> · 2023</span><span class="pub-badge"><i class="ri-file-text-line" aria-hidden="true"></i>Full text on the site</span></p><p class="pub-summary">During a pandemic, borders can let in carriers from countries with high infection rates, but closing them causes economic losses, especially for countries that rely on tourism. We developed a hybrid mathematical model that combines an epidemiological…</p><p class="pub-links"><a href="/publications/hybrid-mathematical-model-optimal-border-closure-policy/"><i class="ri-article-line" aria-hidden="true"></i>Paper page</a><a href="https://teddylazebnik.com/files/pandemic_tourisem.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>PDF</a><a href="https://doi.org/10.34768/amcs-2023-0042" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>DOI</a></p></li></ul></div><div class="pub-year"><h3>2022 <small>6 papers</small></h3><ul class="pub-list"><li class="pub-item"><a class="pub-title" href="/publications/early-detection-control-next-epidemic-wave-health/">Early Detection and Control of the Next Epidemic Wave Using Health Communications: Development of an Artificial Intelligence-Based Tool and Its Validation on COVID-19 Data from the US</a><p class="pub-authors"><strong>Teddy Lazebnik</strong>, Svetlana Bunimovich-Mendrazitsky, Shai Ashkenazi, Eugene Levner, Arriel Benis</p><p class="pub-venue"><span><em>International Journal of Environmental Research and Public Health</em> · 2022</span><span class="pub-badge"><i class="ri-file-text-line" aria-hidden="true"></i>Full text on the site</span></p><p class="pub-summary">Social media strongly influences social life, especially during a pandemic. We developed EMIT (Epidemic and Media Impact Tool), an artificial intelligence-based tool that uses social media topics and disease spread to predict, detect and help control outbreak…</p><p class="pub-links"><a href="/publications/early-detection-control-next-epidemic-wave-health/"><i class="ri-article-line" aria-hidden="true"></i>Paper page</a><a href="https://teddylazebnik.com/files/ijerph.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>PDF</a><a href="https://doi.org/10.3390/ijerph192316023" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>DOI</a></p></li><li class="pub-item"><a class="pub-title" href="/publications/trade-off-between-airborne-pandemic-control-energy/">The Trade-Off between Airborne Pandemic Control and Energy Consumption Using Air Ventilation Solutions</a><p class="pub-authors"><strong>Ariel Alexi</strong>, Ariel Rosenfeld, <strong>Teddy Lazebnik</strong></p><p class="pub-venue"><span><em>Sensors</em> · 2022</span><span class="pub-badge"><i class="ri-file-text-line" aria-hidden="true"></i>Full text on the site</span></p><p class="pub-summary">Ventilation reduces the spread of airborne diseases indoors, but it costs energy. We used sensors to measure the energy use and pandemic-control ability of an air conditioner, a pedestal fan and an open window in hospital rooms, classrooms and conference…</p><p class="pub-links"><a href="/publications/trade-off-between-airborne-pandemic-control-energy/"><i class="ri-article-line" aria-hidden="true"></i>Paper page</a><a href="https://teddylazebnik.com/files/sensors_alexi.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>PDF</a><a href="https://doi.org/10.3390/s22228594" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>DOI</a></p></li><li class="pub-item"><a class="pub-title" href="/publications/economic-aspects-detection-new-strains-multi-strain/">Economic aspects of the detection of new strains in a multi-strain epidemiological–mathematical model</a><p class="pub-authors">Labib Shami, <strong>Teddy Lazebnik</strong></p><p class="pub-venue"><span><em>Chaos, Solitons &amp; Fractals</em> · 2022</span><span class="pub-badge"><i class="ri-file-text-line" aria-hidden="true"></i>Full text on the site</span></p><p class="pub-summary">Vaccines are constantly threatened by new vaccine-resistant strains of a pathogen. We studied the use of genomic sequencing tests to detect new strains during a multi-strain pandemic, using a model that combines mathematical, epidemiological, genomic and…</p><p class="pub-links"><a href="/publications/economic-aspects-detection-new-strains-multi-strain/"><i class="ri-article-line" aria-hidden="true"></i>Paper page</a><a href="https://teddylazebnik.com/files/chaos.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>PDF</a><a href="https://doi.org/10.1016/j.chaos.2022.112823" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>DOI</a></p></li><li class="pub-item"><a class="pub-title" href="/publications/generic-approach-mathematical-model-multi-strain-pandemics/">Generic approach for mathematical model of multi-strain pandemics</a><p class="pub-authors"><strong>Teddy Lazebnik</strong>, Svetlana Bunimovich-Mendrazitsky</p><p class="pub-venue"><span><em>PLOS ONE</em> · 2022</span><span class="pub-badge"><i class="ri-file-text-line" aria-hidden="true"></i>Full text on the site</span></p><p class="pub-summary">Pandemics caused by several strains of a pathogen are a major concern. We introduce a general mathematical model for multi-strain pandemics that works for any number of strains and connects them to mortality rate, the basic reproduction number (the average…</p><p class="pub-links"><a href="/publications/generic-approach-mathematical-model-multi-strain-pandemics/"><i class="ri-article-line" aria-hidden="true"></i>Paper page</a><a href="https://teddylazebnik.com/files/multi_strain_model.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>PDF</a><a href="https://doi.org/10.1371/journal.pone.0260683" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>DOI</a></p></li><li class="pub-item"><a class="pub-title" href="/publications/advanced-muti-mutation-intervention-policies-pandemic-model/">Advanced Muti-Mutation with Intervention Policies Pandemic Model</a><p class="pub-authors"><strong>Teddy Lazebnik</strong>, Gaddi Blumrosen</p><p class="pub-venue"><span><em>IEEE Access</em> · 2022</span><span class="pub-badge"><i class="ri-file-text-line" aria-hidden="true"></i>Full text on the site</span></p><p class="pub-summary">Most pandemic models assume a single pathogen and ignore how mutations and policies such as vaccinations and lockdowns shape the data. We introduce SIVRI (Suspected-Infected-Vaccinated-Recovered-reInfected), a model that accounts for multiple pathogen…</p><p class="pub-links"><a href="/publications/advanced-muti-mutation-intervention-policies-pandemic-model/"><i class="ri-article-line" aria-hidden="true"></i>Paper page</a><a href="https://teddylazebnik.com/files/ieee_paper.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>PDF</a><a href="https://doi.org/10.1109/ACCESS.2022.3149956" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>DOI</a></p></li><li class="pub-item"><a class="pub-title" href="/publications/security-games-inspired-approach-distributed-control-pandemic/">A Security Games Inspired Approach for Distributed Control of Pandemic Spread</a><p class="pub-authors"><strong>Ariel Alexi</strong>, Ariel Rosenfeld, <strong>Teddy Lazebnik</strong></p><p class="pub-venue"><span><em>Advanced Theory and Simulations</em> · 2022</span><span class="pub-badge"><i class="ri-file-text-line" aria-hidden="true"></i>Full text on the site</span></p><p class="pub-summary">Once a pandemic starts, policymakers must control it over time and space. Taking inspiration from security games, we propose an intervention policy that strategically places inspection units on a graph representing the environment; the units sample people…</p><p class="pub-links"><a href="/publications/security-games-inspired-approach-distributed-control-pandemic/"><i class="ri-article-line" aria-hidden="true"></i>Paper page</a><a href="https://teddylazebnik.com/files/iu_pandemic.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>PDF</a><a href="https://doi.org/10.1002/adts.202200631" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>DOI</a></p></li></ul></div><div class="pub-year"><h3>2021 <small>7 papers</small></h3><ul class="pub-list"><li class="pub-item"><a class="pub-title" href="/publications/comparison-pandemic-intervention-policies-several-building-types/">Comparison of pandemic intervention policies in several building types using heterogeneous population model</a><p class="pub-authors"><strong>Teddy Lazebnik</strong>, <strong>Ariel Alexi</strong></p><p class="pub-venue"><span><em>Communications in Nonlinear Science and Numerical Simulation</em> · 2021</span><span class="pub-badge"><i class="ri-file-text-line" aria-hidden="true"></i>Full text on the site</span></p><p class="pub-summary">Good pandemic policies must account for how people behave differently in different buildings and social settings. We built a spatio-temporal model of a heterogeneous population and ran computer simulations to evaluate intervention policies in four building…</p><p class="pub-links"><a href="/publications/comparison-pandemic-intervention-policies-several-building-types/"><i class="ri-article-line" aria-hidden="true"></i>Paper page</a><a href="https://teddylazebnik.com/files/indoor_pandemic.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>PDF</a><a href="https://doi.org/10.1016/j.cnsns.2021.106176" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>DOI</a></p></li><li class="pub-item"><a class="pub-title" href="/publications/pandemic-management-spatio-temporal-mathematical-model/">Pandemic Management by a Spatio-temporal Mathematical Model</a><p class="pub-authors"><strong>Teddy Lazebnik</strong>, Labib Shami, Svetlana Bunimovich-Mendrazitsky</p><p class="pub-venue"><span><em>IJNSNS</em> · 2021</span><span class="pub-badge"><i class="ri-file-text-line" aria-hidden="true"></i>Full text on the site</span></p><p class="pub-summary">Many attempts to forecast how COVID-19 would affect illness rates largely failed, limiting their help to policymakers choosing isolation policies. We built a spatio-temporal model that accounts for disease severity and for differences between people in age…</p><p class="pub-links"><a href="/publications/pandemic-management-spatio-temporal-mathematical-model/"><i class="ri-article-line" aria-hidden="true"></i>Paper page</a><a href="https://teddylazebnik.com/files/Pandemic_Management.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>PDF</a><a href="https://doi.org/10.1515/ijnsns-2021-0063" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>DOI</a></p></li><li class="pub-item"><a class="pub-title" href="/publications/novel-method-analytically-obtain-asymptotic-stable-equilibria/">Novel Method to Analytically Obtain the Asymptotic Stable Equilibria States of Extended SIR-Type Epidemiological Models</a><p class="pub-authors"><strong>Teddy Lazebnik</strong>, Svetlana Bunimovich-Mendrazitsky, Leonid Shaikhet</p><p class="pub-venue"><span><em>Symmetry</em> · 2021</span><span class="pub-badge"><i class="ri-file-text-line" aria-hidden="true"></i>Full text on the site</span></p><p class="pub-summary">Classical methods failed to analytically find the stable long-term states, known as equilibria, of a large SIR-type epidemic model we developed for viral diseases with long-term immunity memory, which has 15 nonlinear differential equations. We present a new…</p><p class="pub-links"><a href="/publications/novel-method-analytically-obtain-asymptotic-stable-equilibria/"><i class="ri-article-line" aria-hidden="true"></i>Paper page</a><a href="https://teddylazebnik.com/files/symmetry_sir_paper.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>PDF</a><a href="https://doi.org/10.3390/sym13071120" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>DOI</a></p></li><li class="pub-item"><a class="pub-title" href="/publications/signature-features-covid-19-pandemic-hybrid-mathematical/">The signature features of COVID-19 pandemic in a hybrid mathematical model - implications for optimal work-school lockdown policy</a><p class="pub-authors"><strong>Teddy Lazebnik</strong>, Svetlana Bunimovich-Mendrazitsky</p><p class="pub-venue"><span><em>Advanced Theory and Simulations</em> · 2021</span><span class="pub-badge"><i class="ri-file-text-line" aria-hidden="true"></i>Full text on the site</span></p><p class="pub-summary">Most countries adopted lockdowns against COVID-19, but these damaged the economic and moral fabric of society. We present a hybrid model that combines an age-structured SIRD model, which tracks susceptible, infected, recovered and dead people, with a…</p><p class="pub-links"><a href="/publications/signature-features-covid-19-pandemic-hybrid-mathematical/"><i class="ri-article-line" aria-hidden="true"></i>Paper page</a><a href="https://teddylazebnik.com/files/covid_first.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>PDF</a><a href="https://doi.org/10.1002/adts.202000298" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>DOI</a></p></li><li class="pub-item"><a class="pub-title" href="/publications/spatio-temporal-influence-non-pharmaceutical-interventions-policies/">Spatio-Temporal influence of Non-Pharmaceutical interventions policies on pandemic dynamics and the economy: the case of COVID-19</a><p class="pub-authors"><strong>Teddy Lazebnik</strong>, Labib Shami, Svetlana Bunimovich-Mendrazitsky</p><p class="pub-venue"><span><em>Economic Research</em> · 2021</span><span class="pub-badge"><i class="ri-file-text-line" aria-hidden="true"></i>Full text on the site</span></p><p class="pub-summary">We extended a graph-based SIR model, which tracks susceptible, infected and recovered people, to study how non-pharmaceutical interventions affect both pandemic spread and the economy, including job losses not caused by illness. Using Israeli economic data…</p><p class="pub-links"><a href="/publications/spatio-temporal-influence-non-pharmaceutical-interventions-policies/"><i class="ri-article-line" aria-hidden="true"></i>Paper page</a><a href="https://teddylazebnik.com/files/covid_second_paper.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>PDF</a><a href="https://doi.org/10.1080/1331677X.2021.1925573" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>DOI</a></p></li><li class="pub-item"><a class="pub-title" href="/publications/optimal-intervention-policies-covid-19-pandemic-emerge/">Optimal Intervention Policies for the COVID-19 Pandemic Emerge from Socioeconomic-Heterogeneous Dynamics</a><p class="pub-authors"><strong>Teddy Lazebnik</strong></p><p class="pub-venue"><span><em>Journal of Physical Mathematics</em> · 2021</span></p><p class="pub-summary">Before vaccination was available, managing the spread of COVID-19 relied on non-pharmaceutical interventions, measures other than drugs or vaccines. Many mathematical models have been proposed to predict the spread and analyze these interventions in multiple…</p><p class="pub-links"><a href="/publications/optimal-intervention-policies-covid-19-pandemic-emerge/"><i class="ri-article-line" aria-hidden="true"></i>Paper page</a><a href="https://www.hilarispublisher.com/open-access/optimal-intervention-policies-for-the-covid19-pandemic-emerge-from-socioeconomicheterogeneous-dynamics.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>PDF</a></p></li><li class="pub-item"><a class="pub-title" href="/publications/epidemiological-economical-pandemic-management-spatio-temporal-mathematical/">Epidemiological-Economical Pandemic Management By A Spatio-Temporal Mathematical Model</a><p class="pub-authors"><strong>Teddy Lazebnik</strong>, Labib Shami, Svetlana Bunimovich-Mendrazitsky</p><p class="pub-venue"><span><em>Dynamical Systems Applied To Biology And Natural Science</em> · 2021</span><span class="pub-badge"><i class="ri-file-text-line" aria-hidden="true"></i>Full text on the site</span></p><p class="pub-summary">We present a mathematical model for pandemic management that considers how severe the disease is and how unevenly people in a population come into contact with each other, within complex dynamics over space and time.</p><p class="pub-links"><a href="/publications/epidemiological-economical-pandemic-management-spatio-temporal-mathematical/"><i class="ri-article-line" aria-hidden="true"></i>Paper page</a><a href="https://teddylazebnik.com/files/abstract_for_DSABNS_2021_conference.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>PDF</a></p></li></ul></div>
+      <p class="pub-empty" id="pub-empty" hidden>No paper matches these words.</p>
+    </div></section>
+    <section id="team" class="proj-section" aria-labelledby="team-title"><div class="proj-wrap">
+      <h2 id="team-title" class="proj-h2">The team</h2>
+      <p class="proj-lead">The lab members who work or worked on this project, with their part in it, and the researchers we work with. See the whole lab on the <a href="/team.html" class="text-primary">team page</a>.</p>
+      <div style="margin-top:1.5rem"><div class="team-group"><h3 class="proj-h3">Current members <small>3</small></h3><div class="team-grid"><article class="member"><img src="/img/lab/teddy.webp" alt="Prof. Teddy Lazebnik" loading="lazy" decoding="async" width="64" height="64"><div><p class="member-name">Prof. Teddy Lazebnik<a href="https://teddylazebnik.com" target="_blank" rel="noopener" aria-label="Prof. Teddy Lazebnik on Website" title="Website"><i class="ri-global-line" aria-hidden="true"></i></a></p><p class="member-role">Principal investigator · Since Oct 2023</p><p class="member-papers">31 papers in this project</p></div></article><article class="member"><img src="/img/lab/leeor.webp" alt="Lee-or Alon" loading="lazy" decoding="async" width="64" height="64"><div><p class="member-name">Lee-or Alon<a href="https://scholar.google.com/citations?user=-nKuz4AAAAAJ" target="_blank" rel="noopener" aria-label="Lee-or Alon on Google Scholar" title="Google Scholar"><i class="ri-graduation-cap-line" aria-hidden="true"></i></a></p><p class="member-role">PhD Student · Since Oct 2025</p><p class="member-focus">Data-driven epidemiological modeling and policy design, with a focus on botanical epidemics</p></div></article><article class="member"><img src="/img/lab/inbar.webp" alt="Inbar Kirshenboim" loading="lazy" decoding="async" width="64" height="64"><div><p class="member-name">Inbar Kirshenboim<a href="https://www.linkedin.com/in/inbarkir/" target="_blank" rel="noopener" aria-label="Inbar Kirshenboim on LinkedIn" title="LinkedIn"><i class="ri-linkedin-box-line" aria-hidden="true"></i></a></p><p class="member-role">PhD Student · Since Apr 2026</p><p class="member-focus">Data-driven crisis management and recovery, telling natural and man-made crises apart</p></div></article></div></div><div class="team-group"><h3 class="proj-h3">Past members <small>2</small></h3><div class="team-grid"><article class="member"><img src="/img/lab/adi.webp" alt="Dr. Adi Shuchami" loading="lazy" decoding="async" width="64" height="64"><div><p class="member-name">Dr. Adi Shuchami<a href="https://scholar.google.com/citations?user=vbN5b1EAAAAJ&amp;hl=en" target="_blank" rel="noopener" aria-label="Dr. Adi Shuchami on Google Scholar" title="Google Scholar"><i class="ri-graduation-cap-line" aria-hidden="true"></i></a></p><p class="member-role">PhD (alumni) · Apr 2024 – Sep 2026</p><p class="member-focus">Data-driven decision support from dual-use community and hospital data</p><p class="member-papers">1 paper in this project</p></div></article><article class="member"><img src="/img/lab/userm.webp" alt="Yonatan Herskowitz" loading="lazy" decoding="async" width="64" height="64"><div><p class="member-name">Yonatan Herskowitz<a href="https://www.sciencedirect.com/science/article/pii/S0303264723000916" target="_blank" rel="noopener" aria-label="Yonatan Herskowitz on Website" title="Website"><i class="ri-global-line" aria-hidden="true"></i></a></p><p class="member-role">MSc (alumni) · Mar 2022 – Mar 2023</p><p class="member-focus">Modeling the spread of coffee tree rust and its control with biological agents</p><p class="member-papers">1 paper in this project</p></div></article></div></div><div class="team-group"><h3 class="proj-h3">Frequent co-authors</h3><p class="proj-lead">Researchers outside the lab who co-wrote two or more of the papers above.</p><div class="coauthors"><span class="coauthor">Svetlana Bunimovich-Mendrazitsky <small>11 papers</small></span><span class="coauthor">Labib Shami <small>7 papers</small></span><span class="coauthor">Ariel Rosenfeld <small>3 papers</small></span></div></div></div>
+    </div></section>
+    <section id="timeline" class="proj-section is-soft" aria-labelledby="timeline-title"><div class="proj-wrap">
+      <h2 id="timeline-title" class="proj-h2">Timeline</h2>
+      <p class="proj-lead">How the project developed.</p>
+      <ol class="proj-timeline"><li><time>03/2024</time><h3>Current umbrella launched</h3><p>The lab consolidated several ongoing epidemiological lines into a shared project focused on forecasting, intervention design, and allocation.</p></li><li><time>2025</time><h3>Dual-use and resilience studies</h3><p>Work expanded toward wartime healthcare administration and pandemic-aware supply-chain resilience.</p></li><li><time>2026</time><h3>Wildlife and field epidemiology</h3><p>New calibrated models addressed rabies outbreaks in jackals and continued the lab&#x27;s agricultural outbreak modeling track.</p></li></ol>
+    </div></section>
+    <section id="videos" class="proj-section" aria-labelledby="videos-title"><div class="proj-wrap">
+      <h2 id="videos-title" class="proj-h2">Videos</h2>
+      <p class="proj-lead">Short explainers of the research in this project.</p>
+      <div class="proj-grid"><article class="vid-card is-short"><div class="yt-player yt-9x16" data-yt-id="VAyaUHsmF08" data-yt-title="Can We Really Map Pandemics to Graphs?"><a class="yt-play" href="https://www.youtube.com/shorts/VAyaUHsmF08" aria-label="Play video: Can We Really Map Pandemics to Graphs?"><img src="https://i.ytimg.com/vi/VAyaUHsmF08/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/VAyaUHsmF08/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div><p class="vid-title">Can We Really Map Pandemics to Graphs?</p><p class=vid-text>Turning detailed spatial epidemic models into graphs that keep most of the accuracy for a fraction of the computing time.</p><p class="card-meta">Based on: Transforming norm-based to graph-based spatial representation for spatio-temporal epidemiological models</p><p class="vid-links"><a href="/videos.html#v-VAyaUHsmF08">All lab videos</a><a href="https://www.youtube.com/shorts/VAyaUHsmF08" target="_blank" rel="noopener">Watch on YouTube</a></p></div></article><article class="vid-card is-short"><div class="yt-player yt-9x16" data-yt-id="mZgFOYBc9Wo" data-yt-title="The Mathematics of Snails vs Coffee Rust"><a class="yt-play" href="https://www.youtube.com/shorts/mZgFOYBc9Wo" aria-label="Play video: The Mathematics of Snails vs Coffee Rust"><img src="https://i.ytimg.com/vi/mZgFOYBc9Wo/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/mZgFOYBc9Wo/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div><p class="vid-title">The Mathematics of Snails vs Coffee Rust</p><p class=vid-text>Can snails protect coffee trees from leaf rust? A mathematical model of living biological control.</p><p class="card-meta">Based on: Mathematical model of coffee tree’s rust control using snails as biological agents</p><p class="vid-links"><a href="/videos.html#v-mZgFOYBc9Wo">All lab videos</a><a href="https://www.youtube.com/shorts/mZgFOYBc9Wo" target="_blank" rel="noopener">Watch on YouTube</a></p></div></article></div>
+    </div></section>
+    <section id="tools" class="proj-section" aria-labelledby="tools-title"><div class="proj-wrap">
+      <h2 id="tools-title" class="proj-h2">Interactive tools</h2>
+      <p class="proj-lead">Browser tools and simulations that grew out of this research.</p>
+      <div class="proj-grid is-3"><a class="tool-card" href="/mayor-outbreak.html"><div class="card-body"><span class="tool-icon"><i class="ri-gamepad-line" aria-hidden="true"></i></span><p class="card-title">Mayor&#x27;s Outbreak Simulation</p><p class="card-text">Mayor&#x27;s Outbreak is a browser-based SIR strategy simulation where you steer a city through an epidemic by balancing mobility, testing, and public protection.</p><span class="card-more">Try it <i class="ri-arrow-right-line" aria-hidden="true"></i></span></div></a></div>
+    </div></section>
+    <section id="related" class="proj-section is-soft" aria-labelledby="related-title"><div class="proj-wrap">
+      <h2 id="related-title" class="proj-h2">Related projects</h2>
+      <div class="proj-grid is-3"><a class="rel-card" href="/projects/informal-economy-ai/"><img src="/img/projects/project3.webp" alt="" loading="lazy" decoding="async"><div class="card-body"><p class="card-meta">Computational Social Science · 16 papers</p><p class="card-title">Moving Computational Economy To the AI Era</p><p class="card-text">Using AI to uncover patterns, behaviors, and socio-economic impacts in the formal and informal economy.</p></div></a><a class="rel-card" href="/projects/personalized-medicine-ai/"><img src="/img/projects/project1.webp" alt="" loading="lazy" decoding="async"><div class="card-body"><p class="card-meta">AI in Medicine · 19 papers</p><p class="card-title">Data-Driven Precise and Personalized Medicine</p><p class="card-text">Harnessing AI to tailor treatments to individuals and improve medical resource allocation at the community level.</p></div></a><a class="rel-card" href="/projects/economy-physics-rl/"><img src="/img/projects/project9.webp" alt="" loading="lazy" decoding="async"><div class="card-body"><p class="card-meta">Computational Economy · 6 papers</p><p class="card-title">Data-Driven Economic Dynamics with Physics and Reinforcement Learning</p><p class="card-text">Using reinforcement learning and ideas from physics to model and control microeconomic processes from data.</p></div></a></div>
+    </div></section>
+    <div class="proj-cta"><div class="proj-cta-box">
+      <div><h2>Interested in this project?</h2><p>We welcome collaborations, data partnerships and students who want to work on epidemiology problems with us.</p></div>
+      <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="/#contact"><i class="ri-mail-send-line" aria-hidden="true"></i>Get in touch</a><a class="proj-btn" href="/projects.html"><i class="ri-apps-2-line" aria-hidden="true"></i>All projects</a></div>
+    </div></div>
+  </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Games</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
+                  <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
+                  <li><a href="https://rl.teddylazebnik.com/">Pirate War RL Game</a></li>
+                  <li><a href="https://eh.teddylazebnik.com/">Echo Heist</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <script src="/js/videos.js"></script>
+      <script src="/js/project-page.js" defer></script>
+   </body>
+</html>

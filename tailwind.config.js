@@ -1,6 +1,6 @@
 // Tailwind build for the ACML site (replaces the Tailwind CDN script).
 // css/tailwind.css         -> pages that load js/main.js (lab colours and corner radii)
-// css/tailwind-default.css -> sock.html and project.html (Tailwind's default theme, as before)
+// css/tailwind-default.css -> sock.html (Tailwind's default theme, as before)
 // Rebuild after adding or changing Tailwind classes:  npm install  then  npm run build:css
 const shared = {
   content: ['./*.html', './js/*.js', './data/*.json', './tools/templates/*.html'],

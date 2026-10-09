@@ -157,37 +157,36 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
 
-    <!-- Full-text search over the paper pages (Pagefind index in /pagefind, made by tools/build_papers.py) -->
-    <div id="full-text-search" class="fts-card">
-      <div class="fts-head">
-        <h2 class="fts-title"><i class="ri-search-eye-line" aria-hidden="true"></i>Search inside our papers</h2>
-        <p class="fts-lead">Searches the full text, figure captions and summaries of every paper. Pick a result to jump to that place in the paper.</p>
-      </div>
-      <div id="paper-search"></div>
-    </div>
-
-    <!-- Filter Panel -->
-    <div class="bg-gray-50 rounded-xl p-6 mb-8">
+    <!-- Filter and search panel: the list filters on top, full-text search (Pagefind index in /pagefind, made by tools/build_papers.py) below -->
+    <div id="pub-tools" class="pub-tools">
       <div class="grid md:grid-cols-3 gap-4">
         <div>
-          <label class="block text-sm font-medium text-gray-700 mb-2">Year</label>
+          <label for="year-filter" class="block text-sm font-medium text-gray-700 mb-2">Year</label>
           <select id="year-filter" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent pr-8">
             <option value="">All Years</option>
             <!-- years are injected dynamically as well -->
           </select>
         </div>
         <div>
-          <label class="block text-sm font-medium text-gray-700 mb-2">Search by title</label>
+          <label for="search-input" class="block text-sm font-medium text-gray-700 mb-2">Search by title</label>
           <input type="text" id="search-input" placeholder="Search publications..." class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
         </div>
         <div>
-          <label class="block text-sm font-medium text-gray-700 mb-2">Sort by</label>
+          <label for="sort-filter" class="block text-sm font-medium text-gray-700 mb-2">Sort by</label>
           <select id="sort-filter" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent pr-8">
             <option value="date-desc">Newest First</option>
             <option value="date-asc">Oldest First</option>
             <option value="title">Title A–Z</option>
           </select>
         </div>
+      </div>
+
+      <div id="full-text-search" class="fts-part">
+        <div class="fts-head">
+          <h2 class="fts-title"><i class="ri-search-eye-line" aria-hidden="true"></i>Search inside our papers</h2>
+          <p class="fts-lead">Searches the full text, figure captions and summaries of every paper. Pick a result to jump to that place in the paper.</p>
+        </div>
+        <div id="paper-search"></div>
       </div>
     </div>
 
@@ -273,7 +272,7 @@
           var ui = new PagefindUI({
             element: '#paper-search', showSubResults: true, showImages: false, highlightParam: 'highlight',
             excerptLength: 24, resetStyles: false,
-            translations: { placeholder: 'Search the papers, e.g. Thompson sampling or BCG' }
+            translations: { placeholder: window.innerWidth < 640 ? 'Search all our papers' : 'Search the papers, e.g. Thompson sampling or BCG' }
           });
           var q = new URLSearchParams(location.search).get('q');
           if (q) {

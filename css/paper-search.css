@@ -1,9 +1,10 @@
-/* Full-text search on publications.html (Pagefind's search box, https://pagefind.app) */
-.fts-card { margin-bottom: 2rem; padding: 1.5rem; border: 1px solid #dbeafe; border-radius: 1rem; background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%); }
-.fts-head { margin-bottom: 1rem; }
-.fts-title { display: flex; align-items: center; gap: .5rem; font-size: 1.25rem; font-weight: 700; color: #111827; }
+/* Filter and search panel on publications.html: list filters on top, full-text search (Pagefind, https://pagefind.app) below */
+.pub-tools { margin-bottom: 2rem; padding: 1.5rem; border: 1px solid #e5e7eb; border-radius: 1rem; background: #f9fafb; }
+.fts-part { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid #e5e7eb; scroll-margin-top: 6rem; }
+.fts-head { margin-bottom: .85rem; }
+.fts-title { display: flex; align-items: center; gap: .5rem; font-size: 1.1rem; font-weight: 700; color: #111827; }
 .fts-title i { color: #2563eb; }
-.fts-lead { margin-top: .35rem; font-size: .95rem; color: #4b5563; }
+.fts-lead { margin-top: .25rem; font-size: .9rem; color: #4b5563; }
 #paper-search {
   --pagefind-ui-scale: .85;
   --pagefind-ui-primary: #2563eb;
@@ -18,4 +19,4 @@
 #paper-search .pagefind-ui__result-link { color: #1d4ed8; }
 #paper-search .pagefind-ui__result-title { font-weight: 600; }
 #paper-search mark { background: #fef08a; color: inherit; border-radius: 2px; }
-@media (max-width: 640px) { .fts-card { padding: 1rem; } }
+@media (max-width: 640px) { .pub-tools { padding: 1rem; } }

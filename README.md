@@ -15,7 +15,7 @@ Publication cards now point to static SEO-friendly pages generated under `public
 The pages no longer load the Tailwind CDN script. They use two pre-built files:
 
 - `css/tailwind.css`: the lab theme (blue `primary`, rose `secondary`, rounder corners). Used by every page that loads `js/main.js`, and by `404.html`.
-- `css/tailwind-default.css`: Tailwind's default theme. Used by `sock.html` and `project.html`, which never loaded the lab theme.
+- `css/tailwind-default.css`: Tailwind's default theme. Used by `sock.html`, which never loaded the lab theme.
 
 After adding or changing Tailwind classes in any page, script or data file, rebuild both files (needs Node.js):
 
@@ -54,9 +54,29 @@ What else the pages do:
 - **Full-text search.** The Publications page has a search box over the full text of every paper ([Pagefind](https://pagefind.app); the index is in `pagefind/`). A result opens the paper at the matching section with the words highlighted. `python tools/build_papers.py` rebuilds the index when Pagefind is installed (`npm install` once); otherwise run `npm run build:search` after it. Each paper page also has a small "Search all our papers" box.
 - **Reference previews.** Hovering over (or tapping) a citation, numbered or author-year, shows the reference (`js/paper-page.js`).
 - **Videos.** A video in `data/videos.json` whose `paper.title` matches the paper's title is shown under the abstract.
+- **Research project.** A paper listed in a project's `papers` in `data/projects-info.json` links to that project's page under "Related research".
 - **Search engines and AI tools.** `sitemap.xml` lists every paper page with its figures, and `llms.txt` lists every paper with authors, journal, DOI, a short summary and a link to its full text as Markdown (`paper.md`).
 
 The site has a `.nojekyll` file so that GitHub Pages publishes the files as they are. Keep it: without it GitHub runs Jekyll, which tries to render every `paper.md` and fails.
+
+## Project pages
+
+Every research project has its own page at `projects/<slug>/` (plain HTML, so search engines read it in full). A page has an overview, methods and outcomes, selected findings from the latest papers, all the project's papers by year (with a filter box and a papers-per-year chart, each linked to its paper page), the team (current members, past members, collaborators and frequent co-authors), a timeline, videos, media coverage, tools and related projects. The project list on `projects.html` is made from the same data. `project.html` only forwards old `project.html?pagename=<slug>` links to the new pages.
+
+Everything comes from `data/projects-info.json`:
+
+- the text: `title`, `subtitle`, `summary`, `description`, `methods`, `outcomes`, `timeline`, `tags`, `category`, `status` (`ongoing` or `completed`), `period`, `image`;
+- `papers`: the paper-page folders in `publications/` that belong to the project (a paper can be in more than one project). `papers_label` and `papers_note` change the heading, for example "Related publications" for earlier papers a project builds on;
+- `team`: lab members by name, as in `data/lab.json` (photo, title, dates and current/past status come from there; `focus` is their part in this project), and collaborators with `"role": "Collaborator"`, an `avatar` and `links`;
+- `videos` (YouTube ids from `data/videos.json`), `media` (links from `data/media.json`) and `tools` (page names, from `data/tools.json` or the page itself).
+
+After changing any of these (or `data/lab.json`, or after adding papers), run:
+
+```
+python tools/build_projects.py
+```
+
+It writes `projects/<slug>/index.html` and a social image `projects/<slug>/share.jpg`, and updates the project list on `projects.html`, `sitemap.xml` and `llms.txt`. Run it after `python tools/build_papers.py` when both changed.
 
 ## Images
 
