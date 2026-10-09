@@ -2,7 +2,7 @@
   const JSON_URL = 'data/academic-publications.json';
   const GENERATED_BASE_DIR = 'publications';
   const PAGE_SIZE = 24;
-  const PDF_BASE_URL = 'http://teddylazebnik.com/files/';
+  const PDF_BASE_URL = 'https://teddylazebnik.com/files/';
 
   let allPublications = [];
   let visiblePublications = [];

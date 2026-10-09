@@ -5,7 +5,6 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>The Secret Life of Orphan Socks | Applied Computational Mathematics Laboratory</title>
       <meta content="A playful ACML research page about orphan socks, mismatch penalties, replacement decisions, and sustainability through mathematical modeling." name="description"/>
-      <meta content="keywords" content="lazebnik, ×œ×–× ×‘× ×™×§, teddy lazebnik, applied computational mathematics, academic lab" />
       <meta content="Teddy Lazebnik" name="author"/>
       <link rel="canonical" href="https://acml.teddylazebnik.com/sock.html"/>
       <meta property="og:type" content="website"/>
@@ -13,11 +12,11 @@
       <meta property="og:title" content="The Secret Life of Orphan Socks | Applied Computational Mathematics Laboratory"/>
       <meta property="og:description" content="A playful ACML research page about orphan socks, mismatch penalties, replacement decisions, and sustainability through mathematical modeling."/>
       <meta property="og:url" content="https://acml.teddylazebnik.com/sock.html"/>
-      <meta property="og:image" content="https://acml.teddylazebnik.com/assets/infographic.png"/>
+      <meta property="og:image" content="https://acml.teddylazebnik.com/assets/infographic-share.jpg"/>
       <meta name="twitter:card" content="summary_large_image"/>
       <meta name="twitter:title" content="The Secret Life of Orphan Socks | Applied Computational Mathematics Laboratory"/>
       <meta name="twitter:description" content="A playful ACML research page about orphan socks, mismatch penalties, replacement decisions, and sustainability through mathematical modeling."/>
-      <meta name="twitter:image" content="https://acml.teddylazebnik.com/assets/infographic.png"/>
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/assets/infographic-share.jpg"/>
       <link href="img/favicon.ico" rel="icon" type="image/x-icon"/>
       <script type="application/ld+json">
         {
@@ -29,18 +28,19 @@
           "about": {
             "@type": "Organization",
             "name": "Applied Computational Mathematics Laboratory",
-            "url": "https://acml.teddylazebnik.com/index.html"
+            "url": "https://acml.teddylazebnik.com/"
           }
         }
       </script>
-      <script src="https://cdn.tailwindcss.com/3.4.16"></script>
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
 	  <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
 	  <link href="css/styles.css" rel="stylesheet">
+	  <link href="css/videos.css" rel="stylesheet">
 	  <link href="css/sock.css" rel="stylesheet">
+	  <link href="css/tailwind-default.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50 font-['Inter']">
 
@@ -49,7 +49,7 @@
     <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
       <!-- Logo -->
       <div class="flex items-center gap-2">
-        <a href="index.html" aria-label="ACML Home">
+        <a href="/" aria-label="ACML Home">
           <img src="img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px">
         </a>
       </div>
@@ -57,7 +57,7 @@
       <!-- Desktop Menu -->
       <div class="hidden md:flex items-center">
         <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
-          <a href="index.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
           <a href="team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
           <a href="projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
           <a href="publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
@@ -73,7 +73,7 @@
 
     <!-- Mobile Menu (animated) -->
     <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
-      <a href="index.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
       <a href="team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
       <a href="projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
       <a href="publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
@@ -102,6 +102,10 @@
           </p>
 
           <div class="flex flex-wrap gap-4">
+            <a href="#video" class="bg-white text-gray-900 px-8 py-4 !rounded-button font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 whitespace-nowrap flex items-center group">
+              Watch the video
+              <i class="ri-play-circle-line ml-2 transform transition-transform group-hover:translate-x-1"></i>
+            </a>
       <a href="https://arxiv.org/pdf/2602.18221" target="_blank" rel="noreferrer"  class="bg-transparent border-2 border-white text-white px-8 py-4 !rounded-button font-semibold hover:bg-white/10 transition-all duration-300 transform hover:scale-105 whitespace-nowrap flex items-center group">
               Read the paper
               <i class="ri-file-text-line ml-2 transform transition-transform group-hover:translate-x-1"></i>
@@ -115,10 +119,10 @@
             </div>
             <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-5 border border-white/15">
               <p class="text-3xl font-bold">~14.7</p>
-              <p class="text-sm text-gray-200">Sockless days (Thresholdâ€‘Mix)</p>
+              <p class="text-sm text-gray-200">Sockless days (Threshold‑Mix)</p>
             </div>
             <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-5 border border-white/15">
-              <p class="text-3xl font-bold">66â€“74</p>
+              <p class="text-3xl font-bold">66–74</p>
               <p class="text-sm text-gray-200">Days of feasibility gained vs strict matching</p>
             </div>
           </div>
@@ -126,7 +130,7 @@
 
         <div class="reveal">
           <div class="relative bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/15">
-            <img src="assets/infographic.png" alt="Infographic explaining orphan socks, mismatch penalties, and sustainable replacement decisions" class="w-full h-full object-cover rounded-xl" loading="lazy">
+            <img src="assets/infographic.webp" alt="Infographic explaining orphan socks, mismatch penalties, and sustainable replacement decisions" class="w-full h-full object-cover rounded-xl" loading="lazy">
           </div>
         </div>
 
@@ -134,6 +138,26 @@
     </div>
 
     <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-gray-50 to-transparent"></div>
+  </section>
+
+  <!-- VIDEO EXPLAINER -->
+  <section id="video" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 reveal">
+        <h2 class="text-4xl font-bold text-gray-900 mb-6">Watch the video</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Should you wear mismatched socks? In under five minutes, Lefty the orphan sock and our narrator walk through the model, the user study and the simulations.
+        </p>
+      </div>
+      <div class="max-w-5xl mx-auto reveal">
+        <div class="yt-player yt-16x9 sock-video-player" data-yt-id="3EW1GyUG20g" data-yt-title="Mismatched Socks, Explained by Math (and One Very Lonely Sock)">
+          <a class="yt-play" href="https://www.youtube.com/watch?v=3EW1GyUG20g" aria-label="Play video: Mismatched Socks, Explained by Math (and One Very Lonely Sock)">
+            <img src="https://i.ytimg.com/vi/3EW1GyUG20g/maxresdefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/3EW1GyUG20g/sddefault.jpg https://i.ytimg.com/vi/3EW1GyUG20g/hqdefault.jpg" alt="" loading="lazy" decoding="async">
+            <span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span>
+          </a>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- THE SCALE + SOCIAL PRICE -->
@@ -154,12 +178,12 @@
               <div class="w-12 h-12 flex items-center justify-center bg-primary text-white rounded-full">
                 <i class="ri-coins-line text-2xl"></i>
               </div>
-              <h3 class="text-2xl font-semibold">The scale of the â€œorphanâ€ problem</h3>
+              <h3 class="text-2xl font-semibold">The scale of the “orphan” problem</h3>
             </div>
             <ul class="space-y-4 text-gray-700 leading-relaxed">
               <li><b>Market scale:</b> ~14.66B USD global market (2024), with ~3.8B pairs sold worldwide.</li>
-              <li><b>â€œLaundry gremlinâ€ effect:</b> on average, a consumer loses ~1.3 socks per month â€” adding up to a meaningful lifetime cost.</li>
-              <li><b>Stranded wearâ€‘capacity:</b> the unused remaining life of an â€œorphanâ€ sock that becomes unwearable because its partner is missing.</li>
+              <li><b>“Laundry gremlin” effect:</b> on average, a consumer loses ~1.3 socks per month — adding up to a meaningful lifetime cost.</li>
+              <li><b>Stranded wear‑capacity:</b> the unused remaining life of an “orphan” sock that becomes unwearable because its partner is missing.</li>
             </ul>
           </div>
         </div>
@@ -173,21 +197,21 @@
               <h3 class="text-2xl font-semibold">The social price of mismatching</h3>
             </div>
             <p class="text-gray-700 leading-relaxed">
-              Mismatched socks can be judged as a â€œnorm violationâ€. If it looks accidental, observers may interpret it as incompetence.
-              If it looks intentional, it can signal confidence and autonomy (the â€œRed Sneakers effectâ€).
+              Mismatched socks can be judged as a “norm violation”. If it looks accidental, observers may interpret it as incompetence.
+              If it looks intentional, it can signal confidence and autonomy (the “Red Sneakers effect”).
             </p>
             <div class="mt-5 grid sm:grid-cols-2 gap-4">
               <div class="p-4 bg-gray-50 rounded-xl border border-gray-200">
                 <p class="font-semibold">Accidental mismatch</p>
-                <p class="text-sm text-gray-600 mt-1">Often perceived as a mistake â†’ higher social penalty.</p>
+                <p class="text-sm text-gray-600 mt-1">Often perceived as a mistake → higher social penalty.</p>
               </div>
               <div class="p-4 bg-gray-50 rounded-xl border border-gray-200">
                 <p class="font-semibold">Intentional mismatch</p>
-                <p class="text-sm text-gray-600 mt-1">Perceived as deliberate â†’ can feel stylish/powerful.</p>
+                <p class="text-sm text-gray-600 mt-1">Perceived as deliberate → can feel stylish/powerful.</p>
               </div>
             </div>
             <p class="text-sm text-gray-600 mt-4">
-              Key idea: <b>intentionality is the hinge</b>. The model captures this via exposure + a personâ€‘specific mismatch penalty.
+              Key idea: <b>intentionality is the hinge</b>. The model captures this via exposure + a person‑specific mismatch penalty.
             </p>
           </div>
         </div>
@@ -201,7 +225,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16 reveal">
         <h2 class="text-4xl font-bold text-gray-900 mb-6">Strategies for your sock drawer</h2>
-        <p class="text-xl text-gray-600">Three interpretable strategies (and the tradeâ€‘offs they reveal)</p>
+        <p class="text-xl text-gray-600">Three interpretable strategies (and the trade‑offs they reveal)</p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8">
@@ -222,10 +246,10 @@
         <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300 reveal">
           <div class="p-6">
             <div class="flex items-center justify-between">
-              <h3 class="text-xl font-semibold">Thresholdâ€‘Mix</h3>
+              <h3 class="text-xl font-semibold">Threshold‑Mix</h3>
               <i class="ri-magic-line text-2xl text-primary"></i>
             </div>
-            <p class="text-gray-600 mt-3">Wear socks that are â€œclose enoughâ€ in style or color. Maintains low social cost while staying covered.</p>
+            <p class="text-gray-600 mt-3">Wear socks that are “close enough” in style or color. Maintains low social cost while staying covered.</p>
             <div class="mt-5 grid grid-cols-2 gap-4">
               <div>
                 <p class="text-sm text-gray-500">Sockless days</p>
@@ -242,10 +266,10 @@
         <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300 reveal">
           <div class="p-6">
             <div class="flex items-center justify-between">
-              <h3 class="text-xl font-semibold">Orphanâ€‘Rescue</h3>
+              <h3 class="text-xl font-semibold">Orphan‑Rescue</h3>
               <i class="ri-recycle-line text-2xl text-emerald-600"></i>
             </div>
-            <p class="text-gray-600 mt-3">Pair up the â€œloneliestâ€ socks first. Most ecological â€” but can be socially costly if mismatch reads as accidental.</p>
+            <p class="text-gray-600 mt-3">Pair up the “loneliest” socks first. Most ecological — but can be socially costly if mismatch reads as accidental.</p>
             <div class="mt-5 grid grid-cols-2 gap-4">
               <div>
                 <p class="text-sm text-gray-500">Sockless days</p>
@@ -267,7 +291,7 @@
             <p class="text-gray-700 mt-2 leading-relaxed">
               Permissive pairing strategies delay sock inventory breakdown caused by laundering loss and wear.
               In the reference scenario, allowing controlled mismatch yields roughly a <b>75% reduction in sockless days</b>
-              compared to strict matching â€” and reduces waste by using the remaining life of orphan socks.
+              compared to strict matching — and reduces waste by using the remaining life of orphan socks.
             </p>
           </div>
         </div>
@@ -322,10 +346,10 @@
   <section id="calculator" class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16 reveal">
-        <h2 class="text-4xl font-bold text-gray-900 mb-6">Sockâ€‘drawer calculator</h2>
+        <h2 class="text-4xl font-bold text-gray-900 mb-6">Sock‑drawer calculator</h2>
         <p class="text-xl text-gray-600 max-w-3xl mx-auto">
           Build your drawer, choose a policy, and see which pair the model recommends today.
-          This is a friendly approximation: we compute a compatibility score (Î¾) from color/pattern/length and apply the policy logic.
+          This is a friendly approximation: we compute a compatibility score (ξ) from color/pattern/length and apply the policy logic.
         </p>
       </div>
 
@@ -363,7 +387,7 @@
                   <select id="sockLength" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
                     <option value="ankle">Ankle</option>
                     <option value="crew" selected>Crew</option>
-                    <option value="knee">Kneeâ€‘high</option>
+                    <option value="knee">Knee‑high</option>
                   </select>
                 </div>
 
@@ -386,11 +410,11 @@
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-2">Policy</label>
                 <select id="policy" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
-                  <option value="threshold_mix" selected>Thresholdâ€‘Mix (sweet spot)</option>
-                  <option value="exposure_greedy">Exposureâ€‘Aware Greedy</option>
+                  <option value="threshold_mix" selected>Threshold‑Mix (sweet spot)</option>
+                  <option value="exposure_greedy">Exposure‑Aware Greedy</option>
                   <option value="greedy">Greedy (compatibility only)</option>
                   <option value="purist">Purist (strict)</option>
-                  <option value="orphan_rescue">Orphanâ€‘Rescue</option>
+                  <option value="orphan_rescue">Orphan‑Rescue</option>
                 </select>
                 <p id="policyHint" class="text-sm text-gray-600 mt-2"></p>
               </div>
@@ -407,40 +431,40 @@
 
                 <div class="p-4 bg-gray-50 rounded-xl border border-gray-200">
                   <div class="flex items-center justify-between gap-3">
-                    <label class="text-sm font-medium text-gray-700">Mismatch sensitivity Ï‡</label>
+                    <label class="text-sm font-medium text-gray-700">Mismatch sensitivity χ</label>
                     <input id="chiN" type="number" min="0" max="10" step="0.1" value="2.4" class="w-24 px-3 py-2 border border-gray-300 rounded-lg text-sm font-semibold">
                   </div>
                   <input id="chi" type="range" min="0" max="10" step="0.1" value="2.4" class="mt-2 w-full">
-                  <p class="text-xs text-gray-500 mt-2">How â€œcostlyâ€ is a mismatch for you?</p>
+                  <p class="text-xs text-gray-500 mt-2">How “costly” is a mismatch for you?</p>
                 </div>
               </div>
 
               <div id="tauWrap" class="p-4 bg-gray-50 rounded-xl border border-gray-200">
                 <div class="flex items-center justify-between gap-3">
-                  <label class="text-sm font-medium text-gray-700">Threshold Ï„ (closeâ€‘enough cutoff)</label>
+                  <label class="text-sm font-medium text-gray-700">Threshold τ (close‑enough cutoff)</label>
                   <input id="tauN" type="number" min="0" max="1" step="0.01" value="0.35" class="w-24 px-3 py-2 border border-gray-300 rounded-lg text-sm font-semibold">
                 </div>
                 <input id="tau" type="range" min="0" max="1" step="0.01" value="0.35" class="mt-2 w-full">
-                <p class="text-xs text-gray-500 mt-2">Lower Ï„ â†’ stricter matching. Higher Ï„ â†’ more permissive.</p>
+                <p class="text-xs text-gray-500 mt-2">Lower τ → stricter matching. Higher τ → more permissive.</p>
               </div>
 
               <div id="gWrap" class="p-4 bg-gray-50 rounded-xl border border-gray-200" style="display:none;">
-                <label class="block text-sm font-medium text-gray-700 mb-2">Penalty shape g(Î·)</label>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Penalty shape g(η)</label>
                 <select id="gShape" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
-                  <option value="linear" selected>Linear: g(Î·)=Î·</option>
-                  <option value="quad">Quadratic: g(Î·)=Î·Â²</option>
-                  <option value="thresh">Threshold: g(Î·)=1[Î·â‰¥Ï„]</option>
+                  <option value="linear" selected>Linear: g(η)=η</option>
+                  <option value="quad">Quadratic: g(η)=η²</option>
+                  <option value="thresh">Threshold: g(η)=1[η≥τ]</option>
                 </select>
-                <p class="text-xs text-gray-500 mt-2">Used only by Exposureâ€‘Aware Greedy.</p>
+                <p class="text-xs text-gray-500 mt-2">Used only by Exposure‑Aware Greedy.</p>
               </div>
 
               <div id="rescueTauWrap" class="p-4 bg-gray-50 rounded-xl border border-gray-200" style="display:none;">
                 <div class="flex items-center justify-between gap-3">
-                  <label class="text-sm font-medium text-gray-700">Rescue closeness Ï„áµ£</label>
+                  <label class="text-sm font-medium text-gray-700">Rescue closeness τᵣ</label>
                   <input id="rescueTauN" type="number" min="0" max="1" step="0.01" value="0.35" class="w-24 px-3 py-2 border border-gray-300 rounded-lg text-sm font-semibold">
                 </div>
                 <input id="rescueTau" type="range" min="0" max="1" step="0.01" value="0.35" class="mt-2 w-full">
-                <p class="text-xs text-gray-500 mt-2">Defines what counts as a â€œclose matchâ€ when measuring loneliness.</p>
+                <p class="text-xs text-gray-500 mt-2">Defines what counts as a “close match” when measuring loneliness.</p>
               </div>
 
               <div class="flex flex-wrap gap-3">
@@ -471,7 +495,7 @@
 
       <div class="carousel reveal">
         <button id="slidesPrev" class="carousel-btn prev" type="button" aria-label="Previous slide"><i class="ri-arrow-left-s-line text-2xl"></i></button>
-        <div id="slidesTrack" class="carousel-track" data-count="15" data-src-template="assets/deck_{NN}.png"></div>
+        <div id="slidesTrack" class="carousel-track" data-count="15" data-src-template="assets/deck_{NN}.webp"></div>
         <button id="slidesNext" class="carousel-btn next" type="button" aria-label="Next slide"><i class="ri-arrow-right-s-line text-2xl"></i></button>
       </div>
       <div id="slidesDots" class="carousel-dots reveal" aria-label="Slide navigation"></div>
@@ -483,7 +507,7 @@
   <footer class="bg-gray-900 text-white py-12 mt-20">
     <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
       <div>
-      <img src="img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+      <img loading="lazy" decoding="async" src="img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
         <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
       </div>
       <div>
@@ -498,9 +522,10 @@
         <ul class="space-y-2 text-gray-400">
           <li><a href="publications.html" class="hover:text-white">Publications</a></li>
           <li><a href="tools.html" class="hover:text-white">Tools</a></li>
+          <li><a href="videos.html" class="hover:text-white">Videos</a></li>
                   <li><a href="mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
-                  <li><a href="http://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
-          <li><a href="http://rl.teddylazebnik.com/">Pirate War RL Game</a></li>
+                  <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
+          <li><a href="https://rl.teddylazebnik.com/">Pirate War RL Game</a></li>
         </ul>
       </div>
       <div>
@@ -526,6 +551,7 @@
   </div>
 
   <script src="js/sock.js"></script>
+  <script src="js/videos.js"></script>
 </body>
 </html>
 

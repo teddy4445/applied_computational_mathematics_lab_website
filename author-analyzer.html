@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Scholar Disruptiveness Analyzer | Applied Computational Mathematics Laboratory</title>
   <meta content="Analyze an OpenAlex researcher profile to inspect disruptiveness scores, publication patterns, and portfolio-level scientometrics." name="description"/>
-  <meta content="keywords" content="lazebnik, ×œ×–× ×‘× ×™×§, teddy lazebnik, applied computational mathematics, academic lab" />
   <meta content="Teddy Lazebnik" name="author"/>
   <link rel="canonical" href="https://acml.teddylazebnik.com/author-analyzer.html"/>
   <meta property="og:type" content="website"/>
@@ -31,11 +30,10 @@
       "publisher": {
         "@type": "Organization",
         "name": "Applied Computational Mathematics Laboratory",
-        "url": "https://acml.teddylazebnik.com/index.html"
+        "url": "https://acml.teddylazebnik.com/"
       }
     }
   </script>
-  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -45,6 +43,7 @@
 
   <!-- Charts -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <link href="css/tailwind.css" rel="stylesheet">
 </head>
 
 <body class="bg-gray-50 font-['Inter']">
@@ -63,7 +62,7 @@
         <div class="hidden md:flex items-center">
           <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
             <a
-              href="index.html"
+              href="/"
               class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm"
               >Home</a
             >
@@ -81,7 +80,7 @@
           <a href="tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
           </div>
           <a
-            href="index.html#contact"
+            href="/#contact"
             class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm"
             >Contact Us</a
           >
@@ -101,13 +100,13 @@
         id="mobile-menu"
         class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out"
       >
-        <a href="index.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+        <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
         <a href="team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
         <a href="projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
         <a href="publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
       <a href="tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
         <a
-          href="index.html#contact"
+          href="/#contact"
           class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90"
           >Contact Us</a
         >
@@ -167,7 +166,7 @@
                   </span>
                 </div>
                 <div id="authorPanel" class="text-gray-700">
-                  <div class="text-sm text-gray-500">Waiting for inputâ€¦</div>
+                  <div class="text-sm text-gray-500">Waiting for input…</div>
                 </div>
               </div>
               
@@ -188,12 +187,12 @@
               <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm" style="margin-bottom: 20px;">
                 <h2 class="text-xl font-semibold text-gray-900 mb-4">D-index scores stats</h2>
                 <div id="statsPanel" class="grid grid-cols-2 xl:grid-col-1 lg:grid-cols-6 xs:grid-cols-2 sm:grid-cols-3 gap-4 text-sm text-gray-700">
-                  <div class="stat-tile"><div class="stat-k">N papers</div><div class="stat-v" id="statN">â€”</div></div>
-                  <div class="stat-tile"><div class="stat-k">Mean</div><div class="stat-v" id="statMean">â€”</div></div>
-                  <div class="stat-tile"><div class="stat-k">Std</div><div class="stat-v" id="statStd">â€”</div></div>
-                  <div class="stat-tile"><div class="stat-k">Median</div><div class="stat-v" id="statMedian">â€”</div></div>
-                  <div class="stat-tile"><div class="stat-k">Max</div><div class="stat-v" id="statMax">â€”</div></div>
-                  <div class="stat-tile"><div class="stat-k">Min</div><div class="stat-v" id="statMin">â€”</div></div>
+                  <div class="stat-tile"><div class="stat-k">N papers</div><div class="stat-v" id="statN">—</div></div>
+                  <div class="stat-tile"><div class="stat-k">Mean</div><div class="stat-v" id="statMean">—</div></div>
+                  <div class="stat-tile"><div class="stat-k">Std</div><div class="stat-v" id="statStd">—</div></div>
+                  <div class="stat-tile"><div class="stat-k">Median</div><div class="stat-v" id="statMedian">—</div></div>
+                  <div class="stat-tile"><div class="stat-k">Max</div><div class="stat-v" id="statMax">—</div></div>
+                  <div class="stat-tile"><div class="stat-k">Min</div><div class="stat-v" id="statMin">—</div></div>
                 </div>
               </div>
             </div>
@@ -232,8 +231,8 @@
         <div class="md:col-span-3 rounded-xl bg-gray-50 border border-gray-100 p-4">
           <div class="text-sm text-gray-500">
             Linear regression:
-            <div class="mt-1 font-semibold text-gray-900" id="regEquationAuthors">y = â€”</div>
-            <div class="text-sm text-gray-700" id="regR2Authors">(RÂ² = â€”)</div>
+            <div class="mt-1 font-semibold text-gray-900" id="regEquationAuthors">y = —</div>
+            <div class="text-sm text-gray-700" id="regR2Authors">(R² = —)</div>
           </div>
         </div>
       </div>
@@ -252,8 +251,8 @@
         <div class="md:col-span-3 rounded-xl bg-gray-50 border border-gray-100 p-4">
           <div class="text-sm text-gray-500">
             Linear regression:
-            <div class="mt-1 font-semibold text-gray-900" id="regEquation">y = â€”</div>
-            <div class="text-sm text-gray-700" id="regR2">(RÂ² = â€”)</div>
+            <div class="mt-1 font-semibold text-gray-900" id="regEquation">y = —</div>
+            <div class="text-sm text-gray-700" id="regR2">(R² = —)</div>
           </div>
         </div>
       </div>
@@ -279,7 +278,7 @@
                     id="tableSearch"
                     type="text"
                     class="pl-10 pr-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary/30"
-                    placeholder="Search titlesâ€¦"
+                    placeholder="Search titles…"
                   />
                 </div>
 
@@ -304,7 +303,7 @@
                 </thead>
                 <tbody id="worksTbody" class="divide-y divide-gray-100">
                   <tr>
-                    <td class="px-6 py-5 text-gray-500" colspan="4">No data yet â€” run an analysis above.</td>
+                    <td class="px-6 py-5 text-gray-500" colspan="4">No data yet — run an analysis above.</td>
                   </tr>
                 </tbody>
               </table>
@@ -329,12 +328,12 @@
 
   <p class="text-gray-700 leading-relaxed">
     For each focal paper, we look at papers that cite it (its <span class="font-semibold">citers</span>) and compare their reference lists
-    to the focal paperâ€™s own references. The counts below summarize how the focal paper is cited, and together form the D-index score.
+    to the focal paper’s own references. The counts below summarize how the focal paper is cited, and together form the D-index score.
   </p>
 
   <div class="mt-5 rounded-xl bg-gray-50 border border-gray-100 p-4">
     <div class="text-xs text-gray-500 mb-1">Formula</div>
-    <div class="font-mono text-sm text-gray-900">D = (nf âˆ’ nb) / (nf + nb + nl)</div>
+    <div class="font-mono text-sm text-gray-900">D = (nf − nb) / (nf + nb + nl)</div>
     <div class="mt-2 text-xs text-gray-500">
       Note: this page computes <b>nf</b> and <b>nb</b> by fetching citers (with their referenced works), and can in this calcualtor we skip <b>nl</b> to stay fast in-browser.
     </div>
@@ -351,7 +350,7 @@
     <div class="rounded-xl bg-gray-50 border border-gray-100 p-4">
       <div class="text-gray-500 font-semibold">nb</div>
       <div class="mt-1 text-gray-900">
-        # citers that cite the <b>focal</b> paper <b>and</b> at least one of its references (co-citation / â€œbuilding onâ€)
+        # citers that cite the <b>focal</b> paper <b>and</b> at least one of its references (co-citation / “building on”)
       </div>
     </div>
 
@@ -378,7 +377,7 @@
           <div class="text-sm font-semibold text-gray-900 leading-snug">
             Molecular Structure of Nucleic Acids: A Structure for Deoxyribose Nucleic Acid
           </div>
-          <div class="mt-1 text-xs text-gray-500">1953 Â· 13,038 citations Â· 5 references</div>
+          <div class="mt-1 text-xs text-gray-500">1953 · 13,038 citations · 5 references</div>
         </div>
       </div>
 
@@ -399,7 +398,7 @@
 
       <div class="mt-4 flex items-end justify-between gap-3">
         <div class="text-[11px] text-gray-500 font-mono leading-snug">
-          D = (12863 âˆ’ 179) / (12863 + 179 + 226)
+          D = (12863 − 179) / (12863 + 179 + 226)
         </div>
         <div class="text-2xl font-bold text-gray-900">0.956</div>
       </div>
@@ -412,7 +411,7 @@
           <div class="text-sm font-semibold text-gray-900 leading-snug">
             Modular Elliptic Curves and Fermat&apos;s Last Theorem
           </div>
-          <div class="mt-1 text-xs text-gray-500">1995 Â· 2,048 citations Â· 17 references</div>
+          <div class="mt-1 text-xs text-gray-500">1995 · 2,048 citations · 17 references</div>
         </div>
       </div>
 
@@ -433,9 +432,9 @@
 
       <div class="mt-4 flex items-end justify-between gap-3">
         <div class="text-[11px] text-gray-500 font-mono leading-snug">
-          D = (952 âˆ’ 1098) / (952 + 1098 + 4659)
+          D = (952 − 1098) / (952 + 1098 + 4659)
         </div>
-        <div class="text-2xl font-bold text-gray-900">âˆ’0.022</div>
+        <div class="text-2xl font-bold text-gray-900">−0.022</div>
       </div>
     </div>
 
@@ -446,7 +445,7 @@
           <div class="text-sm font-semibold text-gray-900 leading-snug">
             The anatomy of a large-scale hypertextual Web search engine
           </div>
-          <div class="mt-1 text-xs text-gray-500">1998 Â· 15,836 citations Â· 22 references</div>
+          <div class="mt-1 text-xs text-gray-500">1998 · 15,836 citations · 22 references</div>
         </div>
       </div>
 
@@ -467,7 +466,7 @@
 
       <div class="mt-4 flex items-end justify-between gap-3">
         <div class="text-[11px] text-gray-500 font-mono leading-snug">
-          D = (12865 âˆ’ 2979) / (12865 + 2979 + 1850)
+          D = (12865 − 2979) / (12865 + 2979 + 1850)
         </div>
         <div class="text-2xl font-bold text-gray-900">0.559</div>
       </div>
@@ -488,7 +487,7 @@
     <footer class="bg-gray-900 text-white py-12 mt-20">
       <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
         <div>
-               <img src="img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px" />
+               <img loading="lazy" decoding="async" src="img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px" />
           <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
         </div>
         <div>
@@ -503,9 +502,10 @@
           <ul class="space-y-2 text-gray-400">
             <li><a href="publications.html" class="hover:text-white">Publications</a></li>
             <li><a href="tools.html" class="hover:text-white">Tools</a></li>
+            <li><a href="videos.html" class="hover:text-white">Videos</a></li>
                   <li><a href="mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
-                  <li><a href="http://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
-          <li><a href="http://rl.teddylazebnik.com/">Pirate War RL Game</a></li>
+                  <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
+          <li><a href="https://rl.teddylazebnik.com/">Pirate War RL Game</a></li>
           </ul>
         </div>
         <div>
@@ -520,7 +520,7 @@
         </div>
       </div>
       <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
-        Â© 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to
+        © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to
         <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
       </div>
     </footer>
@@ -528,8 +528,8 @@
     <!-- Loading Overlay -->
     <div id="loadingOverlay" class="loading-overlay hidden-author-analyzer" role="status" aria-live="polite" aria-busy="true">
       <div class="loading-card">
-        <div class="loading-emoji">ðŸ¤–ðŸ“š</div>
-        <div class="loading-title">Crunching papersâ€¦</div>
+        <div class="loading-emoji">🤖📚</div>
+        <div class="loading-title">Crunching papers…</div>
         <div id="loadingMessage" class="loading-sub">Summoning citations and sorting years.</div>
 
         <div class="loading-dots" aria-hidden="true">
@@ -539,7 +539,7 @@
         <div class="loading-progress">
           <div id="loadingBar" class="loading-bar" style="width: 10%"></div>
         </div>
-        <div id="loadingMeta" class="loading-meta">Startingâ€¦</div>
+        <div id="loadingMeta" class="loading-meta">Starting…</div>
 
         <button id="cancelBtn" class="loading-cancel">
           <i class="ri-close-circle-line"></i> Cancel

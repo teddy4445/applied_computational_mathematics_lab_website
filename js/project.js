@@ -86,7 +86,7 @@ function updateProjectSeo(project, slug) {
       "publisher": {
         "@type": "Organization",
         "name": "Applied Computational Mathematics Laboratory",
-        "url": `${SITE_URL}/index.html`
+        "url": `${SITE_URL}/`
       }
     }, null, 2);
   }
@@ -116,6 +116,7 @@ function teamRow(member) {
   const wrap = document.createElement("div");
   wrap.className = "flex items-center gap-3";
   const img = document.createElement("img");
+  img.loading = "lazy";
   img.src = member.avatar || "img/people/default.jpg";
   img.alt = member.name;
   img.className = "w-10 h-10 rounded-full object-cover";

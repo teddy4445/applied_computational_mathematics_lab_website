@@ -15,6 +15,8 @@ menuBtn.addEventListener("click", () => {
   }
 });
 
+// Styles now come from css/tailwind.css (built from tailwind.config.js). This only applies if the Tailwind CDN script is ever re-added.
+if (window.tailwind) {
 tailwind.config = {
 theme: {
 extend: {
@@ -33,6 +35,7 @@ DEFAULT: '8px',
 '3xl': '32px',
 'full': '9999px',
 'button': '8px'
+}
 }
 }
 }
@@ -650,7 +653,7 @@ window.addEventListener("scroll", () => {
     const linksHtml = links.length ? " · " + links.join(" · ") : "";
     return `
       <div class="flex items-center gap-3">
-        <img src="${p.avatar || "img/people/default.jpg"}" alt="${p.name}" class="w-10 h-10 rounded-full object-cover">
+        <img src="${p.avatar || "img/people/default.jpg"}" alt="${p.name}" class="w-10 h-10 rounded-full object-cover" loading="lazy" decoding="async">
         <div class="text-sm">
           <div class="font-medium">${p.name}${p.degree ? ", " + p.degree : ""}</div>
           <div class="text-gray-500">${p.role || ""}${linksHtml}</div>
@@ -661,7 +664,7 @@ window.addEventListener("scroll", () => {
   function projectCard(prj, i) {
     const imgCol = `
       <div class="lg:w-1/3">
-        <img src="${prj.image}" alt="${prj.title}" class="w-full h-48 object-cover object-top rounded-lg">
+        <img src="${prj.image}" alt="${prj.title}" class="w-full h-48 object-cover object-top rounded-lg" loading="lazy" decoding="async">
       </div>`;
     const textCol = `
       <div class="lg:w-2/3">
