@@ -1,0 +1,74 @@
+{
+  "title": "Knowledge integration for physics-informed symbolic regression using pre-trained large language models",
+  "pub_type": "Paper",
+  "short_title": "Knowledge integration for physics-informed SR using pre-trained LLMs",
+  "authors": [
+    {
+      "name": "Bilge Taskin",
+      "given": "Bilge",
+      "family": "Taskin"
+    },
+    {
+      "name": "Wenxiong Xie",
+      "given": "Wenxiong",
+      "family": "Xie"
+    },
+    {
+      "name": "Teddy Lazebnik",
+      "given": "Teddy",
+      "family": "Lazebnik"
+    }
+  ],
+  "affiliations": {
+    "1": "Department of Computing, Jonkoping University, Jonkoping, Sweden.",
+    "2": "Department of Information Science, University of Haifa, Haifa, Israel. *email: lazebnik.teddy@gmail.com"
+  },
+  "journal": "Scientific Reports",
+  "year": 2026,
+  "volume": "16",
+  "issue": "",
+  "pages": "1614",
+  "doi": "10.1038/s41598-026-35327-6",
+  "published": "",
+  "received": "",
+  "accepted": "",
+  "abstract": "Symbolic regression (SR) has emerged as a powerful tool for automated scientific discovery, enabling the derivation of governing equations from experimental data. A growing body of work illustrates the promise of integrating domain knowledge into the SR to improve the discovered equation’s generality and usefulness. Physics-informed SR (PiSR) addresses this by incorporating domain knowledge, but current methods often re- quire specialized formulations and manual feature engineering, limiting their adaptability only to domain experts. In this study, we leverage pre-trained Large Language Models (LLMs) to facilitate knowledge integration in PiSR. By harnessing the contextual understanding of LLMs trained on vast scientific literature, we aim to automate the incorporation of domain knowledge, reducing the need for manual intervention and making the process more accessible to a broader range of scientific problems. Namely, the LLM is integrated into the SR’s loss function, adding a term of the LLM’s evaluation of the SR’s produced equation. We extensively evaluate our method using three SR algorithms (DEAP, gplearn, and PySR) and three pre-trained LLMs (Falcon, Mistral, and LLama 2) across three physical dynamics (dropping ball, simple harmonic motion, and electromagnetic wave). The results demonstrate that LLM integration consistently improves the reconstruction of physical dynamics from data, enhancing the robustness of SR models to noise and complexity. We further explore the impact of prompt engineering, finding that more informative prompts significantly improve performance.",
+  "keywords": [],
+  "license": {
+    "url": "https://creativecommons.org/licenses/by/4.0/",
+    "name": "CC BY 4.0"
+  },
+  "funding": "",
+  "competing_interests": "",
+  "data_availability": "",
+  "editor": "",
+  "abbreviations": [],
+  "summary": "Physics-informed symbolic regression finds equations from data using domain knowledge, but current methods often need specialized formulations and manual feature engineering. We added a pre-trained large language model to the search's loss function, so that it scores each candidate equation using what it learned from scientific literature. Tested with three symbolic regression algorithms, three language models and three physical systems, this consistently improved reconstruction of the dynamics and made results more robust to noise and complexity.",
+  "key_findings": [
+    "A term reflecting the LLM's evaluation of each produced equation was added to the symbolic regression loss function.",
+    "The method was evaluated with three SR algorithms (DEAP, gplearn, PySR) and three LLMs (Falcon, Mistral, LLama 2).",
+    "LLM integration consistently improved reconstruction of a dropping ball, simple harmonic motion and an electromagnetic wave, with greater robustness to noise and complexity.",
+    "More informative prompts significantly improved performance."
+  ],
+  "key_numbers": [],
+  "featured_figure": "fig-1",
+  "related_project": "",
+  "pdf_url": "https://teddylazebnik.com/files/llm_sr.pdf",
+  "slug": "knowledge-integration-physics-informed-symbolic-regression-pre",
+  "lang": "en",
+  "reviewed": false,
+  "extracted": {
+    "with": "pymupdf4llm 1.28.2, PyMuPDF 1.28.2",
+    "on": "2026-10-09",
+    "from": "llm_sr.pdf",
+    "pages": 14,
+    "figures": 3,
+    "tables": 5,
+    "tables_as_images": 0,
+    "equations": 4,
+    "references": 124,
+    "reference_style": "num",
+    "coverage": 0.9996,
+    "check": []
+  }
+}

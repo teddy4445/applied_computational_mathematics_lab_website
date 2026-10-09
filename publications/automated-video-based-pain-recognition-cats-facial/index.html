@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_papers.py from paper.md + paper.json in this folder. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Automated Video-Based Pain Recognition in Cats using Facial Landmarks | ACML</title>
+      <meta name="description" content="Judging pain from animal faces by hand is subjective, labor-intensive and needs expertise, and earlier automated cat pain recognition relied on hand-picked…">
+      <meta name="author" content="George Martvel, Teddy Lazebnik, Marcelo Feighelstein, Lea Henze, Sebastian Meller, Ilan Shimshoni, Friederike Twele, Alexandra Schütter, Nora Foraita, Sabine Kästner, Lauren Finka, Stelio P. L. Luna, Daniel S. Mills, Holger A. Volk, Anna Zamansky">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/publications/automated-video-based-pain-recognition-cats-facial/">
+      <meta name="citation_title" content="Automated Video-Based Pain Recognition in Cats using Facial Landmarks">
+      <meta name="citation_author" content="George Martvel">
+      <meta name="citation_author" content="Teddy Lazebnik">
+      <meta name="citation_author" content="Marcelo Feighelstein">
+      <meta name="citation_author" content="Lea Henze">
+      <meta name="citation_author" content="Sebastian Meller">
+      <meta name="citation_author" content="Ilan Shimshoni">
+      <meta name="citation_author" content="Friederike Twele">
+      <meta name="citation_author" content="Alexandra Schütter">
+      <meta name="citation_author" content="Nora Foraita">
+      <meta name="citation_author" content="Sabine Kästner">
+      <meta name="citation_author" content="Lauren Finka">
+      <meta name="citation_author" content="Stelio P. L. Luna">
+      <meta name="citation_author" content="Daniel S. Mills">
+      <meta name="citation_author" content="Holger A. Volk">
+      <meta name="citation_author" content="Anna Zamansky">
+      <meta name="citation_publication_date" content="2024">
+      <meta name="citation_journal_title" content="Scientific Reports">
+      <meta name="citation_volume" content="14">
+      <meta name="citation_firstpage" content="28006">
+      <meta name="citation_doi" content="10.1038/s41598-024-78406-2">
+      <meta name="citation_pdf_url" content="https://teddylazebnik.com/files/cats_pain.pdf">
+      <meta name="citation_abstract_html_url" content="https://acml.teddylazebnik.com/publications/automated-video-based-pain-recognition-cats-facial/">
+      <meta name="citation_fulltext_html_url" content="https://acml.teddylazebnik.com/publications/automated-video-based-pain-recognition-cats-facial/">
+      <meta name="citation_language" content="en">
+      <meta property="og:type" content="article">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Automated Video-Based Pain Recognition in Cats using Facial Landmarks">
+      <meta property="og:description" content="Judging pain from animal faces by hand is subjective, labor-intensive and needs expertise, and earlier automated cat pain recognition relied on hand-picked…">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/publications/automated-video-based-pain-recognition-cats-facial/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/publications/automated-video-based-pain-recognition-cats-facial/figures/share-fig-1.jpg">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Automated Video-Based Pain Recognition in Cats using Facial Landmarks">
+      <meta name="twitter:description" content="Judging pain from animal faces by hand is subjective, labor-intensive and needs expertise, and earlier automated cat pain recognition relied on hand-picked…">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/publications/automated-video-based-pain-recognition-cats-facial/figures/share-fig-1.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "Automated Video-Based Pain Recognition in Cats using Facial Landmarks",
+  "name": "Automated Video-Based Pain Recognition in Cats using Facial Landmarks",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "George Martvel"
+    },
+    {
+      "@type": "Person",
+      "name": "Teddy Lazebnik"
+    },
+    {
+      "@type": "Person",
+      "name": "Marcelo Feighelstein"
+    },
+    {
+      "@type": "Person",
+      "name": "Lea Henze"
+    },
+    {
+      "@type": "Person",
+      "name": "Sebastian Meller"
+    },
+    {
+      "@type": "Person",
+      "name": "Ilan Shimshoni"
+    },
+    {
+      "@type": "Person",
+      "name": "Friederike Twele"
+    },
+    {
+      "@type": "Person",
+      "name": "Alexandra Schütter"
+    },
+    {
+      "@type": "Person",
+      "name": "Nora Foraita"
+    },
+    {
+      "@type": "Person",
+      "name": "Sabine Kästner"
+    },
+    {
+      "@type": "Person",
+      "name": "Lauren Finka"
+    },
+    {
+      "@type": "Person",
+      "name": "Stelio P. L. Luna"
+    },
+    {
+      "@type": "Person",
+      "name": "Daniel S. Mills"
+    },
+    {
+      "@type": "Person",
+      "name": "Holger A. Volk"
+    },
+    {
+      "@type": "Person",
+      "name": "Anna Zamansky"
+    }
+  ],
+  "datePublished": "2024",
+  "url": "https://acml.teddylazebnik.com/publications/automated-video-based-pain-recognition-cats-facial/",
+  "mainEntityOfPage": "https://acml.teddylazebnik.com/publications/automated-video-based-pain-recognition-cats-facial/",
+  "abstract": "Affective states are reflected in the facial expressions of all mammals. Facial behaviors linked to pain have attracted most of the attention so far in non-human animals, leading to the development of numerous instruments for evaluating pain through facial expressions for various animal species. Nevertheless, manual facial expression analysis is susceptible to subjectivity and bias, is labor-intensive and often necessitates specialized expertise and training. This challenge has spurred a growing body of research into automated pain recognition, which has been explored for multiple species, including cats. In our previous studies, we have presented and studied artificial intelligence (AI) pipelines for automated pain recognition in cats using 48 facial landmarks grounded in cats’ facial musculature, as well as an automated detector of these landmarks. However, so far automated recognition of pain in cats used solely static information obtained from hand-picked single images of good quality. This study takes a significant step forward in fully automated pain detection applications by presenting an end-to-end AI pipeline that requires no manual efforts in the selection of suitable images or their landmark annotation. By working with video rather than still images, this new pipeline approach also optimises the temporal dimension of visual information capture in a way that is not practical to preform manually. The presented pipeline reaches over 70% and 66% accuracy respectively in two different cat pain datasets, outperforming previous automated landmark-based approaches using single frames under similar conditions, indicating that dynamics matter in cat pain recognition. We further define metrics for measuring different dimensions of deficiencies in datasets with animal pain faces, and investigate their impact on the performance of the presented pain recognition AI pipeline.",
+  "description": "Judging pain from animal faces by hand is subjective, labor-intensive and needs expertise, and earlier automated cat pain recognition relied on hand-picked…",
+  "image": "https://acml.teddylazebnik.com/publications/automated-video-based-pain-recognition-cats-facial/figures/share-fig-1.jpg",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "DOI",
+    "value": "10.1038/s41598-024-78406-2"
+  },
+  "sameAs": "https://doi.org/10.1038/s41598-024-78406-2",
+  "isPartOf": {
+    "@type": "PublicationIssue",
+    "issueNumber": "",
+    "isPartOf": {
+      "@type": "PublicationVolume",
+      "volumeNumber": "14",
+      "isPartOf": {
+        "@type": "Periodical",
+        "name": "Scientific Reports"
+      }
+    }
+  },
+  "about": "AI",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "encoding": {
+    "@type": "MediaObject",
+    "contentUrl": "https://teddylazebnik.com/files/cats_pain.pdf",
+    "encodingFormat": "application/pdf"
+  }
+}
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/paper.css" rel="stylesheet">
+      
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="paper-page">
+    <header class="paper-hero">
+      <div class="paper-wrap">
+        <nav class="paper-crumbs" aria-label="Breadcrumb">
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>AI</span>
+        </nav>
+        <p class="paper-kicker"><span class="oa-badge"><i class="ri-lock-unlock-line" aria-hidden="true"></i>Open access</span><span><em>Scientific Reports</em> · 2024</span></p>
+        <h1 class="paper-title">Automated Video-Based Pain Recognition in Cats using Facial Landmarks</h1>
+        <p class="paper-authors"><span class="author">George Martvel</span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author">Marcelo Feighelstein</span>, <span class="author">Lea Henze</span>, <span class="author">Sebastian Meller</span>, <span class="author">Ilan Shimshoni</span>, <span class="author">Friederike Twele</span>, <span class="author">Alexandra Schütter</span>, <span class="author">Nora Foraita</span>, <span class="author">Sabine Kästner</span>, <span class="author">Lauren Finka</span>, <span class="author">Stelio P. L. Luna</span>, <span class="author">Daniel S. Mills</span>, <span class="author">Holger A. Volk</span>, <span class="author">Anna Zamansky</span></p>
+        <details class="paper-affils"><summary>Affiliations</summary><ol><li value="1">Information Systems Department, University of Haifa, Haifa, Israel.</li><li value="2">Department of Mathematics, Ariel University, Ariel, Israel.</li><li value="3">Department of Cancer Biology, Cancer Institute, University College London, London, UK.</li><li value="4">Department of Small Animal Medicine and Surgery, University of Veterinary Medicine Hannover, Hanover, Germany.</li><li value="5">Cats Protection, National Cat Centre, Chelwood Gate, Sussex, UK.</li><li value="6">School of Veterinary Medicine and Animal Science, São Paulo State University (Unesp), São Paulo, Brazil.</li><li value="7">School of Life &amp; Environmental Sciences, Joseph Bank Laboratories, University of Lincoln, Lincoln, UK. *email: annazam@is.haifa.ac.il</li></ol></details>
+        <div class="paper-actions">
+          <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/cats_pain.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
+          <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
+          
+          <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
+          <a class="paper-btn" href="https://doi.org/10.1038/s41598-024-78406-2" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
+          <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
+        </div>
+        <div class="lab-authors"><span class="lab-authors-label">ACML authors</span><a class="lab-chip" href="/team.html"><img src="/img/lab/teddy.webp" alt="" width="32" height="32" loading="lazy"><span><strong>Teddy Lazebnik</strong><small>PI</small></span></a></div>
+      </div>
+    </header>
+
+    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Judging pain from animal faces by hand is subjective, labor-intensive and needs expertise, and earlier automated cat pain recognition relied on hand-picked still images. Building on our earlier pipelines using 48 facial landmarks, we present an end-to-end AI pipeline that works on video and needs no manual image selection or landmark annotation. It reached over 70% and 66% accuracy on two cat pain datasets, outperforming single-frame landmark approaches, which suggests that dynamics matter.</p><div class=glance-stats><div class="stat"><span class="stat-value">70%</span><span class="stat-label">accuracy on one cat pain dataset</span></div><div class="stat"><span class="stat-value">66%</span><span class="stat-label">accuracy on the other cat pain dataset</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>The pipeline requires no manual selection of suitable images or landmark annotation, working directly from video.</li><li>It reached over 70% and 66% accuracy on two cat pain datasets, outperforming earlier single-frame landmark-based approaches under similar conditions.</li><li>We defined metrics for different deficiencies in datasets of animal pain faces and investigated their impact on the pipeline&#x27;s performance.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1669" height="567" alt="Fig. 1. Example images from the TiHo dataset."></a><figcaption><strong>Fig. 1</strong>. Example images from the TiHo dataset. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+
+    <div class="paper-wrap paper-layout">
+      <aside class="paper-aside">
+        <nav class="paper-toc" aria-label="On this page">
+          <p class="aside-title">On this page</p>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#methods">Methods</a></li><li class="toc-sub"><a href="#datasets">Datasets</a></li><li class="toc-sub"><a href="#the-ai-pipeline-overview">The AI pipeline overview</a></li><li class="toc-sub"><a href="#experiments">Experiments</a></li>
+<li><a href="#results">Results</a></li><li class="toc-sub"><a href="#dataset-quality-analysis">Dataset quality analysis</a></li><li class="toc-sub"><a href="#ai-pipeline-performance-in-pain-detection">AI pipeline performance in pain detection</a></li>
+<li><a href="#discussion">Discussion</a></li>
+<li><a href="#data-availability">Data availability</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </nav>
+        <div class="paper-info">
+          <p class="aside-title">Article information</p>
+          <dl><div><dt>Journal</dt><dd>Scientific Reports 14: 28006</dd></div><div><dt>Year</dt><dd>2024</dd></div><div><dt>DOI</dt><dd><a href="https://doi.org/10.1038/s41598-024-78406-2" target="_blank" rel="noopener">10.1038/s41598-024-78406-2</a></dd></div><div><dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="license noopener">CC BY-NC</a></dd></div></dl>
+        </div>
+      </aside>
+
+      <article class="paper-body" id="full-text">
+        <details class="paper-toc-mobile">
+          <summary>On this page</summary>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#methods">Methods</a></li><li class="toc-sub"><a href="#datasets">Datasets</a></li><li class="toc-sub"><a href="#the-ai-pipeline-overview">The AI pipeline overview</a></li><li class="toc-sub"><a href="#experiments">Experiments</a></li>
+<li><a href="#results">Results</a></li><li class="toc-sub"><a href="#dataset-quality-analysis">Dataset quality analysis</a></li><li class="toc-sub"><a href="#ai-pipeline-performance-in-pain-detection">AI pipeline performance in pain detection</a></li>
+<li><a href="#discussion">Discussion</a></li>
+<li><a href="#data-availability">Data availability</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </details>
+        <section id="abstract" class="paper-abstract">
+          <h2>Abstract</h2>
+          <p>Affective states are reflected in the facial expressions of all mammals. Facial behaviors linked to pain have attracted most of the attention so far in non-human animals, leading to the development of numerous instruments for evaluating pain through facial expressions for various animal species. Nevertheless, manual facial expression analysis is susceptible to subjectivity and bias, is labor-intensive and often necessitates specialized expertise and training. This challenge has spurred a growing body of research into automated pain recognition, which has been explored for multiple species, including cats. In our previous studies, we have presented and studied artificial intelligence (AI) pipelines for automated pain recognition in cats using 48 facial landmarks grounded in cats’ facial musculature, as well as an automated detector of these landmarks. However, so far automated recognition of pain in cats used solely static information obtained from hand-picked single images of good quality. This study takes a significant step forward in fully automated pain detection applications by presenting an end-to-end AI pipeline that requires no manual efforts in the selection of suitable images or their landmark annotation. By working with video rather than still images, this new pipeline approach also optimises the temporal dimension of visual information capture in a way that is not practical to preform manually. The presented pipeline reaches over 70% and 66% accuracy respectively in two different cat pain datasets, outperforming previous automated landmark-based approaches using single frames under similar conditions, indicating that dynamics matter in cat pain recognition. We further define metrics for measuring different dimensions of deficiencies in datasets with animal pain faces, and investigate their impact on the performance of the presented pain recognition AI pipeline.</p>
+        </section>
+        
+<div class="paper-text">
+<p>It is widely recognized that facial expressions play a crucial role in the recognition of emotional states<sup><a href="#ref-1">1</a>,<a href="#ref-2">2</a></sup>. In the context of humans, they serve as a primary nonverbal mechanism for regulating social interactions<sup><a href="#ref-3">3</a></sup>and the connection between facial expressions and emotional states has been widely investigated in psychology<sup><a href="#ref-4">4</a>,<a href="#ref-5">5</a></sup>. In the wider biological context, facial expressions are exhibited by all mammalian species<sup><a href="#ref-6">6</a></sup>, and, akin to humans, they are believed to convey information regarding emotional states<sup><a href="#ref-1">1</a>,<a href="#ref-2">2</a></sup>. Consequently, there is a growing interest in the study of facial expressions in the context of animal emotion and welfare studies<sup><a href="#ref-7">7</a>–<a href="#ref-10">10</a></sup>. Specifically, pain is a subjective experience that poses significant challenges in measurement. In the realm of human studies, self-reporting is considered one of the least intrusive and non-invasive methods for establishing ground truth in both pain<sup><a href="#ref-11">11</a></sup>and emotion research<sup><a href="#ref-12">12</a></sup>. However, these methods are not applicable to animals.</p>
+<p>Thus for assessing pain in animals, the most common approach involves behavior scoring by trained human experts<sup><a href="#ref-13">13</a></sup>. Various grimace scales, which are species-specific pain assessment tools focusing on changes in the facial features of animals, as well as behavioral instruments, have been developed and validated for all commonly domesticated species. The first grimace scales were developed for rodents and they are now available for many mammalian species<sup><a href="#ref-14">14</a></sup>, including rats<sup><a href="#ref-15">15</a></sup>, rabbits<sup><a href="#ref-16">16</a></sup>, horses<sup><a href="#ref-17">17</a></sup>, pigs<sup><a href="#ref-18">18</a></sup>, ferrets<sup><a href="#ref-19">19</a></sup>, sheep<sup><a href="#ref-20">20</a>,<a href="#ref-21">21</a></sup>and cats<sup><a href="#ref-22">22</a>,<a href="#ref-23">23</a></sup>.</p>
+<p>Pain assessment and management in cats pose significant challenges, making them one of the most demanding species in this regard. There is currently a lack of consensus over key behavioral pain indicators<sup><a href="#ref-24">24</a></sup>.</p>
+<p>Moreover, population level visual differences in cat facial features based on pain status are extremely subtle<sup><a href="#ref-25">25</a></sup>, and the difficulties humans face in accurately interpreting facial expressions in cats have been discussed in various contexts, which challenge expert-based labeling<sup><a href="#ref-26">26</a>–<a href="#ref-28">28</a></sup>. This phenomenon makes the detection of pain in cats challenging given that ground truth based on the subjective opinions of experts is a central instrument in pain detection studies. Reduced physiological tolerance and adverse effects to common veterinary analgesics<sup><a href="#ref-29">29</a></sup>, and a lack of strong consensus over key behavioral pain indicators<sup><a href="#ref-24">24</a></sup>pose additional challenges in accurately interpreting feline facial expressions<sup><a href="#ref-26">26</a></sup>, making cats a particularly challenging species in this context. Three different manual pain assessment scales have been developed and validated (in English) for domestic cats: the UNESP-Botucatu multidimensional composite pain scale (MCPS)<sup><a href="#ref-30">30</a></sup>, the feline Glasgow composite measure pain scale (CMPS-feline<sup><a href="#ref-31">31</a></sup>,) and the Feline Grimace Scale (FGS)<sup><a href="#ref-23">23</a></sup>. The latter was further used for a comparative study in which humans assigned FGS to cats during real-time observations and then subsequent FGS scoring of the same cats from still images were compared. It was shown that there was no significant difference between the scoring methods<sup><a href="#ref-32">32</a></sup>, indicating images can be a reliable medium from which to assess pain, compared to direct, real-time observations. Nonetheless, despite the established agreement between FGS scorers with different experiences and backgrounds<sup><a href="#ref-33">33</a></sup>, there are other less-investigated factors that could impact the trustworthiness and accuracy of such manual scoring techniques that hinge on human subjective assessments. This underscores the importance of creating more objective pain scoring and evaluation methods that minimize human bias.</p>
+<p>To this end, Finka et al<sup><a href="#ref-25">25</a></sup>. developed a scheme of 48 geometric facial landmarks to quantify facial shape changes associated with pain, which were specifically chosen for their relationship with underlying facial musculature and their relevance to cat-specific facial action units. The authors used a dataset of 29domestic short-haired female cats undergoing ovariohysterectomy. The images of the cats were manually annotated using these 48 landmarks by experts, and a significant relationship was found between pain-linked Principal Components related to facial shape variation underpinned by the 48 landmarks and the UNESP-Botucatu MCPS tool<sup><a href="#ref-30">30</a></sup>. The dataset created by Finka et al<sup><a href="#ref-25">25</a></sup>. formed the starting point for the exploration of automated detection of pain in cats<sup><a href="#ref-34">34</a></sup>, where two different approaches were compared: a manually annotated facial landmark-based approach (with landmark-based vectors used as features) and a deep learning based approach (where features were learnt from data). While both approaches reached a comparable accuracy of approximately 72% in pain recognition, a significant limitation was that the study population was highly homogenous, limited to young female cats of a single breed, and evaluated using only one type of postoperative pain condition. In a follow-up study, Feighelstein et al. have addressed this gap using another dataset with a more naturalistic or ‘noisy’ population (with variations in breed, sex, and painful conditions)<sup><a href="#ref-35">35</a></sup>. The dataset was collected at the Department of Small Animal Medicine and Surgery of the University of Veterinary Medicine Hannover and included individuals of different breeds, ages, sexes, and with varying medical conditions/medical histories. Cats were scored by veterinary experts using the feline Glasgow composite measure pain scale<sup><a href="#ref-31">31</a></sup>in combination with the well-documented and comprehensive clinical history of those patients. The obtained scoring was then used for training Artificial Intelligence (AI) models using two different approaches. The landmark-based approach performed better, reaching accuracy above 77% in pain detection, as opposed to only above 65% reached by the deep learning approach. Steagall et al<sup><a href="#ref-36">36</a></sup>. also applied another landmark scheme for pain assessment based on images of cat faces on a large and diverse dataset.</p>
+<p>Despite the relatively high accuracy of these methods, they have several significant limitations. First, only static rather than dynamic representations of facial shape variations can be captured, meaning important micro- and macro- facial expression changes may go undetected<sup><a href="#ref-37">37</a>,<a href="#ref-38">38</a></sup>. This is potentially problematic given that behavioural expressions of pain may have important dynamic and temporal dimensions<sup><a href="#ref-39">39</a></sup>. Moreover, manually extracting individual frames from videos is time and labour intensive and decision making over which frames are deemed suitable/unsuitable for extraction and annotation may be subject to various human bias. Manual image annotation also requires a degree of annotator training and expertise, is therefore resource intensive could also be prone to human annotator error. Consequently, Martvel et al. developed an automated detector for cat facial landmarks<sup><a href="#ref-40">40</a>,<a href="#ref-41">41</a></sup>. The model, based on convolutional neural networks and using a magnifying ensemble method, detects 48 cat facial landmarks with 2.91 normalized mean error (NME) on the CatFLW dataset<sup><a href="#ref-40">40</a></sup>. The above achievements create a yet unprecedented opportunity to explore the temporal dimensions of landmark-based approaches, moving from single frames to videos, where each individual frame can be automatically annotated. Such an approach does not require any manual labor-intensive efforts: neither in landmark annotation nor in the selection of “good” quality images, which were necessary for the AI models developed in<sup><a href="#ref-34">34</a>,<a href="#ref-35">35</a></sup>. The latter issue is particularly impractical for clinical applications of pain recognition models, analogous to apps like PainChek for humans<sup><a href="#ref-42">42</a>,<a href="#ref-43">43</a></sup>.</p>
+<p>The current study uses the cat pain datasets previously explored in<sup><a href="#ref-34">34</a>,<a href="#ref-35">35</a></sup>to investigate the problem of automated landmark-based cat pain recognition from videos. To this end we use previously obtained AI models for landmark detection<sup><a href="#ref-41">41</a></sup>and pain recognition in cats<sup><a href="#ref-34">34</a>,<a href="#ref-35">35</a></sup>, integrating them together into an end-to-end fully automated pipeline which gets raw video as input. The presented video-based AI pipeline reaches over 70% and 66% accuracy respectively in the two investigated datasets, outperforming previous landmark-based approaches using single frames under similar conditions, leading to the conclusion that dynamics matter in cat pain recognition.</p>
+<p>However, transitioning to video introduces a new set of challenges, including various forms of deficiencies that were not present when working with high-quality standalone images: the cat’s face may be occluded, the landmark automated detection may not be accurate, and the pain recognition model may not be sufficiently confident. Another contribution of this paper is a precise definition of metrics for measuring different dimensions of deficiencies in datasets with animal pain faces, and an investigation of their impact on the performance of the pain recognition model in the two used datasets.</p>
+<p>The rest of the paper is organized as follows. Section <em>Methods</em> initially describes the used datasets, followed by a formal introduction of the AI pipeline used for this study and the experimental design. Next, Section <em>Results</em> outlines the results obtained as part of this study. Finally, in Section <em>Discussion</em>, we analyze and discuss the results as well as propose possible future work directions.</p>
+<h2 id="methods">Methods</h2>
+<p>This section presents the three main components of constructing this study: the datasets, the AI pipeline, and the performed experiments. Datasets from previous research in the field of cat pain detection are utilized for this study. Afterward, we formally introduce the proposed AI pipeline used to detect pain from videos, including the computer vision component responsible for facial landmarks detection and the time-series-based model that uses facial landmarks over time to detect the presence of pain. Finally, based on both the datasets and AI pipeline, we describe several experiments designed to reveal the promise of using videos for pain detection compared to images as well as the limitations and properties of such an approach.</p>
+<h3 id="datasets">Datasets</h3>
+<p>For this study, we used two datasets: (i) Finka et al<sup><a href="#ref-25">25</a></sup>. and (ii) the TiHo Cat Pain dataset<sup><a href="#ref-35">35</a></sup>. The first dataset was collected under the ethical approvals of the Institutional Animal Research Ethical Committee of the FMVZ- UNESP-Botucatu (protocol number of 20/2008) and the University of Lincoln, (UID: CoSREC252) as per Finka et al<sup><a href="#ref-25">25</a></sup>.. All relevant institutional guidelines and codes of conduct for ethical research were followed. Included in the current study were video data collected from cats recorded at two points in time corresponding to absence and presence of acute post-operative pain: Pre-surgery (between 18-24 hours during the preoperative period) and 1-hour post-surgery (between 30 minutes and 1 hour after the end of surgery). Overall, 27 cats were included in this dataset, resulting in 54 videos, in total. The raw data comprised of roughly six hours of video footage from 27 healthy mixed breeds (domestic short hair) female cats (2<em>.</em>8 <em>±</em> 0<em>.</em>5 kg; 14<em>.</em>1 <em>±</em> 5<em>.</em>2months old) undergoing ovariohysterectomy; for further details of the study population and experimental protocols see Brondani et al<sup><a href="#ref-30">30</a></sup>.. Notably, the videos have an average length of three minutes and a rate of 30 frames per second (FPS). The TiHo dataset was collected at the Department of Small Animal Medicine and Surgery of the University of Veterinary Medicine Hannover (TiHo)<sup><a href="#ref-35">35</a></sup>. Owners provided written informed consent to share data that can be used for research, regulated by the law and regulations for research in Lower Saxony (Germany). All experiments were performed in accordance with relevant guidelines and regulations. The protocol was reviewed and approved by the Ethical Committee of the Medical University of Hannover. The overall duration of the videos in the dataset is roughly twenty minutes with an average length of half a minute per video. Cats were recorded in a cage, where they were free to move (and hide), having also free access to water and food during the whole “hospitalisation period, as well as to a litter box inside their cage. The cats were captured using a mobile phone (recording distance of approximately 10 centimeters). <a class="xref" href="#fig-1">Fig. 1</a>. shows several images from the dataset where cats of different breeds, ages, sexes, and medical histories were included. For this dataset, the binary labeling of pain presence was obtained using experts that manually scored each video based on the CMPS-feline instrument<sup><a href="#ref-31">31</a></sup>. Videos labeled as including pain presence if the cats in the video obtained a CMPS-feline score greater or equal to 5, and labeled as ‘no pain’ with scores lower than 4 (score 4 was excluded for better distinction). Overall, 72 videos where obtained with 36 labeled as including pain presence, and 36 with no pain.</p>
+<h3 id="the-ai-pipeline-overview">The AI pipeline overview</h3>
+<p>The AI pipeline consists of two main parts. The first part automatically produces 48 cat facial landmarks on each frame, leading to a time-series signal over time from a video. The second part uses the obtained signal to predict the presence of cat pain in a video. <a class="xref" href="#fig-2">Fig. 2</a> shows a schematic view of the proposed pipeline.</p>
+<h4 id="facial-landmark-detector">Facial landmark detector</h4>
+<p>The facial landmark scheme used here was introduced in Finka et al<sup><a href="#ref-25">25</a></sup>. and used with manual annotation in Feighelstein et al<sup><a href="#ref-34">34</a>,<a href="#ref-35">35</a></sup>. in the context of pain detection. These works also demonstrated the effect of a cat’s internal state on facial morphometry and landmark position, highlighting differences between painful and non-painful expressions.</p>
+<figure id="fig-1">
+<a class="fig-zoom" href="figures/fig-1.webp" aria-label="Open the figure full size"><img src="figures/fig-1.webp" width="641" height="218" alt="Example images from the TiHo dataset" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 1</strong>. Example images from the TiHo dataset.</figcaption>
+</figure>
+
+<figure id="fig-2">
+<a class="fig-zoom" href="figures/fig-2.webp" aria-label="Open the figure full size"><img src="figures/fig-2.webp" width="768" height="290" alt="A schematic view of the AI pipeline" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 2</strong>. A schematic view of the AI pipeline. First, the video is divided into frames such that for each frame, the face of the cat is detected using a custom-trained YOLOv8<sup><a href="#ref-44">44</a></sup>model. For each frame where the cat’s face is detected, the ELD<sup><a href="#ref-41">41</a></sup> model is used to detect the landmarks on the cat’s face. These landmarks are afterward verified using a shallow fully-connected neural network. These signals are used to train an AutoEncoder model to obtain a more meaningful representation space. Finally, a moving window on the landmarks is provided in an XGboost model. The final prediction was obtained as a majority vote over the prediction of all the frames.</figcaption>
+</figure>
+
+<p>The landmark detector is an adaptation of the facial landmark detector from images developed in Martvel et al<sup><a href="#ref-41">41</a></sup>. based on the dataset from<sup><a href="#ref-40">40</a></sup>. We introduced the following modifications into the ensemble landmark detector (ELD) from Martvel et al<sup><a href="#ref-41">41</a></sup>.. Instead of the EfficientNetV2<sup><a href="#ref-45">45</a></sup>used in the original detector, we used here a custom-trained YOLOv8<sup><a href="#ref-44">44</a></sup> model to identify and localize the cat’s face in the image. This modification allowed for the filtering of noisy frames (where a cat was identified with a confidence less then 25%, i.e., the cat’s face was not visible or even present). The 48 facial landmarks were then detected for each frame that was not filtered out by this pre-processing. For post-processing, an additional fully connected neural network classifier was trained that measures the “quality” of the detected landmarks, removing those of low quality (in which the model was not successful in placing the landmarks with sufficiently high confidence). The input to this quality detector components are the 48 landmarks (96 numbers).</p>
+<h4 id="time-series-analysis">Time-series analysis</h4>
+<p>The input of the second part is a time-series: a sequence of 48 cat facial landmark locations on each frame. Different sampling rates can be used to produce the time series. We experiment with three different frame sampling rates: 6, 3, and 1.5 FPS, balancing between the model’s temporal data’s richness and computational burden. Using the chosen FPS rate <em>ρ ∈</em> <strong>N</strong>, we represent the data of each frame using a tuple <em>f</em> := (<em>l,</em> ∆<em>t, c</em>) where <em>l ∈</em> <strong>R</strong><sup>96</sup> is the vector of the facial landmark’s position in Cartesian coordinates (48 points, in total), ∆<em>t</em> is the time passed since the previous frame, and <em>c</em> is the landmark verification model’s confidence in its landmark prediction.</p>
+<p>The proposed model is based on two parts — fully connected AutoEncoder (AE) neural networks (NN) and XGboost<sup><a href="#ref-46">46</a>,<a href="#ref-47">47</a></sup>. The first is responsible for extracting a computationally useful feature space while the latter is designed for the classification task of detecting pain and is able to capture temporal patterns from multiple frames. Formally, the model has five layers: a fully-connected (FC) layer with 48 dimensions, a dropout layer with a drop-out rate of <em>p</em> = 0<em>.</em>1, an FC layer with 36 dimensions, a dropout layer with a drop-out rate of <em>p</em> = 0<em>.</em>05 , and an FC layer with 18 dimensions. The FC layers are all followed by a ReLu activation function<sup><a href="#ref-48">48</a></sup>. Afterward, the latent space of the AE is contaminated with one of the frames before and after it. Moreover, the time duration between the previous and current frames as well as the current and following frames are also introduced, resulting in 56 = 18 <em>·</em> 3 + 2 dimensions in total. This data is provided as the input for an XGboost model which predicts the probability of pain present in a specific frame. The maximum depth of each tree in the XGboost model is set to 9 and a minimal number of observations for a split in a tree was set to 12. Notably, frames with a confidence (<em>c</em>) of 58% or less are removed from the training set. This is to reduce frames where the landmarks are poorly obtained and might introduce noise to the model, dooming them to be non-beneficial for the training process. For a full video, we first filter the probabilities predicted by the pain detection model that are below a 65% threshold as these can be caused by a deficiency in the video such as poorly detected landmarks. This approach assures only frames that are meaningful in terms of the pain-detection are taken into consideration when computing the final prediction of a given video. The probabilities that remain are averaged and reported as the final prediction. Notably, this structure is decided upon after exploring a similar architecture where the temporal information is introduced in the AE, in the form of multiple landmarks with the time delta between them as an input layer, obtaining unstable results for fully connected AE architectures with up to ten layers in the encoder and decoder parts of the model and followed by a classification model.</p>
+<p>This architecture is obtained using a genetic algorithm<sup><a href="#ref-49">49</a>–<a href="#ref-53">53</a></sup> which is a search and optimization method inspired by the evolution of species to achieve a biological objective. In our context, the number of FC layers of the AE, the dimensions of these layers, the probability of the dropout layers, the number of frames concatenated, the classification model, the hyper-parameter values of the classification model, the classification model’s confidence threshold, the frame’s confidence threshold, AE’s optimization, and loss function are obtained by testing a wide range of combinations, aiming to maximize the accuracy of the model on the test set while trained on the training set. Overall, a total of 15 thousand models were evaluated to obtain the model presented above.</p>
+<p>AEs are designed to have two parts - an encoder and decoder with a “latent” space between them. Intuitively, the model searches for a smaller representation space with more computationally meaningful features, commonly called the “latent” space, to represent most (or even all) the data provided in the input layer. This is done by first encoding the data from the input space to the latent space and then decoding it back into the input space and checking if the input and output are identical<sup><a href="#ref-54">54</a></sup>. However, the decoder part of the AutoEncoder is not useful as part of prediction processes and therefore was removed once the entire AutoEncoder model is trained, leaving only the encoder part of the NN. We use the Adam optimizer<sup><a href="#ref-55">55</a></sup> with a learning rate of 10<sup>−4</sup>, momentum of 0<em>.</em>9, and a 32-observation batch size. Moreover, we used the <em>L</em><sub>1</sub> distance between the output and input layers and the RMSE metric as the loss function. Then, we train the XGboost model for the classification task of pain detection. A schematic view of the proposed model and the training procedure of the model is described in <a class="xref" href="#fig-3">Fig. 3</a>.</p>
+<h3 id="experiments">Experiments</h3>
+<p>Below, we describe the different experiments performed with the pipeline and compare them to previously obtained results using single-frame recognition.</p>
+<p>We performed landmark detection on a Supermicro 5039AD-I workstation with a single Intel Core i7-7800X CPU (6 cores, 3.5GHz), 64GB of RAM, a 500GB SSD, and an NVIDIA GP102GL GPU. Pain classification was performed on Lenovo ThinkPad with a single Inter Core i7-9700K (8 cores, 3.6GHz), 32GB of RAM, and a 256GB SSD.</p>
+<h4 id="data-quality-analysis">Data quality analysis</h4>
+<p>The move from manually selected single frames to video data introduces additional complications in the form of different types of data deficiency issues, which were not present at the previous stage of working with single-quality images. We classify the types of ‘deficient frames’ of low quality which negatively impact the task of pain recognition to the following categories:</p>
+<ul>
+<li><em>Multiple cat detection.</em> More than one cat is detected on frame.</li>
+<li><em>Cat face detection.</em> The cat’s face is not detected with sufficient confidence (using a face detection model threshold).</li>
+<li><em>Deficient cat facial landmarks detection.</em> A single cat is detected, its face is well detected, but the landmarks are not detected with sufficient confidence (using the landmark verification model’s confidence threshold).</li>
+<li><em>Deficient cat pain detection.</em> A single cat is detected, its face is well detected, the landmarks are detected with sufficient confidence and verified, but the pain recognition model does not have sufficient confidence to make a decision.</li>
+</ul>
+<p>Based on the above categorization, we introduce three metrics for data quality measurement on landmark detection and pain classification stages and apply them to measure deficiency in the two datasets investigated here. These metrics refer to the three types of AI models used in our pipeline: detection of a cat’s face, facial landmarks, and pain. Each of these models produces in its turn a confidence level for each prediction. Intuitively, as the confidence is higher, the “easier” it was for the model to make a decision which can be associated with a lower “deficiency” level of each model experience. Therefore, for a model, <em>m</em>, the deficiency of a sample is defined to be 1 <em>− ξ</em> where <em>ξ ∈</em> [0<em>,</em> 1] is the confidence level of the models of this sample. For simplicity, for a dataset, <em>D</em> , of size <em>n</em> := <em>|D| ∈</em> <strong>N</strong>, the dataset’s level of deficiency is defined as the average of the individual deficiency level such as: <em>Def</em>(<em>D, m</em>) := <sup><a href="#ref-1">1</a></sup> <sub>i=1</sub>(1 <em>− ξ</em><sub>i</sub>). To this end, the overall pipeline’s deficiency metric can be defined by the <em>n n</em> multiplication of deficiencies in the sample level: <em>Def</em>(<em>D,</em> [<em>m</em><sub>1</sub><em>, . . . , m</em><sub>k</sub>]) := <sup><a href="#ref-1">1</a></sup> <sub>i=1</sub> Π<sup>k</sup> <sub>j=1</sub>(1 <em>− ξ</em><sub>i,j</sub>). Using this <em>n n</em> metric, we explore the deficiency levels of each of the two datasets given the trained AI pipeline to evaluate where the model struggles for each dataset.</p>
+<figure id="fig-3">
+<a class="fig-zoom" href="figures/fig-3.webp" aria-label="Open the figure full size"><img src="figures/fig-3.webp" width="768" height="243" alt="A schematic view of the pain detection model from videos" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 3</strong>. A schematic view of the pain detection model from videos. During phase 1, the AutoEncoder model is trained to obtain a computationally meaningful representation of the landmarks data as present in the latent layer. In a complementary manner, during phase 2, the XGboost model is trained for a binary classification pain detection task.</figcaption>
+</figure>
+
+<h4 id="performance-analysis">Performance analysis</h4>
+<p>For each of the two datasets, we evaluated the performance of the video-based pipeline using the accuracy and <em>F</em><sub>1</sub>metrics<sup><a href="#ref-56">56</a></sup>. It is important to note that the validation method for each dataset is different as we adopted the original methods used by the original datasets to make the comparison between image-based and video-based prediction more accurate and fair<sup><a href="#ref-34">34</a>,<a href="#ref-35">35</a></sup>. This is according to the general guidelines recommended by Broome et al<sup><a href="#ref-57">57</a></sup>.. More specifically, for the Finka et al. dataset we used the leave-one-animal-out cross-validation method as in Feighelstein et al<sup><a href="#ref-34">34</a></sup>.. On the other hand, for the TiHo dataset, we used the <em>k</em>-fold cross-validation method with <em>k</em> = 10as in Feighelstein et al<sup><a href="#ref-35">35</a></sup>..</p>
+<p>We further compared the results to previous results obtained using a single-frame approach in<sup><a href="#ref-34">34</a>,<a href="#ref-35">35</a></sup>on the two datasets correspondingly. In Feighelstein et al<sup><a href="#ref-34">34</a></sup>. two types of machine learning classifiers were used: Multilayer Perceptron (MPL) and Random Forest (RF), while in<sup><a href="#ref-35">35</a></sup>only the MPL model. For this reason, we used MPL for a fair comparison between the two datasets. Another crucial point is that these works used manually annotated landmarks which while requiring a laborious human effort, may have a positive impact on the accuracy of the classifier. To make a more fair comparison, we reran the MPL classifiers from Feighelstein et al<sup><a href="#ref-34">34</a>,<a href="#ref-35">35</a></sup>. with landmarks automatically produced by the landmark detector used in the current pipeline.</p>
+<p>We further performed an ablation study with the dynamic pipeline, exploring three different frame sampling (FPS) rates (1.5, 3, and 6 frames per second). Moreover, after detecting the best rate in terms of accuracy, we explore the contribution of the temporal knowledge provided to the XGboost model operating as pain detection. As explained above, this model is “looking” at three consecutive frames: previous, current, and next. This number <em>k</em> = 3 was found to be an optimal window. We further investigate the importance of each of the three consecutive frames for the model’s prediction.</p>
+<p>Finally, we studied the generalization capabilities of the presented pipeline by evaluating its performance when training on one (source) dataset, and testing on another (target) dataset.</p>
+<h4 id="code-availability">Code availability</h4>
+<p>The custom code API for landmark detection is available here. The rest of the mathematical algorithms and data are available upon reasonable request from the corresponding author.</p>
+<h2 id="results">Results</h2>
+<p>In this section, we outline the obtained results, divided into two main outcomes: the datasets’ deficiency levels with respect to the obtained AI pipeline and the AI pipeline’s performance compared to previous single frame-based solutions as well as the AI pipeline’s properties and generalization capabilities.</p>
+<h3 id="dataset-quality-analysis">Dataset quality analysis</h3>
+<p><a class="xref" href="#fig-4">Fig. 4</a> presents histograms of the distribution of deficiency metrics on the two datasets for the frame rate of 6 FPS. In terms of cat face and landmark detection, the Finka et al. dataset is has lower quality than the TiHo dataset. This indicates that the former dataset has much more frames in which the faces of cats are not present, occluded, partially cropped or heavily rotated. However, in terms of the pain detection metrics, the Finka et al. dataset has higher quality than TiHo, indicating the presence of a stronger signal for pain in it.</p>
+<figure id="fig-4">
+<a class="fig-zoom" href="figures/fig-4.webp" aria-label="Open the figure full size"><img src="figures/fig-4.webp" width="767" height="217" alt="Distribution of deficiency metrics for each model independently" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 4</strong>. Distribution of deficiency metrics for each model independently. The results are shown as the distribution of the mean value for each video, divided between the Finka et al. (blue) and TiHo (red) datasets.</figcaption>
+</figure>
+
+<figure class="table-figure" id="table-1">
+<figcaption><strong>Table 1</strong>. Performance of the video-based pipeline at different FPS on the two datasets.</figcaption>
+<div class="table-scroll"><table><tr><th>Dataset</th><th>FPS</th><th>Accuracy</th><th>F1 Score</th></tr><tr><td></td><td>6</td><td>0.7</td><td>0.73</td></tr><tr><td>Finka et al.</td><td>3</td><td>0.68</td><td>0.72</td></tr><tr><td></td><td>1.5</td><td>0.62</td><td>0.59</td></tr><tr><td></td><td>6</td><td>0.66</td><td>0.65</td></tr><tr><td>TiHo</td><td>3</td><td>0.65</td><td>0.65</td></tr><tr><td></td><td>1.5</td><td>0.59</td><td>0.60</td></tr></table></div>
+
+</figure>
+
+<figure class="table-figure" id="table-2">
+<figcaption><strong>Table 2</strong>. Single-frame Approaches using Multilayer Perceptron Classifier (MPL).</figcaption>
+<div class="table-scroll"><table><tr><th>Dataset</th><th>Model</th><th>Best accuracy (manual)</th><th>Current accuracy (automated)</th></tr><tr><td>Finka et al34.</td><td>MPL</td><td>0.7239</td><td>0.65</td></tr><tr><td>TiHo35</td><td>MPL</td><td>0.7166</td><td>0.51</td></tr></table></div>
+
+</figure>
+
+<figure class="table-figure" id="table-3">
+<figcaption><strong>Table 3</strong>. Performance of the video-based pipeline with a different number of successive frames on the two datasets.</figcaption>
+<div class="table-scroll"><table><tr><th>Dataset</th><th>Frames</th><th>F1 Score</th></tr><tr><td></td><td>1</td><td>0.64</td></tr><tr><td>Finka et al.</td><td>3</td><td>0.73</td></tr><tr><td></td><td>5</td><td>0.72</td></tr><tr><td></td><td>7</td><td>0.72</td></tr><tr><td></td><td>1</td><td>0.59</td></tr><tr><td>TiHo</td><td>3</td><td>0.65</td></tr><tr><td></td><td>5</td><td>0.63</td></tr><tr><td></td><td>7</td><td>0.64</td></tr></table></div>
+
+</figure>
+
+<h3 id="ai-pipeline-performance-in-pain-detection">AI pipeline performance in pain detection</h3>
+<p><a class="xref" href="#table-1">Table 1</a> shows the performance of the proposed AI pipeline on both of the datasets in terms of the accuracy and <em>F</em><sub>1</sub> metrics. The best performance is achieved with the highest FPS rate of 6, reaching 70% for Finka et al. dataset, and 66% for TiHo dataset. For both datasets, as the FPS rate is higher, the results are improved or stay identical, at least. However, accuracy is only marginally improved with 6 FPS compared to 3 FPS while requiring twice as much computation. This result can be explained by the slight difference between the landmarks between consecutive frames. The performance of the pain detection pipeline on the Finka et al. video dataset is better than on TiHo for all FPS values, with 3-4% improvement for the accuracy metric.</p>
+<p>Table 2highlights the performance of the MPL model from Feighelstein et al<sup><a href="#ref-34">34</a>,<a href="#ref-35">35</a></sup>. on the two datasets using a single-frame approach: using manually and automatically annotated landmarks without alignment and preprocessing. Comparing our pipeline to the latter results, the dynamic pipeline outperforms the static (single-frame) one on both datasets, leading to the conclusion that dynamics matter in cat pain recognition.</p>
+<p>In order to assess the impact of the temporal dimension on our classifier, we trained the XGboost model with a different number of successive frames on 6 FPS. As shown in <a class="xref" href="#table-3">Table 3</a>, the increase of the number of frames does not contribute to the model’s performance while increasing its computational complexity. <a class="xref" href="#fig-5">Fig. 5</a> presents the relative feature contribution used by the 3-frame XGboost model in terms of the frame index. The central (main) frame contributes around 42% to the prediction ability. The two other frames contribute around 29% such that the frame before the main one (<em>t −</em> 1) contributes slightly more than the one after the main one (<em>t</em> + 1).</p>
+<p><a class="xref" href="#table-4">Table 4</a> presents the generalization capability of the proposed model. The model is trained on the entire source dataset and tested on the entire target dataset. One can notice that a generalization from the TiHo dataset to the Finka et al. while the other way around does not show good generalization as the performance drops by 0.15 and 0.23 for the accuracy and <em>F</em><sub>1</sub> score.</p>
+<h2 id="discussion">Discussion</h2>
+<p>This is the first study to introduce a completely automated AI pipeline for cat pain recognition working with raw videos and requiring no manual efforts in frame selection or landmark annotation, unlike previous attempts in the field.</p>
+<p>In order to explore the performance of the proposed AI pipeline, we used two already investigated datasets in cat pain — Finka et al<sup><a href="#ref-34">34</a></sup>. and TiHo<sup><a href="#ref-35">35</a></sup>. <a class="xref" href="#fig-4">Fig. 4</a> reveals that the two datasets have quite different characteristics in terms of the computational difficultyfor the AI pipeline. While presenting clearer pain signals, the Finka et al. dataset is more challenging for the computer vision models to process whereas pain signals in the TiHo are less clear, but processing is improved. More specifically, we have categorized the deficiency types that negatively impact the performance of the studied AI pipelines into three distinct categories: (i) cat face detection, (ii) landmark detection, and (iii) pain detection. While (i) and (ii) seem to be mostly related to the angle, lightning and cat pose in the video footage, and are dependent (deficiency of type (i) also impacts deficiency of type (ii)), (iii) seems to be an orthogonal dimension which is more dependent on the protocol of data collection and ground truth annotation/labelling. The Finka et al. dataset was shown to be much noisier in terms of categories (i) and (ii). This can be explained by the fact that the TiHo dataset was collected by a self-developed designated app, with a video recorder zooming in as much as possible on the cat’s face, while the Finka et al. dataset was collected from afar, with the intention of manually selecting one representative frame. However, measuring the total deficiency on both datasets, we discover that Finka et al. is actually better than TiHo dataset in terms of deficiency of category (iii). This analysis of different types of deficiency in the two datasets explains the comparable performance of the model on the two datasets in terms of pain detection: while the TiHo dataset video footage is less noisy and allows for the landmark detector to work better, the pain signal seems stronger in the dataset of Finka et al. It should be noted that in the latter dataset, annotation of pain/no pain classes was done using time points reflecting experimentally induced, closely controlled pain/no pain conditions. This is in contrast to the TiHo dataset where a much more diverse cohort of cats were included, with pain cases reflecting spontaneously occurring cases of pain from a diverse range of conditions reflecting variations in pain intensity, and with pain/no pain status derived from human expert scoring. Thus the TiHo data set is likely to contain much greater biological ‘noise’ and possibly more heterogeneity in the behavioral presentation of pain signal signals, with pain/no pain labelling also potentially subject to human error or bias some bias into labeling. Importantly, the approaches and metrics for noise analysis introduced here can be reused for investigating pain and affect recognition from facial expressions for other species.</p>
+<figure id="fig-5">
+<a class="fig-zoom" href="figures/fig-5.webp" aria-label="Open the figure full size"><img src="figures/fig-5.webp" width="774" height="315" alt="The contribution of each frame to the classification model’s prediction" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 5</strong>. The contribution of each frame to the classification model’s prediction. The results are shown as the mean ± standard deviation for the <em>F P S</em> = 3 case.</figcaption>
+</figure>
+
+<figure class="table-figure" id="table-4">
+<figcaption><strong>Table 4</strong>. Generalization capability of the proposed model. The proposed model is trained on the entire source dataset and tested on the entire target dataset with FPS=3.</figcaption>
+<div class="table-scroll"><table><tr><th>Source-target dataset</th><th>Source accuracy</th><th>Source F1</th><th>Target accuracy</th><th>Target F1</th></tr><tr><td>Finka et al. - TiHo</td><td>0.68</td><td>0.72</td><td>0.53</td><td>0.49</td></tr><tr><td>TiHo - Finka et al.</td><td>0.65</td><td>0.65</td><td>0.63</td><td>0.62</td></tr></table></div>
+
+</figure>
+
+<p>Comparing to previous work that used only manually selected single images (while keeping the landmark annotation automated), the current AI pipeline presents an improvement in the prediction’s accuracy for the Finka et al. and TiHo datasets, respectively. This improvement can be associated with the temporal dimension available in a video format, which can explain the outperforming of previous models. Indeed, when exploring the results, addressing the recognition of pain in cats over multiple frames of a video while taking into account local temporal knowledge in the form of a sequence of (encoded) landmarks on the cat’s face, increases the AI pipeline’s prediction accuracy. This outcome is consistent with similar indications obtained in Broome et al<sup><a href="#ref-39">39</a></sup>. on horse pain. However, the latter work applied a deep learning approach; it is an immediate future research direction to compare the landmark-based approach presented here to deep learning-based approaches for cat pain recognition from videos. The role of dynamics in pain recognition is further emphasized in <a class="xref" href="#fig-5">Fig. 5</a>, which shows the importance each frame plays in the model’s prediction. While the current frame plays a pivotal role in the model’s decision, both past and future frames also have a notable impact.</p>
+<p>An interesting finding is presented in <a class="xref" href="#table-4">Table 4</a> concerning the question now well our pipeline trained on one dataset generalizes to the other. Clearly, one direction, going from TiHo to Finka et al. has better performance than the other way around. This can be explained by the fact that the latter dataset is less diverse, containing female cats of one particular breed, as well as undergoing one surgical procedure and being otherwise healthy, while the other set is multi-gender and multi-breed with a more diverse clinical population and different medications. However, the generalization capability is still quite low, and ways to improve it deserve further investigation.</p>
+<p>A notable limitation of our study is the use of relatively small datasets, which were collected in a specific and limited context. Future research should aim to expand and diversify AI model training data to enable comparison with more advanced models like vision transformers. In addition, it is important to note that at least in the dataset of Finka et al., ‘Pain’ faces were collected one hour after administration of analgesia, which could also have an effect on the facial expressions<sup><a href="#ref-58">58</a></sup>. This limitation can also be addressed by considering more diverse contexts and enlarging the datasets. An example of a potentially useful dataset is that of Marangoni et al<sup><a href="#ref-59">59</a></sup>., presenting a compilation of videos of pain behaviors in cats.</p>
+<p>The fully automated end-to-end AI pipeline for cat pain recognition presented here is an important step towards practical applications of cat facial analysis. One application we envision is the development of a mobile app for use in clinical settings in the spirit of PainChek for human patients, which has been already integrated in clinical settings for patients with dementia<sup><a href="#ref-42">42</a></sup>and infants<sup><a href="#ref-43">43</a></sup>. One important consideration for the real-time use of the AI pipeline is the need for them to run in real-time and produce timely results, leading to the need to investigate considerations of computational resources. We have made a step in this direction by investigating the impact of frame rate on performance and observing the trade-off between running faster and having a more accurate result. Making the parts of the presented AI pipeline more lightweight and systematically investigating performance issues is a crucial step toward realistic platforms to be integrated into the field in clinical settings and at the owners’ homes.</p>
+<h2 id="data-availability">Data availability</h2>
+<p>The datasets used in this paper are available from the corresponding author upon reasonable request.</p>
+<p>Received: 14 December 2023; Accepted: 30 October 2024</p>
+<h2 id="references">References</h2>
+<ol class="paper-refs"><li id="ref-1">Descovich, K. A. et al. Facial expression: An under-utilised tool for the assessment of welfare in mammals. Altex (2017).</li>
+<li id="ref-2">Mota-Rojas, D. et al. Current advances in assessment of dog’s emotions, facial expressions, and their use for clinical recognition of pain. Animals 11, 3334 (2021).</li>
+<li id="ref-3">Ekman, P. &amp; Friesen, W. V. Measuring facial movement. Environmental psychology and nonverbal behavior 1, 56–75 (1976).</li>
+<li id="ref-4">Ekman, P. &amp; Keltner, D. Universal facial expressions of emotion. Segerstrale U, P. Molnar P, eds. Nonverbal communication: Where nature meets culture 27, 46 (1997).</li>
+<li id="ref-5">Russell, J. A., Bachorowski, J.-A. &amp; Fernández-Dols, J.-M. Facial and vocal expressions of emotion. Annual review of psychology 54, 329–349 (2003).</li>
+<li id="ref-6">Diogo, R., Abdala, V., Lonergan, N. &amp; Wood, B. From fish to modern humans-comparative anatomy, homologies and evolution of the head and neck musculature. Journal of Anatomy 213, 391–424 (2008).</li>
+<li id="ref-7">Boneh-Shitrit, T. et al. Explainable automated recognition of emotional states from canine facial expressions: the case of positive anticipation and frustration. Scientific reports 12, 22611 (2022).</li>
+<li id="ref-8">Merkies, K., Ready, C., Farkas, L. &amp; Hodder, A. Eye blink rates and eyelid twitches as a non-invasive measure of stress in the domestic horse. Animals (Basel) (2019).</li>
+<li id="ref-9">Andresen, N. et al. Towards a fully automated surveillance of well-being status in laboratory mice using deep learning: Starting with facial expression analysis. PLOS ONE 15, e0228059 (2020).</li>
+<li id="ref-10">Gleerup, K. B., Forkman, B., Lindegaard, C. &amp; Andersen, P. H. An equine pain face. Veterinary anaesthesia and analgesia 42, 103–114 (2015).</li>
+<li id="ref-11">Labus, J. S., Keefe, F. J. &amp; Jensen, M. P. Self-reports of pain intensity and direct observations of pain behavior: when are they correlated?. Pain 102, 109–124 (2003).</li>
+<li id="ref-12">Barrett, L. F. Feelings or words? Understanding the content in self-report ratings of experienced emotion. Journal of personality and social psychology 87, 266–281 (2004).</li>
+<li id="ref-13">Hernandez-Avalos, I. et al. Review of different methods used for clinical recognition and assessment of pain in dogs and cats. International Journal of Veterinary Science and Medicine 7, 43–54 (2019).</li>
+<li id="ref-14">Mogil, J. S., Pang, D. S., Dutra, G. G. S. &amp; Chambers, C. T. The development and use of facial grimace scales for pain measurement in animals. Neuroscience &amp; Biobehavioral Reviews 116, 480–493 (2020).</li>
+<li id="ref-15">Sotocina, S. G. et al. The rat grimace scale: a partially automated method for quantifying pain in the laboratory rat via facial expressions. Molecular pain 7, 1744–8069 (2011).</li>
+<li id="ref-16">Keating, S. C., Thomas, A. A., Flecknell, P. A. &amp; Leach, M. C. Evaluation of emla cream for preventing pain during tattooing of rabbits: changes in physiological, behavioural and facial expression responses. PLoS One (2012).</li>
+<li id="ref-17">Dalla Costa, E. et al. Development of the horse grimace scale (hgs) as a pain assessment tool in horses undergoing routine castration. PLOS ONE 9, e92281 (2014).</li>
+<li id="ref-18">Di Giminiani, P. et al. The assessment of facial expressions in piglets undergoing tail docking and castration: toward the development of the piglet grimace scale. Frontiers in veterinary science 3, 100 (2016).</li>
+<li id="ref-19">Reijgwart, M. L. et al. The composition and initial evaluation of a grimace scale in ferrets after surgical implantation of a telemetry probe. PLOS ONE 12, e0187986 (2017).</li>
+<li id="ref-20">McLennan, K. M. et al. Development of a facial expression scale using footrot and mastitis as models of pain in sheep. Applied Animal Behaviour Science 176, 19–26 (2016).</li>
+<li id="ref-21">Häger, C. et al. The sheep grimace scale as an indicator of post-operative distress and pain in laboratory sheep. PLOS ONE 12, e0175839 (2017).</li>
+<li id="ref-22">Holden, E. et al. Evaluation of facial expression in acute pain in cats. Journal of Small Animal Practice 55, 615–621 (2014).</li>
+<li id="ref-23">Evangelista, M. C. et al. Facial expressions of pain in cats: the development and validation of a feline grimace scale. Scientific reports 9, 1–11 (2019).</li>
+<li id="ref-24">Merola, I. &amp; Mills, D. S. Behavioural signs of pain in cats: an expert consensus. PLOS ONE 11, e0150040 (2016).</li>
+<li id="ref-25">Finka, L. R. et al. Geometric morphometrics for the study of facial expressions in non-human animals, using the domestic cat as an exemplar. Scientific reports 9, 1–12 (2019).</li>
+<li id="ref-26">Dawson, L., Cheal, J., Niel, L. &amp; Mason, G. Humans can identify cats’ affective states from subtle facial expressions. Animal Welfare 28, 519–531. (2019). <a href="https://doi.org/10.7120/09627286.28.4.519" target="_blank" rel="noopener">doi:10.7120/09627286.28.4.519</a></li>
+<li id="ref-27">Steagall, P. V. Analgesia: what makes cats different/challenging and what is critical for cats?. Veterinary Clinics: Small Animal Practice 50, 749–767 (2020). <a href="https://doi.org/10.7120/09627286.28.4.519" target="_blank" rel="noopener">doi:10.7120/09627286.28.4.519</a></li>
+<li id="ref-28">Monteiro, B. P., Lee, N. H. &amp; Steagall, P. V. Can cat caregivers reliably assess acute pain in cats using the feline grimace scale? a large bilingual global survey. Journal of Feline Medicine and Surgery 25, 1098612X221145499 (2023).</li>
+<li id="ref-29">Lascelles, B. D. X. &amp; Robertson, S. A. Djd-associated pain in cats: what can we do to promote patient comfort?. Journal of Feline Medicine &amp; Surgery 12, 200–212 (2010).</li>
+<li id="ref-30">Brondani, J. T. et al. Validation of the english version of the unesp-botucatu multidimensional composite pain scale for assessing postoperative pain in cats. BMC Veterinary Research 9, 1–15 (2013).</li>
+<li id="ref-31">Reid, J., Scott, E., Calvo, G. &amp; Nolan, A. Definitive glasgow acute pain scale for cats: validation and intervention level. Veterinary Record 108 (2017).</li>
+<li id="ref-32">Evangelista, M. C. et al. Clinical applicability of the feline grimace scale: real-time versus image scoring and the influence of sedation and surgery. PeerJ 8, e8967 (2020).</li>
+<li id="ref-33">Evangelista, M. C. &amp; Steagall, P. V. Agreement and reliability of the feline grimace scale among cat owners, veterinarians, veterinary students and nurses. Scientific reports 11, 1–9 (2021).</li>
+<li id="ref-34">Feighelstein, M. et al. Automated recognition of pain in cats. Scientific Reports 12, 9575 (2022).</li>
+<li id="ref-35">Feighelstein, M. et al. Explainable automated pain recognition in cats. Scientific reports 13, 8973 (2023).</li>
+<li id="ref-36">Steagall, P., Monteiro, B., Marangoni, S., Moussa, M. &amp; Sautié, M. Fully automated deep learning models with smartphone applicability for prediction of pain using the feline grimace scale. Scientific Reports 13, 21584 (2023).</li>
+<li id="ref-37">Bentley, W. E., Davis, R. H. &amp; Kompala, D. S. Dynamics of induced cat expression in e. coli. Biotechnology and Bioengineering 38, 749–760 (1991).</li>
+<li id="ref-38">Liong, S.-T. et al. Spontaneous subtle expression detection and recognition based on facial strain. Signal Processing: Image Communication 47, 170–182 (2016).</li>
+<li id="ref-39">Broomé, S., Gleerup, K. B., Andersen, P. H. &amp; Kjellstrom, H. Dynamics are important for the recognition of equine pain in video. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, 12667–12676 (2019).</li>
+<li id="ref-40">Martvel, G., Farhat, N., Shimshoni, I. &amp; Zamansky, A. Catflw: Cat facial landmarks in the wild dataset. arXiv preprint[SPACE]arXiv:2305.04232 (2023). <a href="http://arxiv.org/abs/2305.04232" target="_blank" rel="noopener">link</a></li>
+<li id="ref-41">Martvel, G., Shimshoni, I. &amp; Zamansky, A. Automated detection of cat facial landmarks. International Journal of Computer Vision 1–16 (2024). <a href="http://arxiv.org/abs/2305.04232" target="_blank" rel="noopener">link</a></li>
+<li id="ref-42">Babicova, I., Cross, A., Forman, D., Hughes, J. &amp; Hoti, K. Evaluation of the psychometric properties of painchek® in uk aged care residents with advanced dementia. BMC geriatrics 21, 1–8 (2021).</li>
+<li id="ref-43">Hoti, K., Chivers, P. T. &amp; Hughes, J. D. Assessing procedural pain in infants: a feasibility study evaluating a point-of-care mobile solution based on automated facial analysis. The Lancet Digital Health 3, e623–e634 (2021).</li>
+<li id="ref-44">Jocher, G., Chaurasia, A. &amp; Qiu, J. YOLO by Ultralytics (2023).</li>
+<li id="ref-45">Tan, M. &amp; Le, Q. Efficientnetv2: Smaller models and faster training. In International conference on machine learning, 10096–10106 (PMLR, 2021).</li>
+<li id="ref-46">Chen, T. &amp; Guestrin, C. Xgboost: A scalable tree boosting system. In Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, 785-794 (Association for Computing Machinery, 2016).</li>
+<li id="ref-47">Rowel, A. Advanced Deep Learning with Keras: Apply deep learning techniques, autoencoders, GANs, variational autoencoders, deep reinforcement learning, policy gradients, and more. (Packt Publishing Ltd, 2018).</li>
+<li id="ref-48">Rouast, P. V. &amp; Adam, M. &amp; Chiong, R (Insights and new developments. IEEE Transactions on Affective Computing, Deep learning for human affect recognition, 2019).</li>
+<li id="ref-49">Li, Z. &amp; Liu, J. A multi-agent genetic algorithm for community detection in complex networks. Physica A: Statistical Mechanics and its Applications 449, 336–347 (2016).</li>
+<li id="ref-50">Macy, M. Natural selection and social learning in prisoner’s dilemma: Coadaptation with genetic algorithms and artificial neural networks. Sociological Methods &amp; Research 25, 103–137 (1996).</li>
+<li id="ref-51">Chung, H. &amp; Shin, K.-S. Genetic algorithm-optimized long short-term memory network for stock market prediction. Sustainability 10 (2018).</li>
+<li id="ref-52">Lazebnik, T., Fleischer, T. &amp; Yaniv-Rosenfeld, A. Benchmarking biologically-inspired automatic machine learning for economic tasks. Sustainability 15 (2023).</li>
+<li id="ref-53">Lazebnik, T., Somech, A. &amp; Weinberg, A. I. Substrat: A subset-based optimization strategy for faster automl. Proc. VLDB Endow. 16, 772–780 (2022).</li>
+<li id="ref-54">Dong, G., Liao, G., Liu, H. &amp; Kuang, G. A review of the autoencoder and its variants: A comparative perspective from target recognition in synthetic-aperture radar images. IEEE Geoscience and Remote Sensing Magazine 6, 44–68 (2018).</li>
+<li id="ref-55">Kingma, D. P. &amp; Ba, J. A method for stochastic optimization (In ICLR, Adam, 2015).</li>
+<li id="ref-56">Novakovic, J. D., Veljovic, A., Ilic, S. S., Papic, Z. &amp; Tomovic, M. Evaluation of classification models in machine learning. Theory and Applications of Mathematics &amp; Computer Science 7, 39–46 (2017).</li>
+<li id="ref-57">Broomé, S. et al. Going deeper than tracking: a survey of computer-vision based recognition of animal pain and affective states. arXiv preprint[SPACE]arXiv:2206.08405 (2022). <a href="http://arxiv.org/abs/2206.08405" target="_blank" rel="noopener">link</a></li>
+<li id="ref-58">Watanabe, R. et al. The effects of sedation with dexmedetomidine-butorphanol and anesthesia with propofol-isoflurane on feline grimace scale scores. Animals 12, 2914 (2022). <a href="http://arxiv.org/abs/2206.08405" target="_blank" rel="noopener">link</a></li>
+<li id="ref-59">Marangoni, S. &amp; Steagall, P. V. Video-based compilation of acute pain behaviours in cats. Journal of Feline Medicine and Surgery 26, 1098612X241260712 (2024). Acknowledgements The last author was supported by the Israel Science Foundation, 1050/24, Joint SNSF-ISF Research Grant Program. The first author was partially supported by the Data Science Research Center at the University of Haifa. We thank Yaron Yossef and Nareed Farhat for their technical support, Ephantus Kanyugi for data management, and the cat, Mary, for the inspiration for this study. Author contributions LF, SL, DM, LH, SM, FT, AS, NF, SK and HV acquired the data. GM, TL, MF, and AZ conceived the experiment(s). GM, TL, and MF conducted the experiment(s). GM, TL, MF, IS, and AZ analyzed and/or interpreted the results. All authors reviewed the manuscript. Additional information Correspondence and requests for materials should be addressed to A.Z. Reprints and permissions information is available at www.nature.com/reprints.© The Author(s) 2024</li>
+</ol>
+</div>
+        
+        
+        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Martvel et al. (2024), <em>Scientific Reports</em>, <a href="https://doi.org/10.1038/s41598-024-78406-2" target="_blank" rel="noopener">doi:10.1038/s41598-024-78406-2</a>, under the <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="license noopener">CC BY-NC</a> licence. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+      </article>
+    </div>
+
+    <section class="paper-related" aria-labelledby="related-title"><div class="paper-wrap"><h2 id="related-title">Related research</h2><div class="related-grid"><a class="related-card related-project" href="/project.html?pagename=animal-wellness-ai"><img src="/img/projects/project6.webp" alt="" loading="lazy" decoding="async"><span class="related-kind"><i class="ri-flask-line" aria-hidden="true"></i>Research project</span><strong>Understanding Animals&#x27; Behavior and Improving Their Wellness using AI</strong><span class="related-text">Analyzing behavioral and sensorial data to derive insights into animal health and welfare.</span></a><a class="related-card" href="/publications/automated-landmark-based-cat-facial-analysis-applications/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2024</span><strong>Automated landmark-based cat facial analysis and its applications</strong><span class="related-text">Frontiers in Veterinary Science</span></a><a class="related-card" href="/publications/ai-feline-faces-computational-investigation-social-function/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2024</span><strong>AI for Feline Faces: A Computational Investigation of the Social Function of Domestic Cat Facial Signals</strong><span class="related-text">Scientific Reports</span></a></div><p class="related-more"><a href="/publications.html">All publications</a></p></div></section>
+  </main>
+
+  <dialog id="cite-dialog" class="paper-dialog" aria-labelledby="cite-title">
+    <div class="dialog-head">
+      <h2 id="cite-title">Cite this paper</h2>
+      <button type="button" class="dialog-close" aria-label="Close"><i class="ri-close-line" aria-hidden="true"></i></button>
+    </div>
+    <p class="dialog-label">APA</p>
+    <pre class="cite-box" id="cite-apa">Martvel, G., Lazebnik, T., Feighelstein, M., Henze, L., Meller, S., Shimshoni, I., Twele, F., Schütter, A., Foraita, N., Kästner, S., Finka, L., Luna, S. P. L., Mills, D. S., Volk, H. A., &amp; Zamansky, A. (2024). Automated Video-Based Pain Recognition in Cats using Facial Landmarks. Scientific Reports, 14, 28006. https://doi.org/10.1038/s41598-024-78406-2</pre>
+    <button type="button" class="paper-btn" data-copy="cite-apa"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy APA</span></button>
+    <p class="dialog-label">BibTeX</p>
+    <pre class="cite-box" id="cite-bib">@article{martvel2024automated,
+  title = {Automated Video-Based Pain Recognition in Cats using Facial Landmarks},
+  author = {Martvel, George and Lazebnik, Teddy and Feighelstein, Marcelo and Henze, Lea and Meller, Sebastian and Shimshoni, Ilan and Twele, Friederike and Schütter, Alexandra and Foraita, Nora and Kästner, Sabine and Finka, Lauren and Luna, Stelio P. L. and Mills, Daniel S. and Volk, Holger A. and Zamansky, Anna},
+  journal = {Scientific Reports},
+  volume = {14},
+  pages = {28006},
+  year = {2024},
+  doi = {10.1038/s41598-024-78406-2}
+}</pre>
+    <button type="button" class="paper-btn" data-copy="cite-bib"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy BibTeX</span></button>
+  </dialog>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Games</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
+                  <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
+                  <li><a href="https://rl.teddylazebnik.com/">Pirate War RL Game</a></li>
+                  <li><a href="https://eh.teddylazebnik.com/">Echo Heist</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      
+      <script>
+        (function () {
+          // menu and navbar (js/main.js expects to sit at the site root)
+          var btn = document.getElementById('menu-btn'), menu = document.getElementById('mobile-menu'), nav = document.getElementById('navbar');
+          btn.addEventListener('click', function () { menu.classList.toggle('max-h-0'); menu.classList.toggle('max-h-screen'); });
+          var onScroll = function () { nav.classList.toggle('nav-scrolled', window.scrollY > 10); };
+          window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+          // cite dialog + copy buttons
+          var dialog = document.getElementById('cite-dialog');
+          document.querySelectorAll('[data-dialog]').forEach(function (b) {
+            b.addEventListener('click', function () { if (dialog.showModal) dialog.showModal(); else dialog.setAttribute('open', ''); });
+          });
+          dialog.querySelector('.dialog-close').addEventListener('click', function () { dialog.close(); });
+          dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
+          function flash(button, text) {
+            var label = button.querySelector('span'), old = label.textContent;
+            label.textContent = text; setTimeout(function () { label.textContent = old; }, 1600);
+          }
+          document.querySelectorAll('[data-copy]').forEach(function (b) {
+            b.addEventListener('click', function () {
+              var text = document.getElementById(b.getAttribute('data-copy')).textContent;
+              navigator.clipboard.writeText(text).then(function () { flash(b, 'Copied'); });
+            });
+          });
+          document.getElementById('share-btn').addEventListener('click', function () {
+            var b = this, data = { title: document.title, url: location.href.split('#')[0] };
+            if (navigator.share) { navigator.share(data).catch(function () {}); }
+            else { navigator.clipboard.writeText(data.url).then(function () { flash(b, 'Link copied'); }); }
+          });
+
+          // highlight the section being read in "On this page"
+          var links = {};
+          document.querySelectorAll('.paper-toc a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+          var heads = Array.prototype.filter.call(document.querySelectorAll('#full-text h2[id], #full-text h3[id], #full-text section[id]'), function (h) { return links[h.id]; });
+          if ('IntersectionObserver' in window && heads.length) {
+            var current = null;
+            var io = new IntersectionObserver(function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                  if (current) current.classList.remove('is-active');
+                  current = links[e.target.id]; current.classList.add('is-active');
+                }
+              });
+            }, { rootMargin: '-90px 0px -70% 0px' });
+            heads.forEach(function (h) { io.observe(h); });
+          }
+        })();
+      </script>
+   </body>
+</html>

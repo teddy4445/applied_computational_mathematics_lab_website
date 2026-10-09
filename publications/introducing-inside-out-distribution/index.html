@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_papers.py from paper.md + paper.json in this folder. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Introducing “Inside” out of distribution | ACML</title>
+      <meta name="description" content="Machine learning models can fail on out-of-distribution samples, data unlike what they were trained on, but research has mostly focused on samples that fall…">
+      <meta name="author" content="Teddy Lazebnik">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/publications/introducing-inside-out-distribution/">
+      <meta name="citation_title" content="Introducing “Inside” out of distribution">
+      <meta name="citation_author" content="Teddy Lazebnik">
+      <meta name="citation_publication_date" content="2025">
+      <meta name="citation_journal_title" content="International Journal of Data Science and Analytics">
+      <meta name="citation_volume" content="21">
+      <meta name="citation_firstpage" content="43">
+      <meta name="citation_doi" content="10.1007/s41060-025-00947-0">
+      <meta name="citation_pdf_url" content="https://teddylazebnik.com/files/inside_ood.pdf">
+      <meta name="citation_abstract_html_url" content="https://acml.teddylazebnik.com/publications/introducing-inside-out-distribution/">
+      <meta name="citation_fulltext_html_url" content="https://acml.teddylazebnik.com/publications/introducing-inside-out-distribution/">
+      <meta name="citation_keywords" content="Machine learning robustness; Performance evaluation; Out-of-distribution proﬁle; High-dimensional analysis">
+      <meta name="citation_language" content="en">
+      <meta property="og:type" content="article">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Introducing “Inside” out of distribution">
+      <meta property="og:description" content="Machine learning models can fail on out-of-distribution samples, data unlike what they were trained on, but research has mostly focused on samples that fall…">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/publications/introducing-inside-out-distribution/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/publications/introducing-inside-out-distribution/figures/share-fig-1.jpg">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Introducing “Inside” out of distribution">
+      <meta name="twitter:description" content="Machine learning models can fail on out-of-distribution samples, data unlike what they were trained on, but research has mostly focused on samples that fall…">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/publications/introducing-inside-out-distribution/figures/share-fig-1.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "Introducing “Inside” out of distribution",
+  "name": "Introducing “Inside” out of distribution",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Teddy Lazebnik"
+    }
+  ],
+  "datePublished": "2025",
+  "url": "https://acml.teddylazebnik.com/publications/introducing-inside-out-distribution/",
+  "mainEntityOfPage": "https://acml.teddylazebnik.com/publications/introducing-inside-out-distribution/",
+  "abstract": "Detecting and understanding out-of-distribution (OOD) samples is crucial in machine learning (ML) to ensure reliable modelperformance. Current OOD studies primarily focus on extrapolatory (outside) OOD, neglecting potential cases of interpolatory(inside) OOD. In this study, we introduce a novel perspective on OOD by suggesting that it can be divided into inside andoutside cases. We examine the inside–outside OOD profiles of datasets and their impact on ML model performance, usingnormalized root mean squared error (RMSE) and F1 score as the performance metrics on synthetically generated datasets withboth inside and outside OOD. Our analysis demonstrates that different inside–outside OOD profiles lead to unique effects onML model performance, with outside OOD generally causing greater performance degradation, on average. These findingshighlight the importance of distinguishing between inside and outside OOD for developing effective counter-OOD methods.",
+  "description": "Machine learning models can fail on out-of-distribution samples, data unlike what they were trained on, but research has mostly focused on samples that fall…",
+  "image": "https://acml.teddylazebnik.com/publications/introducing-inside-out-distribution/figures/share-fig-1.jpg",
+  "keywords": "Machine learning robustness, Performance evaluation, Out-of-distribution proﬁle, High-dimensional analysis",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "DOI",
+    "value": "10.1007/s41060-025-00947-0"
+  },
+  "sameAs": "https://doi.org/10.1007/s41060-025-00947-0",
+  "isPartOf": {
+    "@type": "PublicationIssue",
+    "issueNumber": "",
+    "isPartOf": {
+      "@type": "PublicationVolume",
+      "volumeNumber": "21",
+      "isPartOf": {
+        "@type": "Periodical",
+        "name": "International Journal of Data Science and Analytics"
+      }
+    }
+  },
+  "about": "Machine Learning",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "encoding": {
+    "@type": "MediaObject",
+    "contentUrl": "https://teddylazebnik.com/files/inside_ood.pdf",
+    "encodingFormat": "application/pdf"
+  }
+}
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/paper.css" rel="stylesheet">
+      
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="paper-page">
+    <header class="paper-hero">
+      <div class="paper-wrap">
+        <nav class="paper-crumbs" aria-label="Breadcrumb">
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Machine Learning</span>
+        </nav>
+        <p class="paper-kicker"><span class="oa-badge"><i class="ri-lock-unlock-line" aria-hidden="true"></i>Open access</span><span><em>International Journal of Data Science and Analytics</em> · 2025</span></p>
+        <h1 class="paper-title">Introducing “Inside” out of distribution</h1>
+        <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span></p>
+        <details class="paper-affils"><summary>Affiliations</summary><ol><li value="1">Department of Information Systems, University of Haifa, Haifa, Israel</li><li value="2">Department of Computing, Jonkoping University, Jonkoping, Sweden</li></ol></details>
+        <div class="paper-actions">
+          <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/inside_ood.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
+          <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
+          
+          <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
+          <a class="paper-btn" href="https://doi.org/10.1007/s41060-025-00947-0" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
+          <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
+        </div>
+        <div class="lab-authors"><span class="lab-authors-label">ACML authors</span><a class="lab-chip" href="/team.html"><img src="/img/lab/teddy.webp" alt="" width="32" height="32" loading="lazy"><span><strong>Teddy Lazebnik</strong><small>PI</small></span></a></div>
+      </div>
+    </header>
+
+    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Machine learning models can fail on out-of-distribution samples, data unlike what they were trained on, but research has mostly focused on samples that fall outside the training range. We proposed dividing such cases into inside (interpolatory) and outside (extrapolatory) types and tested their effects on model performance using synthetic datasets. Different inside-outside profiles affected performance in distinct ways, with outside cases generally causing greater degradation on average.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Out-of-distribution samples can be divided into inside (interpolatory) and outside (extrapolatory) cases.</li><li>Different inside-outside profiles have unique effects on model performance, measured by normalized RMSE and F1 score on synthetic datasets.</li><li>Outside out-of-distribution samples generally caused greater performance degradation, on average.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1800" height="439" alt="Fig. 1 An example of inside and outside out of distribution (OOD) for a one, b two, and c five dimensions"></a><figcaption><strong>Fig. 1</strong> An example of inside and outside out of distribution (OOD) for <strong>a</strong> one, <strong>b</strong> two, and <strong>c</strong> five dimensions <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+
+    <div class="paper-wrap paper-layout">
+      <aside class="paper-aside">
+        <nav class="paper-toc" aria-label="On this page">
+          <p class="aside-title">On this page</p>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#1-introduction">1 Introduction</a></li>
+<li><a href="#2-related-work">2 Related work</a></li>
+<li><a href="#3-out-of-distribution-profile">3 Out-of-distribution profile</a></li>
+<li><a href="#4-numerical-analysis">4 Numerical analysis</a></li><li class="toc-sub"><a href="#41-experimental-setup">4.1 Experimental setup</a></li><li class="toc-sub"><a href="#42-results">4.2 Results</a></li>
+<li><a href="#5-discussion">5 Discussion</a></li><li class="toc-sub"><a href="#declarations">Declarations</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </nav>
+        <div class="paper-info">
+          <p class="aside-title">Article information</p>
+          <dl><div><dt>Journal</dt><dd>International Journal of Data Science and Analytics 21: 43</dd></div><div><dt>Year</dt><dd>2025</dd></div><div><dt>DOI</dt><dd><a href="https://doi.org/10.1007/s41060-025-00947-0" target="_blank" rel="noopener">10.1007/s41060-025-00947-0</a></dd></div><div><dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY 4.0</a></dd></div></dl>
+        </div>
+      </aside>
+
+      <article class="paper-body" id="full-text">
+        <details class="paper-toc-mobile">
+          <summary>On this page</summary>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#1-introduction">1 Introduction</a></li>
+<li><a href="#2-related-work">2 Related work</a></li>
+<li><a href="#3-out-of-distribution-profile">3 Out-of-distribution profile</a></li>
+<li><a href="#4-numerical-analysis">4 Numerical analysis</a></li><li class="toc-sub"><a href="#41-experimental-setup">4.1 Experimental setup</a></li><li class="toc-sub"><a href="#42-results">4.2 Results</a></li>
+<li><a href="#5-discussion">5 Discussion</a></li><li class="toc-sub"><a href="#declarations">Declarations</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </details>
+        <section id="abstract" class="paper-abstract">
+          <h2>Abstract</h2>
+          <p>Detecting and understanding out-of-distribution (OOD) samples is crucial in machine learning (ML) to ensure reliable modelperformance. Current OOD studies primarily focus on extrapolatory (outside) OOD, neglecting potential cases of interpolatory(inside) OOD. In this study, we introduce a novel perspective on OOD by suggesting that it can be divided into inside andoutside cases. We examine the inside–outside OOD profiles of datasets and their impact on ML model performance, usingnormalized root mean squared error (RMSE) and F1 score as the performance metrics on synthetically generated datasets withboth inside and outside OOD. Our analysis demonstrates that different inside–outside OOD profiles lead to unique effects onML model performance, with outside OOD generally causing greater performance degradation, on average. These findingshighlight the importance of distinguishing between inside and outside OOD for developing effective counter-OOD methods.</p>
+        </section>
+        
+<div class="paper-text">
+<h2 id="1-introduction">1 Introduction</h2>
+<p>Achieving high performance in regression and classification tasks using machine learning (ML) and deep learning (DL) models presents a fundamental computational challenge that is critical for various scientific and engineering applications <span class="cite">[<a href="#ref-1">1</a>–<a href="#ref-5">5</a>]</span>. The effectiveness of ML models depends on several factors, including the nature of the problem and the data available for training <span class="cite">[<a href="#ref-6">6</a>–<a href="#ref-14">14</a>]</span>. A growing body of research examines the characteristics of datasets in data-driven tasks, considering aspects such as noise <span class="cite">[<a href="#ref-15">15</a>, <a href="#ref-16">16</a>]</span>, concept drift <span class="cite">[<a href="#ref-17">17</a>, <a href="#ref-18">18</a>]</span>, and out-of-distribution (OOD) data <span class="cite">[<a href="#ref-19">19</a>, <a href="#ref-20">20</a>]</span>.</p>
+<p>The fundamental premise of data-driven models (which includes ML and DL) is based on the assumption that data will be identically and independently distributed (i.i.d) <span class="cite">[<a href="#ref-21">21</a>]</span>. Namely, the training and test data are presumed to come from the same distribution. More importantly, the training and inference data are presumed to come from the same distribution. Nevertheless, this assumption often falls short in numerous real-world scenarios <span class="cite">[<a href="#ref-22">22</a>]</span>. Over time, data-driven models have become pervasive across various domains, and</p>
+<p>B Teddy Lazebnik their deployment in real-world settings frequently encounters violations of the i.i.d assumption <span class="cite">[<a href="#ref-23">23</a>–<a href="#ref-25">25</a>]</span>. As such, it is common for these models to experience a decline in performance over time. This decline in performance is typically attributed to shifts in data distributions and a larger sample size of the real-world distribution that reveals the bias in the original training data <span class="cite">[<a href="#ref-26">26</a>, <a href="#ref-27">27</a>]</span>. Currently, there is an active investigation into this phenomenon, commonly referred to as ”out-of-distribution” (OOD) <span class="cite">[<a href="#ref-28">28</a>, <a href="#ref-29">29</a>]</span>.</p>
+<p>Out-of-distribution data and its impact on data-driven models have been extensively investigated due to its frequent occurrence and the significant challenges it presents <span class="cite">[<a href="#ref-30">30</a>–<a href="#ref-32">32</a>]</span>. Addressing the challenges posed by OOD scenarios is crucial for ensuring the robustness and reliability of data-driven models across various applications <span class="cite">[<a href="#ref-33">33</a>, <a href="#ref-34">34</a>]</span>. Intuitively, OOD refers to data instances that significantly deviate from the training data distribution of data-driven models. This definition should be carefully distinguished from concept drift, which describes changes in data’s underlying distribution over time. Practically speaking, OOD is a fundamental issue in data-driven modeling because it exposes the limitations of models that assume the training data are fully representative of the task’s dynamics <span class="cite">[<a href="#ref-35">35</a>]</span>.</p>
+<p>Indeed, multiple studies focused their efforts on tackling the challenges posed by OOD, including but not limited to OOD definition <span class="cite">[<a href="#ref-36">36</a>, <a href="#ref-37">37</a>]</span>. OOD detection <span class="cite">[<a href="#ref-33">33</a>, <a href="#ref-38">38</a>, <a href="#ref-39">39</a>]</span>, and OOD robustness <span class="cite">[<a href="#ref-40">40</a>, <a href="#ref-41">41</a>]</span>. For instance, <span class="cite">[<a href="#ref-42">42</a>]</span> builds on the risk 0123456789().: V,-vol extrapolation mathematical framework, employing robust optimization over a perturbation set of extrapolated domains to demonstrate that reducing differences in risk across training domains can mitigate a model’s sensitivity to a wide range of extreme distributional shifts. <span class="cite">[<a href="#ref-43">43</a>]</span> proposed a simple mixup-based technique, called LISA, that learns invariant predictors via selective augmentation. This method selectively interpolates samples with either the same labels but different domains, or the same domain but different labels, addressing subpopulation shifts (e.g., imbalanced data) and domain shifts. Moreover, <span class="cite">[<a href="#ref-44">44</a>]</span> extended the task of improving robustness to OOD by incorporating an OOD detection mechanism as an integral part of the method. Specifically, the authors propose a margin-based learning framework that exploits freely available unlabeled data in the wild, capturing the environmental test-time OOD distributions under both covariate and semantic shifts. Additionally, <span class="cite">[<a href="#ref-45">45</a>]</span> empirically showed that OOD performance is strongly correlated with in-distribution performance across a wide range of models and distribution shifts. They connected the strength of this correlation to the Gaussian data model, revealing that the further a sample is from the Gaussian-defined centroid, the weaker the correlation becomes.</p>
+<figure id="fig-1">
+<a class="fig-zoom" href="figures/fig-1.webp" aria-label="Open the figure full size"><img src="figures/fig-1.webp" width="952" height="232" alt="An example of inside and outside out of distribution (OOD) for a one, b two, and c five dimensions" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 1</strong> An example of inside and outside out of distribution (OOD) for <strong>a</strong> one, <strong>b</strong> two, and <strong>c</strong> five dimensions</figcaption>
+</figure>
+
+<p>Notably, these attempts mainly focused on OOD as an outlier phenomenon for a given dataset, ignoring the cases where OOD is <strong>surrounded</strong> by the available (i.e., training) data. With this perspective, one can consider a binary separation between two types of OOD—“inside” and “outside” of the training data. <a class="xref" href="#fig-1">Figure 1</a> provides several examples of these differences such that (a) shows inside and outside OOD for one-dimensional case; (b) shows the four possible inside and outside OOD configurations possible in two-dimensional case; and (c) shows inside and outside OOD for the task of in-painting from computer vision which defined in a five-dimensional case corresponding to the three color dimensions and the two location dimensions <span class="cite">[<a href="#ref-46">46</a>]</span>.</p>
+<p>In this study, we investigate the OOD phenomenon from the inside–outside perspectives. We start by defining the inside–outside OOD profile of a<em>n</em>-dimensional distribution, followed by numerically profiling it for a large number of synthetic datasets. In addition, we perform a sensitivity analysis to draw rules of thumb for practical guidelines for practitioners tackling complex OOD profiles.</p>
+<p>The rest of this manuscript is organized as follows. Section 2 provides an overview of OOD definitions. Section 3 formally introduces the OOD inside and outside OOD definitions. Section 4 outlines the experimental setup used as well as the numerical results obtained. Finally, in Sect. 5, we discuss the applicative outcome of the obtained results and suggest possible future work.</p>
+<h2 id="2-related-work">2 Related work</h2>
+<p>Out of distribution is a complex mathematical phenomenon as it emerges from gaps between the information available to an observer and the real-world dynamics occurring in practice. To illustrate this idea, let us consider a simple case of height distribution in the male population, which is known to be distributed normally with a mean value of 178.4 cm and a standard deviation of 7.6 cm <span class="cite">[<a href="#ref-47">47</a>]</span>. A researcher collects data from Bolivia and the Netherlands with an average male height of 163.0 (SD 5.5) centimeters <span class="cite">[<a href="#ref-48">48</a>]</span> and 183.8 centimeters (SD 7.1) <span class="cite">[<a href="#ref-49">49</a>]</span>, respectively. In such a case, if the researcher used ML to produce a model that predicts the height of males, it would obtain poor results for males from most countries, as these are not well represented in the data. Due to the fact that Bolivia and the Netherlands have the shortest and highest male populations, respectively, the OOD is between them and therefore inside. <a class="xref" href="#fig-2">Figure 2</a> visualizes this example.</p>
+<p>As such, multiple definitions have been proposed for OOD over the years <span class="cite">[<a href="#ref-50">50</a>]</span>. From these, three well-adopted OOD definitions are the Mahalanobis distance, random-feature Z-score, and Kullback–Leibler (KL) divergence metric <span class="cite">[<a href="#ref-28">28</a>]</span>. Mahalanobis distance is an extension of the Z-score metric for<em>n</em>-dimensional case <span class="cite">[<a href="#ref-51">51</a>]</span>. Formally, considering a probability distribution <em>Q</em> over <em>R</em><sup>N</sup>, characterized by its mean vector <em>μ</em> (<em>μ</em><sub>1</sub>, <em>μ</em><sub>2</sub>, <em>μ</em><sub>3</sub>, <em>...</em>, <em>μ</em><sub>N</sub>)<sup>T</sup> and a positive-definite covariance matrix <em>S</em>, the Mahalanobis distance <em>d</em><sub>M</sub> from a point <em>x</em> (<em>x</em><sub>1</sub>, <em>x</em><sub>2</sub>, <em>x</em><sub>3</sub>, <em>...</em>, <em>x</em><sub>N</sub>)<sup>T</sup> to <em>Q</em> is defined as:</p>
+<figure id="fig-2">
+<a class="fig-zoom" href="figures/fig-2.webp" aria-label="Open the figure full size"><img src="figures/fig-2.webp" width="381" height="285" alt="An example for inside out of distribution (OOD) for the case of males’ height distribution given sampled data from one of the shortest (Bolivia) and highest (Netherlands) represented countries" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 2</strong> An example for inside out of distribution (OOD) for the case of males’ height distribution given sampled data from one of the shortest (Bolivia) and highest (Netherlands) represented countries</figcaption>
+</figure>
+
+<div class="equation" id="eq-1"><img src="figures/eq-1.webp" width="215" height="27" alt="dM(⃗x, Q) (⃗x −⃗μ)TS −1(⃗x −⃗μ)." loading="lazy" decoding="async"></div>
+
+<p>This definition of the multivariate Z-score has been extensively used and is likely the most common for OOD in regression tasks <span class="cite">[<a href="#ref-52">52</a>–<a href="#ref-54">54</a>]</span>. A random-feature Z-score selects at random one feature in each iteration and determines whether the observation is in or OOD based on its Z-score, given some threshold <span class="cite">[<a href="#ref-55">55</a>]</span>. KL divergence, a concept from information theory, measures how one probability distribution diverges from a second, reference probability distribution. In the context of OOD, KL divergence is used to quantify the difference between the probability distributions of in-distribution and OOD data <span class="cite">[<a href="#ref-56">56</a>]</span>.</p>
+<p>Beyond these standard methods, <span class="cite">[<a href="#ref-57">57</a>]</span> propose a new measure of discrepancy specifically designed for comparing multivariate distributions, which may offer a different perspective on OOD detection by focusing on overall distributional differences. Another approach to addressing the challenge of measuring inequality in multivariate distributions involves extending the univariate Gini coefficient <span class="cite">[<a href="#ref-58">58</a>]</span>. Such approaches often aim to maintain desirable properties of the Gini coefficient while adapting it to higher-dimensional data, frequently employing techniques like whitening processes to ensure scale stability. Moreover, <span class="cite">[<a href="#ref-59">59</a>]</span> proposes novel multidimensional inequality indices, unlike traditional indices that often leverage techniques like the Fourier transform <span class="cite">[<a href="#ref-60">60</a>]</span> to create scaling-invariant measures that are more computationally tractable than traditional methods like Lorenz Zonoids <span class="cite">[<a href="#ref-61">61</a>]</span>. The authors quantify mutual variability rather than just deviations from the mean, and often produce indices easily interpretable in a multidimensional setting, which can be used as anomaly detection metrics. <span class="cite">[<a href="#ref-62">62</a>]</span> leveraged the convex hull property of a dataset and the fact that anomalies highly contribute to the increase of the convex hull’s volume to propose an anomaly detection algorithm which computes the convex hull’s volume as an increasing number of data points are removed from the dataset to define a decision line between OOD and in-distribution data points.</p>
+<p>Moreover, ML-based anomaly detection algorithms have been proposed <span class="cite">[<a href="#ref-63">63</a>]</span>. For instance, Isolation forest <span class="cite">[<a href="#ref-64">64</a>]</span> leverages recursive data partitioning to isolate individual points, effectively flagging anomalies that are sparse and easily separated, particularly in high-dimensional spaces, though it struggles with densely clustered or geometrically complex anomalies due to its reliance on random splits and ordinal variable ranking. Single-class support vector machines <span class="cite">[<a href="#ref-65">65</a>]</span>, conversely, learn a boundary around normal data, classifying points outside this learned boundary as anomalies, operating under the assumption that points outside the learned boundary are anomalous. Gaussian mixture models <span class="cite">[<a href="#ref-66">66</a>]</span> model data as a mixture of Gaussian distributions, identifying anomalies based on low likelihood, a strategy effective for approximately Gaussian-shaped clusters but less suitable for data with non-Gaussian clusters or complex distributions.</p>
+<p>Nonetheless, these methods are not able to capture inside OOD as they take into consideration the entire training dataset and are symmetric in terms of the anomaly compared to the center of mass of the training dataset.</p>
+<h2 id="3-out-of-distribution-profile">3 Out-of-distribution profile</h2>
+<p>The OOD inside–outside profile aims to capture the performance of a data-driven model on the different possible OOD configurations of a given problem. Formally, let us consider a <em>n</em>+1-dimensional regression task where <em>n</em> dimensions are the source features <em>(x</em>) and the <em>n</em>+1-dimensional is the target feature (<em>y</em>).</p>
+<p>In addition, let us assume for each dimension, <em>i</em> ∈ [0, . . . , <em>n</em> + 1], a sampling distribution is available and denoted by s<sub>i</sub>. The dataset (<em>D</em> [<em>f</em> 1, . . . , <em>f n</em><sub>+1</sub>]) is therefore constructed by sampling s<sub>i</sub> for <em>i</em> ∈ [0, . . . , <em>n</em> + 1] for k times.</p>
+<p>Based on this configuration, let us assume an OOD predictor, O, which accepts ∀<em>i</em> ∈ [0, . . . , <em>n</em>+1] : <em>f i</em> and a new sample <em>x</em><sub>i</sub> ∈ <em>R</em> and returns either this sample is OOD with respect to <em>f i</em> or not. On top of that, we would like to check if the OOD is “outside” or “inside” with respect to <em>f i</em>. As such, we define <em>inside</em> OOD as follows:</p>
+<p><strong>Definition 1</strong> <em>A sample</em> x <em>is said to be “inside” OOD in the</em> i<sub>th</sub><em>dimension with respect to a dataset (</em>D<em>) if and only if</em> x <em>is</em> <em>OOD with respect to</em> f<sub>i</sub><em>given a predictor</em> O <em>and</em> ∃v<sub>1</sub>, v<sub>2</sub> ∈ f<sub>i</sub>: v<sub>1</sub> &lt; x &lt; v<sub>2</sub><em>.</em></p>
+<p>In a complementary manner, one can define <em>outside</em> OOD as follows:</p>
+<p><strong>Definition 2</strong> <em>A sample</em> x <em>is said to be “outside” OOD in the</em> i<sub>th</sub><em>dimension with respect to a dataset (</em>D<em>) if and only if</em> x <em>is OOD with respect to</em> f<sub>i</sub><em>given a predictor</em> O <em>and</em> !∃v<sub>1</sub>, v<sub>2</sub> ∈f<sub>i</sub>: v<sub>1</sub> &lt; x &lt; v<sub>2</sub><em>.</em></p>
+<p>Based on these two definitions, the OOD profile of a dataset for a given new sample <em>x</em> is denoted by <em>p(D, x)</em><sub>O</sub> ∈ {no, inside, outside}<sup>n</sup>.</p>
+<p>These definitions are computationally appealing, as one is not required to solve any complex binary predicate on top of the OOD predicator, O, as finding if the condition ∃<em>v</em><sub>1</sub>, <em>v</em><sub>2</sub> ∈ <em>f i: v</em><sub>1</sub> &lt; <em>x</em> &lt; <em>v</em><sub>2</sub> is met is <em>O</em>(<em>N</em>) where <em>N</em> is the size of the training set without pre-process and even <em>O</em>(1) if the largest and smallest values of each feature are precomputed. That said, they are also sensitive to outliers. For example, let us assume a dataset with 1000 samples, 999 out of them range between 0 and 1 while one sample is located in an arbitrary large value <em>M</em> &gt;&gt; 1. In such a case, a sample with a value of 10 will be considered <em>inside</em> OOD as <em>v</em><sub>1</sub> 1 and <em>v</em><sub>2</sub> <em>M</em> satisfies 1 ≤10 ≤<em>M</em>. However, this is clearly not the behavior one would desire for the <em>inside</em> OOD definition. As such, the <em>inside</em> OOD can be defined also as follows:</p>
+<p><strong>Definition 3</strong> <em>A sample</em> x <em>is said to be “outside” OOD in the i</em><sub>th</sub><em>dimension with respect to a dataset (D) if and only if there are D</em><sub>l</sub><em>, D</em><sub>r</sub> ⊂ <em>D</em> ∧ <em>D</em><sub>l</sub> ∩ <em>D</em><sub>r</sub> ∅ <em>such that x is OOD with respect to D</em><sub>l</sub>(<em>f i</em>) <em>and D</em><sub>r</sub>(<em>f i</em>) <em>given a predictor</em> O <em>and</em> ∃<em>v</em><sub>1</sub> ∈ <em>D</em><sub>l</sub>, <em>v</em><sub>2</sub> ∈ D<sub>r</sub>: <em>v</em><sub>1</sub> &lt; <em>x</em> &lt; <em>v</em><sub>2</sub><em>.</em></p>
+<p>This definition is more robust, while also more computationally extensive, as one is required to ensure there is no division of the dataset D into two subsets (D<sub>l</sub>, D<sub>r</sub>) that satisfy the <em>inside</em> OOD. In the rest of the paper, we utilized the first definition due to its simplicity, and since the synthetic data generation procedure used does not generate anomalies, which can cause bias in the results.</p>
+<h2 id="4-numerical-analysis">4 Numerical analysis</h2>
+<p>In this section, we investigate the behavior of OOD inside–outside profile influence on machine learning (ML) model performance. To this end, we first define an experimental setup where the synthetic data generation procedure allows us to obtain all OOD inside–outside configurations.</p>
+<h3 id="41-experimental-setup">4.1 Experimental setup</h3>
+<p>In order to explore OOD inside–outside profiles, one needs a dataset generation procedure that allows one to obtain both inside and outside OOD for each of the dimensions while also providing a meaningful regression task that represents as many realistic datasets as possible. Hence, we divide the dataset generation task into two steps—source features generation and target feature generation.</p>
+<p>The source features generation generates each feature independently, so the number of features (i.e., <em>n</em>) does not play a part in this step. For each feature, we first generate a distribution, <em>d</em>, which is a sum of a set of predefined distributions {<em>d</em><sup><a href="#ref-1">1</a></sup>, <em>d</em><sup><a href="#ref-2">2</a></sup>, . . . <em>d</em><sup>N</sup>} such that the number of contracted distributions, <em>z</em>, is picked at random to be an arbitrary positive integer and we allow the same contracted distributions to be picked multiple times. Using <em>d</em>, four values (<em>a</em><sub>1</sub><em>, b</em><sub>1</sub><em>, a</em><sub>2</sub><em>, b</em><sub>2</sub>) indicating the start and end of the observable values of a random variable <em>η</em> ∼ <em>d</em> such that <em>a</em><sub>1</sub> &lt; <em>b</em><sub>1</sub> &lt; <em>a</em><sub>2</sub> &lt; <em>b</em><sub>2</sub> are picked. The distribution <em>d</em> is sampled at random such that if the obtained value c satisfies <em>a</em><sub>1</sub> ≤ <em>c</em> ≤ <em>b</em> ∧ <em>a</em><sub>2</sub> ≤ <em>c</em> ≤ <em>b</em><sub>2</sub>, the value is added to f and ignored otherwise. This process repeats until <em>k</em> samples are added to f. Next, for the second step, a random function described by a symbolic regression expression tree is made with all the features in the dataset and produces the target feature. To ensure that an ML model would just reconstruct this function, a random Gaussian noise with a mean equal to zero and a standard deviation larger than zero is added to each source feature and to the target feature.</p>
+<p>Importantly, for the OOD predictor (O), we used the K-nearest neighbors (KNN) algorithm <span class="cite">[<a href="#ref-67">67</a>]</span> with a threshold<em>χ</em> &gt; 0. The value of<em>χ</em> is set to be the diameter of the largest centroid fitted on the training data using the X-means algorithm <span class="cite">[<a href="#ref-68">68</a>]</span>. This way, samples with an average distance of more than<em>χ</em> do not belong to any cluster present in the training data, which is OOD. However, the KNN algorithm also allows us to obtain an inside OOD since a sample can be outside of the radius from two clusters but still between them, as desired.</p>
+<p><a class="xref" href="#table-1">Table 1</a> presents the hyperparameters used by the dataset generation procedure with their descriptions and value range. The value ranges in the tables are taken to represent realistic dataset sizes and value ranges <span class="cite">[<a href="#ref-69">69</a>–<a href="#ref-71">71</a>]</span> while also balancing with computational time.</p>
+<p>As the obtained tasks are regression and sensitive to both scaling and the dataset’s dimension, we used the root mean squared error (RMSE) metric normalized to the average RMSE value where the samples are in-distribution <span class="cite">[<a href="#ref-73">73</a>]</span>. The metric performance for all OOD profile configurations is computed to be <em>n</em> 100 random samples from the distribution D. In order to obtain an arguably best ML model for each dataset, we utilize the tree-based pipeline optimization tool (TPOT) automatic machine learning <span class="cite">[<a href="#ref-74">74</a>]</span> due to its effectiveness in finding near-optimal ML models for a wide range of tabular tasks <span class="cite">[<a href="#ref-75">75</a>–<a href="#ref-78">78</a>]</span>.</p>
+<p>Moreover, in order to also evaluate classification tasks, for any given regression task, we randomly picked a number of tasks, we adopted the F<sub>1</sub> score <span class="cite">[<a href="#ref-79">79</a>]</span>, which is commonly used for anomaly detection tasks.</p>
+<figure class="table-figure" id="table-1">
+<figcaption><strong>Table 1</strong> Hyperparameters for OOD inside–outside profile experiments</figcaption>
+<img src="figures/table-1.webp" width="345" height="772" alt="Table 1 Hyperparameters for OOD inside–outside profile experiments" loading="lazy" decoding="async">
+
+</figure>
+
+<h3 id="42-results">4.2 Results</h3>
+<p>The results of the above analysis are divided into two parts—profiling of the inside–outside distribution for the average case for different dimensions and the sensitivity of ML models’ performance as properties of the inside–outside OOD change.</p>
+<h4 id="421-profiling">4.2.1 Profiling</h4>
+<p><a class="xref" href="#fig-3">Figure 3</a> presents the inside–outside OOD profiles (<em>p</em>(<em>D</em>, <em>x</em>)<sub>O</sub>) for different dimensions. The <em>x</em>, <em>y</em>, and <em>z</em> axis are corresponding to the in-distribution, inside OOD, and outside OOD, respectively. The dots are located as the number of features associated with each type as the features are symmetric in our context, the order is not important. The color, ranging from blue to red indicates the average normalized RMSE for <em>n</em> 100 repetitions. From Fig. 3a, b, and c, indicating all possible inside–outside OOD configurations for 1, 2, and 3 dimensions, respectively, a pattern that outside OOD results in higher RMSE and the effect is nonlinear to the number of dimensions. Extended to a more realistic configuration, Fig. 3d shows the same analysis for <em>n</em> 10 dimensions. The pattern that emerged from the first three dimensions is preserved.</p>
+<p><a class="xref" href="#fig-4">Figure 4</a> presents the inside–outside OOD profiles (<em>p(D, x</em>)<sub>O</sub>) for different dimensions for synthetic classification tasks. Like <a class="xref" href="#fig-3">Fig. 3</a>, the <em>x</em>, <em>y</em>, and <em>z</em> axis are corresponding to the in-distribution, inside OOD, and outside OOD, respectively, and the dots are located as the number of features associated with each type while the color, ranging from blue to red indicates the average normalized F<sub>1</sub> score for <em>n</em> 100 repetitions. Figure 4a, b, and c, showcasing inside–outside OOD configurations for 1–3 dimensions, indicates that outside OOD consistently produces lower F<sub>1</sub> score values, and this effect grows nonlinearly with dimensionality. This pattern is maintained when extended to <em>n</em> 10, as shown in Fig. 3d. In particular, one can notice that a combination of inside OOD and outside OOD results in lower F<sub>1</sub>, in comparison with only inside or outside OOD.</p>
+<h4 id="422-sensitivity-analysis">4.2.2 Sensitivity analysis</h4>
+<p>classes (<em>τ</em> ∈ <em>N</em>) and number of dividing points for the range of the target feature (<em>ζ</em> ∈<em>N</em> &gt;<em>τ</em> − 2). For each range, divided by either two division points or a division point and the edge of the target feature’s distribution, we assign a value of a class at random, allowing repetitions only after each class is assigned at least once. In order to evaluate the classification Figure 5a and b presents the mean normalized RMSE as a function of the number of dimensions and the feature’s distribution complexity, respectively. The results are shown as the mean ± standard deviation of <em>n</em> 100 repetitions. Both sub-figures present a one-dimensional sensitivity analysis of inside–outside OOD with changes in the complexity of the regression task. Figure 5a shows a semi–linear growth in the mean normalized RMSE with respect to the number of dimensions. At the same time, the distribution of the RMSE over the cases also increases with the dimension of the task, as indicated by the increase in the error bars. Similarly, the mean normalized RMSE monotonically increases with the feature’s distribution complexity, while the error bar sizes do not show a clear pattern. This outcome can be explained as different core distribution additions can result in a much more computationally expressive distribution compared to others (for example, a sum of normal distributions compared to a sum of all unique distributions), which results in a complex pattern.</p>
+<figure id="fig-3">
+<a class="fig-zoom" href="figures/fig-3.webp" aria-label="Open the figure full size"><img src="figures/fig-3.webp" width="727" height="792" alt="The inside–outside out-of-distribution (OOD) profiles (p(D, x)O) for different dimensions for regression tasks" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 3</strong> The inside–outside out-of-distribution (OOD) profiles (<em>p(D, x</em>)<sub>O</sub>) for different dimensions <strong>for regression tasks</strong>. The color indicates the average normalized RMSE for <em>n</em> 100 repetitions</figcaption>
+</figure>
+
+<p>Figure 6a and b presents the mean normalized RMSE as a function of the inside to outside OOD portions and the dataset’s size, respectively. The results are shown as the mean ± standard deviation of <em>n</em> 100 repetitions. Both figures present a two-dimensional sensitivity analysis of inside–outside OOD with changes in the complexity of the regression task. Figure 6b shows that an overall increase in OOD results in higher average RMSE, with the outside OOD increasing the RMSE more than the inside OOD, aligning with the pattern presented in <a class="xref" href="#fig-3">Fig. 3</a>. In a complementary manner, Fig. 6b reveals that an increase in the number of features and samples increases the average RMSE such that the increase in the features is semi-linear, as also indicated by Fig. 5a.</p>
+<figure id="fig-4">
+<a class="fig-zoom" href="figures/fig-4.webp" aria-label="Open the figure full size"><img src="figures/fig-4.webp" width="722" height="797" alt="The inside–outside out-of-distribution (OOD) profiles (p(D, x)O) for different dimensions for classification tasks" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 4</strong> The inside–outside out-of-distribution (OOD) profiles (<em>p</em>(<em>D</em>, <em>x</em>)<sub>O</sub>) for different dimensions <strong>for classification tasks</strong>. The color indicates the average normalized RMSE for <em>n</em> 100 repetitions</figcaption>
+</figure>
+
+<h2 id="5-discussion">5 Discussion</h2>
+<p>In this study, we proposed a novel perspective on OOD in the form of both inside and outside OOD, focusing on how different inside–outside OOD configurations affect the performance of ML models. Based on the inside–outside OOD definition, we conducted both profiling and sensitivity analysis on synthetic datasets for regression tasks solved using ML models.</p>
+<figure id="fig-5">
+<a class="fig-zoom" href="figures/fig-5.webp" aria-label="Open the figure full size"><img src="figures/fig-5.webp" width="952" height="306" alt="A one-dimensional sensitivity analysis of inside–outside out of distribution (OOD)" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 5</strong> A one-dimensional sensitivity analysis of inside–outside out of distribution (OOD). The results are shown as the mean ± standard deviation of <em>n</em> 100 repetitions</figcaption>
+</figure>
+
+<figure id="fig-6">
+<a class="fig-zoom" href="figures/fig-6.webp" aria-label="Open the figure full size"><img src="figures/fig-6.webp" width="952" height="354" alt="A two-dimensional sensitivity analysis of inside–outside out of distribution (OOD)" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 6</strong> A two-dimensional sensitivity analysis of inside–outside out of distribution (OOD). The results are shown as the mean ± standard deviation of <em>n</em> 100 repetitions</figcaption>
+</figure>
+
+<p>The results, illustrated in <a class="xref" href="#fig-3">Figs. 3</a>, 4, 5, and 6, highlight the impact of the inside–outside OOD profiles on model performance. Specifically, we show that outside OOD configurations consistently lead to higher normalized RMSE compared to inside OOD configurations across different dimensions (<a class="xref" href="#fig-3">Figs. 3</a> and 4). This trend is evident in one-dimensional (Figs. 3a and 4a), two-dimensional (Figs. 3b and 4b), three-dimensional (Figs. 3c and 4c), and ten-dimensional (Figs. 3d and 4d) datasets, indicating a robust pattern where outside OOD significantly degrades performance. Furthermore, the sensitivity analysis reveals a semi-linear increase in mean normalized RMSE <strong>(and semi-linear decrease in the</strong> F<sub>1</sub> <strong>score</strong> with the number of dimensions and feature distribution complexity, which aligns with previous OOD studies <span class="cite">[<a href="#ref-57">57</a>]</span>. This outcome indicates that in terms of error profile, inside and outside OOD behave similarly <span class="cite">[<a href="#ref-29">29</a>, <a href="#ref-80">80</a>]</span>. These findings align with previous studies that emphasize the detrimental effect of distribution shifts on model accuracy <span class="cite">[<a href="#ref-42">42</a>, <a href="#ref-43">43</a>, <a href="#ref-45">45</a>]</span>, underscoring the importance of accounting for both inside and outside OOD scenarios in the development and evaluation of machine learning models.</p>
+<p>It is worth noting the conceptual similarities between our proposed ”inside” and ”outside” OOD framework and the established notions of internal and external validation prevalent in fields like medical research <span class="cite">[<a href="#ref-81">81</a>]</span>. Internal validation, assessing model performance on data closely related to the training set, shares a resemblance with our ”inside” OOD, where anomalies exist within the observed feature ranges. Conversely, external validation, evaluating generalizability to entirely new, independent datasets, echoes our ”outside” OOD, where samples fall beyond the training data’s feature boundaries. However, a key distinction lies in the basis of this categorization. While internal and external validation in medicine are often delineated by the source and context of the data (e.g., different patient cohorts or institutions), our ”inside” and ”outside” OOD are defined by a more direct, data-driven criterion based on whether the OOD samples fall within or beyond the observed range of each feature in the training data. This feature-centric definition allows for a more granular analysis of how different types of distributional shifts, both within and extending beyond the training data’s span, uniquely impact machine learning model performance, highlighting a novel perspective on OOD analysis.</p>
+<p>The findings of this study provide two practical guidelines for practitioners. First, when developing and evaluating ML models, it is crucial to consider the potential presence of both inside and outside OOD data, as well as possible inside–outside profiles that can take place based on the available training data to predict possible OOD issues in production settings. Second, data augmentation techniques that simulate both inside and outside OOD conditions can help in training more resilient models <span class="cite">[<a href="#ref-82">82</a>]</span>. For instance, inside OOD samples might be used to augment training data, thereby improving the robustness of models to unusual but plausible variations. In contrast, outside OOD samples could trigger more significant actions in a deployed system, such as initiating a model retraining process or activating safety protocols. Effectively, the inside–outside OOD framework offers a nuanced way to manage OOD, moving beyond a simple binary classification and enabling more adaptive and robust machine learning systems.</p>
+<p>Nonetheless, this study is not without limitations. Mainly, the proposed OOD inside–outside profile assumes that the features are continuous. As such, categorical features are not addressed. In addition, the synthetic dataset generation procedure is limited by the complexity and expressiveness of the datasets, which may not represent a portion of extremely complex real-world datasets. Future work should address these limitations to provide a more extensive understanding of OOD inside–outside profiling, which can be used to improve other properties of data-driven models, such as concept drift <span class="cite">[<a href="#ref-83">83</a>, <a href="#ref-84">84</a>]</span>.</p>
+<p>Taken jointly, the inside–outside OOD formalization facilitates a more robust and reliable machine learning development by recognizing and differentiating between these two types, allowing practitioners to better design targeted strategies to mitigate the adverse effects of OOD. The proposed framework opens several promising avenues for future investigation. First, exploring the interplay between inside–outside OOD and other related concepts, such as concept drift and adversarial examples, could provide valuable insights into the multifaceted challenges of distribution shift. Second, the development of practical tools and techniques for detecting and characterizing inside–outside OOD in real-world data would be of significant benefit to domains such as medical imaging, where the ability to reliably identify anomalous patterns is paramount, and autonomous systems, where robustness to unexpected scenarios is critical for safe operation <span class="cite">[<a href="#ref-85">85</a>]</span>.</p>
+<p><strong>Acknowledgements</strong> The author wishes to thank both Oren Glickman and Assaf Shmuel for inspiring this study and Uri Itay for the thought-provoking discussion about it.</p>
+<p><strong>Author’s contributions</strong> T.L. did all the work</p>
+<p><strong>Funding</strong> Open access funding provided by Jönköping University. This study received no funding.</p>
+<p><strong>Data availability</strong> No datasets were generated or analyzed during the current study.</p>
+<p><strong>Code availability</strong> The code used for this study is freely available at: https://github.com/teddy4445/inside_ood.</p>
+<h3 id="declarations">Declarations</h3>
+<p><strong>Conflict of interest</strong> The author declares no conflict of interest.</p>
+<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 13 March 2025 · Accepted 28 August 2025</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>Machine learning robustness</li><li>Performance evaluation</li><li>Out-of-distribution proﬁle</li><li>High-dimensional analysis</li></ul></dd></div></dl></section>
+<h2 id="references">References</h2>
+<ol class="paper-refs"><li id="ref-1">Virgolin, M., Wang, Z., Alderliesten, T., Bosman, P.A.N.: Machine learning for the prediction of pseudorealistic pediatric abdominal phantoms for radiation dose reconstruction. J. Med. Imag. 7(4), 046501 (2020)</li>
+<li id="ref-2">Kutz, J.N.: Deep learning in fluid dynamics. J. Fluid Mech. 814, 1–4 (2017)</li>
+<li id="ref-3">Reichstein, M., Camps-Valls, G., Stevens, B., Jung, M., Denzler, J., Carvalhais, N., et al.: Deep learning and process understanding for data-driven earth system science. Nature 566(7743), 195–204 (2019)</li>
+<li id="ref-4">Alzubaidi, L., Zhang, J., Amjad J.H., Al-Dujaili, A., Duan, Y., Al-Shamma, O., Santamarıa, J., Fadhel, M.A., Al-Amidie, M., Farhan, L.: Review of deep learning: Concepts, cnn architectures, challenges, applications, future directions. J. Big Data,8(1), 1–74 (2021).</li>
+<li id="ref-5">Raissi, M., Karniadakis, G.E.: Hidden physics models: machine learning of nonlinear partial differential equations. J. Comput. Phys. 357, 125–141 (2018)</li>
+<li id="ref-6">He, X., Zhao, K., Chu, X.: Automl: a survey of the state-of-the-art. Knowl.-Based Syst. 212, 106622 (2021)</li>
+<li id="ref-7">Zhong, J., Hu, X., Zhang, J., Gu, M.: Comparison of performance between different selection strategies on simple genetic algorithms. In: International conference on computational intelligence for modelling control and automation and international conference on intelligent agents, web technologies and internet commerce (CIMCA-IAWTIC’06), vol 2. IEEE, New York, pp 1115–1121 (2005)</li>
+<li id="ref-8">Lazebnik, T., Rosenfeld, A.: Fspl: a meta-learning approach for a filter and embedded feature selection pipeline. international. J. Appl. Math. Comput. Sci.33(1) (2023).</li>
+<li id="ref-9">Huber, M.F.: A survey on the explainability of supervised machine learning. J. Artif. Intell. Res.,70 (2021).</li>
+<li id="ref-10">Marcinkevics, R., Vogt, J.E.: Interpretability and explainability: A machine learning zoo mini-tour. J. Artif. Intell. Res. (2023).</li>
+<li id="ref-11">Li, T., Zhong, J., Liu, J., Wu, W., Zhang, C.: Ease. ml: Towards multi-tenant resource sharing for machine learning workloads. Proc. VLDB Endowment.11(5), 607–620 (2018).</li>
+<li id="ref-12">Lazebnik, T., Fleischer, T., Yaniv-Rosenfeld, A.: Benchmarking biologically-inspired automatic machine learning for economic tasks. Sustainability,15(14) (2023).</li>
+<li id="ref-13">Heaton, J.: An empirical analysis of feature engineering for predictive modeling. In SoutheastCon 2016, 1–6 (2016)</li>
+<li id="ref-14">Khurana, U., Turaga, D., Samulowitz, H., Parthasrathy, S.: Cognito: Automated feature engineering for supervised learning. In: 2016 IEEE 16th International Conference on Data Mining Workshops (ICDMW), pp 1304–1307 (2016).</li>
+<li id="ref-15">Lu, X., Ming, L., Liu, W., Li, H.-X.: Probabilistic regularized extreme learning machine for robust modeling of noise data. IEEE Trans. Cybern. 48(8), 2368–2377 (2018)</li>
+<li id="ref-16">Dalessandro, B.: Bring the noise: embracing randomness is the key to scaling up machine learning algorithms. Big Data 1(2), 110–112 (2013)</li>
+<li id="ref-17">Gama, J., Zliobaite, I., Bifet, A., Pechenizkiy, M., Bouchachia, A.: A survey on concept drift adaptation. ACM Computing Surveys (CSUR), p. 46 (2014).</li>
+<li id="ref-18">Gama, J., Zliobaitundefined, I., Bifet, A., Pechenizkiy, M., Bouchachia, A.: A survey on concept drift adaptation. ACM Comput. Surv.,46(4) (2014).</li>
+<li id="ref-19">Yao, H., Wang, Y., Li, S., Zhang, L., Liang, W., Zou, J., Finn, C.: Improving out-of-distribution robustness via selective augmentation. In: Proceedings of the 39th International Conference on Machine Learning, volume 162 of Proceedings of Machine Learning Research, pp. 25407–25437. PMLR, New York (2022).</li>
+<li id="ref-20">Krueger, D., Caballero, E., Jacobsen, J.-H., Zhang, A., Binas, J., Zhang, D., Priol, R.L., Courville, A.: Out-of-distribution generalization via risk extrapolation (rex). In: Proceedings of the 38th International Conference on Machine Learning, vol 139, po 5815–5826. PMLR, New York (2021).</li>
+<li id="ref-21">Arafeh, M., Hammoud, A., Otrok, H., Mourad, A., Talhi, C., Dziong, Z.: Independent and identically distributed (iid) data assessment in federated learning. In: GLOBECOM 2022–2022 IEEE Global Communications Conference, pp 293–298 (2022).</li>
+<li id="ref-22">Dundar, B., Krishnapuram, M., Bi, J., Rao, R.B.: Learning classifiers when the training data is not iid. IJCAI, pp 756–761 (2007).</li>
+<li id="ref-23">Krongauz, D., Lazebnik, T.: Collective evolution learning model for vision-based collective motion with collision avoidance. PLoS One (2023).</li>
+<li id="ref-24">Afsar, M.M., Crump, T., Far, B.: Reinforcement learning based recommender systems: a survey. ACM Comput. Surv. (2022).</li>
+<li id="ref-25">Vilalta, R., Giraud-Carrier, C., Brazdil, P.: Meta-learning—concepts and techniques. Springer US, Cham, pp 717–731 (2010).</li>
+<li id="ref-26">Ghassemi, N., Fazl-Ersi, E.: A comprehensive review of trends, applications and challenges in out-of-distribution detection. arXiv (2022).</li>
+<li id="ref-27">Veturi, Y.A., Woof, W., Lazebnik, T., Moghul, I., Woodward-Court, P., Wagner, S.K., Cabral de Guimaraes, T.A., Varela, M.D., Liefers, B., Patel, P.J., Beck, S., Webster, A.R., Mahroo, O., Keane, P.A., Michaelides, M., Balaskas, K., Pontikos, N.: Syntheye: Investigating the impact of synthetic data on ai-assisted gene diagnosis of inherited retinal disease. Ophthalmol. Sci. p. 100258 (2022).</li>
+<li id="ref-28">Kirchheim, K., Filax, M., Ortmeier, F.: Pytorch-ood: A library for out-of-distribution detection based on pytorch. In: Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops, pp 4351–4360 (2022).</li>
+<li id="ref-29">Yang, J., Zhou, K., Li, Y., Liu, Z.: Generalized out-of-distribution detection: a survey. arXiv, 2022.</li>
+<li id="ref-30">Fort, S., Ren, J., Lakshminarayanan, B.: Exploring the limits of out-of-distribution detection. In: Ranzato, M., Beygelzimer, A., Dauphin, Y., Liang, P.S., Wortman Vaughan, J. editors, Advances in Neural Information Processing Systems, vol. 34, pp 7068–7081 (2021).</li>
+<li id="ref-31">Hendrycks, D., Basart, S., Mu, N., Kadavath, S., Wang, F., Dorundo, E., Desai, R., Zhu, T., Parajuli, S., Guo, M., Song, D., Steinhardt, J., Gilmer, J.: The many faces of robustness: A critical analysis of out-of-distribution generalization. In: Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV), pp 8340–8349, (2021).</li>
+<li id="ref-32">Miller, P., Taori, R., Raghunathan, A., Sagawa, S., Koh, P.W., Shankar, V., Liang, P., Carmon, Y., Schmidt, L.: Accuracy on the line: on the strong correlation between out-of-distribution and in-distribution generalization. In Proceedings of the 38th International Conference on Machine Learning, vol 139, pp 7721–7735 (2021).</li>
+<li id="ref-33">Y-C. Hsu, Y. Shen, H. Jin, and Z. Kira. Generalized odin: Detecting out-of-distribution image without learning from out-of-distribution data. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) (2020).</li>
+<li id="ref-34">Bengio, Y., Bastien, F., Bergeron, A., Boulanger–Lewandowski, N., Breuel, T., Chherawala, Y., Cisse, M., Cote, M., Erhan, D., Eustache, J., Glorot, X., Muller, X., Pannetier Lebeuf, S., Pas-canu, R., Rifai, S., Savard, F., Sicard, G.: Deep learners benefit more from out-of-distribution examples. In: Proceedings of the Fourteenth International Conference on Artificial Intelligence and Statistics, vol 15, pp 164–172. PMLR, New York (2011).</li>
+<li id="ref-35">Jordan, M.I., Mitchell, T.M.: Machine learning: trends, perspectives, and prospects. Science 349(6245), 255–260 (2015)</li>
+<li id="ref-36">Hendrycks, D., Gimpel, K.: A baseline for detecting misclassified and out-of-distribution examples in neural networks. arXiv (2018).</li>
+<li id="ref-37">Ye, N., Li, K., Bai, H., Yu, R., Hong, L., Zhou, F., Li, Z., Zhu, J.: Ood-bench: Quantifying and understanding two dimensions of out-of-distribution generalization. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), pp 7947–7958 (2022).</li>
+<li id="ref-38">Liu, W., Wang, X., Owens, J., Li, Y.: Energy-based out-of-distribution detection. In H. Larochelle, M. Ranzato, R. Hadsell, M.F. Balcan, and H. Lin, editors, Advances in Neural Information Processing Systems, vol 33, pp 21464–21475. Curran Associates, Inc., 2020.</li>
+<li id="ref-39">S. Fort, J. Ren, and B. Lakshminarayanan. Exploring the limits of out-of-distribution detection. In M. Ranzato, A. Beygelzimer, Y. Dauphin, P.S. Liang, and J. Wortman Vaughan, editors, Advances in Neural Information Processing Systems, volume 34, pages 7068–7081. Curran Associates, Inc., New York (2021).</li>
+<li id="ref-40">Wenzel, F., Dittadi, A.., Gehler, P., Simon-Gabriel, C.-J., Horn, M., Zietlow, D., Kernert, D., Russell, C., Brox, T., Schiele, B., Scho¨lkopf, B., Locatello, F.: Assaying out-of-distribution generalization in transfer learning. In S. Koyejo, S. Mohamed, A. Agarwal, D. Belgrave, K. Cho, and A. Oh, editors, Advances in Neural Information Processing Systems, vol 35, pp 7181–7198. Curran Associates, Inc., New York (2022).</li>
+<li id="ref-41">Hendrycks, D., Basart, S., Mu, N., Kadavath, S., Wang, F., Dorundo, E., Desai, R., Zhu, T., Parajuli, S., Guo, M., Song, D., Steinhardt, J., Gilmer, J.: The many faces of robustness: A critical analysis of out-of-distribution generalization. In Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV), pp 8340–8349 (2021).</li>
+<li id="ref-42">Krueger, D., Caballero, E., Jacobsen, J.-H., Zhang, A., Binas, J., Zhang, D., Priol, R.L., Courville, A.: Out-of-distribution generalization via risk extrapolation (rex). In M. Meila and T. Zhang, editors, Proceedings of the 38th International Conference on Machine Learning, pp 5815–5826. PMLR, New York (2021).</li>
+<li id="ref-43">Yao, H., Wang, Y., Li, S., Zhang, L., Liang, W., Zou, J., Finn, C.: Improving out-of-distribution robustness via selective augmentation. In K. Chaudhuri, S. Jegelka, L. Song, C. Szepesvari, G. Niu, and S. Sabato, editors, Proceedings of the 39th International Conference on Machine Learning, vol 162, pp 25407–25437. PMLR, New York (2022).</li>
+<li id="ref-44">Bai, H., Canal, G., Du, X., Kwon, J., Nowak, R.D., Li, Y.: Feed two birds with one scone: Exploiting wild data for both out-of-distribution generalization and detection. In A. Krause, E. Brunskill, K. Cho, B. Engelhardt, S. Sabato, and J. Scarlett, editors, Proceedings of the 40th International Conference on Machine Learning, vol 202, pp 1454–1471. PMLR, New York (2023)</li>
+<li id="ref-45">Miller, J.P., Taori, R., Raghunathan, A., Sagawa, S., Koh, P.W., Shankar, V., Liang, P., Carmon, Y., Schmidt, L.: Accuracy on the line: on the strong correlation between out-of-distribution and in-distribution generalization. In M. Meila and T. Zhang, editors, Proceedings of the 38th International Conference on Machine Learning, volume 139 of Proceedings of Machine Learning Research, pp 7721–7735. PMLR, 2021.</li>
+<li id="ref-46">Yu, J., Lin, Z., Yang, J., Shen, X., Lu, X., Huang, T.S.: Generative image inpainting with contextual attention. In: Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), June 2018.</li>
+<li id="ref-47">Komlos, J., Kim, J.H.: Estimating trends in historical heights. Hist. Methods A J Quant. Interdiscip. History 23(3), 116–120 (1990)</li>
+<li id="ref-48">Subramanian, S.V., Zaltin, E.O, Finlay, J.E.: Height of nations: a socioeconomic analysis of cohort differences and patterns among women in 54 low- to middle-income countries. Plos One,6(4), e18962 (2011).</li>
+<li id="ref-49">Schönbeck, Y., Talma, H., van Dommelen, P., Bakker, B., Bui-tendijk, S.E., HiraSing, R.A., van Buuren, S.: The world’s tallest nation has stopped growing taller: the height of dutch children from 1955 to 2009. Pediatric Res.,73(3), 371–377 (2013).</li>
+<li id="ref-50">Yang, J., Zhou, K., Li, Y., Liu, Z.: Generalized out-of-distribution detection: a survey. Int. J. Comp. Vis. (2024).</li>
+<li id="ref-51">Mahalanobis, P C.: On the generalized distance in statistics. Samkhya: Indian J. Stat.Se. A (2008-),80, S1–S7 (2018).</li>
+<li id="ref-52">Bendale, A., Boult, T.: Towards open world recognition. In: Proceedings of the IEEE conference on computer vision and pattern recognition, pp 1893–1902 (2015).</li>
+<li id="ref-53">Lee, K., Lee, K., Lee, H., Shin, J.: A simple unified framework for detecting out-of-distribution samples and adversarial attacks. Adv. Neural Inform. Process. Syst. 31 (2018).</li>
+<li id="ref-54">Mayrhofer, M., Filzmoser, P.: Multivariate outlier explanations using shapley values and mahalanobis distances. Economet. Stat. (2023).</li>
+<li id="ref-55">Sastry, C.M., Oore, S.: Detecting out-of-distribution examples with Gram matrices. In: Proceedings of the 37th International Conference on Machine Learning, vol 119 of Proceedings of Machine Learning Research, pp 8491–8501. PMLR, New York (2020).</li>
+<li id="ref-56">Zhang, Y., Pan, J., Liu, W., Chen, Z., Li, K., Wang, J., Liu, Z., Wei, H.: Kullback-leibler divergence-based out-of-distribution detection with flow-based generative models. IEEE Trans. Knowl. Data Eng. pp 1–14 (2023).</li>
+<li id="ref-57">Auricchio, G., Brigati, G., Giudici, P., Toscani, G.: Multivariate gini-type discrepancies. Math. Models Methods Appl. Sci. 35(05), 1267–1296 (2025)</li>
+<li id="ref-58">Gennaro, A., Giudici, P., Toscani, G.: Extending the gini index to higher dimensions via whitening processes. Rend. Lincei Mat. Appl. 35, 511–528 (2024)</li>
+<li id="ref-59">Giudici, P., Raffinetti, E., Toscani, G.: Measuring multidimensional inequality: a new proposal based on the fourier transform. Statistics 59(2), 330–353 (2024)</li>
+<li id="ref-60">Bracewell, R.N.: The fourier transform. Sci. Am. 260(6), 86–95 (1989)</li>
+<li id="ref-61">Koshevoy, G., Mosler, K.: The lorenz zonoid of a multivariate distribution. J. Am. Stat. Assoc. 91(434), 873–882 (1996)</li>
+<li id="ref-62">Itai, U., Bar Ilan, A., Lazebnik, T.: Tighten the lasso: A convex hull volume-based anomaly detection method. arXiv (2025).</li>
+<li id="ref-63">Nassif, A.B., Talib, M.A., Nasir, Q., Dakalbab, F.M.: Machine learning for anomaly detection: a systematic review. Ieee Access 9, 78658–78700 (2021)</li>
+<li id="ref-64">Cheng, Z., Zou, C., Dong, J.: Outlier detection using isolation forest and local outlier factor. In: Proceedings of the conference on research in adaptive and convergent systems, pp 161–168 (2019).</li>
+<li id="ref-65">Oza, P., Patel, V.M.: One-class convolutional neural network. IEEE Signal Process. Lett. 26(2), 277–281 (2018)</li>
+<li id="ref-66">Li, L., Hansman, R.J., Palacios, R., Welsch, R.: Anomaly detection via a gaussian mixture model for flight operation and safety monitoring. Transp. Res. Part C: Emerg. Technol. 64, 45–57 (2016)</li>
+<li id="ref-67">Zang, B., Huang, R., Wang, L., Chen,J., Tian, F., Wei, X.: An improved knn algorithm based on minority class distribution for imbalanced dataset. In:2016 International Computer Symposium (ICS), pp 696–700 (2016).</li>
+<li id="ref-68">Kumar, P., Krishan Wasan, S.: Analysis of x-means and global k-means using tumor classification. In: 2010 The 2nd International Conference on Computer and Automation Engineering (ICCAE), vol 5, pp 832–835 (2010).</li>
+<li id="ref-69">McElfresh, D., Khandagale, S., Valverde, J., Prasad, V., Ramakrish-nan, G., Goldblum, M., White, C.: When do neural nets outperform boosted trees on tabular data? Adv. Neural Inform. Process. Syst., volume36 (2024).</li>
+<li id="ref-70">Grinsztajn, L., Oyallon, E., Varoquaux, G.: Why do tree-based models still outperform deep learning on typical tabular data? Adv. Neural Inform. Process. Syst. 35, 507–520 (2022)</li>
+<li id="ref-71">Shmuel, A., Glickman, O., Lazebnik, T.: A comprehensive benchmark of machine and deep learning across diverse tabular datasets. arXiv (2024).</li>
+<li id="ref-72">Keren, L.S., Liberzon, A., Lazebnik, T.: A computational framework for physics-informed symbolic regression with straightforward integration of domain knowledge. Sci. Rep. 13, 1249 (2023)</li>
+<li id="ref-73">Shmuel, A., Glickman, O., Lazebnik, T.: Symbolic regression as a feature engineering method for machine and deep learning regression tasks. Mach. Learn. Sci. Technol.5(2) (2024)</li>
+<li id="ref-74">Olson, R.S., Moore, J.H.: Tpot: A tree-based pipeline optimization tool for automating machine learning. In: JMLR: Workshop and Conference Proceedings, vol 64, pp 66–74 (2016)</li>
+<li id="ref-75">Lazebnik, T., Somech, A., Weinberg, A.I.: Substrat: a subset-based optimization strategy for faster automl. Proc. VLDB Endow. 16(4), 772–780 (2022)</li>
+<li id="ref-76">Putrada, A.G., Laeli, E.K., Pane, S.F., Alamsyah, N., Fauzan, M.N.: Tpot on increasing the performance of credit card application approval classification. In: 2022 2nd International Conference on Intelligent Cybernetics Technology &amp; Applications (ICICyTA), pp 216–221 (2022).</li>
+<li id="ref-77">Mena, P., Borrelli, R.A., Kerby, L.: Expanded analysis of machine learning models for nuclear transient identification using tpot. Nucl. Eng. Des. 390, 111694 (2022)</li>
+<li id="ref-78">Zhang, W., Ge, P., Jin, W., Guo. J.: Radar signal recognition based on tpot and lime. In: 2018 37th Chinese Control Conference (CCC), pp 4158–4163 (2018).</li>
+<li id="ref-79">Fourure, D., Javaid, M.U., Posocco, N., Tihon, S.: Anomaly detection: How to artificially increase your F1-score with a biased evaluation protocol. In: Joint European conference on machine learning and knowledge discovery in databases, pp 3–18. Springer, Cham (2021).</li>
+<li id="ref-80">Ma, X., Shao, Y., Tian, L., Flasch, D.A., Mulder, H.L., Edmonson, M.N., Liu, Y., Chen, X., Newman, S., Nakitandwe, J., Li, Y., Li, B., Shen, S., Wang, Z., Shurtleff, S., Robison, L.L., Levy, S., Easton, J., Zhang, J.: Analysis of error profiles in deep next-generation sequencing data. Genome Biol.20(50) (2019).</li>
+<li id="ref-81">Yang, Y., Li, F., Wei, Y., Zhao, Y., Fu, J., Xiao, X., Bu, H.: Experts’ cognition-driven ensemble deep learning for external validation of predicting pathological complete response to neoadjuvant chemotherapy from histological images in breast cancer. MEDIN (2024).</li>
+<li id="ref-82">Rebuffi, S-A., Gowal, S., Calian, D.A., Stimberg, F., Wiles, O., Mann, T.A.: Data augmentation can improve robustness. In: M. Ranzato, A. Beygelzimer, Y. Dauphin, P.S. Liang, and J. Wortman Vaughan, editors, in Neural Information Processing Systems, volume 34, pps 29935–29948. Curran Associates, Inc., New York (2021).</li>
+<li id="ref-83">Hu, H., Kantardzic, M., Sethi, T.S.: No free lunch theorem for concept drift detection in streaming data classification: a review. WIREs Data Min. Knowl. Discovery 10(2), e1327 (2020)</li>
+<li id="ref-84">Li, W., Yang, X., Liu, W., Xia, Y., Bian, J.: Ddg-da: Data distribution generation for predictable concept drift adaptation. In: Proceedings of the AAAI Conference on Artificial Intelligence, vol 36, pp 4092–4100 (2022)</li>
+<li id="ref-85">Tschuchnig, M.E., Gadermayr, M.: Anomaly detection in medical imaging-a mini review. In: International Data Science Conference, pp 33–38. Springer, Cham (2021).</li>
+</ol>
+</div>
+        
+        
+        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik (2025), <em>International Journal of Data Science and Analytics</em>, <a href="https://doi.org/10.1007/s41060-025-00947-0" target="_blank" rel="noopener">doi:10.1007/s41060-025-00947-0</a>, under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY 4.0</a> licence. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+      </article>
+    </div>
+
+    <section class="paper-related" aria-labelledby="related-title"><div class="paper-wrap"><h2 id="related-title">Related research</h2><div class="related-grid"><a class="related-card" href="/publications/machine-deep-learning-performance-out-distribution-regressions/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2025</span><strong>Machine and deep learning performance in out-of-distribution regressions</strong><span class="related-text">Machine Learning: Science and Technology</span></a><a class="related-card" href="/publications/tighten-lasso-convex-hull-volume-based-anomaly/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2025</span><strong>Tighten the lasso: a convex hull volume-based anomaly detection method</strong><span class="related-text">International Journal of Data Science and Analytics</span></a><a class="related-card" href="/publications/symbolic-regression-feature-engineering-method-machine-deep/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2024</span><strong>Symbolic regression as a feature engineering method for machine and deep learning regression tasks</strong><span class="related-text">Machine Learning: Science and Technology</span></a></div><p class="related-more"><a href="/publications.html">All publications</a></p></div></section>
+  </main>
+
+  <dialog id="cite-dialog" class="paper-dialog" aria-labelledby="cite-title">
+    <div class="dialog-head">
+      <h2 id="cite-title">Cite this paper</h2>
+      <button type="button" class="dialog-close" aria-label="Close"><i class="ri-close-line" aria-hidden="true"></i></button>
+    </div>
+    <p class="dialog-label">APA</p>
+    <pre class="cite-box" id="cite-apa">Lazebnik, T. (2025). Introducing “Inside” out of distribution. International Journal of Data Science and Analytics, 21, 43. https://doi.org/10.1007/s41060-025-00947-0</pre>
+    <button type="button" class="paper-btn" data-copy="cite-apa"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy APA</span></button>
+    <p class="dialog-label">BibTeX</p>
+    <pre class="cite-box" id="cite-bib">@article{lazebnik2025introducing,
+  title = {Introducing “Inside” out of distribution},
+  author = {Lazebnik, Teddy},
+  journal = {International Journal of Data Science and Analytics},
+  volume = {21},
+  pages = {43},
+  year = {2025},
+  doi = {10.1007/s41060-025-00947-0}
+}</pre>
+    <button type="button" class="paper-btn" data-copy="cite-bib"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy BibTeX</span></button>
+  </dialog>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Games</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
+                  <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
+                  <li><a href="https://rl.teddylazebnik.com/">Pirate War RL Game</a></li>
+                  <li><a href="https://eh.teddylazebnik.com/">Echo Heist</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      
+      <script>
+        (function () {
+          // menu and navbar (js/main.js expects to sit at the site root)
+          var btn = document.getElementById('menu-btn'), menu = document.getElementById('mobile-menu'), nav = document.getElementById('navbar');
+          btn.addEventListener('click', function () { menu.classList.toggle('max-h-0'); menu.classList.toggle('max-h-screen'); });
+          var onScroll = function () { nav.classList.toggle('nav-scrolled', window.scrollY > 10); };
+          window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+          // cite dialog + copy buttons
+          var dialog = document.getElementById('cite-dialog');
+          document.querySelectorAll('[data-dialog]').forEach(function (b) {
+            b.addEventListener('click', function () { if (dialog.showModal) dialog.showModal(); else dialog.setAttribute('open', ''); });
+          });
+          dialog.querySelector('.dialog-close').addEventListener('click', function () { dialog.close(); });
+          dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
+          function flash(button, text) {
+            var label = button.querySelector('span'), old = label.textContent;
+            label.textContent = text; setTimeout(function () { label.textContent = old; }, 1600);
+          }
+          document.querySelectorAll('[data-copy]').forEach(function (b) {
+            b.addEventListener('click', function () {
+              var text = document.getElementById(b.getAttribute('data-copy')).textContent;
+              navigator.clipboard.writeText(text).then(function () { flash(b, 'Copied'); });
+            });
+          });
+          document.getElementById('share-btn').addEventListener('click', function () {
+            var b = this, data = { title: document.title, url: location.href.split('#')[0] };
+            if (navigator.share) { navigator.share(data).catch(function () {}); }
+            else { navigator.clipboard.writeText(data.url).then(function () { flash(b, 'Link copied'); }); }
+          });
+
+          // highlight the section being read in "On this page"
+          var links = {};
+          document.querySelectorAll('.paper-toc a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+          var heads = Array.prototype.filter.call(document.querySelectorAll('#full-text h2[id], #full-text h3[id], #full-text section[id]'), function (h) { return links[h.id]; });
+          if ('IntersectionObserver' in window && heads.length) {
+            var current = null;
+            var io = new IntersectionObserver(function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                  if (current) current.classList.remove('is-active');
+                  current = links[e.target.id]; current.classList.add('is-active');
+                }
+              });
+            }, { rootMargin: '-90px 0px -70% 0px' });
+            heads.forEach(function (h) { io.observe(h); });
+          }
+        })();
+      </script>
+   </body>
+</html>

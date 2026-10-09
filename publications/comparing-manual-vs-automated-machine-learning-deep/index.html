@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_papers.py from paper.md + paper.json in this folder. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Manual vs. Automated ML for Mortality in Elderly Hip Fracture Patients | ACML</title>
+      <meta name="description" content="Hip fractures carry a high risk of death in older patients, and accurate risk prediction can help plan their care. Using data from 2,604 patients aged 65 or…">
+      <meta name="author" content="Adi Shuchami, Maxim Glebov, Maksim  Katsin, Yotam Portnoy, Haim Berkenstadt, Dina Orkin, Teddy Lazebnik">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/publications/comparing-manual-vs-automated-machine-learning-deep/">
+      <meta name="citation_title" content="Comparing Manual vs. Automated Machine Learning and Deep Learning Models for Predicting One-Year Mortality in Elderly Hip Fracture Patients">
+      <meta name="citation_author" content="Adi Shuchami">
+      <meta name="citation_author" content="Maxim Glebov">
+      <meta name="citation_author" content="Maksim  Katsin">
+      <meta name="citation_author" content="Yotam Portnoy">
+      <meta name="citation_author" content="Haim Berkenstadt">
+      <meta name="citation_author" content="Dina Orkin">
+      <meta name="citation_author" content="Teddy Lazebnik">
+      <meta name="citation_publication_date" content="2026/06/01">
+      <meta name="citation_journal_title" content="Frontiers in Medicine">
+      <meta name="citation_doi" content="10.3389/fmed.2026.1804645">
+      <meta name="citation_pdf_url" content="https://teddylazebnik.com/files/adi_3.pdf">
+      <meta name="citation_abstract_html_url" content="https://acml.teddylazebnik.com/publications/comparing-manual-vs-automated-machine-learning-deep/">
+      <meta name="citation_fulltext_html_url" content="https://acml.teddylazebnik.com/publications/comparing-manual-vs-automated-machine-learning-deep/">
+      <meta name="citation_language" content="en">
+      <meta property="og:type" content="article">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Manual vs. Automated ML for Mortality in Elderly Hip Fracture Patients">
+      <meta property="og:description" content="Hip fractures carry a high risk of death in older patients, and accurate risk prediction can help plan their care. Using data from 2,604 patients aged 65 or…">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/publications/comparing-manual-vs-automated-machine-learning-deep/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/publications/comparing-manual-vs-automated-machine-learning-deep/figures/share-fig-3.jpg">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Manual vs. Automated ML for Mortality in Elderly Hip Fracture Patients">
+      <meta name="twitter:description" content="Hip fractures carry a high risk of death in older patients, and accurate risk prediction can help plan their care. Using data from 2,604 patients aged 65 or…">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/publications/comparing-manual-vs-automated-machine-learning-deep/figures/share-fig-3.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "Comparing Manual vs. Automated Machine Learning and Deep Learning Models for Predicting One-Year Mortality in…",
+  "name": "Comparing Manual vs. Automated Machine Learning and Deep Learning Models for Predicting One-Year Mortality in Elderly Hip Fracture Patients",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Adi Shuchami"
+    },
+    {
+      "@type": "Person",
+      "name": "Maxim Glebov"
+    },
+    {
+      "@type": "Person",
+      "name": "Maksim  Katsin"
+    },
+    {
+      "@type": "Person",
+      "name": "Yotam Portnoy"
+    },
+    {
+      "@type": "Person",
+      "name": "Haim Berkenstadt"
+    },
+    {
+      "@type": "Person",
+      "name": "Dina Orkin"
+    },
+    {
+      "@type": "Person",
+      "name": "Teddy Lazebnik"
+    }
+  ],
+  "datePublished": "2026-06-01",
+  "url": "https://acml.teddylazebnik.com/publications/comparing-manual-vs-automated-machine-learning-deep/",
+  "mainEntityOfPage": "https://acml.teddylazebnik.com/publications/comparing-manual-vs-automated-machine-learning-deep/",
+  "abstract": "Background: Hip fractures are associated with significant mortality, especially among elderly patients. Accurate prediction of mortality risk is crucial for optimising perioperative care and resource allocation. Recent advances in machine learning (ML) and deep learning (DL) offer promising methods to enhance clinical risk prediction models; however, their clinical implementation often remains limited due to the complexity of these techniques. Methods: This retrospective cohort study included 2,604 elderly patients (≥65 years) undergoing urgent hip fracture surgery at Sheba Medical Center, Israel, between January 2017 and November 2023. Multiple ML and DL algorithms were evaluated for predicting one-year all-cause mortality using a comprehensive set of clinical, demographic, perioperative, and laboratory variables. Models were rigorously developed and validated through stratified 5-fold cross-validation, addressing class imbalance with the Synthetic Minority Oversampling Technique (SMOTE). Additionally, an automated ML pipeline, generated using a large language model (LLM) coupled with the Tree-based Pipeline Optimisation Tool (TPOT), was benchmarked against manually optimised models. Model performances were assessed using area under the receiver operating characteristic curve (AUC), accuracy, precision, recall, F1-score, false-positive rate, and true-negative rate, supplemented by permutation importance and SHapley Additive exPlanations (SHAP) for interpretability. Results: Among all models evaluated, the manually optimised Extreme Gradient Boosting (XGB) algorithm demonstrated superior predictive performance (AUC=0.846, accuracy=0.791, F1-score=0.667, precision=0.773, NPV=0.798). Important predictors identified included baseline serum albumin and urea levels, patient age, intraoperative hypothermia, and the number of chronic diseases. The automated ML model, generated via LLM and TPOT frameworks, showed comparable performance to the XGB model (AUC=0.844), with a higher recall but slightly lower precision. Discussion: ML-based models, particularly the XGB algorithm, significantly enhance predictive accuracy for one-year mortality among elderly hip fracture patients. Crucially, an automated ML framework leveraging large language models provides a practical, clinically accessible alternative, effectively democratising advanced predictive analytics in healthcare settings.",
+  "description": "Hip fractures carry a high risk of death in older patients, and accurate risk prediction can help plan their care. Using data from 2,604 patients aged 65 or…",
+  "image": "https://acml.teddylazebnik.com/publications/comparing-manual-vs-automated-machine-learning-deep/figures/share-fig-3.jpg",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "DOI",
+    "value": "10.3389/fmed.2026.1804645"
+  },
+  "sameAs": "https://doi.org/10.3389/fmed.2026.1804645",
+  "isPartOf": {
+    "@type": "Periodical",
+    "name": "Frontiers in Medicine"
+  },
+  "about": "Machine Learning",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "encoding": {
+    "@type": "MediaObject",
+    "contentUrl": "https://teddylazebnik.com/files/adi_3.pdf",
+    "encodingFormat": "application/pdf"
+  }
+}
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/paper.css" rel="stylesheet">
+      
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="paper-page">
+    <header class="paper-hero">
+      <div class="paper-wrap">
+        <nav class="paper-crumbs" aria-label="Breadcrumb">
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Machine Learning</span>
+        </nav>
+        <p class="paper-kicker"><span class="oa-badge"><i class="ri-lock-unlock-line" aria-hidden="true"></i>Open access</span><span><em>Frontiers in Medicine</em> · 1 June 2026</span></p>
+        <h1 class="paper-title is-long">Comparing Manual vs. Automated Machine Learning and Deep Learning Models for Predicting One-Year Mortality in Elderly Hip Fracture Patients</h1>
+        <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Adi Shuchami</a></span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Maxim Glebov</a></span>, <span class="author">Maksim  Katsin</span>, <span class="author">Yotam Portnoy</span>, <span class="author">Haim Berkenstadt</span>, <span class="author">Dina Orkin</span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span></p>
+        <details class="paper-affils"><summary>Affiliations</summary><ol><li value="1">Department of Mathematics, Ariel University, Ariel, Israel</li><li value="2">Department of Anesthesiology, Sheba Medical Center, Ramat Gan, Israel</li><li value="3">Department of Information Systems, University of Haifa, Haifa, Israel</li><li value="4">Faculty of Medicine, Tel-Aviv University, Tel Aviv, Israel</li><li value="5">Department of Computing, Jönköping University, Jönköping, Sweden</li></ol></details>
+        <div class="paper-actions">
+          <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/adi_3.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
+          <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
+          
+          <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
+          <a class="paper-btn" href="https://doi.org/10.3389/fmed.2026.1804645" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
+          <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
+        </div>
+        <div class="lab-authors"><span class="lab-authors-label">ACML authors</span><a class="lab-chip" href="/team.html"><img src="/img/lab/adi.webp" alt="" width="32" height="32" loading="lazy"><span><strong>Adi Shuchami</strong><small>Alumni</small></span></a><a class="lab-chip" href="/team.html"><img src="/img/lab/max.webp" alt="" width="32" height="32" loading="lazy"><span><strong>Maxim Glebov</strong><small>PhD Student</small></span></a><a class="lab-chip" href="/team.html"><img src="/img/lab/teddy.webp" alt="" width="32" height="32" loading="lazy"><span><strong>Teddy Lazebnik</strong><small>PI</small></span></a></div>
+      </div>
+    </header>
+
+    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Hip fractures carry a high risk of death in older patients, and accurate risk prediction can help plan their care. Using data from 2,604 patients aged 65 or older who had urgent hip fracture surgery at Sheba Medical Center, we compared machine learning and deep learning models for predicting death within one year. A manually tuned gradient boosting model (XGB) performed best, with an AUC of 0.846, and an automated pipeline built with a large language model performed comparably, with an AUC of 0.844.</p><div class=glance-stats><div class="stat"><span class="stat-value">2,604</span><span class="stat-label">elderly hip fracture surgery patients</span></div><div class="stat"><span class="stat-value">0.846</span><span class="stat-label">AUC of the best, manually optimized XGB model</span></div><div class="stat"><span class="stat-value">0.844</span><span class="stat-label">AUC of the LLM-generated automated model</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Manually optimized Extreme Gradient Boosting performed best (AUC=0.846, accuracy=0.791, F1-score=0.667).</li><li>Important predictors included baseline serum albumin and urea levels, patient age, hypothermia during surgery and the number of chronic diseases.</li><li>An automated pipeline generated with a large language model and TPOT matched XGB closely (AUC=0.844), with higher recall but slightly lower precision.</li></ul></div><figure class="glance-figure"><a href="#fig-3"><img src="figures/fig-3.webp" width="1800" height="2279" alt="FIGURE 3 The ROC curves illustrate the performance of all ten models in the training cohort. Shaded areas represent the 95% confidence intervals derived from the k-fold (k = 5) cross-validation splits. (a) Training set; (b) Test set."></a><figcaption>FIGURE 3 The ROC curves illustrate the performance of all ten models in the training cohort. Shaded areas represent the 95% confidence intervals derived from the k-fold (k = 5) cross-validation splits. (a) Training set; (b) Test set. <a href="#fig-3">See it in the paper</a></figcaption></figure></div></div></section>
+
+    <div class="paper-wrap paper-layout">
+      <aside class="paper-aside">
+        <nav class="paper-toc" aria-label="On this page">
+          <p class="aside-title">On this page</p>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#materials-and-methods">Materials and methods</a></li><li class="toc-sub"><a href="#ethics-approval-and-reporting-guidelines">Ethics approval and reporting guidelines</a></li><li class="toc-sub"><a href="#study-design-and-population">Study design and population</a></li><li class="toc-sub"><a href="#data-collection">Data collection</a></li><li class="toc-sub"><a href="#sample-size-calculation">Sample size calculation</a></li><li class="toc-sub"><a href="#outcome">Outcome</a></li>
+<li><a href="#results">Results</a></li><li class="toc-sub"><a href="#descriptive-statistics">Descriptive statistics</a></li><li class="toc-sub"><a href="#model-performance">Model performance</a></li><li class="toc-sub"><a href="#feature-importance">Feature importance</a></li><li class="toc-sub"><a href="#automatic-ml-model">Automatic ML model</a></li>
+<li><a href="#discussion">Discussion</a></li>
+<li><a href="#data-availability-statement">Data availability statement</a></li>
+<li><a href="#ethics-statement">Ethics statement</a></li>
+<li><a href="#author-contributions">Author contributions</a></li>
+<li><a href="#funding">Funding</a></li>
+<li><a href="#acknowledgments">Acknowledgments</a></li>
+<li><a href="#conflict-of-interest">Conflict of interest</a></li>
+<li><a href="#supplementary-material">Supplementary material</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </nav>
+        <div class="paper-info">
+          <p class="aside-title">Article information</p>
+          <dl><div><dt>Journal</dt><dd>Frontiers in Medicine</dd></div><div><dt>Published</dt><dd><time datetime="2026-06-01">1 June 2026</time></dd></div><div><dt>DOI</dt><dd><a href="https://doi.org/10.3389/fmed.2026.1804645" target="_blank" rel="noopener">10.3389/fmed.2026.1804645</a></dd></div><div><dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY</a></dd></div></dl>
+        </div>
+      </aside>
+
+      <article class="paper-body" id="full-text">
+        <details class="paper-toc-mobile">
+          <summary>On this page</summary>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#materials-and-methods">Materials and methods</a></li><li class="toc-sub"><a href="#ethics-approval-and-reporting-guidelines">Ethics approval and reporting guidelines</a></li><li class="toc-sub"><a href="#study-design-and-population">Study design and population</a></li><li class="toc-sub"><a href="#data-collection">Data collection</a></li><li class="toc-sub"><a href="#sample-size-calculation">Sample size calculation</a></li><li class="toc-sub"><a href="#outcome">Outcome</a></li>
+<li><a href="#results">Results</a></li><li class="toc-sub"><a href="#descriptive-statistics">Descriptive statistics</a></li><li class="toc-sub"><a href="#model-performance">Model performance</a></li><li class="toc-sub"><a href="#feature-importance">Feature importance</a></li><li class="toc-sub"><a href="#automatic-ml-model">Automatic ML model</a></li>
+<li><a href="#discussion">Discussion</a></li>
+<li><a href="#data-availability-statement">Data availability statement</a></li>
+<li><a href="#ethics-statement">Ethics statement</a></li>
+<li><a href="#author-contributions">Author contributions</a></li>
+<li><a href="#funding">Funding</a></li>
+<li><a href="#acknowledgments">Acknowledgments</a></li>
+<li><a href="#conflict-of-interest">Conflict of interest</a></li>
+<li><a href="#supplementary-material">Supplementary material</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </details>
+        <section id="abstract" class="paper-abstract">
+          <h2>Abstract</h2>
+          <p>Background: Hip fractures are associated with significant mortality, especially among elderly patients. Accurate prediction of mortality risk is crucial for optimising perioperative care and resource allocation. Recent advances in machine learning (ML) and deep learning (DL) offer promising methods to enhance clinical risk prediction models; however, their clinical implementation often remains limited due to the complexity of these techniques. Methods: This retrospective cohort study included 2,604 elderly patients (≥65 years) undergoing urgent hip fracture surgery at Sheba Medical Center, Israel, between January 2017 and November 2023. Multiple ML and DL algorithms were evaluated for predicting one-year all-cause mortality using a comprehensive set of clinical, demographic, perioperative, and laboratory variables. Models were rigorously developed and validated through stratified 5-fold cross-validation, addressing class imbalance with the Synthetic Minority Oversampling Technique (SMOTE). Additionally, an automated ML pipeline, generated using a large language model (LLM) coupled with the Tree-based Pipeline Optimisation Tool (TPOT), was benchmarked against manually optimised models. Model performances were assessed using area under the receiver operating characteristic curve (AUC), accuracy, precision, recall, F1-score, false-positive rate, and true-negative rate, supplemented by permutation importance and SHapley Additive exPlanations (SHAP) for interpretability. Results: Among all models evaluated, the manually optimised Extreme Gradient Boosting (XGB) algorithm demonstrated superior predictive performance (AUC=0.846, accuracy=0.791, F1-score=0.667, precision=0.773, NPV=0.798). Important predictors identified included baseline serum albumin and urea levels, patient age, intraoperative hypothermia, and the number of chronic diseases. The automated ML model, generated via LLM and TPOT frameworks, showed comparable performance to the XGB model (AUC=0.844), with a higher recall but slightly lower precision. Discussion: ML-based models, particularly the XGB algorithm, significantly enhance predictive accuracy for one-year mortality among elderly hip fracture patients. Crucially, an automated ML framework leveraging large language models provides a practical, clinically accessible alternative, effectively democratising advanced predictive analytics in healthcare settings.</p>
+        </section>
+        
+<div class="paper-text">
+<h2 id="introduction">Introduction</h2>
+<p>Hip fracture represents a significant global health concern, with projections estimating approximately 4.5 million annual cases worldwide by 2050 (1). This injury predominantly affects older adults, leading to substantial clinical and economic burdens on healthcare systems globally (2). Postoperative mortality rates remain alarmingly high, with studies reporting up to 36% mortality within the first year following surgical intervention (3). These concerning figures highlight an urgent need for accurate risk stratification tools capable of identifying high-risk patients and guiding perioperative management, ultimately aiming to reduce preventable mortality.</p>
+<p>Advancements in data-driven approaches, particularly machine learning (ML), have enabled the development of sophisticated clinical prediction models integrating perioperative and broader clinical variables (4). Unlike traditional regression techniques, ML algorithms effectively manage real-world data characterized by complex, nonlinear predictor interactions, often resulting in superior predictive accuracy (5). Indeed, comparative studies assessing ML-based models against conventional statistical approaches in predicting hip fracture mortality have consistently demonstrated enhanced performance, reinforcing the rationale for further exploration and adoption of ML methodologies (6–8).</p>
+<p>This study aims to evaluate various ML and deep learning (DL) algorithms for predicting one-year mortality among elderly hip fracture patients. Crucially, we investigate the effectiveness of an automated ML platform facilitated by a large language model (LLM) in empowering clinicians with limited technical expertise to independently develop robust and clinically meaningful prediction models. By specifically addressing this practical aspect, our study underscores the potential for automated ML platforms to significantly democratize access to advanced predictive analytics in clinical settings. We aim to benchmark the performance of these automated ML and DL approaches against established predictive models, thereby demonstrating the added value and practicality of such frameworks for enhancing clinical risk prediction and informed decision-making.</p>
+<h2 id="materials-and-methods">Materials and methods</h2>
+<h3 id="ethics-approval-and-reporting-guidelines">Ethics approval and reporting guidelines</h3>
+<p>This study received ethical approval from the Institutional Ethics Committee at Sheba Medical Center, Israel (Approval No. SMC-D 0976-24), and was performed in accordance with the relevant guidelines and regulations in accordance with the Declaration of Helsinki. Due to the retrospective observational design of the study, the requirement for informed consent was waived by the committee. The study protocol and reporting follow the Transparent Reporting of a Multivariable Prediction Model for Individual Prognosis or Diagnosis with Artificial Intelligence (TRIPOD-AI) guidelines.</p>
+<h3 id="study-design-and-population">Study design and population</h3>
+<p>This retrospective cohort study was conducted at a single tertiary care center (Sheba Medical Center, Israel). The study population included elderly patients, aged 65 years and older, undergoing primary emergency surgery for hip fracture between 1 January 2017 and 1 November 2023. Data extraction was performed using electronic health records from the institution’s database system (Chameleon, Elad Software Ltd., Tel Aviv, Israel). Eligible cases were identified through International Classification of Diseases, Tenth Revision (ICD-10) diagnosis codes: S72.0 (Fracture of neck of femur), S72.1 (Pertrochanteric fracture), and S72.2 (Subtrochanteric fracture). Patients were included if they had complete clinical data and a minimum follow-up of 1 year or until death. Exclusion criteria encompassed high-energy trauma mechanisms, multiple fractures, open fractures, and pathological fractures secondary to malignancy or metabolic bone disease.</p>
+<h3 id="data-collection">Data collection</h3>
+<p>Data collected encompassed a comprehensive set of variables, including demographic characteristics, functional and social assessments, comorbidities, laboratory parameters, physiological measurements, intraoperative details, and postoperative outcomes. A detailed description of variables is provided in Supplementary <a class="xref" href="#table-1">Table 1</a>.</p>
+<p>The dataset was extracted from the hospital electronic medical record (EMR) environment, where data were already organized within a structured clinical data framework designed to support harmonization, formatting consistency, and routine data quality control. In accordance with best practices for clinical ML preprocessing, the dataset was reviewed to confirm variable definitions, preserve clinically appropriate coding, and ensure that the exported table was analysis-ready for supervised learning. Because the data originated from an EMR system with standardized organization, major preprocessing focused primarily on verification of completeness, consistency, and correct variable representation rather than large-scale manual restructuring. Subject-matter expertise remained essential at this stage to confirm the clinical meaning of variables, ensure that preprocessing decisions were medically appropriate, and verify that the final dataset accurately reflected real-world perioperative and baseline patient information. These preprocessing steps are important for both modeling strategies presented in this study to ensure clinical relevance and usability.</p>
+<h3 id="sample-size-calculation">Sample size calculation</h3>
+<p>Given the relatively balanced nature of our dataset, we included a 20% contingency in our initial sample size estimation to account for potential undersampling and to maintain data balance. Considering the complexity of the predictive model and the total number of features, we adhered to the established methodological recommendation of at least 10 events per variable (EPV) (9). Since our dataset includes 98 variables, the minimum sample size required is 1,176 patients.</p>
+<h3 id="outcome">Outcome</h3>
+<p>The primary outcome was all-cause one-year mortality, defined as death occurring within 1 year from the date of fracture. Mortality data were obtained from the Ministry of Health’s vital status registry, and accuracy was subsequently validated by manual review of patient medical records.</p>
+<p>Model development: manual model development and evaluation</p>
+<p><a class="xref" href="#fig-1">Figure 1</a> illustrates a schematic representation of the methodological framework employed in this study.</p>
+<p>Initially, descriptive statistical analyses were conducted to characterize the dataset. Subsequently, a Pearson correlation matrix was generated to investigate linear associations among features and their correlation with one-year mortality.</p>
+<p>To develop machine learning (ML) and deep learning (DL) predictive models, the dataset was partitioned into training (80%) and validation cohorts (20%). The training cohort was further subjected to <em>k</em>-fold cross-validation (10) to ensure robust model evaluation. In this process, the data were divided into five equally sized, mutually exclusive subsets. Each subset served as the validation cohort exactly once, while the remaining subsets formed the training set, resulting in five validation iterations. Model performance was averaged across iterations to estimate predictive capability reliably.</p>
+<p>Both training and validation cohorts were stratified by age and sex to ensure representative distributions. Within each cross-validation fold, an optimisation process was employed to minimise demographic differences in age and sex distributions across subsets. This optimisation, analogous to the nurse scheduling problem (11)—an NP-hard computational problem (12)—was addressed using Directed Bee Colony Optimisation to achieve a near-optimal solution (13).</p>
+<p>Following data partitioning, seven ML models and three DL models were developed and comparatively evaluated. ML algorithms included logistic regression (LR) (14), naïve Bayes (NB) (15), k-nearest neighbours (kNN) (16), support vector machine (SVM) (17), decision tree (DT) (18), random forest (RF) (19), and XGBoost (XGB) with <sub>2</sub> <em>L</em> regularization (20). DL algorithms comprised multilayer perceptron (MLP) (21), TabNet (22), and a transformer-based tabular model (TabTransformer, TT) (23). Hyperparameter tuning was performed via grid search (24), systematically testing parameter combinations to optimise model accuracy during cross-validation.</p>
+<p>Because the primary outcome was moderately imbalanced (one-year mortality rate: 36.9%), we evaluated each model under two settings: non-balanced, in which models were trained using the original class distribution, and balanced, in which Synthetic Minority Oversampling Technique (SMOTE) (25) was applied to the training folds to generate a more even class distribution. The validation/test data were kept unchanged to preserve a realistic clinical evaluation setting. This comparison allowed us to assess how class balancing influences predictive performance, particularly the trade-off between sensitivity to mortality events and false-positive predictions. This comparison provided insights into the impact of data balancing on model accuracy and feature importance.</p>
+<p>Model performance in the validation cohort was evaluated comprehensively using multiple metrics: accuracy, F1-score, recall (sensitivity), precision, false positive rate (FPR), true negative rate (TNR), negative predictive values (NPV), and the area under the receiver operating characteristic (ROC) curve (AUC). Feature importance for each model was assessed using permutation importance (26), quantifying how random permutation of each feature influenced model performance. Additionally, SHapley Additive exPlanations (SHAP) (27) were utilised to offer detailed, instance-level insights into individual feature contributions to model predictions. All analyses are performed using the Python programming language.</p>
+<p>Model development: automatic model development and evaluation</p>
+<p>As the analytical procedures outlined above require advanced expertise in ML and DL, or at least significant experience in data-driven model development, they remain challenging and largely inaccessible for most clinicians. However, recent advancements in automated ML frameworks, coupled with the wider availability of LLMs such as ChatGPT (28), have prompted exploration into whether these tools could facilitate the creation of “out-of-the-box” ML models. Specifically, we aimed to determine whether such automated approaches could generate a viable predictive model, evaluate its performance rigorously, and present results clearly and understandably to clinical professionals without specialized ML knowledge.</p>
+<p>To investigate this, we provided the ChatGPT-o3 model (29) with a structured prompt (Supplemental material A). The model-generated Python code was executed directly, without modification (“as-is”), in a Google Colab environment, and the results obtained from this automated approach are presented below.</p>
+<p>The structured prompt was carefully designed to replicate the analytical methodology applied previously in our manually developed models. For the automated ML component, we chose the Tree-based Pipeline Optimization Tool (TPOT) (30) due to its extensive prior application (31) and proven reliability in clinical prediction tasks (32). The prompt included a definition of the LLM’s “persona”—a method previously demonstrated to enhance LLM performance (33)—and concluded with explicit, directive instructions detailing the desired analytical outcomes.</p>
+<figure id="fig-1">
+<a class="fig-zoom" href="figures/fig-1.webp" aria-label="Open the figure full size"><img src="figures/fig-1.webp" width="733" height="121" alt="A schematic view of the methodological framework of this study" loading="lazy" decoding="async"></a>
+<figcaption>FIGURE 1 A schematic view of the methodological framework of this study.</figcaption>
+</figure>
+
+<p>Predictive performance of the automated ML-generated model was rigorously assessed using a comprehensive set of metrics identical to those employed for manual model evaluations. Additionally, we analysed feature importance and applied SHAP to achieve an in-depth, instance-level interpretation of each feature’s contribution to the model’s predictions.</p>
+<h2 id="results">Results</h2>
+<h3 id="descriptive-statistics">Descriptive statistics</h3>
+<p>The final cohort included 2,604 patients, of whom 1719 (66.0%) were female. The mean patient age was 82.3 years (SD 8.3). Detailed demographic and baseline characteristics of the cohort are summarised in <a class="xref" href="#table-1">Table 1</a>.</p>
+<p><a class="xref" href="#fig-2">Figure 2</a> displays the Pearson correlation matrix for the variables incorporated into the predictive model and the target outcomes. Most predictors showed minimal intercorrelation, with correlation coefficients approaching zero. More importantly, as indicated by the last row, the source features are poorly linearly correlated to the target variable. Therefore, a nonlinear machine learning method is anticipated to demonstrate superior predictive performance compared with traditional linear approaches such as logistic regression. Notably, due to the symmetric nature of correlations, the values above and below the main diagonal line are identical.</p>
+<h3 id="model-performance">Model performance</h3>
+<p><a class="xref" href="#fig-3">Figure 3</a> demonstrates the receiver operating characteristic (ROC) curves for all ten evaluated models. The results from the training cohort are presented with corresponding 95% confidence intervals (CIs), calculated using five-fold cross-validation. Overall, the models exhibited comparable discriminatory abilities, although the K-Nearest Neighbour (KNN), TabNet, and Naïve Bayes (NB) algorithms consistently demonstrated lower area under the curve (AUC) values compared to the remaining models across both training and testing datasets. Of particular note, the TT model exhibited the lowest performance, with an AUC of 0.580, suggesting possible underfitting. To provide a more comprehensive evaluation, we further analysed additional relevant performance metrics. Importantly, the figure presents the ROC curves for models trained on the original, non-resampled dataset, in order to compare discrimination under the observed class distribution.</p>
+<figure class="table-figure" id="table-1">
+<figcaption>TABLE 1 Demographic and baseline characteristics of the cohort.</figcaption>
+<div class="table-scroll"><table><tr><th>Characteristic</th><th>All cohort</th></tr><tr><td>Age (years)</td><td>82.3 + −8.26</td></tr><tr><td>Female</td><td>66.0%</td></tr><tr><td>BMI (kg/m2)</td><td>25.08 + −4.29</td></tr><tr><td>Surgery duration (min)</td><td>55 + −31</td></tr><tr><td>PACU time (min)</td><td>108 + −52</td></tr><tr><td>Previous hospitalization in 6 months</td><td>25.6%</td></tr><tr><td>Fracture to surgery time less than 48 h</td><td>87.1%</td></tr></table></div>
+<p class="table-note">All data are presented as the mean [SD] or <em>n</em> (%). BMI, Body mass index; PACU, Post-anesthesia care unit.</p>
+</figure>
+
+<p><a class="xref" href="#table-2">Table 2</a> summarises the performance metrics of ML and DL models on the test dataset, including area under the receiver operating characteristic curve (AUC), accuracy, F1 score, recall, precision, false-positive rate (FPR), true-negative rate (TNR), and negative predictive value (NPV). In the slightly imbalanced scenario, with a one-year mortality rate of 36.9%, the extreme gradient boosting (XGB) model demonstrated superior performance, achieving the highest AUC (0.846), accuracy (0.791), and F1 score (0.667). The Naive Bayes (NB) model exhibited the highest recall (0.968) but had the lowest accuracy (0.380). Although the DL-based TabTransformer (TT) model showed excellent precision (0.857), FPR (0.003), and TNR (0.997), its low recall (0.032) and modest AUC (0.580) suggest a bias towards predicting a single class, thus significantly restricting its clinical applicability.</p>
+<p>In the balanced scenario, a similar performance pattern emerged, with XGB consistently outperforming other models across most metrics. However, the random forest (RF) model achieved a slightly higher AUC (0.849), and the NB model exhibited superior recall (0.962), surpassing XGB by absolute margins of 0.016 and 0.311, respectively. Nonetheless, NB continued to demonstrate substantially lower accuracy (0.376) compared to XGB (0.775). Overall, when considering all performance metrics comprehensively, the XGB model emerged as clearly superior and was consequently selected for subsequent analyses. Specifically, XGB is well-suited to the structured clinical dataset and also achieved the best F1 score, which considered a key metric because it captures the balance between recall and precision in an imbalanced mortality prediction task. From a clinical perspective, recall is especially important, since failing to identify a patient at high risk of one-year mortality may result in missed opportunities for closer follow-up, earlier intervention, or more intensive care planning. However, focusing on recall alone may favor models that label too many patients as high risk, thereby reducing precision. In practice, this can create a biased prediction pattern that overestimates risk and generates unnecessary clinical workload, including excess alerts, avoidable evaluations, and inefficient use of healthcare resources.</p>
+<h3 id="feature-importance">Feature importance</h3>
+<p>For interpretability analysis, we focused on the XGB model trained on the balanced dataset, as this version was selected for subsequent detailed analysis after comparison of balanced and non-balanced training. To this end, <a class="xref" href="#fig-4">Figure 4</a> illustrates the distribution of feature importance derived from the XGB model trained on the balanced dataset. Due to the extensive number of variables, only the six most influential features are presented. The most significant predictors identified were baseline albumin, baseline urea, and patient age.</p>
+<p><a class="xref" href="#fig-5">Figure 5</a> illustrates the SHAP analysis for the XGB model where each dot represents one individual patient/sample. The x-axis shows the SHAP value, indicating the direction and magnitude of that feature’s contribution to the predicted one-year mortality risk. Dot color reflects the original feature value (low to high). Features are ordered according to their overall importance in the model. This analysis identifies patient age as the most influential predictor, with older age strongly associated with an increased likelihood of one-year mortality. Baseline serum albumin, the second most significant feature, indicates that lower albumin levels correlate with elevated mortality risk. A comparable association is observed for intraoperative hypothermia, ranked as the third most impactful feature. Additionally, male sex is identified as a predictor associated with higher mortality rates. Finally, the American Society of Anesthesiologists (ASA) score demonstrates a monotonic relationship with the predicted probability of mortality within one year.</p>
+<figure id="fig-2">
+<a class="fig-zoom" href="figures/fig-2.webp" aria-label="Open the figure full size"><img src="figures/fig-2.webp" width="641" height="556" alt="Pearson correlations between the dataset’s features" loading="lazy" decoding="async"></a>
+<figcaption>FIGURE 2 Pearson correlations between the dataset’s features. BMI, body mass index; ASA, American Society of Anesthesiologists Physical Status classification; num_dis, number of diseases; funcstat, functional status; cohabit, cohabitation status; mobility, mobility status; prevhosp., previous hospitalisation within 6 months; creat_base, baseline creatinine; urea_base, baseline urea; lact_base, baseline lactate; be_base, baseline base excess; hb_base, baseline haemoglobin; alb_base, baseline albumin; EF, ejection fraction; surg_min, surgery duration in minutes; hypoterm, intraoperative hypothermia; ioh55, intraoperative hypotension (MAP&lt;55 mmHg); intrabld, intraoperative blood transfusion; preopbld, preoperative blood transfusion; pacu_min, duration in post-anaesthesia care unit in minutes.</figcaption>
+</figure>
+
+<h3 id="automatic-ml-model">Automatic ML model</h3>
+<p>In comparison, the automated ML framework, generated through code written by an LLM, identified an ensemble majority-vote model comprising CatBoost, kNN, and RF as the optimal solution for the given dataset. Specifically, the final prediction of this automated model reflects the consensus reached by at least two of the three constituent algorithms. The code for this automated framework, generated by the LLM, as well as the code for the model derived using the TPOT framework, is provided in Supplementary material B.</p>
+<p><a class="xref" href="#table-3">Table 3</a> presents a comparative analysis of the predictive performance between the automatically generated models (LLM and TPOT) and the manually optimized best-performing model (XGB). Overall, predictive performance metrics between the automated and manually developed models were comparable, with accuracy showing the largest discrepancy. Differences in area under the receiver operating characteristic curve (AUC) between both models were negligible in both balanced and unbalanced data scenarios (0.002 and 0.012, respectively). The manually developed XGB model exhibited superior precision, false positive rate (FPR), and true negative rate (TNR). Conversely, the automated ML model demonstrated superior performance in terms of the F1 score and recall metrics.</p>
+<p>Figures 6a–c presents the ROC curve, feature importance, and SHAP analysis for the model automatically derived using the LLM and the automated machine learning framework (TPOT). The ROC curve demonstrates performance comparable to the XGB model. The feature importance analysis reveals substantial overlap with the top six features identified by the XGB model, albeit with minor variations in ranking. Similarly, SHAP analysis confirms this concordance, highlighting consistent clinical interpretability across both models.</p>
+<h2 id="discussion">Discussion</h2>
+<p>In this study, we systematically evaluated the potential of ML and DL models to support clinical decision-making by predicting one-year mortality in elderly patients with hip fractures. Our findings indicate that traditional ML methods generally outperform DL models when applied to structured tabular clinical data, a result consistent with recent comprehensive evaluations conducted across diverse clinical datasets (31, 34).</p>
+<figure id="fig-3">
+<a class="fig-zoom" href="figures/fig-3.webp" aria-label="Open the figure full size"><img src="figures/fig-3.webp" width="800" height="1013" alt="The ROC curves illustrate the performance of all ten models in the training cohort" loading="lazy" decoding="async"></a>
+<figcaption>FIGURE 3 The ROC curves illustrate the performance of all ten models in the training cohort. Shaded areas represent the 95% confidence intervals derived from the k-fold (k = 5) cross-validation splits. (a) Training set; (b) Test set.</figcaption>
+</figure>
+
+<figure class="table-figure" id="table-2">
+<figcaption>TABLE 2 Performance of ML and DL models on the test dataset.</figcaption>
+<div class="table-scroll"><table><tr><th>Balanced</th><th>Model</th><th>AUC</th><th>Accuracy</th><th>F1 score</th><th>Recall</th><th>Precision<br/>(PPV)</th><th>FPR</th><th>TNR</th><th>NPV</th></tr><tr><td rowspan="10">No</td><td>LR</td><td>0.838</td><td>0.766</td><td>0.628</td><td>0.554</td><td>0.725</td><td>0.116</td><td>0.884</td><td>0.781</td></tr><tr><td>NB</td><td>0.753</td><td>0.380</td><td>0.527</td><td>0.968</td><td>0.362</td><td>0.946</td><td>0.054</td><td>0.753</td></tr><tr><td>KNN</td><td>0.752</td><td>0.693</td><td>0.416</td><td>0.306</td><td>0.648</td><td>0.093</td><td>0.907</td><td>0.703</td></tr><tr><td>SVM</td><td>0.820</td><td>0.750</td><td>0.622</td><td>0.575</td><td>0.677</td><td>0.152</td><td>0.848</td><td>0.781</td></tr><tr><td>DT</td><td>0.750</td><td>0.697</td><td>0.503</td><td>0.430</td><td>0.606</td><td>0.155</td><td>0.845</td><td>0.728</td></tr><tr><td>RF</td><td>0.845</td><td>0.754</td><td>0.552</td><td>0.425</td><td>0.790</td><td>0.063</td><td>0.937</td><td>0.746</td></tr><tr><td>XGB</td><td>0.846</td><td>0.791</td><td>0.667</td><td>0.586</td><td>0.773</td><td>0.096</td><td>0.904</td><td>0.798</td></tr><tr><td>MLP</td><td>0.823</td><td>0.758</td><td>0.627</td><td>0.57</td><td>0.697</td><td>0.137</td><td>0.863</td><td>0.782</td></tr><tr><td>Tabnet</td><td>0.707</td><td>0.655</td><td>0.118</td><td>0.065</td><td>0.667</td><td>0.018</td><td>0.982</td><td>0.655</td></tr><tr><td>TT</td><td>0.580</td><td>0.653</td><td>0.062</td><td>0.032</td><td>0.857</td><td>0.003</td><td>0.997</td><td>0.650</td></tr><tr><td rowspan="10">Yes</td><td>LR</td><td>0.827</td><td>0.760</td><td>0.694</td><td>0.763</td><td>0.637</td><td>0.242</td><td>0.758</td><td>0.828</td></tr><tr><td>NB</td><td>0.748</td><td>0.376</td><td>0.524</td><td>0.962</td><td>0.360</td><td>0.949</td><td>0.051</td><td>0.708</td></tr><tr><td>KNN</td><td>0.646</td><td>0.597</td><td>0.551</td><td>0.694</td><td>0.457</td><td>0.457</td><td>0.543</td><td>0.761</td></tr><tr><td>SVM</td><td>0.743</td><td>0.678</td><td>0.538</td><td>0.527</td><td>0.551</td><td>0.239</td><td>0.761</td><td>0.745</td></tr><tr><td>DT</td><td>0.601</td><td>0.637</td><td>0.538</td><td>0.591</td><td>0.493</td><td>0.337</td><td>0.663</td><td>0.741</td></tr><tr><td>RF</td><td>0.849</td><td>0.772</td><td>0.674</td><td>0.720</td><td>0.667</td><td>0.200</td><td>0.800</td><td>0.841</td></tr><tr><td>XGB</td><td>0.833</td><td>0.775</td><td>0.693</td><td>0.651</td><td>0.699</td><td>0.155</td><td>0.845</td><td>0.811</td></tr><tr><td>MLP</td><td>0.765</td><td>0.718</td><td>0.608</td><td>0.613</td><td>0.603</td><td>0.224</td><td>0.776</td><td>0.784</td></tr><tr><td>Tabnet</td><td>0.753</td><td>0.658</td><td>0.615</td><td>0.763</td><td>0.514</td><td>0.400</td><td>0.600</td><td>0.821</td></tr><tr><td>TT</td><td>0.503</td><td>0.488</td><td>0.557</td><td>0.903</td><td>0.403</td><td>0.743</td><td>0.257</td><td>0.826</td></tr></table></div>
+<p class="table-note">ML, machine learning; DL, deep learning; LR, logistic regression; NB, naïve Bayes; KNN, k-nearest neighbours; SVM, support vector machine; DT, decision tree; RF, random forest; XGB, XGBoost; MLP, multi-layer perceptron; TT, TabTransformer; AUC, area under the receiver operating characteristic curve; FPR, false positive rate; TNR, true negative rate. Best-performing values for each metric are highlighted in bold. The balanced group indicates models trained using SMOTE-balanced data, while the other group indicates models trained on the original, non-resampled data.</p>
+</figure>
+
+<figure id="fig-4">
+<a class="fig-zoom" href="figures/fig-4.webp" aria-label="Open the figure full size"><img src="figures/fig-4.webp" width="596" height="425" alt="Feature importance distribution for the XGBoost prediction model" loading="lazy" decoding="async"></a>
+<figcaption>FIGURE 4 Feature importance distribution for the XGBoost prediction model. alb_base, baseline albumin; hypoterm, intraoperative hypothermia; ASA, American Society of Anesthesiologists Physical Status classification; intraop phenylephrine, intraoperative use of phenylephrine.</figcaption>
+</figure>
+
+<figure id="fig-5">
+<a class="fig-zoom" href="figures/fig-5.webp" aria-label="Open the figure full size"><img src="figures/fig-5.webp" width="551" height="273" alt="SHAP analysis of the XGB model" loading="lazy" decoding="async"></a>
+<figcaption>FIGURE 5 SHAP analysis of the XGB model. alb_base, baseline albumin; hypoterm, intraoperative hypothermia; ASA, American Society of Anesthesiologists Physical Status classification; intraop phenylephrine, intraoperative use of phenylephrine.</figcaption>
+</figure>
+
+<figure class="table-figure" id="table-3">
+<figcaption>TABLE 3 Performance comparison between the automatically derived model (LLM and TPOT) and the manually developed best-performing model (XGB).</figcaption>
+<div class="table-scroll"><table><tr><th>Balanced</th><th>Model</th><th>AUC</th><th>Accuracy</th><th>F1 score</th><th>Recall</th><th>Precision</th><th>FPR</th><th>TNR</th></tr><tr><td>No</td><td>XGB</td><td>0.846</td><td>0.791</td><td>0.667</td><td>0.586</td><td>0.773</td><td>0.096</td><td>0.904</td></tr><tr><td></td><td>LLM and TPOT</td><td>0.844</td><td>0.726</td><td>0.698</td><td>0.887</td><td>0.575</td><td>0.364</td><td>0.636</td></tr><tr><td>Yes</td><td>XGB</td><td>0.833</td><td>0.775</td><td>0.693</td><td>0.651</td><td>0.699</td><td>0.155</td><td>0.845</td></tr><tr><td></td><td>LLM and TPOT</td><td>0.825</td><td>0.718</td><td>0.720</td><td>0.891</td><td>0.605</td><td>0.129</td><td>0.833</td></tr></table></div>
+<p class="table-note">LLM, large language model; TPOT, Tree-based Pipeline Optimization Tool; XGB, XGBoost; AUC, area under the receiver operating characteristic curve; FPR, false positive rate; TNR, true negative rate. The best-performing values for each metric are highlighted in bold.</p>
+</figure>
+
+<p>Among the various predictive models assessed, the manually developed XGB model demonstrated the highest predictive accuracy, thereby offering clinicians a robust and reliable tool to effectively identify high-risk patients. This finding aligns closely with previous clinical investigations utilising machine learning approaches, which consistently report superior performance of XGB in a variety of clinical prediction tasks due to its capacity to handle complex, high-dimensional data efficiently (35). Specifically, XGB was favored not only because of its overall predictive performance, but also because it achieved the best F1 score as indicated in <a class="xref" href="#table-2">Table 2</a>. Such predictive accuracy has profound clinical implications, as early and precise identification of high-risk patients allows clinicians to implement timely interventions, potentially improving survival rates, reducing morbidity, and enhancing overall patient outcomes.</p>
+<p>The strength of the XGB model primarily resides in its capacity to integrate multiple, heterogeneous clinical predictors, effectively mirroring the intricacies of real-world clinical practice. Key predictors identified by our analysis; such as patient age (36), baseline serum albumin (37), baseline serum urea (38), and intraoperative hypothermia (39), represent well-established clinical risk factors previously corroborated in the literature. This consistency significantly reinforces the clinical validity and interpretability of our findings (6). Furthermore, by quantifying the relative contributions of these predictors through advanced feature importance metrics and SHAP analyses, our study not only reinforces existing clinical knowledge but also provides clinicians with actionable insights into patient-specific risk profiles. Consequently, this facilitates targeted resource allocation, optimised care delivery, and prioritisation of interventions tailored to those patients identified as being at the highest risk.</p>
+<p>Remarkably, we also explored the innovative approach of leveraging a large language model (ChatGPT-o3) to automatically generate ML code within the TPOT automated machine learning framework. The predictive performance of this automatically generated model was comparable, albeit slightly inferior, to that of the manually optimised XGB model. This similarity in both predictive performance and clinical interpretability underscores the promising utility of automated ML workflows, particularly for clinicians and institutions lacking extensive technical expertise in data science. Such an automated approach offers the distinct advantage of rapidly developing predictive analytics, facilitating continual model updating, refinement, and retraining as new clinical data becomes available, thus maintaining clinical applicability over time. Accordingly, the key difference between the two approaches is not the specific presence or absence of individual algorithms, but whether pipeline construction, model combination, and selection were performed manually by the research team or automatically by the LLM/TPOT workflow.</p>
+<p>Importantly, in real clinical practice, both the manual ML workflow and the automated LAG/LLM-based workflow would require a human-in-the-loop. In the manual workflow, this would likely involve data scientists or clinicians with ML expertise performing dataset preparation, feature handling, model selection, tuning, and validation before the model could be implemented in a clinical decision-support setting. In the automated LLM-based workflow, expert oversight would still be necessary to formulate the clinical question, verify the suitability of the dataset, review the generated pipeline, and assess the clinical plausibility and safety of the resulting model (40). Thus, the difference between the two approaches is not the elimination of human involvement, but rather the degree of technical burden and specialization required. The automated approach may reduce the need for advanced hands-on ML expertise and shorten development time, whereas the manual workflow is generally more resource-intensive and dependent on dedicated methodological expertise. Accordingly, the automated workflow may be better viewed as a tool for reducing development barriers and resource demands, rather than as a fully autonomous replacement for expert-driven model development (41, 42).</p>
+<figure id="fig-6">
+<a class="fig-zoom" href="figures/fig-6.webp" aria-label="Open the figure full size"><img src="figures/fig-6.webp" width="800" height="985" alt="(Continued)" loading="lazy" decoding="async"></a>
+<figcaption>FIGURE 6 (Continued)</figcaption>
+</figure>
+
+<figure id="fig-6b">
+<a class="fig-zoom" href="figures/fig-6b.webp" aria-label="Open the figure full size"><img src="figures/fig-6b.webp" width="551" height="278" alt="Performance evaluation and explainability analysis of the predictive model developed using the LLM and automated ML framework" loading="lazy" decoding="async"></a>
+<figcaption>FIGURE 6 Performance evaluation and explainability analysis of the predictive model developed using the LLM and automated ML framework. (a) ROC; (b) Feature importance; (c) SHAP analysis. Abbreviations: alb_base, baseline albumin; hypoterm, intraoperative hypothermia; urea base, baseline urea; ASA, American Society of Anesthesiologists Physical Status classification; create base, baseline creatinine.</figcaption>
+</figure>
+
+<p>From a practical and operational standpoint, the predictive models developed and validated in this study can be seamlessly integrated into existing clinical infrastructures, such as electronic health record systems, enabling real-time risk assessment at the point of care. Integrating these predictive analytics into clinical workflows could significantly enhance postoperative management strategies, guide rehabilitation planning, and optimise resource allocation decisions. The timely identification of high-risk elderly patients undergoing hip fracture surgery could prompt targeted interventions, intensified monitoring, proactive rehabilitation strategies, and personalised follow-up plans, potentially leading to improved clinical outcomes and enhanced patient satisfaction.</p>
+<p>Nevertheless, the findings from our study must be cautiously interpreted within the scope of several inherent limitations. First, our patient cohort was exclusively derived from a single institution, potentially limiting generalisability and introducing institution-specific biases. Second, our analysis was confined to static, routinely available clinical variables, excluding potentially informative dynamic variables such as serial vital signs, evolving laboratory markers, or longitudinal patient status data, which may enhance predictive performance when integrated. Third, our dataset represents a relatively limited timeframe, and evolving treatment paradigms, changes in clinical practice, or shifting patient demographics could influence future model performance. Consequently, periodic updating, external validation in independent patient populations, and longitudinal model recalibration are essential for ensuring continued clinical relevance and robustness. Finally, an additional consideration is that the present model was developed for all-cause one-year mortality, which represents a broad binary endpoint. If sufficiently detailed and reliable cause-of-death data were available, future studies could examine whether the prediction of specific mortality categories would improve model discrimination and clinical interpretability. It is plausible that different clinical, laboratory, and perioperative predictors may be differentially associated with distinct causes of death, and that more specific endpoint definitions could strengthen predictive performance. However, such an approach would require adequately sized cause-specific outcome groups to ensure robust model development and validation.</p>
+<p>Taken jointly, our findings demonstrate that accurate prediction of one-year mortality in elderly patients undergoing hip fracture surgery can be effectively achieved using both traditional ML and DL methods. Among the evaluated approaches, the manually developed XGB model delivered superior predictive performance. Notably, an automated ML workflow facilitated by an LLM achieved comparable results, highlighting the potential to democratise predictive analytics for clinical practitioners without advanced technical expertise. The integration of such predictive tools into routine perioperative clinical practice represents a promising avenue for enhancing risk stratification, informing clinical decision-making, and ultimately improving patient outcomes in this vulnerable population.</p>
+<h2 id="data-availability-statement">Data availability statement</h2>
+<p>The raw data supporting the conclusions of this article will be made available by the authors, without undue reservation.</p>
+<h2 id="ethics-statement">Ethics statement</h2>
+<p>The studies involving humans were approved by Sheba Medical Center, Israel (Approval No. SMC-D 0976-24). The studies were conducted in accordance with the local legislation and institutional requirements. The ethics committee/institutional review board waived the requirement of written informed consent for participation from the participants or the participants’ legal guardians/next of kin because due to the retrospective observational design of the study, the requirement for informed consent was waived by the committee.</p>
+<h2 id="author-contributions">Author contributions</h2>
+<p>AS: Conceptualization, Formal analysis, Investigation, Methodology, Project administration, Software, Visualization, Writing – original draft, Writing – review &amp; editing. MG: Data curation, Formal analysis, Methodology, Validation, Writing – review &amp; editing. MK: Investigation, Validation, Writing – review &amp; editing. YP: Investigation, Methodology, Validation, Writing – review &amp; editing.</p>
+<p>HB: Resources, Supervision, Validation, Writing – review &amp; editing. DO: Data curation, Resources, Validation, Writing – review &amp; editing. TL: Conceptualization, Data curation, Formal analysis, Investigation, Methodology, Software, Supervision, Visualization, Writing – original draft, Writing – review &amp; editing.</p>
+<h2 id="funding">Funding</h2>
+<p>The author(s) declared that financial support was not received for this work and/or its publication.</p>
+<h2 id="acknowledgments">Acknowledgments</h2>
+<p>The authors wish to thank Gal Abadi for his technical assistance with the model development.</p>
+<h2 id="conflict-of-interest">Conflict of interest</h2>
+<p>The author(s) declared that this work was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</p>
+<h2 id="supplementary-material">Supplementary material</h2>
+<p>The Supplementary material for this article can be found online at: https://www.frontiersin.org/articles/10.3389/fmed.2026.1804645/full#supplementary-material 14.Kleinbaum DG, Dietz K, Gail M, Klein M. <em>Logistic Regression</em>. New York: Springer- Verlag (2002).</p>
+<p>15.Webb GI, Keogh E, Miikkulainen R. Naïve Bayes. <em>Encycl Mach Learn</em>. (2010) 15:713–4.</p>
+<p>16.Peterson LE. K-Nearest Neighbor. <em>Scholarpedia</em>. (2009) 4:1883. doi: 10.4249/scholarpedia.1883 17.Suthaharan S. "Support Vector Machine". In: <em>Machine Learning Models and Algorithms for Big Data Classification</em>. Cham: Springer (2016). p. 207–35.</p>
+<p>18.Lazebnik T, Bunimovich-Mendrazitsky S. Decision tree post-pruning without loss of accuracy using the SAT-PP algorithm with an empirical evaluation on clinical data. <em>Data Knowl Eng</em>. (2023) 145:102173. doi: 10.1016/j.datak.2023.102173 19.Kaur P, Kumar R, Kumar M. A healthcare monitoring system using random forest and internet of things (IoT). <em>Multimed Tools Appl</em>. (2019) 78:19905–16. doi: 10.1007/s11042-019-7327-8 20.Chen T, Guestrin C. Xgboost: a scalable tree boosting system. <em>Proceedings of the 22nd ACM SIGKDD</em>. (2016);785–794.</p>
+<p>21.Naraei P, Abhari A, Sadeghian A. Application of multilayer perceptron neural networks and support vector machines in classification of healthcare data. <em>IEEE FTC</em>. (2016) 2016:848–52.</p>
+<p>22.Arik SÖ, Pfister T. Tabnet: attentive interpretable tabular learning. <em>AAAI Conf Artif Intell</em>. (2021) 35:6679–87.</p>
+<p>23.Huang X, Khetan A, Cvitkovic M, Karnin Z. Tabtransformer: Tabular data modeling using contextual embeddings. arXiv [Preprint]; (2020). doi: 10.48550/arXiv.2012.06678 24.Alibrahim H, Ludwig SA. Hyperparameter optimization. IEEE congress. <em>Evol Comput</em>. (2021) 2021:1551–9.</p>
+<p>25.Chawla NV, Bowyer KW, Hall LO, Kegelmeyer WP. SMOTE: synthetic minority oversampling technique. <em>J Artif Intell Res</em>. (2002) 16:321–57. doi: 10.1613/jair.953 26.Altmann A, Toloşi L, Sander O, Lengauer T. Permutation importance. <em>Bioinformatics</em>. (2010) 26:1340–7. doi: 10.1093/bioinformatics/btq134 27.Nohara Y, Matsumoto K, Soejima H, Nakashima N. Explanation of ML models using SHAP. <em>Comput Methods Prog Biomed</em>. (2022) 214:106584. doi: 10.1016/j. cmpb.2021.106584 28.Rosenfeld A, Lazebnik T. LLM Attribution for GPT Models. (2024).</p>
+<p>29.Soffer S, Sorin V, Nadkarni G, Klang E. ChatGPT-o1 in medical ethics. medRxiv; [Preprint] (2024). doi: 10.1101/2024.09.25.24314342 30.Olson RS, Moore JH. TPOT: automating machine learning. <em>PMLR Workshop AutoML</em>. (2016);66–74.</p>
+<p>31.Lazebnik T, Fleischer T, Yaniv-Rosenfeld A. Benchmarking biologically-inspired automatic machine learning for economic tasks. <em>Sustainability</em>. (2023) 15:11232. doi: 10.3390/su151411232 32.Fati SM, Muneer A, Akbar NA, Taib SM. A continuous cuffless blood pressure estimation using tree-based pipeline optimization tool. <em>Symmetry</em>. (2021) 13:686. doi: 10.3390/sym13040686 33.White Jules, Quchen Fu, Hays Sam, Sandborn Michael, Olea Carlos, Gilbert Henry, et al. A prompt pattern catalog to enhance prompt engineering with Chatgpt. arXiv [Preprint] (2023). doi: 10.48550/arXiv.2302.11382 34.Shmuel Assaf, Glickman Oren, Lazebnik Teddy. "A comprehensive benchmark of machine and deep learning across diverse tabular datasets." arXiv [Preprint] (2024). doi: 10.48550/arXiv.2408.14817 35.Xu Y, Han D, Huang T, Zhang X, Hua L, Shen S, et al. Predicting ICU mortality in rheumatic heart disease: comparison of XGBoost and logistic regression. <em>Front Cardiovasc Med</em>. (2022) 9:847206. doi: 10.3389/fcvm.2022. 847206 36.Aharonoff GB, Koval KJ, Skovron ML, Zuckerman JD. Hip fractures in the elderly: predictors of one year mortality. <em>J Orthop Trauma</em>. (1997) 11:162–5. doi: 10.1097/00005131-199704000-00004 37.Borge SJ, Lauritzen JB, Jørgensen HL. Hypoalbuminemia is associated with 30-day mortality in hip fracture patients independently of body mass index. <em>Scand J Clin Lab Invest</em>. (2022) 82:571–5. doi: 10.1080/00365513.2022.2150982 38.Lewis JR, Hassan SK, Wenn RT, Moran CG. Mortality and serum urea and electrolytes on admission for hip fracture patients. <em>Injury</em>. (2006) 37:698–704. doi: 10.1016/j. injury.2006.04.121 39.Mroczek TJ, Prodromidis AD, Pearce A, Malik RA, Charalambous CP. Perioperative hypothermia is associated with increased 30-day mortality in hip fracture patients in the United Kingdom: α systematic review and Meta-analysis. <em>J Orthop Trauma</em>. (2022) 36:343–8. doi: 10.1097/BOT.0000000000002332 40.Solomon A, Glebov M, Lazebnik T. Explainable surgical procedures recommender system leveraging large language models. <em>ACM Trans Recom Syst</em>. (2025). doi: 10.1145/3767326 41.Taskin B, Xie W, Lazebnik T. Knowledge integration for physics-informed symbolic regression using pre-trained large language models. <em>Sci Rep</em>. (2026) 16:1614. doi: 10.1038/s41598-026-35327-6 42.Silva Jonathan, Ma Qin, Cabot Jordi, Kelsen Pierre, Proper Henderik A. "Towards human-in-the-loop LLM-enabled domain modeling." In <em>International Conference on Conceptual Modeling</em>, pp. 127–145. Cham: Springer Nature Switzerland, (2025).</p>
+<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 5 February 2026 · Accepted 21 April 2026 · Published 1 June 2026</dd></div></dl></section>
+<h2 id="references">References</h2>
+<ol class="paper-refs"><li id="ref-1">Gullberg B, Johnell O, Kanis JA. World-wide projections for hip fracture. Osteoporos Int. (1997) 7:407–13. <a href="https://doi.org/10.1007/pl00004148" target="_blank" rel="noopener">doi:10.1007/pl00004148</a></li>
+<li id="ref-2">Sanderson-Jerome C, Hariharan S. Outcome and cost evaluation of hip fractures in elderly patients at a tertiary Care Hospital in the Caribbean. Cureus. (2024) 16:e74586. <a href="https://doi.org/10.7759/cureus.74586" target="_blank" rel="noopener">doi:10.7759/cureus.74586</a></li>
+<li id="ref-3">Abrahamsen B, van Staa T, Ariely R, Olson M, Cooper C. Excess mortality following hip fracture: a systematic epidemiological review. Osteoporos Int. (2009) 20:1633–50. <a href="https://doi.org/10.1007/s00198-009-0920-3" target="_blank" rel="noopener">doi:10.1007/s00198-009-0920-3</a></li>
+<li id="ref-4">Mehta D, Gonzalez XT, Huang G, Abraham J. Machine learning-augmented interventions in perioperative care: a systematic review and meta-analysis. Br J Anaesth. (2024) 133:1159–72. <a href="https://doi.org/10.1016/j.bja.2024.08.007" target="_blank" rel="noopener">doi:10.1016/j.bja.2024.08.007</a></li>
+<li id="ref-5">Schwalbe N, Wahl B. Artificial intelligence and the future of global health. Lancet. (2020) 395:1579–86. <a href="https://doi.org/10.1016/S0140-6736%2820%2930226-9" target="_blank" rel="noopener">doi:10.1016/S0140-6736(20)30226-9</a></li>
+<li id="ref-6">Cary MP Jr, Zhuang F, Draelos RL, Pan W, Amarasekara S, Douthit BJ, et al. Machine learning algorithms to predict mortality and allocate palliative Care for Older Patients with hip Fracture. J Am Med Dir Assoc. (2021) 22:291–6. <a href="https://doi.org/10.1016/j.jamda.2020.09.025" target="_blank" rel="noopener">doi:10.1016/j.jamda.2020.09.025</a></li>
+<li id="ref-7">Li Y, Chen M, Lv H, Yin P, Zhang L, Tang P. A novel machine-learning algorithm for predicting mortality risk after hip fracture surgery. Injury. (2021) 52:1487–93. <a href="https://doi.org/10.1016/j.injury.2020.12.008" target="_blank" rel="noopener">doi:10.1016/j.injury.2020.12.008</a></li>
+<li id="ref-8">Lo C-L, Yang Y-H, Hsu C-J, Chen CY, Huang WC, Tang PL, et al. Development of a mortality risk model in elderly hip fracture patients by different analytical approaches. Appl Sci. (2020) 10:6787. <a href="https://doi.org/10.3390/app10196787" target="_blank" rel="noopener">doi:10.3390/app10196787</a></li>
+<li id="ref-9">Riley RD, Ensor J, Snell KIE, Harrell FE, Martin GP, Reitsma JB, et al. Calculating the sample size required for developing a clinical prediction model. BMJ. (2020) 368:m441. <a href="https://doi.org/10.1136/bmj.m441" target="_blank" rel="noopener">doi:10.1136/bmj.m441</a></li>
+<li id="ref-10">Fushiki T. Estimation of prediction error by using K-fold cross-validation. Stat Comput. (2011) 21:137–46. <a href="https://doi.org/10.1007/s11222-009-9153-8" target="_blank" rel="noopener">doi:10.1007/s11222-009-9153-8</a></li>
+<li id="ref-11">Legrain A, Bouarab H, Lahrichi N. The nurse scheduling problem in real-life. J Med Syst. (2015) 39:160. <a href="https://doi.org/10.1007/s10916-014-0160-8" target="_blank" rel="noopener">doi:10.1007/s10916-014-0160-8</a></li>
+<li id="ref-12">Augustine L, Faer M, Kavountzis A, Patel R. A Brief Study of the Nurse Scheduling Problem (NSP).University of Pittsburgh Medical Center (2009).</li>
+<li id="ref-13">Rajeswari M, Amudhavel J, Pothula S, Dhavachelvan P. Directed bee colony optimization algorithm to solve the nurse rostering problem. Comput Intell Neurosci. (2017) 2017:6563498. Generative AI statement The author(s) declared that Generative AI was not used in the creation of this manuscript. Any alternative text (alt text) provided alongside figures in this article has been generated by Frontiers with the support of artificial intelligence and reasonable efforts have been made to ensure accuracy, including review by the authors wherever possible. If you identify any issues, please contact us. All claims expressed in this article are solely those of the authors and do not necessarily represent those of their affiliated organizations, or those of the publisher, the editors and the reviewers. Any product that may be evaluated in this article, or claim that may be made by its manufacturer, is not guaranteed or endorsed by the publisher. <a href="https://doi.org/10.1155/2017/6563498" target="_blank" rel="noopener">doi:10.1155/2017/6563498</a></li>
+</ol>
+</div>
+        
+        
+        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Shuchami et al. (2026), <em>Frontiers in Medicine</em>, <a href="https://doi.org/10.3389/fmed.2026.1804645" target="_blank" rel="noopener">doi:10.3389/fmed.2026.1804645</a>, under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY</a> licence. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+      </article>
+    </div>
+
+    <section class="paper-related" aria-labelledby="related-title"><div class="paper-wrap"><h2 id="related-title">Related research</h2><div class="related-grid"><a class="related-card related-project" href="/project.html?pagename=personalized-medicine-ai"><img src="/img/projects/project1.webp" alt="" loading="lazy" decoding="async"><span class="related-kind"><i class="ri-flask-line" aria-hidden="true"></i>Research project</span><strong>Data-Driven Precise and Personalized Medicine</strong><span class="related-text">Harnessing AI to tailor treatments to individuals and improve medical resource allocation at the community level.</span></a><a class="related-card" href="/publications/developing-machine-learning-based-prediction-model-postinduction/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2025</span><strong>Developing a machine learning based prediction model for postinduction hypotension</strong><span class="related-text">Journal of Clinical Monitoring and Computing</span></a><a class="related-card" href="/publications/time-series-clustering-analysis-postinduction-blood-pressure/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2026</span><strong>A time-series clustering analysis of postinduction blood pressure trajectories</strong><span class="related-text">Scientific Reports</span></a></div><p class="related-more"><a href="/publications.html">All publications</a></p></div></section>
+  </main>
+
+  <dialog id="cite-dialog" class="paper-dialog" aria-labelledby="cite-title">
+    <div class="dialog-head">
+      <h2 id="cite-title">Cite this paper</h2>
+      <button type="button" class="dialog-close" aria-label="Close"><i class="ri-close-line" aria-hidden="true"></i></button>
+    </div>
+    <p class="dialog-label">APA</p>
+    <pre class="cite-box" id="cite-apa">Shuchami, A., Glebov, M., Katsin, M., Portnoy, Y., Berkenstadt, H., Orkin, D., &amp; Lazebnik, T. (2026). Comparing Manual vs. Automated Machine Learning and Deep Learning Models for Predicting One-Year Mortality in Elderly Hip Fracture Patients. Frontiers in Medicine. https://doi.org/10.3389/fmed.2026.1804645</pre>
+    <button type="button" class="paper-btn" data-copy="cite-apa"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy APA</span></button>
+    <p class="dialog-label">BibTeX</p>
+    <pre class="cite-box" id="cite-bib">@article{shuchami2026comparing,
+  title = {Comparing Manual vs. Automated Machine Learning and Deep Learning Models for Predicting One-Year Mortality in Elderly Hip Fracture Patients},
+  author = {Shuchami, Adi and Glebov, Maxim and Katsin, Maksim and Portnoy, Yotam and Berkenstadt, Haim and Orkin, Dina and Lazebnik, Teddy},
+  journal = {Frontiers in Medicine},
+  year = {2026},
+  doi = {10.3389/fmed.2026.1804645}
+}</pre>
+    <button type="button" class="paper-btn" data-copy="cite-bib"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy BibTeX</span></button>
+  </dialog>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Games</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
+                  <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
+                  <li><a href="https://rl.teddylazebnik.com/">Pirate War RL Game</a></li>
+                  <li><a href="https://eh.teddylazebnik.com/">Echo Heist</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      
+      <script>
+        (function () {
+          // menu and navbar (js/main.js expects to sit at the site root)
+          var btn = document.getElementById('menu-btn'), menu = document.getElementById('mobile-menu'), nav = document.getElementById('navbar');
+          btn.addEventListener('click', function () { menu.classList.toggle('max-h-0'); menu.classList.toggle('max-h-screen'); });
+          var onScroll = function () { nav.classList.toggle('nav-scrolled', window.scrollY > 10); };
+          window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+          // cite dialog + copy buttons
+          var dialog = document.getElementById('cite-dialog');
+          document.querySelectorAll('[data-dialog]').forEach(function (b) {
+            b.addEventListener('click', function () { if (dialog.showModal) dialog.showModal(); else dialog.setAttribute('open', ''); });
+          });
+          dialog.querySelector('.dialog-close').addEventListener('click', function () { dialog.close(); });
+          dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
+          function flash(button, text) {
+            var label = button.querySelector('span'), old = label.textContent;
+            label.textContent = text; setTimeout(function () { label.textContent = old; }, 1600);
+          }
+          document.querySelectorAll('[data-copy]').forEach(function (b) {
+            b.addEventListener('click', function () {
+              var text = document.getElementById(b.getAttribute('data-copy')).textContent;
+              navigator.clipboard.writeText(text).then(function () { flash(b, 'Copied'); });
+            });
+          });
+          document.getElementById('share-btn').addEventListener('click', function () {
+            var b = this, data = { title: document.title, url: location.href.split('#')[0] };
+            if (navigator.share) { navigator.share(data).catch(function () {}); }
+            else { navigator.clipboard.writeText(data.url).then(function () { flash(b, 'Link copied'); }); }
+          });
+
+          // highlight the section being read in "On this page"
+          var links = {};
+          document.querySelectorAll('.paper-toc a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+          var heads = Array.prototype.filter.call(document.querySelectorAll('#full-text h2[id], #full-text h3[id], #full-text section[id]'), function (h) { return links[h.id]; });
+          if ('IntersectionObserver' in window && heads.length) {
+            var current = null;
+            var io = new IntersectionObserver(function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                  if (current) current.classList.remove('is-active');
+                  current = links[e.target.id]; current.classList.add('is-active');
+                }
+              });
+            }, { rootMargin: '-90px 0px -70% 0px' });
+            heads.forEach(function (h) { io.observe(h); });
+          }
+        })();
+      </script>
+   </body>
+</html>

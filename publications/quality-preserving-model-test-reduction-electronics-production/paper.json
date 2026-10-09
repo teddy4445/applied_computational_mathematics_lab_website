@@ -1,0 +1,93 @@
+{
+  "title": "A quality-preserving model for test reduction in electronics production",
+  "pub_type": "Paper",
+  "short_title": "",
+  "authors": [
+    {
+      "name": "Einav Peretz-Andersson",
+      "given": "Einav",
+      "family": "Peretz-Andersson"
+    },
+    {
+      "name": "Noufa Haneefa",
+      "given": "Noufa",
+      "family": "Haneefa"
+    },
+    {
+      "name": "Teddy Lazebnik",
+      "given": "Teddy",
+      "family": "Lazebnik"
+    }
+  ],
+  "affiliations": {},
+  "journal": "Frontiers in Mechnical Engineering",
+  "year": 2026,
+  "volume": "",
+  "issue": "",
+  "pages": "",
+  "doi": "10.3389/fmech.2026.1861443",
+  "published": "2026-06-17",
+  "received": "2026-04-21",
+  "accepted": "2026-05-25",
+  "abstract": "Introduction: Manufacturing test flows in high-volume electronics production are typically fixed during product development and executed unchanged on every unit, even as failure patterns and process conditions evolve. This protects quality, but it also imposes unnecessary test cost, while existing data-driven methods mostly optimize static test subsets and neither adapt online to changing defect distributions nor explicitly control escape risk.Methods: In this study, we present an adaptive test-selection framework that combines offline minimum-cost diagnostic subset construction using greedy set cover with an online Thompson-sampling multi-armed bandit that switches between full and reduced test plans using a rolling process-stability signal. We evaluate the framework on two printed circuit board assembly stages—Functional Circuit Test and End-of-Line test—covering 28,000 board runs.Results: Offline analysis identified zero-escape reduced plans that cut test time by 18.78% in Functional Circuit Test and 91.57% in End-of-Line testing. Under temporal validation with real concept drift, static reduction produced 110 escaped defects in Functional Circuit Test and 8 in End-of-Line, whereas the adaptive policy reduced escapes to zero by reverting to fuller coverage when instability emerged in practice.Discussion: These results show that online learning can preserve manufacturing quality while reducing test burden, offering a practical route to adaptive test planning across production domains, and offering both economic and logistics improvement for companies.",
+  "keywords": [
+    "adaptive test selection",
+    "multi-armed bandits",
+    "Thompson sampling",
+    "electronics manufacturing",
+    "PCBA testing",
+    "concept drift"
+  ],
+  "license": {},
+  "funding": "",
+  "competing_interests": "",
+  "data_availability": "",
+  "editor": "",
+  "abbreviations": [],
+  "summary": "Electronics factories usually run the same fixed set of tests on every unit, which protects quality but adds unnecessary test cost as conditions change. We built an adaptive framework that combines offline selection of low-cost reduced test plans with an online learning method (a Thompson-sampling multi-armed bandit) to switch between full and reduced plans based on process stability. On 28,000 printed circuit board runs, static test reduction let defects slip through under real process drift, while our adaptive policy reduced escaped defects to zero.",
+  "key_findings": [
+    "Offline analysis found reduced test plans with zero escaped defects that cut test time by 18.78% in Functional Circuit Test and 91.57% in End-of-Line testing.",
+    "Under real concept drift, static test reduction let 110 defects escape in Functional Circuit Test and 8 in End-of-Line testing.",
+    "The adaptive policy reduced escapes to zero by reverting to fuller test coverage when process instability emerged."
+  ],
+  "key_numbers": [
+    {
+      "value": "28,000",
+      "label": "printed circuit board runs evaluated"
+    },
+    {
+      "value": "18.78%",
+      "label": "test time cut, Functional Circuit Test"
+    },
+    {
+      "value": "91.57%",
+      "label": "test time cut, End-of-Line testing"
+    },
+    {
+      "value": "110",
+      "label": "escaped defects under static reduction, Functional Circuit Test"
+    }
+  ],
+  "featured_figure": "fig-2",
+  "related_project": "",
+  "pdf_url": "https://teddylazebnik.com/files/rl_production.pdf",
+  "slug": "quality-preserving-model-test-reduction-electronics-production",
+  "lang": "en",
+  "reviewed": false,
+  "extracted": {
+    "with": "pymupdf4llm 1.28.2, PyMuPDF 1.28.2",
+    "on": "2026-10-09",
+    "from": "rl_production.pdf",
+    "pages": 15,
+    "figures": 6,
+    "tables": 4,
+    "tables_as_images": 1,
+    "equations": 8,
+    "references": 38,
+    "reference_style": "ay",
+    "coverage": 0.995,
+    "check": [
+      "p11 drop: Rolling Cred selection fraction during training for the Thompson Sampling agent on the FCT"
+    ]
+  }
+}

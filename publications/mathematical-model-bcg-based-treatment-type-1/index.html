@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_papers.py from paper.md + paper.json in this folder. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>A mathematical model of BCG treatment for type 1 diabetes | ACML</title>
+      <meta name="description" content="We built the first mathematical model of an immunotherapy treatment for type 1 diabetes with the BCG vaccine. Ordinary differential equations link several…">
+      <meta name="author" content="Teddy Lazebnik, Svetlana Bunimovich-Mendrazitsky, Alex Kiselyov">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/publications/mathematical-model-bcg-based-treatment-type-1/">
+      <meta name="citation_title" content="Mathematical Model for the BCG-based Treatment Of Type 1 Diabetes">
+      <meta name="citation_author" content="Teddy Lazebnik">
+      <meta name="citation_author" content="Svetlana Bunimovich-Mendrazitsky">
+      <meta name="citation_author" content="Alex Kiselyov">
+      <meta name="citation_publication_date" content="2023/05/19">
+      <meta name="citation_journal_title" content="Physica A: Statistical Mechanics and its Applications">
+      <meta name="citation_volume" content="622">
+      <meta name="citation_firstpage" content="128891">
+      <meta name="citation_doi" content="10.1016/j.physa.2023.128891">
+      <meta name="citation_pdf_url" content="https://teddylazebnik.com/files/bcg_t1d.pdf">
+      <meta name="citation_abstract_html_url" content="https://acml.teddylazebnik.com/publications/mathematical-model-bcg-based-treatment-type-1/">
+      <meta name="citation_fulltext_html_url" content="https://acml.teddylazebnik.com/publications/mathematical-model-bcg-based-treatment-type-1/">
+      <meta name="citation_language" content="en">
+      <meta property="og:type" content="article">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="A mathematical model of BCG treatment for type 1 diabetes">
+      <meta property="og:description" content="We built the first mathematical model of an immunotherapy treatment for type 1 diabetes with the BCG vaccine. Ordinary differential equations link several…">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/publications/mathematical-model-bcg-based-treatment-type-1/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/publications/mathematical-model-bcg-based-treatment-type-1/figures/share-fig-1.jpg">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="A mathematical model of BCG treatment for type 1 diabetes">
+      <meta name="twitter:description" content="We built the first mathematical model of an immunotherapy treatment for type 1 diabetes with the BCG vaccine. Ordinary differential equations link several…">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/publications/mathematical-model-bcg-based-treatment-type-1/figures/share-fig-1.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "Mathematical Model for the BCG-based Treatment Of Type 1 Diabetes",
+  "name": "Mathematical Model for the BCG-based Treatment Of Type 1 Diabetes",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Teddy Lazebnik"
+    },
+    {
+      "@type": "Person",
+      "name": "Svetlana Bunimovich-Mendrazitsky"
+    },
+    {
+      "@type": "Person",
+      "name": "Alex Kiselyov"
+    }
+  ],
+  "datePublished": "2023-05-19",
+  "url": "https://acml.teddylazebnik.com/publications/mathematical-model-bcg-based-treatment-type-1/",
+  "mainEntityOfPage": "https://acml.teddylazebnik.com/publications/mathematical-model-bcg-based-treatment-type-1/",
+  "abstract": "This work introduces the first model of immunotherapy treatment, namely the Bacillus Calmette-Guerin (BCG) vaccine, for Type 1 Diabetes (T1D). The model takes into consideration the interaction network between multiple immune cell types and compartments. A set of ordinary differential equations (ODEs) is introduced to capture the connectivity between these variables and the clinical presentation of the disease. Four subsets of the T1D mice and healthy controls that exhibit normal and high-level glucose consumption are evaluated using the proposed model. Numerical results obtained for mice suggest that BCG treatment of the T1D patients that follow healthy eating habits normalizes glucose to levels observed in non-diabetic controls. Furthermore, glucose consumption profoundly influences disease progression. This outcome suggests that immunotherapy may modulate molecular and cellular manifestations of the disease but it does not eliminate T1D. Of note, our data, obtained from numerical simulations, indicate that the BCG immunotherapy treatment may benefit healthy controls on a high-glucose diet and can be used as a tool for further clinical investigation of BCG usage to control T1D.",
+  "description": "We built the first mathematical model of an immunotherapy treatment for type 1 diabetes with the BCG vaccine. Ordinary differential equations link several…",
+  "image": "https://acml.teddylazebnik.com/publications/mathematical-model-bcg-based-treatment-type-1/figures/share-fig-1.jpg",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "DOI",
+    "value": "10.1016/j.physa.2023.128891"
+  },
+  "sameAs": "https://doi.org/10.1016/j.physa.2023.128891",
+  "isPartOf": {
+    "@type": "PublicationIssue",
+    "issueNumber": "",
+    "isPartOf": {
+      "@type": "PublicationVolume",
+      "volumeNumber": "622",
+      "isPartOf": {
+        "@type": "Periodical",
+        "name": "Physica A: Statistical Mechanics and its Applications"
+      }
+    }
+  },
+  "about": "Biomathematics",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "encoding": {
+    "@type": "MediaObject",
+    "contentUrl": "https://teddylazebnik.com/files/bcg_t1d.pdf",
+    "encodingFormat": "application/pdf"
+  }
+}
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/paper.css" rel="stylesheet">
+      
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="paper-page">
+    <header class="paper-hero">
+      <div class="paper-wrap">
+        <nav class="paper-crumbs" aria-label="Breadcrumb">
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Biomathematics</span>
+        </nav>
+        <p class="paper-kicker"><span><em>Physica A: Statistical Mechanics and its Applications</em> · 19 May 2023</span></p>
+        <h1 class="paper-title">Mathematical Model for the BCG-based Treatment Of Type 1 Diabetes</h1>
+        <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author">Svetlana Bunimovich-Mendrazitsky</span>, <span class="author">Alex Kiselyov</span></p>
+        
+        <div class="paper-actions">
+          <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/bcg_t1d.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
+          <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
+          
+          <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
+          <a class="paper-btn" href="https://doi.org/10.1016/j.physa.2023.128891" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
+          <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
+        </div>
+        <div class="lab-authors"><span class="lab-authors-label">ACML authors</span><a class="lab-chip" href="/team.html"><img src="/img/lab/teddy.webp" alt="" width="32" height="32" loading="lazy"><span><strong>Teddy Lazebnik</strong><small>PI</small></span></a></div>
+      </div>
+    </header>
+
+    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">We built the first mathematical model of an immunotherapy treatment for type 1 diabetes with the BCG vaccine. Ordinary differential equations link several immune cell types and body compartments to the clinical course of the disease, and we applied the model to diabetic and healthy mice on normal and high-glucose diets. In the simulations, BCG brought glucose back to normal levels in diabetic mice with healthy eating habits, but it did not eliminate the disease, and diet strongly affected how the disease progressed.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>The first mathematical model of BCG immunotherapy for type 1 diabetes, built from ordinary differential equations that capture the network of immune cell types and compartments.</li><li>The model was evaluated on four groups of diabetic mice and healthy controls with normal and high glucose consumption.</li><li>In the simulations, BCG treatment of diabetic mice that follow healthy eating habits normalizes glucose to the levels of non-diabetic controls.</li><li>Glucose consumption strongly influences disease progression: immunotherapy may change how the disease shows itself but does not eliminate it.</li><li>The simulations suggest BCG may also benefit healthy controls on a high-glucose diet, which can guide further clinical study.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1144" height="1077" alt="Fig. 1. A schematic view of the interaction between the cell populations, divided by interaction type, where B, MR, D, MA, T, G, and β stands for BCG-cells, resting macrophages, dendritic cells, active macrophages, autolytic T cells, concentration of glucose, and β cells."></a><figcaption><strong>Fig. 1.</strong> A schematic view of the interaction between the cell populations, divided by interaction type, where <em>B, M</em><sub>R</sub><em>, D, M</em><sub>A</sub><em>, T, G</em>, and <em>β</em> stands for BCG-cells, resting macrophages, dendritic cells, active macrophages, autolytic <em>T</em> cells, concentration of glucose, and <em>β</em> cells. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+
+    <div class="paper-wrap paper-layout">
+      <aside class="paper-aside">
+        <nav class="paper-toc" aria-label="On this page">
+          <p class="aside-title">On this page</p>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#1-introduction-and-related-work">1. Introduction and related work</a></li>
+<li><a href="#2-model-definition">2. Model definition</a></li><li class="toc-sub"><a href="#21-biological-background">2.1. Biological background</a></li><li class="toc-sub"><a href="#22-mathematical-model">2.2. Mathematical model</a></li><li class="toc-sub"><a href="#23-parameter-estimation">2.3. Parameter estimation</a></li>
+<li><a href="#3-numerical-simulations">3. Numerical simulations</a></li>
+<li><a href="#4-conclusion">4. Conclusion</a></li>
+<li><a href="#credit-authorship-contribution-statement">CRediT authorship contribution statement</a></li>
+<li><a href="#declaration-of-competing-interest">Declaration of competing interest</a></li>
+<li><a href="#data-availability">Data availability</a></li>
+<li><a href="#appendix">Appendix</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </nav>
+        <div class="paper-info">
+          <p class="aside-title">Article information</p>
+          <dl><div><dt>Journal</dt><dd>Physica A: Statistical Mechanics and its Applications 622: 128891</dd></div><div><dt>Published</dt><dd><time datetime="2023-05-19">19 May 2023</time></dd></div><div><dt>DOI</dt><dd><a href="https://doi.org/10.1016/j.physa.2023.128891" target="_blank" rel="noopener">10.1016/j.physa.2023.128891</a></dd></div></dl>
+        </div>
+      </aside>
+
+      <article class="paper-body" id="full-text">
+        <details class="paper-toc-mobile">
+          <summary>On this page</summary>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#1-introduction-and-related-work">1. Introduction and related work</a></li>
+<li><a href="#2-model-definition">2. Model definition</a></li><li class="toc-sub"><a href="#21-biological-background">2.1. Biological background</a></li><li class="toc-sub"><a href="#22-mathematical-model">2.2. Mathematical model</a></li><li class="toc-sub"><a href="#23-parameter-estimation">2.3. Parameter estimation</a></li>
+<li><a href="#3-numerical-simulations">3. Numerical simulations</a></li>
+<li><a href="#4-conclusion">4. Conclusion</a></li>
+<li><a href="#credit-authorship-contribution-statement">CRediT authorship contribution statement</a></li>
+<li><a href="#declaration-of-competing-interest">Declaration of competing interest</a></li>
+<li><a href="#data-availability">Data availability</a></li>
+<li><a href="#appendix">Appendix</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </details>
+        <section id="abstract" class="paper-abstract">
+          <h2>Abstract</h2>
+          <p>This work introduces the first model of immunotherapy treatment, namely the Bacillus Calmette-Guerin (BCG) vaccine, for Type 1 Diabetes (T1D). The model takes into consideration the interaction network between multiple immune cell types and compartments. A set of ordinary differential equations (ODEs) is introduced to capture the connectivity between these variables and the clinical presentation of the disease. Four subsets of the T1D mice and healthy controls that exhibit normal and high-level glucose consumption are evaluated using the proposed model. Numerical results obtained for mice suggest that BCG treatment of the T1D patients that follow healthy eating habits normalizes glucose to levels observed in non-diabetic controls. Furthermore, glucose consumption profoundly influences disease progression. This outcome suggests that immunotherapy may modulate molecular and cellular manifestations of the disease but it does not eliminate T1D. Of note, our data, obtained from numerical simulations, indicate that the BCG immunotherapy treatment may benefit healthy controls on a high-glucose diet and can be used as a tool for further clinical investigation of BCG usage to control T1D.</p>
+        </section>
+        
+<div class="paper-text">
+<h2 id="1-introduction-and-related-work">1. Introduction and related work</h2>
+<p>Type 1 diabetes (T1D) is one of the most common chronic diseases of childhood, however, clinical symptoms of the disease may occur later in life <span class="cite">[<a href="#ref-1">1</a>]</span>. In general, the median age for the disease ranges between six years old and puberty <span class="cite">[<a href="#ref-2">2</a>]</span>. In the past two decades, T1D became a pandemic <span class="cite">[<a href="#ref-3">3</a>]</span>. In the United States alone the number of adult T1D patients was estimated to be 1.25 million individuals (0.5% of the population) in 2017 <span class="cite">[<a href="#ref-4">4</a>]</span>. Similar statistics in Germany and Norway suggest 2.6% and 3.3% incidence increase, respectively <span class="cite">[<a href="#ref-5">5</a>,<a href="#ref-6">6</a>]</span>.</p>
+<p>In T1D or insulin-dependent diabetes, the pancreas produces little or no insulin, a hormone that facilitates glucose to enter cells in order to produce energy. The autoimmune destruction of pancreatic beta cells is one of the key hallmarks of T1D. Glucose metabolism is mediated by multiple types of cells that interact and are controlled by intrinsic and extrinsic factors. Specific cell types include <em>β</em>-cells, T-cells, resting and activated macrophages and dendritic cells <span class="cite">[<a href="#ref-7">7</a>]</span>. Formally, <em>β</em>-cells are cells that make insulin which is a hormone that controls the level of glucose in the blood. For T1D patients, the immune system destroys the <em>β</em>-cells due to errors in the identification of the <em>β</em>-cell’s proteins. T-cells are part of the immune system, generated by the body’s stem cells that are found in the bone marrow. While there are several types of T-cells, they are all responsible to distinguish invading cells from the body’s cells. Macrophages are a type of white blood cells and also part of the immune system, responsible to engulf and digest pathogens that do not have proteins that are specific to healthy body cells on their surface <span class="cite">[<a href="#ref-8">8</a>]</span>. A dendritic cell is an antigen-presenting cell that is responsible to process antigen material and allocating it to other cell surfaces for the T-cells to detect <span class="cite">[<a href="#ref-9">9</a>]</span>. The depleted pool of <em>β</em>-cells triggers insulin deficiency and additional pathophysiology including life-threatening hypoglycemia, ketoacidosis, cardiovascular disease, retinopathy, diabetic renal disease, and neuropathy. In a healthy organism, the basic population of <em>β</em>-cells is supplemented with additional cells as a response to the increased glucose levels after meals <span class="cite">[<a href="#ref-10">10</a>,<a href="#ref-11">11</a>]</span>.</p>
+<p>According to the American diabetes association, diagnosis of diabetes includes (a) fasting blood glucose higher than 7 mmol/L, (b) any blood glucose of 11.1 mmol/L or higher with symptoms of hyperglycemia, or (c) an abnormal 2 h oral glucose-tolerance test <span class="cite">[<a href="#ref-12">12</a>]</span>. T1D is believed to be caused by the immune-mediated destruction of insulin-producing pancreatic <em>β</em>-cells <span class="cite">[<a href="#ref-13">13</a>]</span> as evidenced by the presence of a chronic inflammatory infiltrate that affects pancreatic islets <span class="cite">[<a href="#ref-14">14</a>]</span>. The main treatment protocol for T1D patients in the last few decades includes exogenous insulin replacement therapy <span class="cite">[<a href="#ref-3">3</a>]</span>. However, this regimen frequently fails to provide metabolic regulation of multiple T1D-related complications that include cardiovascular disorders, neuropathy, and hypoglycemia <span class="cite">[<a href="#ref-15">15</a>]</span>. Insulin administration <em>via</em> pump <span class="cite">[<a href="#ref-16">16</a>]</span> is associated with imbalanced therapeutic effects, infections, and pump malfunction.</p>
+<p>Recent clinical data demonstrate that T1D patients exhibit a small-to-none number of viable <em>β</em>-cells. Notably, regeneration of <em>β</em>-cells in infants and young children could still be detected <span class="cite">[<a href="#ref-17">17</a>,<a href="#ref-18">18</a>]</span>. This observation implies that both controlled and well-balanced approaches to modulating the immune system in T1D patients may improve the production of <em>β</em>-cells and reduce circulating glucose levels.</p>
+<p>Bacillus Calmette–Guérin (BCG) vaccine is one of the oldest immunotherapy in the clinical practice <span class="cite">[<a href="#ref-19">19</a>]</span>. BCG treatment of the T1D patients was introduced relatively recently <span class="cite">[<a href="#ref-20">20</a>]</span>. BCG was originally developed to treat tuberculosis (TB) and early (non-muscle invasive) stages of bladder cancer <span class="cite">[<a href="#ref-21">21</a>–<a href="#ref-23">23</a>]</span>. A detailed analysis of the literature describes the utility of BCG to a broad spectrum of autoimmune, allergic, and induced adaptive immune conditions <span class="cite">[<a href="#ref-24">24</a>–<a href="#ref-26">26</a>]</span>. Of particular significance to this work, several instances of BCG vaccine administration in childhood yielded a dramatic improvement of the T1D progression <span class="cite">[<a href="#ref-27">27</a>]</span>.</p>
+<p>Namely, a randomized eight-year-long prospective examination of T1D patients with the long-term disease who received two doses of BCG vaccine was reported by Kühtreiber et al. <span class="cite">[<a href="#ref-20">20</a>]</span>. The authors showed that BCG furnished a robust and lasting control of the blood sugar levels <span class="cite">[<a href="#ref-20">20</a>]</span>. Furthermore, the authors discovered that BCG induced a systemic shift in glucose metabolism from oxidative phosphorylation to aerobic glycolysis <span class="cite">[<a href="#ref-28">28</a>,<a href="#ref-29">29</a>]</span>. Multiple molecular and cellular variables affect the onset of T1D. We reasoned that a clinically relevant mathematical model that recaptures these parameters, as well as the reported BCG-induced clinical observations, may offer a practical insight into immunotherapy of the disease <span class="cite">[<a href="#ref-30">30</a>,<a href="#ref-31">31</a>]</span>. Thus, the motivation for this modeling attempt is to better understand the possibilities and limitations of BCG-based immunotherapy treatment for T1P which can be further used to conduct more data-driven clinical experiments. Earlier, Maree and Kublik <span class="cite">[<a href="#ref-30">30</a>]</span> introduced an algorithm that describes the interaction between <em>β</em>-cells, T-cells, resting macrophages, active macrophages, and non T-cells and macrophages immune system-related cells as a single type of cells. The authors analyzed the <em>β</em>-cells free equilibria which affect T1D. However, the model did not take into consideration the decreased glucose intake, one of the main factors associated with T1D <span class="cite">[<a href="#ref-3">3</a>]</span>. In our view, this deficiency does not provide insight into the effect of environmental factors, namely dietary glucose. Subsequently, Wu <span class="cite">[<a href="#ref-32">32</a>]</span> developed an extended strategy that accounts for glucose levels and more detailed cell–cell interactions. The author utilized a multi-compartment model to include the spleen and bloodstream compartments to capture 24 cell types and processes <span class="cite">[<a href="#ref-32">32</a>]</span>. Whereas the respective single-compartment model reflects data for both healthy and NOD mice, the analysis of the multi-compartment model was not performed due to its size and complexity <span class="cite">[<a href="#ref-32">32</a>]</span>.</p>
+<p>Shtylla et al. <span class="cite">[<a href="#ref-33">33</a>]</span>, introduced a model based on a single compartment simulation that captures the dynamics of dendritic cells, <em>T</em> cells, and macrophages in the development of T1D. The assumption is that the differences in macrophage clearance rates play a key role in determining whether or not an individual is likely to become diabetic after a significant immune challenge. The model accurately captures the longitudinal course of a T1D treatment in the <em>in vivo</em> model that could lead to a practical clinical protocol <span class="cite">[<a href="#ref-33">33</a>]</span>.</p>
+<p>The novelty of the proposed model lies in the usage of BCG immunotherapy for T1D. The usage of BCG in T1D is inspired by the clinical trial conducted by <span class="cite">[<a href="#ref-20">20</a>]</span> and since BCG is known to be an efficient treatment for other autoimmune diseases as such bladder cancer <span class="cite">[<a href="#ref-21">21</a>]</span> and food allergy <span class="cite">[<a href="#ref-26">26</a>]</span>.</p>
+<p>Considering the above, we attempted to further streamline the existing mathematical model of the immunotherapy-based treatment of T1D. We attempted to introduce the reported clinical markers of T1D including molecular and cellular variables as well as their interplay in order to re-evaluate the BCG treatment dynamics described by Faustman et al. <span class="cite">[<a href="#ref-34">34</a>]</span>. These considerations were applied to the single-compartment model to arrive at both relevant and practical outcomes for a mouse model that in our view may yield specific recommendations for the clinical use of BCG. Our results and presentation are organized as follows. Section 2 provides a biological background of T1D and BCG-related treatment used for the mathematical model. Section 3 deals with numerical analysis of the model using healthy subjects, T1D patients, and corresponding data from the NOD mouse model of T1D. It further defines a baseline behavior followed by the sensitivity analysis of metabolism- and treatment-related parameters including optimal treatment regimen. Section 4 discusses the results including the advantages and limitations of the proposed model, including the personalizing of treatment according to glucose consumption diet, in addition to potential future directions.</p>
+<figure id="fig-1">
+<a class="fig-zoom" href="figures/fig-1.webp" aria-label="Open the figure full size"><img src="figures/fig-1.webp" width="658" height="619" alt="A schematic view of the interaction between the cell populations, divided by interaction type, where B, MR, D, MA, T, G, and β stands for BCG-cells, resting macrophages, dendritic cells, active macrop" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 1.</strong> A schematic view of the interaction between the cell populations, divided by interaction type, where <em>B, M</em><sub>R</sub><em>, D, M</em><sub>A</sub><em>, T, G</em>, and <em>β</em> stands for BCG-cells, resting macrophages, dendritic cells, active macrophages, autolytic <em>T</em> cells, concentration of glucose, and <em>β</em> cells.</figcaption>
+</figure>
+
+<h2 id="2-model-definition">2. Model definition</h2>
+<p>The main principle behind the model introduced in this work includes clinically validated, pulsed administration of BCG to increase the amount of <em>β</em>-cells in the body to manage and treat T1D <span class="cite">[<a href="#ref-34">34</a>]</span>. Specifically, we attempted to recapitulate diverse interactions between BCG and the immune system in order to maximize the effect of BCG on the T-cell and <em>β</em>-cell counts.</p>
+<h3 id="21-biological-background">2.1. Biological background</h3>
+<p>Once the resulting pool of <em>β</em>-cells metabolizes available glucose, they get inactivated during insulin generation <span class="cite">[<a href="#ref-35">35</a>]</span> and their interaction with Th-cells <span class="cite">[<a href="#ref-36">36</a>]</span>. This interaction induces the production of dendritic cells <span class="cite">[<a href="#ref-7">7</a>,<a href="#ref-37">37</a>]</span> that in turn prompt resting macrophages to process intracellular antigenic peptides and to eliminate glucose from the circulation <span class="cite">[<a href="#ref-10">10</a>]</span>. Notably, active macrophages produce IL-1 and TNF-<em>α</em> to recruit resting macrophages. Once this step is completed, active macrophages get deactivated and return to their resting state <span class="cite">[<a href="#ref-37">37</a>,<a href="#ref-38">38</a>]</span>. Importantly, <em>β</em>-cell, T-cell, dendritic cell populations are tightly controlled to exhibit exponential decay <span class="cite">[<a href="#ref-38">38</a>]</span>. It is speculated that as BCG is distributed and eliminated post-injection, it engages the dendritic cells and activated macrophages <span class="cite">[<a href="#ref-39">39</a>,<a href="#ref-40">40</a>]</span> to result in the elevated <em>β</em>-cells concentration and overall balancing of glucose metabolism. A summary of this cellular interaction network is shown in <a class="xref" href="#fig-1">Fig. 1</a>.</p>
+<p>Considering the evidence accumulated thus far, significant attention was dedicated to the design and development of immunotherapies to address T1D. Of these agents, BCG vaccine attracted particular attention primarily due to an array of immune and induced adaptive immune responses exemplified by its clinical performance in multiple sclerosis <span class="cite">[<a href="#ref-41">41</a>]</span> and non-muscle invasive bladder cancer <span class="cite">[<a href="#ref-42">42</a>]</span>. Notably, BCG vaccine was reported to activate immune cells and accelerate glycolysis <span class="cite">[<a href="#ref-40">40</a>]</span>. Bolus injection of BCG vaccine-induced significant remission in T1D mice vs controls <span class="cite">[<a href="#ref-39">39</a>]</span>.</p>
+<h3 id="22-mathematical-model">2.2. Mathematical model</h3>
+<p>The suggested mathematical model is aimed to be both biologically accurate and feasible to yield practical analytical insight into the effect of immunotherapy on T1D. Whereas we acknowledge that the actual interplay between all components of the immune response for the BCG-mediated treatment of T1D is both much more intricate than the suggested model and involves individual immunological background, the attempt is made to capture all key cellular and molecular interactions. Specifically, in order to streamline the model, we combined the immune response to BCG and autoimmune problems related to type 1 diabetes. Similarly, the intraspecific competition reported for the macrophage population, so-called of macrophage crowding was not taken into consideration due to its relatively modest contribution to the T1D pathology long-term. Conversely, we focused on several variables reported in the clinical practice to be decisive in the course of the disease, namely: <em>B</em>(<em>t</em>) — concentration of BCG in the body; <em>M</em><sub>R</sub>(<em>t</em>) — concentration of resting macrophages; <em>M</em><sub>A</sub>(<em>t</em>) — concentration of activated macrophages; <em>D</em>(<em>t</em>) — concentration of dendritic cells which are also operating as activated immune-system cells; <em>G</em>(<em>t</em>) — concentration of glucose; <em>T</em> (<em>t</em>) — concentration of autolytic <em>T</em> cells; and <em>β</em>(<em>t</em>) — concentration of <em>β</em> cells.</p>
+<p>Notably, our approach accounts for cell count dynamics resulting from cell–cell interactions as well as pharmacoki-netics and pharmacodynamics processes. These processes are captured using the following system of non-linear, ordinary differential equations (ODEs).</p>
+<p>Eq. (1), the <sup>dB(t)</sup> reflects varying levels of free BCG as a function of time. Based on several clinical observations, the <em>dt</em> dynamics is affected by positive and negative processes as follows: (i) a BCG installation of concentration/activity <em>b &gt;</em> 0 is injected <em>N</em> times, every <em>τ</em><sub>B</sub> <em>&gt;</em> 0 time units (which represented using a Dirac delta function <span class="cite">[<a href="#ref-43">43</a>]</span>). (ii) BCG is depleted as a result of natural exponential decay with half life of <em>µ</em><sup>−1</sup> <sub>B</sub> . (iii) BCG levels decrease proportionally <em>p &gt;</em> 0 to the interactions with effector cells including macrophages and dendritic cells <span class="cite">[<a href="#ref-44">44</a>]</span>.</p>
+<div class="equation" id="eq-1"><img src="figures/eq-1.webp" width="603" height="39" alt="dB(t) dt = ΣN n=0bδ(t −nτB) −µBB(t) −pD(t)B(t). (1)" loading="lazy" decoding="async"></div>
+
+<p>The set of the subsequent equations take into consideration both resting and activating macrophages that are reported to be important players <span class="cite">[<a href="#ref-45">45</a>]</span>.</p>
+<p>Eq. (2), the <sup>dMR(t)</sup> describes the amount of resting macrophages as a function of time. This process is affected by several <em>dt</em> positive and negative factors. Positive factors are: (i) the endogenous supply or recruitment rate of resting macrophages <em>a</em>, (ii) recruitment rate <em>γ</em> of activated macrophages due to IL-1 and TNF-<em>α</em> produced by activated macrophages, and (iii) rate of addition of activated macrophages (<em>k</em>) by deactivation back to resting macrophages awaiting activation. Negative factors include (i) rate of decrease in the resting macrophage population <em>c</em> due to the natural efflux of macrophages <span class="cite">[<a href="#ref-30">30</a>]</span> and (ii) rate <em>e</em> of resting macrophages activation due to their interaction with dendritic cells; this factor is proportional to the antigenic peptide and macrophage’s population size.</p>
+<div class="equation" id="eq-2"><img src="figures/eq-2.webp" width="603" height="38" alt="dMR(t) dt = a + γ MA(t) + kMA(t) −cMR(t) −eMR(t)D(t). (2)" loading="lazy" decoding="async"></div>
+
+<p><em>dMA</em>(<em>t</em>) Eq. (3), reflects the amount of activated macrophages as a function of time. This variable is affected by <em>dt</em> the interaction between resting macrophages and dendritic cells at the rate <em>e</em> to increase the number of activated macrophages. Processing of the intracellular antigenic peptides by activated macrophages affords the opposite effect on the activated macrophage population to lead to resting macrophages at the rate <em>k</em>.</p>
+<div class="equation" id="eq-3"><img src="figures/eq-3.webp" width="603" height="38" alt="dMA(t) dt = eMR(t)D(t) −kMA(t). (3)" loading="lazy" decoding="async"></div>
+
+<p>Similarly, the role of dendritic cells in the pathophysiology of T1D is well-documented <span class="cite">[<a href="#ref-45">45</a>]</span>. <sup>dD(t)</sup> describes levels of dendritic cells as a function of time. The variable is affected by (i) <em>β</em> cell antigenic Eq. (4), <em>dt</em> peptides released by <em>β</em> cells as a result of cell–cell interactions with the autolytic Th-lymphocytes <span class="cite">[<a href="#ref-46">46</a>]</span>; (ii) antigenic peptides produced by the BCG infected cells at the rate <em>φ</em>; (iii) dendritic cells that are cleared at the rate <em>µ</em><sub>D</sub>.</p>
+<div class="equation" id="eq-4"><img src="figures/eq-4.webp" width="603" height="39" alt="dD(t) dt = qβ(t)T(t) + φD(t)B(t) −µDD(t). (4)" loading="lazy" decoding="async"></div>
+
+<p>Multiple clinical studies as well as respective modeling confirmed the decisive contribution of the glucose dynamics to the onset of T1D <span class="cite">[<a href="#ref-47">47</a>]</span>.</p>
+<p>Eq. (5), <sup>dG(t)</sup> introduces the amount of glucose as a function of time. The variable is affected by (i) dietary glucose in <em>dt</em> the amount of <em>g &gt;</em> 0 that is introduced every <em>τ</em><sub>G</sub> time units (represented using a Dirac delta function <span class="cite">[<a href="#ref-43">43</a>]</span>); (ii) active macrophages that eliminate glucose at the rate <em>w</em>; (iii) glucose consumption due to the natural insulin generated by the <em>β</em> cell and released by degrading <em>β</em> cells at the rate <em>υ</em> <span class="cite">[<a href="#ref-48">48</a>]</span>. <em>dG</em>(<em>t</em>) = <em>Σ</em><sup>∞</sup> <sub>n=0</sub><em>gδ</em>(<em>t</em> − <em>nτ</em><sub>G</sub>) − <em>wM</em><sub>A</sub>(<em>t</em>)<em>G</em>(<em>t</em>) − <em>υβ</em>(<em>t</em>)<em>G</em>(<em>t</em>)<em>.</em> (5) <em>dt</em> Several autolytic T-cells exemplified by the CD8+ <em>T</em> cells have been identified as abundant and active inflammatory participants in T1D <span class="cite">[<a href="#ref-49">49</a>]</span>.</p>
+<p>Eq. (6), <sup>dT (t)</sup> defines levels of autolytic <em>T</em> cells as a function of time. This variable is affected by (i) the natural supply or <em>dt</em> the replacement rate <em>s</em><sub>T</sub> of autolytic <em>T</em> cells; (ii) proliferation rate <em>s</em> due to the immune cells-induced release of cytokines and chemokines (iii) the <em>T</em> cell population decrease due to lack of stimulation at the rate of <em>µ</em><sub>T</sub> .</p>
+<div class="equation" id="eq-5"><img src="figures/eq-5.webp" width="603" height="38" alt="dT (t) dt = sT + sD(t)T (t) −µT T (t). (6)" loading="lazy" decoding="async"></div>
+
+<p>The dynamics of beta-cells is one of the most important contributors to both onset and severity of T1D <span class="cite">[<a href="#ref-50">50</a>]</span>. Eq. (7), <sup>dβ(t)</sup> describes rates of change in the levels of <em>β</em> cells as a function of time. This variable is influenced by (i) the <em>dt</em> natural supply or replacement rate <em>s</em><sub>B</sub> of <em>β</em> of beta cells; (ii) glucose-dependent natural production of <em>β</em> cells at the rate <em>ζ</em>; iii) <em>β</em> cell count decrease due to <em>β</em> cell-Th-cell interaction <span class="cite">[<a href="#ref-51">51</a>]</span>; (iv) <em>β</em> cells count decrease due to the natural attrition at the rate <em>µ</em><sub>B</sub>; (v) <em>β</em> cells count decrease in a rate <em>ξ</em> due to generation of insulin in order to process the glucose.</p>
+<div class="equation" id="eq-6"><img src="figures/eq-6.webp" width="603" height="39" alt="dβ(t) dt = sβ + ζG(t) −qβ(t)T(t) −µBβ(t) −ξβ(t)G(t). (7)" loading="lazy" decoding="async"></div>
+
+<p>Considering the above, we arrive at the following system of non-linear and first-order ODEs:</p>
+<div class="equation" id="eq-7"><img src="figures/eq-7.webp" width="597" height="210" alt="dB(t) dt = ΣN n=0bδ(t −nτB) −µBB(t) −pD(t)B(t), dMR(t) dt = a + γ MA(t) + kMA(t) −cMR(t) −eMR(t)D(t), dMA(t) dt = eMR(t)D(t) −kMA(t), dD(t) dt = qβ(t)T(t) + φD(t)B(t) −µDD(t), dG(t) dt = Σ∞ n=0gδ(t −nτG) −wMA(t)G(t) −υβ(t)G(t), dT (t) dt = sT + sD(t)T (t) −µT T (t), dβ(t) dt = sβ + ζG(t) −qβ(t)T(t) " loading="lazy" decoding="async"></div>
+
+<p>The model’s initial conditions are as follows <span class="cite">[<a href="#ref-20">20</a>]</span>:</p>
+<div class="equation" id="eq-8"><img src="figures/eq-8.webp" width="605" height="22" alt="B(0) = b, MR(0) = 1000, MA(0) = 0, D(0) = 0, G(0) = 110, T (0) = 100, β(0) = 100. (9)" loading="lazy" decoding="async"></div>
+
+<h3 id="23-parameter-estimation">2.3. Parameter estimation</h3>
+<p>In order to validate the proposed model, we collected the respective parameters from both clinical and biological studies on T1D or BCG-based treatments <em>in vivo</em> data. Specifically, except for the injected amount of BCG (<em>b</em>) and glucose treatment intervals in days (<em>τ</em><sub>G</sub>), the other values were obtained from the reported biological studies on T1D or BCG-based treatments. The glucose treatment intervals in days (<em>τ</em><sub>G</sub>) is estimated to be 0.34 days to simulate three meals a day, distributed uniformly over the time of the day. According to Kahleova et al. <span class="cite">[<a href="#ref-52">52</a>]</span>, two meals a day for T2D mice are recommended. However, Hutchison et al. <span class="cite">[<a href="#ref-53">53</a>]</span> suggest three meals after analyzing the connection between the number of meals and glucose metabolism in mice. We picked three meals to match these suggestions and make them distributed uniformly over the time of the day for simplicity. In addition, the injected amount of BCG (<em>b</em>) is estimated to be 10<sup><a href="#ref-3">3</a></sup> to match the amount of injection used by Pozzilli et al. <span class="cite">[<a href="#ref-54">54</a>]</span> for the case of a 20 gram (house) mouse. The presentative parameter values for the model are summarized in <a class="xref" href="#table-1">Table 1</a>, for the case of a mouse.</p>
+<p>Based on the values from <a class="xref" href="#table-1">Table 1</a>, an equilibria and stability analysis is provided in Appendix.</p>
+<h2 id="3-numerical-simulations">3. Numerical simulations</h2>
+<p>We solve the model (Eq. (8)) numerically using the <em>ode15s</em> function in Matlab (version 2020b) <span class="cite">[<a href="#ref-58">58</a>,<a href="#ref-59">59</a>]</span>, with the initial condition from Eq. (9). The model’s parameter values are taken from <a class="xref" href="#table-1">Table 1</a> and represent the possible values for a mouse model of T1D. We evaluate the baseline dynamics of the model using four types of these models. The first type is the non-T1D mouse which eats healthy and consumes approx. 30 milligrams of glucose per day. The second type is the non-T1D mouse that consumes approx. 90 milligrams of glucose per day. The third type is the T1D mouse that eats a healthy diet. Finally, the T1D mouse shows unhealthy glucose intake. The results are shown in Figs. 2a–2d, where the <em>x</em>-axis is the post-BCG treatment time and the <em>y</em>-axis is reflective of the cell population size. As expected, the model shows that the baseline treatment protocol defined by the values in <a class="xref" href="#table-1">Table 1</a>, does not affect healthy individuals (Figs. 2a–2b). Importantly, the protocol delays T1D markers (e.g., <em>G &gt;</em> 110 for a day on average) in T1D affected cohort on a healthy diet (Fig. 2c). The baseline treatment protocol is not effective in T1D mice on high glucose diet.</p>
+<figure class="table-figure" id="table-1">
+<figcaption><strong>Table 1</strong> Parameter description, their average values, and sources for the model.</figcaption>
+<div class="table-scroll"><table><tr><th>Parameter</th><th>Description</th><th>Average value</th><th>Source</th></tr><tr><td>b</td><td>The amount of BCG in days [C.F.U t−1].</td><td>103</td><td>Estimated</td></tr><tr><td>N</td><td>The number of BCG treatments <span class="cite">[<a href="#ref-1">1</a>]</span>.</td><td>2</td><td><span class="cite">[<a href="#ref-20">20</a>]</span></td></tr><tr><td>τB</td><td>Number of days between any two injections [t].</td><td>28</td><td><span class="cite">[<a href="#ref-20">20</a>]</span></td></tr><tr><td>p</td><td>Fraction of BCG decay due to interactions with effector cells expressed in days [cell−1 t−1].</td><td>3 · 10−2</td><td><span class="cite">[<a href="#ref-55">55</a>]</span></td></tr><tr><td>a</td><td>The natural supply rate of macrophages expressed in days [mm−3 t−1].</td><td>50</td><td><span class="cite">[<a href="#ref-30">30</a>]</span></td></tr><tr><td>γ</td><td>The recruitment rate of macrophages due to IL-1 and TNF-α produced by activated<br/>macrophages expressed in days [t−1].</td><td>0.3</td><td><span class="cite">[<a href="#ref-30">30</a>]</span></td></tr><tr><td>k</td><td>The rate active macrophages are deactivated and becoming resting macrophages expressed in<br/>days [t−1].</td><td>0.2</td><td><span class="cite">[<a href="#ref-30">30</a>]</span></td></tr><tr><td>c</td><td>The rate the macrophage population naturally decrease expressed in days [mm−3 t−1].</td><td>0.1</td><td><span class="cite">[<a href="#ref-30">30</a>]</span></td></tr><tr><td>e</td><td>The rate of activation for macrophages due to the interaction with dendritic cells expressed<br/>in days [t−1].</td><td>5 · 10−4</td><td><span class="cite">[<a href="#ref-30">30</a>]</span></td></tr><tr><td>q</td><td>The rate of release for antigenic peptides by decaying β cells due to cell–cell interactions<br/>between the β cells and the autolytic Th-lymphocytes expressed in days [mm−3 t−1].</td><td>2 · 10−6</td><td><span class="cite">[<a href="#ref-30">30</a>]</span></td></tr><tr><td>φ</td><td>The rate of recruitment for antigenic peptides due to the BCG infection of cells expressed in<br/>days [t−1].</td><td>3 · 10−7</td><td><span class="cite">[<a href="#ref-55">55</a>]</span></td></tr><tr><td>µD</td><td>The rate of clearance for dendritic cells via extra-cellular chemical reactions and natural<br/>degradation expressed in days [t−1].</td><td>0.5</td><td><span class="cite">[<a href="#ref-56">56</a>]</span></td></tr><tr><td>g</td><td>The average amount of consumed glucose per day in milligrams [g t−1].</td><td>30</td><td><span class="cite">[<a href="#ref-57">57</a>]</span></td></tr><tr><td>τG</td><td>Glucose treatment intervals expressed in days [t].</td><td>0.34</td><td>Estimated</td></tr><tr><td>w</td><td>The rate of glucose clearance by active macrophages expressed in days [t−1].</td><td>0.1</td><td><span class="cite">[<a href="#ref-32">32</a>]</span></td></tr><tr><td>υ</td><td>The rate of glucose consumption due to the endogenous insulin produced by β cells<br/>expressed in days [ml t−1].</td><td>0.072</td><td><span class="cite">[<a href="#ref-32">32</a>]</span></td></tr><tr><td>sT</td><td>The supply or replacement for autolytic T cells expressed in days [mm−3 t−1].</td><td>20</td><td><span class="cite">[<a href="#ref-31">31</a>]</span></td></tr><tr><td>sβ</td><td>The supply or replacement rate for β cells expressed in days [mm−3 t−1].</td><td>1000</td><td><span class="cite">[<a href="#ref-31">31</a>]</span></td></tr><tr><td>s</td><td>The rate of proliferation for T cells induced by cytokines and chemokines from activated<br/>macrophages expressed in days [t−1].</td><td>5 · 10−4</td><td><span class="cite">[<a href="#ref-31">31</a>]</span></td></tr><tr><td>µT</td><td>The rate of T cell population decrease due to lack of stimulation expressed in days [t−1].</td><td>50</td><td><span class="cite">[<a href="#ref-30">30</a>]</span></td></tr><tr><td>µβ</td><td>The half-life of β cells due to the natural decay expressed in days [t−1].</td><td>0.5</td><td><span class="cite">[<a href="#ref-32">32</a>]</span></td></tr><tr><td>ξ</td><td>The rate of β cells decay due to production of insulin induced by glucose <span class="cite">[<a href="#ref-1">1</a>]</span>.</td><td>1</td><td><span class="cite">[<a href="#ref-32">32</a>]</span></td></tr><tr><td>ζ</td><td>The rate of β cells regeneration induced by glucose [mm−3 t−1].</td><td>10</td><td><span class="cite">[<a href="#ref-32">32</a>]</span></td></tr></table></div>
+
+</figure>
+
+<p>Our data suggest that there is a relationship between dietary habits, such as daily glucose intake (<em>g</em>) and genetic factors, such as metabolism and <em>β</em> cell production due to glucose stimulus (<em>s</em><sub>β</sub>). Sensitivity analysis <em>g</em> ∈[0<em>,</em> 50]<em>, s</em><sub>β</sub> ∈[800<em>,</em> 1200] shows the effect of both parameters on glucose levels three months after the last BCG treatment (<a class="xref" href="#fig-3">Fig. 3</a>). The values obtained in the sensitivity analysis, as shown in <a class="xref" href="#fig-3">Fig. 3</a>, are fitted using the least mean square (LMS) method <span class="cite">[<a href="#ref-60">60</a>]</span>. The selected family function for the surface approximation is as follows:</p>
+<div class="equation" id="eq-9"><img src="figures/eq-9.webp" width="598" height="23" alt="G(g, sβ) = p1 + p2g + p3sβ. (10)" loading="lazy" decoding="async"></div>
+
+<p>A linear approximation is chosen to balance between the accuracy vs the sampled data on the one hand and the model’s simplicity and interoperability on the other hand <span class="cite">[<a href="#ref-61">61</a>]</span>, which results in:</p>
+<p><em>G</em>(<em>g, s</em><sub>β</sub>) = 42<em>.</em>366 + 2<em>.</em>247<em>g</em> − 0<em>.</em>027<em>s</em><sub>β</sub> to afford a coefficient of determination <em>R</em><sup><a href="#ref-2">2</a></sup> = 0<em>.</em>749. Therefore, the influence of <em>g</em> is estimated to be 10<sup><a href="#ref-2">2</a></sup> times larger than the influence of <em>s</em><sub>β</sub>.</p>
+<p>Because the eating habits and physiology are unique to each subject, the optimal treatment (i.e., a successful treatment and that one of the clinical parameters is optimized) is expected to differ between specimen. In order to find the most relevant subject-specific regimen, one can further analyze the image of the model (e.g., Eq. (8)) by solving the ODE and to produce a function <em>T</em> (<em>b, τ</em><sub>b</sub><em>, N</em>) →{0<em>,</em> 1} when the source space contained in R<sup><a href="#ref-3">3</a></sup> and the image space is exactly {0<em>,</em> 1} <span class="cite">[<a href="#ref-62">62</a>,<a href="#ref-63">63</a>]</span>. The parameters (<em>b, τ</em><sub>b</sub><em>, N</em>) are used as the source space since they define the BCG-based treatment protocol. The other parameters are specimen-dependent and cannot be modified as a part of the treatment. The results of the analysis for each subject are summarized in <a class="xref" href="#fig-3">Fig. 3</a>. The green (circle) and red (star) dots represent successful and unsuccessful treatments, respectively, such that the evaluation performed six months from the last BCG treatment (which differ as a function of <em>N</em>), in <a class="xref" href="#fig-4">Fig. 4</a>. Formally, a treatment is considered successful if three month (2160 h) after the last BCG injection, the average amount of glucose <em>G</em>(<em>t</em>) in the course of 2 h is less than 100 such that 24 hours beforehand, glucose has not been injected. In a complementary manner, the unsuccessful treatment is one that does not satisfies this condition. This is to simulate the test suggested by the American diabetes association for T1D <span class="cite">[<a href="#ref-12">12</a>]</span>.</p>
+<figure id="fig-2">
+<a class="fig-zoom" href="figures/fig-2.webp" aria-label="Open the figure full size"><img src="figures/fig-2.webp" width="697" height="558" alt="Dynamics of T1D-relevant cell markers in 4 distinct cohorts including healthy subjects and T1D mice as a function of time" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 2.</strong> Dynamics of T1D-relevant cell markers in 4 distinct cohorts including healthy subjects and T1D mice as a function of time. The parameters are taken from Table 1 and the initial condition from Eq. (9). The drug administration takes place after 552 h (or 23 days) and shown by the BCG pulse (red line).</figcaption>
+</figure>
+
+<p>For each specimen, we find the set of border pixels (neighboring pixels that show both colors) indicative of the separation between successful and unsuccessful treatments. The set of border pixels defining a surface can be approximated using the least mean square (LMS) method <span class="cite">[<a href="#ref-60">60</a>]</span>. The family function for the surface approximation is selected as follows:</p>
+<div class="equation" id="eq-10"><img src="figures/eq-10.webp" width="598" height="25" alt="T(b, τb, N) = P2 3 (b, τb, N), (12)" loading="lazy" decoding="async"></div>
+
+<p>where <em>P</em><sup><a href="#ref-2">2</a></sup> <sub>3</sub> (<em>b, τ</em><sub>b</sub><em>, N</em>) is a second order three-parameter polynomial. This function is selected manually (after testing multiple functions) to balance between the coefficient of determination and simplicity of the model. The results of the approximation are as follows:</p>
+<div class="equation" id="eq-11"><img src="figures/eq-11.webp" width="605" height="27" alt="T (b, τb, N) = 29.431 + 28.184N + 0.015b2 + 0.013τ 2 b (13)" loading="lazy" decoding="async"></div>
+
+<p>to yield the coefficient of determination <em>R</em><sup><a href="#ref-2">2</a></sup> = 0<em>.</em>920 for <a class="xref" href="#fig-4">Fig. 4</a>(a). Similarly, for <a class="xref" href="#fig-4">Fig. 4</a>(b):</p>
+<div class="equation" id="eq-12"><img src="figures/eq-12.webp" width="605" height="27" alt="T (b, τb, N) = 32.130 + 23.184N + 0.013b2 + 0.01τ 2 b (14)" loading="lazy" decoding="async"></div>
+
+<figure id="fig-3">
+<a class="fig-zoom" href="figures/fig-3.webp" aria-label="Open the figure full size"><img src="figures/fig-3.webp" width="457" height="403" alt="Sensitivity analysis of average glucose consumption per meal g (τg = 8 hours) and recruitment of β cells sβ indicative of the baseline metabolism on the daily average glucose levels three month after " loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 3.</strong> Sensitivity analysis of average glucose consumption per meal <em>g</em> (<em>τ</em><sub>g</sub> = 8 hours) and recruitment of <em>β</em> cells <em>s</em><sub>β</sub> indicative of the baseline metabolism on the daily average glucose levels three month after the last BCG treatment (<em>N</em> = 2<em>, b</em> = 1000).</figcaption>
+</figure>
+
+<p>to result in a coefficient of determination <em>R</em><sup><a href="#ref-2">2</a></sup> = 0<em>.</em>912. Similarly, for <a class="xref" href="#fig-4">Fig. 4</a>(c):</p>
+<div class="equation" id="eq-13"><img src="figures/eq-13.webp" width="605" height="27" alt="T (b, τb, N) = 24.089 + 21.733N + 0.022b2 + 0.031τ 2 b (15)" loading="lazy" decoding="async"></div>
+
+<p>to afford a coefficient of determination <em>R</em><sup><a href="#ref-2">2</a></sup> = 0<em>.</em>897. Similarly, for <a class="xref" href="#fig-4">Fig. 4</a>(d):</p>
+<div class="equation" id="eq-14"><img src="figures/eq-14.webp" width="605" height="27" alt="T (b, τb, N) = 22.503 + 27.733N + 0.032b2 + 0.047τ 2 b (16)" loading="lazy" decoding="async"></div>
+
+<p>to produce a coefficient of determination <em>R</em><sup><a href="#ref-2">2</a></sup> = 0<em>.</em>874.</p>
+<h2 id="4-conclusion">4. Conclusion</h2>
+<p>In this work, we introduced a novel model of immunotherapy treatment of type 1 diabetes (T1D) using BCG. As multiple cell types and organs are involved in controlling intricate metabolic balance both in healthy and T1D specimens, we introduced a set of specific variables (<em>B</em>(<em>t</em>) — concentration of BCG in the body; <em>M</em><sub>R</sub>(<em>t</em>) — concentration of resting macrophages; <em>M</em><sub>A</sub>(<em>t</em>) — concentration of activated macrophages; <em>D</em>(<em>t</em>) — concentration of dendritic cells which are also operating as activated immune-system cells; <em>G</em>(<em>t</em>) — concentration of glucose; <em>T</em> (<em>t</em>) — concentration of autolytic <em>T</em> cells; and <em>β</em>(<em>t</em>) — concentration of <em>β</em> cells) which immediately relevant to the published clinical data on the disease. Furthermore, a system of ODEs reflecting the molecular, cellular, pharmacokinetic, and pharmacodynamic connectivity between these variables was introduced to capture the clinical presentation of the disease in four subsets of the T1D subjects and controls.</p>
+<p>In our view, the model (<a class="xref" href="#fig-2">Fig. 2</a>) accurately predicts the observed fundamental importance of an appropriate diet regimen. Namely, BCG treatment of the T1D subjects that follow healthy eating habits normalizes glucose to the levels observed in non-diabetic controls. This outcome indicates the initial validation of the introduced model. In the context of the BCG therapy, our data propose that glucose consumption exerts more influence (est. 10<sup><a href="#ref-2">2</a></sup> difference) on the disease progression than metabolism, especially when evaluated over a short-medium period (<a class="xref" href="#fig-3">Fig. 3</a>).</p>
+<p><a class="xref" href="#fig-4">Figs. 4</a>(c) and 4(d) illustrate the profound effect of glucose on the outcome of the T1D. Namely, T1D subject featured in <a class="xref" href="#fig-4">Fig. 4</a>(d) are expected to perform much worse compared to subject shown on <a class="xref" href="#fig-4">Fig. 4</a>(c) even following the insulin treatment. Intriguingly, data analysis summarized on <a class="xref" href="#fig-4">Fig. 4</a>(d) indicates that the BCG treatment may still benefit healthy controls on a high-glucose diet.</p>
+<p>Eqs. (13)–(16) represent the border function between the successful and unsuccessful treatment protocols, differing in the amount of BCG injected, the rate, and the number of the injections. We conclude that it is possible to find the optimal treatment protocol by setting a specific desired value for properties comprising the protocol to recommend a personalized treatment that corresponds to the patient’s glucose intake. In particular, after a health professionals measure the values of <em>g</em>, <em>τ</em><sub>G</sub>, <em>ζ</em>, and <em>s</em><sub>β</sub> they can compute the results of the model for a range of <em>τ</em><sub>b</sub><em>, b</em>, and <em>N</em> as shown in <a class="xref" href="#fig-4">Fig. 4</a> to obtain what treatment protocols predicted to be successful. Afterward, by computing the optimal value for one of these parameters (<em>τ</em><sub>b</sub><em>, b, N</em>), the health professionals are able to obtain a successful and optimal treatment based on the patient’s metabolism and diet. However, this is a first-order personalized protocol that can (and should) be improved in later studies.</p>
+<figure id="fig-4">
+<a class="fig-zoom" href="figures/fig-4.webp" aria-label="Open the figure full size"><img src="figures/fig-4.webp" width="697" height="846" alt="Discrete sampling of the model’s image space for the domain (b ∈[800, 1200], τb ∈[10, 50], N ∈[2, 3, 4, 5, 6])" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 4.</strong> Discrete sampling of the model’s image space for the domain (<em>b</em> ∈[800<em>,</em> 1200]<em>, τ</em><sub>b</sub> ∈[10<em>,</em> 50]<em>, N</em> ∈[2<em>,</em> 3<em>,</em> 4<em>,</em> 5<em>,</em> 6]). Green (circle) pixels represent successful treatment and red (star) pixels represent unsuccessful treatment. The parameters are taken from Table 1.</figcaption>
+</figure>
+
+<p>The results obtained from the numerical analysis indicate that the injection of BCG can provide long-range health benefits, which agrees with the outcomes of the clinical experiment conducted by Kuhtreiber et al. <span class="cite">[<a href="#ref-20">20</a>]</span>. In a similar manner, Kuhtreiber et al. <span class="cite">[<a href="#ref-64">64</a>]</span> show the different influence of BCG injection in T1D patients and control on the glucose levels, obtaining similar results to these shown in <a class="xref" href="#fig-2">Fig. 2</a>. Notably, the clinical results are stochastic in nature compared to ours. This is due to the changes in the model’s parameters’ values for each member in the sampled population.</p>
+<p>However, these results are obtained on a simplified version of the biological system involving the immune system, personalized glucose diet, and the corresponding biological system in mammals. In particular, there is a delay between the introduction of new glucose to the system and the raise in <em>β</em>-cells which have been neglected to avoid a system of ODEs with delay. This and other assumptions may provide slightly different results than one would obtain from <em>in vivo</em> clinical experiments. As a result, the proposed model provides a mathematical foundation to investigate the influence of different BCG treatment protocols but is limited in its ability to predict patient-level outcomes. In future work, we plan to relax several assumptions taken in this model to improve its clinical accuracy. In addition, the proposed model can benefit from an integration of other advanced numerical methods and mathematical models such as in <span class="cite">[<a href="#ref-65">65</a>–<a href="#ref-72">72</a>]</span>.</p>
+<p>In our view, the proposed system of parameters and equations introduces both accurate and practical models for the immunotherapy-based treatment of T1D in animal models. However, our model could serve as a baseline that could be extended to examine more detailed dynamics in a broader context including human clinical studies. Additional interventional modalities, for example mechanistically different immunotherapy including vaccines or engineered cells may enhance both targeted and symptomatic treatment outcomes.</p>
+<h2 id="credit-authorship-contribution-statement">CRediT authorship contribution statement</h2>
+<p><strong>Teddy Lazebnik:</strong> Conceptualization, Software, Investigation, Methodology, Visualization, Writing – original draft.</p>
+<p><strong>Svetlana Bunimovich-Mendrazitsky:</strong> Supervision, Investigation, Writing – review &amp; editing. <strong>Alex Kiselyov:</strong> Validation, Investigation, Writing – review &amp; editing.</p>
+<h2 id="declaration-of-competing-interest">Declaration of competing interest</h2>
+<p>The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.</p>
+<h2 id="data-availability">Data availability</h2>
+<p>No data was used for the research described in the article.</p>
+<h2 id="appendix">Appendix</h2>
+<p>An equilibrium state presumes that the dynamic system does not change without external stimuli. Stable equilibria states are to return to the same equilibria state after a perturbation <span class="cite">[<a href="#ref-73">73</a>]</span>. This consideration allows for the elimination of minor factors when modeling complex biological systems. In our proposed model (see Section 2), the equilibria of interest presume the dendritic cell population is equal or close to zero. This is due to either a weak immunologic response caused by the disease burden or a weakened response by the immune system to the injected BCG.</p>
+<p>However, the proposed model is explicitly depending on <em>t</em> in the BCG and glucose levels as represented in <sup>dB(t)</sup> and <em>dt dG</em>(<em>t</em>) <sub>dt</sub> , respectively. Since an equilibrium cannot be explicitly depended on <em>t</em> for each <em>t</em> ∈ R <span class="cite">[<a href="#ref-74">74</a>,<a href="#ref-75">75</a>]</span>, we approximate the terms <em>Σ</em><sup>N</sup> <sub>n=0</sub><em>bδ</em>(<em>t</em> − <em>nτ</em><sub>B</sub>) and <em>Σ</em><sup>∞</sup> <sub>n=0</sub><em>gδ</em>(<em>t</em> − <em>nτ</em><sub>G</sub>) using a uniform injection of BCG and glucose. Formally, the injection terms take the forms <em>b/τ</em><sub>B</sub> and <em>g/τ</em><sub>G</sub>, respectively, following the method suggested by Shtylla et al. <span class="cite">[<a href="#ref-33">33</a>]</span>. Hence, the system gets the form:</p>
+<div class="equation" id="eq-15"><img src="figures/eq-15.webp" width="597" height="213" alt="dB(t) dt = b τB −µBB(t) −pD(t)B(t), dMR(t) dt = a + (γ + k)MA(t) −cMR(t) −eMR(t)D(t), dMA(t) dt = eMR(t)D(t) −kMA(t), dD(t) dt = qβ(t)T(t) + φD(t)B(t) −µDD(t), dG(t) dt = g τG −wMA(t)G(t) −υβ(t)G(t), dT (t) dt = sT + sD(t)T (t) −µT T (t), dβ(t) dt = sβ + ζG(t) −qβ(t)T(t) −µBβ(t) −ξβ(t)G(t). (17)" loading="lazy" decoding="async"></div>
+
+<p>Therefore, by assuming <em>D</em>(<em>t</em>) = 0, one obtains the following equilibrium:</p>
+<div class="equation" id="eq-16"><img src="figures/eq-16.webp" width="605" height="71" alt="B∗= b τBµB , M∗ R = a c , M∗ A = 0, D∗= 0, G∗= ˜g υβ∗ 1,2 , T ∗= sT µT , β∗= ( ξ ˜g υ −sβ) ± √ ( ξ ˜g υ −sβ)2 −4(µβ −qsT υ )( ˜g υ ) 2(µβ −qsT υ ) , (18)" loading="lazy" decoding="async"></div>
+
+<p>where ˜<em>g</em> := <em>g/τ</em><sub>G</sub> such that <em>qs</em><sub>T</sub> = <em>µ</em><sub>β</sub><em>µ</em><sub>T</sub> , <em>υµ</em><sub>β</sub>/ = <em>qs</em><sub>T</sub> , and ( <sup>ξ ˜g</sup> <sub>υ</sub> − <em>s</em><sub>β</sub>)<sup><a href="#ref-2">2</a></sup> ≥ 4(<em>µ</em><sub>β</sub> − <sup>qsT</sup> <sub>υ</sub> )( <sup>˜g</sup> <sub>υ</sub> ). We compute the Jacobian <em>J</em> for the system, obtaining the following matrix:</p>
+<div class="equation" id="eq-17"><img src="figures/eq-17.webp" width="605" height="126" alt="J = ⎛ ⎜⎜⎜⎜⎜⎜⎜⎜⎝ −µB −pD(t) 0 0 −pB(t) 0 0 0 0 −e −cD(t) γ + k 0 −cMR(t) 0 0 0 cD(t) −k 0 0 0 0 φD(t) 0 0 −µD + φB(t) 0 qβ(t) qT (t) 0 0 −wG(t) 0 −wMA(t) −υβ(t) 0 −υG(t) 0 0 0 sT (t) 0 sD(t) −µT 0 0 0 0 0 ζ −ξβ(t) −qβ(t) −µβ −qT (t) −ξG(t) ⎞ ⎟⎟⎟⎟⎟⎟⎟⎟⎠ (19)" loading="lazy" decoding="async"></div>
+
+<p>By setting the values from <a class="xref" href="#table-1">Table 1</a> (available in the main text) and Eq. (18) in Eq. (21), one gets the following two matrices (one for each possible value of <em>β</em><sup>∗</sup>:</p>
+<p>and</p>
+<div class="equation" id="eq-18"><img src="figures/eq-18.webp" width="637" height="236" alt="J1 = ⎛ ⎜⎜⎜⎜⎜⎜⎜⎝ −0.5 0 0 0 0 0 0 0 −5 · 10−4 0.5 0 −50 0 0 0 0 −0.2 0 0 0 0 0 0 0 −0.5 0 1 · 10−5 8 · 10−7 0 0 −118.14 0 −0.38 0 −17.01 0 0 0 2 · 10−4 0 −50 0 0 0 0 0 4.71 −1 · 10−5 −236.79 ⎞ ⎟⎟⎟⎟⎟⎟⎟⎠ (20) and J2 = ⎛ ⎜⎜⎜⎜⎜⎜⎜⎝ −0.5 0 0 0 0 0 0 0 −5 · 10−4 0.5 0 −50 0 0 0 0 −0.2 0 0 0 0 0 0 0 −0.5 0 5" loading="lazy" decoding="async"></div>
+
+<p>where one is able to see that the equilibria shown in Eq. (18) is indeed locally stable since the eigenvalues of <em>J</em><sub>1</sub> are [−0<em>.</em>005<em>,</em> −236<em>.</em>45<em>,</em> −0<em>.</em>7194<em>,</em> −0<em>.</em>5<em>,</em> −0<em>.</em>2<em>,</em> −50<em>,</em> −0<em>.</em>5] and <em>J</em><sub>2</sub> are [−0<em>.</em>005<em>,</em> −50<em>,</em> −190<em>.</em>551<em>,</em> −0<em>.</em>5<em>,</em> −0<em>.</em>5013<em>,</em> −0<em>.</em>5<em>,</em> −0<em>.</em>2].</p>
+<p>In a physiologically relevant equilibrium, a healthy patient is expected to maintain the glucose levels within ‘normal’ manageable margins <em>G</em>(<em>t</em>) ∈[<em>l</em><sub>b</sub><em>, u</em><sub>b</sub>]. We define the <em>healthy</em> equilibrium to be the steady state in which the glucose levels are in the middle of this range (e.g., <em>G</em><sup>∗</sup> = <em>h</em> = (<em>l</em><sub>b</sub>+<em>u</em><sub>b</sub>)<em>/</em>2) and no BCG is administered (<em>B</em><sup>∗</sup> = 0). In this case, the equilibrium looks as follows:</p>
+<div class="equation" id="eq-19"><img src="figures/eq-19.webp" width="637" height="87" alt="B∗= 0, M∗ R = a+γ M1,2 c , M∗ A = M1,2, D∗= ckM1,2 a+γ M1,2 , G∗= h, T ∗= sT a+sT γ M1,2 µT a+µT γ M1,2−sckM1,2 , β∗= wM1,2 υ , (22) such that M1,2 := µTγ + sck −2Υ aγ ± √ (Υ aγ −µTγ −sck)2 −4(Υ γ 2)(Υ a2 −µT a) 2Υ γ 2 ," loading="lazy" decoding="async"></div>
+
+<p>such that where <em>Υ</em> := <sup>wqsT</sup> and (<em>Υ aγ</em> − <em>µ</em><sub>T</sub><em>γ</em> − <em>sck</em>)<sup><a href="#ref-2">2</a></sup> ≥ 4(<em>Υ γ</em> <sup><a href="#ref-2">2</a></sup>)(<em>Υ a</em><sup><a href="#ref-2">2</a></sup> − <em>µ</em><sub>T</sub> <em>a</em>). This equilibrium is not biologically feasible (i.e., a <em>ck</em> biological system cannot reach such state in practice) as <em>M</em><sup>∗</sup> <sub>A</sub> <em>&gt;</em> 0 which is an indication of an activated immune response. This outcome means the individual is affected by the disease. Therefore, in order to evaluate the case where <em>M</em><sup>∗</sup> <sub>A</sub> = 0, we get that</p>
+<div class="equation" id="eq-20"><img src="figures/eq-20.webp" width="131" height="26" alt="(Υ γ 2)(Υ a2 −µT a) = 0." loading="lazy" decoding="async"></div>
+
+<p>Therefore,</p>
+<div class="equation" id="eq-21"><img src="figures/eq-21.webp" width="277" height="22" alt="w = 0 ∨q = 0 ∨sT = 0 ∨γ = 0 ∨a = 0 ∨µT = 0." loading="lazy" decoding="async"></div>
+
+<p>As <em>w, q, s</em><sub>t</sub><em>, γ , a, µ</em><sub>T</sub> <em>&gt;</em> 0 by definition, the equilibrium takes the form:</p>
+<div class="equation" id="eq-22"><img src="figures/eq-22.webp" width="598" height="45" alt="B∗= 0, M∗ R = a c , M∗ A = 0, D∗= 0, G∗= h, T ∗= sT µT , β∗= 0, (23) 11" loading="lazy" decoding="async"></div>
+
+<p>and since <em>β</em><sup>∗</sup> = 0 the glucose levels monotonically increase which leads to an unstable equilibrium as well as to an unrealistic clinical scenario. The equilibrium is unstable since the value of <em>G</em><sup>∗</sup> is changing over time as shown by setting Eq. (23) in the glucose equation, where <sup>dβ(t)</sup> = <em>s</em><sub>β</sub> + <em>ζh &gt;</em> 0. <em>dt</em></p>
+<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 7 December 2022 · Published 19 May 2023</dd></div></dl></section>
+<h2 id="references">References</h2>
+<ol class="paper-refs"><li id="ref-1">E.A.M. Gale, Type 1 diabetes in the young: the harvest of sorrow goes on, Diabetologia 48 (8) (2005) 1425–1438. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb1" target="_blank" rel="noopener">link</a></li>
+<li id="ref-2">V. Harjutsalo, L. Sjoberg, J. Tuomilehto, Time trends in the incidence of type 1 diabetes in Finnish children: a cohort study, Lancet 371 (2008) 1777–1782. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb2" target="_blank" rel="noopener">link</a></li>
+<li id="ref-3">M.A. Atkinson, G.S. Eisenbarth, A.W. Michels, Type 1 diabetes, Lancet 383 (9911) (2014) 69–82. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb3" target="_blank" rel="noopener">link</a></li>
+<li id="ref-4">G. Xu, B. Liu, Y. Sun, Y. Du, L.G. Snetselaar, F.B. Hu, W. Bao, Prevalence of diagnosed type 1 and type 2 diabetes among US adults in 2016 and 2017: population based study, BMJ 362 (1497) (2018). <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb4" target="_blank" rel="noopener">link</a></li>
+<li id="ref-5">M. Thunander, C. Petersson, K. Jonzon, J. Fornander, B. Ossiansson, C. Torn, S. Edvardsson, M. Landin-Olsson, Incidence of type 1 and type 2 diabetes in adults and children in Kronoberg, Sweden, Diabetes Res. Clin. Pract. 82 (2008) 247–255. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb5" target="_blank" rel="noopener">link</a></li>
+<li id="ref-6">S. Ehehalt, K. Dietz, A.M. Willasch, A. Neu, D.-G. Baden-Wuerttemberg, Prediction model for the incidence and prevalence of type 1 diabetes in childhood and adolescence: evidence for a cohort-dependent increase within the next two decades in Germany, Pediatr. Diabetes 13 (1) (2012) 15–20. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb6" target="_blank" rel="noopener">link</a></li>
+<li id="ref-7">K.C. Osum, A.L. Burrack, T. Martinov, N.L. Sahli, J.S. Mitchell, C.G. Tucker, K.E. Pauken, K. Papas, B. Appakalai, J.A. Spanier, B.T. Fife, Interferon-gamma drives programmed death-ligand 1 expression on islet β cells to limit T cell function during autoimmune diabetes, Sci. Rep. 8 (2018) 8295. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb7" target="_blank" rel="noopener">link</a></li>
+<li id="ref-8">R.S. Mahla, A. Kumar, H.J. Tutill, S.T. Krishnaji, B. Sathyamoorthy, M. Noursadeghi, J. Breuer, A.K. Pandey, H. Kumar, NIX-mediated mitophagy regulate metabolic reprogramming in phagocytic cells during mycobacterial infection, Tuberculosis 126 (2021) 102046. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb8" target="_blank" rel="noopener">link</a></li>
+<li id="ref-9">I. Monga, K. Kaur, S.K. Dhanda, Revisiting hematopoiesis: applications of the bulk and single-cell transcriptomics dissecting transcriptional heterogeneity in hematopoietic stem cells, Briefings in Functional Genomics 21 (3) (2022) 159–176. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb9" target="_blank" rel="noopener">link</a></li>
+<li id="ref-10">R.J. Creusot, N. Giannoukakis, M. Trucco, M.J. Clare-Salzler, C.G. Fathman, It’s time to bring dendritic cell therapy to type 1 diabetes, Diabetes 63 (1) (2014) 20–30. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb10" target="_blank" rel="noopener">link</a></li>
+<li id="ref-11">C. Evans-Molina, E.K. Sims, L.A. DiMelio, H.M. Ismail, A.K. Steck, J.P. Palmer, J.P. Krischer, S. Geyer, P. Xu, J.M. Sosenko, the Type 1 Diabetes Trial Net Study Group, β Cell dysfunction exists more than 5 years before type 1 diabetes diagnosis, JCI Insight 3 (15) (2018) e120877. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb11" target="_blank" rel="noopener">link</a></li>
+<li id="ref-12">A.D. Association, Diagnosis and classification of diabetes mellitus, Diabetes Care 33 (2010) S62–69. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb12" target="_blank" rel="noopener">link</a></li>
+<li id="ref-13">J.A. Todd, Etiology of type 1 diabetes, Immunity 32 (4) (2010) 457–467. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb13" target="_blank" rel="noopener">link</a></li>
+<li id="ref-14">P. In’t Veld, Insulitis in human type 1 diabetes: the quest for an elusive lesion, Islets 3 (4) (2011) 131–138. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb14" target="_blank" rel="noopener">link</a></li>
+<li id="ref-15">L.A. DiMeglio, C. Evans-Molina, R.A. Oram, Type 1 diabetes, Lancet 391 (10138) (2018) 2449–2462. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb15" target="_blank" rel="noopener">link</a></li>
+<li id="ref-16">I.B. Hirsch, Clinical review: realistic expectations and practical use of continuous glucose monitoring for the endocrinologist, J. Clin. Endocrinol. Metab. 94 (7) (2009) 2232–2238. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb16" target="_blank" rel="noopener">link</a></li>
+<li id="ref-17">B.E. Gregg, P.C. Moore, D. Demozay, B.A. Hall, M. Li, A. Husain, A.J. Wright, M.A. Atkinson, C.J. Rhodes, Formation of a human β-cell population within pancreatic islets is set early in life, JCEM 97 (9) (2012) 3197–3206. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb17" target="_blank" rel="noopener">link</a></li>
+<li id="ref-18">H.A. Keenan, J.K. Sun, J. Levine, A. Doria, L.P. Aiello, G. Eisenbarth, S. Bonner-Weir, G.L. King, Residual insulin production and pancreatic β-cell turnover after 50 years of diabetes: Joslin medalist study, Diabetes 59 (11) (2010) 2846–2853. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb18" target="_blank" rel="noopener">link</a></li>
+<li id="ref-19">A. Calmette, C. Guerin, A. Boquet, et al., La vaccination preventive contre la tuberculose par le BCG, Paris: Masson Et Cie (1927) in French. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb19" target="_blank" rel="noopener">link</a></li>
+<li id="ref-20">W.M. Kühtreiber, L. Tran, T. Kim, M. Dybala, B. Nguyen, S. Plager, D. Huang, S. Janes, A. Defusco, D. Baum, H. Zheng, D.L. Faustman, Long-term reduction in hyperglycemia in advanced type 1 diabetes: the value of induced aerobic glycolysis with BCG vaccinations, NPJ Vaccines 3 (23) (2018). <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb20" target="_blank" rel="noopener">link</a></li>
+<li id="ref-21">S. Bunimovich-Mendrazitsky, E. Shochat, L. Stone, Stability analysis of delayed immune response BCG infection in bladder cancer treatment model by stochastic perturbations, Bull. Math. Biol. 69 (6) (2007) 1847–1870. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb21" target="_blank" rel="noopener">link</a></li>
+<li id="ref-22">L. Shaikhet, S. Bunimovich-Mendrazitsky, Stability analysis of delayed immune response BCG infection in bladder cancer treatment model by stochastic perturbations, Comput. Math. Methods Med. 2018 (9653873) (2018) 1–10. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb22" target="_blank" rel="noopener">link</a></li>
+<li id="ref-23">E. Guzev, S. Halachmi, S. Bunimovich-Mendrazitsky, Additional extension of the mathematical model for BCG immunotherapy of bladder cancer and its validation by auxiliary tool, Int. J. Nonlinear Sci. Numer. Simul. 20 (6) (2019) 675–689. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb23" target="_blank" rel="noopener">link</a></li>
+<li id="ref-24">D.L. Faustman, TNF, BCG, and the proteasome in autoimmunity: An overview of the pathways &amp; results of a phase I study in type 1 diabetes, in: The Value of BCG and TNF in Autoimmunity, Academic Press, 2014. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb24" target="_blank" rel="noopener">link</a></li>
+<li id="ref-25">F. Shann, The nonspecific effects of vaccines and the expanded program on immunization, J. Infect. Dis. 204 (2) (2011) 182–184. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb25" target="_blank" rel="noopener">link</a></li>
+<li id="ref-26">N. Kiraly, K.J. Allen, N. Curtis, BCG for the prevention of food allergy-exploring a new use for an old vaccine, Med. J. Aust. 202 (11) (2015) 565–566. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb26" target="_blank" rel="noopener">link</a></li>
+<li id="ref-27">M. Karaci, The protective effect of the BCG vaccine on the development of type 1 diabetes in humans, in: The Value of BCG and TNF in Autoimmunity, Academic Press, 2014, pp. 52–62. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb27" target="_blank" rel="noopener">link</a></li>
+<li id="ref-28">S. Ryu, S. Kodama, K. Ryu, D.A. Schoenfeld, D.L. Faustman, Reversal of established autoimmune diabetes by restoration of endogenous beta cell function, J. Clin. Invest. 108 (1) (2001) 63–72. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb28" target="_blank" rel="noopener">link</a></li>
+<li id="ref-29">S. Kodama, W. Kuhtreiber, S. Fujimura, E.A. Dale, D.L. Faustman, Islet regeneration during the reversal of autoimmune diabetes in NOD mice, Science 302 (5648) (2003) 1223–1227. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb29" target="_blank" rel="noopener">link</a></li>
+<li id="ref-30">A.F.M. Maree, R. Kublik, D.T. Finegood, L. Edelstein-Keshet, Modelling the onset of type 1 diabetes: can impaired macrophage phagocytosis make the difference between health and disease? Philos. Trans. R. Soc. 364 (1842) (2006) 1267–1282. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb30" target="_blank" rel="noopener">link</a></li>
+<li id="ref-31">G. Magombedze, P. Nduru, C.P. Bhunu, S. Mushayabasa, Mathematical modelling of immune regulation of type 1 diabetes, BioSystems 102 (3) (2010) 88–98. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb31" target="_blank" rel="noopener">link</a></li>
+<li id="ref-32">G. Wu, Mathematical Modeling of Type 1 Diabetes (Ph.D. thesis), Claremont Colleges, 2019. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb32" target="_blank" rel="noopener">link</a></li>
+<li id="ref-33">B. Shtylla, M. Gee, A. Do, S. Shabahang, L. Eldevik, L. de Pillis, A mathematical model for DC vaccine treatment of type I diabetes, Comput. Physiol. Med. 10 (2019). <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb33" target="_blank" rel="noopener">link</a></li>
+<li id="ref-34">D.L. Faustman, L. Wang, D. Okubo, L. Ban, G. Man, H. Zheng, D. Schoenfeld, R. Pompei, J. Avruch, D.M. Nathan, Proof-of-concept, randomized, controlled clinical trial of Bacillus-Calmette-Guerin for treatment of long-term type 1 diabetes, PLoS One 7 (8) (2012) e41756. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb34" target="_blank" rel="noopener">link</a></li>
+<li id="ref-35">M. Ciampelli, A.M. Fulghesu, F. Cucinelli, V. Pavone, A. Caruso, S. Mancuso, A. Lanzone, Heterogeneity in beta cell activity, hepatic insulin clearance and peripheral insulin sensitivity in women with polycystic ovary syndrome, Hum. Reprod. 12 (9) (1997) 1897–1901. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb35" target="_blank" rel="noopener">link</a></li>
+<li id="ref-36">C. Vandamme, T. Kinnunen, B cell helper T cells and type 1 diabetes, Scand. J. Immunol. 92 (4) (2020) e12943. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb36" target="_blank" rel="noopener">link</a></li>
+<li id="ref-37">T.H. Lipman, K.L.E. Levitt, S.J. Ratcliffe, K.M. Murphy, A. Aguilar, I. Rezvani, C.J. Howe, S. Fadia, E. Suarez, Increasing incidence of type 1 diabetes in youth: twenty years of the Philadelphia Pediatric Diabetes Registry, Diabetes Care 36 (6) (2013) 1597–1603. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb37" target="_blank" rel="noopener">link</a></li>
+<li id="ref-38">J. Tuomilehto, The emerging global epidemic of type 1 diabetes, Curr. Diabetes Rep. 13 (6) (2013) 795–804. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb38" target="_blank" rel="noopener">link</a></li>
+<li id="ref-39">N. Shehadeh, F. Calcinaro, B.J. Bradley, I. Bruchim, P. Vardi, K.J. Lafferty, Effect of adjuvant therapy on development of diabetes in mouse and man, Lancet 343 (8899) (1994) 706–707. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb39" target="_blank" rel="noopener">link</a></li>
+<li id="ref-40">R.J.W. Arts, A. Carvalho, C. La Rocca, C. Palma, F. Rodrigues, R. Silvestre, E. Kleinnijenhuis, L.G. Goncalves, A. Belinha, C. Cunha, M. Oosting, L.A.B. Joosten, G. Matarese, R. van Crevel, M.G. Netea, Immunometabolic pathways in BCG-induced trained immunity, Cell Rep. 17 (10) (2016) 2562–2571. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb40" target="_blank" rel="noopener">link</a></li>
+<li id="ref-41">G. Ristori, M.G. Buzzi, U. Sabatini, S. Bastianello, F. Viselli, C. Buttinelli, S. Ruggieri, C. Colonnese, C. Pozzilli, M. Salvetti, Use of Bacille Calmette-Guerin (BCG) in multiple sclerosis, Neurology 53 (7) (1999) 1588–1589. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb41" target="_blank" rel="noopener">link</a></li>
+<li id="ref-42">M. Kowalewicz-Kulbat, C. Locht, BCG and protection against inflammatory and auto-immune diseases, Expert Rev. Vaccines 16 (7) (2017) 1–9. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb42" target="_blank" rel="noopener">link</a></li>
+<li id="ref-43">P. Dirac, The Principles of Quantum Mechanics, first ed., Oxford University Press, 1930. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb43" target="_blank" rel="noopener">link</a></li>
+<li id="ref-44">J.E. Wigginton, D. Kirschner, A model to predict cell-mediated immune regulatory mechanisms during human infection with mycobacterium tuberculosis, J. Immunol. 166 (3) (2001) 1951–1967. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb44" target="_blank" rel="noopener">link</a></li>
+<li id="ref-45">H. Zirpel, B.O. Roep, Islet-resident dendritic cells and macrophages in type 1 diabetes: In search of bigfoot’s print, Front. Endocrinol. (2021). <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb45" target="_blank" rel="noopener">link</a></li>
+<li id="ref-46">I. Raz, D. Elias, A. Avron, M. Tamir, M. Metzger, I.R. Cohen, β-Cell function in newonset type 1 diabetes and immunomodulation with a heat-shock protein peptide (DiaPep277): a randomised, double-blind, phase II trial, Lancet 358 (9295) (2001) 1749–1753. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb46" target="_blank" rel="noopener">link</a></li>
+<li id="ref-47">N. Magdelaine, L. Chaillous, I. Guilhem, J.-Y. Poirier, M. Krempf, C.H. Moog, E.L. Carpentier, A long-term model of the glucose-insulin dynamics of type 1 diabetes, IEEE Trans. Biomed. Eng. 62 (6) (2015) 1546–1552. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb47" target="_blank" rel="noopener">link</a></li>
+<li id="ref-48">S. Ryu, S. Kodama, D.A. Schoenfeld, D.L. Faustman, Reversal of established autoimmune diabetes by restoration of endogenous β cell function, J. Clin. Invest. 108 (1) (2001) 63–72. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb48" target="_blank" rel="noopener">link</a></li>
+<li id="ref-49">A. Pugliese, Autoreactive t cells in type 1 diabetes, J. Clin. Invest. 127 (8) (2017) 2881–2891. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb49" target="_blank" rel="noopener">link</a></li>
+<li id="ref-50">B.O. Roep, S. Thomaidou, R. van Tienhoven, A. Zaldumbide, Type 1 diabetes mellitus as a disease of the beta-cell (do not blame the immune system?), Nat. Rev. Endocrinol. 17 (8) (2021) 150–161. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb50" target="_blank" rel="noopener">link</a></li>
+<li id="ref-51">M. Nagata, Y. Yokono, M. Hayakawa, Y. Kawase, N. Hatamori, W. Ogawa, K. Yonezawa, K. Shii, S. Baba, Destruction of pancreatic islet cells by cytotoxic T lymphocytes in nonobese diabetic mice, J. Immunol. 143 (4) (1989) 1155–1162. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb51" target="_blank" rel="noopener">link</a></li>
+<li id="ref-52">H. Kahleova, L. Belinova, H. Malinska, T. Oliyarnyk, V. Skop, L. Kazdoa, M. Dezortova, M. Hajek, A. Tura, M. Hill, T. Pelikanova, Eating two larger meals a day (breakfast and lunch) is more effective than six smaller meals in a reduced-energy regimen for patients with type 2 diabetes: a randomised crossover study, Diabetologia 57 (2014) 1552–1560. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb52" target="_blank" rel="noopener">link</a></li>
+<li id="ref-53">A.T. Hutchison, G.A. Wittert, L.K. Heilbronn, Matching meals to body clocks — Impact on weight and glucose metabolism, Nutrients 9 (3) (2017) 222. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb53" target="_blank" rel="noopener">link</a></li>
+<li id="ref-54">P. Pozzilli, BCG vaccine in insulin-dependent diabetes mellitus, Lancet 349 (9064) (1997) 1520–1521. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb54" target="_blank" rel="noopener">link</a></li>
+<li id="ref-55">O. Nave, S. Harli, M. Elbaz, I.H. Iluz, S. Bunimovich-Mendrazitsky, BCG and IL-2 model for bladder cancer treatment with fast and slow dynamics based on SPVF method—stability analysis, Math. Biosci. Eng. 16 (5) (2019) 5346–5379. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb55" target="_blank" rel="noopener">link</a></li>
+<li id="ref-56">J. Nerup, P. Platz, O.O. Andersen, M. Christy, J. Lyngsoe, J.E. Poulsen, L.E. Ryder, L.S. Nielsen, M. Thomsen, A. Svejgaard, HL-A antigens and diabetes mellitus, Lancet 2 (7885) (1974) 864–866. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb56" target="_blank" rel="noopener">link</a></li>
+<li id="ref-57">K. Langlois, D. Garriguet, Sugar Consumption Among Canadians of All Ages, vol. 22, (3) 2011, pp. 23–27. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb57" target="_blank" rel="noopener">link</a></li>
+<li id="ref-58">L.F. Shampine, M.W. Reichelt, The MATLAB ODE suite, SIAM J. Sci. Comput. 18 (1997) 1–22. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb58" target="_blank" rel="noopener">link</a></li>
+<li id="ref-59">L.F. Shampine, M.W. Reichelt, J.A. Kierzenka, Solving index-1 DAEs in MATLAB and simulink, SIAM Rev. 41 (1999) 538–552. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb59" target="_blank" rel="noopener">link</a></li>
+<li id="ref-60">Å. Björck, Numerical methods for least squares problems, SIAM J. Sci. Stat. Comput. (1996). <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb60" target="_blank" rel="noopener">link</a></li>
+<li id="ref-61">L.R. Shanock, B.E. Baran, W.A. Gentry, S.C. Pattison, E.D. Heggestad, Polynomial regression with response surface analysis: A powerful approach for examining moderation and overcoming limitations of difference scores, J. Bus. Psychol. 25 (2010) 543–554. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb61" target="_blank" rel="noopener">link</a></li>
+<li id="ref-62">T. Lazebnik, N. Aaroni, S. Bunimovich-Mendrazitsky, PDE based geometry model for BCG immunotherapy of bladder cancer, Biosystems 200 (2021) 104319. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb62" target="_blank" rel="noopener">link</a></li>
+<li id="ref-63">T. Lazebnik, S. Yanetz, S. Bunimovich-Mendrazitsky, N. Aaroni, Treatment of bladder cancer using BCG immunotherapy: PDE modeling, Funct. Differ. Equ. (2020). <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb63" target="_blank" rel="noopener">link</a></li>
+<li id="ref-64">K.W. M., H. Takahashi, R.C. Keefe, Y. Song, L. Tran, T.G. Luck, G. Shpilsky, L. Moore, S.M. Sinton, J.C. Graham, D.L. Faustman, BCG vaccinations upregulate myc, a central switch for improved glucose metabolism in diabetes, IScience 23 (5) (2020) 101085. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb64" target="_blank" rel="noopener">link</a></li>
+<li id="ref-65">A. Shahzad, M. Imran, M. Tahir, S. Ali Khan, A. Akgul, S. Abdullaev, C. Park, H.Y. Zahran, I.S. Yahia, Brownian motion and thermophoretic diffusion impact on Darcy-Forchheimer flow of bioconvective micropolar nanofluid between double disks with Cattaneo-Christov heat flux, Alex. Eng. J. 62 (2023) 1–15. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb65" target="_blank" rel="noopener">link</a></li>
+<li id="ref-66">M. Partohaghighi, A. Akgul, E.K. Akgul, N. Attia, M. De la Sen, M. Bayram, Analysis of the fractional differential equations using two different methods, Symmetry 15 (1) (2023). <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb66" target="_blank" rel="noopener">link</a></li>
+<li id="ref-67">N. Mehmood, A. Abbas, A. Akgul, T. Abdeljawad, M.A. Alqudah, Existence and stability results for coupled system of fractional differential equations involving ab-caputo derivative, Fractals 31 (02) (2023) 2340023. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb67" target="_blank" rel="noopener">link</a></li>
+<li id="ref-68">A. Abbas, N. Mehmood, A. Akgul, T. Abdeljawad, M.A. Alqudah, Existence results for multi-term fractional differential equations with nonlocal boundary conditions involving atangana–baleanu derivative, Fractals 31 (02) (2023) 2340024. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb68" target="_blank" rel="noopener">link</a></li>
+<li id="ref-69">N. Ahmed, M. Rani, S.S. Dragomir, A. Akgul, New exact solutions to space–time fractional telegraph equation with conformable derivative, Internat. J. Modern Phys. B (2023) 2350275. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb69" target="_blank" rel="noopener">link</a></li>
+<li id="ref-70">T. Lazebnik, S. Bunimovich-Mendrazitsky, L. Shaikhet, Novel method to analytically obtain the asymptotic stable equilibria states of extended SIR-type epidemiological models, Symmetry 13 (7) (2021) 1120. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb70" target="_blank" rel="noopener">link</a></li>
+<li id="ref-71">L.S. Keren, A. Liberzon, T. Lazebnik, A computational framework for physics-informed symbolic regression with straightforward integration of domain knowledge, Sci. Rep. 13 (2023) 1249. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb71" target="_blank" rel="noopener">link</a></li>
+<li id="ref-72">A. Rosenfeld, D. Benrimoh, C. Armstrong, N. Mirchi, T. Langlois-Therrien, C. Rollins, M. Tanguay-Sela, J. Mehltretter, R. Fratila, S. Israel, E. Snook, K. Perlman, A. Kleinerman, B. Saab, M. Thoburn, C. Gabbay, A. Yaniv-Rosenfeld, 6 - big data analytics and artificial intelligence in mental healthcare, in: A. Khanna, D. Gupta, N. Dey (Eds.), Applications of Big Data in Healthcare, Academic Press, 2021, pp. 137–171. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb72" target="_blank" rel="noopener">link</a></li>
+<li id="ref-73">M.W. Hirsch, S. Smale, R.L. Devaney, Differential Equations, Dynamical Systems, and an Introduction To Chaos, Elsevier, 2013. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb73" target="_blank" rel="noopener">link</a></li>
+<li id="ref-74">O. Chadli, Q.H. Ansari, S. Al-Homidan, Existence of solutions for nonlinear implicit differential equations: An equilibrium problem approach, Numer. Funct. Anal. Optim. (2016) 1385–1419. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb74" target="_blank" rel="noopener">link</a></li>
+<li id="ref-75">S. Song, C. Wu, E.S. Lee, Asymptotic equilibrium and stability of fuzzy differential equations, Comput. Math. Appl. 49 (7–8) (2005) 1267–1277. <a href="http://refhub.elsevier.com/S0378-4371%2823%2900446-6/sb75" target="_blank" rel="noopener">link</a></li>
+</ol>
+</div>
+        
+        
+        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2023), <em>Physica A: Statistical Mechanics and its Applications</em>, <a href="https://doi.org/10.1016/j.physa.2023.128891" target="_blank" rel="noopener">doi:10.1016/j.physa.2023.128891</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+      </article>
+    </div>
+
+    <section class="paper-related" aria-labelledby="related-title"><div class="paper-wrap"><h2 id="related-title">Related research</h2><div class="related-grid"><a class="related-card" href="/publications/improved-geometric-configuration-bladder-cancer-bcg-based/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2021</span><strong>Improved Geometric Configuration for the Bladder Cancer BCG-Based Immunotherapy Treatment Model</strong><span class="related-text">International Symposium on Mathematical and Computational Oncology</span></a><a class="related-card" href="/publications/treatment-bladder-cancer-bcg-immunotherapy-pde-modeling/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2019</span><strong>Treatment of Bladder Cancer Using BCG Immunotherapy: PDE Modeling</strong><span class="related-text">Functional Differential Equations</span></a><a class="related-card" href="/publications/pde-modeling-bladder-cancer-treatment-bcg-immunotherapy/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2020</span><strong>PDE Modeling of Bladder Cancer Treatment Using BCG Immunotherapy</strong><span class="related-text">Functional Differential Equations conference</span></a></div><p class="related-more"><a href="/publications.html">All publications</a></p></div></section>
+  </main>
+
+  <dialog id="cite-dialog" class="paper-dialog" aria-labelledby="cite-title">
+    <div class="dialog-head">
+      <h2 id="cite-title">Cite this paper</h2>
+      <button type="button" class="dialog-close" aria-label="Close"><i class="ri-close-line" aria-hidden="true"></i></button>
+    </div>
+    <p class="dialog-label">APA</p>
+    <pre class="cite-box" id="cite-apa">Lazebnik, T., Bunimovich-Mendrazitsky, S., &amp; Kiselyov, A. (2023). Mathematical Model for the BCG-based Treatment Of Type 1 Diabetes. Physica A: Statistical Mechanics and its Applications, 622, 128891. https://doi.org/10.1016/j.physa.2023.128891</pre>
+    <button type="button" class="paper-btn" data-copy="cite-apa"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy APA</span></button>
+    <p class="dialog-label">BibTeX</p>
+    <pre class="cite-box" id="cite-bib">@article{lazebnik2023mathematical,
+  title = {Mathematical Model for the BCG-based Treatment Of Type 1 Diabetes},
+  author = {Lazebnik, Teddy and Bunimovich-Mendrazitsky, Svetlana and Kiselyov, Alex},
+  journal = {Physica A: Statistical Mechanics and its Applications},
+  volume = {622},
+  pages = {128891},
+  year = {2023},
+  doi = {10.1016/j.physa.2023.128891}
+}</pre>
+    <button type="button" class="paper-btn" data-copy="cite-bib"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy BibTeX</span></button>
+  </dialog>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Games</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
+                  <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
+                  <li><a href="https://rl.teddylazebnik.com/">Pirate War RL Game</a></li>
+                  <li><a href="https://eh.teddylazebnik.com/">Echo Heist</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      
+      <script>
+        (function () {
+          // menu and navbar (js/main.js expects to sit at the site root)
+          var btn = document.getElementById('menu-btn'), menu = document.getElementById('mobile-menu'), nav = document.getElementById('navbar');
+          btn.addEventListener('click', function () { menu.classList.toggle('max-h-0'); menu.classList.toggle('max-h-screen'); });
+          var onScroll = function () { nav.classList.toggle('nav-scrolled', window.scrollY > 10); };
+          window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+          // cite dialog + copy buttons
+          var dialog = document.getElementById('cite-dialog');
+          document.querySelectorAll('[data-dialog]').forEach(function (b) {
+            b.addEventListener('click', function () { if (dialog.showModal) dialog.showModal(); else dialog.setAttribute('open', ''); });
+          });
+          dialog.querySelector('.dialog-close').addEventListener('click', function () { dialog.close(); });
+          dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
+          function flash(button, text) {
+            var label = button.querySelector('span'), old = label.textContent;
+            label.textContent = text; setTimeout(function () { label.textContent = old; }, 1600);
+          }
+          document.querySelectorAll('[data-copy]').forEach(function (b) {
+            b.addEventListener('click', function () {
+              var text = document.getElementById(b.getAttribute('data-copy')).textContent;
+              navigator.clipboard.writeText(text).then(function () { flash(b, 'Copied'); });
+            });
+          });
+          document.getElementById('share-btn').addEventListener('click', function () {
+            var b = this, data = { title: document.title, url: location.href.split('#')[0] };
+            if (navigator.share) { navigator.share(data).catch(function () {}); }
+            else { navigator.clipboard.writeText(data.url).then(function () { flash(b, 'Link copied'); }); }
+          });
+
+          // highlight the section being read in "On this page"
+          var links = {};
+          document.querySelectorAll('.paper-toc a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+          var heads = Array.prototype.filter.call(document.querySelectorAll('#full-text h2[id], #full-text h3[id], #full-text section[id]'), function (h) { return links[h.id]; });
+          if ('IntersectionObserver' in window && heads.length) {
+            var current = null;
+            var io = new IntersectionObserver(function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                  if (current) current.classList.remove('is-active');
+                  current = links[e.target.id]; current.classList.add('is-active');
+                }
+              });
+            }, { rootMargin: '-90px 0px -70% 0px' });
+            heads.forEach(function (h) { io.observe(h); });
+          }
+        })();
+      </script>
+   </body>
+</html>

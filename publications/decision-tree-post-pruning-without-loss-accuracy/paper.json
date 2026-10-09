@@ -1,0 +1,70 @@
+{
+  "title": "Decision tree post-pruning without loss of accuracy using the SAT-PP algorithm with an empirical evaluation on clinical data",
+  "pub_type": "Paper",
+  "short_title": "Decision Tree Post-Pruning Without Loss of Accuracy Using SAT-PP",
+  "authors": [
+    {
+      "name": "Teddy Lazebnik",
+      "given": "Teddy",
+      "family": "Lazebnik"
+    },
+    {
+      "name": "Svetlana Bunimovich-Mendrazitsky",
+      "given": "Svetlana",
+      "family": "Bunimovich-Mendrazitsky"
+    }
+  ],
+  "affiliations": {},
+  "journal": "Data & Knowledge Engineering",
+  "year": 2023,
+  "volume": "145",
+  "issue": "",
+  "pages": "102173",
+  "doi": "10.1016/j.datak.2023.102173",
+  "published": "2023-03-04",
+  "received": "2022-11-30",
+  "accepted": "2023-03-01",
+  "abstract": "A decision tree (DT) is one of the most popular and efficient techniques in data mining. Specifically, in the clinical domain, DTs have been widely used thanks to their relatively easy explainable nature, efficient computation time, and relatively accurate predictions. However, some DT constriction algorithms may produce a large tree size structure which is difficult to understand and often leads to misclassification of data in the testing process due to poor generalization. Post pruning (PP) algorithms have been introduced to reduce the size of the tree structure with a minor (or not at all) decrease in the accuracy of classification while trying to improve the model’s generalization. In this paper, we propose a new Boolean satisfiability (SAT) based PP algorithm called SAT-PP. Our algorithm reduces the tree size while preserving the accuracy of the unpruned tree. We implemented our algorithm on a medical-related classification data sets since in medical-related tasks we emphatically try to avoid decreasing the model’s performance when better training is not an option. Namely, in the case of medical-related tasks, one may prefer an unpruned DT model to a pruned DT model with worse performance. Indeed, we empirically obtained that the SAT-PP algorithm produce the same accuracy and F1 score as the DT model without PP while statistically significantly reducing the model size and as a result computation time (6.8%). In addition, we compared the proposed algorithm with other PP algorithms and found similar generalization capabilities.",
+  "keywords": [],
+  "license": {},
+  "funding": "",
+  "competing_interests": "",
+  "data_availability": "",
+  "editor": "",
+  "abbreviations": [],
+  "summary": "Decision trees are popular, easy-to-explain prediction models, especially in medicine, but they can grow large, become hard to understand and misclassify new data. We propose SAT-PP, a pruning algorithm based on Boolean satisfiability (a logic-solving technique) that shrinks a tree after training while preserving its accuracy. On medical classification data sets, SAT-PP kept the same accuracy and F1 score as the unpruned tree while significantly reducing model size and, as a result, computation time (6.8%).",
+  "key_findings": [
+    "SAT-PP is a new post-pruning algorithm based on Boolean satisfiability that reduces decision tree size while preserving the unpruned tree's accuracy.",
+    "On medical-related classification data sets, SAT-PP produced the same accuracy and F1 score as the decision tree without pruning.",
+    "SAT-PP statistically significantly reduced model size and, as a result, computation time (6.8%).",
+    "Compared with other post-pruning algorithms, SAT-PP showed similar generalization capabilities."
+  ],
+  "key_numbers": [
+    {
+      "value": "6.8%",
+      "label": "reported reduction in computation time"
+    }
+  ],
+  "featured_figure": "fig-1",
+  "related_project": "",
+  "pdf_url": "https://teddylazebnik.com/files/sat_pp.pdf",
+  "slug": "decision-tree-post-pruning-without-loss-accuracy",
+  "lang": "en",
+  "reviewed": false,
+  "extracted": {
+    "with": "pymupdf4llm 1.28.2, PyMuPDF 1.28.2",
+    "on": "2026-10-09",
+    "from": "sat_pp.pdf",
+    "pages": 11,
+    "figures": 4,
+    "tables": 3,
+    "tables_as_images": 0,
+    "equations": 2,
+    "references": 63,
+    "reference_style": "num",
+    "coverage": 0.9987,
+    "check": [
+      "p8 drop: Performance (accuracy and 𝐹1 score) and time of response evaluation for DT- and RF-based m"
+    ]
+  }
+}

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_papers.py from paper.md + paper.json in this folder. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>An algorithm to optimize explainability using feature ensembles | ACML</title>
+      <meta name="description" content="Feature ensembles help find the set of input variables that gives the best predictive accuracy, but existing methods ignore how explainable the resulting…">
+      <meta name="author" content="Teddy Lazebnik, Svetlana Bunimovich-Mendrazitsky, Avi Rosenfeld">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/publications/algorithm-optimize-explainability-feature-ensembles/">
+      <meta name="citation_title" content="An algorithm to optimize explainability using feature ensembles">
+      <meta name="citation_author" content="Teddy Lazebnik">
+      <meta name="citation_author" content="Svetlana Bunimovich-Mendrazitsky">
+      <meta name="citation_author" content="Avi Rosenfeld">
+      <meta name="citation_publication_date" content="2024/02/01">
+      <meta name="citation_journal_title" content="Applied Intelligence">
+      <meta name="citation_volume" content="54">
+      <meta name="citation_firstpage" content="2248">
+      <meta name="citation_doi" content="10.1007/s10489-023-05069-3">
+      <meta name="citation_pdf_url" content="https://teddylazebnik.com/files/xai_1.pdf">
+      <meta name="citation_abstract_html_url" content="https://acml.teddylazebnik.com/publications/algorithm-optimize-explainability-feature-ensembles/">
+      <meta name="citation_fulltext_html_url" content="https://acml.teddylazebnik.com/publications/algorithm-optimize-explainability-feature-ensembles/">
+      <meta name="citation_keywords" content="Explainable AI; Optimized feature selection; Ensemble feature selection; Machine learning">
+      <meta name="citation_language" content="en">
+      <meta property="og:type" content="article">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="An algorithm to optimize explainability using feature ensembles">
+      <meta property="og:description" content="Feature ensembles help find the set of input variables that gives the best predictive accuracy, but existing methods ignore how explainable the resulting…">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/publications/algorithm-optimize-explainability-feature-ensembles/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/publications/algorithm-optimize-explainability-feature-ensembles/figures/share-fig-1.jpg">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="An algorithm to optimize explainability using feature ensembles">
+      <meta name="twitter:description" content="Feature ensembles help find the set of input variables that gives the best predictive accuracy, but existing methods ignore how explainable the resulting…">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/publications/algorithm-optimize-explainability-feature-ensembles/figures/share-fig-1.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "An algorithm to optimize explainability using feature ensembles",
+  "name": "An algorithm to optimize explainability using feature ensembles",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Teddy Lazebnik"
+    },
+    {
+      "@type": "Person",
+      "name": "Svetlana Bunimovich-Mendrazitsky"
+    },
+    {
+      "@type": "Person",
+      "name": "Avi Rosenfeld"
+    }
+  ],
+  "datePublished": "2024-02-01",
+  "url": "https://acml.teddylazebnik.com/publications/algorithm-optimize-explainability-feature-ensembles/",
+  "mainEntityOfPage": "https://acml.teddylazebnik.com/publications/algorithm-optimize-explainability-feature-ensembles/",
+  "abstract": "Feature Ensembles are a robust and effective method for finding the feature set that yields the best predictive accuracy for learning agents. However, current feature ensemble algorithms do not consider explainability as a key factor in their construction. To address this limitation, we present an algorithm that optimizes for the explainability and performance of a model – the Optimizing Feature Ensembles for Explainability (OFEE) algorithm. OFEE uses intersections of feature sets to produce a feature ensemble that optimally balances explainability and performance. Furthermore, OFEE is parameter-free and as such optimizes itself to a given dataset and explainability requirements. To evaluated OFEE, we considered two explainability measures, one based on ensemble size and the other based on ensemble stability. We found that OFEE was overall extremely effective within the nine canonical datasets we considered. It outperformed other feature selection algorithms by an average of over 8% and 7% respectively when considering the size and stability explainability measures.",
+  "description": "Feature ensembles help find the set of input variables that gives the best predictive accuracy, but existing methods ignore how explainable the resulting…",
+  "image": "https://acml.teddylazebnik.com/publications/algorithm-optimize-explainability-feature-ensembles/figures/share-fig-1.jpg",
+  "keywords": "Explainable AI, Optimized feature selection, Ensemble feature selection, Machine learning",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "DOI",
+    "value": "10.1007/s10489-023-05069-3"
+  },
+  "sameAs": "https://doi.org/10.1007/s10489-023-05069-3",
+  "isPartOf": {
+    "@type": "PublicationIssue",
+    "issueNumber": "",
+    "isPartOf": {
+      "@type": "PublicationVolume",
+      "volumeNumber": "54",
+      "isPartOf": {
+        "@type": "Periodical",
+        "name": "Applied Intelligence"
+      }
+    }
+  },
+  "about": "Machine Learning",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "encoding": {
+    "@type": "MediaObject",
+    "contentUrl": "https://teddylazebnik.com/files/xai_1.pdf",
+    "encodingFormat": "application/pdf"
+  }
+}
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/paper.css" rel="stylesheet">
+      
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="paper-page">
+    <header class="paper-hero">
+      <div class="paper-wrap">
+        <nav class="paper-crumbs" aria-label="Breadcrumb">
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Machine Learning</span>
+        </nav>
+        <p class="paper-kicker"><span><em>Applied Intelligence</em> · 1 February 2024</span></p>
+        <h1 class="paper-title">An algorithm to optimize explainability using feature ensembles</h1>
+        <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author">Svetlana Bunimovich-Mendrazitsky</span>, <span class="author">Avi Rosenfeld</span></p>
+        
+        <div class="paper-actions">
+          <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/xai_1.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
+          <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
+          
+          <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
+          <a class="paper-btn" href="https://doi.org/10.1007/s10489-023-05069-3" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
+          <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
+        </div>
+        <div class="lab-authors"><span class="lab-authors-label">ACML authors</span><a class="lab-chip" href="/team.html"><img src="/img/lab/teddy.webp" alt="" width="32" height="32" loading="lazy"><span><strong>Teddy Lazebnik</strong><small>PI</small></span></a></div>
+      </div>
+    </header>
+
+    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Feature ensembles help find the set of input variables that gives the best predictive accuracy, but existing methods ignore how explainable the resulting model is. We present OFEE (Optimizing Feature Ensembles for Explainability), a parameter-free algorithm that intersects feature sets to balance explainability and performance. On nine canonical datasets, OFEE outperformed other feature selection algorithms by an average of over 8% and 7% under size-based and stability-based explainability measures, respectively.</p><div class=glance-stats><div class="stat"><span class="stat-value">8%</span><span class="stat-label">average lead was above this, size-based measure</span></div><div class="stat"><span class="stat-value">7%</span><span class="stat-label">average lead was above this, stability-based measure</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>OFEE uses intersections of feature sets to produce a feature ensemble that balances explainability and performance.</li><li>OFEE is parameter-free, so it adapts itself to a given dataset and explainability requirements.</li><li>Across nine canonical datasets, OFEE outperformed other feature selection algorithms by averages of over 8% and 7% on size- and stability-based explainability measures.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="862" height="1384" alt="Fig. 1 The OFEE algorithm’s logical flow"></a><figcaption><strong>Fig. 1</strong> The OFEE algorithm’s logical flow <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+
+    <div class="paper-wrap paper-layout">
+      <aside class="paper-aside">
+        <nav class="paper-toc" aria-label="On this page">
+          <p class="aside-title">On this page</p>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#1-introduction">1 Introduction</a></li><li class="toc-sub"><a href="#11-motivation">1.1 Motivation</a></li><li class="toc-sub"><a href="#12-contribution">1.2 Contribution</a></li>
+<li><a href="#2-related-work">2 Related work</a></li><li class="toc-sub"><a href="#21-definitions-and-reasons-for-xai">2.1 Definitions and reasons for XAI</a></li><li class="toc-sub"><a href="#22-motivations-for-using-fs-and-fs-ensembles">2.2 Motivations for using FS and FS ensembles</a></li>
+<li><a href="#3-the-ofee-algorithm">3 The OFEE algorithm</a></li>
+<li><a href="#4-results">4 Results</a></li><li class="toc-sub"><a href="#41-experiment-setup">4.1 Experiment setup</a></li><li class="toc-sub"><a href="#42-evaluation">4.2 Evaluation</a></li>
+<li><a href="#5-conclusions-and-future-work">5 Conclusions and future work</a></li><li class="toc-sub"><a href="#declarations">Declarations</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </nav>
+        <div class="paper-info">
+          <p class="aside-title">Article information</p>
+          <dl><div><dt>Journal</dt><dd>Applied Intelligence 54: 2248–2260</dd></div><div><dt>Published</dt><dd><time datetime="2024-02-01">1 February 2024</time></dd></div><div><dt>DOI</dt><dd><a href="https://doi.org/10.1007/s10489-023-05069-3" target="_blank" rel="noopener">10.1007/s10489-023-05069-3</a></dd></div></dl>
+        </div>
+      </aside>
+
+      <article class="paper-body" id="full-text">
+        <details class="paper-toc-mobile">
+          <summary>On this page</summary>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#1-introduction">1 Introduction</a></li><li class="toc-sub"><a href="#11-motivation">1.1 Motivation</a></li><li class="toc-sub"><a href="#12-contribution">1.2 Contribution</a></li>
+<li><a href="#2-related-work">2 Related work</a></li><li class="toc-sub"><a href="#21-definitions-and-reasons-for-xai">2.1 Definitions and reasons for XAI</a></li><li class="toc-sub"><a href="#22-motivations-for-using-fs-and-fs-ensembles">2.2 Motivations for using FS and FS ensembles</a></li>
+<li><a href="#3-the-ofee-algorithm">3 The OFEE algorithm</a></li>
+<li><a href="#4-results">4 Results</a></li><li class="toc-sub"><a href="#41-experiment-setup">4.1 Experiment setup</a></li><li class="toc-sub"><a href="#42-evaluation">4.2 Evaluation</a></li>
+<li><a href="#5-conclusions-and-future-work">5 Conclusions and future work</a></li><li class="toc-sub"><a href="#declarations">Declarations</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </details>
+        <section id="abstract" class="paper-abstract">
+          <h2>Abstract</h2>
+          <p>Feature Ensembles are a robust and effective method for finding the feature set that yields the best predictive accuracy for learning agents. However, current feature ensemble algorithms do not consider explainability as a key factor in their construction. To address this limitation, we present an algorithm that optimizes for the explainability and performance of a model – the Optimizing Feature Ensembles for Explainability (OFEE) algorithm. OFEE uses intersections of feature sets to produce a feature ensemble that optimally balances explainability and performance. Furthermore, OFEE is parameter-free and as such optimizes itself to a given dataset and explainability requirements. To evaluated OFEE, we considered two explainability measures, one based on ensemble size and the other based on ensemble stability. We found that OFEE was overall extremely effective within the nine canonical datasets we considered. It outperformed other feature selection algorithms by an average of over 8% and 7% respectively when considering the size and stability explainability measures.</p>
+        </section>
+        
+<div class="paper-text">
+<h2 id="1-introduction">1 Introduction</h2>
+<p>There is a growing emergence of systems where people and agents work together <span class="cite">[<a href="#ref-1">1</a>–<a href="#ref-3">3</a>]</span>. These systems, often called Human-Agent Systems or Human-Agent Cooperatives, have moved from theory to reality in many forms, including digital personal assistants, recommendation systems, training and tutoring systems, service robots, chatbots, planning systems, and self-driving cars <span class="cite">[<a href="#ref-4">4</a>–<a href="#ref-10">10</a>]</span>. The ability of human teammates to understand the logic behind the artificial intelligence system (namely, explainability) is important <span class="cite">[<a href="#ref-11">11</a>]</span>. As a result, eXplainable Artificial Intelligence (XAI) is fast becoming a critical element of these systems.</p>
+<p>Feature selection (FS) algorithms reduce the number of features in a system - potentially improving both system performance and explainability. FS was previously shown to improve learning model accuracy, especially when handling complex data inputs with high dimensionality <span class="cite">[<a href="#ref-12">12</a>–<a href="#ref-14">14</a>]</span>. The</p>
+<h4 id="b-teddy-lazebnik">B Teddy Lazebnik</h4>
+<ul>
+<li>t.lazebnik@ucl.ac.uk</li>
+<li><sup><a href="#ref-1">1</a></sup> Department of Cancer Biology, University College London, London, UK</li>
+<li><sup><a href="#ref-2">2</a></sup> Department of Mathematics, Ariel University, Ariel, Israel</li>
+<li><sup><a href="#ref-3">3</a></sup> Department of Computer Science, Jerusalem College of Technology, Jerusalem, Israel</li>
+</ul>
+<p>reduced number of inputs also facilitates better XAI as the intended user can potentially better understand the causal relationship between the system’s dependent and independent variables <span class="cite">[<a href="#ref-7">7</a>, <a href="#ref-11">11</a>, <a href="#ref-15">15</a>]</span>.</p>
+<p>Many FS algorithms exist, making the task of choosing the best one for a given learning problem a difficult task <span class="cite">[<a href="#ref-16">16</a>–<a href="#ref-20">20</a>]</span>. One possible solution is to use ensembles of FS algorithms <span class="cite">[<a href="#ref-12">12</a>, <a href="#ref-21">21</a>–<a href="#ref-25">25</a>]</span>. However, as we further detail in the next section, current FS and ensemble FS algorithms focus on improving the agent’s accuracy and not explainability <span class="cite">[<a href="#ref-26">26</a>]</span>. While several works have suggested that a model’s explainability can be enhanced by reducing the resulting model’s size <span class="cite">[<a href="#ref-12">12</a>, <a href="#ref-27">27</a>]</span>, the specific nature of this relationship was not previously formally defined or analyzed <span class="cite">[<a href="#ref-28">28</a>]</span>.</p>
+<h3 id="11-motivation">1.1 Motivation</h3>
+<p>The precise way to quantify explainability has only recently begun to be explored. Rosenfeld <span class="cite">[<a href="#ref-7">7</a>]</span> suggests quantifying elements of the explanation’s input, output, stability, and performance to quantify this value. Following these ideas, the explainability of feature ensembles can be quantified using an explainability metric tied to the ensemble’s size. Similarly, work by Rudin <span class="cite">[<a href="#ref-29">29</a>]</span> focuses on the number of features used by the agent’s model as the base for quantifying explainability. The key assumption behind these metrics is that a model must have fewer than a certain number of features for it to be explainable as the logical connection between the data input and output cannot be understood if too many features are included. A second approach is to quantify explainability based on the ensemble’s stability. In this approach, explanations can be quantified based on how resilient they are to small differences within the data. In this paper we consider both metrics for explainability and consider performance metrics that are combination of these explainability metrics and predictive accuracy. Specifically, we ran two sets of experiments using the harmonic average between each of the explainability metrics and accuracy across nine canonical datasets. This use of the harmonic mean between two evaluation metrics is similar to how the <em>F</em><sub>1</sub><em>(recall, precision)</em> := <em>(</em>2 ·<em>recall</em> · <em>precision)/(recall</em> + <em>precision)</em> measure balances between recall and precision.</p>
+<h3 id="12-contribution">1.2 Contribution</h3>
+<p>This work presents the <strong>O</strong>ptimizing <strong>F</strong>eature <strong>E</strong>nsembles for <strong>E</strong>xplainability (OFEE) algorithm, which contains three main contributions:</p>
+<ul>
+<li>OFEE is the first algorithm that considers explainability as an optimization problem and creates an optimal model given an explainability metric / performance combination.</li>
+<li>OFEE is parameter-free and thus automatically finds the values of the optimal hyperparameters to maximize any potential tradeoff of explainability and performance.</li>
+<li>OFEE obtains better explainability than other basic and ensemble FS algorithms across many canonical datasets.</li>
+</ul>
+<p>In order to highlight these contributions, in the next section, we discuss general motivations and potential definitions of XAI, why FS ensembles are useful for XAI, and how ensembles’ explainability can be measured. Second, we present the OFEE algorithm including its complexity and memory consumption analysis. We present the three hyper-parameters in OFEE and present how the algorithm self-tunes these parameters using an iterative process. While this work work considers two specific measures to quantify explainability – ensemble size and stability, OFEE can optimize explainability based on <strong>any</strong> XAI metric and performance. We then evaluate the performance of the OFEE algorithm within nine canonical datasets with highly different feature space characteristics for the two explainability metrics we considered. For the explainability size metric, we found that the OFEE algorithm performed 8% better than the same model without any FS algorithm and better than all the FS algorithms used in the ensemble. It is worthy to stress that all other algorithms in the evaluation, including those contained within OFEE, require the user to set the number of features desired. In contrast, OFEE optimized itself to significantly higher performance levels than all of the FS algorithms that we manually tuned for their relatively best performance. OFEE was even more successful when considering the stability explainability metric, performing 12% better than the same model without any FS algorithm and better than all the FS algorithms used in the ensemble. These extensive results further stress the significance of OFEE’s success. Finally, we discuss the improvements and limitations of OFEE and suggest future directions.</p>
+<h2 id="2-related-work">2 Related work</h2>
+<h3 id="21-definitions-and-reasons-for-xai">2.1 Definitions and reasons for XAI</h3>
+<p>XAI research has focused on creating agent interpretability, transparency, fairness, explicitness, and faithfulness. Rosenfeld and Richardson defined interpretability as focusing on the clarity of the system’s internal logic and explainability as the ability of human users to understand that logic <span class="cite">[<a href="#ref-11">11</a>]</span>. In contrast, Rudin defined explanation as to the agent’s attempt to explain its logic in a post-hoc fashion without necessarily being tied to the agent’s true decision model, while interpretations are inherently tied to the agent’s logic <span class="cite">[<a href="#ref-29">29</a>]</span>. Both works agree that the XAI goal is to completely, accurately and clearly quantify the agent’s logic, which refereed to as transparency by Rosenfeld and Richardson <span class="cite">[<a href="#ref-11">11</a>]</span> and Rudin terms fidelity <span class="cite">[<a href="#ref-29">29</a>]</span>. To avoid terminology confusion, we will use these terms synonymously as both focus on the same paramount XAI goal.</p>
+<p>System explainability can be important for a variety of reasons. First, such systems can enable trust between AI and its users. This element can be more important in repeated interactions, especially after the agent has made a mistake <span class="cite">[<a href="#ref-30">30</a>]</span>. Second, explainability can lead to better and more general systems. These types of explanations are geared for system designers to help them better apply the agent to new situations or to evaluate and test its safety <span class="cite">[<a href="#ref-31">31</a>]</span>. A third type of explanation helps facilitate knowledge discovery <span class="cite">[<a href="#ref-32">32</a>, <a href="#ref-33">33</a>]</span>. The fourth motivation is based on legal needs. As per the EU’s “General Data Protection Regulation" (GDPR), users are legally entitled to obtain “meaningful explanation of the logic involved" of these decisions and additional legislation exists to ensure that automated decisions are not biased against any ethnic or gender groups <span class="cite">[<a href="#ref-31">31</a>]</span>. While transparent explanations are likely needed to satisfy some XAI goals, less transparent post-hoc models are likely sufficient in other situations <span class="cite">[<a href="#ref-11">11</a>]</span>.</p>
+<h3 id="22-motivations-for-using-fs-and-fs-ensembles">2.2 Motivations for using FS and FS ensembles</h3>
+<p>Using FS has previously been suggested as a significant direction for creating XAI <span class="cite">[<a href="#ref-11">11</a>]</span>. FS has long been established as an effective to overcome the <em>curse of dimensionality</em> by reducing the feature space and creating simpler models <span class="cite">[<a href="#ref-13">13</a>]</span>. Moreover, reducing the feature space size typically makes the relationship between the dependent and independent variables clearer and thus easier to interpret <span class="cite">[<a href="#ref-34">34</a>]</span> either before or after building a model <span class="cite">[<a href="#ref-13">13</a>, <a href="#ref-35">35</a>]</span>. FS algorithms can be used in conjunction with non-transparent models to make them more understandable or in conjunction with transparent “white box” models to help make their logic clear to the intended user.</p>
+<p>It is possible to divide the FS algorithmic family into three main groups: filters, wrappers, and embedded. Filter FS algorithms decide which subset of features to choose based on the connection between the inputs independently of any machine learning (ML) algorithm under consideration. Examples include the Mutual Information <span class="cite">[<a href="#ref-16">16</a>]</span>, Anova <span class="cite">[<a href="#ref-17">17</a>]</span>, and Chi<sup><a href="#ref-2">2</a></sup> <span class="cite">[<a href="#ref-18">18</a>]</span> algorithms. These FS algorithms contain parameters that the user can explicitly use to optimize their performance for each dataset. These parameters are typically to select the best k features (e.g. 20) as per a specific FS algorithm/dataset combination, or all features above a certain feature score (e.g. Mutual Information <em>&gt;</em> 0.1). Wrapper FS algorithms use the prediction provided by a specific ML classifier to evaluate feature subsets. One example includes the recursive feature elimination algorithm (RFE) which removes features and checks if the model using the remaining features yields better performance <span class="cite">[<a href="#ref-36">36</a>]</span>. Embedded algorithms perform FS as a part of the learning process. Examples include decision trees and neural networks which inherently choose which features to use, and/or the weight for each feature, as they construct their learning models <span class="cite">[<a href="#ref-29">29</a>]</span>. As filter methods are independent of the learning algorithm being used, they seem to hold the most promise for providing general explanations <span class="cite">[<a href="#ref-11">11</a>]</span>. As a result, this work will focus on using filter algorithms within the presented OFEE ensemble algorithm.</p>
+<p>There are several advantages to using ensembles of FS algorithms instead of individual ones. As is the case with ensemble learning in general, advocates for creating ensembles of FS algorithms claim that these approaches yield better performing and more stable models <span class="cite">[<a href="#ref-12">12</a>, <a href="#ref-21">21</a>, <a href="#ref-22">22</a>]</span>. This is because all individual FS algorithms may produce a subset of features that is a local optimum in the feature space but not a global optimum <span class="cite">[<a href="#ref-37">37</a>]</span>. Furthermore, ensembles potentially have the power to obviate the need to choose between different FS algorithms as the aggregation mechanism within the ensemble method can match the best algorithm for a given problem without prior evaluation <span class="cite">[<a href="#ref-12">12</a>, <a href="#ref-22">22</a>, <a href="#ref-27">27</a>]</span>. Not only do ensembles often perform better, but their combination of features from different algorithms lends themselves to output more robust and stable features <span class="cite">[<a href="#ref-26">26</a>]</span>. Two major ways have been suggested for creating feature ensembles: either through homogeneous ensembles that use the same type of base learner with different bootstraps of data or through heterogeneous ensembles that use different types of base learners trained on the same data <span class="cite">[<a href="#ref-21">21</a>]</span>. Once candidate features for the ensemble have been established, a method for aggregating the final ensemble must be established: typically either from the intersection or the union of the subsets of candidate features. The union of the subsets has typically been selected as the most popular choice to date as it has been empirically found to typically yield the best results <span class="cite">[<a href="#ref-12">12</a>]</span>. However, the union aggregation is ill-suited for explainability, as ensembles created by this approach as typically significantly larger than those of any of the basic FS algorithms used.</p>
+<h2 id="3-the-ofee-algorithm">3 The OFEE algorithm</h2>
+<p>OFEE focuses on creating explainable feature ensembles based on their size. This parameter can be set as either a percentage of the original features (for example only 10% of the original number of features) or as an absolute maximum of features regardless of the original input size. The inputs of the algorithm are the initial feature space and the dependent variables of a particular dataset. As we now detail, the decision of whether to include a feature in the ensemble or not is controlled by three parameters in OFEE: <em>t</em><sub>1</sub>, <em>t</em><sub>2</sub>, and <em>t</em><sub>3</sub>.</p>
+<p>While this work focuses on ensemble size and stability as the explainability metrics, the OFEE algorithm can be used to balance other explainability metrics with performance concerns. To do this, OFEE uses three hyperparameters, <em>t</em><sub>1</sub><em>, t</em><sub>2</sub><em>, t</em><sub>3</sub>, a dataset (as a matrix), an ML model, and the explainability-performance metric. <em>t</em><sub>1</sub> indicates the absolute number of features the algorithm returns, <em>t</em><sub>2</sub> indicates the subset of features we are desire to choose in each iteration, and <em>t</em><sub>3</sub> indicates the aggregation function according to the occurrence of each feature in each FS algorithm. Therefore, the OFEE algorithm theoretically can produce any feature set. Hence, it is able to optimize any provided metric from FS perspective of producing the subset of features by optimizing the given metric. It follows that the proposed algorithm can be used in a wider scope.</p>
+<p>The OFEE algorithm operates using a two-stage process. First, an ensemble FS is constructed using the three hyper-parameters, <em>t</em><sub>1</sub><em>, t</em><sub>2</sub><em>, t</em><sub>3</sub>. These parameters are needed to facilitate the optimization of the model’s explainability while minimally negatively impacting its performance (e.g. model accuracy). Second, OFEE self-optimizes the values of the <em>t</em><sub>1</sub><em>, t</em><sub>2</sub><em>, t</em><sub>3</sub> hyperparameters for a given model, dataset, performance, and explainability metric. Formally, we define the search space of the OFEE algorithm as a three-dimensional space <em>S</em>. Given a dataset <em>D</em>, list of FSA <em>F</em>, ML model <em>M</em>, and explainability-performance metric <em>C</em>, the FS layer in the OFEE algorithm defines a function <em>E(s</em> ∈ <em>S)</em> → <em>A</em> ⊂ <em>D</em> such that <em>C(M(E(t</em><sub>1</sub><em>, t</em><sub>2</sub><em>, t</em><sub>3</sub><em>, D, F)))</em> = <em>s</em>. Therefore, using the optimization layer of the OFEE, the algorithm can be defined as</p>
+<p><em>E(t</em><sub>1</sub><em>, t</em><sub>2</sub><em>, t</em><sub>3</sub><em>)</em> such that <sub>{t1,t2,t3}</sub> <em>C(M(E(t</em><sub>1</sub><em>t</em><sub>2</sub><em>, t</em><sub>3</sub><em>, D, F))).</em> (1) max</p>
+<p>One can solve the optimization task defined by (1), abbreviating the need to define <em>t</em><sub>1</sub><em>, t</em><sub>2</sub><em>, t</em><sub>3</sub> manually.</p>
+<p>Practically, it is possible to implement OFEE using any optimization algorithms such as grid search <span class="cite">[<a href="#ref-38">38</a>]</span>, gradient descent <span class="cite">[<a href="#ref-39">39</a>]</span> or any other optimization layer. In this paper, we use the grid search algorithm because we are willing to provide the computation time needed in order to obtain a good approximation of the optimum values even for complex functions, as other optimization algorithms may experience converging difficulties, we do not focus on these algorithms in this work.</p>
+<p>The OFEE algorithm works as follows. In lines 1–2, the best feature set and the score of this set for a given ML model (<em>M</em>) and dataset (<em>X, Y</em>) are initialized. In lines 3– 32 the main loop of the algorithm takes place and runs until some optimization condition (<em>OC</em>) is met. We considered two different optimization conditions in this work, one that quantifies explainability through feature stability and the second based on feature size. In lines 4–11 the algorithm begins by initializing the sets of the training input and the ranked feature vectors as dictated by the FS algorithm (FSA), <em>F S</em><sub>1</sub> <em>. . . F S</em><sub>n</sub> which are outputted to <em>R</em><sub>1</sub> <em>. . . R</em><sub>n</sub>. <em>R</em><sub>1</sub> <em>. . . R</em><sub>n</sub> are first initialized to <em>n</em> empty vectors that will store the scores for each feature and FSA combination. <em>R</em><sub>1</sub> <em>. . . R</em><sub>n</sub> is then assigned with the set of the scores from <em>F S</em><sub>1</sub> <em>. . . F S</em><sub>n</sub> sorted from highest to lowest score value for each algorithm, <em>a</em>. In line 12 we initialize <em>H</em> which will serve as the output of OFEE in the generated heterogeneous ensemble until the desired subset of features is obtained. In line 13, we set <em>t</em><sub>1</sub> to control the number of features we want at the end of the ensemble creation process. Line 14 sets a variable <em>c</em> for a local variable for the ranking of one of the algorithms previously defined (line 11). In lines 15–18 we then keep only the top <em>t</em><sub>2</sub> features from this list and store the new vector in the same position of <em>R</em><sub>1</sub> <em>. . . R</em><sub>n</sub> as <em>R</em><sub>c</sub>, where <em>R</em><sub>1</sub> <em>. . . R</em><sub>c</sub> == <em>R</em><sub>1</sub> <em>. . . R</em><sub>n</sub>, but with fewer features. <em>t</em><sub>2</sub> controls either the percentage or absolute value of features we wish to cut in every iteration until the size requirement of <em>H</em> is satisfied as defined by <em>t</em><sub>1</sub> (line 14). Lines 19-24 form a loop that iterates over the <em>r</em> features in the ranked vector (line 19). Line 20 presents a third threshold (<em>t</em><sub>3</sub>) that defines how many times a feature must be chosen within <em>R</em><sub>1</sub> <em>. . . R</em><sub>n</sub> before OFEE retains it within the ensemble. Assuming <em>t</em><sub>3</sub> is set to <em>n</em>, e.g. the total number of algorithms in <em>F S</em><sub>1</sub> <em>. . . F S</em><sub>n</sub>, then OFEE will use the intersection aggregation method. If <em>t</em><sub>3</sub> is set to 1 it will use the union aggregation. Line 21 performs this aggregation, finishing this iteration of the ensemble formation, <em>H</em>. In line 25, the obtained features are used as a sub-space of the training data (X,Y) and to then train a model <em>m</em> using algorithm <em>M</em>. In line 26, the score of the model <em>ms</em> is calculated by the explainability-performance metric <em>C</em>. In lines 27–30, the algorithm checks if the best feature set’s score on the model (<em>bs</em>) is worse than the current one score <em>ms</em> and if so, <em>bs</em> and <em>bh</em> are set to be <em>ms</em> and <em>m</em>, respectively. Finally, in line 32, the best feature set is returned. A schematic view of how the OFEE algorithm works is shown in <a class="xref" href="#fig-1">Fig. 1</a>. A Python (version 3.7) implementation of the OFEE algorithm is available as free open source at https://github.com/teddy4445/OFEE.</p>
+<figure class="table-figure" id="alg-1">
+<figcaption><strong>Algorithm 1</strong> The OFEE algorithm.</figcaption>
+<img src="figures/alg-1.webp" width="184" height="465" alt="Algorithm 1 The OFEE algorithm." loading="lazy" decoding="async">
+
+</figure>
+
+<p>The complexity and memory consumption of an algorithm in an ML pipeline is important when implementing OFEE. As current ML datasets are getting larger in size, the asymptotic analysis of the algorithmic behavior becomes more increasingly relevant. As the optimization algorithm/layer is independent of OFEE, we focus our analysis on the feature selection layer instead of the optimization layer as well.</p>
+<p>We mark the size of the initial dataset by <em>(n, m)</em> as the dimensions of the inputted dataset where <em>n</em> is the number of rows and <em>m</em> is the number of columns (features). In addition, we assume the complexity and memory consumption of the most expensive FSA algorithm used by the IEI algorithm are <em>O(F S A</em><sub>c</sub><em>)</em> and <em>O(F S A</em><sub>m</sub><em>)</em>, respectively. We denote the num-ber of FS algorithms by <em>k</em>. In lines 4-12 the algorithm iterates over all the FSA results making the upper bounds of OFEE’s complexity and memory consumption equal to <em>O(F S A</em><sub>c</sub><em>)</em> and <em>O(F S A</em><sub>m</sub><em>)</em> respectively. Lines 13-24 repeat <em>O(log</em><sub>t2</sub><em>(m))</em> times because during the first iteration of the loop there are <em>m</em> features while for each progression iteration only <em>m</em> · <em>t</em><sub>2</sub> remain. Therefore, the number of iteration occurs in lines 13- 24 is bounded by <em>m</em> ·<em>t</em><sup>α</sup> <sub>2</sub> <em>&lt; t</em><sub>1</sub> where <em>α</em> = <em>log</em><sub>t2</sub><em>(m)</em>−<em>log</em><sub>t2</sub><em>(t</em><sub>1</sub><em>)</em>. Lines 15-23 are linear to the number of features making the complexity <em>O(k)</em>. As a result, the overall complexity of the feature selection layer in the OFEE algorithm is <em>O(max(k</em> · <em>log</em><sub>t2</sub><em>(m), F S A</em><sub>c</sub><em>))</em> and the memory consumption is <em>O(max(nm, FSA</em><sub>m</sub><em>))</em>.</p>
+<figure id="fig-1">
+<a class="fig-zoom" href="figures/fig-1.webp" aria-label="Open the figure full size"><img src="figures/fig-1.webp" width="496" height="796" alt="The OFEE algorithm’s logical flow" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 1</strong> The OFEE algorithm’s logical flow</figcaption>
+</figure>
+
+<h2 id="4-results">4 Results</h2>
+<p>To empirically study OFEE’s performance, we evaluated it within nine canonical datasets. In the following section we present two sets of results given the two explainability measures we consider and their impact for various values for <em>t</em><sub>1</sub>, <em>t</em><sub>2</sub>, and <em>t</em><sub>3</sub>.</p>
+<h3 id="41-experiment-setup">4.1 Experiment setup</h3>
+<p>We studied nine canonical datasets that have been previously studying in FS and ensemble problems <span class="cite">[<a href="#ref-40">40</a>–<a href="#ref-42">42</a>]</span>. These datasets are: Arcene, Arrhythmia, Dexter, Lsvt-Voice, Madelon, Ovarian, Micro-Mass, Semeion, and Sonar. <a class="xref" href="#table-1">Table 1</a> summarizes each of the datasets considered and their main attributes. Of note, we run a Kolmogorov-Smirnov test between each target feature and an uniformly distribution, obtaining that all datasets are balanced with p-value of 0<em>.</em>1 or less. The Arcene and Dexter datasets are characterized by feature spaces (column space) that are much bigger than the sample size (row space). Such cases create “the curse of dimensionality” as they increase the computational cost and complexity of classification. Ovarian is a dataset to derive insights into ovarian cancer, particularly in differentiating between benign or malignant cells. The microarray data were derived from hospital laboratory test results. As is the case for the Arcene dataset, this dataset contains much more features (genes) than the samples. One reason for the imbalance is that generating large amounts of genomic data is relatively less expensive than recruiting additional participants in studies. Dexter is a text classification task using a bag-of-word representation. Madelon is an artificial dataset that containing data points grouped in 32 clusters placed on the vertices of a five-dimensional hypercube and randomly labeled. Arrhythmia is a dataset that presents the rhythm change of the human heart from electrocardiogram (ECG) records. LSVT (Lee Silver-man Voice Treatment) is a dataset that predicts Parkinson’s disease using voice recognition. Finally, the sonar dataset is used to classifying sonar signals. The task is to train a network to discriminate between sonar signals that bounce off metal cylinders versus signals that bounce off rocks.</p>
+<p>While the OFEE algorithm is general and can be used with any FS algorithms, we focused on using three filter FS algorithms – Chi<sup><a href="#ref-2">2</a></sup> <span class="cite">[<a href="#ref-18">18</a>]</span>, Anova <span class="cite">[<a href="#ref-17">17</a>]</span>, and Mutual information <span class="cite">[<a href="#ref-16">16</a>]</span> due to their explainability as explained in Section 2.2. Another reason to choose these FS algorithms as the different types of features they are designed for (i.e., numerical and/or categorical) <span class="cite">[<a href="#ref-43">43</a>]</span>.</p>
+<p>In order to quantify explainability, we quantified explainability based on a metric proposed by Rudin <span class="cite">[<a href="#ref-29">29</a>]</span>:</p>
+<div class="equation" id="eq-1"><img src="figures/eq-1.webp" width="328" height="64" alt="min f ∈F 1 n n i=1 1[training observation i is misclassified by f ] + λ × size( f ) , (2)" loading="lazy" decoding="async"></div>
+
+<p>where the training samples are indexed from <em>i</em> = 1<em>, . . . , n,</em> and <em>F</em> is a group of logical models. The size of the model is commonly measured by the number of logical conditions in the model where <em>λ</em> is a regularization (weight) parameter between the error of the model and the model’s size. However, since the first term in (2) is a performance metric, it can be removed when creating an explainability metric, yielding:</p>
+<div class="equation" id="eq-2"><img src="figures/eq-2.webp" width="328" height="32" alt="Explainability := min f ∈F (λ size( f )) . (3)" loading="lazy" decoding="async"></div>
+
+<p>In addition, as the regularization between the error of the model and the model’s size is not of concern in our experiments, we set <em>λ</em> = 1. We used the decision tree model since there is a straightforward connections between the number of Boolean rules within the model and (3), and as decision trees are widely shown to be useful in applicable settings <span class="cite">[<a href="#ref-44">44</a>, <a href="#ref-45">45</a>]</span>. We used accuracy as the performance metric since it is considered to be intuitive for inexpert users <span class="cite">[<a href="#ref-46">46</a>]</span>. Hence, we define the model’s score to be the harmonic mean of the explainability and performance metrics:</p>
+<div class="equation" id="eq-3"><img src="figures/eq-3.webp" width="325" height="42" alt="Performance = 2 · Accuracy · Explainability Accuracy + Explainability . (4)" loading="lazy" decoding="async"></div>
+
+<p>Formally, in the following experiments, OFEE aims to optimize (4) where explainability is defined in (3). Moreover, in order to show the generality of OFEE for any explainability metric, we also considered a stability algorithm within Equation (4). We specifically used the incremental data-stability metric <span class="cite">[<a href="#ref-47">47</a>]</span> with the intersection over union (IOU) similarity metric <span class="cite">[<a href="#ref-48">48</a>]</span> to quantify explainability. This measure can be formally defined for a given FS algorithm as a similarity metric between two sets of features (such as the IOU), and a number of folds. In the proposed analysis we used <em>k</em> = 5 folds and the dataset is divided into 5 incremental portions. The incremental data-stability metric is defined as the mean similarity between any two feature sets obtained using the FS algorithm and a cumulative sum of the portions of the data.</p>
+<figure class="table-figure" id="table-1">
+<figcaption><strong>Table 1</strong> The datasets used in the evaluation of the OFEE algorithm</figcaption>
+<div class="table-scroll"><table><tr><th>dataset</th><th>Domain</th><th># Features</th><th># Samples</th><th># Numerical features</th><th># classes</th></tr><tr><td>Arcene</td><td>Mass Spectrometry</td><td>10000</td><td>900</td><td>7000</td><td>2</td></tr><tr><td>Arrhythmia</td><td>ECG Recordings</td><td>279</td><td>452</td><td>278</td><td>16</td></tr><tr><td>Dexter</td><td>Text Classiﬁcation</td><td>20000</td><td>2600</td><td>20000</td><td>2</td></tr><tr><td>Lsvt-Voice</td><td>Voice Recognition</td><td>309</td><td>126</td><td>309</td><td>2</td></tr><tr><td>Madelon</td><td>Artiﬁcial</td><td>500</td><td>2600</td><td>500</td><td>2</td></tr><tr><td>Ovarian</td><td>Mass Spectrometry</td><td>15154</td><td>253</td><td>15154</td><td>2</td></tr><tr><td>Micro-Mass</td><td>Mass Spectrometry</td><td>1300</td><td>571</td><td>1300</td><td>20</td></tr><tr><td>Semeion</td><td>Writing Recognition</td><td>256</td><td>1593</td><td>256</td><td>10</td></tr><tr><td>Sonar</td><td>Signal processing</td><td>60</td><td>208</td><td>60</td><td>2</td></tr></table></div>
+<p class="table-note">The class distribution for each dataset is provided in the project’s code repository at GitHub</p>
+</figure>
+
+<h3 id="42-evaluation">4.2 Evaluation</h3>
+<p>In order to evaluate the OFEE algorithm in respect to the other FS algorithms, one initially needs to obtain the optimal performance of the OFEE algorithm. OFEE’s performance is depended on three hyper-parameters (<em>t</em><sub>1</sub><em>, t</em><sub>2</sub><em>, t</em><sub>3</sub>). Thus, we start by examining the influence of these hyper-parameters on the OFEE algorithm within the nine canonical datasets (see Section 4.1) with the hyperparameters <em>t</em><sub>1</sub> ∈[10<em>,</em> 20<em>, ...,</em> 90], <em>t</em><sub>2</sub> ∈[0<em>.</em>1<em>,</em> 0<em>.</em>2<em>, ...,</em> 0<em>.</em>9], and <em>t</em><sub>3</sub> ∈[1<em>,</em> 2<em>,</em> 3]. Recall that <em>t</em><sub>3</sub> = 1 indicates that the union aggregator is used as only one FS algorithm needs to selected a given feature before its inclusion in the ensemble, whereas <em>t</em><sub>3</sub> = 3 is the intersection function as we considered three FS algorithms. <em>t</em><sub>3</sub> = 2 requires that two of the three FS algorithms needed to select a feature before its inclusion in the ensemble. As our goal was to demonstrate the impact of each of the hyperparameters separately and without the self-tuning element of the algorithm, we do not use the optimization layer within this first set of experiments.</p>
+<p>Line 3 of <a class="xref" href="#alg-1">Algorithm 1</a> is implemented using a search process to find the optimal value for the explainability / accuracy combination. In our experiments, we considered two different explainability measures, one based on the ensemble size and the second based on the data-stability of the ensemble. Regardless of the explainability measure selected, OFEE searches for the optimal combination. In our implementation OFEE uses a grid search method as the optimizer algorithm with 90 steps for both thresholds <em>t</em><sub>1</sub> and <em>t</em><sub>2</sub> where <em>t</em><sub>1</sub> ∈[10<em>,</em> 100] and <em>t</em><sub>2</sub> ∈[0<em>.</em>1<em>,</em> 0<em>.</em>9] (marked as <em>OFEE Best</em>) on the datasets (see Section 4.1). Similarly, the mutual information, ANOVA, and Chi<sup><a href="#ref-2">2</a></sup> algorithms which the OFEE is based on in the experiment are calculated on the datasets as well in order to evaluate the performance of the OFEE algorithms in comparison with the algorithms they are based on. For every algorithm in the ensemble, we find the optimal hyperparameters using the grid search method as well to facilitate a fair comparison. We also implemented a random search optimization approach for the OFEE algorithm where 10 (picked manually) DT models were obtained using random values of (<em>t</em><sub>1</sub><em>, t</em><sub>2</sub><em>, t</em><sub>3</sub>). This approach used a Monte- Carlo based optimization <span class="cite">[<a href="#ref-49">49</a>]</span> method in the OFEE algorithm rather than the grid-search method. As a baseline for how effective OFEE’ self-tuning process was, we ran the algorithm with the grid search as the optimization algorithm but optimized for 1 −<em>score</em> to obtain the worst-performing features set (marked as <em>OFEE Worst</em>). Finally, we computed the baseline decision tree (DT) model to be a DT without any FS algorithm performed before training. We first performed this set of experiments using the ensemble size explainability metric within OFEE and then with the ensemble stability explainability metric. In both cases and within both sets of experiment OFEE was highly successful, as we now detail.</p>
+<h4 id="421-feature-sets-size-depended-explainability">4.2.1 Feature set’s size depended explainability</h4>
+<p>We first considered the harmonic average (see (4)) between the explainability and the accuracy (the model’s performance) and considered differing values for the three hyper-parameters (<em>t</em><sub>1</sub><em>, t</em><sub>2</sub><em>, t</em><sub>3</sub>) as explained above. The results of this experiment are shown in <a class="xref" href="#fig-2">Fig. 2</a>, where the y-axis is the value of <em>t</em><sub>1</sub>, the x-axis is the value of <em>t</em><sub>2</sub> such that the values are average of <em>t</em><sub>3</sub> = [1<em>,</em> 2<em>,</em> 3]. One can notice that in general larger values for <em>t</em><sub>2</sub> as well as <em>t</em><sub>1</sub> lead to a better score, as can be seen from the positive coefficients of <em>t</em><sub>2</sub> and <em>t</em><sub>1</sub> in (5).</p>
+<p>In order to better understand the influence of <em>t</em><sub>1</sub> and <em>t</em><sub>2</sub> on the model’s performance, a fitting function was calculated to estimate the influence of <em>t</em><sub>1</sub> and <em>t</em><sub>2</sub> on the model’s score. The values used for this computation are taken from <a class="xref" href="#fig-2">Fig. 2</a>. Formally, the data shown in <a class="xref" href="#fig-2">Figure 2</a> is mapped into a three-dimensional array where the first value is <em>t</em><sub>1</sub>, the second value is <em>t</em><sub>2</sub> and the third value is the value shown in the matrix for these values of <em>(t</em><sub>1</sub><em>, t</em><sub>2</sub><em>)</em>. The fitting function is calculated using the least mean square method <span class="cite">[<a href="#ref-50">50</a>]</span>. In order to use this method, one needs to define the function family (a set of functions, differing by a set of parameters) approximating the desired function. We picked the function family</p>
+<div class="equation" id="eq-4"><img src="figures/eq-4.webp" width="284" height="28" alt="f (t1, t2) = c1 + c2t1 + c3t2 + c4t2 1 + c5t1t2 + c6t2 2," loading="lazy" decoding="async"></div>
+
+<p>to balance between the accuracy of the sampled data on the one hand and the simplicity of usage on the other hand <span class="cite">[<a href="#ref-51">51</a>]</span>. The function takes the form:</p>
+<figure id="fig-2">
+<a class="fig-zoom" href="figures/fig-2.webp" aria-label="Open the figure full size"><img src="figures/fig-2.webp" width="379" height="312" alt="Heatmap of the average between the explainability and performance metrics where the y-axis is the t1 threshold and x-axis is the t2 threshold such that the values are the average of t3 = [1, 2, 3]" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 2</strong> Heatmap of the average between the explainability and performance metrics where the y-axis is the <em>t</em><sub>1</sub> threshold and x-axis is the <em>t</em><sub>2</sub> threshold such that the values are the average of <em>t</em><sub>3</sub> = [1<em>,</em> 2<em>,</em> 3]. The results are shown as an average of the datasets in Table 1</figcaption>
+</figure>
+
+<div class="equation" id="eq-5"><img src="figures/eq-5.webp" width="325" height="46" alt="f (t1, t2) = 0.2 + 0.013t1 + 0.079t2 −0.0004t1t2 +0.196t2 2, (5)" loading="lazy" decoding="async"></div>
+
+<p>and was obtained with a coefficient of determination <em>R</em><sup><a href="#ref-2">2</a></sup> = 0<em>.</em>890. Of note, <em>R</em><sup><a href="#ref-2">2</a></sup> := 1 − <em>SS</em><sub>res</sub><em>/SS</em><sub>tot</sub> where <em>SS</em><sub>res</sub> is the residual sum of squares and <em>SS</em><sub>tot</sub> is the total sum of squares. Namely, (5) describes 89%of the variance of the data and provides an analytical approximation to the influence of <em>t</em><sub>1</sub> and <em>t</em><sub>2</sub> on the model’s score. Therefore, from (5), the <em>t</em><sub>2</sub> threshold has 608 times more linear influence on the score compared to <em>t</em><sub>1</sub>, because <em>t</em><sub>1</sub> range between 10<sup><a href="#ref-1">1</a></sup> and 10<sup><a href="#ref-2">2</a></sup>, <em>t</em><sub>2</sub> range between 0 and 10<sup>0</sup> and the coefficient of <em>t</em><sub>2</sub> is 6.08 times bigger than the coefficient of <em>t</em><sub>1</sub> in Equation (5). In addition <em>t</em><sub>2</sub> has ∼ 10<sup><a href="#ref-3">3</a></sup> times larger second order influence on the score (as the coefficient of <em>t</em><sup><a href="#ref-2">2</a></sup> <sub>2</sub> is 0<em>.</em>198 while the coefficient of <em>t</em><sup><a href="#ref-2">2</a></sup> <sub>1</sub> is less than 0<em>.</em>001). As a result, the <em>t</em><sub>2</sub> threshold has significantly more influence on the average explainability-performance score compared to the <em>t</em><sub>1</sub> threshold.</p>
+<p>These results are shown in <a class="xref" href="#fig-3">Fig. 3</a> where the x-axis is the model’s score over three metrics. Specificity, the blue (lower) bar indicates the model’s explainability score. The green (upper) bar indicates the model’s accuracy score. The black (middle) bar indicates the average of the explainability-performance, as defined in (4). The values shown are the average across all nine datasets.</p>
+<p>The performance of each FS algorithm is dependant on the dataset’s number of features (before FS), the number of samples, domain, and other properties related to the data itself. The average accuracy and explainability metrics of each FS algorithm are shown in <a class="xref" href="#fig-3">Fig. 3</a>. A full breakdown of the accuracy and explainability metrics for each dataset from <a class="xref" href="#table-1">Table 1</a> are presented in <a class="xref" href="#table-2">Table 2</a>.</p>
+<p>The <em>OFEE best</em> model obtained the best score (0.75) which is 12% improvement over the baseline DT model (0.63). Unsurprisingly, the <em>OFEE worst</em> model achieved an average score of 0<em>.</em>36 which is the worst of all eight models. This shows that the OFEE algorithm indeed optimizes the average explainability-performance score to the given dataset. In all cases, note that the accuracy of all models (in green) is typically higher than the explainability metric based on ensemble size (in blue). The models’ scores (in grey) are the harmonic mean of these two values. Note that in all cases the OFEE algorithm <em>OFEE best</em> outperforms all FS algorithms it uses by an average of 8% for all three categories, demonstrating its success.</p>
+<figure id="fig-3">
+<a class="fig-zoom" href="figures/fig-3.webp" aria-label="Open the figure full size"><img src="figures/fig-3.webp" width="952" height="382" alt="The mean explainability, accuracy, and harmonic mean of the explainability metric based on size for nine datasets datasets for OFEE compared to other FS algorithms" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 3</strong> The mean explainability, accuracy, and harmonic mean of the explainability metric based on size for nine datasets datasets for OFEE compared to other FS algorithms</figcaption>
+</figure>
+
+<figure class="table-figure" id="table-2">
+<figcaption><strong>Table 2</strong> The explainability and accuracy of each FS algorithm (with DT model) (see Fig. 3) over the nine datasets in Table 1</figcaption>
+<div class="table-scroll"><table><tr><th></th><th>OFEE Best</th><th>Mutual</th><th>Anova</th><th>Random Search</th><th>Chi2</th><th>Baseline</th></tr><tr><td>Arcene</td><td>0.80/0.76</td><td>0.60 / 0.22</td><td>0.60 / 1.00</td><td>0.65 / 0.31</td><td>0.6 / 0.83</td><td>0.75 / 0.00</td></tr><tr><td>Arrhythmia</td><td>0.72 / 0.42</td><td>0.68 / 0.38</td><td>0.69 / 0.35</td><td>0.64 / 0.41</td><td>0.61 / 0.21</td><td>0.69/0.68</td></tr><tr><td>Dexter</td><td>0.91/0.93</td><td>0.77 / 1.00</td><td>0.90 / 0.58</td><td>0.85 / 0.50</td><td>0.85 / 0.56</td><td>0.85 / 0.36</td></tr><tr><td>Lsvt-Voice</td><td>0.83/1.00</td><td>0.61 / 0.75</td><td>0.71 / 0.25</td><td>0.72 / 0.74</td><td>0.72 / 1.00</td><td>0.74 / 0.00</td></tr><tr><td>Madelom</td><td>0.81 / 0.50</td><td>0.71 / 0.51</td><td>0.80 / 0.51</td><td>0.75 / 0.91</td><td>0.81 / 0.50</td><td>0.72/0.96</td></tr><tr><td>Ovarian</td><td>0.95/1.00</td><td>0.99 / 0.33</td><td>0.99 / 0.33</td><td>0.96 / 0.65</td><td>0.99 / 0.33</td><td>0.96 / 0.33</td></tr><tr><td>Micro-Mass</td><td>0.75 / 0.57</td><td>0.66/0.71</td><td>0.73 / 0.54</td><td>0.55 / 0.52</td><td>0.68 / 0.43</td><td>0.77 / 0.60</td></tr><tr><td>Semeion</td><td>0.76/1.00</td><td>0.72 / 0.96</td><td>0.72 / 0.91</td><td>0.58 / 0.69</td><td>0.66 / 0.85</td><td>0.73 / 0.80</td></tr><tr><td>Sonar</td><td>0.76 / 0.63</td><td>0.68/0.93</td><td>0.54 / 1.00</td><td>0.66 / 0.64</td><td>0.72 / 0.64</td><td>0.75 / 0.50</td></tr></table></div>
+<p class="table-note">The results are shown as <em>e/a</em> where <em>e</em> is the normalized explainability metric and <em>a</em> is the accuracy metric. The bold text indicated the best-performing algorithm for each dataset according to the harmonic mean metric between <em>a</em> and <em>e</em></p>
+</figure>
+
+<h4 id="422-ofee-experiments-using-stability-to-quantify-explainability">4.2.2 OFEE experiments using stability to quantify explainability</h4>
+<p>We repeated all of the above experiments for the case when OFEE optimized for explainability based on stability instead of size. No other modifications were performed to the OFEE algorithm. The success of the results below stress that OFEE can optimize for any explainability metric, as we now detail.</p>
+<p>In order to evaluate the influence of different values of [<em>t</em><sub>1</sub><em>, t</em><sub>2</sub><em>, t</em><sub>3</sub>], we again ran the OFEE algorithm upon the nine datasets (see Section 4.1), without using the optimization layer in the same ranges as presented in Section 4.2. The harmonic average (see (4)) between the explainability and the accuracy of each case is shown in <a class="xref" href="#fig-4">Fig. 4</a>, where the y-axis is the value of <em>t</em><sub>1</sub>, the x-axis is the value of <em>t</em><sub>2</sub> such that the values are average of <em>t</em><sub>3</sub> = [1<em>,</em> 2<em>,</em> 3]. A fitting function over <a class="xref" href="#fig-4">Fig. 4</a> now takes the form:</p>
+<figure id="fig-4">
+<a class="fig-zoom" href="figures/fig-4.webp" aria-label="Open the figure full size"><img src="figures/fig-4.webp" width="379" height="304" alt="Heatmap of the average between the data-stability and accuracy metrics where the y-axis is the t1 threshold and x-axis is the t2 threshold such that the values are the average of t3 = [1, 2, 3]" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 4</strong> Heatmap of the average between the data-stability and accuracy metrics where the y-axis is the <em>t</em><sub>1</sub> threshold and x-axis is the <em>t</em><sub>2</sub> threshold such that the values are the average of <em>t</em><sub>3</sub> = [1<em>,</em> 2<em>,</em> 3]. The results are shown as an average of the datasets in Table 1</figcaption>
+</figure>
+
+<div class="equation" id="eq-6"><img src="figures/eq-6.webp" width="325" height="46" alt="f (t1, t2) = 0.22 + 0.003t1 + 0.049t2 −0.0007t1t2 +0.101t2 2, (6)" loading="lazy" decoding="async"></div>
+
+<p>and was obtained with a coefficient of determination <em>R</em><sup><a href="#ref-2">2</a></sup> = 0<em>.</em>821.</p>
+<p>Next, we repeated the model’s performance evaluation on the nine datasets. The results are shown in <a class="xref" href="#fig-5">Fig. 5</a> where the x-axis is the model’s score over three metrics. Specificity, the blue (lower) bar indicates the model’s data-stability (explainability) score. The green (upper) bar indicates the model’s accuracy (performance) score. The black (middle) bar indicates the average of the explainability-performance, as defined in (4). The values shown are the average across all nine datasets. OFEE is able to outperform the FS algorithms used as part of the algorithm on average by 7<em>.</em>1 percent. Furthermore, the <em>OFEE best</em> performed 19<em>.</em>2 percent better than the baseline.</p>
+<p>The results in <a class="xref" href="#fig-5">Fig. 5</a> are parallel to those within <a class="xref" href="#fig-3">Fig. 3</a> but for the new explainability metric. Similarly, a breakdown of the model’s score for the first set of experiments is presented in <a class="xref" href="#table-3">Table 3</a>. For this analysis, we used the datasets presented in <a class="xref" href="#table-1">Table 1</a>.</p>
+<h4 id="423-meta-learning-of-ofee-performance">4.2.3 Meta-learning of OFEE performance</h4>
+<p>Following the previous results, one might notice that OFEE is outperforming the FS algorithms that construct it most of the time but not always. This raises the question of is there are properties of the dataset or learning model that can predict when OFEE is outperforming the FS algorithms that constructing it. In order to tackle this challenge, we used a meta-learning approach. First, we represent each dataset using a 20-dimensional vector <span class="cite">[<a href="#ref-52">52</a>]</span>. Afterward, we computed the performance of each FS (OFEE, Mutual, Anova, Random Search, Chi<sup><a href="#ref-2">2</a></sup>) on the dataset with one of three machine learning models: decision tree, support vector machine (SVM) <span class="cite">[<a href="#ref-53">53</a>]</span>, and Lasso <span class="cite">[<a href="#ref-54">54</a>]</span>. Hence, we obtained a dataset of 27 samples and 22 features. Using this dataset, we trained a decision tree model with a maximum depth of three and cross-entropy as the splitting condition, aiming to predict if OFEE would perform better compared to the other FS algorithms using the remaining properties. The obtained model achieves an accuracy of 0.77 when trained on the entire dataset and 0<em>.</em>703 ± 0<em>.</em>048 with K-fold cross-validation with <em>k</em> = 5. As such, the model is somewhat able to predict if OFEE would perform better compared to the other FS algorithm. Thus, we computed the feature importance of the obtained meta decision tree model, obtaining that the learning algorithm used has 32% importance. The remaining 68% are divided between the other features such that the number of classes is the second largest with 4.6%. Based on these results, we fitted an SVM model with linear kernel on the data in order to obtain an equation that best separates between the two categories. We obtained that in general, OFEE better performs on mostly numerical datasets (i.e., most of the features are numerical) with small number of classes. More interestingly, OFEE outperform the FS algorithms that construct it when the average pearson value between the source and target feature in the dataset is small.</p>
+<figure id="fig-5">
+<a class="fig-zoom" href="figures/fig-5.webp" aria-label="Open the figure full size"><img src="figures/fig-5.webp" width="506" height="370" alt="The mean explainability, accuracy, and harmonic mean of the explainability metric based on stability for nine datasets datasets for OFEE compared to other FS algorithms" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 5</strong> The mean explainability, accuracy, and harmonic mean of the explainability metric based on stability for nine datasets datasets for OFEE compared to other FS algorithms</figcaption>
+</figure>
+
+<h2 id="5-conclusions-and-future-work">5 Conclusions and future work</h2>
+<p>In this paper, we introduce the OFEE algorithm which provides several significant contributions to construct XAI through feature ensembles. As OFEE is designed to explicitly considers an explainability metric as part of the process in building its ensemble, which yields better explainability. The intersection of features from several FS algorithms within OFEE is able to better find features thus reducing the number of required features in the ensemble. The result is a more explainable model while not significantly compromising on model accuracy, as shown in <a class="xref" href="#fig-3">Fig. 3</a>. In contrast to the simple feature selection algorithms OFEE is based upon, it is hyperparameter-free, eliminating any need for the user to set any values within the ML pipeline. Nonetheless, as shown in <a class="xref" href="#fig-3">Fig. 3</a>, OFEE on average performs better results than other FS algorithms, even after considering the optimal tuning for those algorithms.</p>
+<figure class="table-figure" id="table-3">
+<figcaption><strong>Table 3</strong> The data-stability (as explainability metric) and accuracy of each FS algorithm (with DT model) over the nine datasets in Table 1</figcaption>
+<div class="table-scroll"><table><tr><th></th><th>OFEE Best</th><th>Mutual</th><th>Anova</th><th>Random Search</th><th>Chi2</th><th>Baseline</th></tr><tr><td>Arcene</td><td>0.39 / 0.72</td><td>0.60 / 0.46</td><td>0.34 / 1.00</td><td>0.44 / 0.35</td><td>0.40/0.83</td><td>0.36 / 0.00</td></tr><tr><td>Arrhythmia</td><td>0.88/0.40</td><td>0.69 / 0.38</td><td>0.93 / 0.37</td><td>0.76 / 0.31</td><td>0.89 / 0.21</td><td>0.27 / 0.68</td></tr><tr><td>Dexter</td><td>0.34/0.88</td><td>0.26 / 1.00</td><td>0.35 / 0.58</td><td>0.29 / 0.44</td><td>0.27 / 0.56</td><td>0.22 / 0.36</td></tr><tr><td>Lsvt-Voice</td><td>0.28 / 1.00</td><td>0.32/0.75</td><td>0.44 / 0.25</td><td>0.18 / 0.67</td><td>0.24 / 1.00</td><td>0.27 / 0.00</td></tr><tr><td>Madelom</td><td>0.78/0.50</td><td>0.65 / 0.51</td><td>0.60 / 0.51</td><td>0.71 / 0.45</td><td>0.46 / 0.50</td><td>0.37 / 0.96</td></tr><tr><td>Ovarian</td><td>0.13/0.92</td><td>0.08 / 0.63</td><td>0.11 / 0.52</td><td>0.11 / 0.63</td><td>0.09 / 0.63</td><td>0.11 / 0.33</td></tr><tr><td>Micro-Mass</td><td>0.37 / 0.52</td><td>0.30 / 0.71</td><td>0.34 / 0.54</td><td>0.32 / 0.54</td><td>0.49/0.43</td><td>0.60 / 0.28</td></tr><tr><td>Semeion</td><td>0.45/0.82</td><td>0.37 / 0.96</td><td>0.39 / 0.91</td><td>0.36 / 0.71</td><td>0.36 / 0.85</td><td>0.30 / 0.80</td></tr><tr><td>Sonar</td><td>0.41/0.55</td><td>0.25 / 0.93</td><td>0.28 / 1.00</td><td>0.31 / 0.61</td><td>0.27 / 0.64</td><td>0.33 / 0.50</td></tr></table></div>
+<p class="table-note">The results are shown as <em>e/a</em> where <em>e</em> is the normalized data-stability metric and <em>a</em> is the accuracy metric. Bold text indicated the best performing algorithm for each dataset according to the harmonic mean metric between <em>a</em> and <em>e</em></p>
+</figure>
+
+<p>Another advantage of the OFEE algorithm is that the integrated optimization layer can be used as a black box. In this work we used the grid search method, allowing us to obtain a global optimal result for the cost despite the relatively high cost of this method. If desired, other less costly optimization methods such as the gradient descent optimization algorithm <span class="cite">[<a href="#ref-39">39</a>]</span> can be used instead as per the needs of any future dataset being considered. However, we avoid this method in this work as it may converge to a local optimum rather than to the global optimum as shown in <a class="xref" href="#fig-2">Fig. 2</a>. We evaluated the Monte-Carlo optimization approach in Section 4.2.2 using the random search approach, showing that even for a small number of iterations (10) outperforms the Chi<sup><a href="#ref-2">2</a></sup> FS algorithm.</p>
+<p>We evaluated the OFEE algorithm using the harmonic average (see (4)) between the model’s accuracy and two explainability metrics – Rudin’s <span class="cite">[<a href="#ref-29">29</a>]</span> ensemble size metric <span class="cite">[<a href="#ref-29">29</a>]</span> and the intersection over union (IOU) stability metric <span class="cite">[<a href="#ref-48">48</a>]</span>. In theory, other combinations between accuracy and explainability could be considered, including simpler metrics such as simple average between the model’s accuracy and explainability, or more complex combinations than the harmonic mean. The OFEE does not depend on the metric it receives and these can be replaced according to the user’s wish without modifying the algorithm yet obtain significantly better results as presented in Section 4.2.</p>
+<p>Moreover, one can take advantage of the OFEE algorithm to optimize for either performance or explainability. However, using only one of the metrics loses the uniqueness of the proposed approach as the optimization process may result in extreme and undesirable results. For example, optimizing only for Rudin’s <span class="cite">[<a href="#ref-29">29</a>]</span> explainability metric, feature input size, will always output only the one best-performing feature in each dataset. It is clear that such an outcome will often not produce the best-performing model. At the other extreme, optimizing for performance alone will yield an ensemble optimized for performance, but not explainability. Additionally, while we optimized for explainability based on the number of inputted features based on previous suggestions <span class="cite">[<a href="#ref-7">7</a>, <a href="#ref-29">29</a>, <a href="#ref-55">55</a>]</span>, other explainability metrics exist and as the optimization process within OFEE is general, it can be applied to other explainability metrics as well.</p>
+<p>While OFEE on average outperformed all other FS algorithms by a significant margin, we noted that the degree of its success was dependent on the specific dataset considered. For future work, one can study which dataset characteristics can best predict these differences in OFEE. Similarly, while we present results from decision tree classifiers, we did consider other ML algorithms and noted that OFEE overall did perform better than other methods there as well. Nonetheless, we did note that the ML algorithm did at times impact the degree of OFEE’s success. Consequently, we are also considering what dataset/ML combinations best predict OFEE’s success. Based on these results, researchers are encouraged to create new algorithms that optimize based on dataset features and machine learners as well.</p>
+<p><strong>Acknowledgements</strong> The authors wish to thank Roni Reznik for his valuable help in the algorithm’s implementation and experiments running.</p>
+<p><strong>Author Contributions Teddy Lazebnik:</strong> Methodology, Software, Formal analysis, Investigation, Writing - Original Draft, Writing - Review &amp; Editing, Visualization. <strong>Svetlana Bunimovich-Mendrazitsk:</strong> Conceptualization, Writing - Review &amp; Editing, Supervision, Project administration. <strong>Avi Rosenfeld:</strong> Conceptualization, Validation, Investigation, Writing - Review &amp; Editing, Supervision.</p>
+<p><strong>Funding</strong> The authors have no financial or proprietary interests in any material discussed in this article.</p>
+<p><strong>Data Availability</strong> The data used for this work is publicly available and hosted in the project’s GitHub repository https://github.com/teddy4445/OFEE/tree/main/Datasets.</p>
+<h3 id="declarations">Declarations</h3>
+<p><strong>Competing Interests</strong> The authors did not receive support from any organization for the submitted work.</p>
+<p><strong>Ethical standard</strong> The data used in this study does not require informed consent or ethical approval as the data is open accessed and generated by others.</p>
+<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Accepted 28 September 2023 · Published 1 February 2024</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>Explainable AI</li><li>Optimized feature selection</li><li>Ensemble feature selection</li><li>Machine learning</li></ul></dd></div></dl></section>
+<h2 id="references">References</h2>
+<ol class="paper-refs"><li id="ref-1">Amir O, Gal K (2013) Plan recognition and visualization in exploratory learning environments. ACM Transactions on Interactive Intelligent Systems (TiiS) 3(3):16</li>
+<li id="ref-2">Azaria A, Rabinovich Z, Goldman CV, Kraus S (2015) Strategic information disclosure to people with multiple alternatives. ACM Transactions on Intelligent Systems and Technology (TIST) 5(4):64</li>
+<li id="ref-3">Barrett S, Rosenfeld A, Kraus S, Stone P (2017) Making friends on the fly: Cooperating with new teammates. Artificial Intelligence 242:132–171</li>
+<li id="ref-4">Richardson A, Rosenfeld A (2018) A survey of interpretability and explainability in human-agent systems. XAI 2018, 137</li>
+<li id="ref-5">Jennings NR, Moreau L, Nicholson D, Ramchurn S, Roberts S, Rodden T, Rogers A (2014) Human-agent collectives. Communications of the ACM 57(12):80–88</li>
+<li id="ref-6">Keren LS, Liberzon A, Lazebnik T (2023) A computational framework for physics-informed symbolic regression with straightforward integration of domain knowledge. Scientific Reports 13:1249</li>
+<li id="ref-7">Rosenfeld A (2021) Better metrics for evaluating explainable artificial intelligence. In: AAMAS ’21: 20th international conference on autonomous agents and multiagent systems, ACM, pp 45–50</li>
+<li id="ref-8">Xiao B, Benbasat I (2007) E-commerce product recommendation agents: use, characteristics, and impact. MIS quarterly 31(1):137– 209</li>
+<li id="ref-9">Savchenko E, Lazebnik T (2023) Computer aided functional style identification and correction in modern Russian texts. Journal of Data, Information and Management 4:25–32</li>
+<li id="ref-10">Lazebnik T, Bahouth Z, Bunimovich-Mendrazitsky S, Halachmi S (2022) Predicting acute kidney injury following open partial nephrectomy treatment using sat-pruned explainable machine learning model. BMC Med Inform Decis Mak 22:133</li>
+<li id="ref-11">Rosenfeld A, Richardson A (2019) Explainability in human-agent systems. Auton Agent Multi-Agent Syst 33(6):673–705</li>
+<li id="ref-12">Bolón-Canedo V, Alonso-Betanzos A (2019) Ensembles for feature selection: a review and future trends. Inf Fusion 52:1–12</li>
+<li id="ref-13">Guyon I, Elisseeff A (2003) An introduction to variable and feature selection. J Mach Learn Res 3(Mar):1157–1182</li>
+<li id="ref-14">Liu H, Motoda H, Setiono R, Zhao Z (2010) Feature selection: An ever evolving frontier in data mining. In: Feature selection in data mining, PMLR, pp 4–13</li>
+<li id="ref-15">Linardatos P, Papastefanopoulos V, Kotsiantis S (2021) Explainable ai: a review of machine learning interpretability methods. Entropy 23(1):18</li>
+<li id="ref-16">Viola P, Wells WM III (1997) Alignment by maximization of mutual information. Int J Comput Vis 24(2):137–154</li>
+<li id="ref-17">Hoaglin DC, Welsch RE (1978) The hat matrix in regression and anova. Am Stat 32(1):17–22</li>
+<li id="ref-18">Plackett RL (1983) Karl pearson and the chi-squared test. Int Stat Rev/Revue Int Stat 59–72</li>
+<li id="ref-19">Xue Y, Tang Y, Xu X, Liang J, Neri F (2021) Multi-objective feature selection with missing data in classification. IEEE Trans Emerg Top Comput Intell</li>
+<li id="ref-20">Song X, Zhang Y, Guo Y, Sun X (2020) Variable-size cooperative coevolutionary particle swarm optimization for feature selection on high-dimensional data. IEEE Trans Evol Comput 24(5):882–895</li>
+<li id="ref-21">Ben Brahim A, Limam M (2018) Ensemble feature selection for high dimensional data: a new method and a comparative study. Adv Data Anal Classif 12(4):937–952</li>
+<li id="ref-22">Saeys Y, Abeel T, Van de Peer Y (2008) Robust feature selection using ensemble feature selection techniques. In: Daelemans W, Goethals B, Morik K (eds) Machine learning and knowledge discovery in databases, Berlin, Heidelberg, 2008. Springer, Berlin Heidelberg, pp 313–325</li>
+<li id="ref-23">Chen K, Xue B, Zhang M, Zhou F (2021) Correlation-guided updating strategy for feature selection in classification with surrogate-assisted particle swarm optimisation. IEEE Trans Evol Comput</li>
+<li id="ref-24">Netzer M, Millonig G, Osl M, Pfeifer B, Praun S, Villinger J, Vogel W, Baumgartner C (2009) A new ensemble-based algorithm for identifying breath gas marker candidates in liver disease using ion molecule reaction mass spectrometry. Bioinformatics 25(7):941– 947</li>
+<li id="ref-25">Osl M, Dreiseitl S, Cerqueira F, Netzer M, Pfeifer B, Baumgartner C (2009) Demoting redundant features to improve the discriminatory ability in cancer data. J Biomed Inform 42(4):721–725</li>
+<li id="ref-26">Saeys Y, Abeel T, Van de Peer Y (2008) Robust feature selection using ensemble feature selection techniques. In: Joint european conference on machine learning and knowledge discovery in databases, Springer, pp 313–325</li>
+<li id="ref-27">Mallipeddi R, Suganthan PN (2010) Differential evolution with ensemble of constraint handling techniques for solving cec 2010 benchmark problems. In: IEEE congress on evolutionary computation, IEEE, pp 1–8</li>
+<li id="ref-28">Lipton ZC (2018) The mythos of model interpretability: in machine learning, the concept of interpretability is both important and slippery. Queue 16(3):31–57</li>
+<li id="ref-29">Rudin C (2019) Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead. Nat Mach Intell 1(5):206–215</li>
+<li id="ref-30">Chen JY, Procci K, Boyce M, Wright J, Garcia A, Barnes M (2014) Situation awareness-based agent transparency. Technical report, Army Research Lab Aberdeen Proving Ground MD Human Research and Engineering Directorate</li>
+<li id="ref-31">Guidotti R, Monreale A, Ruggieri S, Turini F, Giannotti F, Pedreschi D (2018) A survey of methods for explaining black box models. ACM Comput Surv 51(5):93:1–93:42</li>
+<li id="ref-32">Sørmo F, Cassens J (2004) Explanation goals in case-based reasoning. In: Proceedings of the ECCBR 2004 workshops number 142-04, pp 165–174</li>
+<li id="ref-33">Sørmo F, Cassens J, Aamodt A (2005) Explanation in case-based reasoning-perspectives and goals. Artif Intell Rev 24(2):109–143</li>
+<li id="ref-34">Kononenko I (1999) Explaining classifications for individual instances. In: Proceedings of IJCAI’99. Citeseer</li>
+<li id="ref-35">Hall MA, Holmes G (2003) Benchmarking attribute selection techniques for discrete class data mining. IEEE Trans Knowl Data Eng 15(3):1437–1447</li>
+<li id="ref-36">Duan K-B, Rajapakse JC, Wang H, Azuaje F (2005) Multiple svm-rfe for gene selection in cancer classification with expression data. IEEE Trans Nanobioscience 4(3):228–234</li>
+<li id="ref-37">Wolpert DH, Macready WG (1997) No free lunch theorems for optimization. IEEE Trans Evol Comput 67</li>
+<li id="ref-38">Liu R, Liu E, Yang J, Li M, Wang F (2006) Optimizing the hyper-parameters for svm by combining evolution strategies with a grid search. Intell Control Autom 344</li>
+<li id="ref-39">Haskell BC (1944) The method of steepest descent for non-linear minimization problems. Quart Appl Math 2:258–261</li>
+<li id="ref-40">Bolón-Canedo V, Sánchez-Marono N (2014) Alonso-Betanzos A (2014) Data classification using an ensemble of filters. Neurocom-puting 135:13–20</li>
+<li id="ref-41">Pes B (2019) Ensemble feature selection for high-dimensional data: a stability analysis across multiple domains. Neural Comput &amp; Applic pp 1–23</li>
+<li id="ref-42">Seijo-Pardo B, Porto-Díaz I, Bolón-Canedo V, Alonso-Betanzos A (2017) Ensemble feature selection: homogeneous and heterogeneous approaches. Knowl-Based Syst 118:124–139</li>
+<li id="ref-43">Moreno-Sanchez PA (2021) An automated feature selection and classification pipeline to improve explainability of clinical prediction models. In: 2021 IEEE 9th international conference on healthcare informatics (ICHI), pp 527–534</li>
+<li id="ref-44">Swain PH, Hauska H (1977) The decision tree classifier: design and potential. IEEE Trans Geosci Electron 15(3):142–147</li>
+<li id="ref-45">Stiglic G, Kocbek S, Pernek I, Kokol P (2012) Comprehensive decision tree models in bioinformatics. Plos One 7(3):e33812</li>
+<li id="ref-46">Sanchez D, Batet M, Martinez S, Domingo-Ferrer J (2015) Semantic variance: an intuitive measure for ontology accuracy evaluation. Eng Appl Artif Intell 39:89–99</li>
+<li id="ref-47">Khaire UM, Dhanalakshmi R (2019) Stability of feature selection algorithm: a review. J King Saud Univ Comput Inform Sci</li>
+<li id="ref-48">Rezatofighi H, Tsoi N, Gwak K, Sageghain A, Reid I, Savarese S (2019) Generalized intersection over union: a metric and a loss for bounding box regression. roceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition</li>
+<li id="ref-49">Kudelic R (2016) Monte-carlo randomized algorithm for minimal feedback arc set problem. Appl Soft Comput 41:235–246</li>
+<li id="ref-50">Bjorck A (1996) Numerical methods for least squares problems. J Soc Ind Appl Math Mathmatic 5:497–513</li>
+<li id="ref-51">Shanock LR, Baran BE, Gentry WA, Pattison SC, Heggestad ED (2010) Polynomial regression with response surface analysis: a powerful approach for examining moderation and overcoming limitations of difference scores. J Bus Psychol 25:543–554</li>
+<li id="ref-52">Lazebnik T, Rosenfeld A (2023) FSPL: filter and embedding feature selection pipeline meta learning. Int J Appl Math Comput Sci</li>
+<li id="ref-53">Neumann J, Schnorr C, Steidl G (2005) Combined svm-based feature selection and classification. Mach Learn 61:129–150</li>
+<li id="ref-54">Muthukrishnan R, Rohini R (2016) Lasso: a feature selection technique in predictive modeling for machine learning. In: 2016 IEEE international conference on advances in computer applications (ICACA), pp 18–20</li>
+<li id="ref-55">Lazebnik T, Bunimovich-Mendrazitsky S (2023) Decision tree post-pruning without loss of accuracy using the SAT-PP algorithm with an empirical evaluation on oncology data. Data Knowl Eng 102173</li>
+</ol>
+</div>
+        
+        
+        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2024), <em>Applied Intelligence</em>, <a href="https://doi.org/10.1007/s10489-023-05069-3" target="_blank" rel="noopener">doi:10.1007/s10489-023-05069-3</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+      </article>
+    </div>
+
+    <section class="paper-related" aria-labelledby="related-title"><div class="paper-wrap"><h2 id="related-title">Related research</h2><div class="related-grid"><a class="related-card" href="/publications/fspl-meta-learning-approach-filter-embedded-feature/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2023</span><strong>FSPL: A Meta-Learning Approach for a Filter and Embedded Feature Selection Pipeline</strong><span class="related-text">International Journal of Applied Mathematics and Computer Science</span></a><a class="related-card" href="/publications/new-definition-feature-selection-stability-analysis/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2024</span><strong>A new definition for feature selection stability analysis</strong><span class="related-text">Annals of Mathematics and Artificial Intelligence</span></a><a class="related-card" href="/publications/decision-tree-post-pruning-without-loss-accuracy/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2023</span><strong>Decision tree post-pruning without loss of accuracy using the SAT-PP algorithm with an empirical evaluation on clinical data</strong><span class="related-text">Data &amp; Knowledge Engineering</span></a></div><p class="related-more"><a href="/publications.html">All publications</a></p></div></section>
+  </main>
+
+  <dialog id="cite-dialog" class="paper-dialog" aria-labelledby="cite-title">
+    <div class="dialog-head">
+      <h2 id="cite-title">Cite this paper</h2>
+      <button type="button" class="dialog-close" aria-label="Close"><i class="ri-close-line" aria-hidden="true"></i></button>
+    </div>
+    <p class="dialog-label">APA</p>
+    <pre class="cite-box" id="cite-apa">Lazebnik, T., Bunimovich-Mendrazitsky, S., &amp; Rosenfeld, A. (2024). An algorithm to optimize explainability using feature ensembles. Applied Intelligence, 54, 2248–2260. https://doi.org/10.1007/s10489-023-05069-3</pre>
+    <button type="button" class="paper-btn" data-copy="cite-apa"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy APA</span></button>
+    <p class="dialog-label">BibTeX</p>
+    <pre class="cite-box" id="cite-bib">@article{lazebnik2024algorithm,
+  title = {An algorithm to optimize explainability using feature ensembles},
+  author = {Lazebnik, Teddy and Bunimovich-Mendrazitsky, Svetlana and Rosenfeld, Avi},
+  journal = {Applied Intelligence},
+  volume = {54},
+  pages = {2248–2260},
+  year = {2024},
+  doi = {10.1007/s10489-023-05069-3}
+}</pre>
+    <button type="button" class="paper-btn" data-copy="cite-bib"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy BibTeX</span></button>
+  </dialog>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Games</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
+                  <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
+                  <li><a href="https://rl.teddylazebnik.com/">Pirate War RL Game</a></li>
+                  <li><a href="https://eh.teddylazebnik.com/">Echo Heist</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      
+      <script>
+        (function () {
+          // menu and navbar (js/main.js expects to sit at the site root)
+          var btn = document.getElementById('menu-btn'), menu = document.getElementById('mobile-menu'), nav = document.getElementById('navbar');
+          btn.addEventListener('click', function () { menu.classList.toggle('max-h-0'); menu.classList.toggle('max-h-screen'); });
+          var onScroll = function () { nav.classList.toggle('nav-scrolled', window.scrollY > 10); };
+          window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+          // cite dialog + copy buttons
+          var dialog = document.getElementById('cite-dialog');
+          document.querySelectorAll('[data-dialog]').forEach(function (b) {
+            b.addEventListener('click', function () { if (dialog.showModal) dialog.showModal(); else dialog.setAttribute('open', ''); });
+          });
+          dialog.querySelector('.dialog-close').addEventListener('click', function () { dialog.close(); });
+          dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
+          function flash(button, text) {
+            var label = button.querySelector('span'), old = label.textContent;
+            label.textContent = text; setTimeout(function () { label.textContent = old; }, 1600);
+          }
+          document.querySelectorAll('[data-copy]').forEach(function (b) {
+            b.addEventListener('click', function () {
+              var text = document.getElementById(b.getAttribute('data-copy')).textContent;
+              navigator.clipboard.writeText(text).then(function () { flash(b, 'Copied'); });
+            });
+          });
+          document.getElementById('share-btn').addEventListener('click', function () {
+            var b = this, data = { title: document.title, url: location.href.split('#')[0] };
+            if (navigator.share) { navigator.share(data).catch(function () {}); }
+            else { navigator.clipboard.writeText(data.url).then(function () { flash(b, 'Link copied'); }); }
+          });
+
+          // highlight the section being read in "On this page"
+          var links = {};
+          document.querySelectorAll('.paper-toc a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+          var heads = Array.prototype.filter.call(document.querySelectorAll('#full-text h2[id], #full-text h3[id], #full-text section[id]'), function (h) { return links[h.id]; });
+          if ('IntersectionObserver' in window && heads.length) {
+            var current = null;
+            var io = new IntersectionObserver(function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                  if (current) current.classList.remove('is-active');
+                  current = links[e.target.id]; current.classList.add('is-active');
+                }
+              });
+            }, { rootMargin: '-90px 0px -70% 0px' });
+            heads.forEach(function (h) { io.observe(h); });
+          }
+        })();
+      </script>
+   </body>
+</html>

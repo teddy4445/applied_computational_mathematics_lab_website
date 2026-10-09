@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_papers.py from paper.md + paper.json in this folder. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Pandemic spread in wartime with deep RL health care administration | ACML</title>
+      <meta name="description" content="Wars and pandemics can occur at the same time, yet how warfare affects epidemic spread is underexplored. We combined the SIR epidemic model with the…">
+      <meta name="author" content="Adi Shuchami, Teddy Lazebnik">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/publications/spatio-temporal-sir-model-pandemic-spread-during/">
+      <meta name="citation_title" content="Spatio-Temporal SIR Model of Pandemic Spread During Warfare with Optimal Dual-use Health Care System Administration using Deep Reinforcement Learning">
+      <meta name="citation_author" content="Adi Shuchami">
+      <meta name="citation_author" content="Teddy Lazebnik">
+      <meta name="citation_publication_date" content="2025">
+      <meta name="citation_journal_title" content="Disaster Medicine and Public Health Preparedness">
+      <meta name="citation_doi" content="10.1017/dmp.2025.10062">
+      <meta name="citation_pdf_url" content="https://teddylazebnik.com/files/pandemic_war.pdf">
+      <meta name="citation_abstract_html_url" content="https://acml.teddylazebnik.com/publications/spatio-temporal-sir-model-pandemic-spread-during/">
+      <meta name="citation_fulltext_html_url" content="https://acml.teddylazebnik.com/publications/spatio-temporal-sir-model-pandemic-spread-during/">
+      <meta name="citation_keywords" content="agent-based simulation; reinforcement learning; resource allocation task; spatio- temporal SIR model; Lanchester model Corresponding author: Teddy Lazebnik">
+      <meta name="citation_language" content="en">
+      <meta property="og:type" content="article">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Pandemic spread in wartime with deep RL health care administration">
+      <meta property="og:description" content="Wars and pandemics can occur at the same time, yet how warfare affects epidemic spread is underexplored. We combined the SIR epidemic model with the…">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/publications/spatio-temporal-sir-model-pandemic-spread-during/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/publications/spatio-temporal-sir-model-pandemic-spread-during/figures/share-fig-1.jpg">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Pandemic spread in wartime with deep RL health care administration">
+      <meta name="twitter:description" content="Wars and pandemics can occur at the same time, yet how warfare affects epidemic spread is underexplored. We combined the SIR epidemic model with the…">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/publications/spatio-temporal-sir-model-pandemic-spread-during/figures/share-fig-1.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "Spatio-Temporal SIR Model of Pandemic Spread During Warfare with Optimal Dual-use Health Care System…",
+  "name": "Spatio-Temporal SIR Model of Pandemic Spread During Warfare with Optimal Dual-use Health Care System Administration using Deep Reinforcement Learning",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Adi Shuchami"
+    },
+    {
+      "@type": "Person",
+      "name": "Teddy Lazebnik"
+    }
+  ],
+  "datePublished": "2025",
+  "url": "https://acml.teddylazebnik.com/publications/spatio-temporal-sir-model-pandemic-spread-during/",
+  "mainEntityOfPage": "https://acml.teddylazebnik.com/publications/spatio-temporal-sir-model-pandemic-spread-during/",
+  "abstract": "Objectives: Large-scale crises, including wars and pandemics, have repeatedly shaped human history, and their simultaneous occurrence presents profound challenges to societies. Understanding the dynamics of epidemic spread during warfare is essential for developing effective containment strategies in complex conflict zones. While research has explored epidemic models in various settings, the impact of warfare on epidemic dynamics remains underexplored. Methods: We proposed a novel mathematical model that integrates the epidemiological SIR (susceptible-infected-recovered) model with the war dynamics Lanchester model to explore the dual influence of war and pandemic on a population’s mortality. Moreover, we consider a dual-use military and civil health care system that aims to reduce the overall mortality rate, which can use different administration policies such as prioritizing soldiers over civilians. Using an agent-based simulation to generate in silico data, we trained a deep reinforcement learning model based on the deep Q-network algorithm for health care administration policy and conducted an intensive investigation on its performance.Results: Our results show that a pandemic during war conduces chaotic dynamics where the health care system should either prioritize war-injured soldiers or pandemic-infected civilians based on the immediate amount of mortality from each option, ignoring long-term objectives. Conclusions: Our findings highlight the importance of integrating conflict-related factors into epidemic modeling to enhance preparedness and response strategies in conflict-affected areas.",
+  "description": "Wars and pandemics can occur at the same time, yet how warfare affects epidemic spread is underexplored. We combined the SIR epidemic model with the…",
+  "image": "https://acml.teddylazebnik.com/publications/spatio-temporal-sir-model-pandemic-spread-during/figures/share-fig-1.jpg",
+  "keywords": "agent-based simulation, reinforcement learning, resource allocation task, spatio- temporal SIR model, Lanchester model Corresponding author: Teddy Lazebnik",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "DOI",
+    "value": "10.1017/dmp.2025.10062"
+  },
+  "sameAs": "https://doi.org/10.1017/dmp.2025.10062",
+  "isPartOf": {
+    "@type": "Periodical",
+    "name": "Disaster Medicine and Public Health Preparedness"
+  },
+  "about": "Biomathematics",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "encoding": {
+    "@type": "MediaObject",
+    "contentUrl": "https://teddylazebnik.com/files/pandemic_war.pdf",
+    "encodingFormat": "application/pdf"
+  }
+}
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/paper.css" rel="stylesheet">
+      
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="paper-page">
+    <header class="paper-hero">
+      <div class="paper-wrap">
+        <nav class="paper-crumbs" aria-label="Breadcrumb">
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Biomathematics</span>
+        </nav>
+        <p class="paper-kicker"><span><em>Disaster Medicine and Public Health Preparedness</em> · 2025</span></p>
+        <h1 class="paper-title is-long">Spatio-Temporal SIR Model of Pandemic Spread During Warfare with Optimal Dual-use Health Care System Administration using Deep Reinforcement Learning</h1>
+        <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Adi Shuchami</a></span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span></p>
+        <details class="paper-affils"><summary>Affiliations</summary><ol><li value="1">Department of Mathematics, Ariel University, Ariel, Israel and</li><li value="2">Department of Cancer Biology, Cancer Institute, University College London, London, UK</li></ol></details>
+        <div class="paper-actions">
+          <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/pandemic_war.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
+          <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
+          
+          <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
+          <a class="paper-btn" href="https://doi.org/10.1017/dmp.2025.10062" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
+          <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
+        </div>
+        <div class="lab-authors"><span class="lab-authors-label">ACML authors</span><a class="lab-chip" href="/team.html"><img src="/img/lab/adi.webp" alt="" width="32" height="32" loading="lazy"><span><strong>Adi Shuchami</strong><small>Alumni</small></span></a><a class="lab-chip" href="/team.html"><img src="/img/lab/teddy.webp" alt="" width="32" height="32" loading="lazy"><span><strong>Teddy Lazebnik</strong><small>PI</small></span></a></div>
+      </div>
+    </header>
+
+    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Wars and pandemics can occur at the same time, yet how warfare affects epidemic spread is underexplored. We combined the SIR epidemic model with the Lanchester model of war dynamics and added a health care system serving both soldiers and civilians. Using agent-based simulation data, we trained a deep reinforcement learning model to choose health care policies, and found chaotic dynamics in which the best choice depends on which option causes more immediate deaths.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>We integrated the SIR (susceptible-infected-recovered) epidemic model with the Lanchester war dynamics model to study their combined effect on mortality.</li><li>A deep Q-network reinforcement learning model was trained on agent-based simulation data to set dual-use military and civil health care policy.</li><li>A pandemic during war leads to chaotic dynamics, where care should prioritize soldiers or civilians based on immediate mortality, ignoring long-term objectives.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1768" height="513" alt="Figure 1. A schematic view of the study’s design."></a><figcaption><strong>Figure 1.</strong> A schematic view of the study’s design. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+
+    <div class="paper-wrap paper-layout">
+      <aside class="paper-aside">
+        <nav class="paper-toc" aria-label="On this page">
+          <p class="aside-title">On this page</p>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#related-work">Related Work</a></li>
+<li><a href="#pandemic-during-war">Pandemic During War</a></li>
+<li><a href="#spatio-temporal-pandemic-modeling">Spatio-temporal Pandemic Modeling</a></li>
+<li><a href="#model-definition">Model Definition</a></li>
+<li><a href="#spatial-graph-representation">Spatial graph representation</a></li>
+<li><a href="#pandemic-spread-dynamics">Pandemic spread dynamics</a></li>
+<li><a href="#hospitalization-dynamics">Hospitalization dynamics</a></li>
+<li><a href="#war-dynamics">War dynamics</a></li>
+<li><a href="#assembling-the-components-into-a-single-framework">Assembling the components into a single framework</a></li>
+<li><a href="#computer-simulation">Computer Simulation</a></li>
+<li><a href="#system-solver-using-agent-based-simulation">System Solver Using Agent-based Simulation</a></li>
+<li><a href="#patient-administration-policy-optimization">Patient Administration Policy Optimization</a></li>
+<li><a href="#evaluation">Evaluation</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </nav>
+        <div class="paper-info">
+          <p class="aside-title">Article information</p>
+          <dl><div><dt>Journal</dt><dd>Disaster Medicine and Public Health Preparedness</dd></div><div><dt>Year</dt><dd>2025</dd></div><div><dt>DOI</dt><dd><a href="https://doi.org/10.1017/dmp.2025.10062" target="_blank" rel="noopener">10.1017/dmp.2025.10062</a></dd></div></dl>
+        </div>
+      </aside>
+
+      <article class="paper-body" id="full-text">
+        <details class="paper-toc-mobile">
+          <summary>On this page</summary>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#related-work">Related Work</a></li>
+<li><a href="#pandemic-during-war">Pandemic During War</a></li>
+<li><a href="#spatio-temporal-pandemic-modeling">Spatio-temporal Pandemic Modeling</a></li>
+<li><a href="#model-definition">Model Definition</a></li>
+<li><a href="#spatial-graph-representation">Spatial graph representation</a></li>
+<li><a href="#pandemic-spread-dynamics">Pandemic spread dynamics</a></li>
+<li><a href="#hospitalization-dynamics">Hospitalization dynamics</a></li>
+<li><a href="#war-dynamics">War dynamics</a></li>
+<li><a href="#assembling-the-components-into-a-single-framework">Assembling the components into a single framework</a></li>
+<li><a href="#computer-simulation">Computer Simulation</a></li>
+<li><a href="#system-solver-using-agent-based-simulation">System Solver Using Agent-based Simulation</a></li>
+<li><a href="#patient-administration-policy-optimization">Patient Administration Policy Optimization</a></li>
+<li><a href="#evaluation">Evaluation</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </details>
+        <section id="abstract" class="paper-abstract">
+          <h2>Abstract</h2>
+          <p>Objectives: Large-scale crises, including wars and pandemics, have repeatedly shaped human history, and their simultaneous occurrence presents profound challenges to societies. Understanding the dynamics of epidemic spread during warfare is essential for developing effective containment strategies in complex conflict zones. While research has explored epidemic models in various settings, the impact of warfare on epidemic dynamics remains underexplored. Methods: We proposed a novel mathematical model that integrates the epidemiological SIR (susceptible-infected-recovered) model with the war dynamics Lanchester model to explore the dual influence of war and pandemic on a population’s mortality. Moreover, we consider a dual-use military and civil health care system that aims to reduce the overall mortality rate, which can use different administration policies such as prioritizing soldiers over civilians. Using an agent-based simulation to generate in silico data, we trained a deep reinforcement learning model based on the deep Q-network algorithm for health care administration policy and conducted an intensive investigation on its performance.Results: Our results show that a pandemic during war conduces chaotic dynamics where the health care system should either prioritize war-injured soldiers or pandemic-infected civilians based on the immediate amount of mortality from each option, ignoring long-term objectives. Conclusions: Our findings highlight the importance of integrating conflict-related factors into epidemic modeling to enhance preparedness and response strategies in conflict-affected areas.</p>
+        </section>
+        
+<div class="paper-text">
+<p>Throughout history, pandemics have significantly influenced societal structures, economic stability, political systems, and impacted mortality rates.<sup><a href="#ref-17">17</a></sup> In recent decades, the ongoing threat of emerging and reemerging pandemics and epidemics has posed a significant challenge to humanity.<sup><a href="#ref-11">11</a></sup> In a similar yet distinct manner, the overall number of wars and conflicts worldwide has shown a concerning increase recently, following a relatively peaceful period after World War II.<sup><a href="#ref-18">18</a>,<a href="#ref-19">19</a></sup></p>
+<p>Pandemics and military operations have long been interlinked due to the sociological and operational dynamics associated with armies and warfare.<sup><a href="#ref-22">22</a>,<a href="#ref-30">30</a></sup> The levels of hygiene, self-care, and immune system stress in individuals provided fertile conditions for the outbreak of diseases within armies and the communities interacting with them.<sup><a href="#ref-5">5</a></sup> Moreover, the density of military bases and army deployments facilitates the spread of pathogens within the population.<sup><a href="#ref-5">5</a></sup> Notable examples include the 1917-1918 Spanish Influenza, which affected populations worldwide and particularly impacted the US military during World War I, and the COVID-19 outbreak in Ukraine during the Russia-Ukraine war starting in 2022.<sup><a href="#ref-6">6</a>,<a href="#ref-23">23</a></sup></p>
+<p>The intersection of pandemics and military operations has placed economic and health care systems worldwide under considerable strain.<sup><a href="#ref-44">44</a>,<a href="#ref-80">80</a>,<a href="#ref-93">93</a></sup> To prepare for such events, researchers frequently design policies and plans for a wide range of scenarios using mathematical models.<sup><a href="#ref-26">26</a>,<a href="#ref-27">27</a>,<a href="#ref-48">48</a>,<a href="#ref-54">54</a>,<a href="#ref-64">64</a></sup> Models related to warfare are often less accessible to the general public and, consequently, can be difficult to locate in the literature.<sup><a href="#ref-76">76</a></sup> Unlike, numerous models have been proposed to simulate the spread of pandemics.<sup><a href="#ref-50">50</a>,<a href="#ref-71">71</a>,<a href="#ref-87">87</a></sup> For example,<sup><a href="#ref-60">60</a></sup> proposed an SIR (Susceptible-Infected-Recovered) based disease spread model that incorporates multiple transmission pathways, including direct contact and vectors. This model effectively captures the dynamics of pandemic spread across large populations,<sup><a href="#ref-14">14</a></sup> and introduced an extended SIR model that differentiates between symptomatic and asymptomatic cases of COVID-19, assigning distinct infection paths for each. In this model, susceptible individuals can become asymptomatic immediately upon infection, while those who develop symptoms first enter an exposed stage. Yan et al. (2018) proposed an extended spatio-temporal SIR model for the spread of sexually transmitted diseases on a bipartite random contact network.<sup><a href="#ref-94">94</a></sup> Building on top of these modeling efforts, a growing body of work has focused on the capacity of health care systems to support the treatment of infected individuals during large-scale pandemics.<sup><a href="#ref-13">13</a></sup> For instance, Kozyreff et al. (2021) utilized an SIR model incorporating the dynamics of hospitalized patients, assumed to be proportional to the number of infected individuals, with considerations for delay and exponential decay during their stay in health care centers.<sup><a href="#ref-42">42</a></sup> Notably, the hospitalized population does not affect other epidemiological states, which is crucial for accurately modeling health care center dynamics. This model was applied to COVID-19 pandemic data from the first 3 months in 5 different regions: Belgium, France, Italy, Switzerland, and New York City (US). Similarly, Huang et al. (2021) introduced a risk-stratified SIR- HCD model that incorporates variables representing the dynamics of low- and high-contact subpopulations, with shared parameters to manage their respective rates over time.<sup><a href="#ref-35">35</a></sup> The authors tested their model using data on daily reported hospitalizations and cumulative mortality from COVID-19 in Harris County, TX.</p>
+<p>Despite the extensive epidemiological-mathematical research, a model that captures the dynamics of a pandemic during wartime and its influence on the health care system’s ability to provide necessary services has yet to be developed. This gap leaves policymakers without crucial insights for planning in such scenarios. Hence, in this work, we propose a novel spatio-temporal extended SIR-based model that includes civilian and military health care systems with asymmetric administration policies to study the effect of pandemics on warfare performance from the health care perspective. In addition, we provide an agent-based simulation implementation of the proposed model with a reinforcement learning model that is able to approximate optimal patient administration policies for the entire health care system, including both war and civilian zones to reduce overall mortality (from both war and pandemic), operating as an applicative tool to investigate efficient administration polices with different properties without the need to manually search for them. A schematic view of the study’s structure is presented in <a class="xref" href="#fig-1">Figure 1</a>.</p>
+<p>First, we formalize the model by introducing 4 key components: spatial movement dynamics, pandemic spread dynamics, hospitalization dynamics, and warfare dynamics. Next, we utilize agent-based simulation to solve the model and optimize patient administration policies using reinforcement learning. Finally, we establish a realistic setup to evaluate the pandemic- and war-related deaths, analyzing the impact of various patient administration strategies on these outcomes.</p>
+<p>The remaining paper is organized as follows: Section 2 presents the related work for pandemic spread during wars and spatio-temporal modeling practices for pandemic spread. Section 3 describes the proposed model’s mathematical formalization. Section 4 outlines the implementation of the proposed model as a computer simulator and optimal patient administration using a reinforcement learning model. Section 5 provides a comprehensive evaluation of the proposed model. Finally, Section 6 provides a conclusion on the possible applications and limitations followed by suggestions for future work.</p>
+<h2 id="related-work">Related Work</h2>
+<p>Warfare has been studied from various perspectives, including sociological,<sup><a href="#ref-45">45</a></sup> political,<sup><a href="#ref-8">8</a></sup> and economic,<sup><a href="#ref-56">56</a></sup> among others. In addition, over the last century, advancements in biology, medicine, and engineering have greatly enhanced our epidemiological understanding.<sup><a href="#ref-68">68</a></sup> As such, the relationship between the 2 started to emerge in the literature and a growing body of work captured the interplay between warfare and pandemics. In this section, we review the unique relationship between warfare and pandemic spread. Furthermore, we present recent modeling practices for pandemic spread which will be the mathematical base for our model.</p>
+<h2 id="pandemic-during-war">Pandemic During War</h2>
+<p>In the context of large-scale pandemics and wars, one can detect 2 central and relatively recent global-scale events - the Spanish influenza pandemic of 1917-1918 during the First World War<sup><a href="#ref-23">23</a></sup> and the COVID-19 pandemic during the Russian-Ukrainian war.<sup><a href="#ref-6">6</a></sup></p>
+<p>Following the sequence of events, we first examine the Spanish influenza pandemic, which stands out as one of the deadliest pandemics in recent history.<sup><a href="#ref-21">21</a></sup> Estimates place the global death toll between 21.5 million and 39.3 million, with some scholars suggesting even higher numbers, though these may be exaggerated.<sup><a href="#ref-67">67</a></sup> The initial wave of the pandemic, occurring in the spring of 1918, was relatively mild with few fatalities. However, a drastic change occurred in the summer of the same year when the virus underwent a mutation, becoming highly virulent and leading to millions of deaths worldwide in October and November.<sup><a href="#ref-7">7</a></sup> A less severe third wave followed in early 1919, while the fourth and final wave extended into the initial months of 1920. The demographic most affected comprised young, healthy adults aged 15-44. Mortality rates varied across countries and continents, with estimates in Europe ranging from 1.1%-1.2%.<sup><a href="#ref-24">24</a></sup> Importantly, Oxford et al. proposed that the pandemic originated at the British military base in Étaples, located in northern France in the Pas-de-Calais department.<sup><a href="#ref-65">65</a></sup> Significant during World War I, this base housed 100 000 soldiers within a 12 square kilometer area. Adjacent to the base were coastal marshes frequented by migratory birds. In the vicinity, numerous farms kept pigs, ducks, and geese for the soldiers’ consumption, along with horses used for transportation. The convergence of dense soldier populations, various livestock, and the extensive use of 24 types of war gases, several of which were mutagenic, could potentially explain the initial outbreak of the epidemic between December 1916 and March 1917. Moreover, Erkoreka et al. suggested that the Spanish influenza was exported by boat to the US from Tanger and the Spanish colonies in the north of Africa, highlighting the influence of military personnel movement as a vector of pandemic spread.<sup><a href="#ref-23">23</a></sup></p>
+<p>The Russian-Ukraine war began in February 2022, during the third year of the COVID-19 pandemic. By that time, the pandemic, caused by the SARS-CoV-2 pathogen, had resulted in over 6 million deaths.<sup><a href="#ref-15">15</a></sup> Before the pandemic, Ukraine’s health care system had many shortcomings, making it difficult to detect and control the spread of COVID-19.<sup><a href="#ref-15">15</a></sup> These challenges included a lack of essential health care equipment, inadequate personal protective gear, a shortage of skilled health care workers, limited availability of infectious disease departments across different regions of Ukraine, insufficient surveillance measures, and a scarcity of authorized testing laboratories. These issues indicate that Ukraine was already struggling with the COVID-19 crisis, a situation made worse by the ongoing conflict.<sup><a href="#ref-15">15</a></sup> Due to the Russian invasion of Ukraine, approximately 5 million Ukrainians immigrated to neighboring European countries, such as Poland, Romania, Russia, Hungary, Moldova, Slovakia, and Belarus. The invasion also caused population mixing inside of the country as people relocated from war zones.<sup><a href="#ref-16">16</a></sup> During the invasion, the Ukrainian community experienced major disruptions in primary health care services and faced challenges accessing basic preventive medicine.<sup><a href="#ref-66">66</a></sup> Additionally, COVID-19 vaccination efforts and routine immunizations nearly ceased nationwide. The rise in COVID-19 cases in Ukraine caused concern for the EU. The large influx of refugees—the largest since World War II—posed a risk of spreading the virus beyond Ukraine’s borders, potentially triggering new outbreaks across Europe.<sup><a href="#ref-70">70</a></sup></p>
+<figure id="fig-1">
+<a class="fig-zoom" href="figures/fig-1.webp" aria-label="Open the figure full size"><img src="figures/fig-1.webp" width="678" height="197" alt="A schematic view of the study’s design" loading="lazy" decoding="async"></a>
+<figcaption><strong>Figure 1.</strong> A schematic view of the study’s design.</figcaption>
+</figure>
+
+<h2 id="spatio-temporal-pandemic-modeling">Spatio-temporal Pandemic Modeling</h2>
+<p>Pandemics can arise from various sources, including sexually transmitted diseases,<sup><a href="#ref-69">69</a></sup> socially influenced behavior,<sup><a href="#ref-20">20</a></sup> and airborne diseases.<sup><a href="#ref-25">25</a></sup> Airborne pandemics have raised the most concern due to their high infection rates and the wide population they can affect without restriction. This category of airborne pandemics includes various pathogens such as influenza, Lassa virus, COVID-19, and Nipah virus, among others.<sup><a href="#ref-88">88</a></sup></p>
+<p>Modeling pandemic spread and control is a complex interdisciplinary endeavor that requires understanding various domains like mathematics, biology, medicine, sociology, and economics; all of which influence or are influenced by pandemics and pandemic intervention policies (PIPs).<sup><a href="#ref-49">49</a>,<a href="#ref-72">72</a></sup> These models can generally be categorized into statistical models and mechanistic models. Statistical models rely on data-driven approaches without specific assumptions on dynamics, often using statistical and machine learning methods for forecasting some properties related to the pandemic.<sup><a href="#ref-36">36</a>,<a href="#ref-74">74</a></sup> On the other hand, mechanistic models, commonly exemplified by the Susceptible-Infected-Recovered (SIR) model, operate based on theoretical principles to explain pandemic dynamics.<sup><a href="#ref-28">28</a></sup> For instance, the SIR model assumes that the population is divided into susceptible, infected, and recovered individuals such that each infected individual infected on average β susceptible individuals and that infected individuals recover and become recovered at a rate γ .<sup><a href="#ref-39">39</a></sup> The SIR model’s simplicity often falls short in capturing real-world pandemic dynamics,<sup><a href="#ref-61">61</a></sup> leading to the development of numerous extensions and adaptations.<sup><a href="#ref-1">1</a>,<a href="#ref-91">91</a></sup> These extensions are typically divided into spatial and temporal categories. Spatial extensions are represented either by norm-based or graph-based models, addressing the well-mixed population assumption used in the SIR model. Temporal extensions introduce more types of interactions and properties for individuals in the population, which play a role in the spread of the pandemic.<sup><a href="#ref-46">46</a></sup></p>
+<p>Recently, several spatio-temporal extended SIR-based models have been proposed to better capture the spread of the COVID-19 pandemic.<sup><a href="#ref-9">9</a>,<a href="#ref-37">37</a>,<a href="#ref-38">38</a>,<a href="#ref-47">47</a>,<a href="#ref-52">52</a></sup> For instance, Viguerie et al. proposed a partial differential equation (PDE) with the SEIRD (E - exposed, D - dead) model based spatio-temporal.<sup><a href="#ref-86">86</a></sup> Different diffusion parameters are also factored in for various population groups with spatial movement across a large population modeled using an inhomogeneous random walk, converging to a second-order differential operator in the limit. The authors applied this model specifically to the COVID-19 outbreak in Lombardy, Italy, focusing on the initial 6 months of the pandemic. Goel and Sharma (2021) introduced a location graph-based SIR model where each graph node represents a location inhabited by a subset of the population.<sup><a href="#ref-32">32</a></sup> In their model, susceptible individuals can become infected either through contact with infectious individuals at the same node (local infection) or through infectious individuals from neighboring nodes who visit their node (global infection). The authors also factored in social connectivity, which represents the average number of individuals moving between nodes, thus facilitating global infection. In our model, we follow this trend, proposing a graph-based extended SIR model for the pandemic spread.</p>
+<p>Moreover, multiple models also take into consideration the complex relationship between health care systems and pandemics.<sup><a href="#ref-34">34</a>,<a href="#ref-90">90</a></sup> For example, Fox et al. (2022) used a stochastic extended SIRD model with symptomatic infectious, asymptomatic infectious, and hospitalized individuals such that the model’s parameters are binomial distributed rather than constant.<sup><a href="#ref-31">31</a></sup> The authors used data from COVID-19 in Texas (US) to predict the number of hospitalized individuals over time due to the pandemic. Similarly, Li and Zhang (2017) integrated the average quality of treatment into the SIR model to capture the pandemic spread with different levels of health care systems.<sup><a href="#ref-55">55</a></sup> In our model, we also include a health care system, extending it to handle both pandemic-related patients and soldiers with war injuries.</p>
+<h2 id="model-definition">Model Definition</h2>
+<p>During times of war, countries are divided into civilian and war zones,<sup><a href="#ref-85">85</a></sup> each hosting distinct yet interconnected populations of civilians and soldiers. In civilian zones, individuals engage in various activities such as commuting for work, accessing social services, or leisure purposes like tourism.<sup><a href="#ref-29">29</a></sup> Similarly, war zones consist of multiple locations where soldiers are deployed and often commute between, either for operational duties or to civilian areas for rest and recuperation. The effectiveness of soldiers in fulfilling their duties in war zones is critically dependent on adequate personnel availability.<sup><a href="#ref-78">78</a></sup> Injured soldiers in war zones are evacuated to health care centers—either military or civilian—where the proximity of the facility to the site of injury significantly impacts the quality of care and recovery outcomes.<sup><a href="#ref-58">58</a>,<a href="#ref-62">62</a></sup> Compounding the challenges of war, pandemics can emerge, affecting both soldiers and civilians. Infected individuals may present as asymptomatic or symptomatic, with the latter at greater risk of death without timely medical intervention.<sup><a href="#ref-33">33</a></sup> To improve survival rates, symptomatic individuals often require hospitalization, emphasizing the importance of accessible health care during such crises.<sup><a href="#ref-53">53</a>,<a href="#ref-92">92</a></sup> <a class="xref" href="#fig-2">Figure 2</a> presents a schematic view of the pandemic spread with a dual health care system during a war model.</p>
+<figure id="fig-2">
+<a class="fig-zoom" href="figures/fig-2.webp" aria-label="Open the figure full size"><img src="figures/fig-2.webp" width="543" height="311" alt="A schematic view of the pandemic spread with a dual health care system during war model" loading="lazy" decoding="async"></a>
+<figcaption><strong>Figure 2.</strong> A schematic view of the pandemic spread with a dual health care system during war model. The dynamics can be divided into 4 interconnected components: pandemic spread (SEI<sup>a</sup>I<sup>s</sup>RD model), war-related death and wounded soldiers (Lanchester model), commute between locations (graph-based model), and health care system (functional model).</figcaption>
+</figure>
+
+<p>To capture the epidemiological dynamics during warfare involving civilian and military populations within a dual-use health care system, we propose a spatio-temporal framework that integrates an extended SIR model for epidemiological dynamics and the Lanchester model for warfare dynamics. For simplicity, we divide the proposed model into 4 components: spatial movement, pandemic spread, hospitalization, and warfare. Based on these components, we assemble a single mathematical framework.</p>
+<p>Formally, we define the spatio-temporal model that captures these dynamics as follows. A model, M , is defined by the tuple M ≔ G,P,H,W ( ) such that G is the graph of locations and possible commute between them, P is the pandemic spread dynamics, H is the association of health care centers with locations and their treatment dynamics, and W is the war-related dynamics. Below, we define each component independently and then combine them into a single framework.</p>
+<h2 id="spatial-graph-representation">Spatial graph representation</h2>
+<p>Let us consider a graph G≔ V<sub>w</sub>,V<sub>c</sub>,E ( ) where V<sub>w</sub> is the set of war zone locations, V<sub>c</sub> is the set of civilian locations, and E is the set of possible commutes between all locations, such that E ⊆ V<sub>w</sub>∪V<sub>c</sub> ( ) × (V<sub>w</sub>∪V<sub>c</sub> ) × ℝ<sup><a href="#ref-2">2</a></sup>. Each location contains 2 sub-populations - a civilian and a military. In terms of the pandemic spread, the populations are well-mixed<sup><a href="#ref-1">1</a></sup> and heterogeneous. For the commute dynamics, each edge e ≔ i,j.c<sub>w</sub>,c<sub>c</sub> ( ) ∈E between nodes i and j, has 2 weights c<sub>w</sub> and c<sub>c</sub> indicating the average commute between the 2 locations for military and civilian sub-populations, respectively. In practice, c<sub>w</sub> and c<sub>c</sub> are time-dependent, however, for simplicity, we use the average value over time.</p>
+<h2 id="pandemic-spread-dynamics">Pandemic spread dynamics</h2>
+<p>We adopted the SEI<sub>a</sub>I<sub>s</sub>RD model.<sup><a href="#ref-12">12</a>,<a href="#ref-51">51</a>,<a href="#ref-63">63</a></sup> Namely, the model considers a constant population with a fixed number of individuals N. For simplicity, and given the short time horizon of interest, we abstract from population growth. Each individual belongs to 1 of the 6 groups: susceptible S ( ), exposed E, asymptomatic infected ( ), symptomatic infected I<sup>s</sup> I<sup>a</sup> ( ), recovered R ( ), and dead D ( ) such that N = S + E + I<sup>a</sup> + I<sup>s</sup> + R + D . Individuals in the first group have no immunity and are susceptible to infection. When an individual in the susceptible group (S) is exposed to the pathogen, the individual is transferred to the exposed state (E) at rate β. The individual stays in the exposed state for ψ time steps in time and then transforms to either the asymptomatic infected group (I<sup>a</sup>) or symptomatic infected group (I<sup>s</sup>) with rate ρand 1−ρ, respectively. The individual stays in the symptomatic infected group on average γ<sub>s</sub> time steps, after which the individual is transferred to the recovered group (R) or the dead group D ( ) with rate λ and 1−λ, respectively. All asymptomatic infected individuals stay in the infected I<sup>a</sup> group on average γ<sub>a</sub> time steps, after which the individual is transferred to the recovered group R ( ). The recovered are again healthy, no longer contagious, and immune from future infection. The epidemiological dynamics are formally described below using a system of ordinary differential equations:</p>
+<div class="equation" id="eq-1"><img src="figures/eq-1.webp" width="379" height="201" alt=") × dS t( ) dt = −βS t( ) Is t( )+Ia t( ) ( ), dE t( ) dt = βS t( ) Is t( )+Ia t( ) ( )−ψE t( ), dIs t( ) dt = ρψE t( )−γsIs t( ), dIa t( ) dt = 1−ρ ( )ψE t( )−γaIa t( ), dR t( ) dt = γaIa t( )+λγsIs t( ), dD t( ) dt = 1−λ ( )γsIs t( ). (1)" loading="lazy" decoding="async"></div>
+
+<figure id="fig-3">
+<a class="fig-zoom" href="figures/fig-3.webp" aria-label="Open the figure full size"><img src="figures/fig-3.webp" width="562" height="170" alt="A schematic view of the pandemic spread model presenting the epidemiological states and the transformations between them" loading="lazy" decoding="async"></a>
+<figcaption><strong>Figure 3.</strong> A schematic view of the pandemic spread model presenting the epidemiological states and the transformations between them.</figcaption>
+</figure>
+
+<p><a class="xref" href="#fig-3">Figure 3</a> presents a schematic view of the pandemic spread models, divided into its epidemiological states.</p>
+<h2 id="hospitalization-dynamics">Hospitalization dynamics</h2>
+<p>The health care system is based on a set of health care service provider locations. Each health care service provider’s location is able to treat a number of individuals (μ<sub>s</sub>) while providing the best clinical treatment possible which reduces the probability of dying due to the pandemic or war injuries (λ,ε) in a rate ζ s. However, once the number of individuals administrated to the health care center extends μ<sub>s</sub>, the treatment performance is linearly decreasing until μ<sub>f</sub> individuals are administrated to the health care center where the treatment performance is reaching ζ f. In other words, Ψ : ℕ→ 0,1 [ ], indicates the reduction in the probability of dying due to the pandemic (λ) as a function of the number of administrated individuals:</p>
+<div class="equation" id="eq-2"><img src="figures/eq-2.webp" width="282" height="79" alt="Ψ x ( )≔ ζ sif x &lt; μs ζ s −ζ f = ζ s μf −μs x −ζ s ( )if μs ≤x ≤μf 0if x &gt; μf &gt; &gt; &gt; &lt; &gt; &gt; &gt; : (2)" loading="lazy" decoding="async"></div>
+
+<p><a class="xref" href="#fig-4">Figure 4</a> presents a schematic view of the hospitalization performance as a function of the number of administrated individuals.</p>
+<figure id="fig-4">
+<a class="fig-zoom" href="figures/fig-4.webp" aria-label="Open the figure full size"><img src="figures/fig-4.webp" width="333" height="281" alt="A schematic view of the hospitalization performance as a function of the number of administrated individuals" loading="lazy" decoding="async"></a>
+<figcaption><strong>Figure 4.</strong> A schematic view of the hospitalization performance as a function of the number of administrated individuals.</figcaption>
+</figure>
+
+<h2 id="war-dynamics">War dynamics</h2>
+<p>To capture the war dynamics, we adopted the Lanchester model<sup><a href="#ref-43">43</a></sup> and added wounded soldiers dynamics. Formally, we assume that there are only 2 combating sides and that the 2 sides comprise a homogeneous force. Let us consider A t( ) and B t( ) to be the sizes of the 2 armies at time t. Each side has an average performance of reducing the size of the other army denoted by ε<sub>a</sub> and ε<sub>b</sub>, respectively. From the population that was removed from each army at some point in time t, a portion is only wounded with injury rates of θ<sub>a</sub> and θ<sub>b</sub>, respectively. Wounded soldiers do not participate in the war and die out at a rate d if not treated. Formally, this dynamic takes the form:</p>
+<div class="equation" id="eq-3"><img src="figures/eq-3.webp" width="377" height="139" alt="(2) dA t( ) dt = −εbB t( ), dB t( ) dt = −εaA t( ), dWa t( ) dt = θbεbB t( )−dWa t( ), dWb t( ) dt = θaεaA t( )−dWb t( ). (3)" loading="lazy" decoding="async"></div>
+
+<h2 id="assembling-the-components-into-a-single-framework">Assembling the components into a single framework</h2>
+<p>To assemble the 4 components into a single framework, one has to outline the relationship between the components. First, the graph-based spatial component introduces a spatial separation to local interaction - either for the war or pandemic dynamics as well as a commute between the locations, it enforces the later dynamics to occur on each node of the graph and includes movement of the population. Next, the pandemic’s spread should consider both soldiers and civilians to fit the war dynamics and the commute dynamics that occur in parallel. The pandemic and war occurring for both armies in each location are combined into a single process. Finally, both symptomatic infected individuals and wounded soldiers are administrated to health care service providers according to some policy.</p>
+<p>To this end, the framework is presented at the node level such that the dynamics in all the nodes occur in parallel over time. Because there are both civilian and war-related nodes, we describe the dynamics in each separately. Starting with the civilian node, the dynamics take the following form:</p>
+<div class="equation" id="eq-4"><img src="figures/eq-4.webp" width="699" height="504" alt="dSc t( ) dt = −βSc t( ) Ic s t( )+Ic a t( )+Im s t( )+Im a t( ) ( ) + Commute Sc ( ), dEc t( ) dt = βSc t( ) Ic s t( )+Ic a t( )+Im s t( )+Im a t( ) ( ) −ψEc t( ) +Commute Ec ( ), dIc s t( ) dt = ρψEc t( )−γsIc s t( ) + Commute Ic s ( ) −hosp Hc t( ),Ic s t( ) ( ) , dIc a t( ) dt = 1−ρ ( )ψEc t( )−γ" loading="lazy" decoding="async"></div>
+
+<p>where n ≔∣V<sub>w</sub>∣+∣V<sub>c</sub>∣ is the total number of nodes, m<sub>i,j</sub> is the average commute between nodes i and j , Commute X ( )≔ P<sub>n</sub> ( ) −P<sub>n</sub> ( ) <sub>j=1,j ≠k</sub> m<sub>j,k</sub>X<sub>j</sub> t( ) <sub>j=1,j ≠k</sub> m<sub>k,j</sub>X t( ) , and hosp x,y ( ) is the patient administration policy for symptomatically infected individuals. For the war nodes, the dynamics occur for 2 army groups as it is assumed no citizens of either side of the war are present in such locations. Thus, the dynamics take the form:</p>
+<div class="equation" id="eq-5"><img src="figures/eq-5.webp" width="346" height="255" alt="dSa t( ) dt =−βaSa t( ) Ia s t( )+Ia a t( ) ( ) −βab Ib s t( )+Ib a t( ) ( ) −εb Sa t( )Λb t( ) Λa t( ) +Commute Sa ( ), dEa t( ) dt =βaSa t( ) Ia s t( )+Ia a t( ) ( ) +βab Ib s t( )+Ib a t( ) ( ) −ψEa t( ) −εb Ea t( )Λb t( ) Λa t( ) +Commute Ea ( ), dIa s t( ) dt =ρψEa t( )−γsIa s t( )+Commute Ia s" loading="lazy" decoding="async"></div>
+
+<p>where β<sup>a</sup>, β<sup>b</sup>, and β<sup>ab</sup> are the infection rates of the first army, second army, and between armies. We denote Λ<sub>a</sub> t( ) = S<sup>a</sup> t( ) + E<sup>a</sup> t( ) + I<sup>a</sup> <sub>a</sub> t( ) + R<sup>a</sup> t( ) and Λ<sub>b</sub> t( ) = S<sup>b</sup> t( ) + E<sup>b</sup> t( ) + I<sup>b</sup> <sub>a</sub> t( ) + R<sup>b</sup> t( )<sub>.</sub></p>
+<h2 id="computer-simulation">Computer Simulation</h2>
+<p>In this section, we present an agent-based simulation (ABS) approach to solve the proposed model (Eq. <span class="cite">[<a href="#ref-4">4</a>-<a href="#ref-5">5</a>]</span>), followed by a reinforcement learning-based model to derive a (near-)optimal patient administration policy.</p>
+<h2 id="system-solver-using-agent-based-simulation">System Solver Using Agent-based Simulation</h2>
+<p>We implemented the proposed model (Eq. <span class="cite">[<a href="#ref-4">4</a>-<a href="#ref-5">5</a>]</span>) using the ABS approach following the scheme proposed by Labeznik (2023).<sup><a href="#ref-46">46</a></sup> Formally, let us assume a population of agents allocated to a graph of location (G) in some pre-defined distribution. These agents move and interact in discrete finite time steps t ∈ 1,…,T [ ], where T &lt; ∞. In order to use the ABS approach, one has to define the agents in the dynamics as well as their 3 types of interactions: agent-agent, agent-environment, and spontaneous (i.e., depends only on the agent’s state and time).<sup><a href="#ref-82">82</a></sup> To this end, for our model, each agent is represented by a timed finite state machine<sup><a href="#ref-3">3</a></sup> with its epidemiological-clinical status (S,E,I<sup>c</sup>,I<sup>a</sup>,R,D,W,H), current location (v ∈V<sub>m</sub>∪V<sub>c</sub>), and sociological status (solder or civilian). The simulation starts by generating the location graph and allocating the agents inside it with their walking dynamics, as indicated by the average commute rate between each of the 2 locations, and epidemiological state. Next, iteratively, until a stop condition is met or a pre-defined number of steps in time is reached, the simulation solves the dynamics of each node in a random order. First, the portion of the population in each node moves to other nodes according to the average commute rate between locations. Afterward, the epidemiological and war-related dynamics take place (Eq. <span class="cite">[<a href="#ref-4">4</a>-<a href="#ref-5">5</a>]</span>). Finally, individuals are allocated to health care centers according to some patient administration policies. Notably, health care centers and locations can be associated in many-to-many manner.</p>
+<h2 id="patient-administration-policy-optimization">Patient Administration Policy Optimization</h2>
+<p>In this section, we outline a deep reinforcement learning (DRL) model to determine the optimal patient administration policy aimed at minimizing overall mortality, considering deaths from both war-related causes and the pandemic. The RL method leverages the agent-based simulation (ABS) model described earlier to iteratively improve decision-making regarding the allocation of patients to health care centers.</p>
+<p>The goal of the DRL method is to identify a patient administration policy π that minimizes the cumulative death count over the simulation period t ∈ 0,T [ ]. The administration policy π ( ) determines the actions (patient administration) based on the current state of the system, which includes the epidemiological-clinical status of individuals, their locations, and the capacity and status of health care centers. Formally, the RL model’s state space at time t (s<sub>t</sub> ) is a comprehensive representation of the current situation, including, the epidemiological status of individuals (S,E,I<sup>s</sup>,I<sup>a</sup>,R,D,W,H), their current location (v ∈V<sub>m</sub>∪V<sub>c</sub>), sociological status, and current capacity and occupancy of health care centers, as well as the state of the other army in the war zones. The action space, A, is composed of the set of patient administrations from all nodes in the graph to all health care centers and represented by a tensor of size ∣V<sub>m</sub>∪V<sub>c</sub>∣× ∣C∣× 2 such that ∣C∣indicates the number of health care centers where each value in the tensor is a 2-dimensional vector indicating the number of civilians and soldiers allocated to each of the health care centers. The reward function of the RL model for time t is</p>
+<div class="equation" id="eq-6"><img src="figures/eq-6.webp" width="270" height="38" alt="R st,at ( ) = − v ∈Vm∪Vc Dv t( )+Wv t( ) ( ). (6)" loading="lazy" decoding="async"></div>
+
+<p>We employ a deep Q-network (DQN) algorithm <span class="cite">[<a href="#ref-92">92</a>]</span>, a model-free, online, and off-policy RL method, to optimize the patient administration policy. A DQN algorithm is a value-based RL method that trains a critic to estimate the expected discounted cumulative long-term reward when following the optimal administration policy. For the neural network architecture, we used 3 hidden layers including an LSTM with 64 neurons and 2 fully connected layer of sizes 64 and 32 with ReLu activations. The output layer’s size corresponds to the number of health care centers (∣C∣). Notably, during the training phase, actions involving nodes that cannot allocate civilians and/or soldiers to specific hospitals, or to hospitals that are already at full capacity, were masked by assigning a large negative value to their corresponding entries in the action space (−10<sup><a href="#ref-9">9</a></sup>).</p>
+<p>The RL algorithm is implemented within the ABS framework, enabling the simulation of various patient administration strategies and their impacts on overall mortality. Through iterative learning, the administration policy π converges towards an optimal strategy that effectively allocates patients to minimize deaths from both war-related causes and the pandemic. Formally, in order to allow the RL model to learn a representative policy, we repeat each ABS configuration multiple times and then alter the ABS configuration. <a class="xref" href="#table-1">Table 1</a> presents the parameter values of the DRL model. The parameter values are chosen using a manual trial-and-error to achieve a good administration policy’s performance.</p>
+<figure class="table-figure" id="table-1">
+<figcaption><strong>Table 1.</strong> Hyperparameters for training the Q-learning model</figcaption>
+<div class="table-scroll"><table><tr><th>Hyperparameter</th><th>Description</th><th>Default<br/>value</th></tr><tr><td>Learning Rate</td><td>Step size for updating the Q-values</td><td>0.001</td></tr><tr><td>Discount Factor</td><td>Factor to discount future rewards</td><td>0.98</td></tr><tr><td>Exploration Rate</td><td>Probability of choosing a random<br/>action</td><td>0.15</td></tr><tr><td>Min. Exploration<br/>Rate</td><td>Minimum value of the exploration rate</td><td>0.02</td></tr><tr><td>Exploration Decay<br/>Rate</td><td>Rate at which the exploration rate<br/>decays</td><td>0.985</td></tr><tr><td>Replay Buffer Size</td><td>Number of experiences stored in the<br/>replay buffer</td><td>104</td></tr><tr><td>Batch Size</td><td>Number of experiences sampled from<br/>the replay buffer</td><td>8</td></tr><tr><td>Number of<br/>Episodes</td><td>Total number of episodes for training</td><td>100</td></tr><tr><td>Maximum Steps per<br/>Episode</td><td>Maximum number of steps per episode</td><td>2160</td></tr></table></div>
+
+</figure>
+
+<h2 id="evaluation">Evaluation</h2>
+<p>To evaluate the proposed model, we first established realistic, while synthetic, scenarios. The sociological and movement parameters such as the population size and number of nodes in the graphs (which represent central cities) aim to capture a large-scale region up to the entire western country.<sup><a href="#ref-89">89</a></sup> For the pandemic’s spread, we focused on the COVID-19 pathogen due to the large amount of accurate recorded data associated with this pathogen.<sup><a href="#ref-10">10</a></sup> The warfare and hospitalization parameters ranged greatly in the literature. As such, we adopted a range without anomalies. <a class="xref" href="#table-2">Table 2</a> summarizes the parameters and their values as these are used by the proposed model.</p>
+<p>Initially, we train the proposed DRL model to learn a (near-) optimal policy for patient administration. <a class="xref" href="#fig-5">Figure 5</a> shows the relative performance of the DRL model, with aims to decrease the total number of deaths from both the pandemic and war (see Eq. <span class="cite">[<a href="#ref-6">6</a>]</span>), with respect to the normalized random allocation (baseline) that is computed for n = 100 random simulations. Initially, the DRL’s performance is comparable to the baseline one, as it is also initialized with random logic. Next, for the first 80 simulations, the DRL performance was worse than the baseline, up to 35% in comparison. This initial decline in performance can be attributed to the exploration phase of the DRL model which searches for policies that may be worse than random allocation, such as no-allocation at all. However, after this point, a relatively smooth exponential improvement in the DRL’s performance occurs, converging to around 30% of the baseline performance (i.e., 70% improvement) after 800 simulations. Notably, around the 300-350 and 625-675 simulations, a local divergence takes place which can be associated with a local optimum of the optimization process converging and requires more exploration to overcome it and re-converge to more global optima.<sup><a href="#ref-97">97</a></sup></p>
+<p>Next, to evaluate the performance of the DRL model, we compared it to 2 baseline policies and 2 single-usage health care polices. <a class="xref" href="#fig-6">Figure 6</a> shows the overall death as the mean ± standard deviation of n<sub>test</sub> = 100 simulations following a n<sub>train</sub> = 1000 simulation to train the DRL model for each case, divided into 4 patient administration policies - no patient administration, random allocation up to full capacity, optimized based on Eq. (6), DRL model optimized to reduce the death of soldiers alone, and DRL model optimized to reduce the death of civilians alone. The optimal configuration is found to be statistically significantly better based on ANOVA (Analysis of Variance) with Tukey post-hoc test<sup><a href="#ref-79">79</a></sup> with p &lt; 0.05. Unsuspectingly, the case with no health care system is significantly worse than the other cases, with slightly over 4% death of the population. The naive random allocation results in less than half of the percent of death while also the standard deviation is smaller, as indicated by the error bars. Moreover, comparing the single-usage health care cases, in the form of the soldiers and civilians alone cases, the latter is statistically significantly worse, with p &lt; 0.01 based on a Mann–Whitney U test.<sup><a href="#ref-59">59</a></sup></p>
+<p><a class="xref" href="#fig-6">Figure 6</a> revealed that providing health care services to soldiers, on average, results in overall less death in a population. Nevertheless, taking civilians into account provides a statistically significant improvement. Thus, we further explore the death and injured dynamics of soldiers over time. <a class="xref" href="#fig-7">Figure 7</a> shows the wounded soldiers and overall deaths (both soldiers and civilians) over time under the optimal DRL administration policy. The results are presented as the mean ± standard deviation of n = 100simulations, assuming a fixed population size of N = 5·10<sup><a href="#ref-6">6</a></sup>, with 10% of the population comprising army personnel. For the injured soldiers, an initial linear increase is observed up to the 35th simulation step, aligning with the expectations of the Lanchester model (see Eq. <span class="cite">[<a href="#ref-3">3</a>]</span>). Afterward, a more chaotic pattern emerges, characterized by a slower rate of increase, which can be attributed to treated soldiers returning from the health care system. This behavior persists until approximately the 75th simulation step. These dynamics are followed by another increase up to the 110th simulation step, after which the values stabilize for approximately 35 simulation steps. Subsequently, a sharp decline is observed, reaching zero around the 185th simulation step. This decline can be explained by the end of the war as the other army is eliminated. In a complementary manner, the total deaths exhibit a monotonically increasing trend with a sigmoid-like pattern, reflecting the combined fatalities of injured soldiers who succumbed to war-related injuries and both soldiers and civilians who died due to the pandemic. The impact of injured soldiers on total deaths is twofold: their presence drives a faster-than-linear increase in deaths, delayed relative to their numbers. This strain on the health care system, occupied with treating injured soldiers, limits its capacity to manage infected individuals, exacerbating pandemic spread and mortality.</p>
+<figure class="table-figure" id="table-2">
+<figcaption><strong>Table 2.</strong> The model’s parameters’ description, value ranges, and sources</figcaption>
+<div class="table-scroll"><table><tr><th>Symbol</th><th>Description</th><th>Value range</th><th>Source</th></tr><tr><td>N</td><td>Initial population size</td><td>106 108</td><td>Assumed</td></tr><tr><td></td><td>Portion of the<br/>population<br/>participating in the<br/>army</td><td>0:01 0:1</td><td>Assumed</td></tr><tr><td></td><td>Number of hospitals</td><td>1–6</td><td>Assumed</td></tr><tr><td>∣Vm∣</td><td>Number of war-zone<br/>nodes of the graph</td><td>1–20</td><td>Assumed</td></tr><tr><td>∣Vc∣</td><td>Number of civilian<br/>nodes of the graph</td><td>10–100</td><td>Assumed</td></tr><tr><td>T</td><td>Total number of<br/>simulation steps</td><td>200</td><td>Assumed</td></tr><tr><td>Δt</td><td>Time steps in each<br/>simulation iteration</td><td>1 hour</td><td>Assumed</td></tr><tr><td>cw,cc</td><td>Average commute<br/>rates between<br/>locations</td><td>1 10 5 5 10 4</td><td><span class="cite">[<a href="#ref-4">4</a>]</span></td></tr><tr><td>β</td><td>Average infection rate</td><td>0:0014 0:0072</td><td><span class="cite">[<a href="#ref-52">52</a>]</span></td></tr><tr><td>ρ</td><td>Symptomatic rate</td><td>0:01 0:1</td><td><span class="cite">[<a href="#ref-52">52</a>]</span></td></tr><tr><td>λ</td><td>Death rate</td><td>0:0014 0:0072</td><td><span class="cite">[<a href="#ref-52">52</a>]</span></td></tr><tr><td>ψ</td><td>Average incubation<br/>time in days spent in<br/>the exposed state</td><td>4 7</td><td><span class="cite">[<a href="#ref-52">52</a>]</span></td></tr><tr><td>γs</td><td>Average time in days<br/>spent in the<br/>symptomatically<br/>infected state</td><td>10 18</td><td><span class="cite">[<a href="#ref-52">52</a>]</span></td></tr><tr><td>γa</td><td>Average time in days<br/>spent in the<br/>asymptomatic<br/>infected state</td><td>7 10</td><td><span class="cite">[<a href="#ref-52">52</a>]</span></td></tr><tr><td>μs</td><td>Maximum number of<br/>patients hospitals<br/>can treat without<br/>effect on clinical<br/>performance</td><td>1000 10000</td><td>Assumed</td></tr><tr><td>μf</td><td>Maximum number of<br/>patients hospitals<br/>can treat overμs</td><td>125% 150%</td><td>Assumed</td></tr><tr><td>ζ s</td><td>The baseline rate of<br/>recovery from<br/>pandemic or war<br/>injuries</td><td>0:95 0:99</td><td><span class="cite">[<a href="#ref-43">43</a>]</span></td></tr><tr><td>ζ f</td><td>The baseline rate of<br/>recovery from<br/>pandemic or war<br/>injuries when the<br/>hospital is full</td><td>0:8 0:95</td><td><span class="cite">[<a href="#ref-43">43</a>]</span></td></tr><tr><td>εa,εb</td><td>Military death rate due<br/>to war</td><td>1 10 5 5 10 5</td><td><span class="cite">[<a href="#ref-80">80</a>]</span></td></tr><tr><td>θa,θb</td><td>Military injury rate due<br/>to war</td><td>1 10 5 5 10 5</td><td><span class="cite">[<a href="#ref-80">80</a>]</span></td></tr><tr><td>d</td><td>Death rate of wounded<br/>soldiers that were<br/>not treated</td><td>4:07 10 5</td><td><span class="cite">[<a href="#ref-87">87</a>]</span></td></tr></table></div>
+
+</figure>
+
+<p><a class="xref" href="#fig-7">Figure 7</a> reveals non-linear and phase-dependent dynamics, which further increase the uncertainty of the dynamics. Because the model assumes know-in-advance war results, in the form of the Lanchester model, the uncertainty can be associated with the pandemic spread, which “breaks” the symmetry in the Lanchester dynamics at the node level. Thus, the event optimization horizon for which the DRL model is trained should result in different performances. To this end, <a class="xref" href="#fig-8">Figure 8</a> shows the mean percent improvement over the random administration (baseline) policy for n<sub>test</sub> = 100 simulations followed by n<sub>train</sub> = 1000 simulations. Notably, the model’s performance improves when the event optimization horizon aligns with the average recovery rate. Interestingly, this trend holds even for a 28-day event optimization horizon, suggesting that other dynamics, such as warfare, have a secondary effect on administration policy optimization due to their greater predictability.</p>
+<figure id="fig-5">
+<a class="fig-zoom" href="figures/fig-5.webp" aria-label="Open the figure full size"><img src="figures/fig-5.webp" width="621" height="366" alt="The DRL’s administration policy’s average performance normalized to the naive administration policy for n = 100 simulations as a function of the number of training simulations" loading="lazy" decoding="async"></a>
+<figcaption><strong>Figure 5.</strong> The DRL’s administration policy’s average performance normalized to the naive administration policy for n = 100 simulations as a function of the number of training simulations.</figcaption>
+</figure>
+
+<figure id="fig-6">
+<a class="fig-zoom" href="figures/fig-6.webp" aria-label="Open the figure full size"><img src="figures/fig-6.webp" width="621" height="387" alt="Overall death as a function of different administration policies" loading="lazy" decoding="async"></a>
+<figcaption><strong>Figure 6.</strong> Overall death as a function of different administration policies. The results are shown as the mean ± standard deviation of n = 100 simulations.</figcaption>
+</figure>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>In this study, we have developed a novel spatio-temporal model to address the complex dynamics of dual-use health care administration policy during a pandemic in wartime conditions. By extending the SIR model to include the effects of both civilian and military populations, we offer a comprehensive framework that captures the intricate interactions between pandemic spread, war dynamics, and health care system performance. Our model incorporates 4 key components: spatial movement, pandemic spread, hospitalization dynamics, and warfare dynamics. By integrating these components, we offer a comprehensive representation of the interplay between pandemics and wars and their mutual impacts.</p>
+<p>As an intervention strategy to reduce overall population deaths, we propose a DRL-based model that optimizes health care administration policy using in silico data generated by the proposed agent-based simulation framework. The inclusion of a dual health care system allows for the differentiation between civilian and military medical services, highlighting the unique challenges and administrative policies in both contexts.</p>
+<figure id="fig-7">
+<a class="fig-zoom" href="figures/fig-7.webp" aria-label="Open the figure full size"><img src="figures/fig-7.webp" width="755" height="449" alt="The wounded soldiers and overall deaths (both soldiers and civilians) over time using the optimal DRL administration policy" loading="lazy" decoding="async"></a>
+<figcaption><strong>Figure 7.</strong> The wounded soldiers and overall deaths (both soldiers and civilians) over time using the optimal DRL administration policy. The results are shown as the mean ± standard deviation of n = 100 simulations assuming a fixed population size of N = 5·10<sup><a href="#ref-6">6</a></sup>, with 10% of the population are in the army.</figcaption>
+</figure>
+
+<figure id="fig-8">
+<a class="fig-zoom" href="figures/fig-8.webp" aria-label="Open the figure full size"><img src="figures/fig-8.webp" width="485" height="337" alt="The mean percent improvement over the random administration (baseline) policy for ntest = 100 simulations followed by ntrain = 1000 simulations" loading="lazy" decoding="async"></a>
+<figcaption><strong>Figure 8.</strong> The mean percent improvement over the random administration (baseline) policy for n<sub>test</sub> = 100 simulations followed by n<sub>train</sub> = 1000 simulations.</figcaption>
+</figure>
+
+<p>As shown in <a class="xref" href="#fig-5">Figure 5</a>, the DRL model successfully learns an optimal administration policy, reducing the death toll by 70% compared to a naive policy in which patients are randomly allocated, provided hospitals are not at full capacity. Moreover, the evaluation of the DRL model compared to other baseline and single-usage health care policies, as shown in <a class="xref" href="#fig-6">Figure 6</a>, highlights its effectiveness. The DRL policy optimized for overall population health demonstrated statistically significant improvements over other strategies. Specifically, the allocation strategy focused solely on soldiers led to fewer deaths than the one focused solely on civilians, but the combined optimization yielded the best overall results. These findings underline the importance of accounting for both military and civilian health in designing administrative policies, as neglecting 1 population segment leads to suboptimal outcomes. In addition, focusing on only 1 population segment can raise sociological and ethical challenges in practice.</p>
+<p>Further insights into the dynamics of death and injury under the optimal DRL administration policy are provided in <a class="xref" href="#fig-7">Figure 7</a>. The time-dependent behavior of wounded soldiers and overall deaths reveals non-linear and phase-dependent dynamics. For example, the sharp decline in wounded soldiers around the 185th simulation step coincides with the end of the war, whereas the sigmoid-like increase in total deaths reflects the dual impact of injuries from war and deaths from the pandemic. The delay in responding to pandemic needs due to the saturation of the health care system by injured soldiers highlights a critical trade-off between war-related injuries and pandemic management. To this end, <a class="xref" href="#fig-8">Figure 8</a> illustrates the relationship between the optimization event horizon and the performance of the DRL model. The results indicate that shorter event optimization horizons, aligned with the average recovery rate, yield better outcomes. This suggests that the predictability of war dynamics, as described by the Lanchester model, allows the DRL model to focus on mitigating the more uncertain and impactful pandemic spread. Importantly, even with longer event optimization horizons, the model maintains a degree of robustness, though the influence of pandemic dynamics becomes more pronounced.</p>
+<p>This study is not without limitations. First, the proposed model and simulation considered relatively short periods of time and therefore do not take into account population growth, reinfection, and multipathogen pandemics.<sup><a href="#ref-4">4</a>,<a href="#ref-41">41</a>,<a href="#ref-57">57</a>,<a href="#ref-77">77</a>,<a href="#ref-84">84</a></sup> However, because wars can be extended over many years,<sup><a href="#ref-81">81</a></sup> this assumption may not hold. Future work could relax these assumptions to improve the model’s robustness. In addition, the model assumes simplified military contact patterns and neglects the complexity of modern warfare. Although the current approach assumes a historical perspective in which battles occur far from civilian zones,<sup><a href="#ref-83">83</a></sup> extending the model to include civilian casualties common in contemporary conflicts<sup><a href="#ref-40">40</a></sup> would improve its applicability. Furthermore, the model assumes isolation, ignoring international interdependencies during wars and pandemics.<sup><a href="#ref-2">2</a></sup> Lastly, the simulation only considers 1 side of the war, neglecting the asymmetric nature of conflicts and assuming a static opposing force. Future studies should incorporate dynamic interactions between opposing forces to better capture real-world complexities<sup><a href="#ref-73">73</a></sup> and consider more refined socio-demographic grouping for the administration policies.<sup><a href="#ref-75">75</a>,<a href="#ref-95">95</a>,<a href="#ref-96">96</a></sup></p>
+<p>Taken together, our model provides valuable insights into designing effective health care and pandemic policies during wartime. For government agencies, understanding the predicted impact of conflict on disease spread can help prioritize resource allocation and intervention strategies. For military organizations, the model’s predictions can guide operational planning to minimize health impacts on both civilian populations in war zones and military personnel. Further investigation is required to refine and extend the proposed model for greater practical utility.</p>
+<p><strong>Data availability statement.</strong> The code and data that have been used in this study are publicly available in this study’s GitHub repository: https://github.com/shuchaa/pandemic_during_war_abs.</p>
+<p><strong>Acknowledgments.</strong> The authors wish to thank Noga Givon-Lavi for the clinical-epidemiological consulting.</p>
+<p><strong>Author contribution.</strong> Adi Shuchami: Conceptualization, Formal Analysis, Investigation, Software, Visualization, Writing – original draft.</p>
+<p>Teddy Lazebnik: Conceptualization, Data curation, Formal Analysis, Investigation, Methodology, Supervision, Visualization, Writing – original draft, Writing – review &amp; editing.</p>
+<p><strong>Funding statement.</strong> This study received no funding.</p>
+<p><strong>Competing interests.</strong> The authors declare none.</p>
+<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 24 January 2025 · Accepted 25 April 2025</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>agent-based simulation</li><li>reinforcement learning</li><li>resource allocation task</li><li>spatio- temporal SIR model</li><li>Lanchester model Corresponding author: Teddy Lazebnik</li></ul></dd></div></dl></section>
+<h2 id="references">References</h2>
+<ol class="paper-refs"><li id="ref-1">Adiga A, Dubhashi D, Lewis B, et al. Mathematical models for COVID-19 pandemic: a comparative analysis. J Indian Inst Sci. 2020;100(4):793–807.</li>
+<li id="ref-2">Aguas R, White L, Hupert N, et al. Modelling the COVID-19 pandemic in context: an international participatory approach. BMJ Glob Health. 2020; 5(12):e003126.</li>
+<li id="ref-3">Alagar VA, Periyasamy K. Extended finite state machine. In: Specification of Software Systems. Springer: 2011;105–128.</li>
+<li id="ref-4">Alexi A, Rosenfeld A, Lazebnik T. Multi-species prey–predator dynamics during a multi-strain pandemic. Chaos. 2023;33(7):073106.</li>
+<li id="ref-5">Aligne CA. Overcrowding and mortality during the influenza pandemic of 1918. Am J Public Health. 2016;106(4):642–644.</li>
+<li id="ref-6">Anghel V, Jones E. Is Europe really forged through crisis? Pandemic EU and the Russia – Ukraine war. J Eur Public Policy. 2023;30(4):766–786.</li>
+<li id="ref-7">Ansart S, Pelat C, Boelle P-Y, et al. Mortality burden of the 1918–1919 influenza pandemic in Europe. Influenza. 2009;3:99–106.</li>
+<li id="ref-8">Balcells L, Steele A. Warfare, political identities, and displacement in Spain and Colombia. Pol Geogr. 2016;51:15–29.</li>
+<li id="ref-9">Bearman PS, Moody J, Stovel K. Chains of affection: the structure of adolescent romantic and sexual networks. Am J Sociol. 2004;110:44–91.</li>
+<li id="ref-10">Betthäuser BA, Bach-Mortensen AM, Engzell P. A systematic review and meta-analysis of the evidence on learning during the COVID-19 pandemic. Nat Hum Behav. 2023;7(3):375–385.</li>
+<li id="ref-11">Brodeur A, Gray D, Islam A, et al. A literature review of the economics of COVID-19. IZA Discussion Paper No. 13411. 2020. https://ssrn.com/abstract=3636640 <a href="https://ssrn.com/abstract=3636640" target="_blank" rel="noopener">link</a></li>
+<li id="ref-12">Cai J, Zhou J. How many asymptomatic cases were unconfirmed in the US COVID-19 pandemic? The evidence from a serological survey. Chaos Solit. 2022;164:112630.</li>
+<li id="ref-13">Cascini F, Hoxhaj I, Zaçe D, et al. How health systems approached respiratory viral pandemics over time: a systematic review. BMJ Glob Health. 2020;5(12).</li>
+<li id="ref-14">Chen X. Infectious disease modeling and epidemic response measures analysis considering asymptomatic infection. IEEE Access. 2020;8:149652–149660.</li>
+<li id="ref-15">Choudhary OP, Saied AA, Priyanka ARK, et al. Russo-Ukrainian war: an unexpected event during the COVID-19 pandemic. Travel Med Infect Dis. 2022;48:102346.</li>
+<li id="ref-16">Chumachenko D, Chumachenko T. Impact of war on the dynamics of COVID-19 in Ukraine. BMJ Glob Health. 2022;7(4).</li>
+<li id="ref-17">Conti AA. Historical and methodological highlights of quarantine measures: from ancient plague epidemics to current coronavirus disease (COVID-19) pandemic. Acta Bio-medica: Atenei Parmensis. 2020;91(2):226–229.</li>
+<li id="ref-18">Cunen C, Hjort NL, Nygard HM. Statistical sightings of better angels: analysing the distribution of battle-deaths in interstate conflict over time. J Peace Res. 2020;2:221–234.</li>
+<li id="ref-19">Davies S, Pettersson T, Oberg M. Organized violence 1989–2022, and the return of conflict between states. J Peace Res. 2023;60(4):691–708.</li>
+<li id="ref-20">Djillali S, Bentout S, Touaoula TM, et al. Global dynamics of alcoholism epidemic model with distributed delays. Math Biosci Eng. 2021;18.</li>
+<li id="ref-21">Edwards SN. Understanding the present through the past: a comparison of Spanish news coverage of the 1918 flu and COVID-19 pandemics. J Mass Commun Q. 2022;99(1):12–43.</li>
+<li id="ref-22">Erkoreka A. Origins of the Spanish Influenza pandemic (1918-1920) and its relation to the First World War. J Mol Genet Med. 2009;3(2):190–194.</li>
+<li id="ref-23">Erkoreka A. Origins of the Spanish Influenza pandemic (1918-1920) and its relation to the First World War.” J Mol Genet Med. 2009;30(3):190–194.</li>
+<li id="ref-24">Erkoreka A. The Spanish influenza pandemic in occidental Europe (1918– 1920) and victim age. Influenza. 2010;4:81–89.</li>
+<li id="ref-25">Ferguson NM, Cummings DAT, Fraser C, et al. Strategies for mitigating an influenza pandemic. Nature. 2006:448–452.</li>
+<li id="ref-26">Ferguson NM, Laydon D, Nedjati-Gilani G, et al. Impact of non-pharmaceutical interventions (NPIs) to reduce COVID-19 mortality and healthcare demand. Imperial College. 2020.</li>
+<li id="ref-27">Fernandes GD, Maldonado V. Behavioral aspects and the transmission of Monkeypox: A novel approach to determine the probability of transmission for sexually transmissible diseases. Infect Dis Model. 2023;8(3):842–854.</li>
+<li id="ref-28">Fernández-Villaverde J, Jones CI. Estimating and Simulating a SIRD Model of COVID-19 for Many Countries, States, and Cities. Working Paper 27128. National Bureau of Economic Research: 2020.</li>
+<li id="ref-29">Findley MG, Young JK. Terrorism and civil war: a spatial and temporal approach to a conceptual problem. Perspect Polit. 2012;10(2):285–305.</li>
+<li id="ref-30">Flecknoe D, Wakefield BC, Simmons A. Plagues &amp; wars: the “Spanish Flu” pandemic as a lesson from history. Med Confl Surviv. 2018;34(2):61–68.</li>
+<li id="ref-31">Fox SJ, Lachmann M, Tec M, et al. Real-time pandemic surveillance using hospital admissions and mobility data. Proceed Natl Acad Sci. 2022;119(7): e2111870119.</li>
+<li id="ref-32">Goel R, Sharma R. Mobility based SIR model for pandemics – with case study of COVID-19. IEEE/ACM International Conference on Advances in Social Networks Analysis and Mining (ASONAM):2020.</li>
+<li id="ref-33">He J, Guo Y, Mao R, et al. Proportion of asymptomatic coronavirus disease 2019: a systematic review and meta-analysis. J Med Virol. 2020:1–11.</li>
+<li id="ref-34">Hespanha JP, Chinchilla R, Costa RR, et al. Forecasting COVID-19 cases based on a parameter-varying stochastic SIR model. Ann Rev Control. 2021; 51:460–476.</li>
+<li id="ref-35">Huang T, Chu Y, Shams S, et al. Population stratification enables modeling effects of reopening policies on mortality and hospitalization rates. J Biomed Inform. 2021;119:103818.</li>
+<li id="ref-36">Ivorra B, Ferrandez MR, Vela-Perez M, et al. Mathematical modeling of the spread of the coronavirus disease 2019 (COVID-19) taking into account the undetected infections. The case of China. Commun Nonlinear Sci Numer Simulat. 2020.</li>
+<li id="ref-37">Keeling MJ. The implications of network structure for epidemic dynamics. Theor Popul Biol. 2005;67(1).1–8.</li>
+<li id="ref-38">Keeling MJ, Eames KTD. Networks and epidemic models. JR Soc Interface. 2005;2:295–307.</li>
+<li id="ref-39">Kermack WO, McKendrick AG. A contribution to the mathematical theory of epidemics. Proc R Soc. 1927;115:700–721.</li>
+<li id="ref-40">Khorram-Manesh A, Burkle FM, Goniewicz, et al. “Estimating the number of civilian casualties in modern armed conflicts–a systematic review. Front Public Health. 2021;9:765261.</li>
+<li id="ref-41">Khyar O, Allali K. Global dynamics of a multi-strain SEIR epidemic model with general incidence rates: application to COVID-19 pandemic. Non-linear Dyn. 2020;102:489–509.</li>
+<li id="ref-42">Kozyreff G. Hospitalization dynamics during the first COVID-19 pandemic wave: SIR modelling compared to Belgium, France, Italy, Switzerland and New York City data. Infect Dis Model. 2021;6:398–404.</li>
+<li id="ref-43">Kress M. Lanchester models for irregular warfare. Mathematics. 2020;8(5).</li>
+<li id="ref-44">Krueger D, Uhlig H, Xie T. Macroeconomic dynamics and reallocation in an epidemic. CEPR COVID Economics. 2020;1(5):21–55.</li>
+<li id="ref-45">Kuznar AB. Understanding war: the sociological perspective revisited. Eur J Soc Theor. 2024.</li>
+<li id="ref-46">Lazebnik T. Computational applications of extended SIR models: a review focused on airborne pandemics. Ecol Model. 2023;483:110422.</li>
+<li id="ref-47">Lazebnik T, Alexi A. High resolution spatio-temporal model for room-level airborne pandemic spread. Mathematics. 2023;11(2):426.</li>
+<li id="ref-48">Lazebnik T, Blumrosen G. Advanced multi-mutation with intervention policies pandemic model. IEEE Access. 2022;10:22769–22781.</li>
+<li id="ref-49">Lazebnik T, Bunimovich-Mendrazitsky S, Ashkenazi S, et al. Early detection and control of the next epidemic wave using health communications: development of an artificial intelligence-based tool and its validation on COVID-19 data from the US. Int J Environ Res Public Health. 2022; 19(23).</li>
+<li id="ref-50">Lazebnik T, Bunimovich-Mendrazitsky S, Shaikhet L. Novel method to analytically obtain the asymptotic stable equilibria states of extended SIR-type epidemiological models. Symmetry. 2021;13(7).1120.</li>
+<li id="ref-51">Lazebnik T, Bunimovich-Mendrazitsky S, Shami L. Pandemic management by a spatio–temporal mathematical model. Int J Nonlinear Sci Numer Simul. 2021.</li>
+<li id="ref-52">Lazebnik T, Shami L, Bunimovich-Mendrazitsky S. Spatio-temporal influence of non-pharmaceutical interventions policies on pandemic dynamics and the economy: the case of COVID-19. Res Econ. 2021.</li>
+<li id="ref-53">Lechien JR, Chiesa-Estomba CM, Place S, et al. Clinical and epidemiological characteristics of 1420 European patients with mild-to-moderate coronavirus disease 2019. J Intern Med. 2020.</li>
+<li id="ref-54">Lemaitre JC, Grantz KH, Kaminsky J, et al. A scenario modeling pipeline for COVID-19 emergency planning. Sci Rep. 2021;11:7534.</li>
+<li id="ref-55">Li GH, Zhang Y-X. Dynamic behaviors of a modified SIR model in epidemic diseases using nonlinear incidence and recovery rates. PLoS One. 2017;12(4):1–28.</li>
+<li id="ref-56">Liadze I, Macchiarelli C, Mortimer-Lee P, et al. Economic costs of the Russia-Ukraine war. World Econ. 2023;46(4):874–886.</li>
+<li id="ref-57">Lopez L, Rodo X. A modified SEIR model to predict the COVID-19 outbreak in Spain and Italy: simulating control scenarios and multi-scale epidemics. Results Physics. 2021;21.</li>
+<li id="ref-58">McGuirk MA, Porell FW. Spatial patterns of hospital utilization: the impact of distance and time. Inquiry. 1984;21(1).84–95.</li>
+<li id="ref-59">McKnight PE, Najab J. Mann-Whitney U Test. The Corsini Encyclopedia of Psychology. John Wiley &amp; Sons:2010.</li>
+<li id="ref-60">Miller JC. Mathematical models of SIR disease spread with combined nonsexual and sexual transmission routes. Infect Dis Model. 2017;2(1):35–55.</li>
+<li id="ref-61">Moein S, Nickaeen N, Roointan A, et al. Inefficiency of SIR models in forecasting COVID-19 epidemic: a case study of Isfahan. Sci Rep. 2021;11: 4725.</li>
+<li id="ref-62">Nicholl J, West J, Goodacre S, et al. The relationship between distance to hospital and patient mortality in emergencies: an observational study. Emerg Med J. 2007;24(9):665–668.</li>
+<li id="ref-63">Nurlaila I, Hidayat AA, Pardamean B. Lockdown strategy worth lives: the SEIRD modelling in COVID-19 outbreak in Indonesia. IOP Conf Ser: Earth Environ Sci. 2021;729(1):012002.</li>
+<li id="ref-64">Eylul Oruc B, Baxter A, Keskinocak P, et al. Homebound by COVID19: the benefits and consequences of non-pharmaceutical intervention strategies. Res Sq. 2020.</li>
+<li id="ref-65">Oxford JS, Lambkin R, Sefton A, et al. A hypothesis: the conjunction of soldiers, gas, pigs, ducks, geese and horses in Northern France during the Great War provided the conditions for the emergence of the “Spanish” influenza pandemic of 1918–1919. Vaccine. 2005;23:940–945.</li>
+<li id="ref-66">Patel SP, Moncayo OE, Conroy KM, et al. The landscape of disinformation on health crisis communication during the COVID-19 pandemic in Ukraine: hybrid warfare tactics, fake media news and review of evidence. JCOM J Sci Commun. 2020;19:102346.</li>
+<li id="ref-67">Patterson KD, Pyle GF. The geography and mortality of the 1918-1919 influenza pandemic. Bull Hist Med. 1991;65:4–21.</li>
+<li id="ref-68">Piret J, Boivin G. Pandemics throughout history. Front Microbiol. 2021; 11.</li>
+<li id="ref-69">Quinn TC. Global burden of the HIV pandemic. Lancet. 1996;348(9020): 99–106.</li>
+<li id="ref-70">Quinn VJM, Dhabalia TJ, Roslycky LL, et al. COVID-19 at war: the joint forces operation in Ukraine. Disaster Med Public Health Prep. 2022;16(5): 1753–1760.</li>
+<li id="ref-71">Rahimi I, Chen F, Gandomi AH. A review on COVID-19 forecasting models. Neural Comput Appl. 2021.</li>
+<li id="ref-72">Rock K, Brand S, Moir J, et al. Dynamics of infectious diseases. Rep Prog Phys. 2014;77:26602.</li>
+<li id="ref-73">Sabin P. Simulating War: Studying Conflict Through Simulation Games. Bloomsbury Publishing: 2012.</li>
+<li id="ref-74">Salgotra R, Gandomi M, Gandomi AH. Time series analysis and forecast of the COVID-19 pandemic in India using genetic programming. Chaos Solit. 2020;138:109945.</li>
+<li id="ref-75">Savchenko E, Rosenfeld A, Bunimovich-Mendrazitsky S. A mathematical framework of SMS reminder campaigns for pre-and post-diagnosis checkups using socio-demographics: an in-silco investigation into breast cancer. Socio-Econ Plann Sci. 2024;95:102047.</li>
+<li id="ref-76">Sengar KPS, Lohiya RK. A bibliometric profile of world nuclear weapons research output from 2010 to 2019: a scientometric analysis based on WoS Database. Int J Libr Inform Netw. 2022;7:110–128.</li>
+<li id="ref-77">Shami L, Lazebnik T. Economic aspects of the detection of new strains in a multi-strain epidemiological–mathematical model. Chaos Solit. 2022;165: 112823.</li>
+<li id="ref-78">Simonton DK. Land battles, generals, and armies: Individual and situational determinants of victory and casualties. J Pers Soc Psychol. 1980; 38(1):110–119.</li>
+<li id="ref-79">St L, Wold S. Analysis of variance (ANOVA). Chemom Intell Lab Syst. 1989;6(4):259–272.</li>
+<li id="ref-80">The Israeli Central Bureau of Statistics. Social and Economic Consequences of the Outbreak of the Corona Plague. The Israeli Central Bureau of Statistics [In Hebrew]. Published 2020. Accessed at 09.2024 https://www.cbs.gov.il/he/Statistical/statistical-182-corona.pdf. <a href="https://www.cbs.gov.il/he/Statistical/statistical-182-corona.pdf" target="_blank" rel="noopener">link</a></li>
+<li id="ref-81">Sullivan PL. At what price victory? The effects of uncertainty on military intervention duration and outcome. Confl Manag Peace Sci. 2008;25(1): 49–66.</li>
+<li id="ref-82">Tesfatsion L. Agent-based computational economics: growing economies from the bottom up. Artif Life. 2002;8(1).</li>
+<li id="ref-83">Thorne J. Battle, tactics, and the emergence of the limites in the West. A Companion to the Roman Army. 2007:218–234</li>
+<li id="ref-84">Turkyilmazoglu M. A restricted epidemic SIR model with elementary solutions. Physica A. 2022;600:127570.</li>
+<li id="ref-85">Verwimp P, Justino P, Bruck T. The analysis of conflict: a micro-level perspective. J Peace Res. 2009;46(3):307–314.</li>
+<li id="ref-86">Viguerie A, Lorenzo G, Auricchio F, et al. Simulating the spread of COVID-19 via a spatially-resolved susceptible–exposed–infected–recovered– deceased (SEIRD) model with heterogeneous diffusion. Appl Math Lett. 2021; 111:106617.</li>
+<li id="ref-87">Vytla V, Ramakuri SK, Peddi KK, et al. Mathematical models for predicting Covid-19 pandemic: a review. J Phys: Conf Ser. 2021;1797:012009.</li>
+<li id="ref-88">Wang CC, Prather KA, Sznitman J, et al. Airborne transmission of respiratory viruses. Sci. 2021;373(6558):eabd9149.</li>
+<li id="ref-89">Weber H, Sciubba JD. The effect of population growth on the environment: evidence from European regions.” Eur J Popul. 2019;35:379–402.</li>
+<li id="ref-90">Weissman GE, Crane-Droesch A, Chivers C, et al. Locally informed simulation to predict hospital capacity needs during the COVID-19 pandemic. Ann Intern Med. 2020;173(1):21–28.</li>
+<li id="ref-91">Wiratsudakul A, Suparit P, Modchang C. Dynamics of Zika virus outbreaks: an overview of mathematical modeling approaches. PeerJ. 2018.</li>
+<li id="ref-92">Wu J, Li W, Shi X, et al. Early antiviral treatment contributes to alleviate the severity and improve the prognosis of patients with novel coronavirus disease (COVID-19). J Intern Med. 2020.</li>
+<li id="ref-93">Wu T, Perrings C, Kinzig A, et al. Economic growth, urbanization, globalization, and the risks of emerging infectious diseases in China: a review. Ambio. 2017;46(1):18–29.</li>
+<li id="ref-94">Yan S, Zhang Y, Ma J, et al. An edge-based SIR model for sexually transmitted diseases on the contact network. J Theor Biol. 2018;439:216–225.</li>
+<li id="ref-95">Yaniv-Rosenfeld A, Savchenko E, Elalouf A, et al. Socio-demographic predictors of the time interval between successive hospitalizations among patients with borderline personality disorder. J Ment Health. 2024:1–7.</li>
+<li id="ref-96">Yaniv-Rosenfeld A, Savchenko E, Netzer M, et al. Socio-demographic predictors of hospitalization duration among patients with borderline personality disorder. Adm Policy Ment Health. 2024:1–9.</li>
+<li id="ref-97">Zhang K, Koppel A, Zhu H, et al. Global convergence of policy gradient methods to (almost) locally optimal policies. SIAM J Control Optim. 2020; 58(6).3586–3612.</li>
+</ol>
+</div>
+        
+        
+        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Shuchami et al. (2025), <em>Disaster Medicine and Public Health Preparedness</em>, <a href="https://doi.org/10.1017/dmp.2025.10062" target="_blank" rel="noopener">doi:10.1017/dmp.2025.10062</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+      </article>
+    </div>
+
+    <section class="paper-related" aria-labelledby="related-title"><div class="paper-wrap"><h2 id="related-title">Related research</h2><div class="related-grid"><a class="related-card related-project" href="/project.html?pagename=pandemic-modeling-and-allocation"><img src="/img/projects/project7.webp" alt="" loading="lazy" decoding="async"><span class="related-kind"><i class="ri-flask-line" aria-hidden="true"></i>Research project</span><strong>Understanding Pandemic Spread and Optimizing Resource Allocation</strong><span class="related-text">Mathematical models and simulations to predict infectious disease spread and guide resource allocation.</span></a><a class="related-card" href="/publications/comparing-manual-vs-automated-machine-learning-deep/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2026</span><strong>Comparing Manual vs. Automated Machine Learning and Deep Learning Models for Predicting One-Year Mortality in Elderly Hip Fracture Patients</strong><span class="related-text">Frontiers in Medicine</span></a><a class="related-card" href="/publications/machine-learning-based-guide-repeated-laboratory-testing/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2025</span><strong>A Machine Learning-Based Guide for Repeated Laboratory Testing in Pediatric Emergency Departments</strong><span class="related-text">Diagnostics</span></a></div><p class="related-more"><a href="/publications.html">All publications</a></p></div></section>
+  </main>
+
+  <dialog id="cite-dialog" class="paper-dialog" aria-labelledby="cite-title">
+    <div class="dialog-head">
+      <h2 id="cite-title">Cite this paper</h2>
+      <button type="button" class="dialog-close" aria-label="Close"><i class="ri-close-line" aria-hidden="true"></i></button>
+    </div>
+    <p class="dialog-label">APA</p>
+    <pre class="cite-box" id="cite-apa">Shuchami, A., &amp; Lazebnik, T. (2025). Spatio-Temporal SIR Model of Pandemic Spread During Warfare with Optimal Dual-use Health Care System Administration using Deep Reinforcement Learning. Disaster Medicine and Public Health Preparedness. https://doi.org/10.1017/dmp.2025.10062</pre>
+    <button type="button" class="paper-btn" data-copy="cite-apa"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy APA</span></button>
+    <p class="dialog-label">BibTeX</p>
+    <pre class="cite-box" id="cite-bib">@article{shuchami2025spatio,
+  title = {Spatio-Temporal SIR Model of Pandemic Spread During Warfare with Optimal Dual-use Health Care System Administration using Deep Reinforcement Learning},
+  author = {Shuchami, Adi and Lazebnik, Teddy},
+  journal = {Disaster Medicine and Public Health Preparedness},
+  year = {2025},
+  doi = {10.1017/dmp.2025.10062}
+}</pre>
+    <button type="button" class="paper-btn" data-copy="cite-bib"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy BibTeX</span></button>
+  </dialog>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Games</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
+                  <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
+                  <li><a href="https://rl.teddylazebnik.com/">Pirate War RL Game</a></li>
+                  <li><a href="https://eh.teddylazebnik.com/">Echo Heist</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      
+      <script>
+        (function () {
+          // menu and navbar (js/main.js expects to sit at the site root)
+          var btn = document.getElementById('menu-btn'), menu = document.getElementById('mobile-menu'), nav = document.getElementById('navbar');
+          btn.addEventListener('click', function () { menu.classList.toggle('max-h-0'); menu.classList.toggle('max-h-screen'); });
+          var onScroll = function () { nav.classList.toggle('nav-scrolled', window.scrollY > 10); };
+          window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+          // cite dialog + copy buttons
+          var dialog = document.getElementById('cite-dialog');
+          document.querySelectorAll('[data-dialog]').forEach(function (b) {
+            b.addEventListener('click', function () { if (dialog.showModal) dialog.showModal(); else dialog.setAttribute('open', ''); });
+          });
+          dialog.querySelector('.dialog-close').addEventListener('click', function () { dialog.close(); });
+          dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
+          function flash(button, text) {
+            var label = button.querySelector('span'), old = label.textContent;
+            label.textContent = text; setTimeout(function () { label.textContent = old; }, 1600);
+          }
+          document.querySelectorAll('[data-copy]').forEach(function (b) {
+            b.addEventListener('click', function () {
+              var text = document.getElementById(b.getAttribute('data-copy')).textContent;
+              navigator.clipboard.writeText(text).then(function () { flash(b, 'Copied'); });
+            });
+          });
+          document.getElementById('share-btn').addEventListener('click', function () {
+            var b = this, data = { title: document.title, url: location.href.split('#')[0] };
+            if (navigator.share) { navigator.share(data).catch(function () {}); }
+            else { navigator.clipboard.writeText(data.url).then(function () { flash(b, 'Link copied'); }); }
+          });
+
+          // highlight the section being read in "On this page"
+          var links = {};
+          document.querySelectorAll('.paper-toc a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+          var heads = Array.prototype.filter.call(document.querySelectorAll('#full-text h2[id], #full-text h3[id], #full-text section[id]'), function (h) { return links[h.id]; });
+          if ('IntersectionObserver' in window && heads.length) {
+            var current = null;
+            var io = new IntersectionObserver(function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                  if (current) current.classList.remove('is-active');
+                  current = links[e.target.id]; current.classList.add('is-active');
+                }
+              });
+            }, { rootMargin: '-90px 0px -70% 0px' });
+            heads.forEach(function (h) { io.observe(h); });
+          }
+        })();
+      </script>
+   </body>
+</html>

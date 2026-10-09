@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_papers.py from paper.md + paper.json in this folder. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Symbolic regression as feature engineering for ML and DL regression | ACML</title>
+      <meta name="description" content="Machine learning models depend on good input features, which are usually hand-designed by experts or hidden inside neural networks where they are hard to…">
+      <meta name="author" content="Assaf Shmuel, Oren Glickman, Teddy Lazebnik">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/publications/symbolic-regression-feature-engineering-method-machine-deep/">
+      <meta name="citation_title" content="Symbolic regression as a feature engineering method for machine and deep learning regression tasks">
+      <meta name="citation_author" content="Assaf Shmuel">
+      <meta name="citation_author" content="Oren Glickman">
+      <meta name="citation_author" content="Teddy Lazebnik">
+      <meta name="citation_publication_date" content="2024/06/12">
+      <meta name="citation_journal_title" content="Machine Learning: Science and Technology">
+      <meta name="citation_volume" content="5">
+      <meta name="citation_firstpage" content="025065">
+      <meta name="citation_doi" content="10.1088/2632-2153/ad513a">
+      <meta name="citation_pdf_url" content="https://teddylazebnik.com/files/sr_1.pdf">
+      <meta name="citation_abstract_html_url" content="https://acml.teddylazebnik.com/publications/symbolic-regression-feature-engineering-method-machine-deep/">
+      <meta name="citation_fulltext_html_url" content="https://acml.teddylazebnik.com/publications/symbolic-regression-feature-engineering-method-machine-deep/">
+      <meta name="citation_keywords" content="symbolic regression; neural network; data-driven physics; feature engineering; data science">
+      <meta name="citation_language" content="en">
+      <meta property="og:type" content="article">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Symbolic regression as feature engineering for ML and DL regression">
+      <meta property="og:description" content="Machine learning models depend on good input features, which are usually hand-designed by experts or hidden inside neural networks where they are hard to…">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/publications/symbolic-regression-feature-engineering-method-machine-deep/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/publications/symbolic-regression-feature-engineering-method-machine-deep/figures/share-fig-2.jpg">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Symbolic regression as feature engineering for ML and DL regression">
+      <meta name="twitter:description" content="Machine learning models depend on good input features, which are usually hand-designed by experts or hidden inside neural networks where they are hard to…">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/publications/symbolic-regression-feature-engineering-method-machine-deep/figures/share-fig-2.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "Symbolic regression as a feature engineering method for machine and deep learning regression tasks",
+  "name": "Symbolic regression as a feature engineering method for machine and deep learning regression tasks",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Assaf Shmuel"
+    },
+    {
+      "@type": "Person",
+      "name": "Oren Glickman"
+    },
+    {
+      "@type": "Person",
+      "name": "Teddy Lazebnik"
+    }
+  ],
+  "datePublished": "2024-06-12",
+  "url": "https://acml.teddylazebnik.com/publications/symbolic-regression-feature-engineering-method-machine-deep/",
+  "mainEntityOfPage": "https://acml.teddylazebnik.com/publications/symbolic-regression-feature-engineering-method-machine-deep/",
+  "abstract": "In the realm of machine and deep learning (DL) regression tasks, the role of effective feature engineering (FE) is pivotal in enhancing model performance. Traditional approaches of FE often rely on domain expertise to manually design features for machine learning (ML) models. In the context of DL models, the FE is embedded in the neural network's architecture, making it hard for interpretation. In this study, we propose to integrate symbolic regression (SR) as an FE process before a ML model to improve its performance. We show, through extensive experimentation on synthetic and 21 real-world datasets, that the incorporation of SR-derived features significantly enhances the predictive capabilities of both machine and DL regression models with 34%–86% root mean square error (RMSE) improvement in synthetic datasets and 4%–11.5% improvement in real-world datasets. In an additional realistic use case, we show the proposed method improves the ML performance in predicting superconducting critical temperatures based on Eliashberg theory by more than 20% in terms of RMSE. These results outline the potential of SR as an FE component in data-driven models, improving them in terms of performance and interpretability.",
+  "description": "Machine learning models depend on good input features, which are usually hand-designed by experts or hidden inside neural networks where they are hard to…",
+  "image": "https://acml.teddylazebnik.com/publications/symbolic-regression-feature-engineering-method-machine-deep/figures/share-fig-2.jpg",
+  "keywords": "symbolic regression, neural network, data-driven physics, feature engineering, data science",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "DOI",
+    "value": "10.1088/2632-2153/ad513a"
+  },
+  "sameAs": "https://doi.org/10.1088/2632-2153/ad513a",
+  "isPartOf": {
+    "@type": "PublicationIssue",
+    "issueNumber": "",
+    "isPartOf": {
+      "@type": "PublicationVolume",
+      "volumeNumber": "5",
+      "isPartOf": {
+        "@type": "Periodical",
+        "name": "Machine Learning: Science and Technology"
+      }
+    }
+  },
+  "about": "Machine Learning",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "encoding": {
+    "@type": "MediaObject",
+    "contentUrl": "https://teddylazebnik.com/files/sr_1.pdf",
+    "encodingFormat": "application/pdf"
+  }
+}
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/paper.css" rel="stylesheet">
+      
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="paper-page">
+    <header class="paper-hero">
+      <div class="paper-wrap">
+        <nav class="paper-crumbs" aria-label="Breadcrumb">
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Machine Learning</span>
+        </nav>
+        <p class="paper-kicker"><span><em>Machine Learning: Science and Technology</em> · 12 June 2024</span></p>
+        <h1 class="paper-title">Symbolic regression as a feature engineering method for machine and deep learning regression tasks</h1>
+        <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Assaf Shmuel</a></span>, <span class="author">Oren Glickman</span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span></p>
+        <details class="paper-affils"><summary>Affiliations</summary><ol><li value="1">Department of Computer Science, Bar Ilan University, Ramat Gan, Israel</li><li value="2">Department of Mathematics, Ariel University, Ariel, Israel</li><li value="3">Department of Cancer Biology, Cancer Institute, University College London, London, United Kingdom</li></ol></details>
+        <div class="paper-actions">
+          <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/sr_1.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
+          <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
+          
+          <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
+          <a class="paper-btn" href="https://doi.org/10.1088/2632-2153/ad513a" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
+          <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
+        </div>
+        <div class="lab-authors"><span class="lab-authors-label">ACML authors</span><a class="lab-chip" href="/team.html"><img src="/img/lab/assaf.webp" alt="" width="32" height="32" loading="lazy"><span><strong>Assaf Shmuel</strong><small>Alumni</small></span></a><a class="lab-chip" href="/team.html"><img src="/img/lab/teddy.webp" alt="" width="32" height="32" loading="lazy"><span><strong>Teddy Lazebnik</strong><small>PI</small></span></a></div>
+      </div>
+    </header>
+
+    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Machine learning models depend on good input features, which are usually hand-designed by experts or hidden inside neural networks where they are hard to interpret. We propose using symbolic regression, which searches for explicit mathematical formulas, to create new features before a model is trained. Across synthetic data and 21 real-world datasets, these features reduced prediction error by 34%–86% on synthetic data and 4%–11.5% on real data, and improved predictions of superconducting critical temperatures by more than 20%.</p><div class=glance-stats><div class="stat"><span class="stat-value">21</span><span class="stat-label">real-world datasets tested</span></div><div class="stat"><span class="stat-value">34%–86%</span><span class="stat-label">error reduction (RMSE) on synthetic datasets</span></div><div class="stat"><span class="stat-value">4%–11.5%</span><span class="stat-label">error reduction (RMSE) on real-world datasets</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Adding features derived from symbolic regression significantly improved both machine learning and deep learning regression models.</li><li>Root mean square error improved by 34%–86% on synthetic datasets and by 4%–11.5% on 21 real-world datasets.</li><li>In predicting superconducting critical temperatures based on Eliashberg theory, the method improved performance by more than 20% in root mean square error.</li></ul></div><figure class="glance-figure"><a href="#fig-2"><img src="figures/fig-2.webp" width="1365" height="982" alt="Figure 2. Summary of model performances. (a) and (b) illustrate the relative improvement of the SRTPOT and SRAK models compared to the TPOT and AK models, respectively, in the synthetic datasets. (c) and (d) illustrate the relative improvement of the SRTPOT and SRAK models compared to the TPOT and AK models, respectively, in the real datasets. Values above 100% are not presented, encompassing approximately 25% of the observations in subfigures (a) and (b), 1% of the observations in subfigure (c) and 3% of the observations in subfigure (d)."></a><figcaption><strong>Figure 2.</strong> Summary of model performances. (a) and (b) illustrate the relative improvement of the SRTPOT and SRAK models compared to the TPOT and AK models, respectively, in the synthetic datasets. (c) and (d) illustrate the relative improvement of the SRTPOT and SRAK models compared to the TPOT and AK models, respectively, in the real datasets. Values above 100% are not presented, encompassing approximately 25% of the observations in subfigures (a) and (b), 1% of the observations in subfigure (c) and 3% of the observations in subfigure (d). <a href="#fig-2">See it in the paper</a></figcaption></figure></div></div></section>
+
+    <div class="paper-wrap paper-layout">
+      <aside class="paper-aside">
+        <nav class="paper-toc" aria-label="On this page">
+          <p class="aside-title">On this page</p>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#1-introduction">1. Introduction</a></li>
+<li><a href="#2-related-work">2. Related work</a></li><li class="toc-sub"><a href="#21-fe">2.1. Fe</a></li><li class="toc-sub"><a href="#22-sr">2.2. Sr</a></li><li class="toc-sub"><a href="#23-automl">2.3. AutoML</a></li>
+<li><a href="#3-sr-as-fe">3. SR as FE</a></li>
+<li><a href="#4-experimental-setup">4. Experimental setup</a></li><li class="toc-sub"><a href="#41-generating-synthetic-datasets">4.1. Generating synthetic datasets</a></li><li class="toc-sub"><a href="#42-real-world-datasets">4.2. Real-world datasets</a></li><li class="toc-sub"><a href="#43-gplearn-tpot-and-ak-runs">4.3. GPlearn, TPOT, and AK runs</a></li><li class="toc-sub"><a href="#44-evaluation-methodology">4.4. Evaluation methodology</a></li>
+<li><a href="#5-results">5. Results</a></li><li class="toc-sub"><a href="#51-performance">5.1. Performance</a></li><li class="toc-sub"><a href="#52-robustness">5.2. Robustness</a></li>
+<li><a href="#6-discussion">6. Discussion</a></li>
+<li><a href="#data-availability-statements">Data availability statements</a></li>
+<li><a href="#acknowledgments">Acknowledgments</a></li>
+<li><a href="#funding">Funding</a></li>
+<li><a href="#appendix">Appendix</a></li>
+<li><a href="#orcid-ids">ORCID iDs</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </nav>
+        <div class="paper-info">
+          <p class="aside-title">Article information</p>
+          <dl><div><dt>Journal</dt><dd>Machine Learning: Science and Technology 5: 025065</dd></div><div><dt>Published</dt><dd><time datetime="2024-06-12">12 June 2024</time></dd></div><div><dt>DOI</dt><dd><a href="https://doi.org/10.1088/2632-2153/ad513a" target="_blank" rel="noopener">10.1088/2632-2153/ad513a</a></dd></div></dl>
+        </div>
+      </aside>
+
+      <article class="paper-body" id="full-text">
+        <details class="paper-toc-mobile">
+          <summary>On this page</summary>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#1-introduction">1. Introduction</a></li>
+<li><a href="#2-related-work">2. Related work</a></li><li class="toc-sub"><a href="#21-fe">2.1. Fe</a></li><li class="toc-sub"><a href="#22-sr">2.2. Sr</a></li><li class="toc-sub"><a href="#23-automl">2.3. AutoML</a></li>
+<li><a href="#3-sr-as-fe">3. SR as FE</a></li>
+<li><a href="#4-experimental-setup">4. Experimental setup</a></li><li class="toc-sub"><a href="#41-generating-synthetic-datasets">4.1. Generating synthetic datasets</a></li><li class="toc-sub"><a href="#42-real-world-datasets">4.2. Real-world datasets</a></li><li class="toc-sub"><a href="#43-gplearn-tpot-and-ak-runs">4.3. GPlearn, TPOT, and AK runs</a></li><li class="toc-sub"><a href="#44-evaluation-methodology">4.4. Evaluation methodology</a></li>
+<li><a href="#5-results">5. Results</a></li><li class="toc-sub"><a href="#51-performance">5.1. Performance</a></li><li class="toc-sub"><a href="#52-robustness">5.2. Robustness</a></li>
+<li><a href="#6-discussion">6. Discussion</a></li>
+<li><a href="#data-availability-statements">Data availability statements</a></li>
+<li><a href="#acknowledgments">Acknowledgments</a></li>
+<li><a href="#funding">Funding</a></li>
+<li><a href="#appendix">Appendix</a></li>
+<li><a href="#orcid-ids">ORCID iDs</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </details>
+        <section id="abstract" class="paper-abstract">
+          <h2>Abstract</h2>
+          <p>In the realm of machine and deep learning (DL) regression tasks, the role of effective feature engineering (FE) is pivotal in enhancing model performance. Traditional approaches of FE often rely on domain expertise to manually design features for machine learning (ML) models. In the context of DL models, the FE is embedded in the neural network&#x27;s architecture, making it hard for interpretation. In this study, we propose to integrate symbolic regression (SR) as an FE process before a ML model to improve its performance. We show, through extensive experimentation on synthetic and 21 real-world datasets, that the incorporation of SR-derived features significantly enhances the predictive capabilities of both machine and DL regression models with 34%–86% root mean square error (RMSE) improvement in synthetic datasets and 4%–11.5% improvement in real-world datasets. In an additional realistic use case, we show the proposed method improves the ML performance in predicting superconducting critical temperatures based on Eliashberg theory by more than 20% in terms of RMSE. These results outline the potential of SR as an FE component in data-driven models, improving them in terms of performance and interpretability.</p>
+        </section>
+        
+<div class="paper-text">
+<h2 id="1-introduction">1. Introduction</h2>
+<p>Machine and deep learning (DL), achieving optimal performance and interpretability in regression tasks stands as a fundamental computational challenge, critical for applications spanning various fields of science and engineering <span class="cite">[<a href="#ref-1">1</a>–<a href="#ref-7">7</a>]</span>. The efficacy of the machine learning (ML) pipeline hinges on numerous components that govern its performance <span class="cite">[<a href="#ref-8">8</a>–<a href="#ref-10">10</a>]</span>, explainability <span class="cite">[<a href="#ref-11">11</a>, <a href="#ref-12">12</a>]</span>, and development efficiency <span class="cite">[<a href="#ref-13">13</a>, <a href="#ref-14">14</a>]</span>. Arguably, feature selection and feature engineering (FE) are the most important steps <span class="cite">[<a href="#ref-15">15</a>]</span> as they are commonly one of the first steps in the ML pipeline and therefore determine the performance of everything computed afterward <span class="cite">[<a href="#ref-16">16</a>]</span>. Moreover, the FE process is instrumental in transforming raw data into meaningful representations that empower models to capture underlying patterns effectively <span class="cite">[<a href="#ref-17">17</a>, <a href="#ref-18">18</a>]</span>.</p>
+<p>Traditionally, crafting relevant features necessitates domain expertise, a labor-intensive approach that may not fully harness the intricate relationships within complex datasets <span class="cite">[<a href="#ref-19">19</a>–<a href="#ref-21">21</a>]</span>. In contrast, contemporary DL models treat feature extraction as an inherent ‘black box’ process, relinquishing some degree of interpretability and control in favor of automated extraction <span class="cite">[<a href="#ref-3">3</a>, <a href="#ref-22">22</a>]</span>. Between these extremes, alternative FE methods aim to furnish meaningful features that improve a down-the-line objective <span class="cite">[<a href="#ref-23">23</a>, <a href="#ref-24">24</a>]</span>. While intuitive and promising, the last group is usually the most time-consuming and computationally intensive, making it challenging or even unrealistic to be efficiently utilized for many cases <span class="cite">[<a href="#ref-24">24</a>]</span>.</p>
+<p>To address this challenge, this paper proposes a paradigm shift by advocating the integration of symbolic regression (SR) as an FE method. SR empowers models to autonomously evolve mathematical expressions, capturing intricate data relationships and uncovering latent features that elude manual construction <span class="cite">[<a href="#ref-25">25</a>–<a href="#ref-28">28</a>]</span> by incorporating SR-derived features before applying ML or DL models.</p>
+<p>To evaluate this method’s performance, we employ an ‘off-the-shelf’ SR model (GPlearn <span class="cite">[<a href="#ref-29">29</a>]</span>), automatic ML (AutoML) (Tree-based Pipeline Optimization Tool (TPOT) <span class="cite">[<a href="#ref-30">30</a>]</span>), and automatic DL models (AutoKeras <span class="cite">[<a href="#ref-31">31</a>]</span>) on both synthetic and real-world datasets. We investigate how the introduction of SR-derived features impacts the performance of data-driven models while reducing the reliance on developer expertise. Our results demonstrate that integrating SR-derived features significantly enhances (<em>p &lt;</em> 0.01) the predictive capabilities of both ML and DL regression models across a wide range of synthetic (<em>n</em> = 1250) and real-world (<em>n</em> = 1000) datasets, yielding performance gains of up to 86.0% and 34.4% for synthetic datasets and 4.0% and 11.5% for real-world datasets, respectively.</p>
+<p>The remainder of this paper is organized as follows: section 2 provides an overview of related work in the field of FE, discussing both traditional methods and recent advances in automated feature extraction. Section 3 delves into our proposed methodology for integrating SR into the FE process. In section 4, we detail our experimental setup and present the datasets used. Section 5 presents and thoroughly analyzes our results. Finally, section 6 explores the implications and insights drawn from our findings, discussing the advantages, limitations, and potential applications of our proposed approach.</p>
+<h2 id="2-related-work">2. Related work</h2>
+<p>FE has long been a pivotal aspect in bolstering the performance and interpretability of ML and DL regression tasks <span class="cite">[<a href="#ref-19">19</a>, <a href="#ref-20">20</a>]</span>. Traditional approaches have relied on the manual crafting of features by domain experts, yielding potent but labor-intensive methods <span class="cite">[<a href="#ref-25">25</a>–<a href="#ref-27">27</a>]</span>. Conversely, recent advancements in DL have introduced automated feature extraction within the model architecture, often at the expense of interpretability <span class="cite">[<a href="#ref-3">3</a>, <a href="#ref-22">22</a>]</span>. In this section, we provide an overview of existing research, commencing with a spectrum of FE methodologies and their implications. Subsequently, we provide an overview of the main groups of SR methods and recent developments in the field, highlighting its potential as an automated FE (AFE) method.</p>
+<h3 id="21-fe">2.1. Fe</h3>
+<p>Informally, FE involves the creation, selection, transformation, and manipulation of features in a dataset to enhance the performance of a down-the-line data-driven model. The importance of FE in ML and regression tasks is widely acknowledged <span class="cite">[<a href="#ref-32">32</a>, <a href="#ref-33">33</a>]</span>. As such, a growing body of work explores AFE methods <span class="cite">[<a href="#ref-34">34</a>, <a href="#ref-35">35</a>]</span>. Given the complexity of this task, researchers have employed diverse strategies to tackle this challenge. These include genetic programming <span class="cite">[<a href="#ref-36">36</a>]</span>, evolutionary algorithms <span class="cite">[<a href="#ref-37">37</a>]</span>, neural architecture search (NAS) for automatic feature construction <span class="cite">[<a href="#ref-10">10</a>, <a href="#ref-38">38</a>]</span>, and wrapper feature selection <span class="cite">[<a href="#ref-24">24</a>]</span>, among others. While these approaches alleviate the manual burden, they often fall short in terms of interpretability.</p>
+<p>Traditional FE methods typically necessitate domain-specific expertise to devise relevant features tailored to specific problem domains <span class="cite">[<a href="#ref-39">39</a>]</span>. These methods have been extensively employed in various fields, including natural language processing, computer vision, and sensor data analysis <span class="cite">[<a href="#ref-40">40</a>–<a href="#ref-42">42</a>]</span>. For instance, in the context of stroke risk prediction (as exemplified in <span class="cite">[<a href="#ref-43">43</a>]</span>), it is common practice to incorporate a feature encompassing body mass index (BMI = weight<em>/</em>height<sup><a href="#ref-2">2</a></sup>), effectively amalgamating weight and height parameters.</p>
+<p>Feature transformation is a common FE practice involving data modification to enhance modeling suitability. This may include scaling, normalization, or applying mathematical functions like logarithms to address skewed distributions. As datasets grow larger and more complex, practitioners resort to computationally intensive FE techniques. Feature extraction methods create new features by transforming or combining existing ones. Common techniques include principal component analysis <span class="cite">[<a href="#ref-44">44</a>, <a href="#ref-45">45</a>]</span>, independent component analysis <span class="cite">[<a href="#ref-46">46</a>]</span>, and autoencoders <span class="cite">[<a href="#ref-47">47</a>]</span>. These methods can automatically generate new features or reduce data dimensionality while preserving essential information, proving valuable for a wide range of ML and DL models <span class="cite">[<a href="#ref-48">48</a>–<a href="#ref-50">50</a>]</span>. For example, <span class="cite">[<a href="#ref-51">51</a>]</span> applied principal component analysis to data derived from a socioeconomic questionnaire regarding barriers to healthcare.</p>
+<p>A few studies have examined the potential of genetic algorithms (GA) to automatically generate meaningful features. de Melo and Banzhaf <span class="cite">[<a href="#ref-52">52</a>]</span> evaluate a hybrid approach called Kaizen Programming that combines evolutionary computation (EC) and statistical methods (ordinary least squares (OLSs)) to perform automatic FE for deterministic regression models. They demonstrate that their model outperforms traditional Genetic Programming and other methods by producing high-quality solutions with fewer function evaluations. In contrast to the current study, they use the EC-derived features as inputs to an OLSs analysis, and not to ML or DL models. Heaton <span class="cite">[<a href="#ref-36">36</a>]</span> introduce a modular approach that utilizes SR and combines EC with FE to extract hidden flow physics from sparse data, employing gene expression programming and sequential threshold ridge regression to discover equations, analyze errors, and reveal hidden physics in fluid dynamics. They, too, do not estimate the contribution of such features to ML or DL models. <span class="cite">[<a href="#ref-53">53</a>]</span> proposes to apply AFE for automatically generating features as an input layer to neural network (NN). Leveraging genetic programming, the algorithm explores the mathematical expression space to identify effective features to enhance accuracy of a given DNN model. Unlike the targeted integration of features into specific DNN models, our approach emphasizes the broader scope of applying SR techniques within AutoML pipelines, facilitating the discovery and optimization of models across diverse ML tasks and architectures.</p>
+<p>In the following subsection we discuss the different existing approaches of tackling the challenge of SR.</p>
+<h3 id="22-sr">2.2. Sr</h3>
+<p>SR is approached via various strategies, broadly classified into four primary categories based on computational techniques: brute-force search, sparse regression, DL, and GA <span class="cite">[<a href="#ref-54">54</a>, <a href="#ref-55">55</a>]</span>. Each category has its unique merits and limitations, with no single approach prevailing over others, as demonstrated in a recent comparative survey <span class="cite">[<a href="#ref-56">56</a>]</span>.</p>
+<p>Brute-force SR models theoretically possess the capability to solve any SR task by exhaustively testing all possible equations to identify the best-performing one <span class="cite">[<a href="#ref-57">57</a>]</span>. Nevertheless, the practical application of brute-force methods frequently proves unfeasible due to their substantial computational requirements, which persist as a challenge even when dealing with small datasets. Moreover, these models tend to overfit when confronted with large and noisy data <span class="cite">[<a href="#ref-58">58</a>]</span>, a common scenario in many real-world datasets <span class="cite">[<a href="#ref-59">59</a>, <a href="#ref-60">60</a>]</span>. DL SR models excel in handling noisy data due to NNs’ intrinsic resistance to outliers <span class="cite">[<a href="#ref-61">61</a>]</span>. Nonetheless, empirical studies indicate limited generalization capabilities, constraining their utility <span class="cite">[<a href="#ref-56">56</a>]</span>. Notably, <span class="cite">[<a href="#ref-62">62</a>]</span> introduced a deep SR (DSR) model catering to general SR tasks, employing reinforcement learning to train a generative recurrent NN model for symbolic expressions. Moreover, DSR integrates a variant of the Monte Carlo policy gradient approach to customize the generative model for exact formulas. Sparse regression methods significantly narrow the exploration scope by identifying concise models through sparsity-driven optimization <span class="cite">[<a href="#ref-63">63</a>]</span>.</p>
+<p>Finally, GA SR models efficiently incorporate prior knowledge to constrain the function search space <span class="cite">[<a href="#ref-64">64</a>]</span>. For instance, SR can adhere to predefined solution shapes <span class="cite">[<a href="#ref-65">65</a>–<a href="#ref-68">68</a>]</span>, or employ probabilistic models to sample grammar rules governing solution generation <span class="cite">[<a href="#ref-69">69</a>–<a href="#ref-72">72</a>]</span>. An effective yet simple GA-based SR implementation is the <em>gplearn</em> Python Library <span class="cite">[<a href="#ref-73">73</a>]</span>. It commences by generating a population of basic random formulas, structured as tree-like relationships between independent variables (features) and dependent variables (targets). Subsequently, through stochastic optimization, it iterates on subtree replacement, recombination, fitness evaluation by executing trees, and stochastic survival of the fittest. This technique demonstrates proficiency in solving real-world problems and achieves one of the top ranking in studies comparing SR models <span class="cite">[<a href="#ref-55">55</a>]</span>. Thus, it can serve as a foundational framework for more intricate models, as we present in this work.</p>
+<h3 id="23-automl">2.3. AutoML</h3>
+<p>AutoML<span class="cite">[<a href="#ref-74">74</a>]</span> has emerged as a transformative technology in the field of artificial intelligence and ML. It aims to automate and simplify the intricate process of building, training, and deploying ML models. Two notable frameworks within the AutoML domain are TPOT and AutoKeras, each offering unique approaches to streamline and optimize the ML pipeline.</p>
+<p>TPOT <span class="cite">[<a href="#ref-30">30</a>]</span>: TPOT is a widely recognized AutoML framework that leverages genetic programming to automatically search and construct effective ML pipelines. Genetic programming involves evolving a population of ML pipelines over generations, with each generation improving upon the previous one. TPOT explores a wide range of preprocessing techniques, FE methods, and ML algorithms, evolving optimal combinations tailored to a specific problem. It assesses the performance of these pipelines using cross-validation and selects the best-performing model. TPOT is particularly valuable when dealing with structured data and tabular datasets.</p>
+<p>AutoKeras <span class="cite">[<a href="#ref-31">31</a>]</span>: AutoKeras is another prominent AutoML framework that specializes in the automation of DL model construction. It simplifies the process of NN architecture search and hyperparameter tuning. AutoKeras employs a technique known as NAS to automatically discover the most suitable NN architectures for a given task. This involves exploring a wide range of NN configurations, including various layers and hyperparameters, to identify the architecture that yields the best performance. AutoKeras is especially beneficial when working with unstructured data types such as images, text, and sequences, where DL approaches excel.</p>
+<p>Both TPOT and AutoKeras exemplify the power of AutoML in terms of automating complex decision-making processes in ML. By minimizing the need for manual intervention, they make ML accessible to a broader audience, accelerate model development, and enable non-experts to harness the potential of artificial intelligence for their specific applications. In a recent benchmark study <span class="cite">[<a href="#ref-75">75</a>]</span> AutoKeras and TPOT showed the best results for wave data classification.</p>
+<h2 id="3-sr-as-fe">3. SR as FE</h2>
+<p>In this study, our objective is to investigate the role of SR as a preliminary layer in ML and DL models, essentially functioning as a FE step, generating more intricate features for data-driven models to leverage. To achieve this, we incorporate an SR model into our workflow, introducing its output as an additional feature for subsequent ML and DL models. Formally, this technique involves the simultaneous training of two models: the SR model and the subsequent ML/DL model. The SR model is trained on the input features, denoted as <em>X</em>, and produces a new SR-derived feature, which is appended to <em>X</em> to create <em>X</em><sup>∗</sup>. Subsequently, the ML/DL model is trained on <em>X</em><sup>∗</sup>. Both models address the same regression task with respect to a specified target feature, denoted as <em>y</em>.</p>
+<p>To be exact, let us assume a given dataset <em>D ∈</em> R<sup>n×m</sup> with <em>n</em> rows and <em>m</em> features such that the features are divided into source (<em>X</em>) and target (<em>y</em>) features. Consistent with common data-driven model development practices, we initially divide the rows into training and validation subsets. Focusing on the training subset to avoid data leakage <span class="cite">[<a href="#ref-76">76</a>]</span>, we employ the well-known GPlearn SR model <span class="cite">[<a href="#ref-29">29</a>]</span> to create multiple SR models for the training data, each one contributing a potential feature to <em>X</em><sup>∗</sup>. Each instance of the SR model is characterized by a distinct parsimony coefficient. These SR models generate multiple solutions during the search for the optimal equation. Consequently, we select the equation with the lowest root mean square error (RMSE) score across the entire search process, which may not necessarily be the latest one. Subsequently, we train either an ML model using an AutoML model—TPOT <span class="cite">[<a href="#ref-30">30</a>]</span> or a DL model using an automatic DL model—Autokeras (AK) <span class="cite">[<a href="#ref-31">31</a>]</span>.</p>
+<p>Once the models are trained, we compare the performance of the TPOT model on the validation subset of the original data <em>X</em> (referred to as TPOT), treating it as the control sample, and the SR-enhanced data <em>X</em><sup>∗</sup> (referred to as SRTPOT), considering it as the case sample. Similarly, we assess the performance of the AK model on the validation subset of the original data <em>X</em> (referred to as AK) and the SR-enriched data <em>X</em><sup>∗</sup> (referred to as SRAK). In both cases, we calculate the RMSE score of the TPOT or AK models divided by the score of the SRTPOT or SRAK models respectively, ensuring the metric is unit-free and comparable across various datasets. We then subtract 1 from the result and multiply by 100 to express the change in percentages. Thus, in this proposed metric, values greater than zero indicate a favorable performance for the SRTPOT or SRAK models in comparison to the TPOT or AK models, respectively. The metric for comparing the performance of the models is calculated as follows:</p>
+<div class="equation" id="eq-1"><img src="figures/eq-1.webp" width="467" height="42" alt="Percentage TPOT Improvement = ( RMSETPOT RMSESRTPOT −1 × 100 (1)" loading="lazy" decoding="async"></div>
+
+<div class="equation" id="eq-2"><img src="figures/eq-2.webp" width="451" height="41" alt="Percentage AK Improvement = ( RMSEAK RMSESRAK −1 × 100. (2)" loading="lazy" decoding="async"></div>
+
+<p><a class="xref" href="#fig-1">Figure 1</a> provides a schematic representation of this methodology and experiment.</p>
+<h2 id="4-experimental-setup">4. Experimental setup</h2>
+<p>To provide a comprehensive analysis of the proposed method, we used both synthetic and real-world datasets, focusing exclusively on regression tasks with numerical features.</p>
+<h3 id="41-generating-synthetic-datasets">4.1. Generating synthetic datasets</h3>
+<p>We initiated the experiment with synthetic datasets. To generate these datasets, we followed a procedure of randomly creating polynomials and introducing Gaussian noise. The polynomial generation process involved random selection of the number of features, ranging between 2 and 5, and the highest exponent for each variable in each term, fluctuating between 1 and 3. Once a polynomial was randomly generated, we produced a predefined number of <em>n</em> data samples (equivalent to the number of rows in the dataset). These samples were generated by assigning a value between <em>−</em>2 and 2 to each feature, following a uniform distribution. This range was chosen to ensure clear differentiation between symmetric and asymmetric functions, which exhibit different behaviors around zero. Additionally, higher-order polynomials tend to yield values closer to zero in the range of <em>−</em>1 to 1, while larger values between [<em>−</em>2, <em>−</em>1] and <span class="cite">[<a href="#ref-1">1</a>, <a href="#ref-2">2</a>]</span> allow for rich samples of polynomials, focusing on a relatively small value range to prevent numerical issues such as float overflow. We computed the target feature (<em>y</em>) for each row based on the polynomial, adding Gaussian noise with a mean value of zero and a standard deviation of 5% of the original <em>y</em> value. The noise percentage is defined by the mean of the entire sample, and not for each observation individually.</p>
+<figure id="fig-1">
+<a class="fig-zoom" href="figures/fig-1.webp" aria-label="Open the figure full size"><img src="figures/fig-1.webp" width="666" height="117" alt="A schematic view of this method and experiment" loading="lazy" decoding="async"></a>
+<figcaption><strong>Figure 1.</strong> A schematic view of this method and experiment. We begin by either generating synthetic datasets or using real-world datasets. We then train the SR model and create the SR-based feature. Next, we train AutoML models on both the SR-enhanced data as the case sample, and the original data as control. We compare the RMSE scores in the testing data of both models.</figcaption>
+</figure>
+
+<h3 id="42-real-world-datasets">4.2. Real-world datasets</h3>
+<p>For the real-world datasets, we utilized datasets from a recent benchmarking study on AutoML regression tasks <span class="cite">[<a href="#ref-77">77</a>]</span>. Specifically, we analyzed a total of 20 datasets from nine studies <span class="cite">[<a href="#ref-78">78</a>–<a href="#ref-86">86</a>]</span>. The only modification applied to these datasets was the removal of categorical variables, as this study exclusively focused on numerical variables. This alteration did not impact our ability to evaluate the SRTPOT and SRAK methods, as we compared their results to TPOT and AK models trained on the exact same datasets, specifically using an identical train-test split in each case.</p>
+<p>In addition, inspired by <span class="cite">[<a href="#ref-87">87</a>]</span>, we examined the method’s performance in predicting superconducting critical temperatures based on Eliashberg theory. Estimation of superconducting critical temperatures is an extremely active field of research which has drawn extensive scholarly interest <span class="cite">[<a href="#ref-88">88</a>]</span>. Xie <em>et al</em> <span class="cite">[<a href="#ref-87">87</a>]</span> developed an SR model for this purpose using artificially generated <em>α</em><sup><a href="#ref-2">2</a></sup><em>F</em> functions and computed critical temperatures <em>T</em><sub>c</sub> using numerical solutions of the Eliashberg equations. They tested their model on hydride superconductors and found a substantial improvement compared to traditional equations in the field. As <span class="cite">[<a href="#ref-87">87</a>]</span> had already developed an SR model for this purpose, we extended their findings by training AutoML models either with or without the SR feature based on their work. We decided to use this case due to its physical importance and relatively large dataset.</p>
+<h3 id="43-gplearn-tpot-and-ak-runs">4.3. GPlearn, TPOT, and AK runs</h3>
+<p>Next, we describe how we ran the GPlearn, TPOT, and AK models in our experiments. As these experiments are designed to compare the performance of AutoML models either with or without the SR-derived features, we mostly used the default configurations of these models.</p>
+<p>For the GPlearn model, we used the four basic operators (addition, subtraction, multiplication, and division). We also examined 200 runs with the default GPlearn operators and found no significant difference (not presented). We conducted the modeling process over 50 generations, testing the model six times using different parsimony coefficients (0.005, 0.01, 0.02, 0.03, 0.04, 0.05). For each test, we selected the parsimony coefficient that resulted in the lowest RMSE on the training data. Apart from these hyperparameters, all other hyperparameters were set to the default values provided by GPlearn. As for the TPOT and AutoKeras models, we used the default models’ configuration either with or without the SR-derived feature. The only modification we applied was to limit the TPOT run time to ten minutes.</p>
+<h3 id="44-evaluation-methodology">4.4. Evaluation methodology</h3>
+<p>To ensure comprehensive evaluation, we repeated the assessment process 50 times, each time with a different split between the training and validation cohorts, for each dataset, resulting in a total of 1000 runs. For both synthetic and real-world datasets, the training cohort comprised 80% of the dataset, while the validation cohort contained the remaining 20%.</p>
+<p>To explore the robustness of our proposed method, we conducted two additional experiments. First, we performed a total of 1250 repetitions of the synthetic dataset analysis, varying sample sizes (100, 500, 1000, 5000, 10 000) and noise levels (1%–5%). Each configuration consisted of 50 repetitions. Second, we investigated the influence of the number of terms and the non-linearity of the data on our method’s performance. Non-linearity was measured in two ways: by dividing the RMSE of a linear regression (LR) model by the standard deviation of the target variable and by using 1 <em>−R</em><sup><a href="#ref-2">2</a></sup> of the LR model trained on the training dataset. The <em>p</em>-value for statistical significance was set at <em>p</em> ⩽ 0<em>.</em>01.</p>
+<figure class="table-figure" id="table-1">
+<figcaption><strong>Table 1.</strong> Example of one synthetic dataset. We randomly generate a polynomial and present its fitted SR. The SR did not capture the exact polynomial (fitted 2 <em>∗x</em><sub>1</sub> instead of <em>x</em><sup><a href="#ref-3">3</a></sup> <sub>1</sub>), but did accurately predict part of the polynomial (<em>x</em><sup><a href="#ref-3">3</a></sup> <sub>1</sub> <em>∗x</em><sup><a href="#ref-3">3</a></sup> <sub>2</sub> + <em>x</em><sup><a href="#ref-3">3</a></sup> <sub>3</sub>). This inaccuracy resulted in a relatively high RMSE score for the SR model (1.31). However, although the TPOT and AK models both obtained better RMSE scores compared to the SR model (0.99 and 0.70 respectively), adding the SR-based feature significantly improved their performance (0.79 and 0.36 respectively).</figcaption>
+<div class="table-scroll"><table><tr><th>Method</th><th>Features</th><th>RMSE</th><th>Comments</th></tr><tr><td>True polynomial</td><td>x3 1 ∗x3 2 + x3 3 + x3 1</td><td>0.29</td><td>RMSE not 0 due to the added noise</td></tr><tr><td>Fitted SR</td><td>x3 1 ∗x3 2 + x3 3 + 2 ∗x1 (FSR)</td><td>1.31</td><td>Note that fitted SR is not identical to true polynomial</td></tr><tr><td>LR</td><td></td><td>9.38</td><td>Linear regression with original features</td></tr><tr><td>TPOT</td><td>x1,x2,x3</td><td>0.99</td><td>TPOT AutoML with original features</td></tr><tr><td>AK</td><td></td><td>0.70</td><td>AutoKeras AutoML with original features</td></tr><tr><td>SRTPOT</td><td>x1,x2,x3, FSR</td><td>0.79</td><td>TPOT with original features and Fitted SR feature</td></tr><tr><td>SRAK</td><td></td><td>0.39</td><td>AutoKeras with original features and Fitted SR feature</td></tr></table></div>
+
+</figure>
+
+<h2 id="5-results">5. Results</h2>
+<p>In this section, we present the outcomes of our experiments. We begin by reporting the performance of our proposed method on both synthetic and real-world datasets. Subsequently, we demonstrate the robustness of our approach through various assessments.</p>
+<h3 id="51-performance">5.1. Performance</h3>
+<p><a class="xref" href="#table-1">Table 1</a> demonstrates the results of one synthetic dataset. We begin by randomly generating the polynomial <em>x</em><sup><a href="#ref-3">3</a></sup> <sub>1</sub> <em>∗x</em><sup><a href="#ref-3">3</a></sup> <sub>2</sub> + <em>x</em><sup><a href="#ref-3">3</a></sup> <sub>3</sub> + <em>x</em><sup><a href="#ref-3">3</a></sup> <sub>1</sub>. As we add 5% Gaussian noise, the true polynomial prediction RMSE is nonzero and equals 0.29. We fit the SR model, which provides the polynomial <em>x</em><sup><a href="#ref-3">3</a></sup> <sub>1</sub> <em>∗x</em><sup><a href="#ref-3">3</a></sup> <sub>2</sub> + <em>x</em><sup><a href="#ref-3">3</a></sup> <sub>3</sub> + 2 <em>∗x</em><sub>1</sub>. While the first two terms are correct, the third term is not accurate, resulting in an RMSE score of 1.31. Even though both the TPOT and AK models outperform the SR model with RMSE scores of 0.99 and 0.70, adding the SR-derived feature substantially improves these models. When training the SRTPOT and SRAK models with the SR-derived feature, the TPOT RMSE score improves from 0.99 to 0.79 and the AK RMSE score improves from 0.70 to 0.36.</p>
+<p><a class="xref" href="#fig-2">Figure 2</a> provides a comprehensive overview of the model performances. <a class="xref" href="#fig-2">Figures 2</a>(a) and (b) pertain to the synthetic datasets, showcasing the relative improvements achieved by the SRTPOT model over the TPOT model and the SRAK model over the AK model, respectively. These synthetic datasets encompassed 5000 samples in each run and 5% noise level. Additional datasets are analyzed in section 5.2. On average, the TPOT model displayed a mean RMSE of 86.0% higher than that of the SRTPOT model, with a median difference of 6.5%. Similarly, the AK model exhibited a mean RMSE of 34.4% higher than that of the SRAK model, with a median difference of 6.9%. Notably, the results displayed considerable positive skewness. <a class="xref" href="#fig-2">Figure 2</a> presents values up to 100%, due to visual convenience, allowing an easier review of the results. The full range plot is presented in the appendix. In addition, we verify that the results are still positive and statistically significant following outlier removal and present this analysis in the appendix.</p>
+<p><a class="xref" href="#fig-2">Figures 2</a>(c) and (d) detail the results for the real-world datasets. The advantage of the SRTPOT and SRAK models in these datasets is comparatively more modest compared to the synthetic datasets. Nonetheless, it remains substantial in both magnitude and statistical significance (<em>p &lt;</em> 0.01). In particular, the TPOT model was outperformed by 4.0% (<em>p &lt;</em> 0.01), with a positive median difference slightly above zero. In contrast, the SRAK model outperformed the AK model by 11.5% (<em>p &lt;</em> 0.01), with a median difference of 1.2%.</p>
+<p><a class="xref" href="#fig-3">Figure 3</a> presents the relative performances for superconducting critical temperature prediction. The SR-based TPOT and AK models exhibited improvements in mean RMSE by 20.3% and 23.4%, respectively. In absolute terms, the SR model developed in <span class="cite">[<a href="#ref-87">87</a>]</span> obtained an RMSE score of 17.31 degrees. The TPOT and AK models obtained 11.71 and 11.13 degrees RMSE respectively; when integrating the SR model into the TPOT and AK training process, the RMSE scores improved to 9.81 and 9.06 degrees, respectively. The RMSE scores of these models are presented in figure 4.</p>
+<h3 id="52-robustness">5.2. Robustness</h3>
+<p>In addition, figure 5 presents robustness tests encompassing various sample sizes and noise levels. Across all 25 configurations, which varied in sample size (100, 500, 1000, 5000, 10 000) and noise levels (1%–5%) the SRTPOT and SRAK models consistently improved mean RMSE scores. The cells with 5% noise and 5000 observations correspend to the two top subfigures in figure 2. As expected, the most significant improvements were observed in datasets with lower noise levels and smaller sample sizes, aligning with SR’s known advantage in such scenarios. Despite a decrease in improvement percentages by 143.7% (ML) or 25.1% (DL) for each 1% increase in noise level, and by 0.05% (ML) or 0.02% (DL) for each additional observation, substantial improvements were still observed in datasets with 5% noise and 10 000 observations, showing a mean improvement of 36% for ML and 23% for DL, respectively.</p>
+<figure id="fig-2">
+<a class="fig-zoom" href="figures/fig-2.webp" aria-label="Open the figure full size"><img src="figures/fig-2.webp" width="669" height="481" alt="Summary of model performances" loading="lazy" decoding="async"></a>
+<figcaption><strong>Figure 2.</strong> Summary of model performances. (a) and (b) illustrate the relative improvement of the SRTPOT and SRAK models compared to the TPOT and AK models, respectively, in the synthetic datasets. (c) and (d) illustrate the relative improvement of the SRTPOT and SRAK models compared to the TPOT and AK models, respectively, in the real datasets. Values above 100% are not presented, encompassing approximately 25% of the observations in subfigures (a) and (b), 1% of the observations in subfigure (c) and 3% of the observations in subfigure (d).</figcaption>
+</figure>
+
+<figure id="fig-3">
+<a class="fig-zoom" href="figures/fig-3.webp" aria-label="Open the figure full size"><img src="figures/fig-3.webp" width="669" height="273" alt="Summary of model performances predicting superconducting critical temperature" loading="lazy" decoding="async"></a>
+<figcaption><strong>Figure 3.</strong> Summary of model performances predicting superconducting critical temperature. (a) and (b) illustrate the relative improvement of the SRTPOT and SRAK models compared to the TPOT and AK models, respectively.</figcaption>
+</figure>
+
+<p>Moreover, figure 6 presents robustness tests for the complexity of the generated polynomials. The horizontal axis presents the number of terms in the polynomial expression and the vertical axis presents the non-linearity, measured either with the RMSE score of the LR model divided by the standard deviation of the target variable, or by 1 <em>−R</em><sup><a href="#ref-2">2</a></sup> of the LR model. While the number of terms has no statistically significant effect, in all four subfigures it is evident that the contribution of the SR layer is more substantial in non-linear datasets. The OLSs coefficients of both robustness tests are summarized in table A.1 in the appendix.</p>
+<figure id="fig-4">
+<a class="fig-zoom" href="figures/fig-4.webp" aria-label="Open the figure full size"><img src="figures/fig-4.webp" width="669" height="272" alt="Summary of model performances predicting superconducting critical temperature" loading="lazy" decoding="async"></a>
+<figcaption><strong>Figure 4.</strong> Summary of model performances predicting superconducting critical temperature. (a) and (b) illustrate the RMSE scores of the SRTPOT and SRAK models (green) compared to the TPOT and AK models (blue), respectively. The dashed orange line indicates the RMSE of the original SR model developed by <span class="cite">[<a href="#ref-87">87</a>]</span>.</figcaption>
+</figure>
+
+<figure id="fig-5">
+<a class="fig-zoom" href="figures/fig-5.webp" aria-label="Open the figure full size"><img src="figures/fig-5.webp" width="669" height="251" alt="Robustness tests for synthetic data noise and sample size" loading="lazy" decoding="async"></a>
+<figcaption><strong>Figure 5.</strong> Robustness tests for synthetic data noise and sample size. (a) illustrates the relative improvement of the SRTPOT model compared to the TPOT model. (b) illustrated the relative improvement of the SRAK model compared to the AK model.</figcaption>
+</figure>
+
+<h2 id="6-discussion">6. Discussion</h2>
+<p>In this study, we have introduced a novel approach to FE by incorporating SR into ML and DL regression models. Our findings unequivocally demonstrate the potential of SR-derived features to significantly enhance the predictive performance of data-driven models while reducing the reliance on extensive domain expertise. By enabling models to autonomously evolve mathematical expressions that capture intricate data relationships, SR bridges the gap between interpretability and complexity. Developing SR models is also relatively simple and requires significantly less computation time than ML and DL models.</p>
+<p>As illustrated in figure 2, our results show that the proposed SR FE method can statistically improve the average performance of both synthetic and real-world datasets across both ML and DL-based models. As demonstrated in table 1, the SR-derived feature improves the TPOT and AK models even though the SR model itself results in an inferior RMSE score. This improvement is independent of the data type or the specific data-driven model used. Moreover, the median value in all cases exceeds 0, indicating that the proposed method enhances the majority of the samples. In more complex real-world datasets, the mean improvement for ML models is 4.0%, while for DL models, it is 11.5%. It’s important to note that in some cases, many models remain unchanged or experience only slight modifications, as evidenced by the large number of datasets with a relative performance of 0. This outcome is a result of both ML and DL models often performing feature selection, potentially disregarding the features generated by our method if they are found to be non-beneficial. Our analysis also extended to the prediction of superconducting critical temperatures, where the integration of SR-derived features into TPOT and AK models resulted in significant improvements, with mean RMSE reductions of 20.3% and 23.4%, respectively, as shown in figure 3. This highlights the effectiveness of our approach in a physics-based context, particularly when using SR models tailored for specific applications, as demonstrated by the specialized SR model developed in <span class="cite">[<a href="#ref-87">87</a>]</span>.</p>
+<figure id="fig-6">
+<a class="fig-zoom" href="figures/fig-6.webp" aria-label="Open the figure full size"><img src="figures/fig-6.webp" width="669" height="446" alt="Robustness tests for synthetic data non-linearity" loading="lazy" decoding="async"></a>
+<figcaption><strong>Figure 6.</strong> Robustness tests for synthetic data non-linearity. In subfigures (a) and (b), non-linearity is defined as the LR RMSE divided by the standard deviation of the target variable in each dataset. (a) illustrates the relative improvement of the SRTPOT model compared to the TPOT model. (b) illustrates the relative improvement of the SRAK model compared to the AK model. In subfigures (c) and (d), non-linearity is defined as 1 <em>−R</em><sup><a href="#ref-2">2</a></sup> of the LR model in each dataset. (c) illustrates the relative improvement of the SRTPOT model compared to the TPOT model. (d) illustrates the relative improvement of the SRAK model compared to the AK model.</figcaption>
+</figure>
+
+<p>After establishing the effectiveness of the proposed method, we turned our attention to its robustness. We conducted extensive robustness tests that assessed the contribution of SR in 1250 ML and DL training processes under varying conditions. Based on this data, we computed a two-dimensional sensitivity analysis for the number of samples in a dataset, their noise levels, and the complexity of the regression task (indicated by the number of terms in the mathematical equation) alongside the non-linearity coefficient, as presented in figures 5 and 6. Based on these results, and as indicated by table A.1, we observed a negative correlation between an increase in the number of samples, noise levels, and the relative performance of the proposed method. This observation aligns with the known notion that larger and cleaner datasets are generally easier to handle for data-driven models <span class="cite">[<a href="#ref-89">89</a>]</span>. Nevertheless, even for datasets with 10 000 samples and 5% Gaussian noise, the proposed method demonstrates a relative average performance increase of 36% and 23% for ML and DL models, respectively, reaffirming its robustness to both noise and sample size. Additionally, as datasets become more complex, as depicted in figure 6, the proposed method continues to improve (or at least, not worsen) model performance. Notably, for linearly dependent datasets (i.e. with a non-linearity coefficient close to zero), the proposed method does not contribute to model performance. However, even with slight non-linearity, the proposed method demonstrates significant improvement on average.</p>
+<p>While our study underscores the potential of SR-derived features, numerous challenges remain. The computational complexity of SR, particularly for larger datasets, necessitates further exploration of efficient optimization strategies <span class="cite">[<a href="#ref-90">90</a>]</span>. Furthermore, the applicability of SR may vary depending on dataset characteristics, necessitating investigations into its adaptability to diverse domains and computational properties of the dataset <span class="cite">[<a href="#ref-56">56</a>, <a href="#ref-91">91</a>]</span>. Additionally, this study solely employed one SR method—the GPlearn model <span class="cite">[<a href="#ref-29">29</a>]</span>. Further exploration of other SR models (as proposed in <span class="cite">[<a href="#ref-56">56</a>]</span>) could yield different results and pave the way for a meta-learning-based approach to select the best SR model based on dataset characteristics <span class="cite">[<a href="#ref-9">9</a>]</span>. Moreover, exploring the potential of SR in time series or image analysis could extend its applicability across various domains.</p>
+<h2 id="data-availability-statements">Data availability statements</h2>
+<p>The data that support the findings of this study are openly available at the following URL/DOI: https://github.com/AssafS91/Symbolic-Regression-as-Feature-Engineering-Method-for-Machine-and-Deep-Learning-Regression-Tasks.</p>
+<h2 id="acknowledgments">Acknowledgments</h2>
+<p>We express our gratitude to Amir Dalal for his invaluable support in managing the data related to superconducting critical temperatures. T L wishes to thank Alex Liberzon for encouraging him to pursue this line of work.</p>
+<h2 id="funding">Funding</h2>
+<p>This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors.</p>
+<h2 id="appendix">Appendix</h2>
+<p><a class="xref" href="#fig-a1">Figure A.1</a> is equivalent to figure 2 but displays the entire <em>x</em>-axis, including some very high observations. <a class="xref" href="#fig-a2">Figure A.2</a> is also equivalent to figure 2, but includes an outlier removal using a threshold of <em>Z</em>-score = 3. While the relative improvements are somewhat lower, they are still positive and statistically significant. <a class="xref" href="#table-a1">Table A.1</a> summarizes the robustness tests performed in figures 5 and 6.</p>
+<figure id="fig-a1">
+<a class="fig-zoom" href="figures/fig-a1.webp" aria-label="Open the figure full size"><img src="figures/fig-a1.webp" width="669" height="481" alt="Summary of model performances, with the full x-axis displayed" loading="lazy" decoding="async"></a>
+<figcaption><strong>Figure A.1.</strong> Summary of model performances, with the full <em>x</em>-axis displayed. (a) and (b) illustrate the relative improvement of the SRTPOT and SRAK models compared to the TPOT and AK models, respectively, in the synthetic datasets. (c) and (d) illustrate the relative improvement of the SRTPOT and SRAK models compared to the TPOT and AK models, respectively, in the real datasets.</figcaption>
+</figure>
+
+<figure id="fig-a2">
+<a class="fig-zoom" href="figures/fig-a2.webp" aria-label="Open the figure full size"><img src="figures/fig-a2.webp" width="669" height="481" alt="Summary of model performances after outlier removal using a threshold of Z-score = 3" loading="lazy" decoding="async"></a>
+<figcaption><strong>Figure A.2.</strong> Summary of model performances after outlier removal using a threshold of <em>Z</em>-score = 3. (a) and (b) illustrate the relative improvement of the SRTPOT and SRAK models compared to the TPOT and AK models, respectively, in the synthetic datasets. (c) and (d) illustrate the relative improvement of the SRTPOT and SRAK models compared to the TPOT and AK models, respectively, in the real datasets.</figcaption>
+</figure>
+
+<figure class="table-figure" id="table-a1">
+<figcaption><strong>Table A.1.</strong> Summary of robustness tests.</figcaption>
+<div class="table-scroll"><table><tr><th>Variable</th><th>Model 1</th><th>Model 2</th><th>Model 3</th><th>Model 4</th><th>Model 5</th><th>Model 6</th></tr><tr><th>Model type</th><th>TPOT</th><th>AK</th><th>TPOT</th><th>AK</th><th>TPOT</th><th>AK</th></tr><tr><td># Samples</td><td>−0.05<br/>(0.01)</td><td>−0.02<br/>(0.00)</td><td></td><td></td><td></td><td></td></tr><tr><td>Noise</td><td>−143.7</td><td>−25.1</td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>(0.00)</td><td>(0.00)</td><td></td><td></td><td></td><td></td></tr><tr><td># Terms</td><td></td><td></td><td>−10.78</td><td>−0.27</td><td>−17.29</td><td>0.15</td></tr><tr><td></td><td></td><td></td><td>(0.49)</td><td>(0.96)</td><td>(0.29)</td><td>(0.45)</td></tr><tr><td>Non-linearity (LR/STD)</td><td></td><td></td><td>356.72<br/>(0.00)</td><td>132.19<br/>(0.00)</td><td></td><td></td></tr><tr><td>Non-linearity (1 −R2)</td><td></td><td></td><td></td><td></td><td>391.50</td><td>145.05</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td>(0.00)</td><td>(0.00)</td></tr><tr><td>R2</td><td>0.48</td><td>0.69</td><td>0.76</td><td>0.80</td><td>0.78</td><td>0.88</td></tr></table></div>
+<p class="table-note"><em>Note</em>: <em>P</em>-values are shown in parentheses.</p>
+</figure>
+
+<h2 id="orcid-ids">ORCID iDs</h2>
+<p>Assaf Shmuel https://orcid.org/0000-0002-1794-9381 Oren Glickman https://orcid.org/0009-0000-5158-7372 Teddy Lazebnik https://orcid.org/0000-0002-7851-8147</p>
+<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 22 February 2024 · Accepted 28 May 2024 · Published 12 June 2024</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>symbolic regression</li><li>neural network</li><li>data-driven physics</li><li>feature engineering</li><li>data science</li></ul></dd></div></dl></section>
+<h2 id="references">References</h2>
+<ol class="paper-refs"><li id="ref-1">Kutz J N 2017 Deep learning in fluid dynamics J. Fluid Mech. 814 1–4 <a href="https://doi.org/10.1017/jfm.2016.803" target="_blank" rel="noopener">doi:10.1017/jfm.2016.803</a></li>
+<li id="ref-2">Reichstein M et al 2019 Deep learning and process understanding for data-driven earth system science Nature 566 195–204 <a href="https://doi.org/10.1038/s41586-019-0912-1" target="_blank" rel="noopener">doi:10.1038/s41586-019-0912-1</a></li>
+<li id="ref-3">Alzubaidi L, Zhang J, Humaidi A J, Al-Dujaili A, Duan Y, Al-Shamma O, Santamaría J, Fadhel M A, Al-Amidie M and Farhan L 2021 Review of deep learning: concepts, cnn architectures, challenges, applications, future directions J. Big Data 8 1–74 <a href="https://doi.org/10.1186/s40537-021-00444-8" target="_blank" rel="noopener">doi:10.1186/s40537-021-00444-8</a></li>
+<li id="ref-4">Raissi M and Karniadakis G E 2018 Hidden physics models: machine learning of nonlinear partial differential equations J. Comput. Phys. 357 125–41 <a href="https://doi.org/10.1016/j.jcp.2017.11.039" target="_blank" rel="noopener">doi:10.1016/j.jcp.2017.11.039</a></li>
+<li id="ref-5">Virgolin M, Wang Z, Alderliesten T and Bosman P A N 2020 Machine learning for the prediction of pseudorealistic pediatric abdominal phantoms for radiation dose reconstruction J. Med. Imaging 7 046501 <a href="https://doi.org/10.1117/1.JMI.7.4.046501" target="_blank" rel="noopener">doi:10.1117/1.JMI.7.4.046501</a></li>
+<li id="ref-6">Lazebnik T, Bahouth Z, Bunimovich-Mendrazitsky S and Halachmi S 2022 Predicting acute kidney injury following open partial nephrectomy treatment using sat-pruned explainable machine learning model BMC Med. Inform. Decis. Making 22 133 <a href="https://doi.org/10.1186/s12911-022-01877-8" target="_blank" rel="noopener">doi:10.1186/s12911-022-01877-8</a></li>
+<li id="ref-7">Savchenko E and Lazebnik T 2022 Computer aided functional style identification and correction in modern russian texts J. Data Inform. Manage. 4 25–32 <a href="https://doi.org/10.1007/s42488-021-00062-2" target="_blank" rel="noopener">doi:10.1007/s42488-021-00062-2</a></li>
+<li id="ref-8">Zhong J, Hu X, Zhang J and Gu M 2005 Comparison of performance between different selection strategies on simple genetic algorithms Int. Conf. on Computational Intelligence for Modelling, Control and Automation and Int. Conf. on Intelligent Agents, web Technologies and Internet Commerce (CIMCA-IAWTIC’06) vol 2 (IEEE) pp 1115–21</li>
+<li id="ref-9">Lazebnik T and Rosenfeld A 2023 FSPL: a meta-learning approach for a filter and embedded feature selection pipeline Int. J. Appl. Math. Comput. Sci. 33 103–15 <a href="https://doi.org/10.34768/amcs-2023-0009" target="_blank" rel="noopener">doi:10.34768/amcs-2023-0009</a></li>
+<li id="ref-10">He X, Zhao K and Chu X 2021 Automl: a survey of the state-of-the-art Knowl.-Based Syst. 212 106622 <a href="https://doi.org/10.1016/j.knosys.2020.106622" target="_blank" rel="noopener">doi:10.1016/j.knosys.2020.106622</a></li>
+<li id="ref-11">Huber M F 2021 A survey on the explainability of supervised machine learning J. Artif. Intell. Res. 70 245–317 <a href="https://doi.org/10.1613/jair.1.12228" target="_blank" rel="noopener">doi:10.1613/jair.1.12228</a></li>
+<li id="ref-12">Marcinkevics R and Vogt J E 2020 Interpretability and explainability: a machine learning zoo mini-tour (arXiv:2012.01805) <a href="https://arxiv.org/abs/2012.01805" target="_blank" rel="noopener">link</a></li>
+<li id="ref-13">Li T, Zhong J, Liu J, Wu W and Zhang C 2018 Ease. ml: Towards multi-tenant resource sharing for machine learning workloads Proc. VLDB Endowment vol 11 pp 607–20</li>
+<li id="ref-14">Dalessandro B 2013 Bring the noise: embracing randomness is the key to scaling up machine learning algorithms Big Data 1 110–2 <a href="https://doi.org/10.1089/big.2013.0010" target="_blank" rel="noopener">doi:10.1089/big.2013.0010</a></li>
+<li id="ref-15">Chandrashekar G and Sahin F 2014 A survey on feature selection methods Comput. Electrical Eng. 40 16–28 <a href="https://doi.org/10.1016/j.compeleceng.2013.11.024" target="_blank" rel="noopener">doi:10.1016/j.compeleceng.2013.11.024</a></li>
+<li id="ref-16">Miao J and Niu L 2016 A survey on feature selection Proc. Comput. Sci. 91 919–26 <a href="https://doi.org/10.1016/j.procs.2016.07.111" target="_blank" rel="noopener">doi:10.1016/j.procs.2016.07.111</a></li>
+<li id="ref-17">Heaton J 2016 An empirical analysis of feature engineering for predictive modeling SoutheastCon 2016 pp 1–6</li>
+<li id="ref-18">Khurana U, Turaga D, Samulowitz H and Parthasrathy S 2016 Cognito: automated feature engineering for supervised learning 2016 IEEE 16th Int. Conf. on Data Mining Workshops (ICDMW) pp 1304–7</li>
+<li id="ref-19">Bolón-Canedo V and Alonso-Betanzos A 2019 Ensembles for feature selection: a review and future trends Inf. Fusion 52 1–12 <a href="https://doi.org/10.1016/j.inffus.2018.11.008" target="_blank" rel="noopener">doi:10.1016/j.inffus.2018.11.008</a></li>
+<li id="ref-20">Guyon I and Elisseeff A 2003 An introduction to variable and feature selection J. Mach. Learn. Res. 3 1157–82</li>
+<li id="ref-21">Liu H, Motoda H, Setiono R and Zhao Z 2010 Feature selection: an ever evolving frontier in data mining Feature Selection in Data Mining (PMLR) pp 4–13</li>
+<li id="ref-22">Le D-T, Ramas J G, Grishina Y and Rottmann K 2022 De-biasing training data distribution using targeted data enrichment techniques KDD 2022 Workshop on Deep Learning Practice and Theory for High-Dimensional Sparse and Imbalanced Data (DLP)</li>
+<li id="ref-23">Zhu Q, Lin L, Shyu M-L and Chen S-C 2010 Feature selection using correlation and reliability based scoring metric for video semantic detection 2010 IEEE 4th Int. Conf. on Semantic Computing (IEEE) pp 462–9</li>
+<li id="ref-24">Aboudi E N and Benhlima L 2016 Review on wrapper feature selection approaches 2016 Int. Conf. on Engineering &amp; MIS (ICEMIS) pp 1–5</li>
+<li id="ref-25">Udrescu S M and Tegmark M 2020 Ai Feynman: a physics-inspired method for symbolic regression Sci. Adv. 6 eaay2631 <a href="https://doi.org/10.1126/sciadv.aay2631" target="_blank" rel="noopener">doi:10.1126/sciadv.aay2631</a></li>
+<li id="ref-26">Stijven S, Vladislavleva E, Kordon A, Willem L and Kotanchek M E 2016 Prime-time: symbolic regression takes its place in the real world Genetic Programming Theory and Practice XIII (Genetic and Evolutionary Computation) (Springer)</li>
+<li id="ref-27">Mahouti P, Gunes F, Belen M A and Demirel S 2021 Symbolic regression for derivation of an accurate analytical formulation using “big data”: An application example Appl. Compu. Electromagn. Soc. J. 32 372–80</li>
+<li id="ref-28">Veran T, Portier P E and Fouquet F 2023 Interpretable hierarchical symbolic regression for safety-critical systems with an application to highway crash prediction Eng. Appl. Artif. Intell. 117 105534 <a href="https://doi.org/10.1016/j.engappai.2022.105534" target="_blank" rel="noopener">doi:10.1016/j.engappai.2022.105534</a></li>
+<li id="ref-29">Sathia V, Ganesh V and Nanditale S R T 2021 Accelerating genetic programming using gpus (arXiv:2110.11226) <a href="https://arxiv.org/abs/2110.11226" target="_blank" rel="noopener">link</a></li>
+<li id="ref-30">Olson R S and Moore J H 2016 Tpot: a tree-based pipeline optimization tool for automating machine learning JMLR: Workshop and Conf. Proc. vol 64 pp 66–74</li>
+<li id="ref-31">Jin H, Song Q and Hu X 2019 Auto-keras: An efficient neural architecture search system Proc. 25th ACM SIGKDD Int. Conf. on Knowledge Discovery &amp; Data Mining (Association for Computing Machinery) pp 1946–56</li>
+<li id="ref-32">Cai J, Luo J, Wang S and Yang S 2018 Feature selection in machine learning: A new perspective Neurocomputing 300 70–79 <a href="https://doi.org/10.1016/j.neucom.2017.11.077" target="_blank" rel="noopener">doi:10.1016/j.neucom.2017.11.077</a></li>
+<li id="ref-33">Dhal P and Azad C 2022 A comprehensive survey on feature selection in the various fields of machine learning Appl. Intell. 52 4543–81 <a href="https://doi.org/10.1007/s10489-021-02550-9" target="_blank" rel="noopener">doi:10.1007/s10489-021-02550-9</a></li>
+<li id="ref-34">Wang Y, Zhao X, Xu T and Wu X 2022 Autofield: automating feature selection in deep recommender systems Proc. ACM Web Conf. 2022 (Association for Computing Machinery) pp 1977–86</li>
+<li id="ref-35">Zivkovic M, Stoean C, Chhabra A, Budimirovic N, Petrovic A and Bacanin N 2022 Novel improved salp swarm algorithm: an application for feature selection Sensors 22 1711 <a href="https://doi.org/10.3390/s22051711" target="_blank" rel="noopener">doi:10.3390/s22051711</a></li>
+<li id="ref-36">Vaddireddy H, Rasheed A, Staples A E and San O 2020 Feature engineering and symbolic regression methods for detecting hidden physics from sparse sensor observation data Phys. Fluids 32 015113 <a href="https://doi.org/10.1063/1.5136351" target="_blank" rel="noopener">doi:10.1063/1.5136351</a></li>
+<li id="ref-37">Xue Y, Cai X and Neri F 2022 A multi-objective evolutionary algorithm with interval based initialization and self-adaptive crossover operator for large-scale feature selection in classification Appl. Soft Comput. 127 109420 <a href="https://doi.org/10.1016/j.asoc.2022.109420" target="_blank" rel="noopener">doi:10.1016/j.asoc.2022.109420</a></li>
+<li id="ref-38">Lazebnik T, Somech A and Weinberg A I 2022 Substrat: a subset-based optimization strategy for faster automl Proc. VLDB Endow. 16 772–80 <a href="https://doi.org/10.14778/3574245.3574261" target="_blank" rel="noopener">doi:10.14778/3574245.3574261</a></li>
+<li id="ref-39">Siqueira V S D M, Cuadros M A S, Munaro C J and de Almeida G M 2024 Expert system for early sign stuck pipe detection: feature engineering and fuzzy logic approach Eng. Appl. Artif. Intell. 127 107229 <a href="https://doi.org/10.1016/j.engappai.2023.107229" target="_blank" rel="noopener">doi:10.1016/j.engappai.2023.107229</a></li>
+<li id="ref-40">Bekhuis T, Tseytlin E, Mitchell K J and Demner-Fushman D 2014 Feature engineering and a proposed decision-support system for systematic reviewers of medical evidence PLoS One 9 1–10 <a href="https://doi.org/10.1371/journal.pone.0086277" target="_blank" rel="noopener">doi:10.1371/journal.pone.0086277</a></li>
+<li id="ref-41">Khalid S, Khalil T and Nasreen S 2014 A survey of feature selection and feature extraction techniques in machine learning 2014 Science and Information Conf. pp 372–8</li>
+<li id="ref-42">Xu Y, Hong K, Tsujii J and Chang E I-C 2012 Feature engineering combined with machine learning and rule-based methods for structured information extraction from narrative clinical discharge summaries J. Am. Med. Inform. Assoc. 19 824–32 <a href="https://doi.org/10.1136/amiajnl-2011-000776" target="_blank" rel="noopener">doi:10.1136/amiajnl-2011-000776</a></li>
+<li id="ref-43">Yin Q, Xiaoyan Y, Huang B, Qin L, Xiaoying Y and Wang J 2023 Stroke risk prediction: comparing different sampling algorithms Int. J. Adv. Comput. Sci. Appl. 14 01 <a href="https://doi.org/10.14569/IJACSA.2023.01406115" target="_blank" rel="noopener">doi:10.14569/IJACSA.2023.01406115</a></li>
+<li id="ref-44">Vasan K K and Surendiran B 2016 Dimensionality reduction using principal component analysis for network intrusion detection Perspec. Sci. 8 510–2 <a href="https://doi.org/10.1016/j.pisc.2016.05.010" target="_blank" rel="noopener">doi:10.1016/j.pisc.2016.05.010</a></li>
+<li id="ref-45">Ivosev G, Burton L and Bonner R 2008 Dimensionality reduction and visualization in principal component analysis Anal. Chem. 80 4933–44 <a href="https://doi.org/10.1021/ac800110w" target="_blank" rel="noopener">doi:10.1021/ac800110w</a></li>
+<li id="ref-46">Stone J V 2002 Independent component analysis: an introduction Trends Cogn. Sci. 6 59–64 <a href="https://doi.org/10.1016/S1364-6613%2800%2901813-1" target="_blank" rel="noopener">doi:10.1016/S1364-6613(00)01813-1</a></li>
+<li id="ref-47">Bank D, Koenigstein N and Giryes R 2023 Autoencoders (Springer) 353–74</li>
+<li id="ref-48">Meng Q, Catchpoole D, Skillicom D and Kennedy P J 2017 Relational autoencoder for feature extraction 2017 Int. Joint Conf. on Neural Networks (IJCNN) pp 364–71</li>
+<li id="ref-49">Vyas S and Kumaranayake L 2006 Constructing socio-economic status indices: how to use principal components analysis Health Policy Plann. 21 459–68 <a href="https://doi.org/10.1093/heapol/czl029" target="_blank" rel="noopener">doi:10.1093/heapol/czl029</a></li>
+<li id="ref-50">Ben Amor L, Lahyani I and Jmaiel M 2017 PCA-based multivariate anomaly detection in mobile healthcare applications 2017 IEEE/ACM 21st Int. Symp. on Distributed Simulation and Real Time Applications (DS-RT) pp 1–8</li>
+<li id="ref-51">Mona H, Andersson L M C, Hjern A and Ascher H 2021 Barriers to accessing health care among undocumented migrants in Sweden—a principal component analysis BMC Health Serv. Res. 21 830 <a href="https://doi.org/10.1186/s12913-021-06837-y" target="_blank" rel="noopener">doi:10.1186/s12913-021-06837-y</a></li>
+<li id="ref-52">de Melo V V and Banzhaf W 2018 Automatic feature engineering for regression models with machine learning: an evolutionary computation and statistics hybrid Inf. Sci. 430 287–313 <a href="https://doi.org/10.1016/j.ins.2017.11.041" target="_blank" rel="noopener">doi:10.1016/j.ins.2017.11.041</a></li>
+<li id="ref-53">Heaton J 2017 Automated feature engineering for deep neural networks with genetic programming PhD Dissertation Nova Southeastern University</li>
+<li id="ref-54">Wang Y, Wagner N and James M R 2019 Symbolic regression in materials science MRS Commun. 9 793–805 <a href="https://doi.org/10.1557/mrc.2019.85" target="_blank" rel="noopener">doi:10.1557/mrc.2019.85</a></li>
+<li id="ref-55">La Cava W, Orzechowski P, Burlacu B, de França F O, Virgolin M, Jin Y, Kommenda M and Moore J H 2021 Contemporary symbolic regression methods and their relative performance (arXiv:2107.14351) <a href="https://arxiv.org/abs/2107.14351" target="_blank" rel="noopener">link</a></li>
+<li id="ref-56">Zegklitz J and Posik P 2021 Benchmarking state-of-the-art symbolic regression algorithms Genet. Program. Evolvable Mach. 22 5–33 <a href="https://doi.org/10.1007/s10710-020-09387-0" target="_blank" rel="noopener">doi:10.1007/s10710-020-09387-0</a></li>
+<li id="ref-57">Heule M J H and Kullmann O 2017 The science of brute force Commun. ACM 60 70–79 <a href="https://doi.org/10.1145/3107239" target="_blank" rel="noopener">doi:10.1145/3107239</a></li>
+<li id="ref-58">Riolo R 2013 Genetic Programming Theory and Practice X (Springer)</li>
+<li id="ref-59">Keren L S, Liberzon A and Lazebnik T 2023 A computational framework for physics-informed symbolic regression with straightforward integration of domain knowledge Sci. Rep. 13 1249 <a href="https://doi.org/10.1038/s41598-023-28328-2" target="_blank" rel="noopener">doi:10.1038/s41598-023-28328-2</a></li>
+<li id="ref-60">Miller B L et al 1995 Genetic algorithms, tournament selection and the effects of noise Complex Syst. 9 193–212</li>
+<li id="ref-61">Orzechowski P, La Cava W and Moore J H 2018 Where are we now?: a large benchmark study of recent symbolic regression methods GECCO18: Proc. Genetic and Evolutionary Computation Conf.</li>
+<li id="ref-62">Petersen B K, Larma M L, Mundhenk T N, Santiago C P, Kim S K and Kim J T 2019 Deep symbolic regression: recovering mathematical expressions from data via risk-seeking policy gradients (arXiv:1912.04871) <a href="https://arxiv.org/abs/1912.04871" target="_blank" rel="noopener">link</a></li>
+<li id="ref-63">Quade M, Abel M, Nathanutz J and Brunton S L 2018 Sparse identification of nonlinear dynamics for rapid model recovery Chaos 28 063116 <a href="https://doi.org/10.1063/1.5027470" target="_blank" rel="noopener">doi:10.1063/1.5027470</a></li>
+<li id="ref-64">Kronberger G, de França F O, Burlacu B, Haider C and Kommenda M 2022 Shape-constrained symbolic regression-improving extrapolation with prior knowledge Evolution. Comput. 30 75–98 <a href="https://doi.org/10.1162/evco_a_00294" target="_blank" rel="noopener">doi:10.1162/evco_a_00294</a></li>
+<li id="ref-65">Salustowicz R and Schmidhuber J 1997 Probabilistic incremental program evolution Evolution. Comput. 5 123–41 <a href="https://doi.org/10.1162/evco.1997.5.2.123" target="_blank" rel="noopener">doi:10.1162/evco.1997.5.2.123</a></li>
+<li id="ref-66">Sastry K and Goldberg D E 2003 Probabilistic model building and competent genetic programming Genetic Programming Theory and Practice (Springer) pp 205–20</li>
+<li id="ref-67">Yanai K and Iba H 2003 Estimation of distribution programming based on bayesian network The 2003 Congress on Evolutionary Computation, 2003. CEC’03 vol 3 (IEEE) pp 1618–25</li>
+<li id="ref-68">Hemberg E, Veeramachaneni K, McDermott J, Berzan C and O’Reilly U-M 2012 An investigation of local patterns for estimation of distribution genetic programming Proc. 14th Annual Conf. on Genetic and Evolutionary Computation pp 767–74</li>
+<li id="ref-69">Shan Y, McKay R I, Baxter R, Abbass H, Essam D and Nguyen H X 2004 Grammar model-based program evolution Proc. 2004 Congress on Evolutionary Computation vol 1 (IEEE) pp 478–85</li>
+<li id="ref-70">Bosman P A N and de Jong E D 2004 Learning probabilistic tree grammars for genetic programming Int. Conf. on Parallel Problem Solving From Nature (Springer) pp 192–201</li>
+<li id="ref-71">Wong P-K, Lo L-Y, Wong M-L and Leung K-S 2014 Grammar-based genetic programming with bayesian network 2014 IEEE Congress on Evolutionary Computation (IEEE) pp 739–46</li>
+<li id="ref-72">Sotto L F D P and de Melo V V 2017 A probabilistic linear genetic programming with stochastic context-free grammar for solving symbolic regression problems Proc. Genetic and Evolutionary Computation Conf. pp 1017–24</li>
+<li id="ref-73">Stephens T 2016 Genetic Programming in Python With a scikit-learn Inspired API: gplearn (available at: https://gplearn.readthedocs.io/en/stable/intro.html) <a href="https://gplearn.readthedocs.io/en/stable/intro.html" target="_blank" rel="noopener">link</a></li>
+<li id="ref-74">Vaccaro L, Sansonetti G and Micarelli A 2021 An empirical review of automated machine learning Computers 10 11 <a href="https://doi.org/10.3390/computers10010011" target="_blank" rel="noopener">doi:10.3390/computers10010011</a></li>
+<li id="ref-75">Neverov E A, Viksnin I I and Chuprov S S 2023 The research of automl methods in the task of wave data classification 2023 XXVI Int. Conf. on Soft Computing and Measurements (SCM) (IEEE) pp 156–8</li>
+<li id="ref-76">Hewamalage H, Ackermann K and Bergmeir C 2023 Forecast evaluation for data scientists: common pitfalls and best practices Data Min. Knowl. Discovery 37 788–832 <a href="https://doi.org/10.1007/s10618-022-00894-5" target="_blank" rel="noopener">doi:10.1007/s10618-022-00894-5</a></li>
+<li id="ref-77">Conrad F, Mälzer M, Schwarzenberger M, Wiemer H and Ihlenfeldt S 2022 Benchmarking AutoML for regression tasks on small tabular data in materials design Sci. Rep. 12 19350 <a href="https://doi.org/10.1038/s41598-022-23327-1" target="_blank" rel="noopener">doi:10.1038/s41598-022-23327-1</a></li>
+<li id="ref-78">Huang J S, Liew J X and Liew K M 2021 Data-driven machine learning approach for exploring and assessing mechanical properties of carbon nanotube-reinforced cement composites Compos. Struct. 267 113917 <a href="https://doi.org/10.1016/j.compstruct.2021.113917" target="_blank" rel="noopener">doi:10.1016/j.compstruct.2021.113917</a></li>
+<li id="ref-79">Su M, Zhong Q, Peng H and Li S 2021 Selected machine learning approaches for predicting the interfacial bond strength between FRPs and concrete Constr. Build. Mater. 270 121456 <a href="https://doi.org/10.1016/j.conbuildmat.2020.121456" target="_blank" rel="noopener">doi:10.1016/j.conbuildmat.2020.121456</a></li>
+<li id="ref-80">Atici U 2011 Prediction of the strength of mineral admixture concrete using multivariable regression analysis and an artificial neural network Expert Syst. Appl. 38 9609–18 <a href="https://doi.org/10.1016/j.eswa.2011.01.156" target="_blank" rel="noopener">doi:10.1016/j.eswa.2011.01.156</a></li>
+<li id="ref-81">Guo S, Yu J, Liu X, Wang C and Jiang Q 2019 A predicting model for properties of steel using the industrial big data based on machine learning Comput. Mater. Sci. 160 95–104 <a href="https://doi.org/10.1016/j.commatsci.2018.12.056" target="_blank" rel="noopener">doi:10.1016/j.commatsci.2018.12.056</a></li>
+<li id="ref-82">Koya B P, Aneja S, Gupta R and Valeo C 2022 Comparative analysis of different machine learning algorithms to predict mechanical properties of concrete Mech. Adv. Mater. Struct. 29 4032–43 <a href="https://doi.org/10.1080/15376494.2021.1917021" target="_blank" rel="noopener">doi:10.1080/15376494.2021.1917021</a></li>
+<li id="ref-83">Dunn A, Wang Q, Ganose A, Dopp D and Jain A 2020 Benchmarking materials property prediction methods: the Matbench test set and Automatminer reference algorithm Comput. Mater. 6 138 <a href="https://doi.org/10.1038/s41524-020-00406-3" target="_blank" rel="noopener">doi:10.1038/s41524-020-00406-3</a></li>
+<li id="ref-84">Xiong J, Zhang G, Hu J and Wu L 2014 Bead geometry prediction for robotic GMAW-based rapid manufacturing through a neural network and a second-order regression analysis J. Intell. Manuf. 25 157–63 <a href="https://doi.org/10.1007/s10845-012-0682-1" target="_blank" rel="noopener">doi:10.1007/s10845-012-0682-1</a></li>
+<li id="ref-85">Yin B B and Liew K M 2021 Machine learning and materials informatics approaches for evaluating the interfacial properties of fiber-reinforced composites Compos. Struct. 273 114328 <a href="https://doi.org/10.1016/j.compstruct.2021.114328" target="_blank" rel="noopener">doi:10.1016/j.compstruct.2021.114328</a></li>
+<li id="ref-86">Bachir R, Mohammed A M S and Habib T 2018 Using artificial neural networks approach to estimate compressive strength for rubberized concrete Periodica Polytechn. Civil Eng. 62 858–65</li>
+<li id="ref-87">Xie S R, Quan Y, Hire A C, Deng B, DeStefano J M, Salinas I and Hennig R G 2022 Machine learning of superconducting critical temperature from Eliashberg theory npj Comput. Mater. 8 14 <a href="https://doi.org/10.1038/s41524-021-00666-7" target="_blank" rel="noopener">doi:10.1038/s41524-021-00666-7</a></li>
+<li id="ref-88">Jose A, de Mendonça J P A, Devijver E, Jakse N, Monbet V and Poloni R 2023 Regression tree-based active learning Data Min. Knowl. Discovery 38 420–60</li>
+<li id="ref-89">Jain A, Patel H, Nagalapatti L, Gupta N, Mehta S, Guttula S, Mujumdar S, Afzal S, Sharma Mittal R and Munigala V 2020 Overview and importance of data quality for machine learning tasks Proc. 26th ACM SIGKDD Int. Conf. on Knowledge Discovery &amp; Data Mining (Association for Computing Machinery) pp 3561–2</li>
+<li id="ref-90">Zhou Z-H, Jiang Y and Chen S-F 2003 Extracting symbolic rules from trained neural network ensembles AI Commun. 16 3–15</li>
+<li id="ref-91">Chen Q and Xue B 2022 Generalisation in Genetic Programming for Symbolic Regression: Challenges and Future Directions (Springer) pp 281–302</li>
+</ol>
+</div>
+        
+        
+        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Shmuel et al. (2024), <em>Machine Learning: Science and Technology</em>, <a href="https://doi.org/10.1088/2632-2153/ad513a" target="_blank" rel="noopener">doi:10.1088/2632-2153/ad513a</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+      </article>
+    </div>
+
+    <section class="paper-related" aria-labelledby="related-title"><div class="paper-wrap"><h2 id="related-title">Related research</h2><div class="related-grid"><a class="related-card related-project" href="/project.html?pagename=physics-inspired-symbolic-regression"><img src="/img/projects/project4.webp" alt="" loading="lazy" decoding="async"><span class="related-kind"><i class="ri-flask-line" aria-hidden="true"></i>Research project</span><strong>Developing the Next Step of Physics-Inspired Symbolic Regression</strong><span class="related-text">Advancing physics-informed symbolic regression for interpretable models discovered from data.</span></a><a class="related-card" href="/publications/machine-deep-learning-performance-out-distribution-regressions/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2025</span><strong>Machine and deep learning performance in out-of-distribution regressions</strong><span class="related-text">Machine Learning: Science and Technology</span></a><a class="related-card" href="/publications/interpretable-knowledge-distillation-symbolic-regression-feedforward-neural/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2026</span><strong>Interpretable knowledge distillation via symbolic regression for feedforward neural networks</strong><span class="related-text"> Neural Computing and Applications</span></a></div><p class="related-more"><a href="/publications.html">All publications</a></p></div></section>
+  </main>
+
+  <dialog id="cite-dialog" class="paper-dialog" aria-labelledby="cite-title">
+    <div class="dialog-head">
+      <h2 id="cite-title">Cite this paper</h2>
+      <button type="button" class="dialog-close" aria-label="Close"><i class="ri-close-line" aria-hidden="true"></i></button>
+    </div>
+    <p class="dialog-label">APA</p>
+    <pre class="cite-box" id="cite-apa">Shmuel, A., Glickman, O., &amp; Lazebnik, T. (2024). Symbolic regression as a feature engineering method for machine and deep learning regression tasks. Machine Learning: Science and Technology, 5, 025065. https://doi.org/10.1088/2632-2153/ad513a</pre>
+    <button type="button" class="paper-btn" data-copy="cite-apa"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy APA</span></button>
+    <p class="dialog-label">BibTeX</p>
+    <pre class="cite-box" id="cite-bib">@article{shmuel2024symbolic,
+  title = {Symbolic regression as a feature engineering method for machine and deep learning regression tasks},
+  author = {Shmuel, Assaf and Glickman, Oren and Lazebnik, Teddy},
+  journal = {Machine Learning: Science and Technology},
+  volume = {5},
+  pages = {025065},
+  year = {2024},
+  doi = {10.1088/2632-2153/ad513a}
+}</pre>
+    <button type="button" class="paper-btn" data-copy="cite-bib"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy BibTeX</span></button>
+  </dialog>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Games</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
+                  <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
+                  <li><a href="https://rl.teddylazebnik.com/">Pirate War RL Game</a></li>
+                  <li><a href="https://eh.teddylazebnik.com/">Echo Heist</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      
+      <script>
+        (function () {
+          // menu and navbar (js/main.js expects to sit at the site root)
+          var btn = document.getElementById('menu-btn'), menu = document.getElementById('mobile-menu'), nav = document.getElementById('navbar');
+          btn.addEventListener('click', function () { menu.classList.toggle('max-h-0'); menu.classList.toggle('max-h-screen'); });
+          var onScroll = function () { nav.classList.toggle('nav-scrolled', window.scrollY > 10); };
+          window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+          // cite dialog + copy buttons
+          var dialog = document.getElementById('cite-dialog');
+          document.querySelectorAll('[data-dialog]').forEach(function (b) {
+            b.addEventListener('click', function () { if (dialog.showModal) dialog.showModal(); else dialog.setAttribute('open', ''); });
+          });
+          dialog.querySelector('.dialog-close').addEventListener('click', function () { dialog.close(); });
+          dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
+          function flash(button, text) {
+            var label = button.querySelector('span'), old = label.textContent;
+            label.textContent = text; setTimeout(function () { label.textContent = old; }, 1600);
+          }
+          document.querySelectorAll('[data-copy]').forEach(function (b) {
+            b.addEventListener('click', function () {
+              var text = document.getElementById(b.getAttribute('data-copy')).textContent;
+              navigator.clipboard.writeText(text).then(function () { flash(b, 'Copied'); });
+            });
+          });
+          document.getElementById('share-btn').addEventListener('click', function () {
+            var b = this, data = { title: document.title, url: location.href.split('#')[0] };
+            if (navigator.share) { navigator.share(data).catch(function () {}); }
+            else { navigator.clipboard.writeText(data.url).then(function () { flash(b, 'Link copied'); }); }
+          });
+
+          // highlight the section being read in "On this page"
+          var links = {};
+          document.querySelectorAll('.paper-toc a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+          var heads = Array.prototype.filter.call(document.querySelectorAll('#full-text h2[id], #full-text h3[id], #full-text section[id]'), function (h) { return links[h.id]; });
+          if ('IntersectionObserver' in window && heads.length) {
+            var current = null;
+            var io = new IntersectionObserver(function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                  if (current) current.classList.remove('is-active');
+                  current = links[e.target.id]; current.classList.add('is-active');
+                }
+              });
+            }, { rootMargin: '-90px 0px -70% 0px' });
+            heads.forEach(function (h) { io.observe(h); });
+          }
+        })();
+      </script>
+   </body>
+</html>

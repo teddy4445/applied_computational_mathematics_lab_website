@@ -10,9 +10,11 @@ tools/templates/paper.html, plus:
     sitemap.xml, llms.txt        the paper pages, between the "paper pages" markers
 It never changes paper.md / paper.json, so hand edits there are safe. Run it again after any edit.
 """
+import collections
 import datetime as dt
 import html
 import json
+import math
 import re
 import string
 import sys
@@ -26,6 +28,10 @@ ROOT = Path(__file__).resolve().parent.parent
 SITE = 'https://acml.teddylazebnik.com'
 TEMPLATE = ROOT / 'tools' / 'templates' / 'paper.html'
 MARK_START, MARK_END = 'paper pages: start (made by tools/build_papers.py)', 'paper pages: end'
+PI = 'teddylazebnik'
+STOP = set('''a an the of in on for and to with by using via from as at into its their is are be or we our this that these those was were
+has have had not but can may also than which such based between within over under both more most other new two one study model models
+results show shows paper approach data analysis method methods use used'''.split())
 
 
 def read_json(path):
@@ -54,6 +60,41 @@ def clip(text, n=158):
     return text if len(text) <= n else text[:n].rsplit(' ', 1)[0].rstrip(',;:') + '…'
 
 
+def roman(s):
+    vals = {'I': 1, 'V': 5, 'X': 10, 'L': 50}
+    total, prev = 0, 0
+    for ch in reversed(s.upper()):
+        v = vals.get(ch, 0)
+        total = total - v if v < prev else total + v
+        prev = max(prev, v)
+    return total
+
+
+# ---------------------------------------------------------------- relatedness (TF-IDF, no extra packages)
+def words(text):
+    return [w for w in re.findall(r'[a-z][a-z-]{2,}', (text or '').lower()) if w not in STOP]
+
+
+class Similarity:
+    def __init__(self, docs):
+        self.df = collections.Counter()
+        for d in docs:
+            self.df.update(set(words(d)))
+        self.n = max(1, len(docs))
+
+    def vec(self, text):
+        tf = collections.Counter(words(text))
+        v = {w: (1 + math.log(c)) * math.log((self.n + 1) / (self.df.get(w, 0) + 1)) for w, c in tf.items()}
+        s = math.sqrt(sum(x * x for x in v.values())) or 1.0
+        return {w: x / s for w, x in v.items()}
+
+    @staticmethod
+    def cos(a, b):
+        if len(a) > len(b):
+            a, b = b, a
+        return sum(x * b.get(w, 0.0) for w, x in a.items())
+
+
 # ---------------------------------------------------------------- body html
 def render_body(md_text):
     md = markdown.Markdown(extensions=['extra', 'sane_lists', 'toc'], extension_configs={'toc': {'toc_depth': '2-3'}},
@@ -63,23 +104,31 @@ def render_body(md_text):
 
 
 def link_body(body, n_refs, ids):
-    """Citations [3], [2–5], [4,5,17] -> links to the reference list; 'Fig 2' / 'Table 1' -> links to them;
-    reference list items get ids; external links open in a new tab."""
+    """Citations [3], [2–5], [4,5,17] and superscript citations -> links to the reference list; 'Fig 2' /
+    'Table 1' -> links to them; the reference list gets ids; external links open in a new tab."""
     parts = re.split(r'(<[^>]+>)', body)
-    in_a = in_cap = in_refs = 0
+    in_a = in_cap = in_refs = in_sup = 0
     seen_refs_heading = False
     out = []
 
+    def nums_ok(seq):
+        try:
+            return all(x.strip().isdigit() and 1 <= int(x) <= n_refs for x in seq)
+        except ValueError:
+            return False
+
     def cite(m):
         nums = re.split(r'(\s*[–,-]\s*)', m.group(1))
-        if not all(x.strip().isdigit() and 1 <= int(x) <= n_refs for x in nums[::2]):
+        if not nums_ok(nums[::2]):
             return m.group(0)
         linked = ''.join(f'<a href="#ref-{x.strip()}">{x.strip()}</a>' if i % 2 == 0 else x for i, x in enumerate(nums))
         return f'<span class="cite">[{linked}]</span>'
 
     def fig(m):
-        kind = 'table' if m.group(1).lower().startswith('table') else 'fig'
-        target = f'{kind}-{m.group(2)}'
+        kind = {'tab': 'table', 'alg': 'alg'}.get(m.group(1).lower()[:3], 'fig')
+        num = m.group(2)
+        n = str(roman(num)) if re.fullmatch(r'[IVXL]+', num) else re.sub(r'[.\-]', '', num).lower()
+        target = f'{kind}-{n}'
         return f'<a class="xref" href="#{target}">{m.group(0)}</a>' if target in ids else m.group(0)
 
     for part in parts:
@@ -93,30 +142,44 @@ def link_body(body, n_refs, ids):
                 in_cap += 1
             elif tag == '</figcaption>':
                 in_cap -= 1
+            elif tag == '<sup>':
+                in_sup += 1
+            elif tag == '</sup>':
+                in_sup -= 1
             elif tag.startswith('<h2') and 'id="references"' in tag:
                 seen_refs_heading = True
-            elif tag.startswith('<ol') and seen_refs_heading and not in_refs:
+            elif tag.startswith(('<ol', '<ul')) and seen_refs_heading and not in_refs:
                 in_refs = 1
-                part = '<ol class="paper-refs">'
-            elif tag == '</ol>' and in_refs:
+                part = part[:3] + ' class="paper-refs">'
+            elif tag in ('</ol>', '</ul>') and in_refs:
                 in_refs = 0
                 seen_refs_heading = False
             out.append(part)
             continue
         if not in_a and not in_refs and n_refs:
             part = re.sub(r'\[(\d+(?:\s*[–,-]\s*\d+)*)\]', cite, part)
+            if in_sup and re.fullmatch(r'\s*\d+(\s*[–,-]\s*\d+)*\s*', part) and nums_ok(re.split(r'\s*[–,-]\s*', part.strip())[::1]):
+                seq = re.split(r'(\s*[–,-]\s*)', part.strip())
+                part = ''.join(f'<a href="#ref-{x.strip()}">{x.strip()}</a>' if i % 2 == 0 else x for i, x in enumerate(seq))
         if not in_a and not in_cap and not in_refs:
-            part = re.sub(r'\b(Fig\.?|Figure|Table)\s?(\d+)\b', fig, part)
+            part = re.sub(r'\b(Figs?\.?|Figures?|Tables?|Tab\.|Algorithms?)\s?([A-Z][.\-]?\d+|\d+|[IVX]+)\b', fig, part)
         out.append(part)
     body = ''.join(out)
-
-    counter = iter(range(1, 10000))
+    counter = iter(range(1, 100000))
     body = re.sub(r'<ol class="paper-refs">(.*?)</ol>',
                   lambda m: '<ol class="paper-refs">' + re.sub(r'<li>', lambda _: f'<li id="ref-{next(counter)}">', m.group(1)) + '</ol>',
                   body, flags=re.S)
+    body = re.sub(r'<ol class="paper-refs">\s*<li id="ref-1">', '<ol class="paper-refs"><li id="ref-1">', body)
     body = re.sub(r'<a href="(https?://[^"]+)"', r'<a href="\1" target="_blank" rel="noopener"', body)
-    # figures open full size
-    body = re.sub(r'(<figure id="fig-\d+">\s*)(<img src="([^"]+)"[^>]*>)', r'\1<a class="fig-zoom" href="\3" aria-label="Open the figure full size">\2</a>', body)
+    body = re.sub(r'(<figure id="fig-[\w-]+">\s*)(<img src="([^"]+)"[^>]*>)', r'\1<a class="fig-zoom" href="\3" aria-label="Open the figure full size">\2</a>', body)
+    return body
+
+
+def fix_ref_numbers(body, body_md):
+    """Numbered reference lists that do not start at 1 keep their numbers (start=...)."""
+    m = re.search(r'^## References\s*\n\s*(\d+)\.', body_md, re.M)
+    if m and m.group(1) != '1':
+        body = body.replace('<ol class="paper-refs">', f'<ol class="paper-refs" start="{m.group(1)}">', 1)
     return body
 
 
@@ -146,9 +209,12 @@ def lab_index():
 
 def share_image(folder, fig):
     src = folder / 'figures' / f'{fig}.webp'
-    if not src.exists():
+    if not fig or not src.exists():
         return ''
     dst = folder / 'figures' / f'share-{fig}.jpg'
+    for old in (folder / 'figures').glob('share-*.jpg'):     # a social image of another (earlier) figure
+        if old != dst:
+            old.unlink()
     if not dst.exists() or dst.stat().st_mtime < src.stat().st_mtime:
         im = Image.open(src).convert('RGB')
         canvas = Image.new('RGB', (1200, 630), 'white')         # the size social sites expect
@@ -160,6 +226,7 @@ def share_image(folder, fig):
 
 def citation_texts(meta, year):
     a = meta['authors']
+
     def initials(given):
         return ' '.join(p[0] + '.' for p in re.split(r'[\s-]+', given) if p)
     names = [f'{x["family"]}, {initials(x.get("given", ""))}'.strip(', ') for x in a]
@@ -167,9 +234,9 @@ def citation_texts(meta, year):
     vol = meta.get('volume', '')
     issue = f'({meta["issue"]})' if meta.get('issue') else ''
     pages = f', {meta["pages"]}' if meta.get('pages') else ''
-    apa = (f'{apa_names} ({year}). {meta["title"]}. {meta.get("journal", "")}'
-           f'{", " + vol + issue if vol else ""}{pages}. https://doi.org/{meta["doi"]}')
-    key = norm(a[0]['family']) + str(year) + (re.findall(r'[a-z]+', meta['title'].lower()) or ['paper'])[0]
+    doi = f' https://doi.org/{meta["doi"]}' if meta.get('doi') else ''
+    apa = f'{apa_names} ({year}). {meta["title"]}. {meta.get("journal", "")}{", " + vol + issue if vol else ""}{pages}.{doi}'
+    key = norm(a[0]['family']) + str(year) + next((w for w in re.findall(r'[a-z]+', meta['title'].lower()) if w not in STOP), 'paper')
     bib = ['@article{' + key + ',', f'  title = {{{meta["title"]}}},',
            '  author = {' + ' and '.join(f'{x["family"]}, {x.get("given", "")}'.strip(', ') for x in a) + '},',
            f'  journal = {{{meta.get("journal", "")}}},']
@@ -180,22 +247,47 @@ def citation_texts(meta, year):
     return apa, '\n'.join(bib) + '\n}'
 
 
-def build_one(folder, pub, pubs, pages_index, lab, videos, projects, template):
+def pick_project(meta, pub, projects, sim, pvecs):
+    if meta.get('related_project'):
+        return next((p for p in projects if p.get('slug') == meta['related_project']), None)
+    pdf = next((l['link'] for l in pub.get('fileLinks', []) if l.get('type') == 1), '').rsplit('/', 1)[-1]
+    for p in projects:
+        for item in p.get('publications', []) + p.get('links_buttons', []):
+            href = (item.get('href') or '').rsplit('/', 1)[-1]
+            if (pdf and href == pdf) or norm(item.get('title') or item.get('label')) == norm(pub['name']):
+                return p
+    mine = {norm(a) for a in re.split(r',\s*', pub.get('authors', ''))} - {PI}
+    v = sim.vec(pub['name'] + ' ' + pub.get('description', ''))
+    best, best_s = None, 0.0
+    for p in projects:
+        team = {norm(re.sub(r'^(Prof\.|Dr\.)\s+', '', t.get('name', ''))) for t in p.get('team', [])} - {PI}
+        s = Similarity.cos(v, pvecs[p['slug']]) + 0.06 * len(mine & team)
+        if s > best_s:
+            best, best_s = p, s
+    return best if best_s >= 0.12 else None
+
+
+def build_one(folder, pub, ctx):
+    pubs, pages_index, lab, videos, projects, template, sim, vecs, pvecs = (ctx[k] for k in
+        ('pubs', 'pages_index', 'lab', 'videos', 'projects', 'template', 'sim', 'vecs', 'pvecs'))
     meta = read_json(folder / 'paper.json')
     slug = folder.name
     url = f'{SITE}/publications/{slug}/'
     title = meta.get('title') or pub['name']
-    year = (meta.get('published') or str(pub.get('year', '')))[:4]
+    year = (meta.get('published') or str(meta.get('year') or pub.get('year', '')))[:4]
     topic = pub.get('topic', '')
+    body_md = (folder / 'paper.md').read_text(encoding='utf-8') if (folder / 'paper.md').exists() else ''
+    has_body = bool(body_md.strip())
 
-    body_md = (folder / 'paper.md').read_text(encoding='utf-8')
     body, tokens = render_body(body_md)
     ids = set(re.findall(r'id="([^"]+)"', body))
-    n_refs = len(re.findall(r'^\d+\.\s', body_md.split('## References', 1)[-1], re.M)) if '## References' in body_md else 0
+    refs_part = body_md.split('\n## References', 1)[-1] if '\n## References' in body_md or body_md.startswith('## References') else ''
+    n_refs = max([int(x) for x in re.findall(r'^(\d+)\.\s', refs_part, re.M)] or [0])
     body = link_body(body, n_refs, ids)
+    body = fix_ref_numbers(body, body_md)
 
     # authors
-    affs = meta.get('affiliations', {})
+    affs = meta.get('affiliations') or {}
     author_bits, lab_chips = [], []
     for a in meta['authors']:
         sup = ','.join(str(x) for x in a.get('affiliations', []))
@@ -208,25 +300,31 @@ def build_one(folder, pub, pubs, pages_index, lab, videos, projects, template):
                              f'alt="" width="32" height="32" loading="lazy"><span><strong>{esc(a["name"])}</strong>'
                              f'<small>{esc(role)}</small></span></a>')
         mark = '<span class="corr" title="Corresponding author">*</span>' if a.get('corresponding') else ''
-        author_bits.append(f'<span class="author">{name}<sup>{esc(sup)}</sup>{mark}</span>')
+        author_bits.append(f'<span class="author">{name}' + (f'<sup>{esc(sup)}</sup>' if sup else '') + f'{mark}</span>')
     authors_html = ', '.join(author_bits)
-    affs_html = ''.join(f'<li value="{esc(k)}">{esc(v)}</li>' for k, v in sorted(affs.items(), key=lambda kv: int(kv[0])))
+    try:
+        aff_items = sorted(affs.items(), key=lambda kv: (0, int(kv[0])) if str(kv[0]).isdigit() else (1, str(kv[0])))
+    except AttributeError:
+        aff_items = []
+    numbered = all(str(k).isdigit() for k, _ in aff_items)
+    affs_html = ''.join((f'<li value="{esc(k)}">' if numbered else '<li>') + f'{esc(v)}</li>' for k, v in aff_items)
+    affs_block = (f'<details class="paper-affils"><summary>Affiliations</summary><ol{"" if numbered else " class=plain"}>{affs_html}</ol></details>') if aff_items else ''
 
     # at a glance
     glance = ''
+    fig = meta.get('featured_figure')
     if meta.get('summary'):
         nums = ''.join(f'<div class="stat"><span class="stat-value">{esc(x["value"])}</span><span class="stat-label">{esc(x["label"])}</span></div>'
                        for x in meta.get('key_numbers', []))
         finds = ''.join(f'<li>{esc(x)}</li>' for x in meta.get('key_findings', []))
         feat = ''
-        fig = meta.get('featured_figure')
         if fig and (folder / 'figures' / f'{fig}.webp').exists():
-            cap = re.search(rf'<figure id="{fig}">.*?<figcaption>(.*?)</figcaption>', body, re.S)
+            cap = re.search(rf'<figure id="{re.escape(fig)}">.*?<figcaption>(.*?)</figcaption>', body, re.S)
             w, h = Image.open(folder / 'figures' / f'{fig}.webp').size
             feat = (f'<figure class="glance-figure"><a href="#{fig}"><img src="figures/{fig}.webp" width="{w}" height="{h}" '
                     f'alt="{esc(re.sub("<[^>]+>", "", cap.group(1)) if cap else "")}"></a>'
                     f'<figcaption>{cap.group(1) if cap else ""} <a href="#{fig}">See it in the paper</a></figcaption></figure>')
-        glance = (f'<section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card">'
+        glance = (f'<section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card{"" if feat else " no-figure"}">'
                   f'<div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2>'
                   f'<p class="glance-summary">{esc(meta["summary"])}</p>'
                   f'{"<div class=glance-stats>" + nums + "</div>" if nums else ""}'
@@ -241,17 +339,20 @@ def build_one(folder, pub, pubs, pages_index, lab, videos, projects, template):
     info_rows = [('Journal', where)]
     if meta.get('published'):
         info_rows.append(('Published', f'<time datetime="{esc(meta["published"])}">{human_date(meta["published"])}</time>'))
+    else:
+        info_rows.append(('Year', esc(year)))
     if meta.get('doi'):
         info_rows.append(('DOI', f'<a href="https://doi.org/{esc(meta["doi"])}" target="_blank" rel="noopener">{esc(meta["doi"])}</a>'))
     if lic.get('url'):
         info_rows.append(('Licence', f'<a href="{esc(lic["url"])}" target="_blank" rel="license noopener">{esc(lic.get("name") or "Open licence")}</a>'))
-    history = ' · '.join(f'{k} {human_date(meta[f])}' for k, f in (('Received', 'received'), ('Accepted', 'accepted'), ('Published', 'published')) if meta.get(f))
     info_html = ''.join(f'<div><dt>{k}</dt><dd>{v}</dd></div>' for k, v in info_rows)
+    history = ' · '.join(f'{k} {human_date(meta[f])}' for k, f in (('Received', 'received'), ('Accepted', 'accepted'), ('Published', 'published')) if meta.get(f))
 
-    # notes after the paper
     notes = []
     if history:
         notes.append(f'<div><dt>Publication history</dt><dd>{history}</dd></div>')
+    if meta.get('keywords'):
+        notes.append('<div><dt>Keywords</dt><dd><ul class="kw-list">' + ''.join(f'<li>{esc(k)}</li>' for k in meta['keywords']) + '</ul></dd></div>')
     for key, label in (('funding', 'Funding'), ('competing_interests', 'Competing interests'), ('data_availability', 'Data availability')):
         if meta.get(key):
             notes.append(f'<div><dt>{label}</dt><dd>{esc(meta[key])}</dd></div>')
@@ -260,13 +361,28 @@ def build_one(folder, pub, pubs, pages_index, lab, videos, projects, template):
         notes.append(f'<div><dt>Abbreviations</dt><dd><ul class="abbr-list">{ab}</ul></dd></div>')
     notes_html = f'<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl>{"".join(notes)}</dl></section>' if notes else ''
 
-    source_html = ''
-    if lic.get('url'):
-        source_html = (f'<p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article '
-                       f'{esc(meta["authors"][0]["family"])} et al. ({year}), <em>{esc(meta.get("journal", ""))}</em>, '
-                       f'<a href="https://doi.org/{esc(meta["doi"])}" target="_blank" rel="noopener">doi:{esc(meta["doi"])}</a>, under the '
+    first = esc(meta['authors'][0]['family']) if meta.get('authors') else ''
+    cite_short = f'{first}{" et al." if len(meta.get("authors", [])) > 1 else ""} ({esc(year)}), <em>{esc(meta.get("journal", ""))}</em>'
+    doi_link = f', <a href="https://doi.org/{esc(meta["doi"])}" target="_blank" rel="noopener">doi:{esc(meta["doi"])}</a>' if meta.get('doi') else ''
+    if not has_body:
+        source_html = ''
+    elif lic.get('url'):
+        source_html = (f'<p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article {cite_short}{doi_link}, under the '
                        f'<a href="{esc(lic["url"])}" target="_blank" rel="license noopener">{esc(lic.get("name") or "open licence")}</a> licence. '
-                       f'Layout adapted for the web; the PDF is the version of record.</p>')
+                       f'Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>')
+    else:
+        source_html = (f'<p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article {cite_short}{doi_link}, '
+                       f'with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; '
+                       f'the PDF is the version of record.</p>')
+    see_also = ''
+    if meta.get('see_also'):
+        target = pages_index.get(meta['see_also']) or meta['see_also']
+        tmeta = next((p for p in pubs if pages_index.get(norm(p['name'])) == target), None)
+        see_also = (f'<div class="paper-callout"><i class="ri-links-line" aria-hidden="true"></i> This is the conference version of '
+                    f'<a href="/{esc(target)}">{esc(tmeta["name"]) if tmeta else "the journal paper"}</a>, which has the full text.</div>')
+    elif not has_body:
+        see_also = ('<div class="paper-callout"><i class="ri-file-pdf-2-line" aria-hidden="true"></i> The full text of this paper is available as a '
+                    f'<a href="{esc(meta.get("pdf_url"))}" target="_blank" rel="noopener">PDF</a>.</div>')
 
     # related: video, project, papers
     related = []
@@ -281,22 +397,23 @@ def build_one(folder, pub, pubs, pages_index, lab, videos, projects, template):
                       f'<img src="{thumb}" data-yt-fallbacks="https://i.ytimg.com/vi/{esc(vid["id"])}/hqdefault.jpg" alt="" loading="lazy" decoding="async">'
                       f'<span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div></section>')
         video_btn = '<a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>'
-    proj = next((p for p in projects if p.get('slug') == meta.get('related_project')), None)
+    proj = pick_project(meta, pub, projects, sim, pvecs)
     if proj:
         summary = proj.get('summary') or proj.get('subtitle') or proj.get('description') or ''
         img = f'<img src="/{esc(proj["image"])}" alt="" loading="lazy" decoding="async">' if proj.get('image') else ''
         related.append(f'<a class="related-card related-project" href="/project.html?pagename={esc(proj["slug"])}">{img}'
                        f'<span class="related-kind"><i class="ri-flask-line" aria-hidden="true"></i>Research project</span>'
                        f'<strong>{esc(proj.get("title", ""))}</strong><span class="related-text">{esc(clip(re.sub("<[^>]+>", "", summary), 170))}</span></a>')
-    mine = {norm(a['name']) for a in meta['authors']} - {norm('Teddy Lazebnik')}
+    mine = {norm(a['name']) for a in meta['authors']} - {PI}
+    v = vecs[norm(pub['name'])]
     scored = []
     for p in pubs:
-        if norm(p['name']) == norm(pub['name']):
+        key = norm(p['name'])
+        if key == norm(pub['name']) or (meta.get('see_also') and pages_index.get(key) == meta['see_also']):
             continue
-        theirs = {norm(x) for x in re.split(r',\s*', p.get('authors', ''))}
-        score = 3 * len(mine & theirs) + (1 if p.get('topic') == topic else 0)
-        if score >= 3:
-            scored.append((score, p.get('year', 0), p))
+        theirs = {norm(x) for x in re.split(r',\s*', p.get('authors', ''))} - {PI}
+        s = Similarity.cos(v, vecs[key]) + 0.08 * len(mine & theirs) + (0.03 if p.get('topic') == topic else 0)
+        scored.append((s, p.get('year', 0), p))
     for _, _, p in sorted(scored, key=lambda x: (-x[0], -x[1]))[:3 - len(related)]:
         page = pages_index.get(norm(p['name']))
         pdf = next((l['link'] for l in p.get('fileLinks', []) if l.get('type') == 1), '')
@@ -309,9 +426,9 @@ def build_one(folder, pub, pubs, pages_index, lab, videos, projects, template):
                     f'<div class="related-grid">{"".join(related)}</div><p class="related-more"><a href="/publications.html">All publications</a></p></div></section>') if related else ''
 
     # search-engine data
-    share = share_image(folder, meta.get('featured_figure') or 'fig-1')
+    share = share_image(folder, fig)
     share_url = f'{url}{share}' if share else f'{SITE}/img/logo.png'
-    pdf_url = f'{url}{meta["pdf"]}'
+    pdf_url = meta.get('pdf_url') or ''
     desc = clip(meta.get('summary') or meta.get('abstract') or '')
     cm = [('citation_title', title)]
     for a in meta['authors']:
@@ -323,8 +440,8 @@ def build_one(folder, pub, pubs, pages_index, lab, videos, projects, template):
     cm += [('citation_publication_date', pub_date), ('citation_journal_title', meta.get('journal', '')),
            ('citation_volume', meta.get('volume', '')), ('citation_issue', meta.get('issue', '')),
            ('citation_firstpage', (meta.get('pages') or '').split('–')[0].split('-')[0]), ('citation_doi', meta.get('doi', '')),
-           ('citation_pdf_url', pdf_url), ('citation_abstract_html_url', url), ('citation_fulltext_html_url', url),
-           ('citation_language', 'en')]
+           ('citation_pdf_url', pdf_url), ('citation_abstract_html_url', url), ('citation_fulltext_html_url', url if has_body else ''),
+           ('citation_keywords', '; '.join(meta.get('keywords') or [])), ('citation_language', meta.get('lang') or 'en')]
     citation_meta = '\n      '.join(f'<meta name="{k}" content="{esc(v)}">' for k, v in cm if v)
     jsonld = {
         '@context': 'https://schema.org', '@type': 'ScholarlyArticle', 'headline': clip(title, 110), 'name': title,
@@ -332,14 +449,13 @@ def build_one(folder, pub, pubs, pages_index, lab, videos, projects, template):
                         **({'affiliation': [{'@type': 'Organization', 'name': affs[str(k)]} for k in a.get('affiliations', []) if str(k) in affs]}
                            if a.get('affiliations') else {})) for a in meta['authors']],
         'datePublished': meta.get('published') or year, 'url': url, 'mainEntityOfPage': url,
-        'abstract': meta.get('abstract', ''), 'description': desc, 'image': share_url,
-        'identifier': {'@type': 'PropertyValue', 'propertyID': 'DOI', 'value': meta.get('doi', '')},
+        'abstract': meta.get('abstract', ''), 'description': desc, 'image': share_url, 'keywords': ', '.join(meta.get('keywords') or []) or None,
+        'identifier': {'@type': 'PropertyValue', 'propertyID': 'DOI', 'value': meta['doi']} if meta.get('doi') else None,
         'sameAs': f'https://doi.org/{meta["doi"]}' if meta.get('doi') else None,
         'isPartOf': {'@type': 'Periodical', 'name': meta.get('journal', '')},
-        'about': topic or None, 'isAccessibleForFree': True,
+        'about': topic or None, 'inLanguage': meta.get('lang') or 'en', 'isAccessibleForFree': True,
         'license': lic.get('url') or None,
-        'encoding': {'@type': 'MediaObject', 'contentUrl': pdf_url, 'encodingFormat': 'application/pdf'},
-        'publisher': {'@type': 'Organization', 'name': 'Applied Computational Mathematics Laboratory', 'url': SITE + '/'},
+        'encoding': {'@type': 'MediaObject', 'contentUrl': pdf_url, 'encodingFormat': 'application/pdf'} if pdf_url else None,
     }
     jsonld = {k: v for k, v in jsonld.items() if v}
     if meta.get('volume'):
@@ -359,6 +475,9 @@ def build_one(folder, pub, pubs, pages_index, lab, videos, projects, template):
         if '<h2 id="references">' in body:
             body = body.replace('<h2 id="references">', notes_html + '\n<h2 id="references">', 1)
             notes_html = ''
+    rtl = meta.get('lang') == 'he'
+    if has_body:
+        body = f'<div class="paper-text"{" lang=he dir=rtl" if rtl else ""}>\n{body}\n</div>'
     values = {
         'page_title': esc(clip(meta.get('short_title') or title, 90)) + ' | ACML',
         'description': esc(desc), 'url': url, 'share_url': esc(share_url), 'og_title': esc(meta.get('short_title') or title),
@@ -367,15 +486,17 @@ def build_one(folder, pub, pubs, pages_index, lab, videos, projects, template):
         'jsonld': json.dumps(jsonld, ensure_ascii=False, indent=2).replace('</', '<\\/'),
         'math_head': math_head, 'videos_css': '<link href="/css/videos.css" rel="stylesheet">' if vid else '',
         'videos_js': '<script src="/js/videos.js"></script>' if vid else '',
-        'topic': esc(topic or 'Publications'), 'topic_q': esc(topic),
-        'kicker': ' · '.join(x for x in [esc(meta.get('article_type', '')), f'<em>{esc(meta.get("journal", ""))}</em>' if meta.get('journal') else '',
+        'topic': esc(topic or 'Publications'),
+        'kicker': ' · '.join(x for x in [f'<em>{esc(meta.get("journal", ""))}</em>' if meta.get('journal') else '',
                                          human_date(meta.get('published')) or esc(year)] if x),
         'oa_badge': '<span class="oa-badge"><i class="ri-lock-unlock-line" aria-hidden="true"></i>Open access</span>' if lic.get('url') else '',
-        'title': esc(title), 'title_class': ' is-long' if len(title) > 120 else '', 'authors_html': authors_html, 'affiliations_html': affs_html,
-        'pdf': esc(meta['pdf']), 'doi': esc(meta.get('doi', '')), 'video_button': video_btn,
+        'title': esc(title), 'title_class': ' is-long' if len(title) > 120 else '', 'authors_html': authors_html, 'affiliations': affs_block,
+        'pdf': esc(pdf_url), 'doi_button': (f'<a class="paper-btn" href="https://doi.org/{esc(meta["doi"])}" target="_blank" rel="noopener">'
+                                            '<i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>') if meta.get('doi') else '',
+        'read_label': 'Read the paper' if has_body else 'Read the abstract', 'video_button': video_btn,
         'lab_authors': (f'<div class="lab-authors"><span class="lab-authors-label">ACML authors</span>{"".join(lab_chips)}</div>') if lab_chips else '',
         'glance': glance, 'toc': toc_html(tokens, extra_toc), 'info': info_html,
-        'abstract': esc(meta.get('abstract', '')), 'body': body, 'notes': notes_html, 'source': source_html,
+        'abstract': esc(meta.get('abstract', '')), 'body': body, 'notes': notes_html, 'source': source_html, 'see_also': see_also,
         'video_section': video_html, 'related': related_html,
         'apa': esc(apa), 'bibtex': esc(bib),
     }
@@ -385,12 +506,11 @@ def build_one(folder, pub, pubs, pages_index, lab, videos, projects, template):
     if changed:
         out.write_text(page, encoding='utf-8')
     return {'title': pub['name'], 'slug': slug, 'url': f'publications/{slug}/', 'doi': meta.get('doi', ''),
-            'summary': desc, 'changed': changed}
+            'summary': desc, 'changed': changed, 'full_text': has_body}
 
 
 # ---------------------------------------------------------------- site files
 def replace_block(text, start_line, end_line, new_lines):
-    """Replace the lines between two marker lines (added before `anchor` the first time)."""
     if start_line in text:
         a = text.index(start_line)
         a = text.rfind('\n', 0, a) + 1
@@ -429,7 +549,8 @@ def update_llms(pages):
     bom = raw.startswith(b'\xef\xbb\xbf')
     text = raw.decode('utf-8-sig')
     eol = '\r\n' if '\r\n' in text else '\n'
-    lines = [f'<!-- {MARK_START} -->', '## Paper pages (full text, open access)', '']
+    lines = [f'<!-- {MARK_START} -->', '## Paper pages', '',
+             'Each ACML paper has its own page with the abstract, and for most papers the full text, figures, tables and references.', '']
     lines += [f'- [{p["title"]}]({SITE}/{p["url"]}): {p["summary"]}' for p in pages]
     lines += ['', f'<!-- {MARK_END} -->']
     block = eol.join(lines) + eol
@@ -442,20 +563,29 @@ def update_llms(pages):
 def main():
     pubs = read_json(ROOT / 'data' / 'academic-publications.json')['publications']
     by_title = {norm(p['name']): p for p in pubs}
-    lab = lab_index()
-    videos = read_json(ROOT / 'data' / 'videos.json').get('videos', []) if (ROOT / 'data' / 'videos.json').exists() else []
     projects = read_json(ROOT / 'data' / 'projects-info.json').get('projects', [])
-    folders = sorted(p.parent for p in (ROOT / 'publications').glob('*/paper.json'))
+    docs = [p['name'] + ' ' + p.get('description', '') for p in pubs]
+    sim = Similarity(docs)
+    ctx = {
+        'pubs': pubs, 'lab': lab_index(), 'projects': projects, 'template': TEMPLATE, 'sim': sim,
+        'videos': read_json(ROOT / 'data' / 'videos.json').get('videos', []) if (ROOT / 'data' / 'videos.json').exists() else [],
+        'vecs': {norm(p['name']): sim.vec(p['name'] + ' ' + p['name'] + ' ' + p.get('description', '')) for p in pubs},
+        'pvecs': {p['slug']: sim.vec(' '.join([p.get('title', ''), p.get('title', ''), p.get('summary', ''), p.get('subtitle', ''), p.get('description', ''),
+                                               ' '.join(p.get('tags', [])), ' '.join(p.get('methods', []))])) for p in projects},
+    }
+    by_key = {f'{norm(p["name"])}|{p.get("year")}|{(p.get("type") or "").lower()}': p for p in pubs}
     todo = []
-    for folder in folders:
+    for folder in sorted(p.parent for p in (ROOT / 'publications').glob('*/paper.json')):
         meta = read_json(folder / 'paper.json')
-        pub = by_title.get(norm(meta.get('title')))
+        pub = by_key.get(f'{norm(meta.get("title"))}|{meta.get("year")}|{(meta.get("pub_type") or "paper").lower()}') or by_title.get(norm(meta.get('title')))
         if not pub:
             print(f'! {folder.name}: title not found in data/academic-publications.json - fix "title" in paper.json')
             continue
         todo.append((folder, pub))
-    pages_index = {norm(pub['name']): f'publications/{folder.name}/' for folder, pub in todo}
-    built = [build_one(folder, pub, pubs, pages_index, lab, videos, projects, TEMPLATE) for folder, pub in todo]
+    ctx['pages_index'] = {}
+    for folder, pub in sorted(todo, key=lambda t: t[1].get('type') == 'Paper'):
+        ctx['pages_index'][norm(pub['name'])] = f'publications/{folder.name}/'
+    built = [build_one(folder, pub, ctx) for folder, pub in todo]
     built.sort(key=lambda p: p['slug'])
     index = [{k: p[k] for k in ('title', 'slug', 'url', 'doi')} for p in built]
     (ROOT / 'data' / 'paper-pages.json').write_text(json.dumps({'_readme': 'Made by tools/build_papers.py: papers that have their own page.',
@@ -463,9 +593,9 @@ def main():
     today = dt.date.today().isoformat()
     update_sitemap(built, today)
     update_llms(built)
-    for p in built:
-        print(f'{"built " if p["changed"] else "same  "} publications/{p["slug"]}/index.html')
-    print(f'{len(built)} paper page(s); data/paper-pages.json, sitemap.xml and llms.txt updated.')
+    changed = sum(1 for p in built if p['changed'])
+    print(f'{len(built)} paper pages ({sum(1 for p in built if p["full_text"])} with full text), {changed} rebuilt; '
+          f'data/paper-pages.json, sitemap.xml and llms.txt updated.')
 
 
 if __name__ == '__main__':

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_papers.py from paper.md + paper.json in this folder. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Temporal graph anomaly emergence detection: social media benchmark | ACML</title>
+      <meta name="description" content="Temporal graphs capture how interactions between many agents change over time, and detecting anomalies in them matters for spotting emerging trends, network…">
+      <meta name="author" content="Teddy Lazebnik, Or Iny">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/publications/temporal-graphs-anomaly-emergence-detection-benchmarking-social/">
+      <meta name="citation_title" content="Temporal graphs anomaly emergence detection: benchmarking for social media interactions">
+      <meta name="citation_author" content="Teddy Lazebnik">
+      <meta name="citation_author" content="Or Iny">
+      <meta name="citation_publication_date" content="2024">
+      <meta name="citation_journal_title" content="Applied Intelligence">
+      <meta name="citation_doi" content="10.1007/s10489-024-05821-3">
+      <meta name="citation_pdf_url" content="https://teddylazebnik.com/files/spatiotemporal_graphs.pdf">
+      <meta name="citation_abstract_html_url" content="https://acml.teddylazebnik.com/publications/temporal-graphs-anomaly-emergence-detection-benchmarking-social/">
+      <meta name="citation_fulltext_html_url" content="https://acml.teddylazebnik.com/publications/temporal-graphs-anomaly-emergence-detection-benchmarking-social/">
+      <meta name="citation_keywords" content="Dynamic systems; Social interactions; Anomaly detection; Emerging trends; Group interactions">
+      <meta name="citation_language" content="en">
+      <meta property="og:type" content="article">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Temporal graph anomaly emergence detection: social media benchmark">
+      <meta property="og:description" content="Temporal graphs capture how interactions between many agents change over time, and detecting anomalies in them matters for spotting emerging trends, network…">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/publications/temporal-graphs-anomaly-emergence-detection-benchmarking-social/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/publications/temporal-graphs-anomaly-emergence-detection-benchmarking-social/figures/share-fig-1.jpg">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Temporal graph anomaly emergence detection: social media benchmark">
+      <meta name="twitter:description" content="Temporal graphs capture how interactions between many agents change over time, and detecting anomalies in them matters for spotting emerging trends, network…">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/publications/temporal-graphs-anomaly-emergence-detection-benchmarking-social/figures/share-fig-1.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "Temporal graphs anomaly emergence detection: benchmarking for social media interactions",
+  "name": "Temporal graphs anomaly emergence detection: benchmarking for social media interactions",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Teddy Lazebnik"
+    },
+    {
+      "@type": "Person",
+      "name": "Or Iny"
+    }
+  ],
+  "datePublished": "2024",
+  "url": "https://acml.teddylazebnik.com/publications/temporal-graphs-anomaly-emergence-detection-benchmarking-social/",
+  "mainEntityOfPage": "https://acml.teddylazebnik.com/publications/temporal-graphs-anomaly-emergence-detection-benchmarking-social/",
+  "abstract": "Temporal graphs have become an essential tool for analyzing complex dynamic systems with multiple agents. Detecting anomalies in temporal graphs is crucial for various applications, including identifying emerging trends, monitoring network security, understanding social dynamics, tracking disease outbreaks, and understanding financial dynamics. In this paper, we present a comprehensive benchmarking study that compares 12 data-driven methods for anomaly detection in temporal graphs. We conduct experiments on two temporal graphs extracted from Twitter and Facebook, aiming to identify anomalies in group interactions. Surprisingly, our study reveals an unclear pattern regarding the best method for such tasks, highlighting the complexity and challenges involved in anomaly emergence detection in large and dynamic systems. The results underscore the need for further research and innovative approaches to effectively detect emerging anomalies in dynamic systems represented as temporal graphs.",
+  "description": "Temporal graphs capture how interactions between many agents change over time, and detecting anomalies in them matters for spotting emerging trends, network…",
+  "image": "https://acml.teddylazebnik.com/publications/temporal-graphs-anomaly-emergence-detection-benchmarking-social/figures/share-fig-1.jpg",
+  "keywords": "Dynamic systems, Social interactions, Anomaly detection, Emerging trends, Group interactions",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "DOI",
+    "value": "10.1007/s10489-024-05821-3"
+  },
+  "sameAs": "https://doi.org/10.1007/s10489-024-05821-3",
+  "isPartOf": {
+    "@type": "Periodical",
+    "name": "Applied Intelligence"
+  },
+  "about": "Machine Learning",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "encoding": {
+    "@type": "MediaObject",
+    "contentUrl": "https://teddylazebnik.com/files/spatiotemporal_graphs.pdf",
+    "encodingFormat": "application/pdf"
+  }
+}
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/paper.css" rel="stylesheet">
+      
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="paper-page">
+    <header class="paper-hero">
+      <div class="paper-wrap">
+        <nav class="paper-crumbs" aria-label="Breadcrumb">
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Machine Learning</span>
+        </nav>
+        <p class="paper-kicker"><span><em>Applied Intelligence</em> · 2024</span></p>
+        <h1 class="paper-title">Temporal graphs anomaly emergence detection: benchmarking for social media interactions</h1>
+        <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author">Or Iny</span></p>
+        <details class="paper-affils"><summary>Affiliations</summary><ol><li value="1">Department of Mathematics, Ariel University, Ariel, Israel</li><li value="2">Department of Cancer Biology, Cancer Institute, University College London, London, UK</li><li value="3">Department of Economy, The Academic College of Tel Aviv-Yaffo, Tel Aviv-Yaffo, Israel</li></ol></details>
+        <div class="paper-actions">
+          <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/spatiotemporal_graphs.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
+          <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
+          
+          <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
+          <a class="paper-btn" href="https://doi.org/10.1007/s10489-024-05821-3" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
+          <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
+        </div>
+        <div class="lab-authors"><span class="lab-authors-label">ACML authors</span><a class="lab-chip" href="/team.html"><img src="/img/lab/teddy.webp" alt="" width="32" height="32" loading="lazy"><span><strong>Teddy Lazebnik</strong><small>PI</small></span></a></div>
+      </div>
+    </header>
+
+    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Temporal graphs capture how interactions between many agents change over time, and detecting anomalies in them matters for spotting emerging trends, network security, disease outbreaks and financial dynamics. We benchmarked 12 data-driven anomaly detection methods on two temporal graphs extracted from Twitter and Facebook, looking for anomalies in group interactions. Surprisingly, no clear best method emerged, which highlights how hard it is to detect emerging anomalies in large, dynamic systems.</p><div class=glance-stats><div class="stat"><span class="stat-value">12</span><span class="stat-label">anomaly detection methods compared</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>We compared 12 data-driven methods for anomaly detection in temporal graphs.</li><li>Experiments used two temporal graphs extracted from Twitter and Facebook to identify anomalies in group interactions.</li><li>The study revealed an unclear pattern regarding which method is best for detecting emerging anomalies.</li><li>The results point to a need for further research and new approaches for anomaly detection in dynamic systems.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1800" height="453" alt="Fig. 1 A schematic view of the experiments flow. First, we acquire data from a social media platform. Afterward, we represent the data as a temporal graph. Next, we define both temporal and spatial anomalies and"></a><figcaption><strong>Fig. 1</strong> A schematic view of the experiments flow. First, we acquire data from a social media platform. Afterward, we represent the data as a temporal graph. Next, we define both temporal and spatial anomalies and <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+
+    <div class="paper-wrap paper-layout">
+      <aside class="paper-aside">
+        <nav class="paper-toc" aria-label="On this page">
+          <p class="aside-title">On this page</p>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#1-introduction">1 Introduction</a></li>
+<li><a href="#2-related-work">2 Related work</a></li>
+<li><a href="#3-experiment-setup">3 Experiment setup</a></li>
+<li><a href="#4-results">4 Results</a></li>
+<li><a href="#5-discussion-and-conclusion">5 Discussion and conclusion</a></li><li class="toc-sub"><a href="#declarations">Declarations</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </nav>
+        <div class="paper-info">
+          <p class="aside-title">Article information</p>
+          <dl><div><dt>Journal</dt><dd>Applied Intelligence</dd></div><div><dt>Year</dt><dd>2024</dd></div><div><dt>DOI</dt><dd><a href="https://doi.org/10.1007/s10489-024-05821-3" target="_blank" rel="noopener">10.1007/s10489-024-05821-3</a></dd></div></dl>
+        </div>
+      </aside>
+
+      <article class="paper-body" id="full-text">
+        <details class="paper-toc-mobile">
+          <summary>On this page</summary>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#1-introduction">1 Introduction</a></li>
+<li><a href="#2-related-work">2 Related work</a></li>
+<li><a href="#3-experiment-setup">3 Experiment setup</a></li>
+<li><a href="#4-results">4 Results</a></li>
+<li><a href="#5-discussion-and-conclusion">5 Discussion and conclusion</a></li><li class="toc-sub"><a href="#declarations">Declarations</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </details>
+        <section id="abstract" class="paper-abstract">
+          <h2>Abstract</h2>
+          <p>Temporal graphs have become an essential tool for analyzing complex dynamic systems with multiple agents. Detecting anomalies in temporal graphs is crucial for various applications, including identifying emerging trends, monitoring network security, understanding social dynamics, tracking disease outbreaks, and understanding financial dynamics. In this paper, we present a comprehensive benchmarking study that compares 12 data-driven methods for anomaly detection in temporal graphs. We conduct experiments on two temporal graphs extracted from Twitter and Facebook, aiming to identify anomalies in group interactions. Surprisingly, our study reveals an unclear pattern regarding the best method for such tasks, highlighting the complexity and challenges involved in anomaly emergence detection in large and dynamic systems. The results underscore the need for further research and innovative approaches to effectively detect emerging anomalies in dynamic systems represented as temporal graphs.</p>
+        </section>
+        
+<div class="paper-text">
+<h2 id="1-introduction">1 Introduction</h2>
+<p>The analysis of complex dynamic systems with multiple agents has gained significant attention in various fields, such as social networks <span class="cite">[<a href="#ref-1">1</a>]</span>, biological systems <span class="cite">[<a href="#ref-2">2</a>]</span>, and transportation networks <span class="cite">[<a href="#ref-3">3</a>]</span>. Recently, temporal graphs have gained much attention as a fundamental framework for capturing the dynamic nature of these systems, enabling the study of evolving relationships and interactions over time <span class="cite">[<a href="#ref-4">4</a>– <a href="#ref-7">7</a>]</span>. Representing systems as temporal graphs is considered straightforward in most cases which makes it a robust and appealing data structure to use <span class="cite">[<a href="#ref-8">8</a>]</span>.</p>
+<p>Anomalies in temporal graphs can manifest as unexpected shifts in network behavior, sudden changes in interaction patterns, or the emergence of unusual group dynamics <span class="cite">[<a href="#ref-9">9</a>, <a href="#ref-10">10</a>]</span>. These anomalies often provide valuable insights into signif-icant events, emerging phenomena, or potentially malicious activities within the underlying system. Detecting emerging anomalies in such temporal graphs has become a critical task with wide-ranging applications, including identifying credit frauds <span class="cite">[<a href="#ref-11">11</a>]</span>, identifying social trends <span class="cite">[<a href="#ref-12">12</a>]</span>, and understanding cell-level biological processes <span class="cite">[<a href="#ref-13">13</a>]</span>. Consequently, developing effective methods for anomaly emergence detection in temporal graphs allows temporally-close-proximity or even immediate reaction to shifts in the dynamics.</p>
+<p>Several approaches have been proposed to tackle the challenge of anomaly emergence detection in general <span class="cite">[<a href="#ref-14">14</a>, <a href="#ref-15">15</a>]</span>, and in temporal graphs, in particular <span class="cite">[<a href="#ref-16">16</a>, <a href="#ref-17">17</a>]</span>. These approaches span statistical methods, machine learning algorithms, and graph-based techniques, each leveraging different assumptions and models to capture the unique characteristics of temporal graph data <span class="cite">[<a href="#ref-18">18</a>, <a href="#ref-19">19</a>]</span>. However, due to the complexity and inherent uncertainty associated with detecting anomalies in dynamic systems, identifying the most suitable method for a specific application remains mostly unclear.</p>
+<p>In this paper, we present a comprehensive benchmarking study that focuses on the task of anomaly emergence detection in temporal graphs, with a specific emphasis on social media interactions. Social media platforms, such as Twitter and Facebook, provide rich sources of temporal graph data, capturing the dynamic interactions among individuals, groups, and communities that can shed light on social and economic trends in real-time. Detecting anomalies in group interactions within these platforms holds immense value in understanding influential events, collective behaviors, and the spread of information. In particular, we evaluated 12 state-of-the-art methods that represent a diverse range of approaches and techniques employed in the field. By conducting experiments on two temporal graphs obtained from Twitter and Facebook, we seek to investigate the performance of these methods in identifying anomalies in group interactions within the context of social media.</p>
+<p>Our findings present an unexpected outcome: an unclear pattern emerges regarding the best-performing method for anomaly emergence detection in social media interactions. This outcome underscores the need for further research and the development of novel techniques tailored to the unique characteristics of social media data.</p>
+<p>This paper is structured as follows. Section 2 provides an overview of the temporal graphs’ data structure as well as the formalization of anomaly emergence detection. Next, Section 3 describes the methodology and experimental setup employed in our benchmarking study. Subsequently, Section 4 presents the performance of each method on the Twitter and Facebook temporal graphs. Finally, Section 5 analyzes our findings and suggests potential future studies.</p>
+<h2 id="2-related-work">2 Related work</h2>
+<p>Temporal graphs have gained significant attention in various domains as a means to capture the evolving relationships and interactions in complex dynamic systems <span class="cite">[<a href="#ref-20">20</a>–<a href="#ref-22">22</a>]</span>. In this section, we provide a formalization of temporal graphs followed by the anomaly emergence detection task definition.</p>
+<p>Temporal (also known as dynamic, evolving, overtime-varying) graphs can be informally described as graphs that change with time. A temporal graph is a mathematical representation of a dynamic system that captures both the structural properties of a graph and the temporal aspects of interactions between entities. Formally, a temporal graph can be defined as follow. Let <em>G</em> = <em>(V , E, T )</em> be a temporal graph, where <em>V</em> ∈ N<sup>k</sup> represents the set of nodes or entities in the graph represented as finite state machines with <em>k</em> ∈ N possible states, <em>E</em> ⊂ <em>V</em> × <em>V</em> × R denotes the set of edges such that each edge <em>e</em> ∈ <em>E</em> := <em>(u, v, t)</em> represents an interaction between nodes <em>u</em> and <em>v</em> at time <em>t</em>, and <em>T</em> ∈ N is the set of discrete time points or intervals at which the interactions occur. Intuitively, one can represent a temporal graph as a set of timestamped edges, <em>G</em> = <em>(u, v, t)</em>|<em>(u, v)</em> ∈ <em>E, t</em> ∈ <em>T</em> , that implicitly indicates the nodes of the graph and their interactions over time.</p>
+<p>Though the formal treatment of temporal graphs is still in its infancy, there is already a huge identified set of applications and research domains that motivate it and that could benefit from the development of a concrete set of results, tools, and techniques for temporal graphs <span class="cite">[<a href="#ref-23">23</a>]</span>. In the domain of biological systems, for instance, gene regulatory networks can be represented as temporal graphs, where nodes correspond to genes and edges capture interactions between genes at different time points, which allows the study of gene expression patterns <span class="cite">[<a href="#ref-24">24</a>]</span>. Indeed, <span class="cite">[<a href="#ref-25">25</a>]</span> proposed an inference algorithm based on linear ordinary differential equations. The authors show that algorithm can infer the local network of gene-gene interactions surrounding a gene of interest from time-series gene expression profiles of synthetic genomics samples. In addition, in the transportation systems realm, nodes of a temporal graph can represent locations, and edges capture movements or interactions between locations at different time points, providing an intuitive formalization to analyze traffic flows and congestion patterns <span class="cite">[<a href="#ref-3">3</a>]</span>. For example, <span class="cite">[<a href="#ref-26">26</a>]</span> propose a framework that enables extending the traditional convolutional neural network model to graph domains and learns the graph structure for traffic forecasting. Most relevant for this work, temporal graphs can capture the evolving relationships between individuals, communities, and groups over time. They enable the study of social phenomena, such as information diffusion <span class="cite">[<a href="#ref-27">27</a>]</span>, opinion formation <span class="cite">[<a href="#ref-28">28</a>]</span>, and community detection <span class="cite">[<a href="#ref-2">2</a>]</span>. Plepi et al. <span class="cite">[<a href="#ref-29">29</a>]</span> propose a dynamic graph-based framework that leverages the dynamic nature of the users’ network for detecting fake news spreaders. Using their model, the authors show that by analyzing the users’ time-evolving semantic similarities and social interactions, one can indicate misinformation spreading.</p>
+<p>While there are many possible queries one can perform on a temporal graph, we focus on detecting anomalies over time in close temporal proximity to when they start to emerge. Namely, the anomaly emergence detection (AED) task aims to identify and characterize anomalous events or patterns in temporal graphs and alert about them shortly after they start to occur. Since anomalies can manifest in many forms such as unexpected changes in the interaction patterns, shifts in network behavior, or the emergence of unusual group dynamics. Hence, the AED task’s definition is closely related to the definition of an anomaly, in practice. Abstractly, we can assume the anomaly’s definition is implicitly provided by the tagging of anomalies in a given dataset <span class="cite">[<a href="#ref-30">30</a>]</span>.</p>
+<p>Mathematically, the AED task can be defined as follows. Let <em>G</em> be a temporal graph and let <em>A</em> = <em>a</em><sub>1</sub><em>, a</em><sub>2</sub><em>, . . . , a</em><sub>n</sub> represent the set of anomalies in <em>G</em> such that <em>a</em><sub>i</sub> := <em>(U</em><sub>i</sub><em>, T</em><sub>i</sub><em>)</em>, where: <em>U</em><sub>i</sub> is a subset of nodes <em>U</em><sub>i</sub> ⊂ <em>V</em> , representing the entities involved in the anomaly and <em>T</em><sub>i</sub> is a point in time that indicates the start of the anomaly emergence <em>T</em><sub>i</sub> ∈ <em>T</em> . The AED task considered with finding a function <em>M</em> that accepts <em>G</em> and a subset <em>A</em><sub>train</sub> := <em>(a</em><sub>1</sub><em>, a</em><sub>2</sub><em>, . . . , a</em><sub>k</sub><em>)</em> and predicts <em>A</em><sub>test</sub> := <em>(a</em><sub>k+1</sub><em>, . . . , a</em><sub>n</sub><em>)</em>.</p>
+<p>For example, let us consider a temporal graph that represents a transportation network’s dynamics, where nodes represent physical locations and edges represent the movement of vehicles between these locations, over time. An anomaly can be sudden and unexpected traffic congestion in a location or set of locations which could be caused by an accident or unplanned road closure. In this example, one can use historical records for such events and the data about the transportation network to try and predict the emergence of unexpected traffic congestion.</p>
+<h2 id="3-experiment-setup">3 Experiment setup</h2>
+<p>In this section, we outline the experimental setup used for our benchmarking, including six main steps (<a class="xref" href="#fig-1">Fig. 1</a>).</p>
+<p>To conduct the benchmarking study, we carefully selected 12 data-driven models that encompass a wide range of computational approaches. Our aim was to ensure that these models represent the current state-of-the-art in the field, to the best of our knowledge. Below, we provide a detailed description of each model, including its working principles and the rationale behind our selection.</p>
+<ul>
+<li>Tree-based pipeline optimization tool (TPOT) <span class="cite">[<a href="#ref-31">31</a>]</span> - is an automated machine learning (AutoML) framework that optimizes a pipeline of preprocessing steps and machine learning models using genetic programming, based on the Scikit-learn library <span class="cite">[<a href="#ref-32">32</a>]</span>.</li>
+<li>AutoKeras <span class="cite">[<a href="#ref-33">33</a>]</span> - is an automated machine learning framework that uses neural architecture search to automatically select and optimize deep learning models based on the TensorFlow framework <span class="cite">[<a href="#ref-34">34</a>]</span>.</li>
+<li>Time Series Anomaly Detection Using Generative Adversarial Networks (TADGAN) <span class="cite">[<a href="#ref-35">35</a>]</span> - is a model that uses generative adversarial networks (GANs) to detect anomalies in time series data. We Include TADGAN in the analysis to explore the effectiveness of GAN framework for anomaly detection, which can capture both local and global patterns in the temporal graph data.</li>
+<li>Deep Isolation Forest (DIF) <span class="cite">[<a href="#ref-36">36</a>]</span> - is an extension of the Isolation Forest algorithm <span class="cite">[<a href="#ref-37">37</a>]</span> that uses deep learning techniques to improve anomaly detection performance.</li>
+<li>Long-short term memory (LSTM) neural network <span class="cite">[<a href="#ref-38">38</a>]</span> - is a type of recurrent neural network (RNN) that can model sequential data and capture long-term dependencies. It has the ability to learn temporal dependencies in the data without taking into consideration the graph-based nature of the data.</li>
+<li>Policy-based reinforcement learning for time series anomaly detection (PbRL) <span class="cite">[<a href="#ref-39">39</a>]</span>. This model applies rein-</li>
+</ul>
+<p>forcement learning techniques to train a policy network for anomaly detection in time series data. It is an adaptive approach that learns from a complex from a trial-and-error approach which potentially allows it the detection of complex and evolving anomalies.</p>
+<ul>
+<li>A XGboost for anomaly detection (XGBOD) <span class="cite">[<a href="#ref-40">40</a>]</span> - is an anomaly detection algorithm based on the XGBoost gradient boosting framework <span class="cite">[<a href="#ref-41">41</a>]</span>. XGboost is widely considered one of the best machine learning models.</li>
+<li>A Python library for graph outlier detection (Pygod) <span class="cite">[<a href="#ref-42">42</a>]</span> - Pygod is a Python library specifically designed for detecting outliers in graph-structured data.</li>
+<li>Graph AutoEncoder with Random Forest (GAE+RF) <span class="cite">[<a href="#ref-43">43</a>, <a href="#ref-44">44</a>]</span>. This model combines a graph autoencoder to obtain a meaningful representation of the data from the graph, operating as a feature engineering component that is used by an RF classifier.</li>
+<li>Singular Value Decomposition with Random Forest (SVD+RF) <span class="cite">[<a href="#ref-44">44</a>, <a href="#ref-45">45</a>]</span> - This model combines the singular value decomposition method which operates as an unsupervised feature engineering component followed by a random forest classifier.</li>
+<li>Spatio-Temporal Graph Neural Networks (STGNN) <span class="cite">[<a href="#ref-46">46</a>]</span> - is a model that integrates graph neural networks (GNNs) with spatial and temporal information for anomaly detection in spatio-temporal data.</li>
+<li>Scalable Python Library for Time Series Data Mining (STUMPY) <span class="cite">[<a href="#ref-47">47</a>]</span> - is a Python library that provides scalable algorithms for time series data mining, including motif discovery and time series approximation.</li>
+<li><em>Random</em> model that randomly decides if an anomaly occurs or not to be a naive baseline. Namely, for each prediction request, with a uniform distribution, the model returns each label at random.</li>
+</ul>
+<p>This set of models aims to capture a wide range of possible methods to tackle anomaly detection in spatio-temporal graphs. First, the TPOT and AutoKeras are automatic ML and DL libraries. Automatic ML (DL) gains popularity due to its powerful results on one hand and low level of expertise to utilize on the other hand <span class="cite">[<a href="#ref-48">48</a>, <a href="#ref-49">49</a>]</span>. Second, generic machine and deep learning models like GAE + RF, SVD + RF, STUMPY, LSTM. Third, dedicated data-driven anomaly detection algorithms such as XGBOD, DIF, and Pygod which not designed for spatio-temporal graph per-se but are the closest compared to the other algorithms. Finally, graph deep learning models that designed for anomaly detection, such as TADGAN, STGNN, and PbRL.</p>
+<p>We acquire data from the Twitter<sup><a href="#ref-1">1</a></sup> and Facebook<sup><a href="#ref-2">2</a></sup> social media websites using their official application programming</p>
+<ul>
+<li><sup><a href="#ref-1">1</a></sup> https://developer.twitter.com/en/docs/twitter-api</li>
+<li><sup><a href="#ref-2">2</a></sup> https://developers.facebook.com/docs/graph-api/</li>
+</ul>
+<figure id="fig-1">
+<a class="fig-zoom" href="figures/fig-1.webp" aria-label="Open the figure full size"><img src="figures/fig-1.webp" width="720" height="181" alt="A schematic view of the experiments flow" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 1</strong> A schematic view of the experiments flow. First, we acquire data from a social media platform. Afterward, we represent the data as a temporal graph. Next, we define both temporal and spatial anomalies and</figcaption>
+</figure>
+
+<p>interfaces (APIs). We picked these two social media websites as they provide access to the interaction data between their users over time. In addition to capturing user profiles, we also collected information about user interactions with posts (tweets) on both platforms. This included data on actions such as re-tweeting, commenting, and reacting (liking) to posts. For each interaction, we recorded the type of action, the timestamp, and the ID of the post owner. Overall, our dataset consisted of 44.8 thousand users from Twitter and 29.7 thousand users from Facebook, encompassing a total of 51.07 million and 65.93 million interactions, respectively. The data covered a duration of one month, specifically from the 22nd of August to the 22nd of September, 2020, and the 1st of February to the 1st of March, 2023, respectively.</p>
+<p>In order to generate the temporal graph representation of this data, one has to define the nodes and edges first. To this end, each account in the dataset represents a node, <em>v</em> ∈ <em>V</em> in the graph while an action (like, comment, share) that an account <em>v</em> ∈ <em>V</em> performance on a post of account <em>u</em> ∈ <em>V</em> at some time <em>t</em> ∈ N represents an edge <em>e</em> := <em>(v, u, t)</em>. Based on this definition, we obtain a direct temporal graph. For simplicity, we bin all actions to time durations of 15 minutes, in order to get a representation that agrees with a temporal sequence of graphs since the chosen models require such representation.</p>
+<p>Moreover, in order to obtain a population of temporal graphs from each dataset, we sampled 100 sub-graphs as follows. First, we picked at random a node of the graph, denoted by <em>v</em><sub>c</sub>. Next, starting from <em>v</em><sub>c</sub>, we computed Breadth-first search (BFS) <span class="cite">[<a href="#ref-50">50</a>]</span> while ignoring the time (<em>t</em>) component of the edges <em>e</em> ∈ <em>E</em> (and duplicate edges caused as a result) until |<em>V</em> | = 10000 nodes are obtained. Once the nodes were obtained, we trimmed the temporal graph representing the entire dataset to include only these nodes.</p>
+<p>In order to perform the analysis, one should define spatial, temporal, or spatio-temporal anomalies in the network. Unfortunately, the datasets used lack such tagged anomalies and it would be infeasible in terms of time and cost to manually tag anomalies. As such, we had to generate test various models’ performance in these settings. Finally, we conduct a sensitivity analysis on four properties of the temporal graph for each model them synthetically. Importantly, these synthetic tags have to be computed by information that is not fully available to the models; otherwise one would just examine the model’s ability to reconstruct the rules used to generate the synthetic tags. As such, inspired by the works of <span class="cite">[<a href="#ref-51">51</a>, <a href="#ref-52">52</a>]</span>, we define three anomaly rules. For all of them, let us consider a node <em>v</em> ∈ <em>V</em> at a time <em>t</em> ∈ N to be anomaly if and only if: <em>N</em><sub>t</sub><em>(v) &gt; E</em><sub>t−z,t+z</sub>[<em>N(v)</em>] + 2 ∗ <em>S</em><sub>t−z,t+z</sub>[<em>N(v)</em>] or <sup>t+z d2Ni(v)</sup> <em>&gt;</em> <sup>t+z 1 dNi(u)</sup> or the <em>i</em>=<em>t</em>−<em>z di</em>2 <em>i</em>=<em>t</em>−<em>z N</em><sub>i</sub><em>(v) u</em>∈<em>C</em><sub>i</sub><em>(v) di</em> largest eigenvalue of a matrix representing node’s <em>v</em> number of interactions with the rest of nodes between <em>t</em> − <em>z</em> and <em>t</em> + <em>z</em> is larger than 1, where <em>C</em><sub>t</sub><em>(v)</em> := {∀<em>u</em> : <em>(u, v, t)</em> ∈ <em>E</em>}, <em>N</em><sub>t</sub><em>(v)</em> := |<em>C</em><sub>t</sub><em>(v)</em>|, <em>z</em> ∈ N is a window size, <em>E</em><sub>a,b</sub><em>(x)</em> is the mean value of <em>x</em> such that <em>t</em> ∈[<em>a, b</em>], and <em>S</em><sub>a,b</sub><em>(x)</em> is the standard deviation value of <em>x</em> such that <em>t</em> ∈[<em>a, b</em>].</p>
+<p>In order to emphasize these definitions, let us consider an example of each one of them. For the first definition, a spatial anomaly, let us consider a user who typically interacts with an average of 10 other users per day, with a standard deviation of 2. If on a particular day, the user interacts with 20 users, this could be flagged as a spatial anomaly, as it exceeds the mean plus two standard deviations (14). For the second definition, a temporal anomaly, a user who typically shows a gradual increase in interactions suddenly starts posting and interacting at a much higher rate. If the user’s rate of change in interactions (second-order derivative) spikes sharply, while the users they interact with do not show a similar pattern (weighted first-order derivatives), this can be considered an anomaly behavior. Lastly, for the spatio-temporal anomaly, if a user suddenly starts interacting with a large number of new users in a very structured way (forming a dense subgraph), this can cause the largest eigenvalue of the interaction matrix to spike. For example, a user becoming a central figure in a rapidly forming group chat or event coordination could be considered an anomaly in the way social networks emerge.</p>
+<p>Based on these anomalies, for each instance of a temporal graph, we computed the weighted <em>F</em><sub>1</sub> score <span class="cite">[<a href="#ref-53">53</a>]</span> and weighted AUC (Area Under the receiver Curve) <span class="cite">[<a href="#ref-54">54</a>]</span> using each one of the models. Formally, the <em>F</em><sub>1</sub> score balances precision (the accuracy of positive predictions) and recall (the ability to find all positive instances), making it suitable for anomaly detection where both false positives and false negatives are important. It is calculated as <em>F</em><sub>1</sub> := 2<em>T P/(</em>2<em>T P</em>+<em>F P</em>+<em>F N)</em> where <em>T P, F P,</em> and <em>F N</em> are the number of true positive, false positive, and false negative samples, respectively. For weighted <em>F</em><sub>1</sub>, different anomalies are assigned weights based on their frequency, <em>F</em><sup>weighted</sup> := <sup>n</sup> <sub>i=1</sub><em>(ω</em><sub>i</sub> <em>F</em><sup>i</sup> <sub>1</sub>, where <em>ω</em><sub>i</sub> is 1 the relative frequency of anomalies of type <em>i</em> and <em>n</em> is the number of anomaly types. In addition, the AUC measures a model’s ability to distinguish between classes, useful for evaluating anomaly detection where distinguishing normal from anomalous behavior is critical and defined by <em>AUC</em> := 1 <sub>0</sub> <em>T P R(F P R)d(FT R)</em> where <em>T P R</em> = <em>T P/(T P</em> + <em>F N)</em> and <em>F P R</em> = <em>F P/(F P</em> + <em>T N)</em> such that <em>T N</em> is the number of true negative samples. In a similar manner to <em>F</em><sup>weighted</sup> , <em>AUC</em><sup>weighted</sup> := <sup>n 1</sup> <sub>i=1</sub><em>(ω</em><sub>i</sub> <em>AUC</em><sup>i</sup>. For all models, we used the first 80% of temporal samples of each temporal graph instance to train the model while using the remaining 20% for the evaluation. Importantly, the model’s prediction is set to the next step in time, such that the window size is obtained for each model using the grid search method <span class="cite">[<a href="#ref-55">55</a>]</span> ranging from 1 to 2<em>z</em>.</p>
+<p>Afterward, for each model, we conducted four sensitivity analysis tests, measuring the effect of changing one parameter of the task on each of the model’s performances. Namely, the prediction lag, temporal concept drift, spatial size, and spatial density. Formally, we increase the prediction lag from 1 to <em>z</em> with steps of 1. For the temporal concept drift, for each step in time <em>t</em> with a probability <em>p</em> ∈[0<em>,</em> 0<em>.</em>001<em>, . . . ,</em> 0<em>.</em>01], all edges that are connected to node <em>v</em> are removed from the temporal graph. The spatial size sensitivity test was conducted by repeating the temporal graph instances construction but with 9500 + 100<em>i</em> such that <em>i</em> ∈[0<em>, . . . ,</em> 10]. Finally, the spatial was implemented by adding |<em>E</em><sub>0</sub>|<em>t</em> · <em>i</em> · 10<sup>−5</sup> edges to the graph at time <em>t</em>, where <em>i</em> ∈[1<em>,</em> 10]. Formally, for each of these parameters, the value of the parameter is altered and the model’s performance is measured. A linear regression is fitted on this meta-data and the gradient is reported <span class="cite">[<a href="#ref-56">56</a>]</span>.</p>
+<h2 id="4-results">4 Results</h2>
+<p>Initially, we explore the properties of the temporal graphs of both Facebook and Twitter. <a class="xref" href="#table-1">Table 1</a> shows several central properties of social media graphs <span class="cite">[<a href="#ref-57">57</a>]</span>. Overall, Twitter is more dense with more connected nodes compared to Facebook but with lower average path length and betweenness centrality which indicates that Twitter has more strict communities with small number of users operating as “bridges” between them compared to Facebook.</p>
+<p><a class="xref" href="#fig-2">Figure 2</a> summarizes the main results obtained where Fig. 2a and b show the weighted <em>F</em><sub>1</sub> score and Fig. 2c and d show the weighted AUC of each model for the Twitter and Facebook datasets, respectively. The results are shown as the mean ± standard deviation of <em>n</em> = 100 instances for each dataset. Upon examining the results, it becomes evident that the Facebook dataset consistently yielded lower performance, on average, compared to the Twitter dataset. This observation holds true when comparing each individual model’s performance within the dataset, as well as when considering the collective performance of all the models. In addition, focusing on Fig. 2a, we can see that STGNN provides the best results with 0<em>.</em>735 ± 0<em>.</em>037 followed by STUMPY with 0<em>.</em>718 ± 0<em>.</em>088 and DIF with 0<em>.</em>709 ± 0<em>.</em>048. All of the selected models in our benchmarking study are neural network-based approaches that have been specifically designed for anomaly detection. Unlike, Fig. 2b reveal that Tadgan obtained the best results with 0<em>.</em>652±0<em>.</em>055, followed by DIF with 0<em>.</em>649±0<em>.</em>081 and STUMPY with 0<em>.</em>625±0<em>.</em>075, showing somewhat consistency in the results. Similarly, the LSTM and SVD with RF models consistently performed worse compared to the other models. However, the performance order of the remaining models varied inconsistently between the two cases, indicating that the relative performance of these models is not consistently predictable or generalizable across different datasets or scenarios. A similar pattern is emerging for the weighted AUC.</p>
+<figure class="table-figure" id="table-1">
+<figcaption><strong>Table 1</strong> Comparison of network properties between Facebook and Twitter</figcaption>
+<div class="table-scroll"><table><tr><th>Property</th><th>Facebook</th><th>Twitter</th></tr><tr><td>Node degree</td><td>5.37 ± 13.49</td><td>8.02 ± 19.15</td></tr><tr><td>Density</td><td>0.07 ± 0.04</td><td>0.11 ± 0.04</td></tr><tr><td>Average path length</td><td>2.352 ± 0.306</td><td>2.319 ± 0.212</td></tr><tr><td>Diameter</td><td>5.09 ± 0.28</td><td>4.73 ± 0.44</td></tr><tr><td>Betweenness centrality</td><td>19.13 ± 26.73</td><td>14.26 ± 34.51</td></tr></table></div>
+<p class="table-note">The results are shown as the mean ± of all the sub-graphs sampled for the models’ training over time</p>
+</figure>
+
+<p>Furthermore, the sensitivity analysis results for each model have been summarized in <a class="xref" href="#table-2">Table 2</a>, which is divided into four sensitivity tests, and the values presented represent the average change in performance, as measured by the weighted <em>F</em><sub>1</sub> score, resulting from variations in the parameters investigated in each sensitivity test.</p>
+<h2 id="5-discussion-and-conclusion">5 Discussion and conclusion</h2>
+<p>In this study, we conducted a comprehensive benchmarking analysis to compare 12 data-driven methods for anomaly emergence detection in temporal graphs, with a specific focus on social media interactions. We evaluated the performance of these methods on two temporal graphs obtained from Twitter and Facebook, aiming to identify anomalies in pairwise and group interactions alike.</p>
+<figure id="fig-2">
+<a class="fig-zoom" href="figures/fig-2.webp" aria-label="Open the figure full size"><img src="figures/fig-2.webp" width="952" height="600" alt="Comparison of different anomaly detection methods" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 2</strong> Comparison of different anomaly detection methods</figcaption>
+</figure>
+
+<p>Initially, the properties of the used social graphs, as summarized in <a class="xref" href="#table-1">Table 1</a>, are aligned with previous studies analyzing social graphs from Facebook and Twitter in different timeframes and settings <span class="cite">[<a href="#ref-58">58</a>, <a href="#ref-59">59</a>]</span>. Thus, one can consider these datasets as well as represent social media graphs in general.</p>
+<p>Next, the comparison of various anomaly detection methods on both Twitter and Facebook datasets, as shown in <a class="xref" href="#fig-2">Fig. 2</a>, has yielded surprising results. Despite employing different computational approaches, several methods achieved statistically similar results while demonstrating inconsistency between the two datasets. This finding highlights the complex nature of anomaly detection in temporal graphs and the challenges associated with generalizing results across different platforms. For instance, we observed that the TPOT automatic machine-learning framework performed as the 9th-best model for the Twitter dataset, while ranking as the 7th-best for the Facebook dataset. This discrepancy emphasizes the need for tailored approaches and the consideration of dataset-specific characteristics when selecting the most effective anomaly detection method. Unsurprisingly, anomaly detection algorithms based on neural networks, such as STGNN and STUMPY outperformed general-purpose models such as AutoKeras and LSTM-based neural networks. This outcome highlights the advantage of leveraging the inherent temporal dependencies and graph structures present in the data for improved anomaly detection performance. More generally, deep learning models seem to outperform other types of models. This can be explained by the ability of these models to capture more complex spatio-temporal connections in the data <span class="cite">[<a href="#ref-60">60</a>]</span>. The inconsistency observed in the performance order of models across datasets further emphasizes the importance of dataset-specific exploration and evaluation. Different social media platforms exhibit unique characteristics in terms of user behaviors, network dynamics, and information propagation patterns. Indeed, the patterns of interactions differ between Twitter and Facebook significantly <span class="cite">[<a href="#ref-61">61</a>, <a href="#ref-62">62</a>]</span>, leading to variations in the effectiveness of the methods. This outcome further supports the common no-free-lunch theorem as we were not able to find a single clear model that outperforms all others even on a small sample size of only two datasets <span class="cite">[<a href="#ref-63">63</a>]</span>. In the same manner, these results agree with a similar benchmarking analysis conducted for unsupervised outlier node detection on static attributed graphs <span class="cite">[<a href="#ref-64">64</a>]</span>. More interestingly, <a class="xref" href="#table-2">Table 2</a> shows that different models excel in different tests. Generally speaking, the models designed for anomaly detection are more sensitive to temporal concept drift and spatial density while for the prediction lag and spatial size, the generic purpose models were found to decrease in performance faster. This research contributes to a better understanding of the complexities and challenges associated with anomaly detection in large and dynamic systems represented as temporal graphs. Future work should continue to explore novel techniques and methodologies that can effectively address these challenges and provide more robust anomaly detection solutions for diverse real-world applications.</p>
+<p>Based on the results of this study, a compelling real-world application emerges in the field of cybersecurity, specifically for monitoring and detecting anomalous activities in social media platforms. By using deep learning models such as STGNN and STUMPY, which demonstrated superior performance in capturing complex spatio-temporal connections, these systems could more effectively identify suspicious activities such as coordinated misinformation campaigns or account hijacking attempts. One specific use case can be opinion manipulation through account hacking and publication of propaganda <span class="cite">[<a href="#ref-65">65</a>]</span>. Detecting such accounts and blocking them can be extremely important in times of elections <span class="cite">[<a href="#ref-66">66</a>]</span>.</p>
+<p>This study is not without limitations. First, the evaluation was conducted on a limited number of datasets, which may not fully capture the diversity and complexity of social media interactions. Furthermore, the anomalies used in this study are synthetic due to the time and resource burden of tagging such events in real data. As such, our results might change given realistic or other anomaly tagging. Second, while our sensitivity analysis included common properties such as prediction lag and spatial size other properties such as spaito-temporal rarity of the anomalies and noise levels in the data could play a central role in the models’ performance <span class="cite">[<a href="#ref-67">67</a>, <a href="#ref-68">68</a>]</span>. Further multi-factor analysis of the influence of such properties on the models performance can shed more light on the way partitioners can choose a method given their data. Third, data-driven models in general, and anomaly detection models, in particular, benefit from the introduction of domain knowledge <span class="cite">[<a href="#ref-69">69</a>–<a href="#ref-73">73</a>]</span>. As such, it is of great interest how the proposed results would alter if domain knowledge is integrated into the examined models in the form of integrating expert-informed features or designing specialized model architectures. Nevertheless, such knowledge integration usu-ally narrows the scope of the models to a set of associated assumptions. A study of this trade-off across the different methods as well as the ease of adding domain knowledge is a promising future venue for research. Fourth, in the context of social media, all the interactions and data are available as all interactions are performed in a single (virtual) ecosystem. However, in other settings, this is usually not the case. Hence, future work should also explore cases where data is missing and the performance of multiple methods to address this shortcoming. Finally, in this study, transformer-based models are not included due to the computational power required to use train it <span class="cite">[<a href="#ref-74">74</a>]</span>. Since transformer-based models show superior results in several domain such as natural language processing and computer vision <span class="cite">[<a href="#ref-75">75</a>, <a href="#ref-76">76</a>]</span>, future work may evaluate such models in this context as well.</p>
+<figure class="table-figure" id="table-2">
+<figcaption><strong>Table 2</strong> A sensitivity analysis of each model on four properties</figcaption>
+<div class="table-scroll"><table><tr><th>Test</th><th>Model</th><th>Value</th></tr><tr><td>Prediction lag</td><td>TPOT</td><td>−0.027</td></tr><tr><td></td><td>AutoKeras</td><td>−0.021</td></tr><tr><td></td><td>Tadgan</td><td>−0.014</td></tr><tr><td></td><td>DIF</td><td>−0.012</td></tr><tr><td></td><td>LSTM</td><td>−0.030</td></tr><tr><td></td><td>Policy-based RL</td><td>−0.017</td></tr><tr><td></td><td>XGBOD</td><td>−0.018</td></tr><tr><td></td><td>Pygod</td><td>−0.021</td></tr><tr><td></td><td>GAE + RF</td><td>−0.025</td></tr><tr><td></td><td>SVD + RF</td><td>−0.032</td></tr><tr><td></td><td>STGNN</td><td>−0.015</td></tr><tr><td></td><td>STUMPY</td><td>−0.015</td></tr><tr><td>Temopral concept drift</td><td>TPOT</td><td>−0.052</td></tr><tr><td></td><td>AutoKeras</td><td>−0.032</td></tr><tr><td></td><td>Tadgan</td><td>−0.038</td></tr><tr><td></td><td>DIF</td><td>−0.041</td></tr><tr><td></td><td>LSTM</td><td>−0.029</td></tr><tr><td></td><td>Policy-based RL</td><td>−0.031</td></tr><tr><td></td><td>XGBOD</td><td>−0.035</td></tr><tr><td></td><td>Pygod</td><td>−0.040</td></tr><tr><td></td><td>GAE + RF</td><td>−0.026</td></tr><tr><td></td><td>SVD + RF</td><td>−0.028</td></tr><tr><td></td><td>STGNN</td><td>−0.037</td></tr><tr><td></td><td>STUMPY</td><td>−0.042</td></tr><tr><td>Spatial size</td><td>TPOT</td><td>−0.007</td></tr><tr><td></td><td>AutoKeras</td><td>−0.008</td></tr><tr><td></td><td>Tadgan</td><td>−0.011</td></tr><tr><td></td><td>DIF</td><td>−0.006</td></tr><tr><td></td><td>LSTM</td><td>−0.009</td></tr><tr><td></td><td>Policy-based RL</td><td>−0.010</td></tr><tr><td></td><td>XGBOD</td><td>−0.013</td></tr><tr><td></td><td>Pygod</td><td>−0.012</td></tr><tr><td></td><td>GAE + RF</td><td>−0.008</td></tr><tr><td></td><td>SVD + RF</td><td>−0.008</td></tr><tr><td></td><td>STGNN</td><td>−0.009</td></tr><tr><td></td><td>STUMPY</td><td>−0.007</td></tr><tr><td>Spatial density</td><td>TPOT</td><td>0.003</td></tr><tr><td></td><td>AutoKeras</td><td>−0.001</td></tr><tr><td></td><td>Tadgan</td><td>−0.002</td></tr><tr><td></td><td>DIF</td><td>−0.004</td></tr><tr><td></td><td>LSTM</td><td>−0.002</td></tr><tr><td></td><td>Policy-based RL</td><td>0.002</td></tr><tr><td></td><td>XGBOD</td><td>0.005</td></tr><tr><td></td><td>Pygod</td><td>0.002</td></tr><tr><td></td><td>GAE + RF</td><td>−0.001</td></tr><tr><td></td><td>SVD + RF</td><td>−0.007</td></tr></table></div>
+
+</figure>
+
+<figure class="table-figure" id="table-2b">
+<figcaption><strong>Table 2</strong> continued</figcaption>
+<div class="table-scroll"><table><tr><th>Test</th><th>Model</th><th>Value</th></tr><tr><td></td><td>STGNN</td><td>−0.002</td></tr><tr><td></td><td>STUMPY</td><td>−0.002</td></tr></table></div>
+<p class="table-note">The results are shown as an average change in the weighted <em>F</em><sub>1</sub> score. We marked in bold the best model for each sensitivity test</p>
+</figure>
+
+<p>Taken jointly, this study shows that while machine and deep learning models achieve relatively high results with weighted <em>F</em><sub>1</sub> score of 0.6 to 0.7 in large spatio-temporal graphs with complex dynamics, there is no clear model that outperforms others and these their performance highly dependent on the nature of the dataset itself. The main outcome of this study is being the baseline for further developments in the field such as knowledge-integrated solutions, dedicated DL models designed for social media graphs, and even the collections of realistic anomalies in social media spatio-temporal graphs for more accurate analysis of future solutions.</p>
+<p><strong>Acknowledgements</strong> The author wishes to thank Tom Hope for inspiring this research and implicitly suggesting several of the models used as part of this study.</p>
+<p><strong>Author Contributions</strong> Teddy Lazebnik: Conceptualization, Data Curation, Methodology, Software, Validation, Formal analysis, Investigation, Writing - Original Draft, Writing - Review &amp; Editing. Or Iny: Conceptualization, Data Curation, Validation, Resources, Writing - Review &amp; Editing.</p>
+<p><strong>Funding</strong> This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors.</p>
+<p><strong>Data Availibility</strong> The data used as part of this study is available upon reasonable request from the authors.</p>
+<h3 id="declarations">Declarations</h3>
+<p><strong>Conflicts of Interest/Competing Interests</strong> None.</p>
+<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Accepted 28 August 2024</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>Dynamic systems</li><li>Social interactions</li><li>Anomaly detection</li><li>Emerging trends</li><li>Group interactions</li></ul></dd></div></dl></section>
+<h2 id="references">References</h2>
+<ol class="paper-refs"><li id="ref-1">Robins G, Pattison P (2001) Random graph models for temporal processes in social networks. J Math Sociol 25(1):5–41</li>
+<li id="ref-2">Zheng M, Domanskyi S, Piermarocchi C, Mais GI (2021) Visibility graph based temporal community detection with applications in biological time series. Sci Rep 11:5623</li>
+<li id="ref-3">Del Mondo G, Peng P, Gensel J, Claramunt C, Lu F (2021) Leveraging spatio-temporal graphs and knowledge graphs: perspectives in the field of maritime transportation. ISPRS Int J Geo-Inf 10(8)</li>
+<li id="ref-4">Zhao L, Song Y, Zhang C, Liu Y, Wang P, Lin T, Deng M, Li H (2020) T-gcn: a temporal graph convolutional network for traffic prediction. IEEE Trans Intell Transp Syst 21(9):3848–3858</li>
+<li id="ref-5">Wang X, Ma Y, Wang Y, Jin W, Wang X, Tang J, Jia C, Yu J (2020) Traffic flow prediction via spatial temporal graph neural network. In: Proceedings of the web conference 2020, pp 1082– 1092. Association for Computing Machinery</li>
+<li id="ref-6">Xiao G, Wang R, Zhang C, Ni A (2021) Demand prediction for a public bike sharing program based on spatio-temporal graph convolutional networks. Multimed Tools Appl 80</li>
+<li id="ref-7">Zhang C, Yu JJQ, Liu Y (2019) Spatial-temporal graph attention networks: a deep learning approach for traffic forecasting. IEEE Access 7:166246–166256</li>
+<li id="ref-8">Huang S, Cheng J, Wu H (2014) Temporal graph traversals: definitions, algorithms, and applications. arXiv</li>
+<li id="ref-9">Cai L, Chen Z, Luo C, Gui J, Ni J, Li D, Chen H (2021) Structural temporal graph neural networks for anomaly detection in dynamic graphs. In: Proceedings of the 30th ACM international conference on information &amp; knowledge management, pp 3747–3756</li>
+<li id="ref-10">Rayana S, Akoglu L (2015) Less is more: building selective anomaly ensembles with application to event detection in temporal graphs, pp 622. Proceedings of the 2015 SIAM International conference on data mining</li>
+<li id="ref-11">Cao D, Wang Y, Duan J, Zhang C, Zhu X, Huang C, Tong Y, Xu B, Bai J, Tong J, Zhang Q (2020) Spectral temporal graph neural network for multivariate time-series forecasting. In: Advances in neural information processing systems vol 33, pp 17766– 17778</li>
+<li id="ref-12">Chung W, Lai VS (2023) A temporal graph framework for intelligence extraction in social media networks. Information &amp; Management 60(4):103773</li>
+<li id="ref-13">Fu D, Fang L, Maciejewski R, Torvik VI, He J (2022) Meta-learned metrics over multi-evolution temporal graphs. In: Proceedings of the 28th ACM SIGKDD conference on knowledge discovery and data mining, pp 367–377</li>
+<li id="ref-14">Du H, Wang S, Huo H (2021) Xfinder: Detecting unknown anomalies in distributed machine learning scenario. Front Comput Sci 3</li>
+<li id="ref-15">Liu D, Zhao Y, Xu H, Sun Y, Pei D, Luo J, Jing X, Feng M (2015) Opprentice: towards practical and automatic anomaly detection through machine learning. In: Proceedings of the 2015 internet measurement conference, pp 211–224</li>
+<li id="ref-16">Ding C, Sun S, Zhao J (2023) Mst-gat: a multimodal spatial– temporal graph attention network for time series anomaly detection. Inf Fusion 89:527–536</li>
+<li id="ref-17">Zeng X, Jiang Y, Ding W, Li H, Hao Y, Qiu Z (2023) A hierarchical spatio-temporal graph convolutional neural network for anomaly detection in videos. IEEE Trans Circuits Syst Video Technol 33(1):200–212</li>
+<li id="ref-18">Cai L, Chen Z, Luo C, Gui J, Ni J, Li D, Chen H (2021) Structural temporal graph neural networks for anomaly detection in dynamic graphs. In: Proceedings of the 30th ACM international conference on information &amp; knowledge management, pp 3747–3756</li>
+<li id="ref-19">Pandhre S, Mittal H, Gupta M, Balasubramanian VN (2018) Stwalk: learning trajectory representations in temporal graphs. In: Proceedings of the ACM India joint international conference on data science and management of data, pp 210–219</li>
+<li id="ref-20">Brito LFA, Travencolo BAN, Alertini MK (2022) A review of in-memory space-efficient data structures for temporal graphs. arXiv</li>
+<li id="ref-21">Holme P, Saramaki J (2012) Temporal networks. Phys Rep 519(3):97–125</li>
+<li id="ref-22">Zhang T, Gao Y, Qiu L, Chen L, Linghu Q, Pu S (2020) Distributed time-respecting flow graph pattern matching on temporal graphs. World Wide Web 23:609–630</li>
+<li id="ref-23">Michail O (2015) An introduction to temporal graphs: an algorithmic perspective. arXiv</li>
+<li id="ref-24">McNeil MJ, Zhang L, Bogdanov P (2021) Temporal graph signal decomposition. In: Proceedings of the 27th ACM SIGKDD conference on knowledge discovery &amp; data mining, pp 1191– 1201</li>
+<li id="ref-25">Bansal M, di Bernardo D (2007) Inference of gene networks from temporal gene expression profiles. IET Systems Biology 1(6):306– 312</li>
+<li id="ref-26">Zhang Q, Chang J, Meng G, Xiang S, Pan C (2020) Spatio-temporal graph structure learning for traffic forecasting. In: Proceedings of the AAAI Conference on Artificial Intelligence 34(01), pp 1177– 1185</li>
+<li id="ref-27">Byun J, Woo S, Kim D (2020) Chronograph: enabling temporal graph traversals for efficient information diffusion analysis over time. IEEE Trans Knowl Data Eng 32(3):424–437</li>
+<li id="ref-28">Maity SK, Manoj TV, Mukherjee A (2012) Opinion formation in time-varying social networks: the case of the naming game. Phys Rev E 86:036110</li>
+<li id="ref-29">Plepi J, Sakketou F, Geiss H-J, Flek L (2022) Temporal graph analysis of misinformation spreaders in social media. In: Proceedings of TextGraphs-16: Graph-based methods for natural language processing, pp 89–104</li>
+<li id="ref-30">Blázquez-García A, Conde A, Mori U, Lozano JA (2021) A review on outlier/anomaly detection in time series data. ACM Comput Surv 54(3):56</li>
+<li id="ref-31">Olson RS, Moore JH (2016) Tpot: a tree-based pipeline optimization tool for automating machine learning. In: Workshop on automatic machine learning, pp 66–74. PMLR</li>
+<li id="ref-32">Pedregosa F, Varoquaux G, Gramfort A, Michel V, Thirion B, Grisel O, Blondel M, Prettenhofer P, Weiss R, Dubourg V, Vanderplas J, Passos A, Cournapeau D, Brucher M, Perrot M, Duchesnay E (2011) Scikit-learn: machine learning in Python. J Mach Learn Res 12:2825–2830</li>
+<li id="ref-33">Jin H, Chollet F, Song Q, Hu X (2023) Autokeras: an automl library for deep learning. J Mach Learn Res 24(6):1–6</li>
+<li id="ref-34">Abadi M, Barham P, Chen J, Chen Z, Davis A, Dean J, Devin M, Ghemawat S, Irving G, Isard M (2016) Tensorflow: a system for large-scale machine learning. In: 12th {USENIX} Symposium on operating systems design and implementation ({OSDI} 16), pp 265–283</li>
+<li id="ref-35">Geiger A, Liu D, Alnegheimish S, Cuesta-Infante A, Veera-machaneni K (2020) Tadgan: time series anomaly detection using generative adversarial networks. arXiv</li>
+<li id="ref-36">Xu H, Pang G, Wang Y, Wang Y (2023) Deep isolation forest for anomaly detection. arXiv</li>
+<li id="ref-37">Liu FT, Ting KM, Zhou Z-H (2008) Isolation forest. In: Data mining, pp 265–283. ICDM’08</li>
+<li id="ref-38">Sutskever I, Vinyals O, Le QV (2014) Sequence to sequence learning with neural networks. Adv Neural Inf Process Syst 27:3104–3112</li>
+<li id="ref-39">Yu M, Sun S (2020) Policy-based reinforcement learning for time series anomaly detection. Eng Appl Artif Intell 95:103919</li>
+<li id="ref-40">Zhao Y, Hryniewicki MK (2019) Xgbod: improving supervised outlier detection with unsupervised representation learning. arXiv</li>
+<li id="ref-41">Chen T, Guestrin C (2016) XGBoost: a scalable tree boosting system. In: Proceedings of the 22nd ACM SIGKDD international conference on knowledge discovery and data mining, KDD ’16, pp 785–794. ACM</li>
+<li id="ref-42">Liu K, Dou Y, Zhao Y, Ding X, Hu X, Zhang R, Ding K, Chen C, Peng H, Shu K, Chen GH, Jia Z, Yu PS (2022) Pygod: A python library for graph outlier detection. arXiv</li>
+<li id="ref-43">Kipf TN, Welling M (2016) Variational graph auto-encoders. NIPS Workshop on Bayesian deep learning</li>
+<li id="ref-44">Ho TK (1995) Random decision forests. In: Proceedings of 3rd international conference on document analysis and recognition, vol 1, pp 278–282. IEEE</li>
+<li id="ref-45">Klema V, Laub A (1980) The singular value decomposition: its computation and some applications. IEEE Trans Autom Control 25(2):164–176</li>
+<li id="ref-46">Chen J, Wang Y, Wu R, Campbell M (2021) Spatial-temporal graph neural network for interaction-aware vehicle trajectory prediction. In: 2021 IEEE 17th International conference on automation science and engineering (CASE), pp 2119–2125</li>
+<li id="ref-47">Law SM (2019) STUMPY: A powerful and scalable Python library for time series data mining. J Open Source Softw 4(39):1504</li>
+<li id="ref-48">Wang W, Xu W, Yao X, Wang H (2022) Application of data-driven method for automatic machine learning in economic research. In: 2022 21st International symposium on distributed computing and applications for business engineering and science (DCABES), pp 42–45</li>
+<li id="ref-49">Lazebnik T, Somech A, Itzhak Weinberg A (2022) Substrat: a subset-based optimization strategy for faster automl. In: Proceedings of the VLDB endowment, 16(4), pp 772–780, 12</li>
+<li id="ref-50">Kozen DC (1992) Depth-first and breadth-first search, pp 19–24. Springer New York</li>
+<li id="ref-51">Yu R, Qiu H, Wen Z, Lin C, Liu Y (2016) A survey on social media anomaly detection. SIGKDD Explor. Newsl. 18(1):1–14</li>
+<li id="ref-52">Yu R, He X, Liu Y (2015) Glad: group anomaly detection in social media analysis. ACM Trans Knowl Discov Data 10(2)</li>
+<li id="ref-53">Goutte C, Gaussier E (2005) A probabilistic interpretation of precision, recall and f-score, with implication for evaluation. In: Losada DE, Fernandez-Luna JM (eds) Advances in information retrieval. Springer, Berlin Heidelberg, pp 345–359</li>
+<li id="ref-54">Cortes C, Mohri M (2003) Auc optimization vs. error rate minimization. In: Advances in neural information processing systems, vol 16</li>
+<li id="ref-55">Liu R, Liu E, Yang J, Li M, Wang F (2006) Optimizing the hyper-parameters for svm by combining evolution strategies with a grid search. Intelligent Control and Automation, 344</li>
+<li id="ref-56">Frey CH, Patil SR (2002) Identification and review of sensitivity analysis methods. Risk Anal 22(3):553–578</li>
+<li id="ref-57">Mincer M, Niewiadomska-Szynkiewicz E (2012) Application of social network analysis to the investigation of interpersonal connections. J Telecommun Inf Technol 2:83–91</li>
+<li id="ref-58">Teutle ARM (2010) Twitter: network properties analysis. In: 2010 20th International conference on electronics communications and computers (CONIELECOMP), pp 180–186</li>
+<li id="ref-59">Ugander J, Karrer B, Backstrom L, Marlow C (2011) The anatomy of the facebook social graph. arXiv</li>
+<li id="ref-60">Janiesch C, Zschech P, Heinrich K (2021) Machine learning and deep learning. Electron Markets 31:685–695</li>
+<li id="ref-61">Jaidka K, Guntuku S, Ungar L (2018) Facebook versus twitter: differences in self-disclosure and trait prediction. In: Proceedings of the international AAAI conference on web and social media, 12(1)</li>
+<li id="ref-62">Petrocchi N, Asnaani A, Martinez AP, Nadkarni A, Hofmann SG (2015) Differences between people who use only facebook and those who use facebook plus twitter. Int J Human-Comput Interact 31(2):157–165</li>
+<li id="ref-63">Wolpert DH, Macready WG (1997) No free lunch theorems for optimization. IEEE Trans Evol Comput, 67</li>
+<li id="ref-64">Liu K, Dou Y, Zhao Y, Ding X, Hu X, Zhang R, Ding K, Chen C, Peng H, Shu K, Sun L, Li J, Chen GH, Jia Z, Bond PSYu (2022) Benchmarking unsupervised outlier node detection on static attributed graphs. Adv Neural Inf Process Syst 35:27021–27035</li>
+<li id="ref-65">Goswami MP (2018) Fake news and cyber propaganda: a study of manipulation and abuses on social media. In: Mediascape in 21st century: emerging perspectives, pp 535–544</li>
+<li id="ref-66">Lightfoot S, Jacobs S (2017) Political propaganda spread through social bots. Media, Culture, &amp; Global Politics 8:1–22</li>
+<li id="ref-67">Hu W, Gao J, Li B, Wu O, Du J, Maybank S (2020) Anomaly detection using local kernel density estimation and context-based regression. IEEE Trans Knowl Data Eng 32(2):218–233</li>
+<li id="ref-68">Nazari Z, Danish MSS (2018) Evaluation of class noise impact on performance of machine learning algorithms. Int J Comput Sci Netw Sec 18(8):148–153</li>
+<li id="ref-69">Lazebnik T, Simon-Keren L (2023) Knowledge-integrated autoencoder model. Expert Syst Appl 252:124108</li>
+<li id="ref-70">Ma T, Zhang A (2019) Integrate multi-omics data with biological interaction networks using multi-view factorization autoencoder (mae). BMC Genomics 20:944</li>
+<li id="ref-71">Ding W, Lin H, Li B, Eun KJ, Zhao D (2022) Semantically adversarial driving scenario generation with explicit knowledge integration. arXiv</li>
+<li id="ref-72">Keren LS, Liberzon A, Lazebnik T (2023) A computational framework for physics-informed symbolic regression with straightforward integration of domain knowledge. Sci Rep 13(1):1249</li>
+<li id="ref-73">Deng Y, Sander A, Faulstich L, Denecke K (2019) Towards automatic encoding of medical procedures using convolutional neural networks and autoencoders. Artif Intell Med 93:29– 42</li>
+<li id="ref-74">Singh S, Mahmood A (2021) The nlp cookbook: modern recipes for transformer based deep learning architectures. IEEE Access 9:68675–68702</li>
+<li id="ref-75">Han K, Wang Y, Chen H, Chen X, Guo J, Liu Z, Tang Y, Xiao A, Xu C, Xu Y, Yang Z, Zhang Y, Tao D (2023) A survey on vision transformer. IEEE Trans Pattern Anal Mach Intell 45(1):87– 110</li>
+<li id="ref-76">Tetko IV, Karpov P, Deursen RV, Godin G (2020) State-of-the-art augmented nlp transformer models for direct and single-step retrosynthesis. Nat Commun 11:5575</li>
+</ol>
+</div>
+        
+        
+        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2024), <em>Applied Intelligence</em>, <a href="https://doi.org/10.1007/s10489-024-05821-3" target="_blank" rel="noopener">doi:10.1007/s10489-024-05821-3</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+      </article>
+    </div>
+
+    <section class="paper-related" aria-labelledby="related-title"><div class="paper-wrap"><h2 id="related-title">Related research</h2><div class="related-grid"><a class="related-card" href="/publications/tighten-lasso-convex-hull-volume-based-anomaly/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2025</span><strong>Tighten the lasso: a convex hull volume-based anomaly detection method</strong><span class="related-text">International Journal of Data Science and Analytics</span></a><a class="related-card" href="/publications/early-detection-control-next-epidemic-wave-health/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2022</span><strong>Early Detection and Control of the Next Epidemic Wave Using Health Communications: Development of an Artificial Intelligence-Based Tool and Its Validation on COVID-19 Data from the US</strong><span class="related-text">International Journal of Environmental Research and Public Health</span></a><a class="related-card" href="/publications/interpretable-transformation-analysis-timelines-through-learning-surprisability/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2025</span><strong>Interpretable transformation and analysis of timelines through learning via surprisability</strong><span class="related-text">Chaos</span></a></div><p class="related-more"><a href="/publications.html">All publications</a></p></div></section>
+  </main>
+
+  <dialog id="cite-dialog" class="paper-dialog" aria-labelledby="cite-title">
+    <div class="dialog-head">
+      <h2 id="cite-title">Cite this paper</h2>
+      <button type="button" class="dialog-close" aria-label="Close"><i class="ri-close-line" aria-hidden="true"></i></button>
+    </div>
+    <p class="dialog-label">APA</p>
+    <pre class="cite-box" id="cite-apa">Lazebnik, T., &amp; Iny, O. (2024). Temporal graphs anomaly emergence detection: benchmarking for social media interactions. Applied Intelligence. https://doi.org/10.1007/s10489-024-05821-3</pre>
+    <button type="button" class="paper-btn" data-copy="cite-apa"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy APA</span></button>
+    <p class="dialog-label">BibTeX</p>
+    <pre class="cite-box" id="cite-bib">@article{lazebnik2024temporal,
+  title = {Temporal graphs anomaly emergence detection: benchmarking for social media interactions},
+  author = {Lazebnik, Teddy and Iny, Or},
+  journal = {Applied Intelligence},
+  year = {2024},
+  doi = {10.1007/s10489-024-05821-3}
+}</pre>
+    <button type="button" class="paper-btn" data-copy="cite-bib"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy BibTeX</span></button>
+  </dialog>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Games</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
+                  <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
+                  <li><a href="https://rl.teddylazebnik.com/">Pirate War RL Game</a></li>
+                  <li><a href="https://eh.teddylazebnik.com/">Echo Heist</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      
+      <script>
+        (function () {
+          // menu and navbar (js/main.js expects to sit at the site root)
+          var btn = document.getElementById('menu-btn'), menu = document.getElementById('mobile-menu'), nav = document.getElementById('navbar');
+          btn.addEventListener('click', function () { menu.classList.toggle('max-h-0'); menu.classList.toggle('max-h-screen'); });
+          var onScroll = function () { nav.classList.toggle('nav-scrolled', window.scrollY > 10); };
+          window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+          // cite dialog + copy buttons
+          var dialog = document.getElementById('cite-dialog');
+          document.querySelectorAll('[data-dialog]').forEach(function (b) {
+            b.addEventListener('click', function () { if (dialog.showModal) dialog.showModal(); else dialog.setAttribute('open', ''); });
+          });
+          dialog.querySelector('.dialog-close').addEventListener('click', function () { dialog.close(); });
+          dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
+          function flash(button, text) {
+            var label = button.querySelector('span'), old = label.textContent;
+            label.textContent = text; setTimeout(function () { label.textContent = old; }, 1600);
+          }
+          document.querySelectorAll('[data-copy]').forEach(function (b) {
+            b.addEventListener('click', function () {
+              var text = document.getElementById(b.getAttribute('data-copy')).textContent;
+              navigator.clipboard.writeText(text).then(function () { flash(b, 'Copied'); });
+            });
+          });
+          document.getElementById('share-btn').addEventListener('click', function () {
+            var b = this, data = { title: document.title, url: location.href.split('#')[0] };
+            if (navigator.share) { navigator.share(data).catch(function () {}); }
+            else { navigator.clipboard.writeText(data.url).then(function () { flash(b, 'Link copied'); }); }
+          });
+
+          // highlight the section being read in "On this page"
+          var links = {};
+          document.querySelectorAll('.paper-toc a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+          var heads = Array.prototype.filter.call(document.querySelectorAll('#full-text h2[id], #full-text h3[id], #full-text section[id]'), function (h) { return links[h.id]; });
+          if ('IntersectionObserver' in window && heads.length) {
+            var current = null;
+            var io = new IntersectionObserver(function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                  if (current) current.classList.remove('is-active');
+                  current = links[e.target.id]; current.classList.add('is-active');
+                }
+              });
+            }, { rootMargin: '-90px 0px -70% 0px' });
+            heads.forEach(function (h) { io.observe(h); });
+          }
+        })();
+      </script>
+   </body>
+</html>

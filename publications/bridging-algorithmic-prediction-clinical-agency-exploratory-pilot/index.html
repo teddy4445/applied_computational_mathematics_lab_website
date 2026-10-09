@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_papers.py from paper.md + paper.json in this folder. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>AI-augmented physician antidepressant choice: a pilot study | ACML</title>
+      <meta name="description" content="When choosing an antidepressant, doctors must balance the chance of remission against many possible side effects, and it is unclear how AI predictions of…">
+      <meta name="author" content="Akiva Kleinerman, David Benrimoh, Amit Yaniv-Rosenfeld, Grace Golden, Myriam Tanguay-Sela, Howard C. Margolese, Teddy Lazebnik, Ben H. Amit, Hadar Samuel, Ariel Rosenfeld">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/publications/bridging-algorithmic-prediction-clinical-agency-exploratory-pilot/">
+      <meta name="citation_title" content="Bridging algorithmic prediction and clinical agency: an exploratory pilot study of AI-augmented physician antidepressant choice">
+      <meta name="citation_author" content="Akiva Kleinerman">
+      <meta name="citation_author" content="David Benrimoh">
+      <meta name="citation_author" content="Amit Yaniv-Rosenfeld">
+      <meta name="citation_author" content="Grace Golden">
+      <meta name="citation_author" content="Myriam Tanguay-Sela">
+      <meta name="citation_author" content="Howard C. Margolese">
+      <meta name="citation_author" content="Teddy Lazebnik">
+      <meta name="citation_author" content="Ben H. Amit">
+      <meta name="citation_author" content="Hadar Samuel">
+      <meta name="citation_author" content="Ariel Rosenfeld">
+      <meta name="citation_publication_date" content="2026/07/03">
+      <meta name="citation_journal_title" content="Frontiers in Psychiatry">
+      <meta name="citation_doi" content="10.3389/fpsyt.2026.1851899">
+      <meta name="citation_pdf_url" content="https://teddylazebnik.com/files/rosenfeld_extra.pdf">
+      <meta name="citation_abstract_html_url" content="https://acml.teddylazebnik.com/publications/bridging-algorithmic-prediction-clinical-agency-exploratory-pilot/">
+      <meta name="citation_fulltext_html_url" content="https://acml.teddylazebnik.com/publications/bridging-algorithmic-prediction-clinical-agency-exploratory-pilot/">
+      <meta name="citation_keywords" content="artiﬁcial intelligence; clinical agency; clinical decision support systems; major depressive disorder; user study">
+      <meta name="citation_language" content="en">
+      <meta property="og:type" content="article">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="AI-augmented physician antidepressant choice: a pilot study">
+      <meta property="og:description" content="When choosing an antidepressant, doctors must balance the chance of remission against many possible side effects, and it is unclear how AI predictions of…">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/publications/bridging-algorithmic-prediction-clinical-agency-exploratory-pilot/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/publications/bridging-algorithmic-prediction-clinical-agency-exploratory-pilot/figures/share-fig-1.jpg">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="AI-augmented physician antidepressant choice: a pilot study">
+      <meta name="twitter:description" content="When choosing an antidepressant, doctors must balance the chance of remission against many possible side effects, and it is unclear how AI predictions of…">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/publications/bridging-algorithmic-prediction-clinical-agency-exploratory-pilot/figures/share-fig-1.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "Bridging algorithmic prediction and clinical agency: an exploratory pilot study of AI-augmented physician…",
+  "name": "Bridging algorithmic prediction and clinical agency: an exploratory pilot study of AI-augmented physician antidepressant choice",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Akiva Kleinerman"
+    },
+    {
+      "@type": "Person",
+      "name": "David Benrimoh"
+    },
+    {
+      "@type": "Person",
+      "name": "Amit Yaniv-Rosenfeld"
+    },
+    {
+      "@type": "Person",
+      "name": "Grace Golden"
+    },
+    {
+      "@type": "Person",
+      "name": "Myriam Tanguay-Sela"
+    },
+    {
+      "@type": "Person",
+      "name": "Howard C. Margolese"
+    },
+    {
+      "@type": "Person",
+      "name": "Teddy Lazebnik"
+    },
+    {
+      "@type": "Person",
+      "name": "Ben H. Amit"
+    },
+    {
+      "@type": "Person",
+      "name": "Hadar Samuel"
+    },
+    {
+      "@type": "Person",
+      "name": "Ariel Rosenfeld"
+    }
+  ],
+  "datePublished": "2026-07-03",
+  "url": "https://acml.teddylazebnik.com/publications/bridging-algorithmic-prediction-clinical-agency-exploratory-pilot/",
+  "mainEntityOfPage": "https://acml.teddylazebnik.com/publications/bridging-algorithmic-prediction-clinical-agency-exploratory-pilot/",
+  "abstract": "Introduction: Effective psychiatric decision-making requires balancing data-driven predictions with clinical agency. This challenge is particularly acute in the pharmacological management of Major Depressive Disorder (MDD), where clinicians must navigate complex, patient-specific trade-offs between remission probabilities and diverse side-effect risks. Although AI-driven Clinical Decision Support Systems (AI-CDSS) can support the prediction of individual treatment outcomes, the optimal mechanism for aggregating multiple clinical criteria remains an open research challenge.Methods: We investigated how the locus of control in the aggregation mechanism affects clinical utility and treatment decisions. Three weighting schemes were evaluated: (1) an Implicit Weighting baseline, in which raw probabilities were presented; (2) a Static Expert-Derived Weighting scheme, using linear aggregation with fixed expert-based weights; and (3) a Dynamic Clinician-Determined Weighting scheme, using linear aggregation with adjustable clinician-defined weights. These schemes were implemented within a prototype decision support system for antidepressant selection and evaluated in a user study with 22 physicians.Results: The Dynamic Clinician-Determined Weighting scheme significantly enhanced perceived clinical utility compared with the alternative approaches (p < 0.01). It also led to the most frequent data-informed revision of physicians’ initial unassisted antidepressant choices, occurring in 33.3% of cases. This effect was observed among both psychiatrists and primary care physicians, suggesting that adjustable weighting can support more informed treatment decisions across clinical specialties.Discussion: These findings suggest that effective integration of AI into psychiatric practice requires flexible decision support systems that preserve clinical agency while incorporating data-driven predictions. By allowing clinicians to determine the relative importance of remission probabilities and side-effect risks, dynamic weighting may better reflect the nuanced and individualized nature of mental health care.",
+  "description": "When choosing an antidepressant, doctors must balance the chance of remission against many possible side effects, and it is unclear how AI predictions of…",
+  "image": "https://acml.teddylazebnik.com/publications/bridging-algorithmic-prediction-clinical-agency-exploratory-pilot/figures/share-fig-1.jpg",
+  "keywords": "artiﬁcial intelligence, clinical agency, clinical decision support systems, major depressive disorder, user study",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "DOI",
+    "value": "10.3389/fpsyt.2026.1851899"
+  },
+  "sameAs": "https://doi.org/10.3389/fpsyt.2026.1851899",
+  "isPartOf": {
+    "@type": "Periodical",
+    "name": "Frontiers in Psychiatry"
+  },
+  "about": "Machine Learning",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "encoding": {
+    "@type": "MediaObject",
+    "contentUrl": "https://teddylazebnik.com/files/rosenfeld_extra.pdf",
+    "encodingFormat": "application/pdf"
+  }
+}
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/paper.css" rel="stylesheet">
+      
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="paper-page">
+    <header class="paper-hero">
+      <div class="paper-wrap">
+        <nav class="paper-crumbs" aria-label="Breadcrumb">
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Machine Learning</span>
+        </nav>
+        <p class="paper-kicker"><span class="oa-badge"><i class="ri-lock-unlock-line" aria-hidden="true"></i>Open access</span><span><em>Frontiers in Psychiatry</em> · 3 July 2026</span></p>
+        <h1 class="paper-title is-long">Bridging algorithmic prediction and clinical agency: an exploratory pilot study of AI-augmented physician antidepressant choice</h1>
+        <p class="paper-authors"><span class="author">Akiva Kleinerman</span>, <span class="author">David Benrimoh</span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Amit Yaniv-Rosenfeld</a></span>, <span class="author">Grace Golden</span>, <span class="author">Myriam Tanguay-Sela</span>, <span class="author">Howard C. Margolese</span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author">Ben H. Amit</span>, <span class="author">Hadar Samuel</span>, <span class="author">Ariel Rosenfeld</span></p>
+        <details class="paper-affils"><summary>Affiliations</summary><ol><li value="1">Department of Information Science and Applied AI, Bar-Ilan University, Ramat Gan, Israel</li><li value="3">Department of Psychiatry, Stanford University, Stanford, CA, United States</li><li value="4">Shalvata Mental Healthcare Center, Hod-HaSharon, Israel</li><li value="5">Psychiatry Department, Faculty of Medicine, Tel Aviv University, Tel Aviv, Israel</li><li value="6">Department of Computing, Jonkoping University, Jonkoping, Sweden</li><li value="7">Department of Information Systems, University of Haifa, Haifa, Israel</li><li value="8">Department of Psychology, University of Western Ontario, London, ON, Canada</li><li value="9">Department of Psychology, Universite´ du Que´ bec a´ Montre´ al, Montreal, QC, Canada</li><li value="10">Department of Psychiatry, McGill University, Montreal, QC, Canada</li><li value="11">Myers-JDC-Brookdale Institute, Jerusalem, Israel</li></ol></details>
+        <div class="paper-actions">
+          <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/rosenfeld_extra.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
+          <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
+          
+          <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
+          <a class="paper-btn" href="https://doi.org/10.3389/fpsyt.2026.1851899" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
+          <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
+        </div>
+        <div class="lab-authors"><span class="lab-authors-label">ACML authors</span><a class="lab-chip" href="/team.html"><img src="/img/lab/amit.webp" alt="" width="32" height="32" loading="lazy"><span><strong>Amit Yaniv-Rosenfeld</strong><small>Post-doc</small></span></a><a class="lab-chip" href="/team.html"><img src="/img/lab/teddy.webp" alt="" width="32" height="32" loading="lazy"><span><strong>Teddy Lazebnik</strong><small>PI</small></span></a></div>
+      </div>
+    </header>
+
+    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">When choosing an antidepressant, doctors must balance the chance of remission against many possible side effects, and it is unclear how AI predictions of these outcomes should be combined. We built a prototype decision support system and tested three ways of weighting its predictions with 22 physicians: raw probabilities, fixed expert weights, and weights the clinician can adjust. Letting clinicians set the weights gave the highest perceived clinical usefulness and most often led physicians to revise their initial choice, in 33.3% of cases.</p><div class=glance-stats><div class="stat"><span class="stat-value">22</span><span class="stat-label">physicians in the user study</span></div><div class="stat"><span class="stat-value">33.3%</span><span class="stat-label">initial choices revised with clinician-adjustable weighting</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Dynamic clinician-determined weighting significantly enhanced perceived clinical utility compared with raw probabilities and fixed expert-derived weights (p &lt; 0.01).</li><li>It led to the most frequent data-informed revisions of physicians&#x27; initial unassisted antidepressant choices, occurring in 33.3% of cases.</li><li>The effect was observed among both psychiatrists and primary care physicians.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1789" height="660" alt="FIGURE 1 Experimental design. Participants completed three phases in random order, interacting with the three weighting schemes in a randomized sequence. At each phase, participants selected a treatment before and after interacting with the assigned weighting scheme and completed a utility assessment questionnaire. Finally, an exit questionnaire was administered."></a><figcaption>FIGURE 1 Experimental design. Participants completed three phases in random order, interacting with the three weighting schemes in a randomized sequence. At each phase, participants selected a treatment before and after interacting with the assigned weighting scheme and completed a utility assessment questionnaire. Finally, an exit questionnaire was administered. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+
+    <div class="paper-wrap paper-layout">
+      <aside class="paper-aside">
+        <nav class="paper-toc" aria-label="On this page">
+          <p class="aside-title">On this page</p>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#1-introduction">1 Introduction</a></li>
+<li><a href="#2-methodology">2 Methodology</a></li><li class="toc-sub"><a href="#21-experimental-design-and-procedure">2.1 Experimental design and procedure</a></li><li class="toc-sub"><a href="#22-clinical-scenarios">2.2 Clinical scenarios</a></li><li class="toc-sub"><a href="#23-ai-decision-support-and-evaluation-conditions">2.3 AI Decision support and evaluation conditions</a></li><li class="toc-sub"><a href="#24-participants">2.4 Participants</a></li><li class="toc-sub"><a href="#25-analysis">2.5 Analysis</a></li>
+<li><a href="#3-results">3 Results</a></li><li class="toc-sub"><a href="#31-quantitative-results">3.1 Quantitative results</a></li><li class="toc-sub"><a href="#32-qualitative-results">3.2 Qualitative results</a></li>
+<li><a href="#4-discussion">4 Discussion</a></li>
+<li><a href="#5-conclusion">5 Conclusion</a></li>
+<li><a href="#data-availability-statement">Data availability statement</a></li>
+<li><a href="#ethics-statement">Ethics statement</a></li>
+<li><a href="#author-contributions">Author contributions</a></li>
+<li><a href="#funding">Funding</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </nav>
+        <div class="paper-info">
+          <p class="aside-title">Article information</p>
+          <dl><div><dt>Journal</dt><dd>Frontiers in Psychiatry</dd></div><div><dt>Published</dt><dd><time datetime="2026-07-03">3 July 2026</time></dd></div><div><dt>DOI</dt><dd><a href="https://doi.org/10.3389/fpsyt.2026.1851899" target="_blank" rel="noopener">10.3389/fpsyt.2026.1851899</a></dd></div><div><dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY</a></dd></div></dl>
+        </div>
+      </aside>
+
+      <article class="paper-body" id="full-text">
+        <details class="paper-toc-mobile">
+          <summary>On this page</summary>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#1-introduction">1 Introduction</a></li>
+<li><a href="#2-methodology">2 Methodology</a></li><li class="toc-sub"><a href="#21-experimental-design-and-procedure">2.1 Experimental design and procedure</a></li><li class="toc-sub"><a href="#22-clinical-scenarios">2.2 Clinical scenarios</a></li><li class="toc-sub"><a href="#23-ai-decision-support-and-evaluation-conditions">2.3 AI Decision support and evaluation conditions</a></li><li class="toc-sub"><a href="#24-participants">2.4 Participants</a></li><li class="toc-sub"><a href="#25-analysis">2.5 Analysis</a></li>
+<li><a href="#3-results">3 Results</a></li><li class="toc-sub"><a href="#31-quantitative-results">3.1 Quantitative results</a></li><li class="toc-sub"><a href="#32-qualitative-results">3.2 Qualitative results</a></li>
+<li><a href="#4-discussion">4 Discussion</a></li>
+<li><a href="#5-conclusion">5 Conclusion</a></li>
+<li><a href="#data-availability-statement">Data availability statement</a></li>
+<li><a href="#ethics-statement">Ethics statement</a></li>
+<li><a href="#author-contributions">Author contributions</a></li>
+<li><a href="#funding">Funding</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </details>
+        <section id="abstract" class="paper-abstract">
+          <h2>Abstract</h2>
+          <p>Introduction: Effective psychiatric decision-making requires balancing data-driven predictions with clinical agency. This challenge is particularly acute in the pharmacological management of Major Depressive Disorder (MDD), where clinicians must navigate complex, patient-specific trade-offs between remission probabilities and diverse side-effect risks. Although AI-driven Clinical Decision Support Systems (AI-CDSS) can support the prediction of individual treatment outcomes, the optimal mechanism for aggregating multiple clinical criteria remains an open research challenge.Methods: We investigated how the locus of control in the aggregation mechanism affects clinical utility and treatment decisions. Three weighting schemes were evaluated: (1) an Implicit Weighting baseline, in which raw probabilities were presented; (2) a Static Expert-Derived Weighting scheme, using linear aggregation with fixed expert-based weights; and (3) a Dynamic Clinician-Determined Weighting scheme, using linear aggregation with adjustable clinician-defined weights. These schemes were implemented within a prototype decision support system for antidepressant selection and evaluated in a user study with 22 physicians.Results: The Dynamic Clinician-Determined Weighting scheme significantly enhanced perceived clinical utility compared with the alternative approaches (p &lt; 0.01). It also led to the most frequent data-informed revision of physicians’ initial unassisted antidepressant choices, occurring in 33.3% of cases. This effect was observed among both psychiatrists and primary care physicians, suggesting that adjustable weighting can support more informed treatment decisions across clinical specialties.Discussion: These findings suggest that effective integration of AI into psychiatric practice requires flexible decision support systems that preserve clinical agency while incorporating data-driven predictions. By allowing clinicians to determine the relative importance of remission probabilities and side-effect risks, dynamic weighting may better reflect the nuanced and individualized nature of mental health care.</p>
+        </section>
+        
+<div class="paper-text">
+<h2 id="1-introduction">1 Introduction</h2>
+<p>Clinical Decision Support Systems (CDSS) have evolved from rule-based engines to sophisticated platforms leveraging Artificial Intelligence (AI) to empower data-driven clinical decisions (1, 2). This evolution is particularly critical for mitigating the burden associated with Major Depressive Disorder (MDD), a condition characterized by high prevalence and significant morbidity (3, 4). Despite the availability of pharmacological interventions, the current standard of care often relies on an “educated trial-and-error” approach (5), where only a third of patients achieve remission after their first treatment (6, 7). In this context, AI models have demonstrated significant potential in predicting individual treatment outcomes, including probabilities of remission (5, 8, 9), while pharmacological literature highlights specific adverse events such as weight gain, sexual dysfunction, and fatigue (10–12).</p>
+<p>Nevertheless, despite improvements in predictive accuracy, the translation of these models into clinical practice remains limited (13, 14). A fundamental barrier to adoption is that psychiatric prescribing is rarely a straightforward, single-objective task. Instead, it involves delicate clinical judgments regarding potentially conflicting outcomes (12, 15, 16). In antidepressant selection, this challenge is particularly acute as clinicians must delicately balance efficacy against the risk of side effects, trade-offs that vary significantly depending on the clinical context and patient preferences. While AI can accurately predict the risk associated with these outcomes, it cannot inherently determine their subjective value within the clinician-patient shared decision-making process (10, 17, 18).</p>
+<p>Inevitably, a core challenge in designing AI-CDSS is not merely prediction, but the aggregation of multi-dimensional outputs into actionable recommendations (19–21). Existing decision-support approaches in AI-CDSS typically fall into two extremes: (i) Implicit Weighting, also known as “Probabilities Alone (PA)”, where systems present raw probabilities derived from computational models. While transparent, this approach forces clinicians to perform the challenging cognitive integration of these probabilities manually; and (ii) Static Expert-Derived Weighting, where systems aggregate model outputs using fixed rules, commonly a weighted sum model using expert-defined linear weights (22, 23). While this approach is designed to reduce cognitive load, it effectively limits the clinician’s ability to adapt the decision logic to patient-specific nuances. This creates an inherent tension between maintaining clinician agency at the cost of high cognitive burden (the PA scheme) or accepting streamlined processing at the cost of rigid, generalized decision logic (the static scheme).</p>
+<p>To this end, in this study, we address this tension by proposing and evaluating a middle-ground solution: Dynamic Clinician- Determined Weighting. By separating algorithmic risk prediction from the physician’s subjective clinical judgment, this approach allows clinicians to explicitly prioritize the trade-offs relevant to the individual patient and dynamically adjust them as clinical needs evolve (24). We compare this clinician-determined weighting scheme against both implicit and static alternatives through a controlled user study with 22 physicians. Participants interacted with an AI-CDSS prototype across diverse clinical scenarios, allowing us to assess how the locus of control in weighting mechanisms influences the perceived utility and data-informed clinical decisions. The methodological contribution of this exploratory pilot is the direct comparison of three alternative loci of control for aggregating multi-dimensional AI predictions: no explicit aggregation, static expert-defined aggregation, and dynamic clinician-controlled aggregation. This design isolates the role of value-weighting control in AI-CDSS use, a design dimension that is often implicit in decision-support systems but central to preserving clinical agency in preference-sensitive psychiatric decisions.</p>
+<h2 id="2-methodology">2 Methodology</h2>
+<p>To study the impact of weighting schemes on clinical decision-making, we conducted a proof-of-concept, within-subjects clinician pilot study (N = 22) comparing three distinct weighting schemes implemented to support antidepressant selection. The study was designed to assess how the locus of control (implicit, expert-determined, or clinician-determined) influences clinicians’ perceived utility and treatment selection.</p>
+<h3 id="21-experimental-design-and-procedure">2.1 Experimental design and procedure</h3>
+<p>The experiment employed a randomized, within-subjects design (25). Data were collected between June and August 2022. The study was conducted online using the web-based prototype; no in-person attendance was required. All participants were offered the option to schedule a video conference with the first author for assistance in case they had any questions. Three participants elected to participate via video conference. Following informed consent and a standard demographic questionnaire, participants completed three distinct decision-making phases. In each phase, participants were presented with: (1) one of the three clinical vignettes described below, and (2) one of the three examined weighting schemes integrated within an AI-CDSS. The pairing of clinical scenarios and weighting schemes was randomized to control for order and case-difficulty effects. <a class="xref" href="#fig-1">Figure 1</a> presents a schematic view of the methodological process utilized in this study.</p>
+<figure id="fig-1">
+<a class="fig-zoom" href="figures/fig-1.webp" aria-label="Open the figure full size"><img src="figures/fig-1.webp" width="687" height="253" alt="Experimental design" loading="lazy" decoding="async"></a>
+<figcaption>FIGURE 1 Experimental design. Participants completed three phases in random order, interacting with the three weighting schemes in a randomized sequence. At each phase, participants selected a treatment before and after interacting with the assigned weighting scheme and completed a utility assessment questionnaire. Finally, an exit questionnaire was administered.</figcaption>
+</figure>
+
+<p>At each phase, participants first reviewed the patient profile. Crucially, before interacting with any form of decision support for that patient, they were asked to record their unassisted antidepressant choice based on the clinical vignette alone. They then interacted with a prototype AI-CDSS integrated with one of the three weighting schemes to generate recommendations and select a final antidepressant. Following each phase, participants completed a very short questionnaire containing only two questions: “How would you rate the clinical usefulness of the decision support you just experienced? (five point Likert-sclae: 1=not very useful, 5=very useful)” and “Did you change your initial treatment selection following the decision support? (Yes/No)”. A concluding (exit) questionnaire was also administered to probe for comparative preferences and open-form qualitative feedback.</p>
+<h3 id="22-clinical-scenarios">2.2 Clinical scenarios</h3>
+<p>The AI-CDSS was applied to three realistic clinical profiles (“Jack”, “Emma”, and “Sara”) representing mild, moderate, and severe depression, respectively (complete details are provided in the Appendix). Briefly, Jack was an older adult with mild–moderate depression, comorbid hypertension and diabetes, sleep disturbance, fatigue, and concern about weight gain; Emma was a middle-aged professional with moderate–severe depression, work-related stress, passive suicidal ideation without intent or plan, and high concern about sexual dysfunction and weight gain; and Sara was a patient with severe depression, marked functional impairment, psychomotor slowing, frequent suicidal ideation without an active plan, and general concerns about side effects. The probability estimates for each profile (<a class="xref" href="#table-1">Table 1</a>) were constant across all experimental conditions, maintaining the analytical focus on the weighting scheme and its perceived clinical utility and locus of control.</p>
+<h3 id="23-ai-decision-support-and-evaluation-conditions">2.3 AI Decision support and evaluation conditions</h3>
+<p>We developed a web-based AI-CDSS framework aimed at supporting complex decision-making among five common antidepressants (Escitalopram, Sertraline, Bupropion, Venlafaxine, and Mirtazapine). This set of antidepressants represents pharmacological diversity and includes commonly used antidepressants evaluated in large comparative antidepressant evidence syntheses (26, 27). To isolate the impact of the weighting mechanism, the framework was designed to simulate the output of a predictive AI model tailored for MDD treatment. The system presented realistic, pre-defined probability estimates for remission and the risk of three major side effects: weight gain, sexual dysfunction, and fatigue. These estimates, informed by pharmacological literature and expert consensus for three realistic patient profiles (see Appendix), were constructed to reflect plausible clinical profiles and trade-offs. Because the present study focused on clinician interaction with alternative weighting schemes rather than on developing or validating a new predictive model, the simulated probabilities were held constant across experimental conditions and were not evaluated as a standalone prediction method against published algorithms. The specific side effects were selected based on their high prevalence as drivers of non-adherence (11, 12, 28).</p>
+<p>We examined three distinct weighting schemes for aggregating these predictions:</p>
+<p>2.3.1 Condition 1: implicit weighting (probabilities alone)</p>
+<p>In this setting, the system displayed raw probability estimates for remission and side effects via interactive 116 bar charts (<a class="xref" href="#fig-2">Figure 2</a>) and tabular data. No aggregated score was provided. This baseline mimics standard 117 “dashboard”-like analytics, forcing the clinician to perform the complex aggregation implicitly (cognitively) 118 without algorithmic assistance.</p>
+<figure class="table-figure" id="table-1">
+<figcaption>TABLE 1 Predicted probabilities for depression profiles.</figcaption>
+<div class="table-scroll"><table><tr><th>Use-case</th><th>Medication</th><th>Remission</th><th>Weight gain</th><th>Sexual dysf.</th><th>Fatigue</th></tr><tr><td></td><td>Escitalopram</td><td>81%</td><td>5%</td><td>7%</td><td>7%</td></tr><tr><td></td><td>Sertraline</td><td>76%</td><td>6%</td><td>20%</td><td>10%</td></tr><tr><td>Jack (Mild Depression)</td><td>Bupropion</td><td>69%</td><td>1%</td><td>3%</td><td>8%</td></tr><tr><td></td><td>Venlafaxine</td><td>79%</td><td>8%</td><td>8%</td><td>16%</td></tr><tr><td></td><td>Mirtazapine</td><td>75%</td><td>20%</td><td>1%</td><td>22%</td></tr><tr><td></td><td>Escitalopram</td><td>42%</td><td>3%</td><td>17%</td><td>6%</td></tr><tr><td></td><td>Sertraline</td><td>46%</td><td>5%</td><td>25%</td><td>11%</td></tr><tr><td>Emma (Moderate Depression)</td><td>Bupropion</td><td>39%</td><td>1.20%</td><td>5%</td><td>3%</td></tr><tr><td></td><td>Venlafaxine</td><td>44%</td><td>6.50%</td><td>10%</td><td>8%</td></tr><tr><td></td><td>Mirtazapine</td><td>41%</td><td>50%</td><td>3%</td><td>35%</td></tr><tr><td></td><td>Escitalopram</td><td>31%</td><td>3%</td><td>7%</td><td>5%</td></tr><tr><td></td><td>Sertraline</td><td>34%</td><td>4%</td><td>10%</td><td>12%</td></tr><tr><td>Sara (Severe Depression)</td><td>Bupropion</td><td>24%</td><td>1.50%</td><td>4%</td><td>3%</td></tr><tr><td></td><td>Venlafaxine</td><td>30%</td><td>6%</td><td>12%</td><td>10%</td></tr><tr><td></td><td>Mirtazapine</td><td>26%</td><td>45%</td><td>4%</td><td>40%</td></tr></table></div>
+
+</figure>
+
+<p>2.3.2 Condition 2: static expert-derived weighting</p>
+<p>The Expert-Derived Weighting (EDW) scheme implements a weighted sum model to calculate an aggregated score S<sub>j</sub> for each drug j, calculated as follows:</p>
+<div class="equation" id="eq-1"><img src="figures/eq-1.webp" width="85" height="44" alt="Sj = o n i=1wi · vij o n i=1wi" loading="lazy" decoding="async"></div>
+
+<p>where v<sub>ij</sub> is the normalized predicted value of outcome i for drug j, and w<sub>i</sub> represents the weight assigned to that outcome. The five drugs were presented as a ranked list sorted by S<sub>j</sub>, with explainability supported via stacked bar charts decomposing the contribution of each criterion to the total score (<a class="xref" href="#fig-3">Figure 3</a>). Importantly, the weights w<sub>i</sub>were pre-defined by a panel of three senior psychiatrists who reviewed the patient profiles and deliberated to reach a consensus on the optimal weights for each case. The integration of static weights simulates the “black-box” nature of many AI-CDSSs, where value alignment is determined by external domain knowledge rather than the user.</p>
+<figure id="fig-2">
+<a class="fig-zoom" href="figures/fig-2.webp" aria-label="Open the figure full size"><img src="figures/fig-2.webp" width="551" height="358" alt="Implicit weighting" loading="lazy" decoding="async"></a>
+<figcaption>FIGURE 2 Implicit weighting. Interactive charts compare drugs by individual outcomes (e.g., remission probability) or by drug profiles. No aggregated score is provided.</figcaption>
+</figure>
+
+<figure id="fig-3">
+<a class="fig-zoom" href="figures/fig-3.webp" aria-label="Open the figure full size"><img src="figures/fig-3.webp" width="460" height="304" alt="Expert-derived weighting" loading="lazy" decoding="async"></a>
+<figcaption>FIGURE 3 Expert-derived weighting. Drugs are ranked by their aggregated S<sub>j</sub>scores. Stacked bars provide explainability by showing the contribution of each weighted criterion to the total score.</figcaption>
+</figure>
+
+<p>2.3.3 Condition 3: dynamic clinician-determined weighting</p>
+<p>The Clinician-Determined Weighting (CDW) scheme follows the same technical and visualization approach as the EDW condition but shifts the locus of control to the user. Participants explicitly assigned weights to each criterion using interactive sliders (<a class="xref" href="#fig-4">Figure 4</a>). Following any adjustment, the system automatically recalculated the S<sub>j</sub>scores, updating the drug rankings and visualizations in real-time to reflect the clinician’s specific preferences.</p>
+<h3 id="24-participants">2.4 Participants</h3>
+<p>We recruited 28 clinicians (17 psychiatrists and 11 primary care physicians/family doctors), primarily through professional networks in Israel, Canada, and the USA. Recruitment was conducted via email and LinkedIn. Of these, 22 participants (N = 22; 13 psychiatrists, 9 PCPs) completed the full protocol and are included in our analysis. Participants self-reported their home country as Israel (n = 10), the USA (n = 6), Canada (n = 4), and Other (n = 2). The two participants in the Other category were recruited through a US-based university setting but self-identified European countries as their home countries. The study was approved by the Committee for the Approval of Research Involving the Participation of Human Subjects at Bar-Ilan University.</p>
+<figure id="fig-4">
+<a class="fig-zoom" href="figures/fig-4.webp" aria-label="Open the figure full size"><img src="figures/fig-4.webp" width="460" height="392" alt="Clinician-determined weighting" loading="lazy" decoding="async"></a>
+<figcaption>FIGURE 4 Clinician-determined weighting. Drugs are ranked by their S<sub>j</sub> scores, which are adjusted dynamically as the user modifies the importance weights via interactive sliders.</figcaption>
+</figure>
+
+<figure class="table-figure" id="table-2">
+<figcaption>TABLE 2 Participant demographics (N = 22).</figcaption>
+<div class="table-scroll"><table><tr><th>Attribute</th><th>Category</th><th>Count (Mean ± SD)</th></tr><tr><td>Age</td><td>–</td><td>47:3 ± 8:53</td></tr><tr><td rowspan="2">Gender</td><td>Female</td><td>11</td></tr><tr><td>Male</td><td>11</td></tr><tr><td rowspan="4">Experience (Years)</td><td>0–4</td><td>2</td></tr><tr><td>5–9</td><td>6</td></tr><tr><td>10–14</td><td>2</td></tr><tr><td>15+</td><td>12</td></tr><tr><td rowspan="2">Specialty</td><td>Psychiatry</td><td>13</td></tr><tr><td>Primary Care (PCP)</td><td>9</td></tr><tr><td rowspan="4">Home Country</td><td>Israel</td><td>10</td></tr><tr><td>USA</td><td>6</td></tr><tr><td>Canada</td><td>4</td></tr><tr><td>Other</td><td>2</td></tr></table></div>
+
+</figure>
+
+<h3 id="25-analysis">2.5 Analysis</h3>
+<p>We primarily analyze quantitative outcome measures and supplemented these analyses with exploratory qualitative feedback from optional interview components.</p>
+<h4 id="251-quantitative-analysis">2.5.1 Quantitative analysis</h4>
+<p>We evaluated four primary metrics:</p>
+<ul>
+<li>
+<ol>
+<li>Perceived Clinical Utility: Assessed via post-phase questionnaire using a 5-point Likert scale.</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>Perceived Impact on Decision Making: Assessed via post-phase questionnaire using a binary item.</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>Time Spent: We measured the time the participants spent using each of the three schemes.</li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li>Observed Impact on Decision Making: Automatically measured as a binary variable of “treatment change” –this was defined by comparing the participant’s initial unassisted choice (recorded prior to interacting with the AI-CDSS) with their final choice (recorded after interacting with the weighting scheme).</li>
+</ol>
+</li>
+</ul>
+<p>Due to the non-normal distribution of the data and the sample size (N = 22), we utilized the non-parametric Kruskal–Wallis test (29) for main effects across the three conditions, followed by Dunn’s test (30) for post-hoc pairwise comparisons.</p>
+<h4 id="252-qualitative-analysis">2.5.2 Qualitative analysis</h4>
+<p>To deepen our understanding of user perceptions, participants were offered the opportunity to participate in a semi-structured interview following the experiment, debriefing them on their experience with the three weighting schemes. Three participants (n = 3) agreed to take part in this optional phase. Given the small number of interview participants, the qualitative analysis was treated as exploratory and intended to provide illustrative insights into user attitudes toward clinical utility and agency rather than definitive thematic conclusions. Themes were identified using inductive thematic analysis (31) and validated via investigator triangulation (32).</p>
+<h2 id="3-results">3 Results</h2>
+<p>In this section, we present both the quantitative and qualitative results.</p>
+<figure id="fig-5">
+<a class="fig-zoom" href="figures/fig-5.webp" aria-label="Open the figure full size"><img src="figures/fig-5.webp" width="460" height="244" alt="Perceived clinical utility" loading="lazy" decoding="async"></a>
+<figcaption>FIGURE 5 Perceived clinical utility. Mean perceived clinical utility ratings for the three weighting schemes across the full sample and by clinician specialty subgroup. Higher values indicate greater perceived clinical utility. Error bars indicate the standard error of the mean.</figcaption>
+</figure>
+
+<figure class="table-figure" id="table-3">
+<figcaption>TABLE 3 Perceived impact on decision.</figcaption>
+<div class="table-scroll"><table><tr><th>Weighting scheme</th><th>All</th><th>Psychiatrists</th><th>PCPs</th></tr><tr><td>Implicit (Baseline)</td><td>54.5%</td><td>38.5%</td><td>77.8%</td></tr><tr><td>EDW</td><td>36.4%</td><td>23.1%</td><td>55.6%</td></tr><tr><td>CDW</td><td>59.1%</td><td>53.8%</td><td>66.7%</td></tr></table></div>
+<p class="table-note">Percentage of participants indicating that the weighting scheme influenced their treatment choice (affirmative response).</p>
+</figure>
+
+<h3 id="31-quantitative-results">3.1 Quantitative results</h3>
+<h4 id="311-participant-demographics">3.1.1 Participant demographics</h4>
+<p>Our final sample consisted of 22 participants (13 psychiatrists, 9 PCPs) who completed the full protocol. <a class="xref" href="#table-2">Table 2</a> details the demographic and professional characteristics of the cohort.</p>
+<h4 id="312-perceived-clinical-utility">3.1.2 Perceived clinical utility</h4>
+<p>Participants rated the clinical utility of each weighting scheme on a 5-point Likert scale (1=Very Little, 5=Very Much). A significant main effect of the weighting scheme on perceived utility was observed (H(2) = 10.29, p &lt; 0.01). Post-hoc analysis indicated that the CDW scheme (Mean: 4.18 ± 0.89) was rated significantly higher than both the Implicit Weighting baseline (Mean: 3.27 ± 0.86, p &lt; 0.01) and the EDW scheme (Mean: 3.41 ± 1.19, p &lt; 0.05).</p>
+<p>Subgroup analysis (<a class="xref" href="#fig-5">Figure 5</a>) showed that psychiatrists significantly preferred the CDW scheme over both alternatives (H(2) = 8.42, p &lt; 0.05). PCPs also rated the CDW the highest (Mean: 4.33), though the difference did not reach statistical significance in this subgroup.</p>
+<h4 id="313-perceived-impact-on-decision-making">3.1.3 Perceived impact on decision making</h4>
+<p>Participants self-reported whether the interaction with the AI- CDSS changed their initial decision in each phase (<a class="xref" href="#table-3">Table 3</a>). While 54.5% reported an affirmative impact in the Implicit Weighting baseline, this was driven largely by PCPs (77.8%) rather than psychiatrists (38.5%). In contrast, the CDW scheme showed a consistent impact across both groups (53.8% of psychiatrists, 66.7% of PCPs). The EDW scheme had the lowest reported impact (36.4% overall), particularly among psychiatrists (23.1%).</p>
+<h4 id="314-time-spent">3.1.4 Time spent</h4>
+<p>While no statistically significant time differences were observed, the highest mean time was spent using the Implicit weighting scheme, with a mean of 404.7 sec (std of 343.8). For comparison, the mean time for using the CDW scheme was 355.8 sec (std of 162.75) and for the EDW scheme 320.6 sec (std of 154.1).</p>
+<h4 id="315-observed-change-in-treatment">3.1.5 Observed change in treatment</h4>
+<p>Across all 66 trials (N = 22 participants × 3 phases), an initial choice was recorded in 84.8% of cases. Of these, the CDW scheme prompted the highest rate of treatment revision: participants changed their initial choice in 33.3% of cases. In comparison, the Implicit baseline prompted a change in 26.3% of cases, and the EDW scheme in only 15.8% of cases.</p>
+<h3 id="32-qualitative-results">3.2 Qualitative results</h3>
+<p>Three themes were identified from the interview transcripts: (1) Clinical Utility &amp; Agency, (2) Integration Within Workflow, and (3) Transparency vs. Automation. Given the small qualitative subsample (n = 3), the following findings should be interpreted as exploratory and illustrative.</p>
+<h4 id="321-clinical-utility-agency">3.2.1 Clinical utility &amp; agency</h4>
+<p>Participants generally favored the CDW for its ability to operationalize their specific clinical intent. As one participant noted: “It made me consider the overall fit of the medication … rather than focusing on one aspect that might not have fit very well”. Conversely, the EDW faced resistance, particularly from psychiatrists. One remarked that weighting outcomes is “precisely the clinical work that psychiatrists should be doing,” viewing the static weights as an encroachment on their expertise. However, a minority preference for EDW was noted; one PCP preferred the EDW because “it felt like magic” and questioned the point of AI if physicians had to set weights themselves.</p>
+<h4 id="322-integration-within-the-workflow">3.2.2 Integration within the workflow</h4>
+<p>The CDW scheme was described as a means for confirmation and refinement. One clinician explained: “It confirmed the decision I had in mind … made me more confident I was not overlooking important information”. Another participant stated, “I changed the initial treatment based on the side effects” after seeing the weighted impact.</p>
+<h4 id="322-transparency-vs-automation">3.2.2 Transparency vs. automation</h4>
+<p>Resistance to the “black box” nature of the EDW scheme was observed. Participants expressed that expert-set weights “are no substitute for engaging patients in their own care,” highlighting that the EDW scheme contradicts shared decision-making principles. In contrast, the CDW scheme was seen as a potential bridge for patient communication: “Patients would love to see how their doctor comes to their decision”.</p>
+<h2 id="4-discussion">4 Discussion</h2>
+<p>Our results demonstrate a comparatively consistent hierarchy of clinical utility where both specialists and PCPs preferred the CDW scheme over both the Implicit and EDW alternatives. The preference for the clinician-determined scheme suggests that while physicians value transparency, they also require tools that help synthesize complex clinical profiles. Standard “dashboard” analytics, while common, burdens clinicians with the cognitive load of mentally integrating competing side-effect probabilities. The dynamic scheme offloads this burden while protecting the physician’s therapeutic intent and agency.</p>
+<p>Crucially, the preference for the CDW scheme over the EDW scheme highlights the limitations of “black-box” value alignment, agreeing with a long line of works in the field of human-computer interactions (33, 34). Two key mechanisms likely drive this result. First, clinicians, particularly specialists, resisted the static model because it encroached on their core expertise—determining the “value” of a clinical outcome for a specific patient, aligning with (35, 36). By restoring the locus of control to the user, the CDW scheme transformed the AI from a “replacement” to an “assistant”, thereby increasing acceptance. Second, in our exploratory qualitative feedback, the CDW scheme was described as serving as a potential boundary object between clinician and patient, allowing for collaborative weighting of side effects - a workflow impossible with rigid expert weights (17, 37).</p>
+<p>Our findings regarding decision impact, both perceived and observed, further underscore this dynamic. The CDW scheme was not only the most preferred but also the most effective at prompting an AI-informed treatment decision (33.3% change rate). Interestingly, the EDW scheme had the lowest impact on decision-making (15.8%), particularly among psychiatrists. This suggests that when AI seemingly “dictates the rules” of the decision (via fixed weights), experts are more likely to dismiss the recommendation entirely and maintain their agency. Conversely, when experts define the rules (via the CDW scheme), they are more willing to accept the AI’s predictions (even if these are “black-box”), even when it does not align with their initial intuition. The time-spent results also provide preliminary evidence regarding real-time usability. Although the CDW scheme required active clinician input, it did not substantially increase interaction time compared with the Implicit or EDW schemes, suggesting that clinician-controlled weighting may be feasible within a short decision-support interaction.</p>
+<p>Finally, the preliminary trend indicating a discrepancy between PCPs and psychiatrists hints at a potential “Floor-Ceiling” effect in AI-CDSS (38, 39). While larger cohorts are needed to confirm this divergence, our initial data suggest that PCPs, who may have less domain expertise in psychopharmacology, derived high value from both the implicit and CDW schemes. Psychiatrists, conversely, found little value in the implicit weighting scheme but rated the CDW scheme highly. This implies that flexible, controllable AI architectures are essential for engaging domain experts who might otherwise reject decision support (40).</p>
+<p>It is important to note that our study has several limitations that offer potentially fruitful avenues for future work. First, the sample size (N = 22) limits the statistical power for subgroup analyses, particularly between specialties. While non-parametric tests confirmed main effects, larger cohorts could bring about more nuanced results, such as validating the PCP-Psychiatrist divergence. In addition, the qualitative interview component included only three participants and should therefore be interpreted as exploratory and hypothesis-generating rather than as evidence of thematic saturation. Second, the study utilized simulated vignettes rather than real patient interactions. While this controlled for case variance, it cannot fully capture the pressures of a live clinical environment or the direct input of a patient in the loop. Third, our implementation of the EDW scheme relied on a single set of three experts. It is thus plausible that a more comprehensive expert evaluation could bring about more acceptable expert-based weights. Fourth, although user interaction time was measured as an exploratory proxy for real-time usability, the prototype used pre-defined probability estimates and did not evaluate computational performance metrics such as model inference time, system latency, throughput, or integration with real-time electronic health record workflows. Finally, both the CDW and EDW schemes assume linear independence between criteria, which is clearly a simplification of reality, and the CDW scheme additionally requires clinicians to explicitly express patient-specific priorities as numerical weights.</p>
+<p>It is important to note that the proposed CDW approach has several limitations. The method assumes that clinicians can explicitly express patient-specific priorities as numerical weights, which may oversimplify the complexity of shared decision-making. The weighted-sum model also assumes linear and independent trade-offs between remission probability and side-effect risks, whereas real clinical preferences may involve threshold effects, interactions among outcomes, or non-linear risk tolerance.</p>
+<h2 id="5-conclusion">5 Conclusion</h2>
+<p>This exploratory pilot study examined how different weighting schemes in an AI-CDSS influence physicians’ perceived utility and antidepressant treatment decisions. Compared with implicit presentation of probabilities and static expert-derived weighting, the dynamic clinician-determined weighting scheme was rated as the most clinically useful and produced the highest rate of observed treatment revision. These findings suggest that clinician-facing AI- CDSS tools may be more acceptable and impactful when they allow physicians to explicitly control how predicted benefits and side-effect risks are weighted for a given patient.</p>
+<p>The results should be interpreted cautiously given the modest sample size, simulated vignette design, and exploratory qualitative component. Nevertheless, the study highlights an important design consideration for AI-augmented psychiatric decision support: predictive accuracy alone is insufficient if clinicians cannot align recommendations with patient-specific priorities and clinical judgment. Future work should evaluate clinician-controlled weighting mechanisms in larger samples, real clinical workflows, and systems using live predictive models.</p>
+<h2 id="data-availability-statement">Data availability statement</h2>
+<p>The raw data supporting the conclusions of this article will be made available by the authors, without undue reservation.</p>
+<h2 id="ethics-statement">Ethics statement</h2>
+<p>The first author obtained an IRB from Bar-Ilan Univseristy. The studies were conducted in accordance with the local legislation and institutional requirements. The participants provided their written informed consent to participate in this study.</p>
+<h2 id="author-contributions">Author contributions</h2>
+<p>AK: Conceptualization, Methodology, Data curation, Investigation, Writing – original draft, Formal Analysis, Software, Project administration. DB: Conceptualization, Methodology, Investigation, Project administration, Supervision, Writing – original draft. AY-R: Visualization, Investigation, Writing – review &amp; editing, Formal Analysis, Validation, Methodology. GG: Writing – review &amp; editing, Conceptualization, Investigation. MT-S: Conceptualization, Writing – review &amp; editing. TL: Visualization, Writing – review &amp; editing. HM: Conceptualization, Writing – original draft. BA: Writing – original draft, Conceptualization, Investigation, Methodology. HS: Writing – original draft, Methodology, Investigation, Conceptualization. AR: Project administration, Validation, Conceptualization, Supervision, Writing – original draft, Writing – review &amp; editing, Investigation.</p>
+<h2 id="funding">Funding</h2>
+<p>The author(s) declared that financial support was not received for this work and/or its publication.</p>
+<p>Appendix: clinical scenarios</p>
+<p><strong>Case 1: Jack (Mild-Moderate Depression)</strong></p>
+<p>Profile: 82-year-old male, retired, lives alone (widowed/separated). Generally active social life (senior’s club) but withdrawing recently. Medical History: Hypertension and Type II Diabetes (well-controlled). No prior psychiatric history. Presenting Symptoms:</p>
+<ul>
+<li>Mood: “Feeling sad”, “not myself”, loss of enjoyment in hobbies (cards).</li>
+<li>Vegetative: Severe insomnia (initial, middle, and late), weight loss (5 lbs).</li>
+</ul>
+<h4 id="preferencesconcerns">Preferences/Concerns:</h4>
+<ul>
+<li>Difficulty articulating specific concerns due to severity of illness.</li>
+<li>General worry about side effects; requires prompting.</li>
+</ul>
+<p><strong>Diagnosis:</strong> Severe Depression.</p>
+<ul>
+<li>Anxiety: Recent panic attacks during decision-making; observed fidgeting/tremors.</li>
+<li>Vegetative: Difficulty falling asleep, early morning awakening, increased fatigue.</li>
+<li>Physical: Dizziness upon standing (orthostasis), occasional skin itchiness.</li>
+</ul>
+<p><strong>Preferences/Concerns:</strong></p>
+<ul>
+<li>Low concern for sexual side effects (“not active anymore”).</li>
+<li>High concern for weight gain (diabetes risk).</li>
+<li>Generally adherent to medications (takes BP pills without issue).</li>
+</ul>
+<p><strong>Diagnosis:</strong> Mild-Moderate Depression. No suicidality.</p>
+<p><strong>Case 2: Emma (Moderate Depression)</strong></p>
+<p>Profile: 40-year-old female, lawyer/consultant, married. High-functioning professional facing recent work stress. Medical History: None. Presenting Symptoms:</p>
+<ul>
+<li>Mood: Irritable, sad, feeling guilty (“letting people down”), sobbing during interview.</li>
+<li>Cognitive: Difficulty concentrating on reading/work.</li>
+<li>Suicidality: Passive ideation (“better if I were dead”) but no intent/plan.</li>
+<li>Vegetative: Middle insomnia, weight loss (2 lbs), fatigue.</li>
+<li>Somatic: Health anxiety (fear of cancer), constipation.</li>
+</ul>
+<h4 id="preferencesconcerns_1">Preferences/Concerns:</h4>
+<ul>
+<li>High concern for sexual dysfunction (marital strain).</li>
+<li>High concern for weight gain.</li>
+<li>Anxious about side effects in general (medication na¨ıve).</li>
+</ul>
+<p>Diagnosis: Moderate-Severe Depression.</p>
+<p><strong>Case 3: Sara (Severe Depression)</strong></p>
+<p>Profile: 51-year-old female, unemployed (lost job in food service due to symptoms), lives alone. Medical History: None known. Presenting Symptoms:</p>
+<ul>
+<li>Mood: Depressed mood over 50% of time, significant anhe-donia (unable to work).</li>
+<li>Psychomotor: Significant slowing (latency in speech).</li>
+<li>Cognitive: Severe indecisiveness, inability to manage finances.</li>
+<li>Suicidality: Frequent suicidal ideation (several times a week), wishes she were dead, but no active plan.</li>
+</ul>
+<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 9 April 2026 · Accepted 18 June 2026 · Published 3 July 2026</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>artiﬁcial intelligence</li><li>clinical agency</li><li>clinical decision support systems</li><li>major depressive disorder</li><li>user study</li></ul></dd></div></dl></section>
+<h2 id="references">References</h2>
+<ol class="paper-refs"><li id="ref-1">Sutton RT, Pincock D, Baumgart DC, Sadowski DC, Fedorak RN, Kroeker KI. An overview of clinical decision support systems: benefits, risks, and strategies for success. NPJ Dig Med. (2020) 3:17. <a href="https://doi.org/10.1038/s41746-020-0221-y" target="_blank" rel="noopener">doi:10.1038/s41746-020-0221-y</a></li>
+<li id="ref-2">Elhaddad M, Hamam S. Ai-driven clinical decision support systems: an ongoing pursuit of potential. Cureus. (2024) 16:1–9. <a href="https://doi.org/10.7759/cureus.57728" target="_blank" rel="noopener">doi:10.7759/cureus.57728</a></li>
+<li id="ref-3">World Health Organization. Depressive disorder (depression) (2025) (Accessed June 17, 2026).</li>
+<li id="ref-4">GBD 2019 Mental Disorders Collaborators. Global, regional, and national burden of 12 mental disorders in 204 countries and territories, 1990–2019: a systematic analysis for the global burden of disease study 2019. Lancet Psychiatry. (2022) 9:137–50. <a href="https://doi.org/10.1111/all.15807" target="_blank" rel="noopener">doi:10.1111/all.15807</a></li>
+<li id="ref-5">Chekroud AM, Zotti RJ, Shehzad Z, Gueorguieva R, Johnson MK, Trivedi MH, et al. Cross-trial prediction of treatment outcome in depression: a machine learning approach. Lancet Psychiatry. (2016) 3:243–50. (15)00471-x <a href="https://doi.org/10.1016/s2215-0366" target="_blank" rel="noopener">doi:10.1016/s2215-0366</a></li>
+<li id="ref-6">Trivedi MH, Rush AJ, Wisniewski SR, Nierenberg AA, Warden D, Ritz L, et al. Evaluation of outcomes with citalopram for depression using measurement-based care in STAR*D: Implications for clinical practice. Am J Psychiatry. (2006) 163:28–40. <a href="https://doi.org/10.1176/appi.ajp.163.1.28" target="_blank" rel="noopener">doi:10.1176/appi.ajp.163.1.28</a></li>
+<li id="ref-7">Rush AJ, Trivedi MH, Wisniewski SR, Nierenberg AA, Stewart JW, Warden D, et al. Acute and longer-term outcomes in depressed outpatients requiring one or several treatment steps: A STAR*D report. Am J Psychiatry. (2006) 163:1905–17. <a href="https://doi.org/10.1176/foc.6.1.foc128" target="_blank" rel="noopener">doi:10.1176/foc.6.1.foc128</a></li>
+<li id="ref-8">Mehltretter J, Fratila R, Benrimoh D, Kapelner A, Perlman K, Snook E, et al. Differential treatment benefit prediction for treatment selection in depression: a deep learning analysis of star* d and co-med data. BioRxiv. (2019), 679779. <a href="https://doi.org/10.2139/ssrn.3309427" target="_blank" rel="noopener">doi:10.2139/ssrn.3309427</a></li>
+<li id="ref-9">Benrimoh D, Armstrong C, Mehltretter J, Fratila R, Perlman K, Israel S, et al. Development of the treatment prediction model in the artificial intelligence in depression–medication enhancement study. NPJ Ment Health Res. (2025) 4:26. Conflict of interest The author(s) declared that this work was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest. Generative AI statement The author(s) declared that generative AI was not used in the creation of this manuscript. Any alternative text (alt text) provided alongside figures in this article has been generated by Frontiers with the support of artificial intelligence and reasonable efforts have been made to ensure accuracy, including review by the authors wherever possible. If you identify any issues, please contact us. All claims expressed in this article are solely those of the authors and do not necessarily represent those of their affiliated organizations, or those of the publisher, the editors and the reviewers. Any product that may be evaluated in this article, or claim that may be made by its manufacturer, is not guaranteed or endorsed by the publisher. <a href="https://doi.org/10.1038/s44184-025-00136-8" target="_blank" rel="noopener">doi:10.1038/s44184-025-00136-8</a></li>
+<li id="ref-10">Serretti A, Mandelli L, et al. Antidepressants and body weight: a comprehensive review and meta-analysis. J Clin Psychiatry. (2010) 71(10):1259–1272. doi: 10.4088/ JCP.09r05346blu <a href="https://doi.org/10.4088/JCP.09r05346blu" target="_blank" rel="noopener">doi:10.4088/JCP.09r05346blu</a></li>
+<li id="ref-11">Ashton AK, Jamerson BD, Weinstein WL, Wagoner C. Antidepressant-related adverse effects impacting treatment compliance: results of a patient survey. Curr Ther Res. (2005) 66:96–106. <a href="https://doi.org/10.1016/j.curtheres.2005.04.006" target="_blank" rel="noopener">doi:10.1016/j.curtheres.2005.04.006</a></li>
+<li id="ref-12">Bet PM, Hugtenburg JG, Penninx BWJH, Hoogendijk WJG. Side effects of antidepressants during long-term use in a naturalistic setting. Eur Neuropsychopharmacol. (2013) 23:1443–51. <a href="https://doi.org/10.1016/j.euroneuro.2013.05.001" target="_blank" rel="noopener">doi:10.1016/j.euroneuro.2013.05.001</a></li>
+<li id="ref-13">Sarantopoulos A, Mastori Kourmpani C, Yokarasa AL, Makamanzi C, Antoniou P, Spernovasilis N, et al. Artificial intelligence in infectious disease clinical practice: an overview of gaps, opportunities, and limitations. Trop Med Infect Dis. (2024) 9:228. <a href="https://doi.org/10.3390/tropicalmed9100228" target="_blank" rel="noopener">doi:10.3390/tropicalmed9100228</a></li>
+<li id="ref-14">Van Booven D, Cheng-Bang C, Meenakshy M. Limitations of artificial intelligence in healthcare. In: Artificial Intelligence in Urologic Malignancies. Elsevier, Chantilly, France (2025). p. 231–46.</li>
+<li id="ref-15">Abu-Mahfouz MS, AlFehaid S, Burqan HM, El Arab RA. Artificial intelligence in mental health care: a scoping review of reviews. Front Psychiatry. (2026) 17:1688043. <a href="https://doi.org/10.3389/fpsyt.2026.1688043" target="_blank" rel="noopener">doi:10.3389/fpsyt.2026.1688043</a></li>
+<li id="ref-16">Popescu C, Golden G, Benrimoh D, Tanguay-Sela M, Slowey D, Lundrigan E, et al. Evaluating the clinical feasibility of an artificial intelligence–powered, web-based clinical decision support system for the treatment of depression in adults: Longitudinal feasibility study. JMIR Format Res. (2021) 5:e31862. <a href="https://doi.org/10.2196/31862" target="_blank" rel="noopener">doi:10.2196/31862</a></li>
+<li id="ref-17">Elwyn G, Frosch D, Thomson R, Joseph-Williams N, Lloyd A, Kinnersley P, et al. Shared decision making: a model for clinical practice. J Gen Internal Med. (2012) 27:1361–7. <a href="https://doi.org/10.1007/s11606-012-2077-6" target="_blank" rel="noopener">doi:10.1007/s11606-012-2077-6</a></li>
+<li id="ref-18">Zhou S, Zhao J, Zhang L. Application of artificial intelligence on psychological interventions and diagnosis: An overview. Front Psychiatry. (2022) 13:811665. <a href="https://doi.org/10.3389/fpsyt.2022.811665" target="_blank" rel="noopener">doi:10.3389/fpsyt.2022.811665</a></li>
+<li id="ref-19">Thokala P, Devlin N, Marsh K, Baltussen R, Boysen M, Kalo Z, et al. Multiple criteria decision analysis for health care decision making—an introduction: report 1 of the ispor mcda emerging good practices task force. Value Health. (2016) 19:1–13. <a href="https://doi.org/10.1016/j.jval.2015.12.003" target="_blank" rel="noopener">doi:10.1016/j.jval.2015.12.003</a></li>
+<li id="ref-20">Aruldoss M, Lakshmi TM, Venkatesan VP. A survey on multi criteria decision making methods and its applications. Am J Inf Syst. (2013) 1:31–43.</li>
+<li id="ref-21">Zionts S. Mcdm—if not a roman numeral, then what? Interfaces. (1979) 9:94–101. <a href="https://doi.org/10.1287/inte.9.4.94" target="_blank" rel="noopener">doi:10.1287/inte.9.4.94</a></li>
+<li id="ref-22">Najafi A, Nemati A, Ashrafzadeh M, Hashemkhani Zolfani S. Multiple-criteria decision making, feature selection, and deep learning: a golden triangle for heart disease identification. Eng Appl Artif Intell. (2023) 125:106662. <a href="https://doi.org/10.1016/j.engappai.2023.106662" target="_blank" rel="noopener">doi:10.1016/j.engappai.2023.106662</a></li>
+<li id="ref-23">Aljohani A. Ai-driven decision-making for personalized elderly care: a fuzzy mcdm-based framework for enhancing treatment recommendations. BMC Med Inf Decis Mak. (2025) 25:1–16. <a href="https://doi.org/10.1186/s12911-025-02953-5" target="_blank" rel="noopener">doi:10.1186/s12911-025-02953-5</a></li>
+<li id="ref-24">Martin VP, Rouas J-L, Philip P, Fourneret P, Micoulaud-Franchi J-A, Gauld C. How does comparison with artificial intelligence shed light on the way clinicians reason? a cross-talk perspective. Front Psychiatry. (2022) 13:926286. <a href="https://doi.org/10.3389/fpsyt.2022.926286" target="_blank" rel="noopener">doi:10.3389/fpsyt.2022.926286</a></li>
+<li id="ref-25">Charness G, Gneezy U, Kuhn MA. Experimental methods: Between-subject and within-subject design. J Econ Behav Organ. (2012) 81:1–8. <a href="https://doi.org/10.1016/j.jebo.2011.08.009" target="_blank" rel="noopener">doi:10.1016/j.jebo.2011.08.009</a></li>
+<li id="ref-26">Cipriani A, Furukawa TA, Salanti G, Chaimani A, Atkinson LZ, Ogawa Y, et al. Comparative efficacy and acceptability of 21 antidepressant drugs for the acute treatment of adults with major depressive disorder: a systematic review and network meta-analysis. Lancet. (2018) 391:1357–66. <a href="https://doi.org/10.1176/appi.focus.16407" target="_blank" rel="noopener">doi:10.1176/appi.focus.16407</a></li>
+<li id="ref-27">Lam RW. Comparison of 21 antidepressants. Focus. (2018) 16:4s–s. <a href="https://doi.org/10.1176/appi.focus.164s04" target="_blank" rel="noopener">doi:10.1176/appi.focus.164s04</a></li>
+<li id="ref-28">Hunot VM, Horne R, Leese MN, Churchill RC. A cohort study of adherence to antidepressants in primary care: the influence of antidepressant concerns and treatment preferences. Prim Care Companion to J Clin Psychiatry. (2007) 9:91. <a href="https://doi.org/10.4088/pcc.v09n0202" target="_blank" rel="noopener">doi:10.4088/pcc.v09n0202</a></li>
+<li id="ref-29">McKight PE, Najab J. Kruskal-wallis test. Corsini Encyclopedia Psychol. (2010), 1. <a href="https://doi.org/10.1002/9780470479216.corpsy0491" target="_blank" rel="noopener">doi:10.1002/9780470479216.corpsy0491</a></li>
+<li id="ref-30">Dunn OJ. Multiple comparisons using rank sums. Technometrics. (1964) 6:241–52. <a href="https://doi.org/10.1080/00401706.1964.10490181" target="_blank" rel="noopener">doi:10.1080/00401706.1964.10490181</a></li>
+<li id="ref-31">Braun V, Clarke V. Using thematic analysis in psychology. Qual Res Psychol. (2006) 3:77–101. <a href="https://doi.org/10.1191/1478088706qp063oa" target="_blank" rel="noopener">doi:10.1191/1478088706qp063oa</a></li>
+<li id="ref-32">Archibald MM. Investigator triangulation: A collaborative strategy with potential for mixed methods research. J Mixed Methods Res. (2016) 10:228–50.</li>
+<li id="ref-33">Loyola-Gonzalez O. Black-box vs. white-box: Understanding their advantages and weaknesses from a practical point of view. IEEE Access. (2019) 7:154096–113. <a href="https://doi.org/10.1109/access.2019.2949286" target="_blank" rel="noopener">doi:10.1109/access.2019.2949286</a></li>
+<li id="ref-34">Christian B. The Alignment Problem: Machine Learning and Human Values. WW Norton &amp; Company, Chantilly, France (2020).</li>
+<li id="ref-35">Khairat S, Marc D, Crosby W, Al Sanousi A, et al. Reasons for physicians not adopting clinical decision support systems: critical analysis. JMIR Med Inf. (2018) 6: e8912. <a href="https://doi.org/10.2196/medinform.8912" target="_blank" rel="noopener">doi:10.2196/medinform.8912</a></li>
+<li id="ref-36">Knop M, Weber S, Mueller M, Niehaves B. Human factors and technological characteristics influencing the interaction of medical professionals with artificial intelligence–enabled clinical decision support systems: literature review. JMIR Hum Fact. (2022) 9:e28639. <a href="https://doi.org/10.2196/28639" target="_blank" rel="noopener">doi:10.2196/28639</a></li>
+<li id="ref-37">Kleinerman A, Rosenfeld A, Benrimoh D, Fratila R, Armstrong C, Mehltretter J, et al. Treatment selection using prototyping in latent-space with application to depression treatment. PloS One. (2021) 16:e0258400. <a href="https://doi.org/10.1371/journal.pone.0258400" target="_blank" rel="noopener">doi:10.1371/journal.pone.0258400</a></li>
+<li id="ref-38">Tschandl P, Rinner C, Apalla Z, Argenziano G, Codella N, Halpern A, et al. Human–computer collaboration for skin cancer recognition. Nat Med. (2020) 26:1229– 34. <a href="https://doi.org/10.1038/s41591-020-0942-0" target="_blank" rel="noopener">doi:10.1038/s41591-020-0942-0</a></li>
+<li id="ref-39">Kalyuga S, Ayres P, Chandler P, Sweller J. The expertise reversal effect. Educ Psychol. (2003) 38:23–31. <a href="https://doi.org/10.4018/978-1-60566-048-6.ch003" target="_blank" rel="noopener">doi:10.4018/978-1-60566-048-6.ch003</a></li>
+<li id="ref-40">Shulha M, Hovdebo J, D’Souza V, Thibault F, Harmouche R. Integrating explainable machine learning in clinical decision support systems: study involving a modified design thinking approach. JMIR Format Res. (2024) 8:e50475. <a href="https://doi.org/10.2196/50475" target="_blank" rel="noopener">doi:10.2196/50475</a></li>
+</ol>
+</div>
+        
+        
+        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Kleinerman et al. (2026), <em>Frontiers in Psychiatry</em>, <a href="https://doi.org/10.3389/fpsyt.2026.1851899" target="_blank" rel="noopener">doi:10.3389/fpsyt.2026.1851899</a>, under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY</a> licence. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+      </article>
+    </div>
+
+    <section class="paper-related" aria-labelledby="related-title"><div class="paper-wrap"><h2 id="related-title">Related research</h2><div class="related-grid"><a class="related-card related-project" href="/project.html?pagename=personalized-medicine-ai"><img src="/img/projects/project1.webp" alt="" loading="lazy" decoding="async"><span class="related-kind"><i class="ri-flask-line" aria-hidden="true"></i>Research project</span><strong>Data-Driven Precise and Personalized Medicine</strong><span class="related-text">Harnessing AI to tailor treatments to individuals and improve medical resource allocation at the community level.</span></a><a class="related-card" href="/publications/scheduling-bcg-il-2-injections-bladder-cancer/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2023</span><strong>Scheduling BCG and IL-2 Injections for Bladder Cancer Immunotherapy Treatment</strong><span class="related-text">Mathematics</span></a><a class="related-card" href="/publications/topology-family-tree-graph-members-satisfaction-one/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2026</span><strong>The topology of a family tree graph and its members’ satisfaction with one another: a machine learning approach</strong><span class="related-text">Frontiers in Human Dynamics</span></a></div><p class="related-more"><a href="/publications.html">All publications</a></p></div></section>
+  </main>
+
+  <dialog id="cite-dialog" class="paper-dialog" aria-labelledby="cite-title">
+    <div class="dialog-head">
+      <h2 id="cite-title">Cite this paper</h2>
+      <button type="button" class="dialog-close" aria-label="Close"><i class="ri-close-line" aria-hidden="true"></i></button>
+    </div>
+    <p class="dialog-label">APA</p>
+    <pre class="cite-box" id="cite-apa">Kleinerman, A., Benrimoh, D., Yaniv-Rosenfeld, A., Golden, G., Tanguay-Sela, M., Margolese, H. C., Lazebnik, T., Amit, B. H., Samuel, H., &amp; Rosenfeld, A. (2026). Bridging algorithmic prediction and clinical agency: an exploratory pilot study of AI-augmented physician antidepressant choice. Frontiers in Psychiatry. https://doi.org/10.3389/fpsyt.2026.1851899</pre>
+    <button type="button" class="paper-btn" data-copy="cite-apa"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy APA</span></button>
+    <p class="dialog-label">BibTeX</p>
+    <pre class="cite-box" id="cite-bib">@article{kleinerman2026bridging,
+  title = {Bridging algorithmic prediction and clinical agency: an exploratory pilot study of AI-augmented physician antidepressant choice},
+  author = {Kleinerman, Akiva and Benrimoh, David and Yaniv-Rosenfeld, Amit and Golden, Grace and Tanguay-Sela, Myriam and Margolese, Howard C. and Lazebnik, Teddy and Amit, Ben H. and Samuel, Hadar and Rosenfeld, Ariel},
+  journal = {Frontiers in Psychiatry},
+  year = {2026},
+  doi = {10.3389/fpsyt.2026.1851899}
+}</pre>
+    <button type="button" class="paper-btn" data-copy="cite-bib"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy BibTeX</span></button>
+  </dialog>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Games</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
+                  <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
+                  <li><a href="https://rl.teddylazebnik.com/">Pirate War RL Game</a></li>
+                  <li><a href="https://eh.teddylazebnik.com/">Echo Heist</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      
+      <script>
+        (function () {
+          // menu and navbar (js/main.js expects to sit at the site root)
+          var btn = document.getElementById('menu-btn'), menu = document.getElementById('mobile-menu'), nav = document.getElementById('navbar');
+          btn.addEventListener('click', function () { menu.classList.toggle('max-h-0'); menu.classList.toggle('max-h-screen'); });
+          var onScroll = function () { nav.classList.toggle('nav-scrolled', window.scrollY > 10); };
+          window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+          // cite dialog + copy buttons
+          var dialog = document.getElementById('cite-dialog');
+          document.querySelectorAll('[data-dialog]').forEach(function (b) {
+            b.addEventListener('click', function () { if (dialog.showModal) dialog.showModal(); else dialog.setAttribute('open', ''); });
+          });
+          dialog.querySelector('.dialog-close').addEventListener('click', function () { dialog.close(); });
+          dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
+          function flash(button, text) {
+            var label = button.querySelector('span'), old = label.textContent;
+            label.textContent = text; setTimeout(function () { label.textContent = old; }, 1600);
+          }
+          document.querySelectorAll('[data-copy]').forEach(function (b) {
+            b.addEventListener('click', function () {
+              var text = document.getElementById(b.getAttribute('data-copy')).textContent;
+              navigator.clipboard.writeText(text).then(function () { flash(b, 'Copied'); });
+            });
+          });
+          document.getElementById('share-btn').addEventListener('click', function () {
+            var b = this, data = { title: document.title, url: location.href.split('#')[0] };
+            if (navigator.share) { navigator.share(data).catch(function () {}); }
+            else { navigator.clipboard.writeText(data.url).then(function () { flash(b, 'Link copied'); }); }
+          });
+
+          // highlight the section being read in "On this page"
+          var links = {};
+          document.querySelectorAll('.paper-toc a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+          var heads = Array.prototype.filter.call(document.querySelectorAll('#full-text h2[id], #full-text h3[id], #full-text section[id]'), function (h) { return links[h.id]; });
+          if ('IntersectionObserver' in window && heads.length) {
+            var current = null;
+            var io = new IntersectionObserver(function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                  if (current) current.classList.remove('is-active');
+                  current = links[e.target.id]; current.classList.add('is-active');
+                }
+              });
+            }, { rootMargin: '-90px 0px -70% 0px' });
+            heads.forEach(function (h) { io.observe(h); });
+          }
+        })();
+      </script>
+   </body>
+</html>

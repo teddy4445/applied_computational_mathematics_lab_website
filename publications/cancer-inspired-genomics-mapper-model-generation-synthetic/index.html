@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_papers.py from paper.md + paper.json in this folder. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Cancer-inspired genomics mapper model for synthetic DNA generation | ACML</title>
+      <meta name="description" content="Genome data are vital to modern medicine, but obtaining suitable genomes for a specific study is hard, and current synthetic genome generators ignore the…">
+      <meta name="author" content="Teddy Lazebnik, Liron Simon-Keren">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/publications/cancer-inspired-genomics-mapper-model-generation-synthetic/">
+      <meta name="citation_title" content="Cancer-inspired genomics mapper model for the generation of synthetic DNA sequences with desired genomics signatures">
+      <meta name="citation_author" content="Teddy Lazebnik">
+      <meta name="citation_author" content="Liron Simon-Keren">
+      <meta name="citation_publication_date" content="2023/07/10">
+      <meta name="citation_journal_title" content="Computers in Biology and Medicine">
+      <meta name="citation_volume" content="164">
+      <meta name="citation_firstpage" content="107221">
+      <meta name="citation_doi" content="10.1016/j.compbiomed.2023.107221">
+      <meta name="citation_pdf_url" content="https://teddylazebnik.com/files/ucl_main.pdf">
+      <meta name="citation_abstract_html_url" content="https://acml.teddylazebnik.com/publications/cancer-inspired-genomics-mapper-model-generation-synthetic/">
+      <meta name="citation_fulltext_html_url" content="https://acml.teddylazebnik.com/publications/cancer-inspired-genomics-mapper-model-generation-synthetic/">
+      <meta name="citation_language" content="en">
+      <meta property="og:type" content="article">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Cancer-inspired genomics mapper model for synthetic DNA generation">
+      <meta property="og:description" content="Genome data are vital to modern medicine, but obtaining suitable genomes for a specific study is hard, and current synthetic genome generators ignore the…">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/publications/cancer-inspired-genomics-mapper-model-generation-synthetic/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/publications/cancer-inspired-genomics-mapper-model-generation-synthetic/figures/share-fig-1.jpg">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Cancer-inspired genomics mapper model for synthetic DNA generation">
+      <meta name="twitter:description" content="Genome data are vital to modern medicine, but obtaining suitable genomes for a specific study is hard, and current synthetic genome generators ignore the…">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/publications/cancer-inspired-genomics-mapper-model-generation-synthetic/figures/share-fig-1.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "Cancer-inspired genomics mapper model for the generation of synthetic DNA sequences with desired genomics…",
+  "name": "Cancer-inspired genomics mapper model for the generation of synthetic DNA sequences with desired genomics signatures",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Teddy Lazebnik"
+    },
+    {
+      "@type": "Person",
+      "name": "Liron Simon-Keren"
+    }
+  ],
+  "datePublished": "2023-07-10",
+  "url": "https://acml.teddylazebnik.com/publications/cancer-inspired-genomics-mapper-model-generation-synthetic/",
+  "mainEntityOfPage": "https://acml.teddylazebnik.com/publications/cancer-inspired-genomics-mapper-model-generation-synthetic/",
+  "abstract": "Genome data are crucial in modern medicine, offering significant potential for diagnosis and treatment. Thanks to technological advancements, many millions of healthy and diseased genomes have already been sequenced; however, obtaining the most suitable data for a specific study, and specifically for validation studies, remains challenging with respect to scale and access. Therefore, in silico genomics sequence generators have been proposed as a possible solution. However, the current generators produce inferior data using mostly shallow (stochastic) connections, detected with limited computational complexity in the training data. This means they do not take the appropriate biological relations and constraints, that originally caused the observed connections, into consideration. To address this issue, we propose cancer-inspired genomics mapper model (CGMM), that combines genetic algorithm (GA) and deep learning (DL) methods to tackle this challenge. CGMM mimics processes that generate genetic variations and mutations to transform readily available control genomes into genomes with the desired phenotypes. We demonstrate that CGMM can generate synthetic genomes of selected phenotypes such as ancestry and cancer that are indistinguishable from real genomes of such phenotypes, based on unsupervised clustering. Our results show that CGMM outperforms four current state-of-the-art genomics generators on two different tasks, suggesting that CGMM will be suitable for a wide range of purposes in genomic medicine, especially for much-needed validation studies.",
+  "description": "Genome data are vital to modern medicine, but obtaining suitable genomes for a specific study is hard, and current synthetic genome generators ignore the…",
+  "image": "https://acml.teddylazebnik.com/publications/cancer-inspired-genomics-mapper-model-generation-synthetic/figures/share-fig-1.jpg",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "DOI",
+    "value": "10.1016/j.compbiomed.2023.107221"
+  },
+  "sameAs": "https://doi.org/10.1016/j.compbiomed.2023.107221",
+  "isPartOf": {
+    "@type": "PublicationIssue",
+    "issueNumber": "",
+    "isPartOf": {
+      "@type": "PublicationVolume",
+      "volumeNumber": "164",
+      "isPartOf": {
+        "@type": "Periodical",
+        "name": "Computers in Biology and Medicine"
+      }
+    }
+  },
+  "about": "Machine Learning",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "encoding": {
+    "@type": "MediaObject",
+    "contentUrl": "https://teddylazebnik.com/files/ucl_main.pdf",
+    "encodingFormat": "application/pdf"
+  }
+}
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/paper.css" rel="stylesheet">
+      
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="paper-page">
+    <header class="paper-hero">
+      <div class="paper-wrap">
+        <nav class="paper-crumbs" aria-label="Breadcrumb">
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Machine Learning</span>
+        </nav>
+        <p class="paper-kicker"><span><em>Computers in Biology and Medicine</em> · 10 July 2023</span></p>
+        <h1 class="paper-title">Cancer-inspired genomics mapper model for the generation of synthetic DNA sequences with desired genomics signatures</h1>
+        <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Liron Simon-Keren</a></span></p>
+        
+        <div class="paper-actions">
+          <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/ucl_main.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
+          <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
+          
+          <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
+          <a class="paper-btn" href="https://doi.org/10.1016/j.compbiomed.2023.107221" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
+          <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
+        </div>
+        <div class="lab-authors"><span class="lab-authors-label">ACML authors</span><a class="lab-chip" href="/team.html"><img src="/img/lab/teddy.webp" alt="" width="32" height="32" loading="lazy"><span><strong>Teddy Lazebnik</strong><small>PI</small></span></a><a class="lab-chip" href="/team.html"><img src="/img/lab/liron.webp" alt="" width="32" height="32" loading="lazy"><span><strong>Liron Simon-Keren</strong><small>Alumni</small></span></a></div>
+      </div>
+    </header>
+
+    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Genome data are vital to modern medicine, but obtaining suitable genomes for a specific study is hard, and current synthetic genome generators ignore the biological relations behind the patterns they copy. We propose the cancer-inspired genomics mapper model (CGMM), which combines a genetic algorithm with deep learning to mimic mutation processes and turn available control genomes into genomes with desired traits. Its synthetic genomes, for traits such as ancestry and cancer, were indistinguishable from real ones by clustering, and it outperformed four existing generators.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>CGMM combines a genetic algorithm and deep learning to mimic processes that generate genetic variations and mutations.</li><li>It transforms readily available control genomes into synthetic genomes with selected phenotypes such as ancestry and cancer.</li><li>Based on unsupervised clustering, the synthetic genomes were indistinguishable from real genomes with the same phenotypes.</li><li>CGMM outperformed four state-of-the-art genomics generators on two different tasks.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1800" height="726" alt="Fig. 1. A schematic view of the model’s training and inference phases. First, the input data is divided, leaving a specified part of the control samples (𝑧 samples) for inference. The rest of the input data proceeds into the training phase, where: (1) The evolution processes linking each pair of control and case samples are estimated (RBGA process). (2) Each step in the process is encoded to a smaller, latent space (AE component). (3) A predictive model is trained to predict the next encoded step of an evolution process (NMP component). During the inference phase, the 𝑧 control samples are used to generate encoded vectors of the first step in an evolution process (Encoder part). Then, the trained NMP component predicts a series of mutation steps, until reaching the desired genomic signatures. Finally, the last predicted step, representing an encoded, synthetic, case sample, is decoded into VCF format (Decoder part)."></a><figcaption><strong>Fig. 1.</strong> A schematic view of the model’s training and inference phases. First, the input data is divided, leaving a specified part of the <em>control</em> samples (<em>𝑧</em> samples) for inference. The rest of the input data proceeds into the training phase, where: (1) The evolution processes linking each pair of <em>control</em> and <em>case</em> samples are estimated (RBGA process). (2) Each step in the process is encoded to a smaller, <em>latent space</em> (AE component). (3) A predictive model is trained to predict the next encoded step of an evolution process (NMP component). During the inference phase, the <em>𝑧 control</em> samples are used to generate encoded vectors of the first step in an evolution process (Encoder part). Then, the trained NMP component predicts a series of mutation steps, until reaching the desired genomic signatures. Finally, the last predicted step, representing an encoded, synthetic, <em>case</em> sample, is decoded into VCF format (Decoder part). <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+
+    <div class="paper-wrap paper-layout">
+      <aside class="paper-aside">
+        <nav class="paper-toc" aria-label="On this page">
+          <p class="aside-title">On this page</p>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#1-introduction">1. Introduction</a></li>
+<li><a href="#2-related-work">2. Related work</a></li><li class="toc-sub"><a href="#21-generation-of-in-silico-dna-sequences">2.1. Generation of in silico DNA sequences</a></li><li class="toc-sub"><a href="#22-natural-mutation-process-in-cancer-cells">2.2. Natural mutation process in cancer cells</a></li><li class="toc-sub"><a href="#23-genetic-algorithms-for-bioinformatics">2.3. Genetic algorithms for bioinformatics</a></li>
+<li><a href="#3-model-definition">3. Model definition</a></li>
+<li><a href="#4-experimental-design">4. Experimental design</a></li>
+<li><a href="#5-results">5. Results</a></li>
+<li><a href="#6-discussion-and-conclusion">6. Discussion and conclusion</a></li>
+<li><a href="#credit-authorship-contribution-statement">CRediT authorship contribution statement</a></li>
+<li><a href="#declaration-of-competing-interest">Declaration of competing interest</a></li>
+<li><a href="#data-availability">Data availability</a></li>
+<li><a href="#acknowledgments">Acknowledgments</a></li>
+<li><a href="#funding">Funding</a></li>
+<li><a href="#appendix">Appendix</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </nav>
+        <div class="paper-info">
+          <p class="aside-title">Article information</p>
+          <dl><div><dt>Journal</dt><dd>Computers in Biology and Medicine 164: 107221</dd></div><div><dt>Published</dt><dd><time datetime="2023-07-10">10 July 2023</time></dd></div><div><dt>DOI</dt><dd><a href="https://doi.org/10.1016/j.compbiomed.2023.107221" target="_blank" rel="noopener">10.1016/j.compbiomed.2023.107221</a></dd></div></dl>
+        </div>
+      </aside>
+
+      <article class="paper-body" id="full-text">
+        <details class="paper-toc-mobile">
+          <summary>On this page</summary>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#1-introduction">1. Introduction</a></li>
+<li><a href="#2-related-work">2. Related work</a></li><li class="toc-sub"><a href="#21-generation-of-in-silico-dna-sequences">2.1. Generation of in silico DNA sequences</a></li><li class="toc-sub"><a href="#22-natural-mutation-process-in-cancer-cells">2.2. Natural mutation process in cancer cells</a></li><li class="toc-sub"><a href="#23-genetic-algorithms-for-bioinformatics">2.3. Genetic algorithms for bioinformatics</a></li>
+<li><a href="#3-model-definition">3. Model definition</a></li>
+<li><a href="#4-experimental-design">4. Experimental design</a></li>
+<li><a href="#5-results">5. Results</a></li>
+<li><a href="#6-discussion-and-conclusion">6. Discussion and conclusion</a></li>
+<li><a href="#credit-authorship-contribution-statement">CRediT authorship contribution statement</a></li>
+<li><a href="#declaration-of-competing-interest">Declaration of competing interest</a></li>
+<li><a href="#data-availability">Data availability</a></li>
+<li><a href="#acknowledgments">Acknowledgments</a></li>
+<li><a href="#funding">Funding</a></li>
+<li><a href="#appendix">Appendix</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </details>
+        <section id="abstract" class="paper-abstract">
+          <h2>Abstract</h2>
+          <p>Genome data are crucial in modern medicine, offering significant potential for diagnosis and treatment. Thanks to technological advancements, many millions of healthy and diseased genomes have already been sequenced; however, obtaining the most suitable data for a specific study, and specifically for validation studies, remains challenging with respect to scale and access. Therefore, in silico genomics sequence generators have been proposed as a possible solution. However, the current generators produce inferior data using mostly shallow (stochastic) connections, detected with limited computational complexity in the training data. This means they do not take the appropriate biological relations and constraints, that originally caused the observed connections, into consideration. To address this issue, we propose cancer-inspired genomics mapper model (CGMM), that combines genetic algorithm (GA) and deep learning (DL) methods to tackle this challenge. CGMM mimics processes that generate genetic variations and mutations to transform readily available control genomes into genomes with the desired phenotypes. We demonstrate that CGMM can generate synthetic genomes of selected phenotypes such as ancestry and cancer that are indistinguishable from real genomes of such phenotypes, based on unsupervised clustering. Our results show that CGMM outperforms four current state-of-the-art genomics generators on two different tasks, suggesting that CGMM will be suitable for a wide range of purposes in genomic medicine, especially for much-needed validation studies.</p>
+        </section>
+        
+<div class="paper-text">
+<h2 id="1-introduction">1. Introduction</h2>
+<p>Genetic data plays a central role in the new age of medicine, providing promising abilities in both diagnostics and treatment, thanks to advances in genetic sequencing technology <span class="cite">[<a href="#ref-1">1</a>–<a href="#ref-3">3</a>]</span>. However, current practices in medical genetics rarely allow robust genomics analysis, due to an insufficient amount of available data <span class="cite">[<a href="#ref-4">4</a>]</span>.</p>
+<p>Multiple computational methods have been developed to analyze genomics datasets in order to explore germline and somatic genetic variants that are associated with phenotypic traits and diseases in a population <span class="cite">[<a href="#ref-5">5</a>–<a href="#ref-7">7</a>]</span>. While the scientific community, funding bodies, companies, and the public, recognize the importance of free and open access to genomics data for scientific research and medical progress <span class="cite">[<a href="#ref-8">8</a>, <a href="#ref-9">9</a>]</span>, in practice, there is insufficient or overly complicated sharing of genomics data and associated metadata <span class="cite">[<a href="#ref-10">10</a>]</span>. Several projects have attempted to address this challenge. For example, the Personal Genome Project (PGP) <span class="cite">[<a href="#ref-11">11</a>]</span> makes all its data available under open access. The Cancer Genome Atlas (TCGA) <span class="cite">[<a href="#ref-12">12</a>]</span> and the International Cancer Genome Consortium (ICGC) <span class="cite">[<a href="#ref-13">13</a>]</span> make different parts of their data available under two tiers, open and controlled access. Moreover, lack of data diversity (e.g. underrepresentation of rare diseases, of populations of non-European-descend and of ethnic minorities) hampers the development of many phenotype- and population-specific models required to make genomic medicine as egalitarian as possible.</p>
+<p>To address these limitations, three main solutions have been developed. First, Data Simulators that simulate, <em>in silico</em>, genotype and phenotype data <span class="cite">[<a href="#ref-14">14</a>–<a href="#ref-17">17</a>]</span>. While these tools provide a solution for the lack of data problem, they do not adequately reflect the complexity of the data. Second, Data Generators generate the same type of data using more advanced statistical methods to extract genomic signatures but largely result in only slightly altered versions of the input data <span class="cite">[<a href="#ref-18">18</a>– <a href="#ref-20">20</a>]</span>. Both methods lack mathematical formalization limiting the level of complexity they can handle. This is mainly due to the small parameter space considered and the limited size of the feasible operations these models utilize.</p>
+<p>Another type of genomic generative method using machine learning (ML) approaches to extract complex patterns, which are later used to generate genome sequences that satisfy these patterns <span class="cite">[<a href="#ref-21">21</a>–<a href="#ref-23">23</a>]</span>. These methods can learn extremely complex patterns and signatures in the data, however, they are often inapplicable as they require a large input dataset to work properly (which is typically not available).</p>
+<p>To tackle these issues, we developed CGMM, a novel mathematical framework for generating synthetic genome sequences, even from scarce input data. Unlike other models, that aim to capture signatures in a single set, our approach focuses on capturing the evolutionary and mechanistic dynamics of how mutations and variants modulate a control genome into a case genome. This way, our cancer-inspired genomics mapper model (CGMM), is able to exploit the availability of a large number of genomes as a control set and learn to map it to a small case set of genomes with the desired phenotype. The model is then able to apply the mapping it learned to convert independent control genomes into realistic case genomes.</p>
+<p>Specifically, CGMM is built upon a genetic algorithm that optimizes the mapping of control genomics samples into case genomics samples. The genetic algorithm uses a fitness function that is inspired by the evolutionary mechanisms that drive cancer progression, including mutation, selection, and adaptation. The fitness function incorporates multiple features of the genomic data, including sequence alignment, quality scores, and structural variations, to accurately map the synthetic reads. Afterward, CGMM incorporates a machine learning component that uses a recurrent neural network to learn and predict the optimal mapping mutation steps. The neural network is trained on a large dataset of simulated mutation patterns to learn the relationship between the genomic features and the optimal mapping parameters.</p>
+<p>We evaluated CGMM on two datasets, demonstrating its ability to reliably multiply the desired sample count, by generating synthetic genomes associated with the case set. We compare the resulting synthetic samples to those produced by four current state-of-the-art genome generative models, demonstrating that CGMM outperforms them.</p>
+<p>The rest of the paper is organized as follows. In Section 2, we provide an overview of the latest computational and mathematical models for <em>in silico</em> DNA generation, including the relevant information inspiring the construction of CGMM. Section 3, formally introduces CGMM. In Section 5, we describe two <em>in silico</em> experiments to evaluate the performance of CGMM compared to other genomics generator models. Finally, Section 6 concludes the results and proposes possible future work.</p>
+<h2 id="2-related-work">2. Related work</h2>
+<p>This section reviews the latest methods used to generate synthetic DNA sequences, as well as the natural evolution patterns of cancer cells and the advantages of GA in bioinformatics (which CGMM mimics and implements).</p>
+<h3 id="21-generation-of-in-silico-dna-sequences">2.1. Generation of in silico DNA sequences</h3>
+<p>The generation of <em>in silico</em> DNA sequences based on diverse assumptions originated from previous findings of patterns in similar pathogens and samples. In particular, one defines a distribution of Single-nucleotide polymorphism (SNP) by processing available data or requesting the user to provide them, which are then randomly sampled to generate new sequences <span class="cite">[<a href="#ref-24">24</a>,<a href="#ref-25">25</a>]</span>. Moreover, multiple simulators assume a linear and independent connection between the SNPs <span class="cite">[<a href="#ref-16">16</a>, <a href="#ref-26">26</a>]</span>. For instance, <span class="cite">[<a href="#ref-27">27</a>]</span> proposed multi-trait, multi-locus phenotype simulations in quantitative genetics, based on a linear mix of models in a mathematical framework that takes into consideration four components: genetic variant effects, infinitesimal genetic effects, non-genetic-covariate effects, and observational noise effects as properties of <em>𝑁</em> samples and <em>𝑝</em> traits. This approach allows the simulator to capture realistic covariate structures. However, the model is limited by its linear mathematical nature.</p>
+<p>Such assumptions are known to be invalid in practice since biologically, the SNPs are not randomly sampled across the genome and unnecessarily have a linear and independent relationship between them <span class="cite">[<a href="#ref-28">28</a>–<a href="#ref-30">30</a>]</span>. For example, <span class="cite">[<a href="#ref-31">31</a>]</span> show a non-linear accumulation of structural and numeric chromosomal aberrations as well as of gene mutation during cancer progression. Therefore, several models relax these assumptions to obtain a more accurate representation of the genomics dynamics <span class="cite">[<a href="#ref-32">32</a>–<a href="#ref-34">34</a>]</span>.</p>
+<p><span class="cite">[<a href="#ref-35">35</a>]</span> proposed an epistasis simulation pipeline that can generate dichotomous, categorical, and quantitative phenotypes which can simulate non-linear interaction in the distribution of SNPs while understanding observation bias. The simulation is constructed from four sequential computational processes: generating a genotype corpus, subsumption of SNPs sets, applying the epistasis model to the sampled SNPs sets, and subsampling the set of individuals. One limitation of the model is that it requires the user to declare the set of SNPs one wants to simulate specifically.</p>
+<p><span class="cite">[<a href="#ref-36">36</a>]</span> presented a simulator that aims to balance the realism and computation speed for genotype data. In particular, the simulator is based on randomly sampling genetic markers as quantitative trait nucleotides (QTNs) from the whole genome or user-specified genomic area in either a normal or a geometry distribution. The proposed model allows dynamic changes in the QTNs due to the previous allocation of QTNs in different areas of the genome. This dynamic constraint allocation allows complex, non-linear dynamics but requires knowing them during the design phase rather than extracting them from the inputted data.</p>
+<p><span class="cite">[<a href="#ref-37">37</a>]</span> developed a simulator that simulates GWAS phenotype data based on user-supplied genotype data for a population and considers several biological properties such as heritability, dominance, population stratification, and epistatic interactions between SNPs. The authors divided the interaction between the SNPs into a causal sampling of the one-dimensional distribution of SNPs, and the latter in the pipeline enriched these dynamics by computing the inter-SNPs interactions. Afterward, the simulator introduces phenotype habitability in the population and population stratification to obtain case and control phenotype genomes.</p>
+<p><span class="cite">[<a href="#ref-38">38</a>]</span> proposed a tool for the generation of heterogeneous cancer whole-exome and targeted sequencing synthetic datasets, which enables the incorporation of phased germline single nucleotide polymorphisms and allele-specific somatic genomic events. The author used a combination of the Read Depth model, the Quality model, and the Position-Based Error method which obtain reference samples and use them to generate similar samples with statistical errors that are responsible for the heterogeneity of the tool’s output. The author evaluated their tool for several types of cancer, reporting better results compared to previous methods.</p>
+<h3 id="22-natural-mutation-process-in-cancer-cells">2.2. Natural mutation process in cancer cells</h3>
+<p>Cancer is a complex disease that arises from the accumulation of genetic and epigenetic alterations in cells that drive uncontrolled proliferation and invasion <span class="cite">[<a href="#ref-39">39</a>]</span>. The evolution of cancer cells from healthy ones is a multi-step process that involves the acquisition of various mutations in genes that regulate critical cellular functions, including cell cycle progression, DNA damage repair, and cell death <span class="cite">[<a href="#ref-40">40</a>,<a href="#ref-41">41</a>]</span>. Once a cancer cell acquires the initial mutations, it undergoes clonal expansion and further accumulates additional mutations, leading to the emergence of subclones with distinct phenotypes and genetic profiles <span class="cite">[<a href="#ref-42">42</a>]</span>. Thus, from the cancer cells’ population point of view, the amount of mutations is an ever-increasing quantity, if not treated. During the mutation process, the healthy cells that become cancer cells are bounded in the way they mutate, as unwanted mutations that are detectable by the immune system would be removed from the body <span class="cite">[<a href="#ref-43">43</a>,<a href="#ref-44">44</a>]</span>. In a similar manner, cells that mutate at a high enough rate in a short period of time are also usually detected by the immune system and removed from the body <span class="cite">[<a href="#ref-45">45</a>]</span>. In total, cancer cells increase their mutation rate during the process while being bounded in each mutation step <span class="cite">[<a href="#ref-46">46</a>,<a href="#ref-47">47</a>]</span>. In our model, we utilize this evolutionary approach in the form of an accelerated-bounded mutation operator as part of a genetic algorithm scheme.</p>
+<h3 id="23-genetic-algorithms-for-bioinformatics">2.3. Genetic algorithms for bioinformatics</h3>
+<p>A genetic algorithm (GA) is an optimization method inspired by the evolution theory <span class="cite">[<a href="#ref-48">48</a>]</span>. In particular, GA simulates the process of ‘‘evolving’’ through natural selection, where solutions (also referred to as ‘‘genes’’) that obtain a better score from the fitness function are considered more adapted. Therefore, these genes have a higher probability to pass their information to the next generation. This evolution jump between one generation to the other is performed by three stochastic processes: mutation <span class="cite">[<a href="#ref-49">49</a>,<a href="#ref-50">50</a>]</span>, crossover <span class="cite">[<a href="#ref-51">51</a>,<a href="#ref-52">52</a>]</span>, and feasibility test <span class="cite">[<a href="#ref-53">53</a>,<a href="#ref-54">54</a>]</span>.</p>
+<p>GAs have been used in multiple fields such as engineering <span class="cite">[<a href="#ref-55">55</a>]</span>, medicine <span class="cite">[<a href="#ref-56">56</a>]</span>, and economy <span class="cite">[<a href="#ref-57">57</a>]</span>. <span class="cite">[<a href="#ref-53">53</a>]</span> tackled the task of process planning optimization that is based on sequences of machines and the operations they perform. The authors used GA to obtain feasible processes for a start and later found the optimal process from the set of feasible processes. <span class="cite">[<a href="#ref-51">51</a>]</span> explored and analyzed the usage of GA with various constraints in process route sequencing and astringency. The authors reconstructed the GA, including the establishment of the coding strategy, the evaluation operator, and the fitness function, showing that the new GAs can meet the requirement of sequencing work and can meet the requirement of astringency.</p>
+<p>In the context of genomics data, several bioinformatic challenges have been tackled using GA. For instance, <span class="cite">[<a href="#ref-58">58</a>]</span> show promising results studying different genetic algorithm operators for the assembly of Deoxyribonucleic acid (DNA) sequence fragments into a consensus sequence corresponding to the parent sequence, from a parent clone whose sequence is unknown. Additionally, <span class="cite">[<a href="#ref-59">59</a>]</span> analyzed gene expression for several cancer types, including ovarian, prostate, and lung cancer. The authors proposed an integrated gene-search algorithm for gene expression data analysis, that is based on the GA approach with correlation-based heuristics for data preprocessing. This algorithm obtained 89% accuracy in classifying 44 DNA samples into three types of cancer.</p>
+<p>Overall, GA has demonstrated promising results in bioinformatics research <span class="cite">[<a href="#ref-60">60</a>–<a href="#ref-63">63</a>]</span>, and especially in genomics-related tasks <span class="cite">[<a href="#ref-64">64</a>,<a href="#ref-65">65</a>]</span>. Thus, GA poses a promising computational approach to the task of generating synthetic DNA sequences.</p>
+<h2 id="3-model-definition">3. Model definition</h2>
+<p>The usage of CGMM, like many other data-driven models, is divided into two phases: training and inference. During the training phase, CGMM solves several optimization tasks to obtain the weights of inner machine learning components that construct CGMM. Afterward, CGMM accepts new, previously unseen, samples as part of the inference phase and makes its prediction. A schematic view of CGMM is provided in <a class="xref" href="#fig-1">Fig. 1</a>, outlining the main computational steps in both the training and inference processes.</p>
+<p><strong>During the training phase</strong>, CGMM performs four main steps. The first step is acquiring the necessary inputs of a <em>control</em> set and a <em>case</em> set of Variant Call Format (VCF) file format. The control and case set samples are divided in some user-defined ratio into two, where one part is for the training phase, and the second part is left for the inference phase. In addition, the user may provide SNPs associated with the case group, to be used during the training of CGMM. Afterward, according to some pairing approach (<em>𝛱</em>) chosen at the discretion of the user, CGMM generates pairs of <em>control</em> and <em>case</em> samples from the training dataset. Roughly divided, there are three possible pairing approaches one can take: (1) A <em>brute-force</em> approach where each sample in the <em>control</em> set is paired with all the samples in the <em>case</em> set. This approach results in the most amount of pairs and, therefore, with the largest training dataset. However, at some point, the marginal contribution of each new pair becomes insignificant, which leads to unnecessary computations. (2) A individual-centric approach, where pairs of the <em>control</em> and <em>case</em> samples are obtained from the same individual. This enables the preservation of personal traits in the resulting synthetic DNA sequence containing the <em>case</em> mutations. (3) A reduced <em>brute-force</em> approach, where one can use any subset of the pairs group generated by the <em>brute-force</em> approach. In particular, as the end goal is to learn pairing from the control to the case sets, one can take <em>𝑧</em> ∈ N random <em>case</em> samples, in a uniform manner, for each <em>control</em> case. While this approach introduces another level of randomness to the model, appropriate usage of if removes the disadvantages of the <em>brute-force</em> approach while preserving its advantages. Therefore, this approach is the default of CGMM.</p>
+<p>Once pairs of control and case samples are obtained, CGMM implements the second training step, using the <em>Reversed bioprocess genetic algorithm</em> (RBGA) to generate a set of possible mutation processes from the <em>control</em> to the <em>case</em> samples. Formally, the RBGA is an instance of a GA algorithm with several modifications. Overall, GA follows the same computational framework with four main operators: stop condition, selection, crossover, and mutation. First, A GA would generate a random population of solution candidates. Then, the stop condition operator indicates the GA to stop once met. Otherwise, the GA would execute the other three operators in an iterative manner. The selection operator is the stage in which individual members are chosen from a population for the next iteration. This operator aims to stochastically use a fitness function to find and generate a new population of solutions that, on average, are better suited to a task in hand. The crossover operator is used to combine the information of two members to generate new members, mimicking the reproduction and biological crossover. Finally, the mutation operator introduces random changes to the members of the population. There are multiple implementations for each one of these operators that directly define the GA. For the case of RBGA, we set the fitness function to be the MASH metric <span class="cite">[<a href="#ref-66">66</a>]</span> between the member of the population and the <em>case</em> sample. Following this decision, the <sub>1</sub> ∑ stop condition operator is set to be <sub>𝑖∈𝑁</sub> <em>𝑀𝐴𝑆𝐻</em>(<em>𝑝</em><sub>𝑖</sub><em>, 𝐶</em>) ≤ <em>𝜉</em>, where <em>𝑁 𝑁</em> ∈ N is the size of the GA’s population which denoted by <em>𝑃</em>, <em>𝑝</em><sub>𝑖</sub> ∈ <em>𝑃</em> is each member in the current GA’s population, <em>𝐶</em> is the <em>case</em> sample, and <em>𝜉</em> ∈ R<sup>+</sup> is a threshold value set by the user. The selection operator (also known as the <em>next-generation</em> operator) is implemented to be the ‘‘<em>tournament with royalty</em>’’ <span class="cite">[<a href="#ref-51">51</a>]</span>. We choose this selection operator as multiple studies show it performs better than other operators and is able to converse in complex and multi-dimensional optimization tasks such as ours <span class="cite">[<a href="#ref-67">67</a>]</span>. For the crossover operator, we choose at random (in a uniformly distributed manner) pairs of members from the GA’s population and a pivot point, generating two new members for the GA’s population. These members replace the original two by crossing the two parts of each from the original members, as defined by the random pivot point <span class="cite">[<a href="#ref-49">49</a>]</span>. Lastly, we propose a novel mutation process inspired by the way cancer mutates. Similar to how cancer cells (representing <em>case</em> samples) evolve from healthy cells (representing <em>control</em> samples), CGMM removes, adds, or edits SNPs in the <em>control</em> DNA sequence, while maintaining similarity to its origin. To do so, we adopt the decreasing learning rate approach from the adaptive gradient descent algorithm <span class="cite">[<a href="#ref-68">68</a>]</span>, while also bounding the total distance the changes can cause in a single mutation step. Precisely, let <em>𝜇</em> ∈ R<sup>+</sup> and <em>𝜎</em> ∈ R<sup>+</sup> be the mean and standard deviation of a normal distribution stochastic variable <em>𝜁</em> ∼ <em>𝑁</em>(<em>𝜇, 𝜎</em><sup><a href="#ref-2">2</a></sup>). In addition, let us define a discount factor <em>𝜆</em> ∈(0<em>,</em> 1). Now, the accelerated-bounded mutation operator operates as follows. For the <em>𝑖</em><sub>𝑡ℎ</sub> generation of the GA, we choose a random number of mutations <em>𝜁</em><sub>𝑖</sub> that distributed <em>𝑁</em>(<em>𝜇</em> ⋅ <em>𝜆</em><sup>𝑖</sup><em>, 𝜎</em><sup><a href="#ref-2">2</a></sup> ⋅ <em>𝜆</em><sup>𝑖</sup>). Then, we apply <em>𝜁</em><sub>𝑖</sub> changes to the member reflected by random SNPs. If the MASH metric distance between the member after the mutation and the sample before the mutation is larger than a pre-defined threshold <em>𝛽</em> ∈ R<sup>+</sup>, the mutated member is considered infeasible, and the process repeats. Moreover, at this stage, if the user provided SNPs associated with the case group, the distribution of these SNPs in the case group is calculated and used as the distribution function for the mutation operator (replacing the uniform distribution function).</p>
+<p>After a predefined number of pairs (or all of them, if not set otherwise) produce the mutation processes, CGMM initiates the third step of the training phase, in which a model of AutoEncoder (AE) with a self-attention layer is trained. Formally, the AE accepts a mutation process in the form of a list of numbers, which indicate the index in the genome array and one of the 12 possible SNP mutations. The AE is generated using the AutoKeras automatic deep learning library, to find the near-optimal AE architecture <span class="cite">[<a href="#ref-69">69</a>]</span> for the specific inputs inserted. To do so, the AutoKeras framework aims to minimize the mean square error between the input and the reconstructed samples, using Bayesian optimization on the size of the encoding layer <span class="cite">[<a href="#ref-70">70</a>]</span>. Once the AE model is obtained, each step in the mutation processes generated during the RBGA is converted into an encoded vector. This results in a set of vectors with the same dimension (i.e., the AE’s encoding layer’s dimension), describing a possible mutation process that links a specific pair of <em>control</em> and <em>case</em> samples.</p>
+<figure id="fig-1">
+<a class="fig-zoom" href="figures/fig-1.webp" aria-label="Open the figure full size"><img src="figures/fig-1.webp" width="731" height="295" alt="A schematic view of the model’s training and inference phases" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 1.</strong> A schematic view of the model’s training and inference phases. First, the input data is divided, leaving a specified part of the <em>control</em> samples (<em>𝑧</em> samples) for inference. The rest of the input data proceeds into the training phase, where: (1) The evolution processes linking each pair of <em>control</em> and <em>case</em> samples are estimated (RBGA process). (2) Each step in the process is encoded to a smaller, <em>latent space</em> (AE component). (3) A predictive model is trained to predict the next encoded step of an evolution process (NMP component). During the inference phase, the <em>𝑧 control</em> samples are used to generate encoded vectors of the first step in an evolution process (Encoder part). Then, the trained NMP component predicts a series of mutation steps, until reaching the desired genomic signatures. Finally, the last predicted step, representing an encoded, synthetic, <em>case</em> sample, is decoded into VCF format (Decoder part).</figcaption>
+</figure>
+
+<p>In the fourth and final step of the training phase, CGMM uses a recurrent neural network (RNN) architecture, with a long-short term memory layer (LSTM), to predict the next step in a possible mutation process between pairs of <em>control</em> and <em>case</em> samples. This RNN component of CGMM is denoted as the Next Mutation Predictor (NMP). The NMP works as a time-series predictor, similar to the way Large Language Models learn to predict the next word in a sentence <span class="cite">[<a href="#ref-71">71</a>]</span>. In particular, it is generated using the model architecture proposed by <span class="cite">[<a href="#ref-72">72</a>]</span>, as it showed promising accuracy on the next-word prediction task while keeping the model’s size relatively small, and therefore, less computationally expensive. Like the work of <span class="cite">[<a href="#ref-72">72</a>]</span>, the NMP receives a special token indicating the mutation process is over every time it reaches the end of an encoded representation vector. This indicates to the NMP that the specific mutation process has ended and prevents it from attempting to predict the next step in the process indefinitely.</p>
+<p>Finally, the trained NMP and the AE models are saved for later usage in the inference phase.</p>
+<p>During the inference phase, CGMM performs three main steps, this time on the input of <em>𝛼</em> ∈ N<em>control</em> samples that were set aside for inference. In the first step, CGMM implements the Encoder part of the AE generated during training, to encode the samples into encoded vectors. In the second step, the encoded vectors are passed to the NMP model, where their respective mutation process into <em>case</em> samples are predicted. Finally, the resulting predictions are decoded in the Decoder part of the AE, converting them back into VCF format sequences. This results in a set of <em>𝛼</em> synthetic <em>case</em> samples.</p>
+<figure class="table-figure" id="table-1">
+<figcaption><strong>Table 1</strong> The sample count of <em>control</em> and <em>case</em> samples used during the training and inference phases. For inference, only the <em>control</em> samples are needed for CGMM’s operation, whilst the listed <em>case</em> samples are used to evaluate the reliability of the results.</figcaption>
+<div class="table-scroll"><table><tr><th></th><th>Exp.1</th><th></th><th>Exp.2</th><th></th><th>Exp.3</th><th></th></tr><tr><th></th><th>Control</th><th>Case</th><th>Control</th><th>Case</th><th>Control</th><th>Case</th></tr><tr><td>Train</td><td>140</td><td>70</td><td>100</td><td>50</td><td>60</td><td>20</td></tr><tr><td>Test</td><td>60</td><td>30</td><td>100</td><td>50</td><td>30</td><td>10</td></tr></table></div>
+
+</figure>
+
+<h2 id="4-experimental-design">4. Experimental design</h2>
+<p>We tested CGMM on three tasks, to demonstrate its capability to reliably increase the readily available DNA sequences of the <em>case</em> set. To do so, we collected genomics sequences from public repositories and divided them into the desired <em>case</em> set, which we needed to enrich with synthetic data, and the control set of DNA sequences, that we used for this task. Specifically, for the first two experiments (Exps. 1 and 2), we used 300 samples from the Personal Genomics Project (PGP), from three countries: the United Kingdom (120 samples), Canada (110 samples), and the United States (70 samples). The samples were manually divided into 200 European-dominant DNA sequences, acting as the control set, and 100 African-dominant DNA sequences, acting as the <em>case</em> set. In order to make sure the tagged ancestry is valid, we verified that the tags of all the samples correspond both to a PCA-based ancestry classification and to the ancestry self-reported by the examined individuals <span class="cite">[<a href="#ref-73">73</a>]</span>. For the final experiment (Exp.3), we used 90 control samples from PGP corresponding to healthy individuals from the United Kingdom, and 30 <em>case</em> samples were obtained from Genomic Data Commons (GDC), corresponding to individuals with skin melanoma.</p>
+<p>To demonstrate the balance between the conversion rate of control samples into <em>case</em> samples, and the absolute number of successfully converted control samples, we used a 50%–50% training and testing ratio for Exp. 2, compared to a 70%–30% ratio for Exps. 1 and 3. The resulting sample counts for each phase are presented in <a class="xref" href="#table-1">Table 1</a>.</p>
+<p>Once the dataset was divided, the model was trained using the hyperparameters listed in <a class="xref" href="#table-3">Table 3</a>, provided in Appendix.</p>
+<p>To demonstrate that CGMM is capable of learning the correct relation and genomics signatures associated with each <em>case</em> set, we repeated each experiment twice: once without any knowledge integration, then with outside knowledge in the form of ancestry-related SNPs from ForenSeq™ DNA <span class="cite">[<a href="#ref-74">74</a>]</span> (Exp. 1–2), or in the form of skin-melanoma-related SNPs from <span class="cite">[<a href="#ref-75">75</a>]</span>.</p>
+<figure id="fig-2">
+<a class="fig-zoom" href="figures/fig-2.webp" aria-label="Open the figure full size"><img src="figures/fig-2.webp" width="498" height="229" alt="The resulting sample count of the case set DNA sequences, comprised of the original, real samples (blue), the synthetic samples produced without any SNP knowledge (red), and the additional synthetic s" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 2.</strong> The resulting sample count of the <em>case</em> set DNA sequences, comprised of the original, real samples (blue), the synthetic samples produced without any SNP knowledge (red), and the additional synthetic sample count that was achieved with knowledge integration (yellow). The results of CGMM are compared to those achieved by GEPSi (M1), PhenotypeSimulator (M2), G2P (M3), and Zhou et al. (M4).</figcaption>
+</figure>
+
+<figure class="table-figure" id="table-2">
+<figcaption><strong>Table 2</strong> Comparison of the conversion rate of <em>control</em> samples into <em>case</em> samples, as achieved by CGMM and four state-of-the-art models.</figcaption>
+<div class="table-scroll"><table><tr><th>Test configuration</th><th>CGMM</th><th>G2P <span class="cite">[<a href="#ref-36">36</a>]</span></th><th>Zhou et al. <span class="cite">[<a href="#ref-79">79</a>]</span></th><th>PhenotypeSimulator <span class="cite">[<a href="#ref-27">27</a>]</span></th><th>GEPSi <span class="cite">[<a href="#ref-37">37</a>]</span></th></tr><tr><td>𝐸1</td><td>78.3%</td><td>38.3%</td><td>31.6%</td><td>40.0%</td><td>56.6%</td></tr><tr><td>𝐸1 with SNPs</td><td>85.0%</td><td>71.6%</td><td>68.3%</td><td>83.3%</td><td>81.6%</td></tr><tr><td>𝐸2</td><td>73.3%</td><td>31.6%</td><td>26.6%</td><td>38.3%</td><td>41.6%</td></tr><tr><td>𝐸2 with SNPs</td><td>86.6%</td><td>68.3%</td><td>73.3%</td><td>81.6%</td><td>78.3%</td></tr><tr><td>𝐸3</td><td>46.6%</td><td>23.3%</td><td>16.6%</td><td>36.6%</td><td>30.0%</td></tr><tr><td>𝐸3 with SNPs</td><td>73.3%</td><td>53.3%</td><td>46.6%</td><td>66.6%</td><td>70.0%</td></tr></table></div>
+
+</figure>
+
+<p>To evaluate the performance of CGMM, we used hierarchical clustering following the CLINK algorithm <span class="cite">[<a href="#ref-76">76</a>]</span>, and computed the distances between samples using the MASH metric <span class="cite">[<a href="#ref-66">66</a>]</span>. While there are many other metrics, such as the Jensen–Shannon divergence (JSD) <span class="cite">[<a href="#ref-77">77</a>]</span> and the Kullback–Leibler (KL) divergence metrics <span class="cite">[<a href="#ref-78">78</a>]</span>, we decided to use MASH due to its popularity and well-established validation in bioinformatics. We then report the conversion rate, meaning the percentage of <em>control</em> samples that were classified as <em>case</em> samples out of the total <em>control</em> samples used during inference. The results of CGMM for each experiment are compared to those obtained by four other models, considered as state-of-the-art genomics generators <span class="cite">[<a href="#ref-27">27</a>,<a href="#ref-36">36</a>,<a href="#ref-37">37</a>,<a href="#ref-79">79</a>]</span>.</p>
+<h2 id="5-results">5. Results</h2>
+<p><a class="xref" href="#table-2">Table 2</a> presents the conversion rate of <em>control</em> samples into reliable <em>case</em> samples, as achieved by the five examined models. As expected, the results indicate that the more training samples obtained, the easier it becomes for the models to detect the genomic signatures associated with each <em>case</em> set. Therefore, Exp.1 leads to the highest conversion rates for all models (neglecting cases where SNPs are included). However, once SNPs’ knowledge is integrated, the effect of the training sample count reduces significantly. Additionally, in all experiments CGMM is the least affected by the addition of SNPs knowledge, gaining only a 15<em>.</em>6%±10<em>.</em>2% increase in conversion rates for Exp. 1–3, compared to a 36% ± 2<em>.</em>8% increase observed in the rest of the models.</p>
+<p><a class="xref" href="#fig-2">Fig. 2</a> demonstrates the increase in the sample count of the resulting <em>case</em> dataset of DNA sequences in Exp. 1–2. Although both experiments started with the same baseline count of samples (blue), and Exp.2 led to smaller conversion rates for all models (see <a class="xref" href="#table-2">Table 2</a>), models achieved a more optimal result in Exp.2 than in Exp.1. In other words, they all resulted in a larger sum of reliable synthetic DNA sequences (either with SNPs knowledge (yellow) or without (red)).</p>
+<h2 id="6-discussion-and-conclusion">6. Discussion and conclusion</h2>
+<p>In this study, we proposed a novel cancer-inspired genomics mapper model (CGMM) that combines a genetic algorithm with a unique cancer-like mutation process, a deep learning AutoEncoder, and a next-word prediction model, to capture the non-linear dynamics linked to the mutation process between two genomics samples. Using our CGMM model, we were able to generate synthetic genomes while maintaining the personal traits of the input samples. This was done by learning the possible mutation evolution process between the pairs of samples and bounding each evolutionary step with logical assumptions that mimic the evolution of cancer cells. Thus, CGMM is able to receive an input genome and mutate it until some desired property is achieved. Therefore, our computational approach differs from current synthetic genomics models, which try to capture the unique statistical properties on the genomics level, given a dataset of genomes with a desired property (such as ancestry or pathogen). Opposed to them, we aim to capture the statistical mutation dynamics between a dataset of <em>control</em> samples, that are more readily available, and a dataset of <em>case</em> samples, that possess the desired property we want. This way, CGMM is able to take advantage of genome samples that are found in abundance in order to reliably enrich a different, smaller dataset of genome samples, with synthetic samples.</p>
+<p>In order to evaluate CGMM’s performance compared to other synthetic genome generation models <span class="cite">[<a href="#ref-27">27</a>,<a href="#ref-36">36</a>,<a href="#ref-37">37</a>,<a href="#ref-79">79</a>]</span>, we conducted three experiments that aim to generate genomes with a desired property (Exp. 1–3). For that, we used two datasets, one of European and African-dominant ancestries, and the other of healthy individuals and individuals with skin melanoma. In all experiments, as shown in <a class="xref" href="#table-2">Table 2</a>, CGMM outperformed the other models, generating a higher conversion rate of <em>control</em> samples into reliable, synthetic <em>case</em> samples.</p>
+<p>We repeated each experiment, integrating outside knowledge in the form of SNPs. The results show that the integration of knowledge further improves the performance of CGMM, however, at a much smaller rate than that of all other models (as seen in <a class="xref" href="#table-2">Table 2</a> and <a class="xref" href="#fig-2">Fig. 2</a>). This leads to comparable results of CGMM and the rest of the state-of-art models if knowledge is integrated. Thus we argue that: 1) The results demonstrate that CGMM, opposed to the other models, is capable of learning the correct relation between the <em>control</em> and <em>case</em> set. Hence, the integration of knowledge has a relatively low effect on it. 2) CGMM seems to be able to capture SNP signatures partially. This is a promising outcome as with a proper adoption, CGMM can be used for SNP signature detection as well. 3) Without knowledge of SNP signatures, CGMM may achieve better results than the other models, even on small datasets. This is because the mutation path approach of CGMM can extend the training set to a much larger cohort, by pairing the <em>case</em> samples with multiple <em>control</em> samples. This, in turn, increases the number of mutation processes available for the training of CGMM, easing the deduction of synthetic <em>case</em> samples.</p>
+<figure class="table-figure" id="table-3">
+<figcaption><strong>Table 3</strong> The description of the model’s hyperparameters and their values.</figcaption>
+<div class="table-scroll"><table><tr><th>Parameter definition</th><th>Value</th></tr><tr><td>Pairing approach <span class="cite">[<a href="#ref-1">1</a>]</span></td><td>Subset approach with 10 pairs for each case samples</td></tr><tr><td>Number of generations in RBGA <span class="cite">[<a href="#ref-1">1</a>]</span></td><td>100</td></tr><tr><td>Initial mutation rate in the genetic algorithm <span class="cite">[<a href="#ref-1">1</a>]</span></td><td>2.5 ⋅10−4</td></tr><tr><td>Mutation rate decrease factor in the genetic algorithm <span class="cite">[<a href="#ref-1">1</a>]</span></td><td>1 ⋅10−5</td></tr><tr><td>Royalty rate in the genetic algorithm <span class="cite">[<a href="#ref-1">1</a>]</span></td><td>0.05</td></tr><tr><td>The threshold value, 𝜁, for the stop condition <span class="cite">[<a href="#ref-1">1</a>]</span></td><td>1.5 ⋅103</td></tr><tr><td>Bounding factor, 𝛽, for the accelerated-bounded mutation operator <span class="cite">[<a href="#ref-1">1</a>]</span></td><td>4.5 ⋅103</td></tr><tr><td>AutoEncoder’s encoding layer dimension <span class="cite">[<a href="#ref-1">1</a>]</span></td><td>8192</td></tr></table></div>
+
+</figure>
+
+<p>Additionally, <a class="xref" href="#fig-2">Fig. 2</a> shows that one has to balance the need for a large training set (which aids in achieving a higher conversion rate), and the need to preserve samples for the generation of synthetic ones. Thus, we show that although a higher conversion rate is achieved in Exp.1, a larger, absolute increase in sample count is achieved in Exp.2 (i.e., CGMM generated in Exp.2 31 more reliable synthetic samples than in Exp.1 although it was trained on a smaller dataset of samples).</p>
+<p>This study has several limitations that should be addressed in future work to improve further the performance and usability of CGMM. First, the AutoEncoder component in CGMM is designed to optimize an encoding task, as obtained by using the auto deep learning approach, but does not utilize any domain knowledge that can be helpful <span class="cite">[<a href="#ref-80">80</a>,<a href="#ref-81">81</a>]</span>. Second, the current method is not explainable, which may limit its usage in the clinical domain <span class="cite">[<a href="#ref-82">82</a>,<a href="#ref-83">83</a>]</span>. Third, due to the lack of freely available genomics data, the experiments were conducted on relatively small datasets. While these experiments represent important usage configurations, a test on a statistically larger dataset can allow obtaining a more robust evaluation of CGMM. Similarly, the proposed method can be adapted to other types of data, such as proteins <span class="cite">[<a href="#ref-84">84</a>]</span>. However, as each data type employs unique biological dynamics, the transformation between one type to another is not trivial and can be the focus of future work.</p>
+<h2 id="credit-authorship-contribution-statement">CRediT authorship contribution statement</h2>
+<p><strong>Teddy Lazebnik:</strong> Conceptualization, Data curation, Formal analysis, Investigation, Methodology, Software, Visualization, Supervision, Writing – original draft, Writing – review &amp; editing. <strong>Liron Simon-</strong></p>
+<p><strong>Keren:</strong> Formal analysis, Visualization, Writing – original draft.</p>
+<h2 id="declaration-of-competing-interest">Declaration of competing interest</h2>
+<p>The authors have no financial or proprietary interests in any material discussed in this article.</p>
+<h2 id="data-availability">Data availability</h2>
+<p>The data used is publicly available, and the sources are cited in the text.</p>
+<h2 id="acknowledgments">Acknowledgments</h2>
+<p>The authors wish to thank Olga Chervova, Vitaly Voloshin, Ismail Moghul, and Stephan Beck for their help in this project.</p>
+<h2 id="funding">Funding</h2>
+<p>This research received no specific grant from funding agencies in the public, commercial, or not-for-profit sectors.</p>
+<h2 id="appendix">Appendix</h2>
+<p>The proposed model’s hyperparameters descriptions and values have been used as part of the presented experiments. These values are chosen throughout the trial and error process during the development of CGMM for a subset of the samples used in the presented Exp 1.</p>
+<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 8 May 2023 · Accepted 30 June 2023 · Published 10 July 2023</dd></div></dl></section>
+<h2 id="references">References</h2>
+<ol class="paper-refs"><li id="ref-1">C.M. Fraser, A genome to celebrate, Science 371 (6529) (2021) 545. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb1" target="_blank" rel="noopener">link</a></li>
+<li id="ref-2">A.J. Gates, D.M. Gysi, M. Kellis, A.-L. Barabasi, A wealth of discovery built on the Human Genome Project — by the numbers, Nature 590 (2021) 212–215. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb2" target="_blank" rel="noopener">link</a></li>
+<li id="ref-3">F.S. Alkuraya, How the human genome transformed study of rare diseases, Am. J. Hum. Genet. 97 (2) (2015) 199–215. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb3" target="_blank" rel="noopener">link</a></li>
+<li id="ref-4">J. Berg, M. Khoury, J. Evans, Deploying whole genome sequencing in clinical practice and public health: Meeting the challenge one bin at a time, Genet. Med. 13 (2011) 499–504. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb4" target="_blank" rel="noopener">link</a></li>
+<li id="ref-5">S.L. Poon, M.N. Huang, Y. Choo, J.R. McPherson, W. Yu, H.L. Heng, A. Gan, S.S. Myint, E.Y. Siew, L.D. Ler, L.G. Ng, W.-H. Weng, C.-K. Chuang, J.S.P. Yuen, S.-T. Pang, P. Tan, B.T. Teh, S.G. Rozen, Mutation signatures implicate aristolochic acid in bladder cancer development, Genome Med. 7 (2015) 38. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb5" target="_blank" rel="noopener">link</a></li>
+<li id="ref-6">L.B. Alexandrov, M.R. Stratton, Mutational signatures: the patterns of somatic mutations hidden in cancer genomes, Curr. Opin. Genet. Dev. 24 (2014) 52–60. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb6" target="_blank" rel="noopener">link</a></li>
+<li id="ref-7">S. Nik-Zainal, L.B. Alexandrov, D.C. Wedge, P. Van Loo, C.D. Greenman, K. Raine, D. Jones, J. Hinton, J. Marshall, L.A. Stebbings, A. Menzies, S. Martin, K. Leung, L. Chen, C. Leroy, M. Ramakrishna, R. Rance, K.W. Lau, L.J. Mudie, I. Varela, D.J. McBride, G.R. Bignell, S.L. Cooke, A. Shlien, J. Gamble, I. Whitmore, M. Maddison, P.S. Tarpey, H.R. Davies, E. Papaemmanuil, P.J. Stephens, S. McLaren, A.P. Butler, J.W. Teague, G. Jonsson, J.E. Garber, D. Silver, P. Miron, A. Fatima, S. Boyault, A. Langerod, A. Tutt, J.W.M. Martens, S.A.J.R. Aparicio, A. Borg, A.V. Salomon, G. Thomas, A.-L. Borresen-Dale, A.L. Richardson, M.S. Neuberger, P.A. Futreal, P.J. Campbell, M.R. Stratton, Mutational processes molding the genomes of 21 breast cancers, Cell 149 (5) (2012) 979–993. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb7" target="_blank" rel="noopener">link</a></li>
+<li id="ref-8">E. Birney, T.J. Hudson, E.D. Green, C. Gunter, et al., Prepublication data sharing, Nature 461 (2009) 168–170. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb8" target="_blank" rel="noopener">link</a></li>
+<li id="ref-9">M. Walport, P. Brest, Sharing research data to improve public health, Lancet 377 (2011) 537–539. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb9" target="_blank" rel="noopener">link</a></li>
+<li id="ref-10">K. Powell, The broken promise that undermines human genome research, Nature 590 (2021) 198–201. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb10" target="_blank" rel="noopener">link</a></li>
+<li id="ref-11">O. Chervova, L. Conde, J.A. Guerra-Assuncao, et al., The Personal Genome Project-UK, an open access resource of human multi-omics data, Sci. Data 6 (2019) 257. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb11" target="_blank" rel="noopener">link</a></li>
+<li id="ref-12">J.-S. Lee, Exploring cancer genomic data from the cancer genome atlas project, BMB Rep. Online 49 (11) (2016) 607–611. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb12" target="_blank" rel="noopener">link</a></li>
+<li id="ref-13">J. Zhang, J. Baran, A. Cros, J.M. Guberman, S. Haider, J. Hsu, Y. Liang, E. Rivkin, J. Wang, B. Whitty, M. Wong-Erasmus, L. Yao, A. Kasprzyk, International Cancer Genome Consortium Data Portal—a one-stop shop for cancer genomics data, Database 2011 (2011). <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb13" target="_blank" rel="noopener">link</a></li>
+<li id="ref-14">D. Marbach, T. Schaffter, C. Mattiussi, D. Floreano, Generating realistic in silico gene networks for performance assessment of reverse engineering methods, J. Comput. Biol. 16 (2) (2009) 229–239. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb14" target="_blank" rel="noopener">link</a></li>
+<li id="ref-15">T. Mailund, M.H. Schierup, C.N. Pedersen, P.J.M. Mechlenborg, J.N. Madsen, L. Schauser, CoaSim: A flexible environment for simulating genetic data under coalescent models, BMC Bioinformatics 6 (2005) 252. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb15" target="_blank" rel="noopener">link</a></li>
+<li id="ref-16">P.F. O’Reilly, L.J.M. Coin, C.J. Hoggart, invertFREGENE: software for simulating inversions in population genetic data, Bioinformatics 26 (6) (2010) 838–840. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb16" target="_blank" rel="noopener">link</a></li>
+<li id="ref-17">A. Pinna, N. Soranzo, I. Hoeschele, A. de la Fuente, Simulating systems genetics data with SysGenSIM, Bioinformatics 27 (17) (2011) 2459–2462. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb17" target="_blank" rel="noopener">link</a></li>
+<li id="ref-18">P.-R. Loh, G. Tucker, B.K. Bulik-Sullivan, B.J. Vilhjalmsson, H.K. Finucane, R.M. Salem, D.I. Chasman, P.M. Ridker, B.M. Neale, B. Berger, N. Patterson, A. Price, Efficient Bayesian mixed-model analysis increases association power in large cohorts, Nature Genet. 47 (3) (2015) 284–290. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb18" target="_blank" rel="noopener">link</a></li>
+<li id="ref-19">S. Yang, J. Wen, S.T. Eckert, Y. Wang, D.J. Liu, R. Wu, R. Li, X. Zhan, Prioritizing genetic variants in GWAS with lasso using permutation-assisted tuning, Bioinformatics 36 (12) (2020) 3811–3817. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb19" target="_blank" rel="noopener">link</a></li>
+<li id="ref-20">J. Mbatchou, L. Barnard, J. Backman, A. Marcketta, J.A. Kosmickim, A. Ziy-atdinov, C. Benner, C. O’Dushlaine, M. Barber, B. Boutkov, L. Habegger, M. Ferreira, A. Baras, J. Reid, G. Abecasis, E. Maxwell, J. Marchini, Computationally efficient whole-genome regression for quantitative and binary traits, Nature Genet. (2021). <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb20" target="_blank" rel="noopener">link</a></li>
+<li id="ref-21">E. Sawyer, M. Banuelos, R.F. Marcia, S. Sindi, A neural network approach for anomaly detection in genomic signals, in: 2020 Asia-Pacific Signal and Information Processing Association Annual Summit and Conference, 2020, pp. 968–971. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb21" target="_blank" rel="noopener">link</a></li>
+<li id="ref-22">M. Nicolau, R. Tibshirani, A.-L. Borresen-Dale, S.S. Jeffrey, Disease-specific genomic analysis: identifying the signature of pathologic biology, Bioinformatics 23 (8) (2007) 957–965. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb22" target="_blank" rel="noopener">link</a></li>
+<li id="ref-23">S.-J. Wang, R. Simon, Use of genomic signatures in therapeutics development in oncology and other diseases, Pharmacogenom. J. 6 (8) (2006) 166–173. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb23" target="_blank" rel="noopener">link</a></li>
+<li id="ref-24">C. Li, M. Li, GWAsimulator: a rapid whole-genome simulation program, Bioinformatics 24 (1) (2008) 140–142. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb24" target="_blank" rel="noopener">link</a></li>
+<li id="ref-25">Z. Su, J. Marchini, P. Donnelly, HAPGEN2: simulation of multiple diseases SNPs, Bioinformatics 27 (16) (2008) 2304–2305. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb25" target="_blank" rel="noopener">link</a></li>
+<li id="ref-26">H.F. Porter, P.F. O’Reilly, Multivariate simulation framework reveals performance of multi-trait GWAS methods, Sci. Rep. 7 (2017) 38837. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb26" target="_blank" rel="noopener">link</a></li>
+<li id="ref-27">H.V. Meyer, E. Birney, PhenotypeSimulator: A comprehensive framework for simulating multi-trait, multi-locus genotype to phenotype relationships, Bioinformatics 34 (17) (2018) 2951–2956. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb27" target="_blank" rel="noopener">link</a></li>
+<li id="ref-28">P.C. Phillips, Epistasis-the essential role of gene interactions in the structure and evolution of genetic systems, Nat. Rev. 9 (11) (2008) 855–867. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb28" target="_blank" rel="noopener">link</a></li>
+<li id="ref-29">D.B. Fogel, J.W. Atmar, Comparing genetic operators with gaussian mutations in simulated evolutionary processes using linear systems, Biol. Cybernet. 63 (1990) 111–114. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb29" target="_blank" rel="noopener">link</a></li>
+<li id="ref-30">D.I. Podolskiy, A.V. Lobanov, G.V. Kryukov, V.N. Gladyshev, Analysis of cancer genomes reveals basic features of human aging and its role in cancer development, Nature Commun. 7 (2016) 12157. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb30" target="_blank" rel="noopener">link</a></li>
+<li id="ref-31">R. Gao, A. Davis, T.O. McDonald, E. Sei, X. Shi, Y. Wang, P.C. Tsai, A. Casasent, J. Waters, H. Zhang, F. Meric-Bernstam, F. Michor, N.E. Navin, Punctuated copy number evolution and clonal stasis in triple-negative breast cancer, Nature Genet. 48 (2016) 1119–1130. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb31" target="_blank" rel="noopener">link</a></li>
+<li id="ref-32">I.Y. Zhbannikov, K.G. Arbeev, A.I. Yashin, Cophesim: a comprehensive phenotype simulator for testing novel association methods, F1000Research 6 (1294) (2017). <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb32" target="_blank" rel="noopener">link</a></li>
+<li id="ref-33">M. Shi, D.M. Umbach, A.S. Wise, C.R. Weinberg, Simulating autosomal genotypes with realistic linkage disequilibrium and a spiked-in genetic effect, BMC Bioinformatics 19 (2018). <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb33" target="_blank" rel="noopener">link</a></li>
+<li id="ref-34">W. Yang, C.C. Gu, A whole-genome simulator capable of modeling high-order epistasis for complex disease, Genet. Epidemiol. 37 (7) (2013) 686–694. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb34" target="_blank" rel="noopener">link</a></li>
+<li id="ref-35">D.B. Blumenthal, L. Viola, M. List, J. Baumbach, P. Tieri, T. Kacprowski, EpiGEN: an epistasis simulation pipeline, Bioinformatics 36 (19) (2020) 4957–4959. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb35" target="_blank" rel="noopener">link</a></li>
+<li id="ref-36">Y. Tang, X. Liu, G2P: a Genome-Wide-Association-Study simulation tool for genotype simulation, phenotype simulation and power evaluation, Bioinformatics 35 (19) (2019) 3852–3854. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb36" target="_blank" rel="noopener">link</a></li>
+<li id="ref-37">D.A. Reidenbach, A. Lal, L. Slim, O. Mosafi, J. Israeli, GEPSi: A Python library to simulate GWAS phenotype data, BioRxiv (2021). <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb37" target="_blank" rel="noopener">link</a></li>
+<li id="ref-38">R. Scandino, F. Calabrese, A. Romanel, Synggen: fast and data-driven generation of synthetic heterogeneous NGS cancer data, Bioinformatics 39 (1) (2022). <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb38" target="_blank" rel="noopener">link</a></li>
+<li id="ref-39">R.A. Weinberg, How cancer arises, Sci. Am. 275 (3) (1996) 62–70. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb39" target="_blank" rel="noopener">link</a></li>
+<li id="ref-40">H.M. Temin, Evolution of cancer genes as a mutation-driven process1, Cancer Res. 48 (7) (1988) 1697–1701. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb40" target="_blank" rel="noopener">link</a></li>
+<li id="ref-41">A.F. Rubin, P. Green, Mutation patterns in cancer genomes, Proc. Natl. Acad. Sci. 106 (51) (2009) 21766–21770. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb41" target="_blank" rel="noopener">link</a></li>
+<li id="ref-42">A. Makohon-Moore, C.A. Iacobuzio-Donahue, Pancreatic cancer biology and genetics from an evolutionary perspective, Nat. Rev. Cancer 16 (2016) 553–565. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb42" target="_blank" rel="noopener">link</a></li>
+<li id="ref-43">M.J. Fusco, H.J. West, C.M. Walko, Tumor mutation burden and cancer treatment, JAMA Oncol. 7 (2) (2021) 316. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb43" target="_blank" rel="noopener">link</a></li>
+<li id="ref-44">C.U. Blank, J.B. Haanen, A. Ribas, T.N. Schumacher, The cancer immunogram, Science 352 (6286) (2016) 658–660. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb44" target="_blank" rel="noopener">link</a></li>
+<li id="ref-45">N. Bellomo, M. Delitala, From the mathematical kinetic, and stochastic game theory to modelling mutations, onset, progression and immune competition of cancer cells, Phys. Life Rev. 5 (4) (2008) 183–206. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb45" target="_blank" rel="noopener">link</a></li>
+<li id="ref-46">I.P. Tomlinson, M.R. Novelli, W.F. Bodmer, The mutation rate and cancer, Proc. Natl. Acad. Sci. USA 93 (25) (1996) 14800–14803. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb46" target="_blank" rel="noopener">link</a></li>
+<li id="ref-47">M. Habibi, G. Taheri, A new machine learning method for cancer mutation analysis, PLoS Comput. Biol. 18 (10) (2022) 1–30. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb47" target="_blank" rel="noopener">link</a></li>
+<li id="ref-48">J.H. Holland, Genetic algorithms, Sci. Am. 267 (1) (1992) 66–73. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb48" target="_blank" rel="noopener">link</a></li>
+<li id="ref-49">L. Davis, Applying adaptive algorithms to epistatic domains, in: Proceedings of the International Joint Conference on Artificial Intelligence, 1985, pp. 162–164. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb49" target="_blank" rel="noopener">link</a></li>
+<li id="ref-50">G. Ghorbanzadeh, Z. Nabizadeh, N. Karimi, P. Khadivi, A. Emami, S. Samavi, DGAFF: Deep genetic algorithm fitness formation for EEG Bio-Signal channel selection, Biomed. Signal Process. Control 79 (2023) 104119. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb50" target="_blank" rel="noopener">link</a></li>
+<li id="ref-51">Z.W. Bo, L.Z. Hua, Z.G. Yu, Optimization of process route by genetic algorithms, Robot. Comput.-Integr. Manuf. 22 (2006) 180–188. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb51" target="_blank" rel="noopener">link</a></li>
+<li id="ref-52">R. Bhandari, A.A. Mishra, I. Chakraborty, Genetic algorithm optimization of lift-plus-cruise VTOL aircraft with electrified propulsion, in: AIAA SCITECH 2023 Forum, 2023. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb52" target="_blank" rel="noopener">link</a></li>
+<li id="ref-53">M. Salehi, A. Bahreininejad, Optimization process planning using hybrid genetic algorithm and intelligent search for job shop machining, J. Intell. Manuf. 22 (4) (2011) 643–652. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb53" target="_blank" rel="noopener">link</a></li>
+<li id="ref-54">M. Akhavan, S. Mohammad, H. Hasheminejad, A two-phase gene selection method using anomaly detection and genetic algorithm for microarray data, Knowl.-Based Syst. 262 (2023) 110249. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb54" target="_blank" rel="noopener">link</a></li>
+<li id="ref-55">L. Bo, L. Rein, Comparison of the Luus–Jaakola optimization procedure and the genetic algorithm, Eng. Optim. 37 (4) (2005) 381–396. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb55" target="_blank" rel="noopener">link</a></li>
+<li id="ref-56">A. Ghaheri, S. Shoar, M. Naderan, S.S. Hoseini, The applications of genetic algorithms in medicine, Oman Med. J. 30 (6) (2005) 406–416. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb56" target="_blank" rel="noopener">link</a></li>
+<li id="ref-57">J. Zhao, M. Xu, Fuel economy optimization of an Atkinson cycle engine using genetic algorithm, Appl. Energy 105 (2013) 335–348. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb57" target="_blank" rel="noopener">link</a></li>
+<li id="ref-58">R.J. Parsons, S. Forrest, C. Burks, Genetic algorithms, operators, and DNA fragment assembly, Mach. Learn. 21 (1995) 11–33. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb58" target="_blank" rel="noopener">link</a></li>
+<li id="ref-59">S. Shah, A. Kusiak, Cancer gene search with data-mining and genetic algorithms, Comput. Biol. Med. 37 (2) (1995) 251–261. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb59" target="_blank" rel="noopener">link</a></li>
+<li id="ref-60">S. Katoch, S.S. Chauhan, V. Kumar, A review on genetic algorithm: past, present, and future, Multimedia Tools Appl. 80 (2021) 8091–8126. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb60" target="_blank" rel="noopener">link</a></li>
+<li id="ref-61">D.S. Weile, E. Michielssen, Genetic algorithm optimization applied to electro-magnetics: a review, IEEE Trans. Antennas and Propagation 45 (3) (1997) 343–353. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb61" target="_blank" rel="noopener">link</a></li>
+<li id="ref-62">T. Bhoskar, O.K. Kulkarni, N.K. Kulkarni, S.L. Patekar, G.M. Kakandikar, V.M. Nandedkar, Genetic algorithm and its applications to mechanical engineering: A review, Mater. Today: Proc. 2 (4) (2015) 2624–2630. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb62" target="_blank" rel="noopener">link</a></li>
+<li id="ref-63">D.B. Hibbert, Genetic algorithms in chemistry, Chemometr. Intell. Lab. Syst. 19 (3) (1993) 277–293. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb63" target="_blank" rel="noopener">link</a></li>
+<li id="ref-64">S.K. Pal, S. Bandyopadhyay, S.S. Ray, Evolutionary computation in bioinformatics: a review, IEEE Trans. Syst. Man Cybern. C 36 (5) (2006) 601–615. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb64" target="_blank" rel="noopener">link</a></li>
+<li id="ref-65">B. Chowdhury, G. Garai, A review on multiple sequence alignment from the perspective of genetic algorithm, Genomics 109 (5) (2017) 419–431. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb65" target="_blank" rel="noopener">link</a></li>
+<li id="ref-66">B.D. Ondov, T.J. Treangen, P. Melsted, A.B. Mallonee, N.H. Bergman, S. Koren, A.M. Phillippy, Mash: fast genome and metagenome distance estimation using MinHash, Genome Biol. 17 (2016) 132. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb66" target="_blank" rel="noopener">link</a></li>
+<li id="ref-67">A. Shukla, H.M. Pandey, D. Mehrotra, Comparative review of selection techniques in genetic algorithm, in: 2015 International Conference on Futuristic Trends on Computational Analysis and Knowledge Management, ABLAZE, 2015, pp. 515–519. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb67" target="_blank" rel="noopener">link</a></li>
+<li id="ref-68">D. Dvinskikh, A. Ogaltsov, A. Gasnikov, P. Dvurechensky, A. Tyurin, V. Spokoiny, Adaptive gradient descent for convex and non-convex stochastic optimization, 2020, arXiv. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb68" target="_blank" rel="noopener">link</a></li>
+<li id="ref-69">H. Jin, F. Chollet, Q. Song, X. Hu, AutoKeras: An AutoML library for deep learning, J. Mach. Learn. Res. 24 (6) (2023) 1–6. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb69" target="_blank" rel="noopener">link</a></li>
+<li id="ref-70">J. Wu, X.-Y. Chen, H. Zhang, L.-D. Xiong, H. Lei, S.-H. Deng, Hyperparameter optimization for machine learning models based on Bayesian optimizationb, J. Electron. Sci. Technol. 17 (1) (2019) 26–40. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb70" target="_blank" rel="noopener">link</a></li>
+<li id="ref-71">F. Almeida, G. Xexeo, Word embeddings: A survey, 2019, arXiv. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb71" target="_blank" rel="noopener">link</a></li>
+<li id="ref-72">A.F. Ganai, F. Khursheed, Predicting next word using RNN and LSTM cells: Stastical language modeling, in: 2019 Fifth International Conference on Image Information Processing, ICIIP, 2019, pp. 469–474. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb72" target="_blank" rel="noopener">link</a></li>
+<li id="ref-73">O. Chervova, L. Conde, J.A. Guerra-Assuncao, I. Moghul, A.P. Webster, A. Berner, E.L. Cadieux, Y. Tian, V. Voloshin, T.F. Jesus, R. Hamoudi, J. Herrero, S. Beck, The Personal Genome Project-UK, an open access resource of human multi-omics data, Sci. Data 6 (2019) 257. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb73" target="_blank" rel="noopener">link</a></li>
+<li id="ref-74">J.D. Churchill, S.E. Schmedes, J.L. King, B. Budowle, Evaluation of the Illumina® Beta Version ForenSeq™ DNA Signature Prep Kit for use in genetic profiling, Forensic Sci. Int.: Genet. 20 (2016) 20–29. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb74" target="_blank" rel="noopener">link</a></li>
+<li id="ref-75">L.B. Alexandrov, J. Kim, N.J. Haradhvala, M.N. Huang, A.W.T. Ng, Y. Wu, A. Boot, K.R. Covington, D.A. Gordenin, E.N. Bergstrom, S.M.A. Islam, N. Lopez- Bigas, L.J. Klimczak, J.R. McPherson, S. Morganella, R. Sabarinathan, D.A. Wheeler, V. Mustonen, G. Getz, S.G. Rozen, M.R. Stratton, PCAWG Consortium, The repertoire of mutational signatures in human cancer, Nature 578 (2020) 94–101. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb75" target="_blank" rel="noopener">link</a></li>
+<li id="ref-76">D. Defays, An efficient algorithm for a complete link method, Comput. J. 20 (4) (1977) 364–366. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb76" target="_blank" rel="noopener">link</a></li>
+<li id="ref-77">M.L. Menendez, J.A. Pardo, L. Pardo, M.C. Pardo, The Jensen-Shannon divergence, J. Franklin Inst. B 334 (2) (1997) 307–318. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb77" target="_blank" rel="noopener">link</a></li>
+<li id="ref-78">J.M. Joyce, Kullback-Leibler divergence, in: M. Lovric (Ed.), International Encyclopedia of Statistical Science, Springer Berlin Heidelberg, 2011, pp. 720–722. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb78" target="_blank" rel="noopener">link</a></li>
+<li id="ref-79">J. Zhou, P. Zhong, T. Zhang, A novel method for alignment-free DNA sequence similarity analysis based on the characterization of complex networks, Evol. Bioinform. 12 (2016) 229–235. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb79" target="_blank" rel="noopener">link</a></li>
+<li id="ref-80">T. Lazebnik, S.L. Keren, Knowledge-integrated AutoEncoder Model, 2023, arXiv. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb80" target="_blank" rel="noopener">link</a></li>
+<li id="ref-81">T. Lazebnik, A. Rosenfeld, FSPL: A meta–learning approach for a filter and embedded feature selection pipeline, Int. J. Appl. Math. Comput. Sci. 33 (1) (2023) 103–115. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb81" target="_blank" rel="noopener">link</a></li>
+<li id="ref-82">Y.A. Veturi, W. Woof, T. Lazebnik, I. Moghul, P. Woodward-Court, S.K. Wagner, T.A. Cabral de Guimaraes, M.D. Varela, B. Liefers, P.J. Patel, S. Beck, A.R. Webster, O. Mahroo, P.A. Keane, M. Michaelides, K. Balaskas, N. Pontikos, SynthEye: Investigating the impact of synthetic data on AI-assisted gene diagnosis of Inherited Retinal Disease, Ophthalmol. Sci. (2022) 100258. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb82" target="_blank" rel="noopener">link</a></li>
+<li id="ref-83">T. Lazebnik, S. Bunimovich-Mendrazitsky, Decision tree post-pruning without loss of accuracy using the SAT-PP algorithm with an empirical evaluation on clinical data, Data Knowl. Eng. 145 (2023) 102173. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb83" target="_blank" rel="noopener">link</a></li>
+<li id="ref-84">X. Wang, F. Li, W. Qiu, B. Xu, Y. Li, X. Lian, H. Yu, Z. Zhang, J. Wang, Z. Li, W. Xue, F. Zhu, SYNBIP: synthetic binding proteins for research, diagnosis and therapy, Nucleic Acids Res. 50 (2022) D560–D570. <a href="http://refhub.elsevier.com/S0010-4825%2823%2900686-8/sb84" target="_blank" rel="noopener">link</a></li>
+</ol>
+</div>
+        
+        
+        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2023), <em>Computers in Biology and Medicine</em>, <a href="https://doi.org/10.1016/j.compbiomed.2023.107221" target="_blank" rel="noopener">doi:10.1016/j.compbiomed.2023.107221</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+      </article>
+    </div>
+
+    <section class="paper-related" aria-labelledby="related-title"><div class="paper-wrap"><h2 id="related-title">Related research</h2><div class="related-grid"><a class="related-card" href="/publications/computational-framework-physics-informed-symbolic-regression-straightforward/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2022</span><strong>A computational framework for physics-informed symbolic regression with straightforward integration of domain knowledge</strong><span class="related-text">Scientific Reports</span></a><a class="related-card" href="/publications/knowledge-integrated-autoencoder-model/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2024</span><strong>Knowledge-integrated autoencoder model</strong><span class="related-text">Expert Systems with Applications</span></a><a class="related-card" href="/publications/improved-prediction-settling-behavior-solid-particles-through/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2024</span><strong>Improved prediction of settling behavior of solid particles through machine learning analysis of experimental retention time data</strong><span class="related-text">International Journal of Multiphase Flow</span></a></div><p class="related-more"><a href="/publications.html">All publications</a></p></div></section>
+  </main>
+
+  <dialog id="cite-dialog" class="paper-dialog" aria-labelledby="cite-title">
+    <div class="dialog-head">
+      <h2 id="cite-title">Cite this paper</h2>
+      <button type="button" class="dialog-close" aria-label="Close"><i class="ri-close-line" aria-hidden="true"></i></button>
+    </div>
+    <p class="dialog-label">APA</p>
+    <pre class="cite-box" id="cite-apa">Lazebnik, T., &amp; Simon-Keren, L. (2023). Cancer-inspired genomics mapper model for the generation of synthetic DNA sequences with desired genomics signatures. Computers in Biology and Medicine, 164, 107221. https://doi.org/10.1016/j.compbiomed.2023.107221</pre>
+    <button type="button" class="paper-btn" data-copy="cite-apa"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy APA</span></button>
+    <p class="dialog-label">BibTeX</p>
+    <pre class="cite-box" id="cite-bib">@article{lazebnik2023cancer,
+  title = {Cancer-inspired genomics mapper model for the generation of synthetic DNA sequences with desired genomics signatures},
+  author = {Lazebnik, Teddy and Simon-Keren, Liron},
+  journal = {Computers in Biology and Medicine},
+  volume = {164},
+  pages = {107221},
+  year = {2023},
+  doi = {10.1016/j.compbiomed.2023.107221}
+}</pre>
+    <button type="button" class="paper-btn" data-copy="cite-bib"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy BibTeX</span></button>
+  </dialog>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Games</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
+                  <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
+                  <li><a href="https://rl.teddylazebnik.com/">Pirate War RL Game</a></li>
+                  <li><a href="https://eh.teddylazebnik.com/">Echo Heist</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      
+      <script>
+        (function () {
+          // menu and navbar (js/main.js expects to sit at the site root)
+          var btn = document.getElementById('menu-btn'), menu = document.getElementById('mobile-menu'), nav = document.getElementById('navbar');
+          btn.addEventListener('click', function () { menu.classList.toggle('max-h-0'); menu.classList.toggle('max-h-screen'); });
+          var onScroll = function () { nav.classList.toggle('nav-scrolled', window.scrollY > 10); };
+          window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+          // cite dialog + copy buttons
+          var dialog = document.getElementById('cite-dialog');
+          document.querySelectorAll('[data-dialog]').forEach(function (b) {
+            b.addEventListener('click', function () { if (dialog.showModal) dialog.showModal(); else dialog.setAttribute('open', ''); });
+          });
+          dialog.querySelector('.dialog-close').addEventListener('click', function () { dialog.close(); });
+          dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
+          function flash(button, text) {
+            var label = button.querySelector('span'), old = label.textContent;
+            label.textContent = text; setTimeout(function () { label.textContent = old; }, 1600);
+          }
+          document.querySelectorAll('[data-copy]').forEach(function (b) {
+            b.addEventListener('click', function () {
+              var text = document.getElementById(b.getAttribute('data-copy')).textContent;
+              navigator.clipboard.writeText(text).then(function () { flash(b, 'Copied'); });
+            });
+          });
+          document.getElementById('share-btn').addEventListener('click', function () {
+            var b = this, data = { title: document.title, url: location.href.split('#')[0] };
+            if (navigator.share) { navigator.share(data).catch(function () {}); }
+            else { navigator.clipboard.writeText(data.url).then(function () { flash(b, 'Link copied'); }); }
+          });
+
+          // highlight the section being read in "On this page"
+          var links = {};
+          document.querySelectorAll('.paper-toc a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+          var heads = Array.prototype.filter.call(document.querySelectorAll('#full-text h2[id], #full-text h3[id], #full-text section[id]'), function (h) { return links[h.id]; });
+          if ('IntersectionObserver' in window && heads.length) {
+            var current = null;
+            var io = new IntersectionObserver(function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                  if (current) current.classList.remove('is-active');
+                  current = links[e.target.id]; current.classList.add('is-active');
+                }
+              });
+            }, { rootMargin: '-90px 0px -70% 0px' });
+            heads.forEach(function (h) { io.observe(h); });
+          }
+        })();
+      </script>
+   </body>
+</html>

@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_papers.py from paper.md + paper.json in this folder. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Tighten the lasso: a convex hull volume-based anomaly detection method | ACML</title>
+      <meta name="description" content="Spotting out-of-distribution data, samples unlike those a model was built on, is critical for keeping machine learning models reliable. We propose an anomaly…">
+      <meta name="author" content="Uri Itai, Asael Bar Ilan, Teddy Lazebnik">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/publications/tighten-lasso-convex-hull-volume-based-anomaly/">
+      <meta name="citation_title" content="Tighten the lasso: a convex hull volume-based anomaly detection method">
+      <meta name="citation_author" content="Uri Itai">
+      <meta name="citation_author" content="Asael Bar Ilan">
+      <meta name="citation_author" content="Teddy Lazebnik">
+      <meta name="citation_publication_date" content="2025">
+      <meta name="citation_journal_title" content="International Journal of Data Science and Analytics">
+      <meta name="citation_volume" content="21">
+      <meta name="citation_firstpage" content="32">
+      <meta name="citation_doi" content="10.1007/s41060-025-00928-3">
+      <meta name="citation_pdf_url" content="https://teddylazebnik.com/files/hcad.pdf">
+      <meta name="citation_abstract_html_url" content="https://acml.teddylazebnik.com/publications/tighten-lasso-convex-hull-volume-based-anomaly/">
+      <meta name="citation_fulltext_html_url" content="https://acml.teddylazebnik.com/publications/tighten-lasso-convex-hull-volume-based-anomaly/">
+      <meta name="citation_keywords" content="Outlier detection; Convex hull; Out-of-distribution; Geometry of a set; Hypervolume">
+      <meta name="citation_language" content="en">
+      <meta property="og:type" content="article">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Tighten the lasso: a convex hull volume-based anomaly detection method">
+      <meta property="og:description" content="Spotting out-of-distribution data, samples unlike those a model was built on, is critical for keeping machine learning models reliable. We propose an anomaly…">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/publications/tighten-lasso-convex-hull-volume-based-anomaly/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/publications/tighten-lasso-convex-hull-volume-based-anomaly/figures/share-fig-1.jpg">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Tighten the lasso: a convex hull volume-based anomaly detection method">
+      <meta name="twitter:description" content="Spotting out-of-distribution data, samples unlike those a model was built on, is critical for keeping machine learning models reliable. We propose an anomaly…">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/publications/tighten-lasso-convex-hull-volume-based-anomaly/figures/share-fig-1.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "Tighten the lasso: a convex hull volume-based anomaly detection method",
+  "name": "Tighten the lasso: a convex hull volume-based anomaly detection method",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Uri Itai"
+    },
+    {
+      "@type": "Person",
+      "name": "Asael Bar Ilan"
+    },
+    {
+      "@type": "Person",
+      "name": "Teddy Lazebnik"
+    }
+  ],
+  "datePublished": "2025",
+  "url": "https://acml.teddylazebnik.com/publications/tighten-lasso-convex-hull-volume-based-anomaly/",
+  "mainEntityOfPage": "https://acml.teddylazebnik.com/publications/tighten-lasso-convex-hull-volume-based-anomaly/",
+  "abstract": "Detecting out-of-distribution (OOD) data is a critical task for maintaining model reliability and robustness. In this study, we propose a novel anomaly detection algorithm that leverages the convex hull (CH) property of a dataset by exploiting the observation that OOD samples marginally increase the CH’s volume compared to in-distribution samples. Thus, we establish a decision boundary between OOD and in-distribution data by iteratively computing the CH’s volume as samples are removed, stopping when such removal does not significantly alter the CH’s volume. The proposed algorithm is evaluated against seven widely used anomaly detection methods across ten datasets, demonstrating performance comparable to state-of-the-art (SOTA) techniques. Furthermore, we introduce a computationally efficient criterion for identifying datasets where the proposed method outperforms existing SOTA approaches.",
+  "description": "Spotting out-of-distribution data, samples unlike those a model was built on, is critical for keeping machine learning models reliable. We propose an anomaly…",
+  "image": "https://acml.teddylazebnik.com/publications/tighten-lasso-convex-hull-volume-based-anomaly/figures/share-fig-1.jpg",
+  "keywords": "Outlier detection, Convex hull, Out-of-distribution, Geometry of a set, Hypervolume",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "DOI",
+    "value": "10.1007/s41060-025-00928-3"
+  },
+  "sameAs": "https://doi.org/10.1007/s41060-025-00928-3",
+  "isPartOf": {
+    "@type": "PublicationIssue",
+    "issueNumber": "",
+    "isPartOf": {
+      "@type": "PublicationVolume",
+      "volumeNumber": "21",
+      "isPartOf": {
+        "@type": "Periodical",
+        "name": "International Journal of Data Science and Analytics"
+      }
+    }
+  },
+  "about": "Machine Learning",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "encoding": {
+    "@type": "MediaObject",
+    "contentUrl": "https://teddylazebnik.com/files/hcad.pdf",
+    "encodingFormat": "application/pdf"
+  }
+}
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/paper.css" rel="stylesheet">
+      
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="paper-page">
+    <header class="paper-hero">
+      <div class="paper-wrap">
+        <nav class="paper-crumbs" aria-label="Breadcrumb">
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Machine Learning</span>
+        </nav>
+        <p class="paper-kicker"><span><em>International Journal of Data Science and Analytics</em> · 2025</span></p>
+        <h1 class="paper-title">Tighten the lasso: a convex hull volume-based anomaly detection method</h1>
+        <p class="paper-authors"><span class="author">Uri Itai</span>, <span class="author">Asael Bar Ilan</span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span></p>
+        <details class="paper-affils"><summary>Affiliations</summary><ol><li value="1">Department of Mathematics, The Guangdong Technion-Israel Institute of Technology, Shantou, China</li></ol></details>
+        <div class="paper-actions">
+          <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/hcad.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
+          <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
+          
+          <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
+          <a class="paper-btn" href="https://doi.org/10.1007/s41060-025-00928-3" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
+          <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
+        </div>
+        <div class="lab-authors"><span class="lab-authors-label">ACML authors</span><a class="lab-chip" href="/team.html"><img src="/img/lab/teddy.webp" alt="" width="32" height="32" loading="lazy"><span><strong>Teddy Lazebnik</strong><small>PI</small></span></a></div>
+      </div>
+    </header>
+
+    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Spotting out-of-distribution data, samples unlike those a model was built on, is critical for keeping machine learning models reliable. We propose an anomaly detection algorithm based on the convex hull, the smallest shape that encloses a dataset: it removes samples step by step while tracking the hull&#x27;s volume, and stops when removals no longer change it significantly. Tested against seven widely used methods on ten datasets, it performed comparably to state-of-the-art techniques.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>The method exploits the observation that out-of-distribution samples add more to the convex hull&#x27;s volume than in-distribution samples do.</li><li>Evaluated against seven widely used anomaly detection methods across ten datasets, it performed comparably to state-of-the-art techniques.</li><li>We also introduce a computationally efficient criterion for identifying datasets where the method outperforms existing state-of-the-art approaches.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1800" height="853" alt="Fig. 1 A simplistic example of a 2D dataset with an anomaly and its influence on the CH’s volume. On the left, there is the dataset without anomalies with a volume of 2.537, while as shown on the right, two anomaly samples increase the CH’s volume to 3.793, almost 50% increase"></a><figcaption><strong>Fig. 1</strong> A simplistic example of a 2D dataset with an anomaly and its influence on the CH’s volume. On the left, there is the dataset without anomalies with a volume of 2.537, while as shown on the right, two anomaly samples increase the CH’s volume to 3.793, almost 50% increase <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+
+    <div class="paper-wrap paper-layout">
+      <aside class="paper-aside">
+        <nav class="paper-toc" aria-label="On this page">
+          <p class="aside-title">On this page</p>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#1-introduction">1 Introduction</a></li>
+<li><a href="#2-related-work">2 Related work</a></li><li class="toc-sub"><a href="#21-convex-hull">2.1 Convex hull</a></li><li class="toc-sub"><a href="#22-anomaly-detection">2.2 Anomaly detection</a></li>
+<li><a href="#3-convex-hull-method-for-anomaly-detection">3 Convex hull method for anomaly detection</a></li>
+<li><a href="#4-experiments">4 Experiments</a></li><li class="toc-sub"><a href="#41-datasets">4.1 Datasets</a></li><li class="toc-sub"><a href="#42-convex-hull-anomaly-detection-implementation">4.2 Convex hull anomaly detection implementation</a></li><li class="toc-sub"><a href="#43-performance">4.3 Performance</a></li><li class="toc-sub"><a href="#44-sensitivity-analysis">4.4 Sensitivity analysis</a></li><li class="toc-sub"><a href="#45-special-cases">4.5 Special cases</a></li>
+<li><a href="#5-conclusions">5 Conclusions</a></li>
+<li><a href="#appendix">Appendix</a></li>
+<li><a href="#baseline-algorithms-hyperparameters">Baseline algorithm’s hyperparameters</a></li>
+<li><a href="#baseline-algorithms-time-and-memory-requirements">Baseline algorithm’s time and memory requirements</a></li><li class="toc-sub"><a href="#declarations">Declarations</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </nav>
+        <div class="paper-info">
+          <p class="aside-title">Article information</p>
+          <dl><div><dt>Journal</dt><dd>International Journal of Data Science and Analytics 21: 32</dd></div><div><dt>Year</dt><dd>2025</dd></div><div><dt>DOI</dt><dd><a href="https://doi.org/10.1007/s41060-025-00928-3" target="_blank" rel="noopener">10.1007/s41060-025-00928-3</a></dd></div></dl>
+        </div>
+      </aside>
+
+      <article class="paper-body" id="full-text">
+        <details class="paper-toc-mobile">
+          <summary>On this page</summary>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#1-introduction">1 Introduction</a></li>
+<li><a href="#2-related-work">2 Related work</a></li><li class="toc-sub"><a href="#21-convex-hull">2.1 Convex hull</a></li><li class="toc-sub"><a href="#22-anomaly-detection">2.2 Anomaly detection</a></li>
+<li><a href="#3-convex-hull-method-for-anomaly-detection">3 Convex hull method for anomaly detection</a></li>
+<li><a href="#4-experiments">4 Experiments</a></li><li class="toc-sub"><a href="#41-datasets">4.1 Datasets</a></li><li class="toc-sub"><a href="#42-convex-hull-anomaly-detection-implementation">4.2 Convex hull anomaly detection implementation</a></li><li class="toc-sub"><a href="#43-performance">4.3 Performance</a></li><li class="toc-sub"><a href="#44-sensitivity-analysis">4.4 Sensitivity analysis</a></li><li class="toc-sub"><a href="#45-special-cases">4.5 Special cases</a></li>
+<li><a href="#5-conclusions">5 Conclusions</a></li>
+<li><a href="#appendix">Appendix</a></li>
+<li><a href="#baseline-algorithms-hyperparameters">Baseline algorithm’s hyperparameters</a></li>
+<li><a href="#baseline-algorithms-time-and-memory-requirements">Baseline algorithm’s time and memory requirements</a></li><li class="toc-sub"><a href="#declarations">Declarations</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </details>
+        <section id="abstract" class="paper-abstract">
+          <h2>Abstract</h2>
+          <p>Detecting out-of-distribution (OOD) data is a critical task for maintaining model reliability and robustness. In this study, we propose a novel anomaly detection algorithm that leverages the convex hull (CH) property of a dataset by exploiting the observation that OOD samples marginally increase the CH’s volume compared to in-distribution samples. Thus, we establish a decision boundary between OOD and in-distribution data by iteratively computing the CH’s volume as samples are removed, stopping when such removal does not significantly alter the CH’s volume. The proposed algorithm is evaluated against seven widely used anomaly detection methods across ten datasets, demonstrating performance comparable to state-of-the-art (SOTA) techniques. Furthermore, we introduce a computationally efficient criterion for identifying datasets where the proposed method outperforms existing SOTA approaches.</p>
+        </section>
+        
+<div class="paper-text">
+<h2 id="1-introduction">1 Introduction</h2>
+<p>Anomaly detection (AD) plays a pivotal role across machine learning, data analysis, statistics, and other domains involving quantitative data <span class="cite">[<a href="#ref-1">1</a>]</span>. It focuses on identifying patterns, observations, or events that markedly deviate from expected norms, often termed <em>anomalies</em> or <em>outliers</em> <span class="cite">[<a href="#ref-2">2</a>–<a href="#ref-4">4</a>]</span>. Such anomalies frequently correspond to rare yet important occurrences <span class="cite">[<a href="#ref-5">5</a>, <a href="#ref-6">6</a>]</span> and have diverse applications, including the early detection of mechanical faults <span class="cite">[<a href="#ref-2">2</a>]</span>, financial fraud prevention <span class="cite">[<a href="#ref-7">7</a>]</span>, cybersecurity <span class="cite">[<a href="#ref-8">8</a>]</span>, enhanced decision-making <span class="cite">[<a href="#ref-9">9</a>]</span>, as well as powering real-time clinical alert systems <span class="cite">[<a href="#ref-10">10</a>]</span>.</p>
+<p>In a data-driven context, AD is commonly regarded as a subfield of machine learning (ML) and can be mathematically</p>
+<p>Uri Itai and Teddy Lazebnik have contributed equally to this work.</p>
+<ul>
+<li><sup><a href="#ref-2">2</a></sup> Department of Computer Science, Open University of Israel, Raanana, Israel</li>
+<li><sup><a href="#ref-3">3</a></sup> Department of Information Systems, University of Haifa, Haifa, Israel</li>
+<li><sup><a href="#ref-4">4</a></sup> Department of Computing, Jonkoping University, Jonkoping, Sweden</li>
+</ul>
+<p>framed as a binary classification problem, where data is categorized as either normal or anomalous <span class="cite">[<a href="#ref-11">11</a>–<a href="#ref-13">13</a>]</span>. However, due to the inherent rarity of anomalies, conventional “normal” classification models often underperform in this task, necessitating the development of specialized algorithms tailored for anomaly detection <span class="cite">[<a href="#ref-14">14</a>]</span>.</p>
+<p>Indeed, various groups of anomaly detection (AD) algorithms have been developed, each tailored to different types of data and problem contexts <span class="cite">[<a href="#ref-15">15</a>–<a href="#ref-18">18</a>]</span>. These algorithms can be broadly categorized into three primary types: statistical-based methods, machine learning (ML)-based methods, and distance-based methods. These models focus on the hyperplane which is a flat <em>d</em> − 1-dimensional surface in a <em>d</em>-dimensional space, separating normal from abnormal data by positioning a single linear boundary. Its advantages are low computational complexity, simplicity, and good performance for linearly separable data, but it cannot directly capture complex or curved data shapes without kernel transformations. In contrast, a hypervolume—often represented by the convex hull—forms the smallest convex region enclosing all normal data points, allowing it to model arbitrary convex shapes in the feature space. This provides higher flexibility and the ability to tightly wrap around the data distribution, which can improve detection accuracy for nonlinear patterns, while being more computationally expensive.</p>
+<p>0123456789().: V,-vol The traditional method of determining anomalies by taking <em>k</em> standard deviations away from the mean is extended using the <em>Z</em>-score (<em>T</em> statistics), in which the confidence interval is represented as an ellipsoid. This advancement paves the way for more refined, statistically-based techniques, including Gaussian mixture models <span class="cite">[<a href="#ref-19">19</a>]</span>, Mahalanobis distance <span class="cite">[<a href="#ref-20">20</a>]</span>, and hypothesis testing <span class="cite">[<a href="#ref-21">21</a>]</span>. This method concerning the convex hull was done in <span class="cite">[<a href="#ref-22">22</a>]</span>. These methods rely on the presumption that the data adheres to a specific statistical distribution, thereby identifying any points that significantly diverge from this distribution as anomalies.</p>
+<p>ML-based methods can be classified into supervised, semi-supervised, and unsupervised approaches <span class="cite">[<a href="#ref-23">23</a>]</span>. Supervised methods, such as neural networks or support vector machines, require labeled datasets containing normal and abnormal instances. However, obtaining these labels is often impractical in real-world scenarios due to the high cost and difficulty associated with labeling data <span class="cite">[<a href="#ref-24">24</a>]</span>. In contrast, semi-supervised methods, such as one-class SVM <span class="cite">[<a href="#ref-25">25</a>]</span>, one-class deep neural networks <span class="cite">[<a href="#ref-26">26</a>]</span>, and autoencoders <span class="cite">[<a href="#ref-27">27</a>]</span>, as well as Local Outlier Factor <span class="cite">[<a href="#ref-28">28</a>]</span>, are trained exclusively on normal data and detect anomalies by identifying instances that do not conform to the learned patterns <span class="cite">[<a href="#ref-29">29</a>]</span>. Additional methods include contracting a gain function <span class="cite">[<a href="#ref-30">30</a>]</span> or constructing a distribution <span class="cite">[<a href="#ref-22">22</a>]</span>.</p>
+<p>Another approach involves the use of Voronoi diagrams <span class="cite">[<a href="#ref-31">31</a>]</span>. In this method, the data is partitioned into bins, and points that do not fit within these bins are flagged as anomalies. The computation of each cell in the diagram is based on the convex hull.</p>
+<p>Distance-based methods, such as K-nearest neighbors (KNN) <span class="cite">[<a href="#ref-32">32</a>]</span> and clustering techniques like DBSCAN <span class="cite">[<a href="#ref-33">33</a>]</span>, involve measuring the distance or similarity between data points. Data points far from clusters or with few neighboring points are considered anomalies. These methods are typically limited in scalability, as they struggle to handle large datasets due to their computational complexity <span class="cite">[<a href="#ref-34">34</a>]</span>. Moreover, distance-based methods tend to perform poorly in non-uniform data distributions, as they assume anomalies are far from most data points.</p>
+<p>An alternative approach to AD utilizes the concept of a convex hull, defined as the smallest convex set that contains a given set of points in a metric space <span class="cite">[<a href="#ref-35">35</a>]</span>. Simply put, a convex hull is a set of outermost nails on a board stretching a rubber band around a set of nails when released. Computing the convex hull plays an important role in many fields of computer science, such as computer graphics <span class="cite">[<a href="#ref-36">36</a>]</span> and computer-aided design <span class="cite">[<a href="#ref-37">37</a>]</span>. This geometric framework leads to convex-hull-based algorithms for AD, which offer an efficient way to identify anomalies by leveraging geometric properties <span class="cite">[<a href="#ref-38">38</a>]</span>. A convex hull, representing the boundary of the normal data distribution, delineates the smallest convex shape enclosing a set of points in multi-dimensional space <span class="cite">[<a href="#ref-38">38</a>]</span>. Any data point outside this convex boundary is considered anomalous <span class="cite">[<a href="#ref-22">22</a>]</span>. These algorithms are particularly powerful because they provide a clear, interpretable geometric definition of normal behavior, making it easy to visualize and understand the separation between normal and anomalous data. Moreover, convex-hull-based methods are adaptable to high-dimensional and complex datasets as they require only a well-defined distance metric, which is relatively straightforward in most real-world applications <span class="cite">[<a href="#ref-39">39</a>, <a href="#ref-40">40</a>]</span>. Several studies already used convex-hull-based AD algorithms, showing promising results <span class="cite">[<a href="#ref-41">41</a>–<a href="#ref-43">43</a>]</span>. For instance, Liu at al. <span class="cite">[<a href="#ref-44">44</a>]</span> proposed adding a discount factor to the convex hull to avoid overfitting on the training dataset. Casale et al. <span class="cite">[<a href="#ref-45">45</a>]</span> reduce the computation time of the convex hull as an AD algorithm using the approximate polytope ensemble technique. In an applied context, He et al. <span class="cite">[<a href="#ref-46">46</a>]</span> propose a novel classifier, the kernel flexible and displaceable convex-hull-based tensor machine, designed for gearbox fault diagnosis using multi-source signals. This classifier uses a convex hull approach in tensor feature space to classify feature tensors, demonstrating improved robustness and effectiveness in identifying gearbox faults with small sample sizes.</p>
+<p>Although efficient, existing algorithms lack a definitive mechanism for determining the optimal convex hull shape for a given dataset without introducing additional assumptions. Furthermore, their practical applications remain ambiguous within the broader context of state-of-the-art anomaly detection (AD) algorithms.</p>
+<p>In this study, we propose a novel parameter-free AD algorithm grounded in the convex hull family of methods. This algorithm balances two configurations: the convex hull encompassing the entire dataset and the convex hull computed for a subset of the data, excluding the most “distant” samples. By leveraging this approach, we introduce a topology-agnostic AD algorithm that maintains computational efficiency and resource requirements comparable to other state-of-the-art AD algorithms while exhibiting robustness to complex data geometries.</p>
+<p>The proposed method not only identifies anomalies but also quantifies the extent to which a given instance deviates from the norm. This metric is instrumental in distinguishing between tail events and out-of-distribution instances, a distinction of particular importance in time series analysis <span class="cite">[<a href="#ref-47">47</a>]</span> and online data processing <span class="cite">[<a href="#ref-48">48</a>]</span>. While a detailed examination of this distinction lies beyond the scope of the present paper, it will be addressed in future research.</p>
+<p>We conducted extensive experiments using ten real-world datasets spanning various domains to evaluate the proposed method. We benchmarked the performance of our model against seven state-of-the-art AD algorithms representing all three principal categories of AD methods. The results demonstrate. The convex hull algorithm demonstrates strong performance, surpassing all competing methods except for Isolation Forest and Local Outlier Factor. However, Isolation Forest does not account for distances and angles and remains invariant under shearing transformations, which may not always be desirable. In contrast, the Local Outlier Factor is a local algorithm, meaning it primarily identifies local anomalies rather than global ones. As a result, it may fail to detect global anomalies. Consequently, the convex-hull-based anomaly detection algorithm proves to be effective in scenarios that require a global geometric perspective.</p>
+<p>The rest of the paper is organized as follows. Section 2 reviews the state-of-the-art AD algorithms as well as the convex hull family of algorithms and provides examples of geometry-based AD algorithms for one and two dimensions. Section 3 formally introduces the proposed convex-hull-based AD algorithm with an analytical analysis of the algorithm. Section 4 outlines the experiments on real-world data comparing the proposed algorithms with current state-of-the-art AD algorithms and also the sensitivity analysis of the proposed algorithm. Finally, Section 5 discusses the applicative outcomes of this study and suggests possible future research.</p>
+<h2 id="2-related-work">2 Related work</h2>
+<p>This section presents a comprehensive review of the definition of the convex hull, followed by an exploration of the algorithms commonly utilized for its numerical computation. Subsequently, an in-depth examination of the current state-of-the-art anomaly detection (AD) algorithms is provided, focusing on their methodologies, applications, and performance characteristics.</p>
+<h3 id="21-convex-hull">2.1 Convex hull</h3>
+<p>The convex hull holds significant importance across various research domains, including computer graphics <span class="cite">[<a href="#ref-49">49</a>]</span>, computational geometry <span class="cite">[<a href="#ref-50">50</a>]</span>, optimization <span class="cite">[<a href="#ref-51">51</a>]</span>, and numerous other fields.</p>
+<p>The convex hull is the smallest convex set that completely encloses a given set of points, minimizing the hypervolume enclosed by the set. Formally, for a set of points {<strong><em>X</em></strong><sub>i</sub>}<sup>n</sup> <sub>i 1</sub> ⊂ <em>R</em><sup>d</sup>, the convex hull is the minimal convex polytope containing all points, and it is expressed as <span class="cite">[<a href="#ref-52">52</a>]</span>:</p>
+<div class="equation" id="eq-1"><img src="figures/eq-1.webp" width="328" height="51" alt="C H(S) i1 αi Xi|αi ≥0 ∧ n i1 αi 1 , (1)" loading="lazy" decoding="async"></div>
+
+<p>where <em>α</em><sub>i</sub> represents the non-negative scalar coefficients associated with each point <strong><em>x</em></strong><sub>i</sub> in the set <em>S</em>.</p>
+<h4 id="211-computing-convex-hull">2.1.1 Computing convex hull</h4>
+<p>Various methods have been proposed to compute the convex hull of an arbitrary set of points, leveraging the convex hull’s inherent properties of convexity. Among these, three widely utilized algorithms are noteworthy: the gift wrap algorithm <span class="cite">[<a href="#ref-53">53</a>]</span>, the Graham scan <span class="cite">[<a href="#ref-54">54</a>]</span>, and the Quickhull algorithm <span class="cite">[<a href="#ref-36">36</a>]</span>.</p>
+<p>The gift wrap algorithm <span class="cite">[<a href="#ref-53">53</a>]</span>, also known as Jarvis March, constructs the convex hull incrementally by identifying boundary points one at a time. Starting with the leftmost point, which is guaranteed to be part of the convex hull, the algorithm iteratively selects the point that forms the smallest counterclockwise angle with the line segment formed by the current hull boundary. This selection ensures that the boundary progresses in a “wrapping” motion, ultimately enclosing all points. The hull is complete once the algorithm loops back to the starting point. The simplicity of the gift wrap algorithm makes it a natural choice for small datasets or cases where the number of points on the hull is small. However, its time complexity, O(<em>nh</em>), where <em>n</em> is the total number of points and <em>h</em> is the number of points on the hull, can become prohibitive for larger datasets with dense point distributions.</p>
+<p>Graham’s scan algorithm <span class="cite">[<a href="#ref-54">54</a>]</span> begins by identifying a reference point, typically the point with the smallest <em>y</em>- coordinate (or the leftmost point in case of ties). The algorithm then sorts all points by their polar angle relative to this reference point, ensuring a natural order for constructing the hull. Using a stack, Graham’s scan processes these points sequentially, adding points to the stack while ensuring that each addition maintains the convexity of the boundary. If a new point causes the boundary to form a concave angle, points are removed from the stack until convexity is restored. The reliance on sorting gives Graham’s scan a time complexity of O(<em>n</em> log <em>n</em>), making it particularly well-suited for static datasets where sorting overhead can be amortized.</p>
+<p>The Quickhull algorithm employs a divide-and-conquer approach to compute the convex hull of a given set of points. The process begins by identifying the points with minimum and maximum <em>x</em>-coordinates defining the initial boundary segment. The algorithm then determines the point farthest from this segment, effectively partitioning the dataset into two subsets: points located to the left and right of the segment. This procedure is applied recursively to each subset, iteratively identifying the points that constitute the convex hull. Although Quickhull is well-suited for datasets with non-uniform spatial distributions, its worst-case computational complexity is O(<em>n</em><sup><a href="#ref-2">2</a></sup>), which occurs when the point distribution leads to excessive recursion.</p>
+<p>These algorithms form the basis for efficient convex hull computation and have been extended to handle dynamic datasets. For instance, updating the convex hull after removing a single point can often be achieved in O(<em>n</em> + <em>k</em>), where <em>k</em> is the number of points on the hull boundary, avoiding the need for a complete recomputation. Their adaptability and efficiency ensure these methods remain central to computational geometry and its applications in higher dimensions.</p>
+<p>Chan’s algorithm <span class="cite">[<a href="#ref-53">53</a>]</span> computes the convex hull with a time complexity of <em>O</em>(<em>n</em> log <em>n</em> + <em>n</em><sup>⌊d/2⌋</sup>), making it computationally efficient for large datasets. An alternative method is described by Nielsen and Nock <span class="cite">[<a href="#ref-55">55</a>]</span>, which integrates the efficiency of divide-and-conquer strategies with the precision of geometric methods. This ensures that the convex hull can be computed in optimal time for various applications.</p>
+<h4 id="212-convex-hull-for-anomaly-detection">2.1.2 Convex hull for anomaly detection</h4>
+<p>Identifying anomalies using the convex hull is based on the observation that anomalous points tend to expand the convex hull’s boundaries. From an energy perspective, this approach can be interpreted as a trade-off analysis, wherein the inclusion of additional data points results in a transition from a set with a minimal convex hull to an expanded configuration encompassing these new points. This shift highlights the balance between maintaining a compact representation and accommodating potential anomalies within the dataset. Using a support vector machine for constructing boundaries hyperplane was done by Zhang and Gu <span class="cite">[<a href="#ref-56">56</a>]</span> and Wand et al. <span class="cite">[<a href="#ref-38">38</a>]</span>. Using the convex hull to improve the calculation of the mean and variance to detect anomalies was done by Costa et al. <span class="cite">[<a href="#ref-22">22</a>]</span>. Blaise et al. <span class="cite">[<a href="#ref-31">31</a>]</span> suggest a method to detect a group of anomalies using the Voronoi diagram and the convex hull.</p>
+<h3 id="22-anomaly-detection">2.2 Anomaly detection</h3>
+<p>Anomaly detection (AD) plays a critical role in database projects. However, due to the predominantly un-supervised nature of AD, there is often no definitive solution to AD tasks in many real-world applications <span class="cite">[<a href="#ref-57">57</a>]</span>. It can be formally defined as the task of identifying data instances <em>x</em> ∈ <em>X</em> whose characteristics deviate significantly from those of the majority of the data, according to a predefined or learned notion of normality. AD is often defined as follows. Given a dataset <em>D</em> {<em>x</em><sub>1</sub><em>, x</em><sub>2</sub><em>, … , x</em><sub>n</sub>} sampled from an unknown distribution <em>P</em> (<em>X</em>). The goal is to learn a scoring function <em>s</em>: <em>X</em> → <em>R</em> such that higher values of <em>s</em>(<em>x</em>) indicate a higher likelihood of <em>x</em> being an anomaly. Notably, this definition is not computationally strict and reveals the adoptive nature of the definition in different applied settings. As a result, a variety of methods have been developed over the years, each employing distinct strategies to identify anomalies based on specific assumptions regarding the properties of the data, the anomalies, or both. Among these methods, several algorithms have gained widespread adoption.</p>
+<p>Isolation Forest <span class="cite">[<a href="#ref-28">28</a>]</span> isolates individual data points through recursive partitioning of the data space, identifying anomalies based on the speed at which they can be separated. It constructs an ensemble of isolation trees, where data points that are isolated with shorter average path lengths are flagged as anomalies. <em>Isolation Forest</em> is particularly effective when anomalies are sparse and well-separated from normal data points, especially in high-dimensional spaces. However, its performance may be compromised when anomalies are densely clustered or exhibit intricate patterns, as random splits may fail to capture these underlying structures. Moreover, this method relies solely on the ordinal ranking of each variable, disregarding distances and inter-variable relationships. As a result, its effectiveness may be diminished in situations where these factors are critical. The method operates based on the topology of the data, meaning that geometrical transformations, such as stretching or shrinking, do not affect the results. Nonetheless, in many practical applications, the geometry of the data plays an important role, and omitting this consideration may lead to false discoveries of abnormalities.</p>
+<p><em>Single-class SVM</em> <span class="cite">[<a href="#ref-58">58</a>]</span> detects anomalies by learning a boundary around normal data. Trained on data from a single class, these methods assume points outside the learned boundary are anomalous. <em>Single-class SVMs</em> construct a hyperplane that maximally separates normal data from the origin.</p>
+<p>Gaussian mixture models (GMM) <span class="cite">[<a href="#ref-19">19</a>]</span> detect anomalies by modeling data as a mixture of Gaussian distributions, identifying points with low likelihood under the model as anomalies. <em>GMM</em> is suitable for data clusters that approximate Gaussian shapes but may struggle with non-Gaussian clusters or complex distributions. This can be a generalization of the <em>Z</em>-score. Instead of a single bell in the Gaussian distribution, there exist a few. In real-life data, this is not common.</p>
+<p>Local Outlier Factor (LOF) <span class="cite">[<a href="#ref-59">59</a>]</span> measures the local density deviation of a data point relative to its neighbors, identifying anomalies in areas of significantly lower density. <em>LOF</em> is useful for data with local clusters or varying densities, but may struggle with uniform density data or when clear neighborhood structures are absent. This method detects anomalies without considering the global structure of the data. Nonetheless, detecting abnormalities globally is very important in many cases.</p>
+<p>Density-based spatial clustering of applications with noise (DBSCAN) <span class="cite">[<a href="#ref-33">33</a>]</span> groups data into dense regions, identifying points in sparse regions as anomalies. <em>DBSCAN</em> is effective for datasets with varying densities and distinct clusters but may perform poorly on data with uniform density or overlapping clusters.</p>
+<p>K-means <span class="cite">[<a href="#ref-60">60</a>]</span> partitions data into a set number of clusters, flagging points with high distances from the nearest cluster center as anomalies. This method assumes spherical clusters and works best when clusters are compact and anomalies are far from cluster centers but are limited by varying cluster shapes or densities.</p>
+<figure id="fig-1">
+<a class="fig-zoom" href="figures/fig-1.webp" aria-label="Open the figure full size"><img src="figures/fig-1.webp" width="789" height="374" alt="A simplistic example of a 2D dataset with an anomaly and its influence on the CH’s volume" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 1</strong> A simplistic example of a 2D dataset with an anomaly and its influence on the CH’s volume. On the left, there is the dataset without anomalies with a volume of 2.537, while as shown on the right, two anomaly samples increase the CH’s volume to 3.793, almost 50% increase</figcaption>
+</figure>
+
+<p>Mean shift <span class="cite">[<a href="#ref-61">61</a>]</span> iteratively shifts data points toward high-density regions, identifying clusters as density peaks and labeling points outside these clusters as anomalies. <em>Mean shift</em> is effective when data has distinct density peaks but may be less effective in uniformly distributed data or data lacking prominent clusters.</p>
+<p>The primary limitation of the clustering process is its inherent instability, which is highly sensitive to the initial conditions.</p>
+<h2 id="3-convex-hull-method-for-anomaly-detection">3 Convex hull method for anomaly detection</h2>
+<p>A volume-based convex hull method provides a robust framework for anomaly detection by leveraging the geometric properties of the data distribution to identify points that deviate significantly from the majority. The convex hull’s volume measures the dataset’s spatial extent within <em>n</em>-dimensional space. Anomalies are often located at the periphery of the data distribution, where their separation from the dense data core disproportionately inflates the convex hull’s volume. <a class="xref" href="#fig-1">Figure 1</a> presents a simplistic example of a 2D dataset with an anomaly and its influence on the CH’s volume.</p>
+<p>The proposed method identifies compact and densely distributed subsets of data by minimizing the convex hull volume while maximizing the number of enclosed points. This approach effectively excludes anomalous points. However, balancing these conflicting objectives—maximizing data inclusion while minimizing the convex hull volume—- poses significant challenges, akin to the sorites paradox <span class="cite">[<a href="#ref-62">62</a>]</span> when considered in extreme scenarios.</p>
+<p>To address these challenges, a well-defined stopping condition must be established for the iterative removal or addition of points. Alternatively, appropriate weights can be assigned to these competing objectives within an optimization framework to achieve a balance between the two goals.</p>
+<p>Formally, to define an algorithm based on the above motivation, we first define <em>S</em><sub>p</sub> as the subset of <em>S</em>, a set <em>S</em> ⊆ <em>R</em><sup>n</sup> that maximizes the volume-based objective. The problem can be stated as the following combinatorial optimization task:</p>
+<div class="equation" id="eq-2"><img src="figures/eq-2.webp" width="328" height="44" alt="max Sp⊆S f (Sp) Sp −λ vol C H(Sp), λ &gt; 0, (2)" loading="lazy" decoding="async"></div>
+
+<p>where <em>CH</em>(<em>S</em><sub>p</sub>) represents the convex hull of the subset <em>S</em><sub>p</sub>, and vol(<em>CH</em>(<em>S</em><sub>p</sub>)) denotes its volume. The objective in Eq. (2) quantifies the trade-off between the size of the selected subset |<em>S</em><sub>p</sub>| and the compactness of its convex hull, with <em>λ</em> acting as a sensitivity parameter. Larger <em>λ</em> values prioritize minimizing the convex hull volume, aiding anomaly isolation, while smaller <em>λ</em> values tolerate broader variations in the data distribution.</p>
+<p><a class="xref" href="#alg-1">Algorithm 1</a> shows a pseudo-code of the proposed algorithm which accepts a dataset (<em>S</em>), stopping criteria (<em>SC</em>), and an algorithm to compute the convex hull <em>CH</em>; and returns the subset of samples in the dataset which is not anomaly-free. At each iteration, the convex hull <em>CH</em>(<em>S</em><sub>p</sub>) is fully recomputed from the current subset <em>S</em><sub>p</sub> after the removal of each candidate point <em>p</em>. No incremental hull update strategy is used; the recomputation is performed in full to ensure correctness and to maintain consistency with the volume evaluation.</p>
+<p>particularly useful for comparing models fitted to the same dataset.</p>
+<p>The computational complexity of the proposed algorithm is determined by the iterative nature of its optimization pro- Practically, one can use multiple stopping conditions, including the elbow point method <span class="cite">[<a href="#ref-63">63</a>]</span>, which locates the inflection point in a cost function curve, and the Akaike Information Criterion (AIC) <span class="cite">[<a href="#ref-64">64</a>]</span>. The elbow point method is a heuristic technique for determining the optimal number of components (e.g., clusters) in a model by identifying the inflection point in a cost function curve, such as the within-cluster sum of squares. The method relies on plotting the cost function against the number of components and selecting the point beyond which additional components yield diminishing returns in performance improvement. This point, resembling an “elbow” in the curve, represents a balance between model complexity and fit. The Akaike Information Criterion (AIC) <span class="cite">[<a href="#ref-64">64</a>]</span> is a statistical measure for model selection that balances goodness-of-fit and model complexity. It is defined as AIC 2<em>k</em> − 2 ln( <sup>ˆ</sup><em>L</em>), where <em>k</em> is the number of estimated parameters in the model and <sup>ˆ</sup><em>L</em> is the maximum likelihood value. Lower AIC values indicate models that better trade-off explanatory power with parsimony, making the criterion cess and the operations performed within each iteration. The algorithm comprises an outer loop that iterates until the stopping condition <em>SC</em> is satisfied or all points are removed from the dataset (|<em>r</em>| |<em>S</em>|). Let <em>T</em> denote the total number of iterations.</p>
+<figure class="table-figure" id="alg-1">
+<figcaption><strong>Algorithm 1</strong> Modified Volume-Based Convex Hull Anomaly Detection</figcaption>
+<img src="figures/alg-1.webp" width="488" height="477" alt="Algorithm 1 Modified Volume-Based Convex Hull Anomaly Detection" loading="lazy" decoding="async">
+
+</figure>
+
+<p>Within each iteration, the algorithm computes the convex hull <em>S</em><sub>h</sub> of the remaining dataset <em>S</em><sub>p</sub> and evaluates all points within the current convex hull. For a dataset of size <em>n</em>, computing the convex hull requires <em>O</em>(|<em>S</em><sub>p</sub>|<sup><a href="#ref-2">2</a></sup>) operations in the worst case, where |<em>S</em><sub>p</sub>| ≤ <em>n</em>. The algorithm evaluates each point <em>p</em> in the convex hull <em>S</em><sub>h</sub> by temporarily removing it to calculate the volume of the resulting convex hull <em>S</em><sup>n</sup><sub>h</sub>. Each convex hull computation for <em>S</em><sup>n</sup> <em>S</em><sub>p</sub>\{<em>p</em>} also has a complexity of <em>O</em>(|<em>S</em><sub>p</sub>|<sup><a href="#ref-2">2</a></sup>).</p>
+<p>Given that |<em>S</em><sub>h</sub>|, the number of points in the convex hull, can be as large as <em>n</em>, evaluating all points in <em>S</em><sub>h</sub> requires <em>O</em>(|<em>S</em><sub>h</sub>|·|<em>S</em><sub>p</sub>|<sup><a href="#ref-2">2</a></sup>) operations per iteration. In the worst-case scenario where |<em>S</em><sub>h</sub>| <em>n</em> and |<em>S</em><sub>p</sub>| <em>n</em>, this results in <em>O</em>(<em>n</em> · <em>n</em><sup><a href="#ref-2">2</a></sup>)</p>
+<p><em>O</em>(<em>n</em><sup><a href="#ref-3">3</a></sup>) operations for one iteration. The total number of iterations <em>T</em> is bounded by <em>n</em> in the worst case, as at least one point is removed from <em>S</em><sub>p</sub> in each iteration. Thus, the overall time complexity of the algorithm becomes <em>O</em>(<em>T</em> · <em>n</em><sup><a href="#ref-3">3</a></sup>) <em>O</em>(<em>n</em><sup><a href="#ref-4">4</a></sup>).</p>
+<p>The memory requirements of the algorithm are primarily determined by the need to store the input dataset, the convex hull <em>S</em><sub>h</sub>, and intermediate results. The input dataset <em>S</em> ⊆ <em>R</em><sup>d</sup>, consisting of <em>n</em> points in <em>d</em>-dimensional space, requires <em>O</em>(<em>n</em> · <em>d</em>) memory.</p>
+<p>The convex hull <em>S</em><sub>h</sub> requires storage proportional to the number of vertices in the hull. In the worst-case scenario, where all <em>n</em> points are part of <em>S</em><sub>h</sub>, this also necessitates <em>O</em>(<em>n</em> · <em>d</em>) memory. Temporary storage is required for subsets such as <em>S</em><sup>n</sup> <em>S</em><sub>p</sub>\{<em>p</em>}, which similarly demands <em>O</em>(<em>n</em> · <em>d</em>) memory.</p>
+<p>The computation of the volume introduces a negligible constant memory overhead. Therefore, the memory complexity is primarily driven by the storage requirements for the dataset and the convex hull, resulting in an overall memory complexity of <em>O</em>(<em>n</em> · <em>d</em>).</p>
+<h2 id="4-experiments">4 Experiments</h2>
+<p>In this section, we present the experiments conducted to evaluate the proposed CH anomaly detection algorithm. All experiments were executed on a dedicated server running Windows 10 Pro (64-bit), equipped with an Intel Core i7- 10700 CPU (8 cores, 16 threads, 2.90 GHz base frequency), 32 GB of DDR4 RAM, and a 1 TB NVMe SSD for storage.</p>
+<h3 id="41-datasets">4.1 Datasets</h3>
+<p><a class="xref" href="#table-1">Table 1</a> presents the datasets used in this study with their number of rows, cols, and portion of tagged anomalies. The datasets range from small ones with as few as 148 rows and up to medium ones with over 60 thousand rows. The number of columns also ranges from seven to forty-one columns, representing a relatively wide range of configurations. In addition, we also present the datasets that are considered appropriate to the CH algorithms, denoted by <em>Yes</em> in the last column, as these show a large reduction in the CH’s volume over the first 10 steps of the algorithm.</p>
+<h3 id="42-convex-hull-anomaly-detection-implementation">4.2 Convex hull anomaly detection implementation</h3>
+<p>In order to explore different implementations of the proposed CH anomaly detection algorithm, we consider two properties: a dimension reduction algorithm and a stop condition. For the dimension reduction, we adopted the popular principal component analysis (PCA) <span class="cite">[<a href="#ref-65">65</a>]</span> and the t-distributed stochastic neighbor embedding (t-SNE) <span class="cite">[<a href="#ref-66">66</a>]</span> algorithms. As a default, we assume both reduce to a two-dimensional space. We used this step to obtain a feasible computational time for the proposed algorithm. For the stop condition, we adopted three strategies: naive, elbow, and optimal. For the naive strategy, we stopped the process once the change in the CH’s volume was less than one percent of the original change (i.e., the change in the CH’s volume between the original dataset and after removing the first data point). For the elbow strategy, we performed the entire CH’s computation, up to three data points, and took the elbow point of the CH’s volume profile <span class="cite">[<a href="#ref-67">67</a>]</span>. Finally, the optimal strategy is an unrealistic one and is used only to explore the model’s performance, in which the number of anomaly points is known in advance, and the CH stops after the same number of steps. Importantly, we used the Euclidean distance <span class="cite">[<a href="#ref-68">68</a>]</span> for all the experiments.</p>
+<h3 id="43-performance">4.3 Performance</h3>
+<p>Table 2 presents the performance of all six CH configurations (for two-dimensionality reduction methods over three stooping strategies) and seven baseline anomaly detection algorithms in terms of their accuracy, <em>F</em><sub>1</sub> score, recall, precision, area under the receiver operating characteristic (ROC) curve (AUC), and computation time (CT). Notably, the proposed convex hull algorithm performs comparably to the Isolation Forest model, which is considered the current state-of-the-art and obtains the highest <em>F</em><sub>1</sub> score of 0.2619. More precisely, the convex hull algorithm with the optimal stopping strategy and t-SNE obtained the highest precision (and accuracy), followed by the other versions of the convex hull, and only then by the Isolation Forest algorithm. The DBSCAN algorithm obtains an almost perfect recall of 0.9968 but overall produces extremely poor results with an <em>F</em><sub>1</sub> score of 0.0528. Expectedly, the optimal, elbow, and naive stop strategies result in a monotonic decrease in performance in terms of all metrics. In addition, the t-SNE produces better results in terms of precision and <em>F</em><sub>1</sub> score but worse in terms of recall compared to the PCA method. Notably, the proposed CH algorithm is implemented in Python programming language without performance optimization, while the baseline algorithms are implemented in the <em>C</em> program language with performance optimization.</p>
+<p><a class="xref" href="#table-3">Table 3</a> presents a similar analysis to Table 2 but focuses only on the four datasets that are deemed convex hull friendly (see <a class="xref" href="#table-1">Table 1</a>). In such settings, the convex hull with an optimal stooping strategy with the t-SNE obtains the highest <em>F</em><sub>1</sub> score and precision of 0.1698 and 0.1491, respectively. Even the more realistic configuration of the algorithm with the elbow point stooping condition outperforms all other algorithms in terms of <em>F</em><sub>1</sub> score and precision of 0.1657 and 0.1457, respectively. Like before, optimal, elbow, and naive stooping strategies result in a monotonic decrease in performance in terms of all metrics. In addition, the t-SNE produces better results in terms of precision and <em>F</em><sub>1</sub> score but worse in terms of recall compared to the PCA method.</p>
+<figure class="table-figure" id="table-1">
+<figcaption><strong>Table 1</strong> An overview of the</figcaption>
+<div class="table-scroll"><table><tr><th>datasets used in this study</th><th>Name</th><th>Description</th><th></th><th>#<br/>Samples</th><th>#<br/>Cols</th><th colspan="4">Portion of anomalies CH-friendly<br/>(%)</th></tr><tr><td></td><td>Glass</td><td>Glass<br/>data</td><td>identiﬁcation</td><td>214</td><td>7</td><td>4.2</td><td></td><td>No</td><td></td></tr><tr><td></td><td>Ionosphere</td><td>Radar data<br/>ionosphere<br/>detection</td><td>for</td><td>351</td><td>32</td><td>35.9</td><td></td><td>No</td><td></td></tr><tr><td></td><td>Lymphography</td><td>Medical<br/>lymphography</td><td>data</td><td>148</td><td>19</td><td>4.1</td><td></td><td>No</td><td></td></tr><tr><td></td><td>PenDigits</td><td>Handwritten<br/>recognition</td><td>digit<br/>data</td><td>9868</td><td>16</td><td>0.2</td><td></td><td>No</td><td></td></tr><tr><td></td><td>Shuttle</td><td>NASA shuttle<br/>anomaly</td><td>data</td><td>1013</td><td>9</td><td>1.3</td><td></td><td>No</td><td></td></tr><tr><td></td><td>WBC</td><td>Wisconsin<br/>cancer data</td><td>breast</td><td>454</td><td>9</td><td>2.2</td><td></td><td>No</td><td></td></tr><tr><td></td><td>Waveform</td><td>Synthetic<br/>data</td><td>waveform</td><td>3443</td><td>21</td><td>2.9</td><td></td><td>Yes</td><td></td></tr><tr><td></td><td>KDDCup99</td><td>Network<br/>detection</td><td>intrusion<br/>dataset</td><td>60,632</td><td>41</td><td>0.4</td><td></td><td>Yes</td><td></td></tr><tr><td></td><td>WDBC</td><td>Wisconsin<br/>breast</td><td>diagnostic<br/>cancer</td><td>367</td><td>30</td><td>2.7</td><td></td><td>Yes</td><td></td></tr><tr><td></td><td>WPBC</td><td>Wisconsin<br/>breast</td><td>prognostic<br/>cancer</td><td>198</td><td>33</td><td>23.7</td><td></td><td>Yes</td><td></td></tr><tr><td>Table 2 Performance of the<br/>models with comparison to</td><td>Algorithm</td><td></td><td>Accuracy</td><td>F1 Score</td><td>Recall</td><td></td><td>Precision</td><td>AUC</td><td>CT</td></tr><tr class="row-group"><td>baseline algorithms</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>Convex hull, naive</td><td>+ PCA</td><td>0.8739</td><td>0.2181</td><td>0.2702</td><td></td><td>0.2112</td><td>0.5730</td><td>17.0416</td></tr><tr><td></td><td>Convex hull, naive</td><td>+ t-SNE</td><td>0.9150</td><td>0.2337</td><td>0.2244</td><td></td><td>0.2240</td><td>0.5764</td><td>55.5415</td></tr><tr><td></td><td>Convex hull, elbow</td><td>+ PCA</td><td>0.8739</td><td>0.2181</td><td>0.2702</td><td></td><td>0.2112</td><td>0.6016</td><td>8.7743</td></tr><tr><td></td><td>Convex hull, elbow</td><td>+ t-SNE</td><td>0.9163</td><td>0.2335</td><td>0.2203</td><td></td><td>0.2261</td><td>0.5792</td><td>69.0557</td></tr><tr><td></td><td>Convex hull, optimal</td><td>+ PCA</td><td>0.8739</td><td>0.2181</td><td>0.2702</td><td></td><td>0.2112</td><td>0.5730</td><td>16.0395</td></tr><tr><td></td><td>Convex hull, optimal</td><td>+ t-SNE</td><td>0.9154</td><td>0.2343</td><td>0.2229</td><td></td><td>0.2278</td><td>0.5782</td><td>46.4837</td></tr><tr><td></td><td>Isolation Forest</td><td></td><td>0.9077</td><td>0.2619</td><td>0.6681</td><td></td><td>0.1812</td><td>0.8866</td><td>1.1620</td></tr><tr><td></td><td>Local Outlier Factor</td><td></td><td>0.9003</td><td>0.2110</td><td>0.6135</td><td></td><td>0.1438</td><td>0.8113</td><td>2.4859</td></tr><tr><td></td><td>One-class SVM</td><td></td><td>0.7665</td><td>0.1703</td><td>0.5824</td><td></td><td>0.1173</td><td>0.7191</td><td>7.1903</td></tr><tr><td></td><td>Gaussian mixture</td><td>models</td><td>0.4131</td><td>0.0894</td><td>0.5203</td><td></td><td>0.0612</td><td>0.8863</td><td>2.2089</td></tr><tr><td></td><td>K-means</td><td></td><td>0.3727</td><td>0.0736</td><td>0.5086</td><td></td><td>0.0480</td><td>0.4655</td><td>2.4578</td></tr><tr><td></td><td>DBSCAN</td><td></td><td>0.0346</td><td>0.0528</td><td>0.9968</td><td></td><td>0.0283</td><td>0.5210</td><td>32.9040</td></tr><tr><td></td><td>Mean shift</td><td></td><td>0.0622</td><td>0.0497</td><td>0.9090</td><td></td><td>0.0267</td><td>0.4723</td><td>4.739</td></tr></table></div>
+<p class="table-note">The best outcome for each metric is highlighted in bold</p>
+</figure>
+
+<h3 id="44-sensitivity-analysis">4.4 Sensitivity analysis</h3>
+<p>We computed the one-dimensional sensitivity analysis <span class="cite">[<a href="#ref-69">69</a>]</span> of each of the parameters. <a class="xref" href="#table-4">Table 4</a> outlines the results of the analysis, presenting mean change obtained from a linear regression <span class="cite">[<a href="#ref-70">70</a>]</span> model fitted on all the datasets ranging between 50 and 100% of the data with the smallest step size for each feature from the original value are presented in <a class="xref" href="#table-1">Table 1</a>. We obtained a coefficient of determination of <em>R</em><sup><a href="#ref-2">2</a></sup> 0<em>.</em>906, indicating the values of the linear regression well capture the sensitivity of the model’s performance, in terms of <em>F</em><sub>1</sub> score, to each of the model’s parameters. Peculiarly, only the number of samples (rows), dimensionality reduction dimension, and stopping condition are statistically significant with <em>p</em> &lt; 0.05.</p>
+<p>In addition, in order to assess the robustness of the proposed CH anomaly detection algorithm against noisy data, we conducted a noise resilience analysis. Specifically, we introduced Gaussian noise to the datasets at levels ranging from 0 to 5% of the data variance (with mean equal to zero). <a class="xref" href="#table-5">Table 5</a> presents the averaged results across multiple runs for the optimal configuration of the CH algorithm (t-SNE + optimal stopping condition). Each metric is reported as a function of the percentage of added noise. One can notice that the <em>F</em><sub>1</sub> score shows a slight decline (from 0.1814 at 0% noise to 0.1604 at 5% noise), the precision remains relatively high, and recall exhibits only mild fluctuations. Accuracy remains consistently above 95%, and the AUC stays in the range of 0.57–0.59. Computation time increases steadily with the noise level.</p>
+<figure class="table-figure" id="table-3">
+<figcaption><strong>Table 3</strong> Performance of the models with comparison to baseline algorithms for the four datasets detected as convex hull friendly</figcaption>
+<div class="table-scroll"><table><tr><th>Algorithm</th><th>Accuracy</th><th>F1 Score</th><th>Recall</th><th>Precision</th><th>AUC</th><th>CT</th></tr><tr><td>Convex hull, naive + PCA</td><td>0.9485</td><td>0.1452</td><td>0.1577</td><td>0.1460</td><td>0.6109</td><td>20.1798</td></tr><tr><td>Convex hull, naive + t-SNE</td><td>0.9462</td><td>0.1661</td><td>0.2022</td><td>0.1461</td><td>0.5940</td><td>17.9756</td></tr><tr><td>Convex hull, elbow + PCA</td><td>0.9507</td><td>0.1134</td><td>0.1194</td><td>0.1470</td><td>0.6144</td><td>3.4130</td></tr><tr><td>Convex hull, elbow + t-SNE</td><td>0.9462</td><td>0.1657</td><td>0.2015</td><td>0.1457</td><td>0.5989</td><td>19.6112</td></tr><tr><td>Convex hull, optimal + PCA</td><td>0.9485</td><td>0.1452</td><td>0.1577</td><td>0.1460</td><td>0.6109</td><td>19.6880</td></tr><tr><td>Convex hull, optimal + t-SNE</td><td>0.9464</td><td>0.1698</td><td>0.2067</td><td>0.1491</td><td>0.5062</td><td>17.7123</td></tr><tr><td>Isolation Forest</td><td>0.8856</td><td>0.0899</td><td>0.4992</td><td>0.0579</td><td>0.8871</td><td>1.0643</td></tr><tr><td>Local outlier factor</td><td>0.8886</td><td>0.1097</td><td>0.3523</td><td>0.0726</td><td>0.7841</td><td>0.5543</td></tr><tr><td>One-class SVM</td><td>0.7750</td><td>0.0569</td><td>0.4106</td><td>0.0349</td><td>0.7932</td><td>2.0343</td></tr><tr><td>Mean shift</td><td>0.0760</td><td>0.0484</td><td>0.9995</td><td>0.0261</td><td>0.4985</td><td>2.8032</td></tr><tr><td>Gaussian mixture models</td><td>0.4577</td><td>0.0449</td><td>0.5820</td><td>0.0249</td><td>0.8992</td><td>0.5632</td></tr><tr><td>K-means</td><td>0.4572</td><td>0.0459</td><td>0.6448</td><td>0.0253</td><td>0.4778</td><td>0.1930</td></tr><tr><td>DBSCAN</td><td>0.0344</td><td>0.0478</td><td>0.9927</td><td>0.0259</td><td>0.5070</td><td>0.2636</td></tr></table></div>
+<p class="table-note">The best outcome for each metric is highlighted in bold</p>
+</figure>
+
+<figure class="table-figure" id="table-4">
+<figcaption><strong>Table 4</strong> Sensitivity analysis of the dataset and proposed model parameters</figcaption>
+<div class="table-scroll"><table><tr><th>Parameter</th><th>Value</th><th>P value</th></tr><tr><td># of samples</td><td>0.032</td><td>4.2 × 10−5</td></tr><tr><td># of features</td><td>−0.063</td><td>7.0 × 10−3</td></tr><tr><td>Portion of anomalies</td><td>0.008</td><td>0.128</td></tr><tr><td>CH-friendly</td><td>0.049</td><td>0.038</td></tr><tr><td>Stopping condition—naive</td><td>−0.005</td><td>0.046</td></tr><tr><td>Stopping condition—elbow</td><td>0.001</td><td>0.033</td></tr><tr><td>Dimensionality reduction—PCA</td><td>−0.082</td><td>0.083</td></tr><tr><td>Dimensionality reduction dimension</td><td>−0.004</td><td>0.001</td></tr></table></div>
+<p class="table-note">The table provides parameter values and their <em>p</em> values from a linear regression model predicting the model’s average <em>F</em><sub>1</sub> score across the datasets in <a class="xref" href="#table-1">Table 1</a></p>
+</figure>
+
+<h3 id="45-special-cases">4.5 Special cases</h3>
+<p>In Fig. 2a, the convex hull provides an accurate representation of the geometric structure of the data. Consequently, the convex hull method performs effectively in this case. In contrast, Fig. 2b, c illustrate cases involving a <em>torus</em> and a <em>circle</em> with noise, respectively. These cases are synthetically designed to highlight edge cases where the proposed convex hull model exhibits suboptimal performance. The primary reason for this limitation is that the majority of points in these sets lie on the convex hull’s boundary. As a result, processing these boundary points demands substantial computational resources. However, it is important to note that the cases are relatively rare in most real-world datasets.</p>
+<figure class="table-figure" id="table-5">
+<figcaption><strong>Table 5</strong> Noise resilience analysis of the convex hull (t-SNE + optimal stop condition) model</figcaption>
+<div class="table-scroll"><table><tr><td>Metric/noise level</td><td>0%</td><td>1%</td><td>2%</td><td>3%</td><td>4%</td><td>5%</td></tr><tr><td>F1 Score</td><td>0.1814</td><td>0.1607</td><td>0.1683</td><td>0.1616</td><td>0.1667</td><td>0.1604</td></tr><tr><td>Recall</td><td>0.2081</td><td>0.1695</td><td>0.1889</td><td>0.1847</td><td>0.1918</td><td>0.1814</td></tr><tr><td>Precision</td><td>0.4934</td><td>0.5321</td><td>0.5084</td><td>0.4929</td><td>0.4757</td><td>0.4733</td></tr><tr><td>Accuracy</td><td>0.9587</td><td>0.9628</td><td>0.9602</td><td>0.9602</td><td>0.9587</td><td>0.9596</td></tr><tr><td>AUC</td><td>0.5934</td><td>0.5770</td><td>0.5850</td><td>0.5830</td><td>0.5857</td><td>0.5810</td></tr><tr><td>CT (s)</td><td>49.88</td><td>52.43</td><td>53.31</td><td>54.07</td><td>55.02</td><td>55.33</td></tr></table></div>
+<p class="table-note">Metrics are averaged across <em>n</em> 10 repetitions and all datasets in <a class="xref" href="#table-1">Table 1</a> with noise levels ranging from 0 to 5%</p>
+</figure>
+
+<figure id="fig-2">
+<a class="fig-zoom" href="figures/fig-2.webp" aria-label="Open the figure full size"><img src="figures/fig-2.webp" width="952" height="291" alt="Special cases where the proposed convex hull algorithm produces poor results" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 2</strong> Special cases where the proposed convex hull algorithm produces poor results. The black dots indicate the in-distribution, while the red ones indicate anomalies</figcaption>
+</figure>
+
+<figure class="table-figure" id="table-6">
+<figcaption><strong>Table 6</strong> <em>F</em><sub>1</sub> score of the convex hull algorithm with the optimal stopping strategy compared to the Isolation Forest algorithm for the three edge cases shown in Fig. 2b, 2c, and 2a</figcaption>
+<div class="table-scroll"><table><tr><th>Algorithm</th><th>Case</th><th>F1 Score</th></tr><tr><td>Convex hull, optimal</td><td>Torus</td><td>0.0000</td></tr><tr><td>Convex hull, optimal</td><td>Circle with noise</td><td>0.2393</td></tr><tr><td>Convex hull, optimal</td><td>Unnormalized dimensions</td><td>0.0823</td></tr><tr><td>Isolation Forest</td><td>Torus</td><td>1.0000</td></tr><tr><td>Isolation Forest</td><td>Circle with noise</td><td>0.4170</td></tr><tr><td>Isolation Forest</td><td>Unnormalized dimensions</td><td>0.1874</td></tr></table></div>
+
+</figure>
+
+<p><a class="xref" href="#table-6">Table 6</a> presents the <em>F</em><sub>1</sub> score of the convex hull algorithm with the optimal stopping strategy compared to the Isolation Forest algorithm for the three edge cases shown in Fig. 2a–c. For the torus case, the convex hull receives <em>F</em><sub>1</sub> score of 0, while the Isolation Forest achieves <em>F</em><sub>1</sub> score of 1. The latter two cases show less dramatic differences, with around 0.18 and 0.1 differences in the <em>F</em><sub>1</sub> score between the Isolation Forest and the convex hull algorithms.</p>
+<h2 id="5-conclusions">5 Conclusions</h2>
+<p>In this study, we introduce a volume-based convex hull method for anomaly detection. The approach effectively identifies anomalies by leveraging the geometric properties of data distribution, prioritizing compact and dense subsets while excluding anomalies. This dual-objective strategy ensures that anomalies, which disproportionately increase the convex hull’s volume, are systematically identified. However, balancing the competing objectives of minimizing volume and maximizing data inclusion is a non-trivial challenge that requires careful calibration of parameters and stopping conditions.</p>
+<p>The computational complexity of the proposed method is significant, with a worst-case time complexity of <em>O</em> (<em>N</em><sup><a href="#ref-4">4</a></sup>), where <em>N</em> denotes the number of data points in the dataset. This is between one and two order(s) of magnitude compared to the compared algorithms (see <a class="xref" href="#table-7">Table 7</a> in the “Appendix” for full time complexity information). This high computational cost primarily stems from the iterative nature of the algorithm and the repeated calculation of convex hulls. However, the integration of dimensionality reduction techniques, such as Principal Component Analysis (PCA) and t-distributed stochastic neighbor embedding (t-SNE), as demonstrated in the experimental section, plays a critical role in alleviating these computational burdens. These techniques enable the method to achieve performance that is often comparable to, and occasionally surpasses, that of current state-of-the-art anomaly detection algorithms. Nonetheless, it is important to acknowledge the trade-offs associated with dimensionality reduction, particularly the potential distortion of the original data structure, which may affect detection accuracy.</p>
+<p>Furthermore, the choice of stopping criteria is pivotal to the method’s overall effectiveness. The algorithm’s performance varies under different stopping strategies, including naive, elbow-based, and theoretically optimal approaches. While the naive strategy is straightforward to implement, its dependence on fixed thresholds may lead to either premature termination or excessive computation. The elbow method offers a more balanced alternative by dynamically responding to changes in the convex hull’s volume. Although the optimal stopping rule is impractical for real-world deployment, it provides a valuable benchmark for assessing the algorithm’s theoretical performance ceiling.</p>
+<p>The proposed algorithm considers the geometric properties of the set, particularly the importance of distances and angles. It remains invariant under geometric transformations such as translation, rotation, and reflection. In addition, it is invariant under isotropic scaling. However, transformations that do not preserve angles, such as shearing, can alter the algorithm’s outcome. It is important to note that in applications where angle preservation is critical, this behavior is acceptable.</p>
+<p>Interestingly, the proposed algorithm produces poor results for <em>inside</em> out-of-distribution cases <span class="cite">[<a href="#ref-71">71</a>]</span>, as indicated by the <em>torus</em>-shaped data with several anomaly data points in the center of the torus, unlike other algorithms such as the Isolation Forest which takes into account only the topology, not the distance and the angles. As the latter portions, the feature space locally rather than globally like the proposed convex hull algorithm.</p>
+<p>This study is not without its limitations. First, the selection of stopping conditions remains a critical yet inherently subjective component of the proposed method. Although adaptive techniques such as the elbow method introduce a degree of flexibility, there is currently no universally accepted criterion for determining optimal stopping points across diverse datasets. This represents a compelling direction for future research. Second, the study does not extensively examine the effects of noise or overlapping anomalies, both of which may further challenge the robustness of the approach. Lastly, the experimental evaluation is primarily confined to small- and medium-scale real-world datasets. As a result, the scalability and generalizability of the method to large, complex datasets remain largely unexplored. This limitation is largely attributable to the scarcity of high-quality, labeled anomalies in such datasets. Addressing this gap should be a priority for future investigations become available.</p>
+<p>Taken jointly, the findings of this study highlight the potential of the convex-hull-based approach as a robust and interpretable method for anomaly detection across diverse datasets. By leveraging geometric principles, the method effectively identifies anomalies while offering insights into the underlying structure of the data. Despite its computational intensity and sensitivity to certain data distributions, the proposed framework demonstrates a promising balance between accuracy and interpretability, particularly when combined with dimensionality reduction techniques.</p>
+<h2 id="appendix">Appendix</h2>
+<h2 id="baseline-algorithms-hyperparameters">Baseline algorithm’s hyperparameters</h2>
+<p>The baseline algorithms were configured with the following hyperparameters. For the Isolation Forest, we set contamination=0.1 and random_state=42. The One-class SVM was used with nu=0.1, kernel="rbf", and gamma=0.1. The Gaussian mixture models employed n_components=2 and covariance_type="full". K-means was run with n_clusters=2 and random_state=42. The Local Outlier Factor used n_neighbors=20 and contamination=0.1. DBSCAN was applied with eps=0.5 and min_samples=5, while mean shift relied on its default parameters.</p>
+<p>The PCA and TSNE algorithms were constructed via initialize_reducer(), which returns either PCA(n_components=2) or TSNE(n_components=2) with all other TSNE parameters left at scikit-learn defaults (e.g., perplexity=30, learning_rate="auto", and no fixed random_state).</p>
+<h2 id="baseline-algorithms-time-and-memory-requirements">Baseline algorithm’s time and memory requirements</h2>
+<p><a class="xref" href="#table-7">Table 7</a> summarizes the computational requirements of the baseline anomaly detection algorithms in terms of average-and worst-case time complexity, as well as memory consumption. Here, <em>n</em> denotes the number of samples in the dataset and <em>f</em> denotes the number of features.</p>
+<figure class="table-figure" id="table-7">
+<figcaption><strong>Table 7</strong> Time and memory complexity of the used anomaly detection algorithms, where <em>n</em> is the dataset’s sample size, <em>f</em> is the dataset’s feature size</figcaption>
+<div class="table-scroll"><table><tr><th>Algorithm</th><th>Time complexity<br/>(worst/average)</th><th>Memory</th><th>Source</th></tr><tr><td>Isolation Forest</td><td>O(n log (n))/O(n<br/>log (n))</td><td>O(log(f ))</td><td><span class="cite">[<a href="#ref-72">72</a>]</span></td></tr><tr><td>Local Outlier<br/>Factor</td><td>O(n2)/O(n log (n))</td><td>O(nf )</td><td><span class="cite">[<a href="#ref-73">73</a>]</span></td></tr><tr><td>One-class SVM</td><td>O(n3)/O(n3)</td><td>O(nf )</td><td><span class="cite">[<a href="#ref-74">74</a>]</span></td></tr><tr><td>Mean shift</td><td>O(n3)/O(n2 log<br/>(n))</td><td>O(nf )</td><td><span class="cite">[<a href="#ref-75">75</a>]</span></td></tr><tr><td>Gaussian mixture<br/>models</td><td>O(nf 2 + f 3)/O(nf<br/>2 + f 3)</td><td>O(nf + f 2)</td><td><span class="cite">[<a href="#ref-76">76</a>]</span></td></tr><tr><td>K-means</td><td>O(n2f )/O(nf )</td><td>O(nf )</td><td><span class="cite">[<a href="#ref-77">77</a>]</span></td></tr><tr><td>DBSCAN</td><td>O(n2)/O(log (n))</td><td>O(nf )</td><td><span class="cite">[<a href="#ref-78">78</a>]</span></td></tr></table></div>
+
+</figure>
+
+<p><strong>Author’s contribution</strong> Uri Itai: conceptualization, formal analysis, writing—original draft. Asael Bar Ilan: software, formal analysis, data curation, writing—review and editing. Teddy Lazebnik: conceptualization, methodology, validation, formal analysis, software, investigation, data curation, writing—original draft, writing—review and editing, supervision, visualization, project administration.</p>
+<p><strong>Funding</strong> This study received no external funding.</p>
+<p><strong>Data and code availability</strong> The data is freely available in the following GitHub repository: https://github.com/asaelbarilan/Anomaly_Dete ction_Using_Convex_Hull.</p>
+<h3 id="declarations">Declarations</h3>
+<p><strong>Conflict of interest</strong> The authors declare no competing interests.</p>
+<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 5 April 2025 · Accepted 22 September 2025</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>Outlier detection</li><li>Convex hull</li><li>Out-of-distribution</li><li>Geometry of a set</li><li>Hypervolume</li></ul></dd></div></dl></section>
+<h2 id="references">References</h2>
+<ol class="paper-refs"><li id="ref-1">Khan, A.Q., El Jaouhari, S., Tamani, N., Mroueh, L.: Knowledge-based anomaly detection: survey, challenges, and future directions. Eng. Appl. Artif. Intell. 136, 108996 (2024)</li>
+<li id="ref-2">Chandola, V., Banerjee, A., Kumar, V.: Anomaly detection: a survey. ACM Comput. Surv. (CSUR) 41(3), 1–58 (2009)</li>
+<li id="ref-3">Zamanzadeh Darban, Z., Webb, G.I., Pan, S., Aggarwal, C., Salehi, M.: Deep learning for time series anomaly detection: a survey. ACM Comput. Surv. 57(1), 1–42 (2024)</li>
+<li id="ref-4">Fährmann, D., Martín, L., Sánchez, L., Damer, N.: Anomaly detection in smart environments: a comprehensive survey. IEEE Access 12, 64006–64049 (2024)</li>
+<li id="ref-5">Pang, G., Shen, C., Cao, L., Van Den Hengel, A.: Deep learning for anomaly detection: a review. ACM Comput. Surv. (CSUR) 54(2), 1–38 (2021)</li>
+<li id="ref-6">Xu, X., Liu, H., Yao, M.: Recent progress of anomaly detection. Complexity 2019(1), 2686378 (2019)</li>
+<li id="ref-7">Ahmed, M., Mahmood, A.N., Islam, R.: A survey of anomaly detection techniques in financial domain. Futur. Gener. Comput. Syst. 55, 278–288 (2016)</li>
+<li id="ref-8">Ten, C.W., Hong, J., Liu, C.C.: Anomaly detection for cybersecurity of the substations. IEEE Trans. Smart Grid 2(4), 865–873 (2011)</li>
+<li id="ref-9">Prasad, N.R., Almanza-Garcia, S., Lu, T.T.: Anomaly detection. Comput. Mater. Continua 14(1), 1–22 (2010)</li>
+<li id="ref-10">Habeeb, R.A.A., Nasaruddin, F., Gani, A., Hashem, I.A.T., Ahmed, E., Imran, M.: Real-time big data processing for anomaly detection: a survey. Int. J. Inf. Manag. 45, 289–307 (2019)</li>
+<li id="ref-11">Jia, W., Shukla, R.M., Sengupta, S.: Anomaly detection using supervised learning and multiple statistical methods. In: 2019 18th IEEE International Conference on Machine Learning and Applications (ICMLA), pp. 1291–1297. IEEE (2019)</li>
+<li id="ref-12">Görnitz, N., Kloft, M., Rieck, K., Brefeld, U.: Toward supervised anomaly detection. J. Artif. Intell. Res. 46, 235–262 (2013)</li>
+<li id="ref-13">Lazebnik, T.: Pulling the carpet below the learner’s feet: genetic algorithm to learn ensemble machine learning model during concept drift. Eng. Appl. Artif. Intell. 152, 110772 (2025)</li>
+<li id="ref-14">Nassif, A.B., Talib, M.A., Nasir, Q., Dakalbab, F.M.: Machine learning for anomaly detection: a systematic review. IEEE Access 9, 78658–78700 (2021)</li>
+<li id="ref-15">Fernando, T., Gammulle, H., Denman, S., Sridharan, S., Fookes, C.: Deep learning for medical anomaly detection: a survey. ACM Comput. Surv. (CSUR) 54(7), 1–37 (2021)</li>
+<li id="ref-16">Himeur, Y., Ghanem, K., Alsalemi, A., Bensaali, F., Amira, A.: Artificial intelligence based anomaly detection of energy consumption in buildings: a review, current trends and new perspectives. Appl. Energy 287, 116601 (2021)</li>
+<li id="ref-17">Hang, Yu., Zhang, Q., Liu, T., Jie, Lu., Wen, Y., Zhang, G.: Meta-add: a meta-learning based pre-trained model for concept drift active detection. Inf. Sci. 608, 996–1009 (2022)</li>
+<li id="ref-18">Li, P., Hang, Yu., Luo, X., Jia, Wu.: LGM-GNN: a local and global aware memory-based graph neural network for fraud detection. IEEE Trans. Big Data 9(4), 1116–1127 (2023)</li>
+<li id="ref-19">Li, L., Hansman, R.J., Palacios, R., Welsch, R.: Anomaly detection via a Gaussian mixture model for flight operation and safety monitoring. Transp. Res. Part C Emerg. Technol. 64, 45–57 (2016)</li>
+<li id="ref-20">Barnard, J.P., Aldrich, C.: Detecting outliers in multivariate process data by using convex hulls. In: Computer Aided Chemical Engineering, vol. 8, pp. 103–107. Elsevier (2000)</li>
+<li id="ref-21">Cohen, K., Zhao, Q.: Active hypothesis testing for anomaly detection. IEEE Trans. Inf. Theory 61(3), 1432–1450 (2015)</li>
+<li id="ref-22">Costa, G.B.P., Ponti, M., Frery, A.C.: Partially supervised anomaly detection using convex hulls on a 2d parameter space. In: Partially Supervised Learning: Second IAPR International Workshop, PSL 2013, Nanjing, China, 13–14 May 2013, Revised Selected Papers 2, pp. 1–8. Springer (2013)</li>
+<li id="ref-23">Alpaydin, E.: Introduction to Machine Learning. MIT Press (2020)</li>
+<li id="ref-24">Wang, D., Shang, Y.: A new active labeling method for deep learning. In: 2014 International Joint Conference on Neural Networks (IJCNN), pp. 112–119. IEEE (2014)</li>
+<li id="ref-25">Manevitz, L.M., Yousef, M.: One-class SVMs for document classification. J. Mach. Learn. Res. 2(1), 139–154 (2001)</li>
+<li id="ref-26">Oza, P., Patel, V.M.: One-class convolutional neural network. IEEE Signal Process. Lett. 26(2), 277–281 (2018)</li>
+<li id="ref-27">Zhou, C., Paffenroth, R.C.: Anomaly detection with robust deep autoencoders. In: Proceedings of the 23rd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, pp. 665–674 (2017)</li>
+<li id="ref-28">Cheng, Z., Zou, C., Dong, J.: Outlier detection using isolation forest and local outlier factor. In: Proceedings of the Conference on Research in Adaptive and Convergent Systems, pp. 161–168 (2019)</li>
+<li id="ref-29">Boukerche, A., Zheng, L., Alfandi, O.: Outlier detection: methods, models, and classification. ACM Comput. Surv. (CSUR) 53(3), 1–37 (2020)</li>
+<li id="ref-30">Novello, P., Prudent, Y., Dalmau, J., Friedrich, C., Pequignot, Y: Improving out-of-distribution detection by combining existing post-hoc methods. arXiv preprint arXiv:2407.07135 (2024) <a href="http://arxiv.org/abs/2407.07135" target="_blank" rel="noopener">link</a></li>
+<li id="ref-31">Blaise, A., Bouet, M., Conan, V., Secci, S.: Group anomaly detection in mobile app usages: a spatiotemporal convex hull methodology. Comput. Netw. 216, 109277 (2022)</li>
+<li id="ref-32">Peterson, L.E.: K-nearest neighbor. Scholarpedia 4(2), 1883 (2009)</li>
+<li id="ref-33">Schubert, E., Sander, J., Ester, M., Kriegel, H.P., Xu, X.: Dbscan revisited, revisited: why and how you should (still) use dbscan. ACM Trans. Database Syst. (TODS) 42(3), 1–21 (2017)</li>
+<li id="ref-34">Mandhare, H.C., Idate, S.R.: A comparative study of cluster based outlier detection, distance based outlier detection and density based outlier detection techniques. In: 2017 International Conference on Intelligent Computing and Control Systems (ICICCS), pp. 931–935. IEEE (2017)</li>
+<li id="ref-35">Avis, D., Bremner, D.: How good are convex hull algorithms? In: Proceedings of the Eleventh Annual Symposium on Computational Geometry, pp. 20–28 (1995)</li>
+<li id="ref-36">Barber, C.B., Dobkin, D.P., Huhdanpaa, H.: The quickhull algorithm for convex hulls. ACM Trans. Math. Softw. (TOMS) 22(4), 469–483 (1996)</li>
+<li id="ref-37">Barnhill, R.E., Riesenfeld, R.F.: Computer Aided Geometric Design. Academic Press (2014)</li>
+<li id="ref-38">Wang, T., Cai, M., Ouyang, X., Cao, Z., Cai, T., Tan, X., Lu, X.: Anomaly detection based on convex analysis: a survey. Front. Phys. 10, 873848 (2022)</li>
+<li id="ref-39">Li, P., Niggemann, O.: Improving clustering based anomaly detection with concave hull: an application in fault diagnosis of wind turbines. In: 2016 IEEE 14th International Conference on Industrial Informatics (INDIN), pp. 463–466. IEEE (2016)</li>
+<li id="ref-40">Olteanu, M., Rossi, F., Yger, F.: Meta-survey on outlier and anomaly detection. Neurocomputing 555, 126634 (2023)</li>
+<li id="ref-41">Novoa-Paradela, D., Fontenla-Romero, O., Guijarro-Berdin˜as, B.: Online learning for anomaly detection via subdivisible convex hulls. In: 2020 International Joint Conference on Neural Networks (IJCNN), pp. 1–8. IEEE (2020)</li>
+<li id="ref-42">Jove, E., Casteleiro-Roca, J.-L., Quintián, H., Mendez-Perez, J.-A., Calvo-Rolle, J.L.: A new method for anomaly detection based on non-convex boundaries with random two-dimensional projections. Inf. Fus. 65, 50–57 (2021)</li>
+<li id="ref-43">Li, P., Niggemann, O., Hammer, B.: A geometric approach to clustering based anomaly detection for industrial applications. In: IECON 2018—44th Annual Conference of the IEEE Industrial Electronics Society, pp. 5345–5352. IEEE (2018)</li>
+<li id="ref-44">Liu, Z., Liu, J.G., Pan, C., Wang, G.: A novel geometric approach to binary classification based on scaled convex hulls. IEEE Trans. Neural Netw. 20, 1215–1220 (2009)</li>
+<li id="ref-45">Casale, P., Pujol, O., Radeva, P.: Approximate polytope ensemble for one-class classification. Pattern Recogn. 47, 854–864 (2014)</li>
+<li id="ref-46">He, Z., Shao, H., Cheng, J., Yang, Y., Xiang, J.: Kernel flexible and displaceable convex hull based tensor machine for gearbox fault intelligent diagnosis with multi-source signals. Measurement 163, 107934 (2020)</li>
+<li id="ref-47">Blázquez-García, A., Conde, A., Mori, U., Lozano, J.A.: A review on outlier/anomaly detection in time series data. ACM Comput. Surv. (CSUR) 54(3), 1–33 (2021)</li>
+<li id="ref-48">Subramaniam, S., Palpanas, T., Papadopoulos, D., Kalogeraki, V., Gunopulos, D.: Online outlier detection in sensor data using non-parametric models. In: Proceedings of the 32nd International Conference on Very Large Data Bases, pp. 187–198 (2006)</li>
+<li id="ref-49">Jayaram, M.A., Fleyeh, H.: Convex hulls in image processing: a scoping review. Am. J. Intell. Syst. 6(2), 48–58 (2016)</li>
+<li id="ref-50">Lee, D.T., Preparata, F.P.: Computational geometry—a survey. IEEE Trans. Comput. 100(12), 1072–1101 (1984)</li>
+<li id="ref-51">Lachand-Robert, T., Oudet, E.: Minimizing within convex bodies using a convex hull method. SIAM J. Optim. 16(2), 368–379 (2005)</li>
+<li id="ref-52">Cristescu, G., Lupsa, L.: Non-Connected Convexities and Applications, vol. 68. Springer (2013)</li>
+<li id="ref-53">Chan, T.M.: Optimal output-sensitive convex hull algorithms in two and three dimensions. Discret. Comput. Geom. 16(4), 361–368 (1996)</li>
+<li id="ref-54">Xu, J., Zheng, Z., Feng, Y., Qing, X.: A concave hull algorithm for scattered data and its applications. In: 2010 3rd International Congress on Image and Signal Processing, vol. 5, pp. 2430–2433. IEEE (2010)</li>
+<li id="ref-55">Nielsen, F., Nock, R.: Sided and symmetrized Bregman centroids. IEEE Trans. Inf. Theory 55(6), 2882–2904 (2009)</li>
+<li id="ref-56">Zhang, X.-Q., Gu, C.-H.: CH-SVM based network anomaly detection. In: 2007 International Conference on Machine Learning and Cybernetics, vol. 6, pp. 3261–3266. IEEE (2007)</li>
+<li id="ref-57">Ghahramani, Z.: Unsupervised learning. In: Summer School on Machine Learning, pp. 72–112. Springer (2003)</li>
+<li id="ref-58">Shin, H.J., Eom, D.-H., Kim, S.-S.: One-class support vector machines—an application in machine fault detection and classification. Comput. Ind. Eng. 48(2), 395–408 (2005)</li>
+<li id="ref-59">Alghushairy, O., Alsini, R., Soule, T., Ma, X.: A review of local outlier factor algorithms for outlier detection in big data streams. Big Data Cognit. Comput. 5(1), 1 (2020)</li>
+<li id="ref-60">Münz, G., Li, S., Carle, G.: Traffic anomaly detection using k-means clustering. In: Gi/itg Workshop mmbnet, vol. 7 (2007)</li>
+<li id="ref-61">Yang, J., Rahardja, S., Fränti, P.: Mean-shift outlier detection and filtering. Pattern Recognit. 115, 107874 (2021)</li>
+<li id="ref-62">Hyde, D.: The sorites paradox. In: Vagueness: A Guide, pp. 1–17. Springer (2011)</li>
+<li id="ref-63">Thorndike, R.L.: Who belongs in the family? Psychometrika 18(4), 267–276 (1953)</li>
+<li id="ref-64">H. Akaike. Akaike’s information criterion. International encyclopedia of statistical science, pages 25–25, 2011.</li>
+<li id="ref-65">Roweis, S.: EM algorithms for PCA and SPCA. Adv. Neural Inf. Process. Syst. 10 (1997)</li>
+<li id="ref-66">Wattenberg, M., Viégas, F., Johnson, I.: How to use t-SNE effectively. Distill 1(10), e2 (2016)</li>
+<li id="ref-67">Bholowalia, P., Kumar, A.: Ebk-means: a clustering technique based on elbow method and k-means in WSN. Int. J. Comput. Appl. 105(9), 17–24 (2014)</li>
+<li id="ref-68">Ultsch, A., Lötsch, J.: Euclidean distance-optimized data transformation for cluster analysis in biomedical data (edotrans). BMC Bioinform. 23(1), 233 (2022)</li>
+<li id="ref-69">Peter, J.E.V., Dwight, R.P.: Numerical sensitivity analysis for aerodynamic optimization: a survey of approaches. Comput. Fluids 39(3), 373–391 (2010)</li>
+<li id="ref-70">Seber, G.A.F., Lee, A.J.: Linear Regression Analysis. Wiley (2012)</li>
+<li id="ref-71">Lazebnik, T.: Introducing ‘inside’ out of distribution. arXiv (2024)</li>
+<li id="ref-72">Tokovarov, M., Karczmarek, P.: A probabilistic generalization of isolation forest. Inf. Sci. 584, 433–449 (2022)</li>
+<li id="ref-73">Alghushairy, O., Alsini, R., Soule, T., Ma, X.: A review of local outlier factor algorithms for outlier detection in big data streams. Big Data Cognit. Comput. 5(1), 1 (2021)</li>
+<li id="ref-74">Kang, S., Kim, D., Cho, S.: Approximate training of one-class support vector machines using expected margin. Comput. Ind. Eng. 130, 772–778 (2019)</li>
+<li id="ref-75">Cui, Y., Cao, K., Zheng, G., Zhang, F.: An adaptive mean shift algorithm based on LSH. Proc. Eng. 23, 265–269 (2011)</li>
+<li id="ref-76">Gogebakan, M.: A novel approach for gaussian mixture model clustering based on soft computing method. IEEE Access 9, 159987–160003 (2021)</li>
+<li id="ref-77">Pakhira, M.K.: A linear time-complexity k-means algorithm using cluster shifting. In: 2014 International Conference on Computational Intelligence and Communication Networks, pp. 1047–1051 (2014)</li>
+<li id="ref-78">Cheng, D., Zhang, C., Li, Y., Xia, S., Wang, G., Huang, J., Zhang, S., Xie, J.: Gb-dbscan: a fast granular-ball based dbscan clustering algorithm. Inf. Sci. 674, 120731 (2024) Springer Nature or its licensor (e.g. a society or other partner) holds exclusive rights to this article under a publishing agreement with the author(s) or other rightsholder(s); author self-archiving of the accepted manuscript version of this article is solely governed by the terms of such publishing agreement and applicable law.</li>
+</ol>
+</div>
+        
+        
+        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Itai et al. (2025), <em>International Journal of Data Science and Analytics</em>, <a href="https://doi.org/10.1007/s41060-025-00928-3" target="_blank" rel="noopener">doi:10.1007/s41060-025-00928-3</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+      </article>
+    </div>
+
+    <section class="paper-related" aria-labelledby="related-title"><div class="paper-wrap"><h2 id="related-title">Related research</h2><div class="related-grid"><a class="related-card" href="/publications/machine-deep-learning-performance-out-distribution-regressions/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2025</span><strong>Machine and deep learning performance in out-of-distribution regressions</strong><span class="related-text">Machine Learning: Science and Technology</span></a><a class="related-card" href="/publications/introducing-inside-out-distribution/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2025</span><strong>Introducing “Inside” out of distribution</strong><span class="related-text">International Journal of Data Science and Analytics</span></a><a class="related-card" href="/publications/temporal-graphs-anomaly-emergence-detection-benchmarking-social/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2024</span><strong>Temporal graphs anomaly emergence detection: benchmarking for social media interactions</strong><span class="related-text">Applied Intelligence</span></a></div><p class="related-more"><a href="/publications.html">All publications</a></p></div></section>
+  </main>
+
+  <dialog id="cite-dialog" class="paper-dialog" aria-labelledby="cite-title">
+    <div class="dialog-head">
+      <h2 id="cite-title">Cite this paper</h2>
+      <button type="button" class="dialog-close" aria-label="Close"><i class="ri-close-line" aria-hidden="true"></i></button>
+    </div>
+    <p class="dialog-label">APA</p>
+    <pre class="cite-box" id="cite-apa">Itai, U., Ilan, A. B., &amp; Lazebnik, T. (2025). Tighten the lasso: a convex hull volume-based anomaly detection method. International Journal of Data Science and Analytics, 21, 32. https://doi.org/10.1007/s41060-025-00928-3</pre>
+    <button type="button" class="paper-btn" data-copy="cite-apa"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy APA</span></button>
+    <p class="dialog-label">BibTeX</p>
+    <pre class="cite-box" id="cite-bib">@article{itai2025tighten,
+  title = {Tighten the lasso: a convex hull volume-based anomaly detection method},
+  author = {Itai, Uri and Ilan, Asael Bar and Lazebnik, Teddy},
+  journal = {International Journal of Data Science and Analytics},
+  volume = {21},
+  pages = {32},
+  year = {2025},
+  doi = {10.1007/s41060-025-00928-3}
+}</pre>
+    <button type="button" class="paper-btn" data-copy="cite-bib"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy BibTeX</span></button>
+  </dialog>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Games</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
+                  <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
+                  <li><a href="https://rl.teddylazebnik.com/">Pirate War RL Game</a></li>
+                  <li><a href="https://eh.teddylazebnik.com/">Echo Heist</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      
+      <script>
+        (function () {
+          // menu and navbar (js/main.js expects to sit at the site root)
+          var btn = document.getElementById('menu-btn'), menu = document.getElementById('mobile-menu'), nav = document.getElementById('navbar');
+          btn.addEventListener('click', function () { menu.classList.toggle('max-h-0'); menu.classList.toggle('max-h-screen'); });
+          var onScroll = function () { nav.classList.toggle('nav-scrolled', window.scrollY > 10); };
+          window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+          // cite dialog + copy buttons
+          var dialog = document.getElementById('cite-dialog');
+          document.querySelectorAll('[data-dialog]').forEach(function (b) {
+            b.addEventListener('click', function () { if (dialog.showModal) dialog.showModal(); else dialog.setAttribute('open', ''); });
+          });
+          dialog.querySelector('.dialog-close').addEventListener('click', function () { dialog.close(); });
+          dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
+          function flash(button, text) {
+            var label = button.querySelector('span'), old = label.textContent;
+            label.textContent = text; setTimeout(function () { label.textContent = old; }, 1600);
+          }
+          document.querySelectorAll('[data-copy]').forEach(function (b) {
+            b.addEventListener('click', function () {
+              var text = document.getElementById(b.getAttribute('data-copy')).textContent;
+              navigator.clipboard.writeText(text).then(function () { flash(b, 'Copied'); });
+            });
+          });
+          document.getElementById('share-btn').addEventListener('click', function () {
+            var b = this, data = { title: document.title, url: location.href.split('#')[0] };
+            if (navigator.share) { navigator.share(data).catch(function () {}); }
+            else { navigator.clipboard.writeText(data.url).then(function () { flash(b, 'Link copied'); }); }
+          });
+
+          // highlight the section being read in "On this page"
+          var links = {};
+          document.querySelectorAll('.paper-toc a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+          var heads = Array.prototype.filter.call(document.querySelectorAll('#full-text h2[id], #full-text h3[id], #full-text section[id]'), function (h) { return links[h.id]; });
+          if ('IntersectionObserver' in window && heads.length) {
+            var current = null;
+            var io = new IntersectionObserver(function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                  if (current) current.classList.remove('is-active');
+                  current = links[e.target.id]; current.classList.add('is-active');
+                }
+              });
+            }, { rootMargin: '-90px 0px -70% 0px' });
+            heads.forEach(function (h) { io.observe(h); });
+          }
+        })();
+      </script>
+   </body>
+</html>

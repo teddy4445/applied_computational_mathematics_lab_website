@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_papers.py from paper.md + paper.json in this folder. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Generic approach for mathematical model of multi-strain pandemics | ACML</title>
+      <meta name="description" content="Pandemics caused by several strains of a pathogen are a major concern. We introduce a general mathematical model for multi-strain pandemics that works for…">
+      <meta name="author" content="Teddy Lazebnik, Svetlana Bunimovich-Mendrazitsky">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/publications/generic-approach-mathematical-model-multi-strain-pandemics/">
+      <meta name="citation_title" content="Generic approach for mathematical model of multi-strain pandemics">
+      <meta name="citation_author" content="Teddy Lazebnik">
+      <meta name="citation_author" content="Svetlana Bunimovich-Mendrazitsky">
+      <meta name="citation_publication_date" content="2022/04/28">
+      <meta name="citation_journal_title" content="PLOS ONE">
+      <meta name="citation_volume" content="17">
+      <meta name="citation_issue" content="4">
+      <meta name="citation_firstpage" content="e0260683">
+      <meta name="citation_doi" content="10.1371/journal.pone.0260683">
+      <meta name="citation_pdf_url" content="https://teddylazebnik.com/files/multi_strain_model.pdf">
+      <meta name="citation_abstract_html_url" content="https://acml.teddylazebnik.com/publications/generic-approach-mathematical-model-multi-strain-pandemics/">
+      <meta name="citation_fulltext_html_url" content="https://acml.teddylazebnik.com/publications/generic-approach-mathematical-model-multi-strain-pandemics/">
+      <meta name="citation_language" content="en">
+      <meta property="og:type" content="article">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Generic approach for mathematical model of multi-strain pandemics">
+      <meta property="og:description" content="Pandemics caused by several strains of a pathogen are a major concern. We introduce a general mathematical model for multi-strain pandemics that works for…">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/publications/generic-approach-mathematical-model-multi-strain-pandemics/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/publications/generic-approach-mathematical-model-multi-strain-pandemics/figures/share-fig-1.jpg">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Generic approach for mathematical model of multi-strain pandemics">
+      <meta name="twitter:description" content="Pandemics caused by several strains of a pathogen are a major concern. We introduce a general mathematical model for multi-strain pandemics that works for…">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/publications/generic-approach-mathematical-model-multi-strain-pandemics/figures/share-fig-1.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "Generic approach for mathematical model of multi-strain pandemics",
+  "name": "Generic approach for mathematical model of multi-strain pandemics",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Teddy Lazebnik"
+    },
+    {
+      "@type": "Person",
+      "name": "Svetlana Bunimovich-Mendrazitsky"
+    }
+  ],
+  "datePublished": "2022-04-28",
+  "url": "https://acml.teddylazebnik.com/publications/generic-approach-mathematical-model-multi-strain-pandemics/",
+  "mainEntityOfPage": "https://acml.teddylazebnik.com/publications/generic-approach-mathematical-model-multi-strain-pandemics/",
+  "abstract": "Multi-strain pandemics have emerged as a major concern. We introduce a new model for assessing the connection between multi-strain pandemics and mortality rate, basic reproduction number, and maximum infected individuals. The proposed model provides a general mathematical approach for representing multi-strain pandemics, generalizing for an arbitrary number of strains. We show that the proposed model fits well with epidemiological historical world health data over a long time period. From a theoretical point of view, we show that the increasing number of strains increases logarithmically the maximum number of infected individuals and the mean mortality rate. Moreover, the mean basic reproduction number is statistically identical to the single, most aggressive pandemic strain for multi-strain pandemics.",
+  "description": "Pandemics caused by several strains of a pathogen are a major concern. We introduce a general mathematical model for multi-strain pandemics that works for…",
+  "image": "https://acml.teddylazebnik.com/publications/generic-approach-mathematical-model-multi-strain-pandemics/figures/share-fig-1.jpg",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "DOI",
+    "value": "10.1371/journal.pone.0260683"
+  },
+  "sameAs": "https://doi.org/10.1371/journal.pone.0260683",
+  "isPartOf": {
+    "@type": "PublicationIssue",
+    "issueNumber": "4",
+    "isPartOf": {
+      "@type": "PublicationVolume",
+      "volumeNumber": "17",
+      "isPartOf": {
+        "@type": "Periodical",
+        "name": "PLOS ONE"
+      }
+    }
+  },
+  "about": "Epidemiology",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "encoding": {
+    "@type": "MediaObject",
+    "contentUrl": "https://teddylazebnik.com/files/multi_strain_model.pdf",
+    "encodingFormat": "application/pdf"
+  }
+}
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/paper.css" rel="stylesheet">
+      
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="paper-page">
+    <header class="paper-hero">
+      <div class="paper-wrap">
+        <nav class="paper-crumbs" aria-label="Breadcrumb">
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Epidemiology</span>
+        </nav>
+        <p class="paper-kicker"><span><em>PLOS ONE</em> · 28 April 2022</span></p>
+        <h1 class="paper-title">Generic approach for mathematical model of multi-strain pandemics</h1>
+        <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author">Svetlana Bunimovich-Mendrazitsky</span></p>
+        
+        <div class="paper-actions">
+          <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/multi_strain_model.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
+          <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
+          
+          <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
+          <a class="paper-btn" href="https://doi.org/10.1371/journal.pone.0260683" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
+          <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
+        </div>
+        <div class="lab-authors"><span class="lab-authors-label">ACML authors</span><a class="lab-chip" href="/team.html"><img src="/img/lab/teddy.webp" alt="" width="32" height="32" loading="lazy"><span><strong>Teddy Lazebnik</strong><small>PI</small></span></a></div>
+      </div>
+    </header>
+
+    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Pandemics caused by several strains of a pathogen are a major concern. We introduce a general mathematical model for multi-strain pandemics that works for any number of strains and connects them to mortality rate, the basic reproduction number (the average number of new infections each case causes) and the peak number of infected people. The model fits long-term historical world health data well and shows that more strains increase peak infections and mean mortality logarithmically.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>The model generalizes to an arbitrary number of strains and fits historical world health data well over a long time period.</li><li>Increasing the number of strains logarithmically increases the maximum number of infected individuals and the mean mortality rate.</li><li>The mean basic reproduction number of a multi-strain pandemic is statistically identical to that of the single most aggressive strain.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1800" height="839" alt="Fig 1. Schematic view of transition between disease stages. The red arrows indicates that individuals from the source stage can be transferred to the dead stage. Individuals in RJIi stages are necessarily transferred to the respective RJ∪i stages (or dead stage), while individuals in the RJ stages move to RJIl stage if they are infected by an individual that is infectious in strain l ∈ M."></a><figcaption><strong>Fig 1. Schematic view of transition between disease stages.</strong> The red arrows indicates that individuals from the source stage can be transferred to the dead stage. Individuals in <em>R</em><sub>J</sub><em>I</em><sub>i</sub> stages are necessarily transferred to the respective <em>R</em><sub>J∪i</sub> stages (or dead stage), while individuals in the <em>R</em><sub>J</sub> stages move to <em>R</em><sub>J</sub><em>I</em><sub>l</sub> stage if they are infected by an individual that is infectious in strain <em>l</em> ∈ <em>M</em>. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+
+    <div class="paper-wrap paper-layout">
+      <aside class="paper-aside">
+        <nav class="paper-toc" aria-label="On this page">
+          <p class="aside-title">On this page</p>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#1-introduction-and-related-work">1 Introduction and related work</a></li>
+<li><a href="#2-multi-strain-model">2 Multi-strain model</a></li><li class="toc-sub"><a href="#21-epidemiological-properties">2.1 Epidemiological properties</a></li><li class="toc-sub"><a href="#22-numerical-simulation">2.2 Numerical simulation</a></li>
+<li><a href="#3-two-strain-model">3 Two strain model</a></li><li class="toc-sub"><a href="#31-equilibria">3.1 Equilibria</a></li><li class="toc-sub"><a href="#32-basic-reproduction-number">3.2 Basic reproduction number</a></li><li class="toc-sub"><a href="#33-model-validation">3.3 Model validation</a></li>
+<li><a href="#4-discussion">4 Discussion</a></li>
+<li><a href="#supporting-information">Supporting information</a></li>
+<li><a href="#author-contributions">Author Contributions</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </nav>
+        <div class="paper-info">
+          <p class="aside-title">Article information</p>
+          <dl><div><dt>Journal</dt><dd>PLOS ONE 17(4): e0260683</dd></div><div><dt>Published</dt><dd><time datetime="2022-04-28">28 April 2022</time></dd></div><div><dt>DOI</dt><dd><a href="https://doi.org/10.1371/journal.pone.0260683" target="_blank" rel="noopener">10.1371/journal.pone.0260683</a></dd></div></dl>
+        </div>
+      </aside>
+
+      <article class="paper-body" id="full-text">
+        <details class="paper-toc-mobile">
+          <summary>On this page</summary>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#1-introduction-and-related-work">1 Introduction and related work</a></li>
+<li><a href="#2-multi-strain-model">2 Multi-strain model</a></li><li class="toc-sub"><a href="#21-epidemiological-properties">2.1 Epidemiological properties</a></li><li class="toc-sub"><a href="#22-numerical-simulation">2.2 Numerical simulation</a></li>
+<li><a href="#3-two-strain-model">3 Two strain model</a></li><li class="toc-sub"><a href="#31-equilibria">3.1 Equilibria</a></li><li class="toc-sub"><a href="#32-basic-reproduction-number">3.2 Basic reproduction number</a></li><li class="toc-sub"><a href="#33-model-validation">3.3 Model validation</a></li>
+<li><a href="#4-discussion">4 Discussion</a></li>
+<li><a href="#supporting-information">Supporting information</a></li>
+<li><a href="#author-contributions">Author Contributions</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </details>
+        <section id="abstract" class="paper-abstract">
+          <h2>Abstract</h2>
+          <p>Multi-strain pandemics have emerged as a major concern. We introduce a new model for assessing the connection between multi-strain pandemics and mortality rate, basic reproduction number, and maximum infected individuals. The proposed model provides a general mathematical approach for representing multi-strain pandemics, generalizing for an arbitrary number of strains. We show that the proposed model fits well with epidemiological historical world health data over a long time period. From a theoretical point of view, we show that the increasing number of strains increases logarithmically the maximum number of infected individuals and the mean mortality rate. Moreover, the mean basic reproduction number is statistically identical to the single, most aggressive pandemic strain for multi-strain pandemics.</p>
+        </section>
+        
+<div class="paper-text">
+<h2 id="1-introduction-and-related-work">1 Introduction and related work</h2>
+<p>Over the centuries, humanity has experienced multiple types of disasters <span class="cite">[<a href="#ref-1">1</a>–<a href="#ref-4">4</a>]</span>. One of them is pandemics (local and global) that cause significant mortality <span class="cite">[<a href="#ref-5">5</a>]</span>. Moreover, recent studies show that the occurrence rate of new pandemics has increased in the last century, resulting in an increased number of pandemics and their influence <span class="cite">[<a href="#ref-6">6</a>]</span>. Some of these pandemics exert a global influence such as HIV/AIDS that killed 680 thousand individuals only in 2020 according to the World Health Organization (WHO) or the COVID-19 pandemic that killed 4.5 million individuals and infected around 440 million individuals worldwide during its first 18-months starting in early 2019 <span class="cite">[<a href="#ref-7">7</a>]</span>. As a result, the need for policymakers to be able to control the spread of a pandemic is becoming more relevant by the day <span class="cite">[<a href="#ref-8">8</a>]</span>.</p>
+<p>Moreover, due to multiple socioeconomic processes, there is an increase in the speed at which new infections are spread <span class="cite">[<a href="#ref-9">9</a>]</span>. To be exact, globalization has facilitated strain spread among countries through the growth of trade and travel <span class="cite">[<a href="#ref-10">10</a>]</span>. Diseases are usually caused by pathogenic agents, including viruses and bacteria, which can be denoted as multiple variants, generally named strains. The emergence of a multi-strain pathogen imposes a new challenge to control the spread of disease <span class="cite">[<a href="#ref-11">11</a>]</span>. Since new strains occur as it reproduces in new hosts, the large population of infected individuals offers a fertile ground for new strains to appear <span class="cite">[<a href="#ref-12">12</a>, <a href="#ref-13">13</a>]</span>. For example, in the case of COVID-19, already in the first year and a half of the pandemic, four (globally common) strains were detected <span class="cite">[<a href="#ref-7">7</a>]</span>.</p>
+<p>Most diseases have several pathogenic strains, which can make it difficult to fight the disease and lead to complex dynamics. However, their dynamic properties have not been adequately studied <span class="cite">[<a href="#ref-11">11</a>]</span>. Hence, a better understanding of future pandemics with several strains is a necessary step to ensure the ability of the global community in handling the next pandemic. One approach to tackle this challenge is using epidemiological-mathematical models, which allows us to simulate and investigate multiple scenarios in a safe, cheap, and manageable environment. A large portion of these epidemiological models are based on the Susceptible-Infectious- Removed (<em>SIR</em>) model <span class="cite">[<a href="#ref-14">14</a>]</span>. Over the years, researchers have introduced different extensions to the <em>SIR</em> model in order to obtain a more accurate model for biological <span class="cite">[<a href="#ref-15">15</a>]</span>, economic <span class="cite">[<a href="#ref-16">16</a>, <a href="#ref-17">17</a>]</span> spatial <span class="cite">[<a href="#ref-18">18</a>–<a href="#ref-20">20</a>]</span>, and pandemic management <span class="cite">[<a href="#ref-8">8</a>, <a href="#ref-21">21</a>, <a href="#ref-22">22</a>]</span> properties of a particular disease or socio-epidemiological scenario. These extensions are natural as the <em>SIR</em> disease transmission model is derived assuming multiple strong assumptions. For example, the <em>SIR</em> model assumes that the population is large and dense or that the infection rate is constant <span class="cite">[<a href="#ref-14">14</a>]</span>. The authors extend this basic model in many directions by relaxing some assumptions. As such, the mathematical analysis quickly becomes significantly more sophisticated <span class="cite">[<a href="#ref-23">23</a>]</span>.</p>
+<p>Cooper et al. <span class="cite">[<a href="#ref-24">24</a>]</span> used the <em>SIR</em> model on the COVID-19 pandemic while relaxing the assumption that the population is mixing homogeneously and that the total population is constant in time. The authors show that the model has a fair fitting on six countries (China, South Korea, India, Australia, USA, Italy).</p>
+<p>Another extension of the <em>SIR</em> model for the Polio pandemic is proposed by Agarwal and Bhadauria <span class="cite">[<a href="#ref-25">25</a>]</span>. The authors introduced the fourth stage—vaccinated individuals, resulting in a <em>SIRV</em> model. The numerical simulation of the model results in a promising outcome. Nonetheless, the evaluation is limited to a small size (up to a few hundred individuals), and the generalization to larger populations can be less accurate due to the increased chance that a strain occurs during the pandemic and changes its dynamics <span class="cite">[<a href="#ref-13">13</a>]</span>.</p>
+<p>Similarly, Bunimovich-Mendrazitsky and Stone <span class="cite">[<a href="#ref-26">26</a>]</span> proposed a two-age group, extension (adults and children), for the Polio pandemic spread. Using the model in <span class="cite">[<a href="#ref-26">26</a>]</span>, the extraordinary jump in the number of paralytic polio cases that emerged at the beginning of the 20th century can be explained. The model does not take into consideration some strains of Polio <span class="cite">[<a href="#ref-27">27</a>]</span> which results in an increased divergence from the actual dynamics over time.</p>
+<p>In addition, one of the main extensions of the <em>SIR</em> model is the <em>SIRD</em> (D-Dead) model, as this model is able to represent the reinfection process and the death of individuals due to the pandemic <span class="cite">[<a href="#ref-28">28</a>–<a href="#ref-30">30</a>]</span>. This model better represents the biological-clinical dynamics in human populations as the long-term immunity memory is reduced over time making the individual susceptible again <span class="cite">[<a href="#ref-31">31</a>, <a href="#ref-32">32</a>]</span>. We based our model on this extension as it allows reinfection in several strains of the original strain.</p>
+<p>The mentioned models and other models that extend the <em>SIR</em> model can fairly fit and predict the course of a pandemic’s spread <span class="cite">[<a href="#ref-33">33</a>, <a href="#ref-34">34</a>]</span>. However, the models are not fitted to capture sharp changes in the dynamics due to pandemic modifications. One reason is the lack of modelization in multi-strain pandemics.</p>
+<p>Indeed, the occurrence of pandemics with multiple mutations is common. For example, Minayev and Ferguson <span class="cite">[<a href="#ref-35">35</a>]</span> investigate the interaction between epidemiological and evolutionary dynamics for antigenically variable pathogens. The authors proposed a set of relatively simple deterministic models of the transmission dynamics of multi-strain pathogens which provide increased biological realism. However, these models assume clinical-epidemiological dynamics that hold only for a subset of pathogens with cross-immunity of less than 0.4 <span class="cite">[<a href="#ref-35">35</a>]</span>. In a similar manner, Dang et al. <span class="cite">[<a href="#ref-36">36</a>]</span> developed a multi-scale immuno-epidemiological model of influenza viruses including direct and environmental transmission. The authors showed how two time-since-infection structural variables outperform classical SIR models of influenza. During the modelization, they used a within-host model that holds only for the influenza pandemic. In addition, Gordo et al. <span class="cite">[<a href="#ref-12">12</a>]</span> proposed a <em>SIRS</em> model with reinfection and selection with two strains. The authors used a metapopulation of individuals where each individual is depicted as a vector in the metapopulation. This model has been validated on the influenza pandemic in the State of New York (USA), based on the genetic diversity of influenza gathered between 1993 and 2006, showing superior results compared to other <em>SIR</em>-based models <span class="cite">[<a href="#ref-12">12</a>]</span>. Nonetheless, the sophistication of the model is both in its strength and shortcoming, from an analytical point of view, due to its stochastic and chaotic nature.</p>
+<p>Moreover, the usage of multi-strain models that are used for specific pathogens is not restricted to influenza. Marquioni and de Aguiar <span class="cite">[<a href="#ref-37">37</a>]</span> proposed a model where a pandemic starts with a single strain and the other strains occur in a stochastic manner as a by-product of the infection. The authors fitted their model onto the COVID-19 pandemic in China showing improved results when strain dynamics are taken into consideration compared to the other case <span class="cite">[<a href="#ref-37">37</a>]</span>. Likewise, Khayar and Allali <span class="cite">[<a href="#ref-38">38</a>]</span> proposed a <em>SEIR</em> (E-exposed) model for the COVID-19 pandemic with two strains. The authors analyzed the influence of the delay between exposure and becoming infectious on several epidemiological properties. Furthermore, they proposed an extension to the model (in the <em>Single and two mutations model</em> S1 Appendix) for multi-strain dynamics. In their model, an individual can be infected only once and develop immunity to all strains <span class="cite">[<a href="#ref-38">38</a>]</span>. In our model, we relax this assumption, allowing individuals to be infected once by each strain. Comparably, Gubar et al. <span class="cite">[<a href="#ref-39">39</a>]</span> proposed an extended <em>SIR</em> model with two strains with different infection and recovery rates. The authors considered a group of latent individuals who are already infected but do not have any clinical symptoms.</p>
+<p>In addition, Arruda et al. <span class="cite">[<a href="#ref-40">40</a>]</span> proposed an <em>SEIR</em> model with an arbitrary number of mutations and reinfection of the same strain dynamics. The authors proposed an optimal control for the non-pharmacological lockdown policy and validated their model (with and without mitigation) on the COVID-19 pandemic for both England and the state of Amazonas, Brazil. The authors showed that their model can derive optimal mitigation strategies for any number of viral strains, whilst also evaluating the effect of distinct mitigation costs on the infection levels. On the one hand, Arruda et al.’s model takes into consideration an exposed phase (which is commonly found in multiple pandemics <span class="cite">[<a href="#ref-38">38</a>, <a href="#ref-41">41</a>]</span>) and reinfection of the same strain after some period of time which are not included in our model. On the other hand, their model does not take into consideration the order of infection by different strains which is one of the main contributions of our model.</p>
+<p>Furthermore, Fudolig et al. <span class="cite">[<a href="#ref-42">42</a>]</span> proposed a multi-strain <em>SIR</em> based model with selective immunity by vaccination. The authors examined the influence of the introduction of a new strain. In particular, the authors examined the case where a new strain emerges in the population while the preexisting strain is near to extinction or reached a global equilibrium. The emergence of strains during the pandemic rather at the beginning, as suggested by the proposed model, is more realistic. However, it is not in the scope of the proposed model which aims to study the properties of a static number of strains.</p>
+<p>Correspondingly, Aleta et al. <span class="cite">[<a href="#ref-43">43</a>]</span> extended the SIRS model on a metapopulation where individuals are distributed in sub-populations connected via a network of mobility flows. They show that spatial fragmentation and mobility play a key role in the persistence of the disease the maximum of which is reached at intermediate mobility values. Their model assumes a fixed number of locations (using a graph-based model) such that each location has a unique strain-like simulation. Furthermore, Di Giamberardino et al. <span class="cite">[<a href="#ref-44">44</a>]</span> proposed a multi-group model formed by interconnected SEIR-like structures which include asymptomatic infected individuals. The authors fitted the data to the COVID-19 pandemic in Italy to study the influence of different IPs on the pandemic spread. The interconnection between the groups in the model is represented by the mobility of individuals between them. The model somewhat represents multi-strains as each group has different epidemiological parameter values and the transformation between them. However, the authors do not handle the case where an individual has been infected by one strain and later infected by others which are known from multiple clinical and biological studies <span class="cite">[<a href="#ref-45">45</a>–<a href="#ref-48">48</a>]</span>. Khyar and Allali <span class="cite">[<a href="#ref-38">38</a>]</span> studied the global stability of the two-strain epidemic model, extending the <em>SEIR</em> with two types of exposed and infected individuals, with two general incidence functions. The authors investigate the basic reproduction number of each strain separately and its effect on the disease-free equilibrium. Roche et al. <span class="cite">[<a href="#ref-49">49</a>]</span> proposed a stochastic individual-based model for avian influenza viruses, implemented using the agent-based approach. The authors show that their model extends the stochastic SIR model for multi-strain pandemics. Nevertheless, this approach is stochastic in nature, which makes the analytical investigation difficult for multiple pandemic parameters, such as stability and bifurcation.</p>
+<p>In this research, we developed an extension of the <em>SIRD</em>-based model which allows an arbitrary number of strains |<em>M</em>| that originated from a single strain and is generic for any type of pathogen. The model allows each strain to have its unique epidemiological properties. In addition, we developed a computer simulation that provides an <em>in silico</em> tool for evaluating several epidemiological properties such as the mortality rate, max infections, and average basic reproduction number of a pandemic. The proposed model allows for a more accurate investigation of the epidemiological dynamics while keeping the data required to use the model relatively low. The main contribution of the proposed model compared to other <em>SIR</em>-based multi-strain models is two-fold: the proposed model does not assume any pathogen-specific properties keeping it as generic as possible by the standard <em>SIR</em> model and the order of infection from different strains is taken into consideration.</p>
+<p>This paper is organized as follows: In Section 2, we introduce our multi-strain epidemiological model. Based on the model, we present a numerical analysis of three epidemiological properties as a function of the number of strains (|<em>M</em>|). In Section 3, we present the implementation of the model for the case of two strains (|<em>M</em>| = 2) and provide an analytical analysis of the stable equilibria states of the model and a basic reproduction number analysis. Afterward, we show the ability of the model to fit historical epidemiological data known to have two strains. In Section 4, we discuss the main advantages and limitations of the model and propose future work.</p>
+<h2 id="2-multi-strain-model">2 Multi-strain model</h2>
+<p>The multi-strain epidemiological model considers a constant population with a fixed number of individuals <em>N</em>. We assume a pandemic has <em>M</em> ≔{1, . . ., <em>m</em>} strains. Moreover, two options are possible: a) strains [2, . . .<em>m</em>] are mutations arising from one pathogen as a result of the mutation process; b) the disease is characterized by the emergence of <em>m</em> pathogenic strains but an individual cannot be infected by more than one strain of the virus at a time.</p>
+<p>Each individual belongs to one of the three groups: 1) Infectious with strain <em>i</em> ∈ <em>M</em> and history of recoveries <em>J</em> ∈ <em>P</em>(<em>M</em>) (the power set of the strain and its strain set) represented by <em>R</em><sub>J</sub><em>I</em><sub>i</sub>, which maps to the infection (I) state in the <em>SIRD</em> model; 2) Recovered with history <em>J</em> ∈ <em>P</em>(<em>M</em>) represented by <em>R</em><sub>J</sub>, which maps to the recovered (R) state in the <em>SIRD</em> model; and 3) Dead (<em>D</em>) such that</p>
+<div class="equation" id="eq-1"><img src="figures/eq-1.webp" width="405" height="26" alt="N = ∑J∈P(M\{i});i∈M(RJIi(t)) + ∑J∈P(M)(RJ(t)) + D(t); (1)" loading="lazy" decoding="async"></div>
+
+<p>where <em>i</em> ∈ <em>M</em> is the index of a strain and <em>J</em> ∈ <em>P</em>(<em>M</em>) is the set of strains an individual already suffered from. For example, <em>R</em><sub>∅</sub> is the group of individuals that do not have a recovery history and are susceptible to all |<em>M</em>| strains which is a private case of <em>R</em><sub>J</sub> where <em>J</em> = ∅, which is isomorphic to the susceptible (S) state in the <em>SIRD</em> model. The proposed model for |<em>M</em>| = 1 is isomorphic to the <em>SIRD</em> model (the proof is provided in the Section 2 in S1 Appendix). A schematic transition between disease stages of an individual is shown in <a class="xref" href="#fig-1">Fig 1</a>.</p>
+<p>Individuals in the Recovered (<em>R</em><sub>J</sub>) group have immunity for the strains <em>k</em> ∈ <em>J</em> and are susceptible to the infection strains <em>M</em>\<em>J</em>. When an individual in this group is exposed to a strain <em>i</em> ∈ <em>M</em>\<em>J</em>, the individual is transferred to the Infectious with history of recoveries group (<em>R</em><sub>J</sub><em>I</em><sub>i</sub>) at a rate <em>β</em><sub>J,i</sub>. The individual stays in this group on average <em>γ</em><sub>J,i</sub> days, after which the individual is transferred to the Recovered group (<em>R</em><sub>J ∪ {i}</sub>) or the Dead group (<em>D</em>). Therefore, at a rate of (1 − <em>ϕ</em><sub>J\i</sub>), of infection by strain <em>i</em> with a history of recoveries from strains <em>J</em>, individuals remain seriously ill or die while others recover. The recovered are again healthy, no longer contagious, and immune from future infection of the same strain. The epidemiological dynamics are described in Eqs (2)–(4).</p>
+<p><em>dRJIi</em>(<em>t</em>) In Eq (2), is the dynamical amount of individuals that recovered from a group of <em>dt</em> strains <em>J</em> and are infected with a strain <em>i</em> over time. It is affected by the following two terms. First, individuals who recovered from group <em>J</em> of strains become infected with strain <em>i</em>, with rate <em>β</em><sub>J,i</sub>. These individuals can be infected by any individual with a strain <em>i</em> who has recovered from any group <em>K</em> of strains so that <em>i =</em>∈ <em>K</em>. Second, individuals recover from strains <em>J</em> ∪ {<em>i</em>} with rate <em>γ</em><sub>J,i</sub>. For each strain <em>i</em>, the group <em>i</em> can be any subgroup of the group <em>M</em>, so that <em>i =</em>∈ <em>J</em>.</p>
+<p><em>dR</em><sub>J</sub><em>I</em><sub>i</sub>(<em>t</em>) ∑ = − γ<sub>J;i</sub><em>R</em><sub>J</sub><em>I</em><sub>i</sub>(<em>t</em>) + β<sub>J;i</sub><em>R</em><sub>J</sub>(<em>t</em>) <em>R</em><sub>K</sub><em>I</em><sub>i</sub>(<em>t</em>)<em>:</em> (2) <em>dt K</em>∈<em>P</em>(<em>M</em>)<em>;i=</em>∈<em>K</em> https://doi.org/10.1371/journal.pone.0260683.g001 <em>dRJ</em>(<em>t</em>) In Eq (3), <sub>dt</sub> is the dynamical amount of individuals that recovered from a group of strains <em>J</em> ∈ <em>P</em>(<em>M</em>) over time. It is affected by the following two terms. First, for each strain <em>i</em> ∈ <em>J</em>, an individual who has recovered from group <em>J</em>\{<em>i</em>} of strains and is infected with strain <em>i</em>, recovers at rate <em>γ</em><sub>J\{i},i</sub> with probability of <em>ϕ</em><sub>J\{i},i</sub>. Second, individuals infected by strain <em>i</em> with rate <em>β</em><sub>J,i</sub>. These individuals can be infected by any individual with a strain <em>i</em> who has recovered from any group <em>K</em> of strains, so that <em>i =</em>∈ <em>K</em>.</p>
+<figure id="fig-1">
+<a class="fig-zoom" href="figures/fig-1.webp" aria-label="Open the figure full size"><img src="figures/fig-1.webp" width="851" height="397" alt="Schematic view of transition between disease stages" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig 1. Schematic view of transition between disease stages.</strong> The red arrows indicates that individuals from the source stage can be transferred to the dead stage. Individuals in <em>R</em><sub>J</sub><em>I</em><sub>i</sub> stages are necessarily transferred to the respective <em>R</em><sub>J∪i</sub> stages (or dead stage), while individuals in the <em>R</em><sub>J</sub> stages move to <em>R</em><sub>J</sub><em>I</em><sub>l</sub> stage if they are infected by an individual that is infectious in strain <em>l</em> ∈ <em>M</em>.</figcaption>
+</figure>
+
+<div class="equation" id="eq-2"><img src="figures/eq-2.webp" width="459" height="51" alt="dRJ(t) dt = ∑ i∈J γJ\{i};iJ\{i};iRJ\{i}Ii(t) ( ) − ∑ i∈M\J βJ;iRJ(t) ∑ K∈P(M);i=∈K RKIi(t) : (3)" loading="lazy" decoding="async"></div>
+
+<p>In Eq (4), <sup>dD(t)</sup> <sub>dt</sub> is the dynamical amount of dead individuals over time. For each strain <em>i</em>, and for each group <em>J</em>\{<em>i</em>}, infected individuals that do not recover are dying at rate <em>γ</em><sub>J\{i},i</sub> with the complete probability (1 −<em>ϕ</em><sub>J\{i},i</sub>).</p>
+<div class="equation" id="eq-3"><img src="figures/eq-3.webp" width="387" height="48" alt="dD(t) dt = ∑ i∈M;J∈P(M) γJ\{i};i(1 − J\{i};i)RJ\{i}Ii(t): (4)" loading="lazy" decoding="async"></div>
+
+<p>The dynamics of Eqs (2)–(4) are summarized in Eq (5).</p>
+<div class="equation" id="eq-4"><img src="figures/eq-4.webp" width="479" height="116" alt="dRJIi(t) dt = − γJ;iRJIi(t) + βJ;iRJ(t)∑ K∈P(M);i∈KRKIi(t); dRJ(t) dt = ∑ i∈J(γJ\{i};iJ\{i};iRJ\{i}Ii(t)) − ∑ i∈M\J(βJ;iRJ(t)∑ K∈P(M);i∈KRKIi(t)); dD(t) dt = ∑ i∈M;J∈P(M)γJ\{i};i(1 − J\{i};i)RJ\{i}Ii(t); (5)" loading="lazy" decoding="async"></div>
+
+<p>The initial conditions of Eq (5) are defined for the beginning of a pandemic as follows:</p>
+<p><em>R</em> (0) = <em>N</em> − <em>m;</em> ∀<em>i</em> ∈ <em>M</em> : <em>R I</em><sub>i</sub>(0) = 1<em>;</em> ∀<em>J</em> ∈ <em>P</em>(<em>M</em>)\ ∧ <em>i</em> ∈ <em>M</em>\<em>J</em> : <em>R</em><sub>J</sub>(0) = <em>R</em><sub>J</sub><em>I</em><sub>i</sub>(0) = 0<em>; D</em>(0) = 0<em>:</em> (6)</p>
+<h3 id="21-epidemiological-properties">2.1 Epidemiological properties</h3>
+<p>Based on the proposed model, and since for all the cases where |<em>M</em>| <em>&gt;</em> 2 it is extremely hard (or even impossible) to obtain an analytical result, we evaluated three important epidemiological properties to see the influence of the number of strains on the pandemic spread: mean basic reproduction number <span class="cite">[<a href="#ref-50">50</a>]</span>, mortality rate <span class="cite">[<a href="#ref-51">51</a>, <a href="#ref-52">52</a>]</span>, and a maximum number of the infectious <span class="cite">[<a href="#ref-16">16</a>, <a href="#ref-53">53</a>]</span>. Formally, these properties can be defined as follows.</p>
+<p>First, the <em>mean basic reproduction number</em> is the mean of the basic reproduction number over time during the course of the pandemic. Therefore, it takes the form:</p>
+<div class="equation" id="eq-5"><img src="figures/eq-5.webp" width="313" height="50" alt="E[R0(t)]≔E ∀J ∈ P(M) : ∑i∈M RJIi(t + 1) − RJIi(t) RJ;i(t + 1) − RJ;i(t) :" loading="lazy" decoding="async"></div>
+
+<p>Second, the <em>mortality rate</em> is defined as the number of deaths due to the pandemic divided by the number of infections at some period of time. If not stated otherwise, we assume the mortality rate refers to the entire duration of the pandemic. Hence, it takes the form:</p>
+<div class="equation" id="eq-6"><img src="figures/eq-6.webp" width="284" height="43" alt="mortality rate(t0; t1)≔ D(t1) − D(t0) ∑J∈P(M)|J| ∗ (RJ(t1) − RJ(t0) :" loading="lazy" decoding="async"></div>
+
+<p>Finally, the <em>maximum number of infectious</em> refers to the cumulative number of infections that occur during the pandemic. Thus, it takes the form:</p>
+<p>maximum number of infectious(<em>t</em><sub>0</sub><em>; t</em><sub>1</sub>)≔max <sub>t∈[t0;t1]</sub>(∀<em>J</em> ∈ <em>P</em>(<em>M</em>) : ∑<sub>i∈M</sub>(<em>R</em><sub>J</sub><em>I</em><sub>i</sub>(<em>t</em>)))<em>:</em></p>
+<p>In addition, we define the <em>most aggressive</em> strain using the following metric: a strain <em>k</em> is considered more aggressive than strain <em>l</em> if and only if:</p>
+<p>||[∀<em>J</em> ∈ <em>P</em>(<em>M</em>) : (β<sub>J;k</sub><em>;</em> 1 − γ<sub>J;k</sub><em>;</em> 1 − <sub>J;k</sub>)]|| <em>&gt;</em> ||[∀<em>J</em> ∈ <em>P</em>(<em>M</em>) : (β<sub>J;l</sub><em>;</em> 1 − γ<sub>J;l</sub><em>;</em> 1 − <sub>J;l</sub>)]||<em>;</em></p>
+<p>using the <em>L</em><sub>3</sub> norm. The motivation of this metric is that a higher infection rate, longer recovery rate, and higher death rate are associated with a more aggressive strain. However, due to the complexity of the pandemic’s spread dynamics, it is not straightforward which one of these properties is more important if any, and therefore the comparison between two strains is performed on the three properties simultaneously.</p>
+<h3 id="22-numerical-simulation">2.2 Numerical simulation</h3>
+<p>Using numerical simulation we aim to study the connection between the number of strains |<em>M</em>| and the proposed epidemiological properties. We numerically solved the model presented in Eq (5) for the case where |<em>M</em>|∈ [1, . . ., 10] using the fourth-order Runge-Kutta algorithm <span class="cite">[<a href="#ref-54">54</a>]</span>. The model parameters are generated randomly as follows. The infection rates <em>β</em><sub>J,i</sub> are uniformly distributed in [0.01, 0.10]; the recovery rates <em>γ</em><sub>J,i</sub> are uniformly distributed in [0.03, 0.33]; and the recovery probabilities <em>ϕ</em><sub>J,i</sub> are uniformly distributed in [0.90, 0.99] for each strain. The ranges were picked to simulate a large space of possible pandemics, without taking into consideration biological properties associated with cross-immunity between strains. In addition, we assume the population size is 10 million individuals to approximate (in order of magnitude) a European metropolitan area. The simulation begins with one person getting infected by each strain. In addition, it is assumed that no individuals have recovered or died at the beginning of the pandemic. Formally, the initial conditions take the form:</p>
+<p><em>R</em> (0) = <em>N</em> − |<em>M</em>|<em>;</em> ∀<em>i</em> ∈ <em>M</em> : <em>R I</em><sub>i</sub>(0) = 1<em>; D</em>(0) = 0<em>;</em> ∀<em>J</em> ∈ <em>P</em>(<em>M</em>)\ <em>; i</em> ∈ <em>M</em> : <em>R</em><sub>J</sub><em>I</em><sub>i</sub> = <em>R</em><sub>J</sub> = 0<em>:</em></p>
+<p>Moreover, due to the stochastic nature of the simulation originating in the large ranges of values allocated to the model parameters, the simulation is repeated 1000 times, and the mean ± standard division is presented. Using this generation we compute the connection between |<em>M</em>| and the mean basic reproduction number, max infected individuals, and mean mortality rate.</p>
+<p>The <em>mean basic reproduction number</em> (<em>E</em>[<em>R</em><sub>0</sub>]) has been evaluated for each simulation, divided into two cases: the case where each strain has unique parameter values and the case where the parameters of these strains are replaced with the parameter value of the most aggressive strain, defined in Section 2.1, as shown in <a class="xref" href="#fig-2">Fig 2</a>.</p>
+<p>The <em>maximum number of infected individuals</em> as a function of the number of strains (|<em>M</em>|) has been computed and shown in <a class="xref" href="#fig-3">Fig 3</a>. The solid (black) line with the dots represents the numerically calculated values with one standard deviation. Moreover, the fitting function is calculated using the least mean square (LMS) method <span class="cite">[<a href="#ref-55">55</a>]</span> and shown as the dashed (blue) line. In order to use the LMS method, one needs to define the family function approximating a function. The family function that has been chosen is <em>f</em>(<em>m</em>) = <em>p</em><sub>1</sub> <em>log</em>(<em>m</em>)+ <em>p</em><sub>2</sub>, resulting in</p>
+<div class="equation" id="eq-7"><img src="figures/eq-7.webp" width="360" height="24" alt="E[R0](m) = 0:103log(m) + 0:068: (7)" loading="lazy" decoding="async"></div>
+
+<p>The fitting function was obtained with a coefficient of determination <em>R</em><sup><a href="#ref-2">2</a></sup> = 0.79.</p>
+<figure id="fig-2">
+<a class="fig-zoom" href="figures/fig-2.webp" aria-label="Open the figure full size"><img src="figures/fig-2.webp" width="486" height="373" alt="The mean base reproduction number (E[R0(t)]) as a function of the number of strains (|M|)" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig 2. The mean base reproduction number (<em>E</em>[<em>R</strong></em><sub>0</sub><strong>(<em>t</em>)]) as a function of the number of strains (|<em>M</em>|).</strong> The black (with circle markers) line indicates the baseline dynamics of the simulation where each strain has unique parameter values. On the other hand, the red (with triangle markers) line indicates the case where all the strain parameters values have been replaced with one of the most aggressive strains. The results are mean ± standard division for <em>n</em> = 1000 repetitions.</figcaption>
+</figure>
+
+<p>https://doi.org/10.1371/journal.pone.0260683.g002 https://doi.org/10.1371/journal.pone.0260683.g003 https://doi.org/10.1371/journal.pone.0260683.g004</p>
+<p>The <em>mean mortality rate</em> as a function of the number of strains has been computed and presented in <a class="xref" href="#fig-4">Fig 4</a>. Similarly, the dots are the calculated values from the simulator and the dotted line is a fitting function that is computed using the LMS with the family function <em>f</em>(<em>m</em>) = <em>p</em><sub>1</sub><em>log</em>(<em>m</em>) + <em>p</em><sub>2</sub>, resulting in</p>
+<div class="equation" id="eq-8"><img src="figures/eq-8.webp" width="367" height="24" alt="E[R0](m) = 0:0341log(m) + 0:0124: (8)" loading="lazy" decoding="async"></div>
+
+<p>The fitting function was obtained with a coefficient of determination <em>R</em><sup><a href="#ref-2">2</a></sup> = 0.89.</p>
+<figure id="fig-3">
+<a class="fig-zoom" href="figures/fig-3.webp" aria-label="Open the figure full size"><img src="figures/fig-3.webp" width="486" height="374" alt="Maximum number of infectious individuals at the same time as a function of the number of strains (|M|)" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig 3. Maximum number of infectious individuals at the same time as a function of the number of strains (|M|).</strong> The results are mean ± standard division for <em>n</em> = 1000 repetitions.</figcaption>
+</figure>
+
+<figure id="fig-4">
+<a class="fig-zoom" href="figures/fig-4.webp" aria-label="Open the figure full size"><img src="figures/fig-4.webp" width="486" height="369" alt="Mortality rate as function of the number of strains (|M|)" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig 4. Mortality rate as function of the number of strains (|<em>M</em>|).</strong> The results are mean ± standard division for <em>n</em> = 1000 repetitions.</figcaption>
+</figure>
+
+<h2 id="3-two-strain-model">3 Two strain model</h2>
+<p>The two strain epidemiological model considers a constant population with a fixed number of individuals <em>N</em>. We assume a pandemic has two strains <em>M</em> = {1, 2}. We define a system of eight ordinary differential equations (ODEs) corresponding to eight possible epidemiological states: susceptible (<em>R</em><sub>∅</sub>), infected by strain 1 (<em>R</em><sub>∅</sub><em>I</em><sub>1</sub>), infected by strain 2 (<em>R</em><sub>∅</sub><em>I</em><sub>2</sub>), recovered from strain 1 (<em>R</em><sub>{1}</sub>), recovered from strain 2 (<em>R</em><sub>{2}</sub>), recovered from strain 1 and infected by strain 2 (<em>R</em><sub>{1}</sub><em>I</em><sub>2</sub>), recovered from strain 2 and infected by strain 1 (<em>R</em><sub>{2}</sub><em>I</em><sub>1</sub>), recovered from both strains (<em>R</em><sub>{1,2}</sub>), and dead (<em>D</em>). The full explanation of how one obtains the model is provided in the Section 1 in S1 Appendix. A schematic transition between disease stages of an individual for the case of |<em>M</em>| = 2 is shown in <a class="xref" href="#fig-5">Fig 5</a>. Thus, the model for two strains is described by eight equations as https://doi.org/10.1371/journal.pone.0260683.g005 follows.</p>
+<figure id="fig-5">
+<a class="fig-zoom" href="figures/fig-5.webp" aria-label="Open the figure full size"><img src="figures/fig-5.webp" width="832" height="359" alt="Schematic view of transition between disease stages in the case where |M| = 2" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig 5. Schematic view of transition between disease stages in the case where |<em>M</em>| = 2.</strong></figcaption>
+</figure>
+
+<div class="equation" id="eq-9"><img src="figures/eq-9.webp" width="456" height="363" alt="dR∅I1(t) dt = β∅;1(R∅I1(t) + R{2}I1(t))R∅(t) − γ∅;1R∅I1(t); dR{2}I1(t) dt = β{2};1(R{2}I1(t) + R∅I1(t))R{2}(t) − γ{2};1R{2}I1(t); dR∅I2(t) dt = β∅;2(R∅I2(t) + R{1}I2(t))R∅(t) − γ∅;2R∅I2(t); dR{1}I2(t) dt = β{1};2(R{1}I2(t) + R∅I2(t))R{1}(t) − γ{1};2R{1}I2(t); dR∅(t) dt = − R∅(t)(β∅;1(R∅I1(t) + R{2}I" loading="lazy" decoding="async"></div>
+
+<p>The initial conditions of Eq (9) are defined for the beginning of a pandemic as follows:</p>
+<div class="equation" id="eq-10"><img src="figures/eq-10.webp" width="450" height="56" alt="R(0) = N − 2; RI1(0) = 1; RI2(0) = 1; D(0) = R{1}(0) = R{2}(0) = R{1;2}(0) = R{1}I2(0) = R{2}I1(0) = 0 (10)" loading="lazy" decoding="async"></div>
+
+<p>Moreover,</p>
+<div class="equation" id="eq-11"><img src="figures/eq-11.webp" width="455" height="25" alt="N = R + RI1 + RI2 + R{1}I2 + R{2}I1 + R{1} + R{2} + R{1;2} + D: (11)" loading="lazy" decoding="async"></div>
+
+<p>We use a model that does not allow temporary cross-immunity and without increased susceptibility to the second infection.</p>
+<p>For |<em>M</em>| = 2, we are interested in the equilibrium states of the model, especially stable states in which a pandemic can persist for a long time. In addition, we investigate the basic reproduction number (<em>R</em><sub>0</sub>), as it is an indicator of a pandemic outbreak (<em>R</em><sub>0</sub> <em>&gt;</em> 1), and is considered the main characteristic of a pandemic.</p>
+<h3 id="31-equilibria">3.1 Equilibria</h3>
+<p>The equilibrium state of the model is the state in which the gradient is equal to zero <span class="cite">[<a href="#ref-56">56</a>]</span>. Hence, Eq (12) takes the form:</p>
+<div class="equation" id="eq-12"><img src="figures/eq-12.webp" width="408" height="233" alt="− R∅(β∅;1(R∅I1 + R{2}I1) + β∅;2(R∅I2 + R{1}I2)) = 0; β∅;1(R∅I1 + R{2}I1)R∅ − γ∅;1R∅I1 = 0; β∅;2(R∅I2 + R{1}I2)R∅ − γ∅;2R∅I2 = 0; γ∅;1∅;1R∅I1 − β{1};2(R{1}I2 + R∅I2)R{1} = 0; γ∅;2∅;2R∅I2 − β{2};1(R{2}I1 + R∅I1)R{2} = 0; β{1};2(R{1}I2 + R∅I2)R{1} − γ{1};2R{1}I2 = 0; β{2};1(R{2}I1 + R∅I1)R{2} − γ{2};1R" loading="lazy" decoding="async"></div>
+
+<p>From Eq (12), the <em>pandemic-free</em> equilibria is obtained where</p>
+<div class="equation" id="eq-13"><img src="figures/eq-13.webp" width="200" height="26" alt="RI∗ 1 = RI∗ 2 = R{1}I∗ 2 = R{2}I∗ 1 = 0;" loading="lazy" decoding="async"></div>
+
+<p>since there are no more infected individuals in this state, which means all strains have gone extinct. Therefore, the equilibria states take the form:</p>
+<div class="equation" id="eq-14"><img src="figures/eq-14.webp" width="436" height="30" alt="R∗ = μ1; R∗ {1} = μ2; R∗ {2} = μ3; R∗ 1;2 = μ4; D∗ = N − ∑4 i=1μi: (13)" loading="lazy" decoding="async"></div>
+
+<p>According to <span class="cite">[<a href="#ref-56">56</a>]</span>, this set of states (Eq (13)) is the only asymptotically stable equilibria of the model. Nonetheless, the equilibria states where strain <em>i</em> = 1 is over are obtained where</p>
+<div class="equation" id="eq-15"><img src="figures/eq-15.webp" width="108" height="26" alt="RI∗ 1 = R{2}I∗ 1 = 0:" loading="lazy" decoding="async"></div>
+
+<p>These equilibria states are epidemiologically interesting as the extinction of one of two strains can be a turning point in multiple pandemic management policies. Thus, it is assumed (without loss of generality) that <em>i</em> = 1. Hence, from the fourth and sixth equations, one obtains that</p>
+<div class="equation" id="eq-16"><img src="figures/eq-16.webp" width="103" height="26" alt="RI∗ 2 = R{1}I∗ 2 = 0:" loading="lazy" decoding="async"></div>
+
+<p>Accordingly, the system converges to the <em>pandemic-free</em> equilibria.</p>
+<p>In addition, while other equilibria states theoretically exist (by relaxing the previous assumptions), from an epidemiological point of view, the unstable equilibria are obtained in the middle of the pandemic. It is possible to see that it is enough that an individual may recover in order to diverge from each one of these equilibria states. As such, these equilibria obtained, if any, do not provide a meaningful point in the pandemic’s dynamics.</p>
+<h3 id="32-basic-reproduction-number">3.2 Basic reproduction number</h3>
+<p>The basic reproduction number, <em>R</em><sub>0</sub>, is defined as the expected number of secondary cases produced by a single (typical) infection in a completely susceptible population <span class="cite">[<a href="#ref-57">57</a>]</span>. In the case of a <em>SIR</em>-based model, the basic reproduction number indicates an epidemic outbreak if <em>R</em><sub>0</sub> <em>&gt;</em> 1 or not if <em>R</em><sub>0</sub> <em>&lt;</em> 1.</p>
+<p>To find the basic reproduction number for two strains, we use the Next Generation Matrix (NGM) approach <span class="cite">[<a href="#ref-58">58</a>]</span>. First, we compute the new infections matrix</p>
+<div class="equation" id="eq-17"><img src="figures/eq-17.webp" width="416" height="114" alt="F = β;1R 0 β{2};1R 0 0 β;2R 0 β{1};2R β{2};1R{2} 0 β{2};1R{2} 0 0 β{1};2R{1} 0 β{1};2R{1} ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎝ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎠ : (14)" loading="lazy" decoding="async"></div>
+
+<p>Afterward, we compute the transfers of infections from one compartment to another matrix</p>
+<div class="equation" id="eq-18"><img src="figures/eq-18.webp" width="501" height="115" alt="V = γ;1 0 0 0 0 γ;2 0 0 0 0 γ{1};2 0 0 0 0 γ{2};1 ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎝ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎠ → V− 1 = 1=γ;1 0 0 0 0 1=γ;2 0 0 0 0 1=γ{1};2 0 0 0 0 1=γ{2};1 ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎝ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎠ : (15)" loading="lazy" decoding="async"></div>
+
+<p>Now, <em>R</em><sub>0</sub> is the dominant eigenvalue of the matrix <span class="cite">[<a href="#ref-58">58</a>]</span>.</p>
+<div class="equation" id="eq-19"><img src="figures/eq-19.webp" width="437" height="193" alt="G = FV− 1 = β;1R γ;1 0 β{2};1R γ{1};2 0 0 β;2R γ;2 0 β{1};2R γ{2};1 β{2};1R{2} γ;1 0 β{2};1R{2} γ{1};2 0 0 β{1};2R{1} γ;2 0 β{1};2R{1} γ{2};1 ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎝ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎠ (16)" loading="lazy" decoding="async"></div>
+
+<p>which is obtained from the root of the representative polynomial:</p>
+<div class="equation" id="eq-20"><img src="figures/eq-20.webp" width="497" height="268" alt="0 = λ4 − λ3 β{2};1 γ{1};2 + β{1};2 γ{2};1 + β;1 γ;1 + λ2 2 β;2 γ;2 β{2};1 γ{1};2 − β;2 γ;2 + β{1};2 γ{2};1 β;2 γ;2 − β{1};2 γ{2};1 β{1};2 γ;2 + β{2};1 γ{1};2 β;1 γ;1 + β{1};2 γ{2};1 β;1 γ;1 − β{2};1 γ{1};2 ) + λ − β;2 γ;2 2 β{2};1 γ{1};2 + β{1};2 γ{2};1 β{1};2 γ;2 β{2};1 γ{1};2 − 2 β;1 γ;1 β;2 γ;2 β" loading="lazy" decoding="async"></div>
+
+<p>Using <em>Matlab</em>’s (version 2021b) symbolic programming, one is able to obtain the <em>R</em><sub>0</sub>. Just find the roots of the polynomial shown in Eq (17) and take the biggest one. This approach cannot be generalized for more than two strains |<em>M</em>| <em>&gt;</em> 2 as the NGM will be of size <em>k</em> × <em>k</em> where <em>k</em> = ∑<sup>|M|</sup> <sub>i=1</sub><em>nx</em>. Namely, the size of the NGM is larger than four and according to Galois theory <span class="cite">[<a href="#ref-59">59</a>]</span> and based on the Abel–Ruffini theorem <span class="cite">[<a href="#ref-60">60</a>]</span>, the roots of the representative polynomial of the NGM cannot be obtained using radicals. This means one cannot provide a closed-form formula for the eigenvalues of the NGM which are used to obtain <em>R</em><sub>0</sub>.</p>
+<h3 id="33-model-validation">3.3 Model validation</h3>
+<p>The model validation is divided into two phases: parameter estimation and historical fitting. The parameter estimation method allows us to use of the proposed model on a specific pandemic and the historical fitting shows the ability of the proposed model to approximate real pandemic spread dynamics given the obtained parameters.</p>
+<p><strong>3.3.1 Parameter estimation.</strong> The proposed epidemiological model parameter for the case |<em>M</em>| = 2 is obtained by fitting the proposed model onto the historical data from April 1 (2020) to December 1 (2020) of the UK by WHO <span class="cite">[<a href="#ref-7">7</a>]</span>, using the fourth-order Runge-Kutta <span class="cite">[<a href="#ref-54">54</a>]</span> and gradient descent <span class="cite">[<a href="#ref-61">61</a>]</span> algorithms. These dates are picked as the population in the UK during this period had not been vaccinated against the COVID-19 disease yet and a second strain (i.e., the COVID-19 UK Variant—B.1.1.7) appeared according to <span class="cite">[<a href="#ref-62">62</a>]</span>, which based their analysis on clinical testing and later reverse engineering of the mutation’s appearance <span class="cite">[<a href="#ref-63">63</a>]</span>. Both point to the same period even though there is no full agreement on the specific dates of the appearance of the mutation. Specifically, we randomly guess the values of the model’s parameters, solving the system of ODEs using the fourth-order Runge-Kutta method and computing the Gaussian (<em>L</em><sub>2</sub>) distance from the historical data. In particular, we used the daily number of infection, recovered, and deceased individuals. As such, the fitness function takes the form:</p>
+<div class="equation" id="eq-21"><img src="figures/eq-21.webp" width="514" height="45" alt="F(H; P)[t0;tf ]≔ ∑ tf t=t0((H[S](t) − P[S](t)) 2 + (H[R](t) − P[R](t)) 2 + (H[I](t) − P[I](t)) 2) √ ; (18)" loading="lazy" decoding="async"></div>
+
+<p>where <em>H</em><a href="*t*"><em>X</em></a> is the historical size of the population at the epidemiological state <em>X</em> at time <em>t</em> and <em>P</em><a href="*t*"><em>X</em></a> is the model’s prediction size of the population at the epidemiological state <em>X</em> at time <em>t</em>. The model’s <em>P</em>[<em>I</em>] and <em>P</em>[<em>R</em>] refer to all states for the form <em>R</em><sub>j</sub><em>I</em><sub>i</sub> and <em>R</em><sub>j</sub>, respectively.</p>
+<figure id="fig-6">
+<a class="fig-zoom" href="figures/fig-6.webp" aria-label="Open the figure full size"><img src="figures/fig-6.webp" width="486" height="142" alt="A schematic view of the fitting method" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig 6. A schematic view of the fitting method.</strong></figcaption>
+</figure>
+
+<p>https://doi.org/10.1371/journal.pone.0260683.g006</p>
+<p>Afterward, we repeated this process while modifying the value of a single parameter by some pre-defined value <em>δ</em> = 0.01, obtaining a numerical gradient. At this stage, we used the gradient descent algorithm in order to find the values that minimize the model’s <em>L</em><sub>2</sub> distance from the historical data using Eq (18). The process is stopped once the gradient’s (<em>L</em><sub>1</sub>) norm is smaller than some pre-defined threshold value = 0.1. The entire process is repeated <em>r</em> = 100 times and the parameter values that are obtained most often are decided to be the model’s parameter value. The values for (<em>δ</em>, , <em>r</em>) are manually picked. A schematic view of the fitting method is presented in <a class="xref" href="#fig-6">Fig 6</a>.</p>
+<p><strong>3.3.2 Historical fitting.</strong> In order to numerically evaluate the ability of the proposed model to fit real epidemiological data, we decided to simulate the COVID-19 pandemic in the United Kingdom (UK). This case is chosen due to the availability of epidemiological data and since a COVID-19 strain is known to originate in the UK <span class="cite">[<a href="#ref-7">7</a>, <a href="#ref-64">64</a>]</span>. Therefore, we computed the parameter values, assuming the initial conditions taking the form:</p>
+<div class="equation" id="eq-22"><img src="figures/eq-22.webp" width="336" height="23" alt="R(0) = 67200000; RI1(0) = 100; RI2(0) = 1; D(0) = 0" loading="lazy" decoding="async"></div>
+
+<div class="equation" id="eq-23"><img src="figures/eq-23.webp" width="30" height="23" alt="(19)" loading="lazy" decoding="async"></div>
+
+<div class="equation" id="eq-24"><img src="figures/eq-24.webp" width="325" height="26" alt="R{1}(0) = R{2}(0) = R{1;2}(0) = R{1}I2(0) = R{2}I1(0) = 0:" loading="lazy" decoding="async"></div>
+
+<p>where <em>R</em><sub>∅</sub>(0) = 67200000 to represent the size of the UK population in the beginning of the pandemic. A summary of the obtained parameter values is shown in <a class="xref" href="#table-1">Table 1</a>, such that 27% of the random parameter value initial conditions converged to the values with <em>d</em><sub>L2</sub> = 0<em>:</em>089. Namely, the model has a daily mean square error of 8.9%.</p>
+<p>One needs to be cautious with this historical fitting of COVID-19 data due to historical error in COVID-19 related death classification, undersampling of infected individuals, and errors associated in identifying the strain individuals are infected with <span class="cite">[<a href="#ref-65">65</a>, <a href="#ref-66">66</a>]</span>. These errors may result in off representation of the epidemiological dynamics and as such wrong parameter values. Nonetheless, COVID-19 is the most documented pandemic in history <span class="cite">[<a href="#ref-67">67</a>]</span> and therefore it is the best candidate to use despite the problems associated with it.</p>
+<p>A fitting dynamics between the historical data (circle, black) and the model’s prediction (axes, blue) is shown in <a class="xref" href="#fig-7">Fig 7</a>, where the x-axis describes the time from September 1 (2020) to December 1 (2020), and the y-axis describes the daily basic reproduction number (<em>R</em><sub>0</sub>). The historical basic reproduction number (<em>R</em><sub>0</sub>) from WHO is computed using the following formula <em>R</em><sub>0</sub>(<em>t</em>)≔ <sup>I(t+1)− I(t)</sup> <sub>R(t+1)− R(t)</sub> <em>:</em>.</p>
+<h2 id="4-discussion">4 Discussion</h2>
+<p>We have developed a mathematical model and a computer simulation aiming at establishing the connections between the number of pandemic disease strains and the pandemic’s spread in the population for any pathogen, under the epidemiological <em>SIRD</em> model. Unlike the previous modeling approaches <span class="cite">[<a href="#ref-12">12</a>, <a href="#ref-38">38</a>, <a href="#ref-40">40</a>]</span>, we have extended the strain diversity for any arbitrary number (<em>m</em>) and did not introduce any pathogen-specific attributes, keeping the model as generic as possible.</p>
+<figure class="table-figure" id="table-1">
+<figcaption><strong>Table 1. A summary of the model parameters and values for the case of |<em>M</em>| = 2, obtained from the fitting process to the historical WHO COVID-19 data from April 1 (2020) to December 1 (2020).</strong></figcaption>
+<div class="table-scroll"><table><tr><th>Parameter Definition</th><th>Symbol</th><th>Value</th></tr><tr><td>Infection rate of the strain (i = 1) <span class="cite">[<a href="#ref-1">1</a>]</span></td><td>β;,1</td><td>0.04</td></tr><tr><td>Infection rate of the strain (i = 2) <span class="cite">[<a href="#ref-1">1</a>]</span></td><td>β;,2</td><td>0.07</td></tr><tr><td>Infection rate of the strain (i = 2), after recovery from the strain (i = 1) <span class="cite">[<a href="#ref-1">1</a>]</span></td><td>β{1},2</td><td>0.01</td></tr><tr><td>Infection rate of the strain (i = 1), after recovery from the strain (i = 2) <span class="cite">[<a href="#ref-1">1</a>]</span></td><td>β{2},1</td><td>0.02</td></tr><tr><td>The average duration that it takes for an individual to recover from the strain (i = 1) in days [t−1]</td><td>γ;,1</td><td>0.08</td></tr><tr><td>The average duration that it takes for an individual to recover from the strain (i = 2) in days [t−1]</td><td>γ;,2</td><td>0.06</td></tr><tr><td>The average duration that it takes for an individual to recover from the strain (i = 1) after<br/>recovering from the strain (i = 2) in days [t−1]</td><td>γ{2},1</td><td>0.21</td></tr><tr><td>The average duration that it takes for an individual to recover from the strain (i = 2) after<br/>recovering from the strain (i = 1) in days [t−1]</td><td>γ{1},2</td><td>0.17</td></tr><tr><td>The probability an infected individual will recover from the strain (i = 1) <span class="cite">[<a href="#ref-1">1</a>]</span></td><td>ϕ;,1</td><td>0.98</td></tr><tr><td>The probability an infected individual will recover from the strain (i = 2) <span class="cite">[<a href="#ref-1">1</a>]</span></td><td>ϕ;,2</td><td>0.96</td></tr><tr><td>The probability an infected individual will recover from the strain (i = 2) after recovering from the<br/>strain (i = 2) <span class="cite">[<a href="#ref-1">1</a>]</span></td><td>ϕ{1},2</td><td>0.99</td></tr><tr><td>The probability an infected individual will recover from the strain (i = 3) after recovering from the<br/>strain (i = 1) <span class="cite">[<a href="#ref-1">1</a>]</span></td><td>ϕ{2},1</td><td>0.99</td></tr></table></div>
+<p class="table-note"></p>
+</figure>
+
+<p>We have shown that for the case of only two strains (e.g., |<em>M</em>| = 2), the only stable equilibria states are when the pandemic is over for both strains (<em>R</em><sub>∅</sub><em>I</em><sup>∗</sup> <sub>1</sub> = <em>R</em><sub>∅</sub><em>I</em><sup>∗</sup> <sub>2</sub> = <em>R</em><sub>{1}</sub><em>I</em><sup>∗</sup> <sub>2</sub> = <em>R</em><sub>{2}</sub><em>I</em><sup>∗</sup> <sub>1</sub> = 0), as shown in Section 3.3.2. The result of the equilibrium analysis is that the <em>pandemic-free</em> states https://doi.org/10.1371/journal.pone.0260683.g007 are stable only when the epidemics of the two strains cease; that is, after the end of the general pandemic (Eq (13)).</p>
+<figure id="fig-7">
+<a class="fig-zoom" href="figures/fig-7.webp" aria-label="Open the figure full size"><img src="figures/fig-7.webp" width="486" height="361" alt="Daily R0 in UK between September 1 and December 1 (2020) comparison between the historical data (specifically, the daily number of infected, recovered, and dead individuals) and the proposed model pre" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig 7. Daily <em>R</strong></em><sub>0</sub> <strong>in UK between September 1 and December 1 (2020) comparison between the historical data (specifically, the daily number of infected, recovered, and dead individuals) and the proposed model predictions (for |<em>M</em>| = 2).</strong> The gray horizontal line indicates <em>R</em><sub>0</sub> = 1. The model’s parameter values are shown in Table 1.</figcaption>
+</figure>
+
+<p>Moreover, an analytical computation of the basic reproduction number (<em>R</em><sub>0</sub>) requires information on infections between individuals with different strains, which is not realistically available. Therefore, an immediate result of the model is that once a pandemic developed secondary strains, a numerical and statistical approximation of <em>R</em><sub>0</sub> is left to be the only feasible approach.</p>
+<p>In addition, the proposed model is evaluated on the COVID-19 pandemic (for the case of the UK) and has shown promising ability to fit a long period of multi-strain historical data (eight months, 8.9% daily mean square error). A prediction of the last two months of this period is shown in <a class="xref" href="#fig-7">Fig 7</a>, based on the obtained model’s parameter values which are presented in <a class="xref" href="#table-1">Table 1</a>. Strain <em>i</em> = 1 is mapped to the original strain of COVID-19. Since at the beginning of the pandemic, this was only a single strain, the measured epidemiological values are necessarily associated with this strain. This is not the case for measurements of periods where two or more strains existed. The proposed model captures a general trend of decreasing <em>R</em><sub>0</sub> during this period while not matching the data closely as it intentionally does not take into consideration other social and epidemiological dynamics, allowing analytical analysis to be considered. However, future extensions of the proposed model should be able to predict more closely historical pandemic events.</p>
+<p>According to Voinsky et al. <span class="cite">[<a href="#ref-68">68</a>]</span>, the average recovery rate of strain (<em>i</em> = 1) is 0.0714 while the model predicted <em>γ</em><sub>∅,1</sub> = 0.08 (where the approximation size is <em>δ</em> = 0.01), as presented in <a class="xref" href="#table-1">Table 1</a>. In addition, according to WHO <span class="cite">[<a href="#ref-7">7</a>]</span>, the average mortality rate of this period is ∼ 0.0138 while the model predicted that the average mortality rate from this strain is 1 −<em>ϕ</em><sub>∅,1</sub> = 0.02. Thus, while the model is simple, it is able to capture the biological and epidemiological properties of the pandemic.</p>
+<p>Furthermore, we evaluated the influence of the number of strains on the mean basic reproduction number (<em>E</em>[<em>R</em><sub>0</sub>]), mortality rate, and a maximum number of infected individuals, as shown in <a class="xref" href="#fig-2">Figs 2</a>, 4 and 3, respectively. We show that the basic reproduction number is upper bounded by taking into consideration only the most aggressive strain. Formally, we computed a one-sided confidence interval between the baseline and the most aggressive strain dynamics and found that 0 is not included in the confidence interval (<em>α</em> = 0.05). Hence, we conclude that the two dynamics are different and that the most aggressive strain dynamic is an upper bound of the baseline dynamics. This result agrees with the one obtained by <span class="cite">[<a href="#ref-40">40</a>]</span> for arbitrary number of mutations and <span class="cite">[<a href="#ref-42">42</a>]</span> for the case of |<em>M</em>| = 2. In particular, <span class="cite">[<a href="#ref-42">42</a>]</span> has shown that analytically the most aggressive strain and the baseline dynamic converge which is shown in <a class="xref" href="#fig-2">Fig 2</a>. The slight difference in the mean value is associated with the stochastic nature of the numerical computation method. An immediate outcome is that the proposed model is upper bounded by the <em>SIRD</em> model with the slight modification that each individual can be infected up to |<em>M</em>| times. This means one can get a statistically similar result (on average) to a pandemic with |<em>M</em>| strains by using a simpler model that requires less biological and epidemiological data compared to the proposed model. These results agree with the analysis performed by Dang et al. <span class="cite">[<a href="#ref-36">36</a>]</span> on a multi-strain model for influenza.</p>
+<p>Based on Eq (7), the maximum number of infected individuals is growing in a logarithmic manner to the number of strains when the latter occurs simultaneously. In a similar manner, based on Eq (8), the mortality rate is growing in a logarithmic manner to the number of strains when the latter occur simultaneously. We numerically show in <a class="xref" href="#fig-3">Figs 3</a> and 4 that the epidemiological properties which indicate the severity of the pandemic in a well-mixed population grow in a logarithmic manner as a function of the number of strains (|<em>M</em>|). This connection indicates that the first few strains make a relatively large contribution to the mortality and pandemic spread dynamics, but as the number of strains grows, each strain contributes less to these numbers. Policymakers can take advantage of this link when planning intervention policies to contain the spread of a pandemic, given that new strains can emerge during pathogen mutation. The code developed for this model is publicly available as open-source.</p>
+<p>Several possible future research directions emerge from the proposed initial modeling. First, one can introduce a fixed delay parameter to the occurrence of strains, investigating the influence of this parameter on the epidemiological spread similar to the model proposed by Arruda et al. <span class="cite">[<a href="#ref-40">40</a>]</span>. Second, one can take into consideration more detailed biological settings, assuming the stochastic occurrence of the strains from some distribution. Third, one can allow reinfection of the same strain, extending the proposed model to a <em>SIRS</em>-based model. These directions aim to better represent a real pandemic where several strains do not exist from the beginning of the pandemic. Moreover, one can introduce a similarity matrix between the strains as they are mutations of an original strain, which are reflected by the immunity response to reinfection of different strains or a cross-immunity response as proposed by <span class="cite">[<a href="#ref-69">69</a>]</span>. In the same direction, adding an Exposed state would make the proposed model more biologically accurate, since most strains have an incubation period before the host becomes infectious. The multi-strain model is a theoretical platform that will help guide the decision-making process in the event of a pandemic crisis while providing the forecast of the results of the selected course of action.</p>
+<h2 id="supporting-information">Supporting information</h2>
+<p><strong>S1 Appendix. Single and two mutations model.</strong> (PDF)</p>
+<h2 id="author-contributions">Author Contributions</h2>
+<p><strong>Formal analysis:</strong> Teddy Lazebnik.</p>
+<p><strong>Investigation:</strong> Teddy Lazebnik.</p>
+<p><strong>Methodology:</strong> Teddy Lazebnik.</p>
+<p><strong>Project administration:</strong> Teddy Lazebnik, Svetlana Bunimovich-Mendrazitsky.</p>
+<p><strong>Software:</strong> Teddy Lazebnik.</p>
+<p><strong>Supervision:</strong> Svetlana Bunimovich-Mendrazitsky.</p>
+<p><strong>Validation:</strong> Teddy Lazebnik, Svetlana Bunimovich-Mendrazitsky.</p>
+<p><strong>Visualization:</strong> Teddy Lazebnik.</p>
+<p><strong>Writing – original draft:</strong> Teddy Lazebnik.</p>
+<p><strong>Writing – review &amp; editing:</strong> Svetlana Bunimovich-Mendrazitsky.</p>
+<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 11 November 2021 · Accepted 6 April 2022 · Published 28 April 2022</dd></div><div><dt>Funding</dt><dd>The authors received no specific funding for this work.</dd></div><div><dt>Competing interests</dt><dd>The authors have declared that no competing interests exist.</dd></div><div><dt>Data availability</dt><dd>All files are available from the WHO’s COVID database at https://covid19.who.int/.</dd></div></dl></section>
+<h2 id="references">References</h2>
+<ol class="paper-refs"><li id="ref-1">Janku A, Schenk G, Mauelshagen F. Historical Disasters in Context: Science, Religion, and Politics. Routledge; 2011.</li>
+<li id="ref-2">Gottshang TR. Economic Change, Disasters, and Migration: The Historical Case of Manchuria. Economic Development and Cultural Change. 1987; 45(3).</li>
+<li id="ref-3">Noji EK, Toole MJ. The Historical Development of Public Health Responses to Disasters. Disasters. 1997; 21:366–376. <a href="https://doi.org/10.1111/1467-7717.00068" target="_blank" rel="noopener">doi:10.1111/1467-7717.00068</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/9455008/" target="_blank" rel="noopener">PubMed 9455008</a></li>
+<li id="ref-4">van Bavel BJP, Curtis DR. Better Understanding Disasters by Better Using History. International Journal of Mass Emergencies and Disasters. 2016; 34(1):143–169.</li>
+<li id="ref-5">Conti AA. Historical and methodological highlights of quarantine measures: from ancient plague epidemics to current coronavirus disease (COVID-19) pandemic. Acta bio-medica: Atenei Parmensis. 2020; 91(2):226–229. <a href="https://doi.org/10.23750/abm.v91i2.9494" target="_blank" rel="noopener">doi:10.23750/abm.v91i2.9494</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/32420953/" target="_blank" rel="noopener">PubMed 32420953</a></li>
+<li id="ref-6">Brodeur A, Gray D, Islam A, Bhuiyan S. A Literature Review of the Economics of COVID-19. IZA Discussion Paper No 13411, Available at SSRN: https://ssrncom/abstract=3636640. 2020. <a href="https://ssrncom/abstract=3636640" target="_blank" rel="noopener">link</a></li>
+<li id="ref-7">WHO. WHO Coronavirus Disease (COVID-19) Dashboard;. Available from: https://covid19.who.int/. <a href="https://covid19.who.int/" target="_blank" rel="noopener">link</a></li>
+<li id="ref-8">Lazebnik T, Bunimovich-Mendrazitsky S, Shami L. Pandemic management by a spatio–temporal mathematical model. International Journal of Nonlinear Sciences and Numerical Simulation. 2021.</li>
+<li id="ref-9">Lederberg J. Medical Science, Infectious Disease, and the Unity of Humankind. JAMA. 1988; 260 (5):684–685. <a href="https://pubmed.ncbi.nlm.nih.gov/3392795/" target="_blank" rel="noopener">PubMed 3392795</a></li>
+<li id="ref-10">Wu T, Perrings C, Kinzig A, Collins JP, Minteer BA, Daszak P. Economic growth, urbanization, globalization, and the risks of emerging infectious diseases in China: A review. Ambio. 2017; 46(1):18–29. <a href="https://doi.org/10.1007/s13280-016-0809-2" target="_blank" rel="noopener">doi:10.1007/s13280-016-0809-2</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/27492678/" target="_blank" rel="noopener">PubMed 27492678</a></li>
+<li id="ref-11">Cheng XX, Wang Y, Huang G. Dynamics of a competing two-strain SIS epidemic model with general infection force on complex networks. Nonlinear Analysis-Real World Applications. 2021; 59:103247. <a href="https://doi.org/10.1016/j.nonrwa.2020.103247" target="_blank" rel="noopener">doi:10.1016/j.nonrwa.2020.103247</a></li>
+<li id="ref-12">Gordo I, Gomes MGM, Reis DG, Campos PRA. Genetic Diversity in the SIR Model of Pathogen Evolution. Plos One. 2009; 4(3):e4876. <a href="https://doi.org/10.1371/journal.pone.0004876" target="_blank" rel="noopener">doi:10.1371/journal.pone.0004876</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/19287490/" target="_blank" rel="noopener">PubMed 19287490</a></li>
+<li id="ref-13">Shi P, Keskinocak P, Swann J, Lee BY. Modelling seasonality and viral mutation to predict the course of an influenza pandemic. Epidemiology and Infection. 2010; 138(10):1472–1481. <a href="https://doi.org/10.1017/S0950268810000300" target="_blank" rel="noopener">doi:10.1017/S0950268810000300</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/20158932/" target="_blank" rel="noopener">PubMed 20158932</a></li>
+<li id="ref-14">Kermack WO, McKendrick AG. A contribution to the mathematical theory of epidemics. Proceedings of the Royal Society. 1927; 115:700–721.</li>
+<li id="ref-15">Libi F, Weiguo S, Wei L, Siuming L. Simulation of emotional contagion using modified SIR model: A cellular automaton approach. Physica A: Statistical Mechanics and its Applications. 2014; 405(1):380– 391.</li>
+<li id="ref-16">Lazebnik T, Shami L, Bunimovich-Mendrazitsky S. Spatio-Temporal Influence of Non-Pharmaceutical Interventions Policies on Pandemic Dynamics and the Economy: The Case of COVID-19. Epidemio-logic-Economic. 2021.</li>
+<li id="ref-17">Bognanni M, Hanley D, Kolliner D, Mitman K. Economics and Epidemics: Evidence from an Estimated Spatial Econ-SIR Model PDF Logo. Institute of Labor Economics. 2020.</li>
+<li id="ref-18">Milner FA, Zhao R. S-I-R Model with Directed Spatial Diffusion. An International Journal of Mathematical Demography. 2008; 15(3).</li>
+<li id="ref-19">Oka T, Wei W, Zhu D. A Spatial Stochastic SIR Model for Transmission Networks with Application to COVID-19 Epidemic in China. SSRN. 2020.</li>
+<li id="ref-20">Lazebnik T, Alexi A. Comparison of Pandemic Intervention Policies in Several Building Types Using Heterogeneous Population Model. Communications in Nonlinear Science and Numerical Simulation. 2021.</li>
+<li id="ref-21">Towers S, Vogt Geisse K, Zheng Y, Feng Z. Antiviral treatment for pandemic influenza: Assessing potential repercussions using a seasonally forced SIR model. Journal of Theoretical Biology. 2011; 289:259–268. <a href="https://doi.org/10.1016/j.jtbi.2011.08.011" target="_blank" rel="noopener">doi:10.1016/j.jtbi.2011.08.011</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/21867715/" target="_blank" rel="noopener">PubMed 21867715</a></li>
+<li id="ref-22">Kamp C, Heiden M, Henseler O, Seitz R. Management of blood supplies during an influenza pandemic. Transfusion. 2010; 50:231–239. <a href="https://doi.org/10.1111/j.1537-2995.2009.02498.x" target="_blank" rel="noopener">doi:10.1111/j.1537-2995.2009.02498.x</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/20002894/" target="_blank" rel="noopener">PubMed 20002894</a></li>
+<li id="ref-23">Weiss H. The SIR model and the Foundations of Public Health. Materials Matemàtics. 2013; p. 1–17.</li>
+<li id="ref-24">Cooper I, Mondal A, Antonopoulos CG. A SIR model assumption for the spread of COVID-19 in different communities. Chaos, Solitons, and Fractals. 2020; 139:110057. <a href="https://doi.org/10.1016/j.chaos.2020.110057" target="_blank" rel="noopener">doi:10.1016/j.chaos.2020.110057</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/32834610/" target="_blank" rel="noopener">PubMed 32834610</a></li>
+<li id="ref-25">Agarwal M, Bhadauria AS. Modeling Spread of Polio with the Role of Vaccination. Applications and Applied Mathematics. 2011; 6:552–571.</li>
+<li id="ref-26">Bunimovich-Mendrazitsky S, Stone L. Modeling polio as a disease of development. Journal of Theoretical Biology. 2005; 237:302–315. <a href="https://doi.org/10.1016/j.jtbi.2005.04.017" target="_blank" rel="noopener">doi:10.1016/j.jtbi.2005.04.017</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/15975604/" target="_blank" rel="noopener">PubMed 15975604</a></li>
+<li id="ref-27">Wells VR, Plotch SJ, DeStefano JJ. Determination of the mutation rate of poliovirus RNA-dependent RNA polymerase. Virus Research. 2001; 74(1):119–132. <a href="https://doi.org/10.1016/S0168-1702%2800%2900256-2" target="_blank" rel="noopener">doi:10.1016/S0168-1702(00)00256-2</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/11226580/" target="_blank" rel="noopener">PubMed 11226580</a></li>
+<li id="ref-28">Reluga TC. An SIS epidemiology game with two subpopulations. Journal of Biological Dynamics. 2008; p. 515–531.</li>
+<li id="ref-29">Yicang Z, Hanwu L. Stability of periodic solutions for an SIS model with pulse vaccination. Mathematical and Computer Modelling. 2003; 38(3):299–308.</li>
+<li id="ref-30">Yanli Z, Sanling Y, Dianli Z. Threshold behavior of a stochastic SIS model with Levy jumps. Applied Mathematics and Computation. 2016; 275:255–267.</li>
+<li id="ref-31">Rappuoli R, Dormitzer PR. Influenza: Options to Improve Pandemic Preparation. Science. 2012; 336 (6088):1531–1533. <a href="https://doi.org/10.1126/science.1221466" target="_blank" rel="noopener">doi:10.1126/science.1221466</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/22723412/" target="_blank" rel="noopener">PubMed 22723412</a></li>
+<li id="ref-32">Tkachenko AV, Maskov S, Elbanna A, Wong GN, Weiner ZJ, Goldenfeld N. Time-dependent heterogeneity leads to transient suppression of the COVID-19 epidemic, not herd immunity. Science. 2021; 118 (17):e2015972118.</li>
+<li id="ref-33">Moein S, Nickaeen N, Roointan A, Bohani N, Heidary Z, Javanmard SH, et al. Inefficiency of SIR models in forecasting COVID-19 epidemic: a case study of Isfahan. Scientific Reports. 2021; 11:4725. <a href="https://doi.org/10.1038/s41598-021-84055-6" target="_blank" rel="noopener">doi:10.1038/s41598-021-84055-6</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/33633275/" target="_blank" rel="noopener">PubMed 33633275</a></li>
+<li id="ref-34">Chowell G, Sattenspiel L, Bansal S, Viboud C. Mathematical models to characterize early epidemic growth: A review. Physics of Life Reviews. 2016; 18:66–97. <a href="https://doi.org/10.1016/j.plrev.2016.07.005" target="_blank" rel="noopener">doi:10.1016/j.plrev.2016.07.005</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/27451336/" target="_blank" rel="noopener">PubMed 27451336</a></li>
+<li id="ref-35">Minayev P, Ferguson N. Improving the realism of deterministic multi-strain models: implications for modelling influenza A. Journal of the Royal Society Interface. 2008;. <a href="https://doi.org/10.1098/rsif.2008.0333" target="_blank" rel="noopener">doi:10.1098/rsif.2008.0333</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/18801714/" target="_blank" rel="noopener">PubMed 18801714</a></li>
+<li id="ref-36">Dang YX, Li XZ, Martcheva M. Competitive exclusion in a multi-strain immuno-epidemiological influenza model with environmental transmission. Journal of Biological Dynamics. 2016; 10(1). <a href="https://doi.org/10.1080/17513758.2016.1217355" target="_blank" rel="noopener">doi:10.1080/17513758.2016.1217355</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/27608293/" target="_blank" rel="noopener">PubMed 27608293</a></li>
+<li id="ref-37">Marquioni VM, de Aguiar MAM. Modeling neutral viral mutations in the spread of SARS-CoV-2 epidemics. Plos One. 2021; 16(7):e0255438. <a href="https://doi.org/10.1371/journal.pone.0255438" target="_blank" rel="noopener">doi:10.1371/journal.pone.0255438</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/34324605/" target="_blank" rel="noopener">PubMed 34324605</a></li>
+<li id="ref-38">Khyar O, Allali K. Global dynamics of a multi-strain SEIR epidemic model with general incidence rates: application to COVID-19 pandemic. Nonlinear Dynamics. 2020; 102:489–509. <a href="https://doi.org/10.1007/s11071-020-05929-4" target="_blank" rel="noopener">doi:10.1007/s11071-020-05929-4</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/32921921/" target="_blank" rel="noopener">PubMed 32921921</a></li>
+<li id="ref-39">Gubar E, Taynitskiy V, Zhu Q. Optimal Control of Heterogeneous Mutating Viruses. Games. 2018; 9 (4):103. <a href="https://doi.org/10.3390/g9040103" target="_blank" rel="noopener">doi:10.3390/g9040103</a></li>
+<li id="ref-40">Arruda EF, Das SS, Dias CM, Pastore DH. Modelling and optimal control of multi strain epidemics, with application to COVID-19. PLOS ONE. 2021; 16(9):1–18. <a href="https://doi.org/10.1371/journal.pone.0257512" target="_blank" rel="noopener">doi:10.1371/journal.pone.0257512</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/34529745/" target="_blank" rel="noopener">PubMed 34529745</a></li>
+<li id="ref-41">Viguerie A, Lorenzo G, Auricchio F, Baroil D, Hughes TJR, Patton A, et al. Simulating the spread of COVID-19 via a spatially-resolved susceptible-exposed-infected-recovered-deceased (SEIRD) model with heterogeneous diffusion. Appl Math Lett. 2021; 111:106617. <a href="https://doi.org/10.1016/j.aml.2020.106617" target="_blank" rel="noopener">doi:10.1016/j.aml.2020.106617</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/32834475/" target="_blank" rel="noopener">PubMed 32834475</a></li>
+<li id="ref-42">Fudolig M, Howard R. The local stability of a modified multi-strain SIR model for emerging viral strains. PLOS ONE. 2020; 15(12):e0243408. <a href="https://doi.org/10.1371/journal.pone.0243408" target="_blank" rel="noopener">doi:10.1371/journal.pone.0243408</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/33296417/" target="_blank" rel="noopener">PubMed 33296417</a></li>
+<li id="ref-43">Aleta A, Hisi ANH, Meloni S, Poletto C, Colizza V, Moreno Y. Human mobility networks and persistence of rapidly mutating pathogens. Royal Society Open Science. 2017; 4:160914. <a href="https://doi.org/10.1098/rsos.160914" target="_blank" rel="noopener">doi:10.1098/rsos.160914</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/28405379/" target="_blank" rel="noopener">PubMed 28405379</a></li>
+<li id="ref-44">Di Giamberardino P, Iacoviello D, Papa F, Sinisgalli C. A data-driven model of the COVID-19 spread among interconnected populations: epidemiological and mobility aspects following the lockdown in Italy. Nonlinear Dynamics. 2021; 106:1239–1266. <a href="https://doi.org/10.1007/s11071-021-06840-2" target="_blank" rel="noopener">doi:10.1007/s11071-021-06840-2</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/34493902/" target="_blank" rel="noopener">PubMed 34493902</a></li>
+<li id="ref-45">Cox RJ, Brokstad KA. Not just antibodies: B cells and T cells mediate immunity to COVID-19. Nature Reviews Immunology. 2020; 20:581–582. <a href="https://doi.org/10.1038/s41577-020-00436-4" target="_blank" rel="noopener">doi:10.1038/s41577-020-00436-4</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/32839569/" target="_blank" rel="noopener">PubMed 32839569</a></li>
+<li id="ref-46">Winer DA, Winder S, Shen L, Wadia PP, Yantha J, Paltser G, et al. B-cells promote insulin resistance through modulation of T cells and production of pathogenic IgG antibodies. Nature Medicine. 2011; 17:610–617. <a href="https://doi.org/10.1038/nm.2353" target="_blank" rel="noopener">doi:10.1038/nm.2353</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/21499269/" target="_blank" rel="noopener">PubMed 21499269</a></li>
+<li id="ref-47">Mukherjee S, Tworowski D, Detroja R, Mukherjee SB, Frenkel-Morgenstern M. Immunoinformatics and structural analysis for identification of immunodominant epitopes in SARS-CoV-2 as potential vaccine targets. Vaccines. 2020;. <a href="https://doi.org/10.3390/vaccines8020290" target="_blank" rel="noopener">doi:10.3390/vaccines8020290</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/32526960/" target="_blank" rel="noopener">PubMed 32526960</a></li>
+<li id="ref-48">Yaqinuddin A. Cross-immunity between respiratory coronaviruses may limit COVID-19 fatalities. Medical hypotheses. 2020;. <a href="https://doi.org/10.1016/j.mehy.2020.110049" target="_blank" rel="noopener">doi:10.1016/j.mehy.2020.110049</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/32758887/" target="_blank" rel="noopener">PubMed 32758887</a></li>
+<li id="ref-49">Roche B, Drake JM, Rohani P. An Agent-Based Model to study the epidemiological and evolutionary dynamics of Influenza viruses. BMC Buiunftinatics. 2011; 12:87.</li>
+<li id="ref-50">Breda D, Florian F, Ripoll J, Vermiglio R. Efficient numerical computation of the basic reproduction number for structured populations. Journal of Computational and Applied Mathematics. 2021; 384:113165. <a href="https://doi.org/10.1016/j.cam.2020.113165" target="_blank" rel="noopener">doi:10.1016/j.cam.2020.113165</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/32868963/" target="_blank" rel="noopener">PubMed 32868963</a></li>
+<li id="ref-51">Chatterjee K, Chatterjee K, Kumar A, Shankar S. Healthcare impact of COVID-19 epidemic in India: A stochastic mathematical model. Medical Journal Armed Forces India. 2020; 76(2):147–155. <a href="https://doi.org/10.1016/j.mjafi.2020.03.022" target="_blank" rel="noopener">doi:10.1016/j.mjafi.2020.03.022</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/32292232/" target="_blank" rel="noopener">PubMed 32292232</a></li>
+<li id="ref-52">Baud D, Qi X, Nielsen-Saines K, Musso D, Pomar L, Favre G. Real estimates of mortality following COVID-19 infection. The Lancet Infectious Diseases. 2020; 20(7):773. <a href="https://doi.org/10.1016/S1473-3099%2820%2930195-X" target="_blank" rel="noopener">doi:10.1016/S1473-3099(20)30195-X</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/32171390/" target="_blank" rel="noopener">PubMed 32171390</a></li>
+<li id="ref-53">Lazebnik T, Bunimovich-Mendrazitsky S. The Signature Features of COVID-19 Pandemic in a Hybrid Mathematical Model—Implications for Optimal Work–School Lockdown Policy. Advanced Theory and Simulations. 2021; p. 2000298. <a href="https://doi.org/10.1002/adts.202000298" target="_blank" rel="noopener">doi:10.1002/adts.202000298</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/34230906/" target="_blank" rel="noopener">PubMed 34230906</a></li>
+<li id="ref-54">Yaakub AR, Evans DJ. A fourth order Runge–Kutta RK(4,4) method with error control. International Journal of Computer Mathematics. 1996; p. 383–411.</li>
+<li id="ref-55">Bjorck A. Numerical Methods for Least Squares Problems. Society for Industrial and Applied Mathematics. 1996; 5:497–513.</li>
+<li id="ref-56">Lazebnik T, Bunimovich-Mendrazitsky S, Shaikhet L. Novel Method to Analytically Obtain the Asymptotic Stable Equilibria States of Extended SIR-type Epidemiological Models. Symmetry. 2021;. <a href="https://doi.org/10.3390/sym13071120" target="_blank" rel="noopener">doi:10.3390/sym13071120</a></li>
+<li id="ref-57">van den Driessche P, Watmough J. Reproduction numbers and sub-threshold endemic equilibria for compartmental models of disease transmission. Mathematical Biosciences. 2002; 180(1):29–48. <a href="https://doi.org/10.1016/S0025-5564%2802%2900108-6" target="_blank" rel="noopener">doi:10.1016/S0025-5564(02)00108-6</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/12387915/" target="_blank" rel="noopener">PubMed 12387915</a></li>
+<li id="ref-58">Diekmann O, Heesterbeek JA, Roberts MG. The construction of next-generation matrices for compartmental epidemic models. Journal of the Royal Society. 2010; 7(47):873–885. <a href="https://doi.org/10.1098/rsif.2009.0386" target="_blank" rel="noopener">doi:10.1098/rsif.2009.0386</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/19892718/" target="_blank" rel="noopener">PubMed 19892718</a></li>
+<li id="ref-59">Galois E, Neumann PM. The Mathematical Writings of E´ variste Galois. European Mathematical Society. 2011.</li>
+<li id="ref-60">Abel NH. Me´moire sur les e´quations alge´briques, ou l’on de´montre l’impossibilite´ de la re´solution de l’e´quation ge´ne´rale du cinquième degre´. Sylow, Ludwig; Lie, Sophus. 1824; p. 28–33.</li>
+<li id="ref-61">Curry HB. The method of steepest descent for non-linear minimization problems. Quarterly of Applied Mathematics. 1944; 2(3):258–261. <a href="https://doi.org/10.1090/qam/10667" target="_blank" rel="noopener">doi:10.1090/qam/10667</a></li>
+<li id="ref-62">Mahase E. Covid-19: What have we learnt about the new variant in the UK? BMJ. 2020;. <a href="https://doi.org/10.1136/bmj.m4944" target="_blank" rel="noopener">doi:10.1136/bmj.m4944</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/33361120/" target="_blank" rel="noopener">PubMed 33361120</a></li>
+<li id="ref-63">Sherman SM, Smith LE, Sim J, Amlot R, Cutts M, Dasch H, et al. COVID-19 vaccination intention in the UK: results from the COVID-19 vaccination acceptability study (CoVAccS), a nationally representative cross-sectional survey. Human Vaccines and Immunotherapeutics. 2021; 6:1612–1621. <a href="https://doi.org/10.1080/21645515.2020.1846397" target="_blank" rel="noopener">doi:10.1080/21645515.2020.1846397</a></li>
+<li id="ref-64">Wise J. Covid-19: New coronavirus variant is identified in UK. BMJ. 2020; 371. <a href="https://pubmed.ncbi.nlm.nih.gov/33328153/" target="_blank" rel="noopener">PubMed 33328153</a></li>
+<li id="ref-65">Dyer O. Covid-19: Peru’s official death toll triples to become world’s highest. BMJ. 2021; 373:1442. <a href="https://doi.org/10.1136/bmj.n1442" target="_blank" rel="noopener">doi:10.1136/bmj.n1442</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/34088698/" target="_blank" rel="noopener">PubMed 34088698</a></li>
+<li id="ref-66">Sabino EC, Buss LF, Carvalho MPS, Prete CA, Crispim MAE, Fraiji NA, et al. Resurgence of COVID-19 in Manaus, Brazil, despite high seroprevalence. The Lancet. 2021; 397(10273):452–455. <a href="https://doi.org/10.1016/S0140-6736%2821%2900183-5" target="_blank" rel="noopener">doi:10.1016/S0140-6736(21)00183-5</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/33515491/" target="_blank" rel="noopener">PubMed 33515491</a></li>
+<li id="ref-67">Kosciejew M. Remembering COVID-19; or, a duty to document the coronavirus pandemic. IFLA Journal. 2021.</li>
+<li id="ref-68">Voinsky I, Baristaite G, Gurwitz D. Effects of age and sex on recovery from COVID-19: Analysis of 5769 Israeli patients. The Journal of infection. 2020; 81:102–103. <a href="https://doi.org/10.1016/j.jinf.2020.05.026" target="_blank" rel="noopener">doi:10.1016/j.jinf.2020.05.026</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/32425274/" target="_blank" rel="noopener">PubMed 32425274</a></li>
+<li id="ref-69">Lazebnik T, Blumrosen G. Advanced Muti-Mutation with Intervention Policies Pandemic Model. IEEE Access. 2022;. <a href="https://doi.org/10.1109/ACCESS.2022.3149956" target="_blank" rel="noopener">doi:10.1109/ACCESS.2022.3149956</a></li>
+</ol>
+</div>
+        
+        
+        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2022), <em>PLOS ONE</em>, <a href="https://doi.org/10.1371/journal.pone.0260683" target="_blank" rel="noopener">doi:10.1371/journal.pone.0260683</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+      </article>
+    </div>
+
+    <section class="paper-related" aria-labelledby="related-title"><div class="paper-wrap"><h2 id="related-title">Related research</h2><div class="related-grid"><a class="related-card" href="/publications/economic-aspects-detection-new-strains-multi-strain/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2022</span><strong>Economic aspects of the detection of new strains in a multi-strain epidemiological–mathematical model</strong><span class="related-text">Chaos, Solitons &amp; Fractals</span></a><a class="related-card" href="/publications/pandemic-management-spatio-temporal-mathematical-model/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2021</span><strong>Pandemic Management by a Spatio-temporal Mathematical Model</strong><span class="related-text">IJNSNS</span></a><a class="related-card" href="/publications/multi-species-preypredator-dynamics-during-multi-strain/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2023</span><strong>Multi-species prey–predator dynamics during a multi-strain pandemic </strong><span class="related-text">Chaos</span></a></div><p class="related-more"><a href="/publications.html">All publications</a></p></div></section>
+  </main>
+
+  <dialog id="cite-dialog" class="paper-dialog" aria-labelledby="cite-title">
+    <div class="dialog-head">
+      <h2 id="cite-title">Cite this paper</h2>
+      <button type="button" class="dialog-close" aria-label="Close"><i class="ri-close-line" aria-hidden="true"></i></button>
+    </div>
+    <p class="dialog-label">APA</p>
+    <pre class="cite-box" id="cite-apa">Lazebnik, T., &amp; Bunimovich-Mendrazitsky, S. (2022). Generic approach for mathematical model of multi-strain pandemics. PLOS ONE, 17(4), e0260683. https://doi.org/10.1371/journal.pone.0260683</pre>
+    <button type="button" class="paper-btn" data-copy="cite-apa"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy APA</span></button>
+    <p class="dialog-label">BibTeX</p>
+    <pre class="cite-box" id="cite-bib">@article{lazebnik2022generic,
+  title = {Generic approach for mathematical model of multi-strain pandemics},
+  author = {Lazebnik, Teddy and Bunimovich-Mendrazitsky, Svetlana},
+  journal = {PLOS ONE},
+  volume = {17},
+  number = {4},
+  pages = {e0260683},
+  year = {2022},
+  doi = {10.1371/journal.pone.0260683}
+}</pre>
+    <button type="button" class="paper-btn" data-copy="cite-bib"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy BibTeX</span></button>
+  </dialog>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Games</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
+                  <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
+                  <li><a href="https://rl.teddylazebnik.com/">Pirate War RL Game</a></li>
+                  <li><a href="https://eh.teddylazebnik.com/">Echo Heist</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      
+      <script>
+        (function () {
+          // menu and navbar (js/main.js expects to sit at the site root)
+          var btn = document.getElementById('menu-btn'), menu = document.getElementById('mobile-menu'), nav = document.getElementById('navbar');
+          btn.addEventListener('click', function () { menu.classList.toggle('max-h-0'); menu.classList.toggle('max-h-screen'); });
+          var onScroll = function () { nav.classList.toggle('nav-scrolled', window.scrollY > 10); };
+          window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+          // cite dialog + copy buttons
+          var dialog = document.getElementById('cite-dialog');
+          document.querySelectorAll('[data-dialog]').forEach(function (b) {
+            b.addEventListener('click', function () { if (dialog.showModal) dialog.showModal(); else dialog.setAttribute('open', ''); });
+          });
+          dialog.querySelector('.dialog-close').addEventListener('click', function () { dialog.close(); });
+          dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
+          function flash(button, text) {
+            var label = button.querySelector('span'), old = label.textContent;
+            label.textContent = text; setTimeout(function () { label.textContent = old; }, 1600);
+          }
+          document.querySelectorAll('[data-copy]').forEach(function (b) {
+            b.addEventListener('click', function () {
+              var text = document.getElementById(b.getAttribute('data-copy')).textContent;
+              navigator.clipboard.writeText(text).then(function () { flash(b, 'Copied'); });
+            });
+          });
+          document.getElementById('share-btn').addEventListener('click', function () {
+            var b = this, data = { title: document.title, url: location.href.split('#')[0] };
+            if (navigator.share) { navigator.share(data).catch(function () {}); }
+            else { navigator.clipboard.writeText(data.url).then(function () { flash(b, 'Link copied'); }); }
+          });
+
+          // highlight the section being read in "On this page"
+          var links = {};
+          document.querySelectorAll('.paper-toc a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+          var heads = Array.prototype.filter.call(document.querySelectorAll('#full-text h2[id], #full-text h3[id], #full-text section[id]'), function (h) { return links[h.id]; });
+          if ('IntersectionObserver' in window && heads.length) {
+            var current = null;
+            var io = new IntersectionObserver(function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                  if (current) current.classList.remove('is-active');
+                  current = links[e.target.id]; current.classList.add('is-active');
+                }
+              });
+            }, { rootMargin: '-90px 0px -70% 0px' });
+            heads.forEach(function (h) { io.observe(h); });
+          }
+        })();
+      </script>
+   </body>
+</html>

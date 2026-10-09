@@ -28,24 +28,26 @@ The theme lives in `tailwind.config.js`.
 
 ## Paper pages
 
-Each paper can have its own page at `publications/<slug>/` with the full text, figures, tables and references, a short summary, and the tags Google Scholar reads. The Publications list links a paper's title (and shows "Read online") only when its page exists.
+Every paper has its own page at `publications/<slug>/` with the full text, figures, tables, equations and references, a short "at a glance" summary, and the tags Google Scholar reads. The Publications list links a paper's title (and shows "Read online") when its page exists. The PDF is not copied into the folder: the page links to the original at `https://teddylazebnik.com/files/<name>.pdf`.
 
 One folder per paper, `publications/<slug>/`:
 
-- `paper.md`: the full text. Fix anything the PDF extraction got wrong here.
-- `paper.json`: title, authors, journal, dates, licence, abstract, and the "at a glance" summary, key findings and key numbers. `"reviewed": true` stops the extractor from overwriting your edits.
-- `figures/`: the figures as WebP.
-- `<slug>.pdf`: a copy of the PDF (Google Scholar wants it next to the page).
+- `paper.md`: the full text (Markdown, with HTML for figures and tables). Fix anything the PDF extraction got wrong here.
+- `paper.json`: title, authors, journal, dates, DOI, licence, abstract, keywords, and the summary fields (`summary`, `key_findings`, `key_numbers`, `short_title`, `featured_figure`, `related_project`). The extractor never overwrites the summary fields, and `"reviewed": true` stops it from overwriting the rest.
+- `figures/`: figures, equations, and the tables that are kept as images (WebP).
 - `index.html`: made by the build script. Don't edit it.
 
-Add a paper:
+Papers whose PDF is not in the files folder get a short page with the abstract. A conference version of a journal paper gets a short page that points to the journal version.
+
+Add a new paper:
 
 1. `pip install -r tools/requirements.txt` (once).
-2. `python tools/paper_extract.py path/to/paper.pdf --slug short-name-for-the-address`
-3. Check `paper.md` against the PDF, fill in `summary`, `key_findings`, `key_numbers` and `related_project` in `paper.json`, and set `"reviewed": true`.
-4. `python tools/build_papers.py`. This builds every paper page and updates `data/paper-pages.json`, `sitemap.xml` and `llms.txt`.
+2. Add the paper to `data/academic-publications.json` as usual, with its PDF in `teddy_lazebnik_academic_website/files/`.
+3. `python tools/paper_extract.py all --only-new` (or `python tools/paper_extract.py <name>.pdf` for one paper). The PDFs are read from `../teddy_lazebnik_academic_website/files`; add `--pdf-dir <folder>` if they are somewhere else.
+4. Check `paper.md` against the PDF, write the summary fields in `paper.json`, and set `"reviewed": true`.
+5. `python tools/build_papers.py`. This builds every paper page (including the "Related research" links) and updates `data/paper-pages.json`, `sitemap.xml` and `llms.txt`.
 
-Only make full-text pages for papers whose licence allows it (for example CC BY open access). For other journals, check what the publisher allows on an author's website.
+`python tools/paper_extract.py all` extracts every paper again (reviewed papers are skipped unless you add `--force`). Each `paper.json` has an `extracted` block with the number of figures, tables and references found and a `check` list of things worth a look.
 
 ## Images
 

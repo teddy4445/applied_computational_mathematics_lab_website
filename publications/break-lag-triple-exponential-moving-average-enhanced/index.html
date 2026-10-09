@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_papers.py from paper.md + paper.json in this folder. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Break a Lag: Triple Exponential Moving Average for Enhanced Optimization | ACML</title>
+      <meta name="description" content="Many optimizers that train deep learning models track gradient trends with a first-order exponential moving average, which lags behind the trend and leads to…">
+      <meta name="author" content="Roi Peleg, Yair Smadar, Teddy Lazebnik, Assaf Hoogi">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/publications/break-lag-triple-exponential-moving-average-enhanced/">
+      <meta name="citation_title" content="Break a Lag: Triple Exponential Moving Average for Enhanced Optimization">
+      <meta name="citation_author" content="Roi Peleg">
+      <meta name="citation_author" content="Yair Smadar">
+      <meta name="citation_author" content="Teddy Lazebnik">
+      <meta name="citation_author" content="Assaf Hoogi">
+      <meta name="citation_publication_date" content="2026">
+      <meta name="citation_journal_title" content="Machine Learning">
+      <meta name="citation_volume" content="115">
+      <meta name="citation_firstpage" content="58">
+      <meta name="citation_doi" content="10.1007/s10994-025-06992-x">
+      <meta name="citation_pdf_url" content="https://teddylazebnik.com/files/break_a_lag.pdf">
+      <meta name="citation_abstract_html_url" content="https://acml.teddylazebnik.com/publications/break-lag-triple-exponential-moving-average-enhanced/">
+      <meta name="citation_fulltext_html_url" content="https://acml.teddylazebnik.com/publications/break-lag-triple-exponential-moving-average-enhanced/">
+      <meta name="citation_keywords" content="Deep learning optimization; Exponential moving average; Trend tracking; Gradient-based optimization">
+      <meta name="citation_language" content="en">
+      <meta property="og:type" content="article">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Break a Lag: Triple Exponential Moving Average for Enhanced Optimization">
+      <meta property="og:description" content="Many optimizers that train deep learning models track gradient trends with a first-order exponential moving average, which lags behind the trend and leads to…">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/publications/break-lag-triple-exponential-moving-average-enhanced/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/publications/break-lag-triple-exponential-moving-average-enhanced/figures/share-fig-1.jpg">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Break a Lag: Triple Exponential Moving Average for Enhanced Optimization">
+      <meta name="twitter:description" content="Many optimizers that train deep learning models track gradient trends with a first-order exponential moving average, which lags behind the trend and leads to…">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/publications/break-lag-triple-exponential-moving-average-enhanced/figures/share-fig-1.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "Break a Lag: Triple Exponential Moving Average for Enhanced Optimization",
+  "name": "Break a Lag: Triple Exponential Moving Average for Enhanced Optimization",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Roi Peleg"
+    },
+    {
+      "@type": "Person",
+      "name": "Yair Smadar"
+    },
+    {
+      "@type": "Person",
+      "name": "Teddy Lazebnik"
+    },
+    {
+      "@type": "Person",
+      "name": "Assaf Hoogi"
+    }
+  ],
+  "datePublished": "2026",
+  "url": "https://acml.teddylazebnik.com/publications/break-lag-triple-exponential-moving-average-enhanced/",
+  "mainEntityOfPage": "https://acml.teddylazebnik.com/publications/break-lag-triple-exponential-moving-average-enhanced/",
+  "abstract": "The performance of deep learning models hinges on the effectiveness of their optimization strategies, yet existing methods remain fundamentally constrained. Many optimizers rely on first-order Exponential Moving Average (EMA) techniques, which struggle to accurately track complex gradient trends, resulting in a lag in trend identification and suboptimal convergence. To overcome this critical limitation, we introduce Fast Adaptive Moment Estimation (FAME), a novel optimizer that harnesses the power of Triple Exponential Moving Average (TEMA). By inherently integrating a multi-level tracking mechanism, FAME significantly enhances gradient responsiveness, mitigates trend lag, and maximizes learning efficiency. Our extensive evaluation spans diverse computer vision tasks-including image classification, object detection, and semantic segmentation-incorporating FAME into 22 distinct architectures, from lightweight CNNs to cutting-edge Vision Transformers. Rigorous benchmarking against state-of-the-art optimizers confirms FAME’s superiority in accuracy, stability, and robustness. Notably, FAME excels in scalability, demonstrating consistent and substantial performance gains across architectures, tasks, and datasets, positioning it as a powerful optimizer for computer vision.",
+  "description": "Many optimizers that train deep learning models track gradient trends with a first-order exponential moving average, which lags behind the trend and leads to…",
+  "image": "https://acml.teddylazebnik.com/publications/break-lag-triple-exponential-moving-average-enhanced/figures/share-fig-1.jpg",
+  "keywords": "Deep learning optimization, Exponential moving average, Trend tracking, Gradient-based optimization",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "DOI",
+    "value": "10.1007/s10994-025-06992-x"
+  },
+  "sameAs": "https://doi.org/10.1007/s10994-025-06992-x",
+  "isPartOf": {
+    "@type": "PublicationIssue",
+    "issueNumber": "",
+    "isPartOf": {
+      "@type": "PublicationVolume",
+      "volumeNumber": "115",
+      "isPartOf": {
+        "@type": "Periodical",
+        "name": "Machine Learning"
+      }
+    }
+  },
+  "about": "Machine Learning",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "encoding": {
+    "@type": "MediaObject",
+    "contentUrl": "https://teddylazebnik.com/files/break_a_lag.pdf",
+    "encodingFormat": "application/pdf"
+  }
+}
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/paper.css" rel="stylesheet">
+      
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="paper-page">
+    <header class="paper-hero">
+      <div class="paper-wrap">
+        <nav class="paper-crumbs" aria-label="Breadcrumb">
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Machine Learning</span>
+        </nav>
+        <p class="paper-kicker"><span class="oa-badge"><i class="ri-lock-unlock-line" aria-hidden="true"></i>Open access</span><span><em>Machine Learning</em> · 2026</span></p>
+        <h1 class="paper-title">Break a Lag: Triple Exponential Moving Average for Enhanced Optimization</h1>
+        <p class="paper-authors"><span class="author">Roi Peleg</span>, <span class="author">Yair Smadar</span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author">Assaf Hoogi</span></p>
+        
+        <div class="paper-actions">
+          <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/break_a_lag.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
+          <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
+          
+          <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
+          <a class="paper-btn" href="https://doi.org/10.1007/s10994-025-06992-x" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
+          <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
+        </div>
+        <div class="lab-authors"><span class="lab-authors-label">ACML authors</span><a class="lab-chip" href="/team.html"><img src="/img/lab/teddy.webp" alt="" width="32" height="32" loading="lazy"><span><strong>Teddy Lazebnik</strong><small>PI</small></span></a></div>
+      </div>
+    </header>
+
+    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Many optimizers that train deep learning models track gradient trends with a first-order exponential moving average, which lags behind the trend and leads to suboptimal convergence. We introduced FAME (Fast Adaptive Moment Estimation), an optimizer based on a triple exponential moving average that follows gradient trends more responsively. Tested on image classification, object detection and semantic segmentation across 22 architectures, FAME showed superior accuracy, stability and robustness compared with state-of-the-art optimizers, with consistent gains across tasks and datasets.</p><div class=glance-stats><div class="stat"><span class="stat-value">22</span><span class="stat-label">distinct architectures tested with FAME</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>FAME uses a triple exponential moving average to improve gradient responsiveness and reduce trend lag.</li><li>It was incorporated into 22 architectures, from lightweight CNNs to Vision Transformers, across image classification, object detection and semantic segmentation.</li><li>Benchmarking against state-of-the-art optimizers showed FAME&#x27;s superiority in accuracy, stability and robustness, with consistent gains across architectures, tasks and datasets.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="642" height="421" alt="Fig. 1 Simulated demonstration of gradient trend estimation and lagging. Ground truth (GT, purple), triple exponential moving average (TEMA)-based estimation (blue), and exponential moving average (EMA)-based estimation (red)"></a><figcaption><strong>Fig. 1</strong> Simulated demonstration of gradient trend estimation and lagging. Ground truth (GT, purple), triple exponential moving average (TEMA)-based estimation (blue), and exponential moving average (EMA)-based estimation (red) <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+
+    <div class="paper-wrap paper-layout">
+      <aside class="paper-aside">
+        <nav class="paper-toc" aria-label="On this page">
+          <p class="aside-title">On this page</p>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#1-introduction">1 Introduction</a></li><li class="toc-sub"><a href="#22-double-exponential-moving-average-dema">2.2 Double Exponential Moving Average (DEMA)</a></li><li class="toc-sub"><a href="#23-triple-exponential-moving-average-tema">2.3 Triple Exponential Moving Average (TEMA)</a></li><li class="toc-sub"><a href="#24-generalized-k-th-order-exponential-moving-average">2.4 Generalized k-th Order Exponential Moving Average</a></li><li class="toc-sub"><a href="#25-fame-intuition">2.5 FAME Intuition</a></li><li class="toc-sub"><a href="#26-formulation-of-fame">2.6 Formulation of FAME</a></li>
+<li><a href="#3-experiments">3 Experiments</a></li><li class="toc-sub"><a href="#31-experimental-data">3.1 Experimental Data</a></li><li class="toc-sub"><a href="#32-implementation-details">3.2 Implementation Details</a></li>
+<li><a href="#4-results">4 Results</a></li><li class="toc-sub"><a href="#41-image-classification">4.1 Image Classification</a></li><li class="toc-sub"><a href="#42-object-detection">4.2 Object Detection</a></li><li class="toc-sub"><a href="#43-semantic-segmentation">4.3 Semantic Segmentation</a></li><li class="toc-sub"><a href="#44-robustness-across-datasets-models-and-weight-initializations">4.4 Robustness across Datasets, models, and Weight Initializations</a></li><li class="toc-sub"><a href="#45-ablation-study">4.5 Ablation Study</a></li><li class="toc-sub"><a href="#46-sensitivity-to-hyper-parameters-tuning">4.6 Sensitivity to Hyper-parameters Tuning</a></li><li class="toc-sub"><a href="#47-memory-cost-and-computational-efficiency">4.7 Memory Cost and Computational Efficiency</a></li><li class="toc-sub"><a href="#48-convergence-analysis">4.8 Convergence Analysis</a></li>
+<li><a href="#5-conclusion">5 Conclusion</a></li><li class="toc-sub"><a href="#declarations">Declarations</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </nav>
+        <div class="paper-info">
+          <p class="aside-title">Article information</p>
+          <dl><div><dt>Journal</dt><dd>Machine Learning 115: 58</dd></div><div><dt>Year</dt><dd>2026</dd></div><div><dt>DOI</dt><dd><a href="https://doi.org/10.1007/s10994-025-06992-x" target="_blank" rel="noopener">10.1007/s10994-025-06992-x</a></dd></div><div><dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY 4.0</a></dd></div></dl>
+        </div>
+      </aside>
+
+      <article class="paper-body" id="full-text">
+        <details class="paper-toc-mobile">
+          <summary>On this page</summary>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#1-introduction">1 Introduction</a></li><li class="toc-sub"><a href="#22-double-exponential-moving-average-dema">2.2 Double Exponential Moving Average (DEMA)</a></li><li class="toc-sub"><a href="#23-triple-exponential-moving-average-tema">2.3 Triple Exponential Moving Average (TEMA)</a></li><li class="toc-sub"><a href="#24-generalized-k-th-order-exponential-moving-average">2.4 Generalized k-th Order Exponential Moving Average</a></li><li class="toc-sub"><a href="#25-fame-intuition">2.5 FAME Intuition</a></li><li class="toc-sub"><a href="#26-formulation-of-fame">2.6 Formulation of FAME</a></li>
+<li><a href="#3-experiments">3 Experiments</a></li><li class="toc-sub"><a href="#31-experimental-data">3.1 Experimental Data</a></li><li class="toc-sub"><a href="#32-implementation-details">3.2 Implementation Details</a></li>
+<li><a href="#4-results">4 Results</a></li><li class="toc-sub"><a href="#41-image-classification">4.1 Image Classification</a></li><li class="toc-sub"><a href="#42-object-detection">4.2 Object Detection</a></li><li class="toc-sub"><a href="#43-semantic-segmentation">4.3 Semantic Segmentation</a></li><li class="toc-sub"><a href="#44-robustness-across-datasets-models-and-weight-initializations">4.4 Robustness across Datasets, models, and Weight Initializations</a></li><li class="toc-sub"><a href="#45-ablation-study">4.5 Ablation Study</a></li><li class="toc-sub"><a href="#46-sensitivity-to-hyper-parameters-tuning">4.6 Sensitivity to Hyper-parameters Tuning</a></li><li class="toc-sub"><a href="#47-memory-cost-and-computational-efficiency">4.7 Memory Cost and Computational Efficiency</a></li><li class="toc-sub"><a href="#48-convergence-analysis">4.8 Convergence Analysis</a></li>
+<li><a href="#5-conclusion">5 Conclusion</a></li><li class="toc-sub"><a href="#declarations">Declarations</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </details>
+        <section id="abstract" class="paper-abstract">
+          <h2>Abstract</h2>
+          <p>The performance of deep learning models hinges on the effectiveness of their optimization strategies, yet existing methods remain fundamentally constrained. Many optimizers rely on first-order Exponential Moving Average (EMA) techniques, which struggle to accurately track complex gradient trends, resulting in a lag in trend identification and suboptimal convergence. To overcome this critical limitation, we introduce Fast Adaptive Moment Estimation (FAME), a novel optimizer that harnesses the power of Triple Exponential Moving Average (TEMA). By inherently integrating a multi-level tracking mechanism, FAME significantly enhances gradient responsiveness, mitigates trend lag, and maximizes learning efficiency. Our extensive evaluation spans diverse computer vision tasks-including image classification, object detection, and semantic segmentation-incorporating FAME into 22 distinct architectures, from lightweight CNNs to cutting-edge Vision Transformers. Rigorous benchmarking against state-of-the-art optimizers confirms FAME’s superiority in accuracy, stability, and robustness. Notably, FAME excels in scalability, demonstrating consistent and substantial performance gains across architectures, tasks, and datasets, positioning it as a powerful optimizer for computer vision.</p>
+        </section>
+        
+<div class="paper-text">
+<h2 id="1-introduction">1 Introduction</h2>
+<p>Optimization techniques are foundational to advancing computer vision, enabling models to learn from data through the minimization of loss functions efficiently. With the increasing complexity of visual tasks–such as object detection, image segmentation, and fine-grained classification, the need for optimizers that strike a delicate balance between computational efficiency and generalization performance has never been more critical. Stochastic Gradient Descent (SGD) (Robbins and Monro, 1951) laid the foundation for modern optimization Communicated by Lam Nguyen.</p>
+<p>by uniformly updating parameters based on gradient information. Momentum (Qian, 1999) enhanced SGD by incorporating past gradients, smoothing the update trajectory, and accelerating convergence. However, SGD’s computational demands, particularly in the high-dimensional parameter spaces of current vision models, necessitated the development of adaptive learning rate methods that dynamically adjust learning rates based on gradient history (Mulloy, 1994). Adaptive optimization methods introduced a different paradigm by assigning individualized learning rates to each parameter, significantly improving convergence speed in complex loss landscapes. Therefore, current optimization approaches can be broadly categorized into two classes: momentum-based techniques, which focus on stabilizing gradient updates for smoother convergence, and adaptive learning rate methods, which scale updates dynamically based on past gradient magnitudes. AdaGrad (Duchi et al., 2011) pioneered the latter approach by adjusting learning rates based on accumulated gradient information, while RMSProp (Tieleman and Hinton, 2012) mitigated AdaGrad’s diminishing learning rate issue through exponential decay. Kingma and Ba (2014) combined the strengths of both by leveraging exponential moving averages (EMA) for moment estimation, refining gradient updates to improve adaptability. Building on these foundations, newer optimizers have introduced refinements to address their respective limitations. AMSGrad (Reddi et al., 2019) stabilizes updates by preventing learning rate increases, (Loshchilov et al., 2017) decouples weight decay for better generalization, and AdaBound (Luo et al., 2019) dynamically constrains learning rates to mitigate excessive adaptation. AdaHessian (Yao et al., 2021) further extends these ideas by incorporating second-order curvature information for better navigation of complex loss surfaces. Despite their rapid convergence, EMA-based adaptive optimizers often struggle with generalization, particularly in deep vision tasks. Conversely, while SGD is widely recognized for its strong generalization ability, recent studies suggest that its effectiveness is largely limited to classical ConvNets and faces challenges when applied to modern architectures (Xie et al., 2024; Yu et al., 2022; Li et al., 2024). Hybrid approaches, such as SWATS (Keskar and Socher, 2017) and Mixing Adam and SGD (MAS) (Landro et al., 2020), aim to bridge this gap by dynamically shifting between optimization strategies. However, they fall short of fully exploiting the strengths of both paradigms.</p>
+<p>This persistent challenge highlights the need for a new optimization framework–one that preserves the fast convergence of adaptive methods while enhancing generalization and stability in large-scale vision models. To address this, we introduce FAME and its following key contributions:</p>
+<ul>
+<li><strong>Advanced High-Order Optimization:</strong> FAME is the first deep learning optimizer to integrate <strong>Triple Exponential Moving Average (TEMA)</strong>, establishing a <em>hierarchical multi-level structure</em> that significantly improves optimization precision, stability, and adaptability.</li>
+<li><strong>Overcoming the Limitations of EMA-based Optimizers:</strong> Traditional adaptive methods often struggle with inaccurate gradient adaptation and instability, particularly in large-scale vision tasks. FAME introduces an advanced tracking mechanism that <em>strategically balances short-term responsiveness to gradient variations with long-term stability, mitigating the inherent lag of EMA-based approaches</em>. This enables more precise trend identification and robust optimization dynamics, leading to improved convergence and generalization.</li>
+<li><strong>Extensive Validation:</strong> Rigorous experiments across <em>22 model architectures</em>, spanning diverse vision tasks and five major benchmarks, confirm FAME’s <em>consistent superiority in accuracy, robustness, and computational efficiency</em> compared to widely used optimizers.</li>
+</ul>
+<p><strong>2 FAME: Fast-Adaptive Moment Estimation</strong> <strong>2.1 EMA: A Foundation for Trend Analysis</strong> EMA enables temporal data analysis. At its core, EMA implements a theoretically grounded weighting scheme that decays exponentially over time, and balances noise reduction and trend preservation. This mathematical foundation sets it apart from conventional smoothing operators, particularly Gaussian kernels, by minimizing temporal lag while maintaining signal fidelity. Formally, let <em>x</em> = <em>x</em><sub>1:t</sub> <em>∈</em> R<sup>t</sup> represents a temporal sequence up to time step <em>t</em>. EMA can be elegantly expressed through a recursive formulation:</p>
+<div class="equation" id="eq-1"><img src="figures/eq-1.webp" width="431" height="60" alt="EMA(x1:t) = β · EMA(x1:t−1) + (1 −β) · xt = (1 −β) t ∑ i=0 βixt−i, (1)" loading="lazy" decoding="async"></div>
+
+<p>EMA relies on its smoothing coefficient <em>β ∈</em> [0<em>,</em> 1], which forces a critical trade-off: small <em>β</em> values allow quick adaptation but amplify noise, while large <em>β</em> values reduce noise but introduce significant delays. This means first-order EMA must always sacrifice either speed or stability.</p>
+<p>Although first-order EMA’s exponentially decaying memory structure helps stabilize gradient estimates, it fundamentally suffers from two problems: it lags behind actual changes and tends to over-smooth important gradient patterns. These issues can significantly impact optimization performance, especially in complex deep learning tasks.</p>
+<p>Higher-order EMA techniques systematically address these limitations. By using multiple levels of exponential smoothing, they can achieve both quick adaptation and noise reduction - capabilities that are mathematically impossible with first-order EMA’s single smoothing coefficient (illustrated in <a class="xref" href="#fig-1">Fig. 1</a>).</p>
+<figure id="fig-1">
+<a class="fig-zoom" href="figures/fig-1.webp" aria-label="Open the figure full size"><img src="figures/fig-1.webp" width="369" height="242" alt="Simulated demonstration of gradient trend estimation and lagging" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 1</strong> Simulated demonstration of gradient trend estimation and lagging. Ground truth (GT, purple), triple exponential moving average (TEMA)-based estimation (blue), and exponential moving average (EMA)-based estimation (red)</figcaption>
+</figure>
+
+<h3 id="22-double-exponential-moving-average-dema">2.2 Double Exponential Moving Average (DEMA)</h3>
+<p>We introduce advanced smoothing techniques that address the inherent lag limitations of traditional Exponential Moving Averages (EMA). The Double Exponential Moving Average (DEMA) incorporates a lag-correction mechanism through:</p>
+<div class="equation" id="eq-2"><img src="figures/eq-2.webp" width="350" height="26" alt="DEMA(x) = 2EMA1(x) −EMA2(x) (2)" loading="lazy" decoding="async"></div>
+
+<p>where EMA<sub>k</sub>(<em>x</em>) represents k recursive applications of EMA:</p>
+<div class="equation" id="eq-3"><img src="figures/eq-3.webp" width="355" height="48" alt="EMAk(x) = EMA(EMA(· · · EMA(x))) k times (3)" loading="lazy" decoding="async"></div>
+
+<p>The key innovation in DEMA lies in its lag-correction term [EMA<sub>1</sub>(<em>x</em>) <em>−</em> EMA<sub>2</sub>(<em>x</em>)], which provides a robust estimation of the temporal displacement between raw data <em>x</em> and its primary smooth estimate <em>EMA</em><sub>1</sub>(<em>x</em>). This formulation enables DEMA to achieve superior temporal responsiveness while preserving signal fidelity.</p>
+<h3 id="23-triple-exponential-moving-average-tema">2.3 Triple Exponential Moving Average (TEMA)</h3>
+<p>Building upon DEMA’s foundation, the Triple Exponential Moving Average (TEMA) introduces a second-order correction mechanism:</p>
+<div class="equation" id="eq-4"><img src="figures/eq-4.webp" width="386" height="26" alt="TEMA(x) = 3EMA1(x) −3EMA2(x) + EMA3(x) (4)" loading="lazy" decoding="async"></div>
+
+<p>TEMA formulation emerges from a hierarchical lag correction process:</p>
+<div class="equation" id="eq-5"><img src="figures/eq-5.webp" width="425" height="110" alt="TEMA(x) = EMA1(x) + [EMA1(x) −EMA2(x)] + [(EMA1(x) −EMA2(x)) −EMA(EMA1(x) −EMA2(x))] = EMA1(x) + [EMA1(x) −EMA2(x)] + [EMA1(x) −2EMA2(x) + EMA3(x)] = 3EMA1(x) −3EMA2(x) + EMA3(x) (5)" loading="lazy" decoding="async"></div>
+
+<p>The formulation consists of three critical components: (1) the initial smooth estimate EMA<sub>1</sub>(<em>x</em>), (2) the first-order lag correction [EMA<sub>1</sub>(<em>x</em>) <em>−</em> EMA<sub>2</sub>(<em>x</em>)], and (3) the second-order refinement term [EMA<sub>1</sub>(<em>x</em>) <em>−</em> 2EMA<sub>2</sub>(<em>x</em>) + EMA<sub>3</sub>(<em>x</em>)]. This hierarchical structure enables TEMA to achieve unprecedented adaptability to temporal dynamics while maintaining signal coherence.As visualized in <a class="xref" href="#fig-2">Fig. 2</a>, TEMA’s components exhibit distinct phase characteristics that, when combined, achieve optimal lag reduction while preserving signal integrity. The complementary nature of these components enables robust temporal adaptation across diverse signal dynamics.</p>
+<figure id="fig-2">
+<a class="fig-zoom" href="figures/fig-2.webp" aria-label="Open the figure full size"><img src="figures/fig-2.webp" width="369" height="241" alt="Decomposition of TEMA (blue) into its constituent components: EMA1 (red), first-order correction (EMA1 − EMA2) (green), and second-order correction (EMA1 − 2EMA2 + EMA3) (yellow)" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 2</strong> Decomposition of TEMA (blue) into its constituent components: EMA<sub>1</sub> (red), first-order correction (EMA<sub>1</sub> <em>−</em> EMA<sub>2</sub>) (green), and second-order correction (EMA<sub>1</sub> <em>−</em> 2EMA<sub>2</sub> + EMA<sub>3</sub>) (yellow). The composite TEMA signal demonstrates the synergistic integration of these components</figcaption>
+</figure>
+
+<h3 id="24-generalized-k-th-order-exponential-moving-average">2.4 Generalized k-th Order Exponential Moving Average</h3>
+<p>We further generalize this framework to arbitrary orders through the k-th order EMA formulation:</p>
+<div class="equation" id="eq-6"><img src="figures/eq-6.webp" width="367" height="68" alt="KEMAk(x) = k ∑ i=1 (−1)i+1 ( k i ) EMAi(x) (6)" loading="lazy" decoding="async"></div>
+
+<p>This generalization provides fine-grained control over the temporal responsiveness-smoothness trade-off, enabling optimal adaptation to specific optimization scenarios. The binomial coefficients in this formulation ensure proper weighting of higher-order corrections, maintaining mathematical consistency with lower-order variants.</p>
+<h3 id="25-fame-intuition">2.5 FAME Intuition</h3>
+<p>This section provides a rigorous analysis of FAME’s underlying mechanisms and its advantages, rooted in mathematical foundations. Exponential Moving Average (EMA) is a core smoothing technique that dynamically weights sequential data, emphasizing recent values while exponentially attenuating the influence of older ones. This adaptive weighting forms a local observation window that captures short-term patterns while maintaining long-term trends. However, when EMA is recursively applied–smoothing an already smoothed signal (EMA(EMA))–the hierarchical compounding effect extends the effective observation window, facilitating more advanced trend extraction. Building upon this principle, FAME introduces three fundamental advancements:</p>
+<ul>
+<li>
+<ol>
+<li><strong>Hierarchical Multi-Scale Optimization</strong>: Traditional EMA-based optimizers face an inherent trade-off: short smoothing windows enable rapid adaptation but amplify noise, while larger windows enhance stability at the cost of responsiveness. FAME overcomes this limitation through a hierarchical triple-EMA (TEMA) structure, forming a cascading filtering pyramid. The first level captures immediate gradient fluctuations, the second level refines short-term variations and consolidates emerging trends, and the third level enforces long-term stability, mitigating premature convergence and excessive</li>
+</ol>
+</li>
+</ul>
+<p>oscillations. This multi-scale architecture enables FAME to swiftly adapt to gradient changes while maintaining robust convergence, outperforming conventional first-order EMA-based optimizers.</p>
+<ul>
+<li>
+<ol start="2">
+<li><strong>Adaptive Trend Identification</strong>: Standard EMA-based optimizers react passively to past gradients, often struggling to detect new optimization patterns in real time. FAME’s TEMA mechanism integrates a three-stage verification process in which the first level detects potential shifts, the second level validates their consistency, and the third level confirms their significance. This hierarchical verification enables FAME to distinguish meaningful optimization signals from transient fluctuations, accelerating adaptation and improving convergence robustness.</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li><strong>Resilient Error Correction</strong>: First-order EMA-based optimizers exhibit slow error recovery due to their constrained smoothing capacity. FAME mitigates this limitation through its recursive multi-level filtering, where erroneous updates at one level are dynamically compensated by higher-order corrections that refine subsequent estimates. This recursive adjustment rapidly neutralizes incorrect updates, preventing instability and enhancing recovery efficiency. By continuously recalibrating its optimization trajectory, FAME ensures sustained performance even under noisy or rapidly changing gradient landscapes.</li>
+</ol>
+</li>
+</ul>
+<p>FAME’s hierarchical TEMA-based framework fundamentally enhances deep learning optimization, offering a novel synergy between adaptive responsiveness, precise trend detection, and robust error mitigation. This enables fast adaptation to gradient shifts while preserving long-term stability, establishing FAME as a superior alternative to traditional EMA-based methods.</p>
+<h3 id="26-formulation-of-fame">2.6 Formulation of FAME</h3>
+<p>Let <em>f</em>(<em>θ</em>) be a differentiable stochastic scalar function that depends on the parameters <em>θ</em>. It is a noisy version of the expected objective function <em>F</em> (<em>θ</em>) = E[<em>f</em>(<em>θ</em>)]. Our goal is to minimize <em>F</em> (<em>θ</em>) with respect to its parameters <em>θ</em>, given only a sequence <em>f</em><sub>1</sub>(<em>θ</em>)<em>, . . . , f</em><sub>T</sub> (<em>θ</em>) of realizations of the stochastic function <em>f</em> at subsequent time steps 1<em>, . . . , T</em>. The stochasticity in <em>f</em> may originate from evaluations on random subsamples of data points or from inherent function noise.</p>
+<h4 id="261-gradient-estimation">2.6.1 Gradient Estimation</h4>
+<p>The gradient, i.e., the vector of partial derivatives of <em>f</em><sub>t</sub> with respect to <em>θ</em>, evaluated at time step <em>t</em>, is denoted by:</p>
+<div class="equation" id="eq-7"><img src="figures/eq-7.webp" width="285" height="26" alt="gt = ∇θft(θ) (7)" loading="lazy" decoding="async"></div>
+
+<h4 id="262-moment-estimation">2.6.2 Moment Estimation</h4>
+<p>Similar to Adam, FAME tracks the first-order and second-order moments (<em>m</em><sub>t</sub><em>, v</em><sub>t</sub>) of the gradients using an exponential moving average (EMA):</p>
+<p><em>m</em><sub>t</sub> = <em>β</em><sub>1</sub><em>m</em><sub>t−1</sub> + (1 <em>− β</em><sub>1</sub>)<em>g</em><sub>t</sub> <em>v</em><sub>t</sub> = <em>β</em><sub>2</sub><em>v</em><sub>t−1</sub> + (1 <em>− β</em><sub>2</sub>)<em>g</em><sup><a href="#ref-2">2</a></sup> <em>t</em></p>
+<div class="equation" id="eq-8"><img src="figures/eq-8.webp" width="22" height="25" alt="(8)" loading="lazy" decoding="async"></div>
+
+<p>where the hyperparameters <em>β</em><sub>1</sub><em>, β</em><sub>2</sub> <em>∈</em> [0<em>,</em> 1) control the exponential decay rates of these moving averages.</p>
+<p>FAME extends beyond traditional optimizers by incorporating higher-order moment estimations. It tracks additional variables (<em>dm</em><sub>t</sub><em>, dv</em><sub>t</sub>) for estimating EMA<sub>2</sub>:</p>
+<div class="equation" id="eq-9"><img src="figures/eq-9.webp" width="332" height="54" alt="dmt = β3dmt−1 + (1 −β3)mt dvt = β4dvt−1 + (1 −β4)vt (9)" loading="lazy" decoding="async"></div>
+
+<p>Based on (<em>dm</em><sub>t</sub><em>, dv</em><sub>t</sub>), FAME further estimates EMA<sub>3</sub> using variables (<em>tm</em><sub>t</sub><em>, tv</em><sub>t</sub>):</p>
+<div class="equation" id="eq-10"><img src="figures/eq-10.webp" width="333" height="54" alt="tmt = β5tmt−1 + (1 −β5)dmt tvt = β4tvt−1 + (1 −β4)dvt (10)" loading="lazy" decoding="async"></div>
+
+<p>Here, (<em>m</em><sub>0</sub><em>, v</em><sub>0</sub>), (<em>dm</em><sub>0</sub><em>, dv</em><sub>0</sub>), and (<em>tm</em><sub>0</sub><em>, tv</em><sub>0</sub>) are all initialized to 0.</p>
+<p>Incorporating Eqs. (8–10) into the Triple Exponential Moving Average (TEMA) equation (Eq. 4) yields:</p>
+<div class="equation" id="eq-11"><img src="figures/eq-11.webp" width="333" height="54" alt="mFAMEt = 3mt −3dmt + tmt vFAMEt = 3vt −3dvt + tvt (11)" loading="lazy" decoding="async"></div>
+
+<h4 id="263-parameter-update-rule">2.6.3 Parameter Update Rule</h4>
+<p>The final parameter update equation for FAME is given by:</p>
+<div class="equation" id="eq-12"><img src="figures/eq-12.webp" width="329" height="43" alt="θt = θt−1 −α · mFAMEt √vFAMEt + ϵ (12)" loading="lazy" decoding="async"></div>
+
+<p>where <em>α</em> is the learning rate and <em>ϵ</em> is a small constant to prevent division by zero.</p>
+<p>In our experiments, we assigned the following values for the hyper-parameters: <em>α</em> = 0<em>.</em>001, <em>β</em><sub>1</sub> = 0<em>.</em>9, <em>β</em><sub>2</sub> = 0<em>.</em>999. These values are commonly used by Adam in literature. We also selected <em>β</em><sub>3</sub> = 0<em>.</em>3, <em>β</em><sub>4</sub> = 0<em>.</em>7, <em>β</em><sub>5</sub> = 0<em>.</em>8 and <em>ϵ</em> = 1<em>e −</em> 8 for our FAME. These values were chosen empirically as they supplied the best results. The FAME’s pseudo-code is provided in <a class="xref" href="#alg-1">Algorithm 1</a>.</p>
+<figure class="table-figure" id="alg-1">
+<figcaption><strong>Algorithm 1</strong> FAME Optimizer</figcaption>
+<img src="figures/alg-1.webp" width="420" height="223" alt="Algorithm 1 FAME Optimizer" loading="lazy" decoding="async">
+
+</figure>
+
+<h2 id="3-experiments">3 Experiments</h2>
+<p>We validated the FAME optimizer across <em>five diverse benchmarks</em> and <em>22 model architectures</em> with varying complexities, covering tasks like detection, classification, and semantic understanding. Importantly, we compared our FAME optimizer to <em>Adam, SGD, and AdamW as they are the most widely used and well-established baselines in deep learning.</em> SGD serves as the fundamental optimizer with strong generalization properties, while Adam introduces adaptive learning rates and is the default choice for many architectures. AdamW further improves weight decay handling, making it a strong benchmark. The literature indicates that most alternative optimizers are merely refinements of Adam and SGD, typically yielding only marginal improvements (at best scenario). As a result, additional comparisons would offer limited new insights and are, therefore, redundant. Furthermore, prior literature primarily benchmarks against these three, ensuring our results remain comparable to existing studies.</p>
+<h3 id="31-experimental-data">3.1 Experimental Data</h3>
+<p>We tested our proposed FAME on five public benchmarks: CIFAR-100 (Krizhevsky, 2009), MS-COCO (Lin et al., 2014), PASCAL-VOC (Everingham et al., 2015), Cityscapes (Cordts et al., 2016), and the large scale ImageNet (Russakovsky et al., 2015).</p>
+<h3 id="32-implementation-details">3.2 Implementation Details</h3>
+<p>Four key methodological choices were carefully implemented to isolate the optimizer’s true impact and ensure comparisons that are fully controlled, fair, rigorous, and transparent:</p>
+<p><strong>First</strong>, the optimizer was the only variable altered across experiments; all other components of the training pipeline–including model architecture and training procedures–were held strictly constant. This design eliminates confounding factors and ensures that any minor deviations from literature-reported results–arising from weight initialization or inherent stochastic dynamics–impact all optimizers.</p>
+<p><strong>Second</strong>, all models were trained from scratch, deliberately avoiding pretrained weights. This enables a pure and unbiased assessment of the influence of each optimizer on model performance and generalization. While this choice may lead to slightly lower absolute accuracy compared to pretrained settings, it provides a pure evaluation of the optimizer behavior.</p>
+<p><strong>Third</strong>, we adhered to the optimal hyperparameters reported in the literature for baseline optimizers, ensuring that our baseline results are consistent with established practice. Minor variations (compared with literature) are naturally expected due to the inherent stochasticity of training and weight initialization.</p>
+<p><strong>Fourth</strong>, we used identical random seeds across all optimizers for each model, rigorously controlling for randomness and ensuring that all observed differences in performance are attributable solely to the optimizer choice.</p>
+<h2 id="4-results">4 Results</h2>
+<p>In pursuit of a comprehensive analysis, we computed several statistical metrics, including accuracy, mAP (mean Average Precision), precision, recall, and F1-score. This involved evaluating the average and standard deviation across three distinct model initializations, solidifying the robustness of our method’s validation.</p>
+<h3 id="41-image-classification">4.1 Image Classification</h3>
+<h4 id="411-cifar-100-benchmark">4.1.1 CIFAR-100 Benchmark</h4>
+<p>FAME demonstrates superior performance on CIFAR-100 across 17 diverse models (<a class="xref" href="#table-1">Table 1</a>). When compared with commonly used optimizers, FAME achieved superior accuracy in 84.6% of the models, consistently outperforming existing methods with averaged accuracy improvements of 1.16% over AdamW, 1.57% over AdaBound, 3.52% over AdaHessian, and 16.33% over AdaGrad.</p>
+<p>Beyond accuracy gains, FAME demonstrated superior training stability across diverse models. For CNN-based models, FAME reduced epoch-wise accuracy variance by 29.27% compared with existing optimizers (Adam, SGD, AdamW, AdaBound, AdaHessian, AdaGrad). This stability advantage persisted in transformer-based models, where FAME achieves a 21.54% variance reduction compared with the same baseline optimizers. Such consistent stability across different models highlights FAME’s robustness to gradient dynamics, effectively mitigating the training fluctuations common in current methods.</p>
+<h4 id="412-imagenet-benchmark">4.1.2 ImageNet Benchmark</h4>
+<p>Our ImageNet experiments reveal FAME’s compelling advantages across models. For CNN-based models, FAME achieved consistent accuracy improvements of 0.8% over Adam and 0.65% over SGD. The gains were even more pronounced in Transformer-based models, where FAME surpassed Adam by 0.97% and SGD by 1.27%. Beyond accuracy improvements, FAME enhanced the training process in two critical aspects. First, it provided superior training stability, reducing accuracy fluctuations variance by 5.64% compared with SGD, Adam, and AdamW. Second, it accelerated convergence significantly, reaching 90% of peak accuracy while using only 78% of the epochs required by other optimizers. This comprehensive enhancement in accuracy, stability, and training efficiency establishes FAME as a powerful optimization solution for large-scale vision tasks.</p>
+<figure class="table-figure" id="table-1">
+<figcaption><strong>Table 1</strong> Performance comparison of various models using different optimization techniques on CIFAR-100 and ImageNet datasets</figcaption>
+<img src="figures/table-1.webp" width="507" height="760" alt="Table 1 Performance comparison of various models using different optimization techniques on CIFAR-100 and ImageNet datasets" loading="lazy" decoding="async">
+
+</figure>
+
+<h3 id="42-object-detection">4.2 Object Detection</h3>
+<h4 id="421-ms-coco-benchmark">4.2.1 MS-COCO Benchmark</h4>
+<p><a class="xref" href="#table-2">Table 2</a> demonstrates FAME’s effectiveness on the MS-COCO benchmark using YOLOv5- S model, where it consistently outperforms standard optimizers including SGD, Adam, and AdamW. FAME achieved a mean Average Precision (mAP@0.5) of 0.569, surpassing SGD (0.549), Adam (0.265), and AdamW (0.446), and also excelled in mAP@0.5:0.95 with a score of 0.375 compared to 0.352 for SGD, 0.211 for Adam, and 0.271 for AdamW. In terms of Precision, FAME scored 0.663, indicating a high proportion of true positives, while Recall was at 0.521, showcasing its effectiveness in capturing relevant objects. Additionally, FAME’s F1-Score of 0.583 reflects a strong balance between precision and recall, significantly outperforming SGD (0.518), Adam (0.275), and AdamW (0.471). Overall, these results affirm FAME’s enhanced object detection capabilities, positioning it as a robust optimization method in comparison to established techniques.</p>
+<h4 id="422-pascal-voc-benchmark">4.2.2 Pascal-VOC Benchmark</h4>
+<p><a class="xref" href="#table-3">Table 3</a> presents the analysis of the Pascal Visual Object Classes (VOC) dataset for detection and classification tasks, highlighting FAME’s advantages over conventional optimizers like SGD, Adam, and AdamW. For the YOLOv5-S model, FAME achieved a mean Average Precision (mAP) of 0.812, which exceeds the performance of SGD (0.787), Adam (0.651), and AdamW (0.801). Similarly, FAME recorded an impressive mAP of 0.851 for the YOLOv5-m model, compared with SGD (0.828), Adam (0.662), and AdamW (0.83). In classification using the RevViT model, FAME reached an AUC score of 0.696, surpassing SGD (0.679), Adam (0.637), and AdamW (0.671). These findings demonstrate that FAME consistently enhances performance in both detection and classification tasks, underscoring its efficacy as an optimization technique relative to commonly used methods.</p>
+<figure class="table-figure" id="table-2">
+<figcaption><strong>Table 2</strong> Object detection results on MS-COCO using YOLOv5-s (Li et al., 2023) and different optimization techniques</figcaption>
+<div class="table-scroll"><table><tr><th>Metric</th><th>Our FAME</th><th>SGD Adam AdamW</th></tr><tr><td>mAP@0.5</td><td>0.5690.003</td><td>0.5490.0050.2650.021 0.4460.013</td></tr><tr><td>mAP@0.5:0.95</td><td>0.3750.003</td><td>0.3520.0050.2110.021 0.2710.014</td></tr><tr><td>Precision</td><td>0.6630.009</td><td>0.6580.0110.3320.013 0.5420.011</td></tr><tr><td>Recall</td><td>0.5210.006</td><td>0.4270.0060.2340.019 0.4170.007</td></tr><tr><td>F1-Score</td><td>0.5830.008</td><td>0.5180.0120.2750.014 0.4710.004</td></tr><tr><td>The bold values</td><td>means 1st place in</td><td>performance</td></tr><tr><td>The mean accuracy</td><td>values over</td><td>3 different initializations are in</td></tr><tr><td>standard font, and</td><td>std values are</td><td>presented as subscripts. The results</td></tr><tr><td>match those of</td><td>training from scratch,</td><td>as reported in the literature</td></tr></table></div>
+
+</figure>
+
+<figure class="table-figure" id="table-3">
+<figcaption><strong>Table 3</strong> Pascal Visual Object Classes (VOC) for detection/classification tasks using various models and different optimization techniques</figcaption>
+<img src="figures/table-3.webp" width="347" height="187" alt="Table 3 Pascal Visual Object Classes (VOC) for detection/classification tasks using various models and different optimization techniques" loading="lazy" decoding="async">
+
+</figure>
+
+<figure class="table-figure" id="table-4">
+<figcaption><strong>Table 4</strong> Cityscapes semantic segmentation. Performance comparison of various deep models using different optimization techniques</figcaption>
+<div class="table-scroll"><table><tr><th>Model</th><th>Our FAME</th><th>Adam</th><th>SGD</th></tr><tr><td>DL-V3+ResNet50*</td><td>0.8060.009</td><td>0.8030.011</td><td>0.7690.013</td></tr><tr><td>DL-V3+ResNet101*</td><td>0.7980.009</td><td>0.7850.014</td><td>0.7630.012</td></tr><tr><td>DL-V3+MobileNetV2*</td><td>0.7300.013</td><td>0.7230.014</td><td>0.6670.018</td></tr><tr><td>HANet-ResNet101*</td><td>0.8360.001</td><td>0.8330.001</td><td>0.8170.013</td></tr><tr><td>DL-V3+Xception</td><td>0.7080.002</td><td>0.7030.001</td><td>0.6790.008</td></tr></table></div>
+<p class="table-note">Cityscapes benchmark. "DL" - DeepLab (Chen et al., 2018). Comparison of classification mIoU (Mean ± Std) supplied by different optimizers across models. <strong>Best results for each model are bolded</strong>. All SGD and Adam results are comparable to the literature results when training from <strong>scratch</strong>. The mean values over 3 different initializations are in standard font, and std values are presented as subscripts. * indicated pretrained on ImageNet to show FAME’s strength also in pretrained scenarios, otherwise - training from scratch (DL-V3+Xception)</p>
+</figure>
+
+<h3 id="43-semantic-segmentation">4.3 Semantic Segmentation</h3>
+<p>Our evaluation of the Cityscapes benchmark demonstrates FAME’s consistent superiority across diverse models (<a class="xref" href="#table-4">Table 4</a>). FAME achieved for all tested models, with improvements ranging from 0.003% to 1.3% over Adam and 2.5% to 6.3% over SGD. The results also reveal FAME’s stability advantage, evidenced by consistently lower standard deviations across three initializations.</p>
+<h3 id="44-robustness-across-datasets-models-and-weight-initializations">4.4 Robustness across Datasets, models, and Weight Initializations</h3>
+<p><a class="xref" href="#table-1">Tables 1</a>, 2, 3 and 4 show that for 87.16% of the models, FAME outperforms all the other optimizers examined in this study, and its performance is comparable with those of the other optimizers for the remaining 12.9% cases. Thus, its high robustness within and across datasets was established. Furthermore, FAME demonstrated a lower standard deviation across the different weight initializations.</p>
+<figure class="table-figure" id="table-5">
+<figcaption><strong>Table 5</strong> Effect of the EMA order on the model’s performance</figcaption>
+<div class="table-scroll"><table><tr><th>Dataset</th><th>Model</th><th>EMA DEMA Our<br/>FAME</th></tr><tr><td>CIFAR-100</td><td>ResNet34</td><td>0.7210.008 0.7270.0060.7360.006</td></tr><tr><td>MS-COCO</td><td>YOLOv5-s (Li et al.,<br/>2023)</td><td>0.2650.021 0.3170.0040.5690.013</td></tr><tr><td>PASCAL-VOC</td><td>YOLOv5-m (Sadiq<br/>et al., 2022)</td><td>0.6620.011 0.8060.0050.8510.006</td></tr><tr><td>Cityscapes</td><td>DL-V3+ResNet50*</td><td>0.7430.008 0.7510.0050.7570.005</td></tr></table></div>
+<p class="table-note">Comparison of model performance (Mean and Std) supplied by different optimizers across datasets. <strong>Best results for each dataset are bolded</strong>. The mean values over 3 different initializations are in standard font, and std values are presented as subscripts</p>
+</figure>
+
+<figure class="table-figure" id="table-6">
+<figcaption><strong>Table 6</strong> Ablation study</figcaption>
+<img src="figures/table-6.webp" width="354" height="189" alt="Table 6 Ablation study" loading="lazy" decoding="async">
+
+</figure>
+
+<h3 id="45-ablation-study">4.5 Ablation Study</h3>
+<ul>
+<li><strong>Effect of High-Order EMAs</strong>—<a class="xref" href="#table-5">Table 5</a> shows that increasing the order of the EMA from simple EMA to DEMA, and then to TEMA, leads to improved model performance. Although the 4<sup>th</sup> order was also tested, it underperformed compared to TEMA, which balanced between trend estimation, smoothness and lag reduction. The results emphasize that our triple-based FAME consistently outperformed other high-order EMAs across various datasets, tasks, and models, delivering superior accuracy.</li>
+<li><strong>Effect of TEMA on Different Moments</strong>—<a class="xref" href="#table-6">Table 6</a> illustrates how incorporating TEMA into the 1<sup>st</sup> and 2<sup>nd</sup> moments of FAME enhanced its performance. The shift from EMA to Partial TEMA (for 1<sup>st</sup> <em>m</em><sub>FAMEt</sub> moment only) and then to full FAME (for both <em>m</em><sub>FAMEt</sub> and <em>v</em><sub>FAMEt</sub> moments) consistently boosted accuracy. This demonstrates FAME’s capability to improve optimization across object detection, classification, and segmentation tasks, regardless of the dataset or model.</li>
+</ul>
+<h3 id="46-sensitivity-to-hyper-parameters-tuning">4.6 Sensitivity to Hyper-parameters Tuning</h3>
+<h4 id="461-fames-hyper-parameter-robustness">4.6.1 FAME’s Hyper-parameter Robustness</h4>
+<p>Although FAME introduces three additional hyperparameters (<em>β</em><sub>3</sub>, <em>β</em><sub>4</sub>, <em>β</em><sub>5</sub>) beyond Adam’s <em>β</em><sub>1</sub> and <em>β</em><sub>2</sub>, it demonstrates consistently higher robustness to varied hyperparameter settings.</p>
+<p>For <strong>Adam</strong>, <em>β</em><sub>1</sub> and <em>β</em><sub>2</sub> were independently swept over the range [0.9, 0.99], which encompasses their values recommended in the literature. We used a 9 <em>×</em> 9 grid with 0.01 increments to include all optional combinations of <em>β</em><sub>1</sub> and <em>β</em><sub>2</sub>. Following best known practices, Adam’s hyperparameters were then fixed to rigorously isolate and assess the sensitivity of the additional parameters of FAME. We conducted independent sweeps of FAME’s <em>β</em><sub>3</sub>, <em>β</em><sub>4</sub>, and <em>β</em><sub>5</sub> in a substantially broader and more challenging range (compared to Adam’s) of [0.1, 0.9], using a 9 <em>×</em> 9 <em>×</em> 9 grid with 0.1 increments. This more extensive exploration further underscores the inherent stability of FAME in diverse hyperparameter configurations. Evaluated on example models from three main benchmarks, FAME exhibited only 3.72% performance variation across all models and datasets tested, compared to 10.12% supplied by Adam (Table 7 in the Supplementary material). Importantly, FAME’s hyperparameters were fixed after choosing their optimal combination and were used consistently in all tasks, eliminating the need for per-task adjustment and further highlighting the practical robustness of FAME.</p>
+<h4 id="462-general-deep-models-hyper-parameters">4.6.2 General Deep Model’s Hyper-parameters</h4>
+<p>While we initially adopted hyperparameter values from the literature, we conducted a further focused grid search around these well-explored defaults in selective representative models, systematically exploring neighboring configurations for all core hyperparameters, including batch size, learning rate, momentum, weight decay, and number of epochs. This rigorous exploration provided a robust and consistent foundation for our evaluation.</p>
+<h3 id="47-memory-cost-and-computational-efficiency">4.7 Memory Cost and Computational Efficiency</h3>
+<p>FAME introduces only a marginal per-epoch overhead of 3.7% in memory usage and 2.85% in computation time, relative to Adam’s 1<sup>st</sup>-order <em>EMA</em> baseline (averaged across all tested models). These values were measured on an NVIDIA A100 GPU.</p>
+<p>Importantly, this minimal overhead is more than offset by the superior training efficiency of FAME that requires only 76.3% of the total training epochs that Adam typically needs to achieve convergence. As a result, FAME not only preserves comparable memory and computational efficiency but also delivers substantially faster convergence.</p>
+<p>As illustrated in Table 8 (Supplementary Material), these trends remain consistent across a broad range of models and datasets.</p>
+<h3 id="48-convergence-analysis">4.8 Convergence Analysis</h3>
+<p>To demonstrate the convergence of the proposed FAME algorithm, we begin by establishing a mathematical framework. Let <em>d ∈</em> N represent the number of parameters in the function <em>F</em> : R<sup>d</sup> <em>→</em> R that we aim to optimize. In the domain of machine learning, <em>F</em> embodies the complete training objective function, and optimization algorithms are employed to locate critical points within <em>F</em>. Specifically, our focus lies on optimization techniques that expand upon the classical Gradient Descent (GD) algorithm by integrating a heavy-ball style momentum parameter (Polyak, 1964). These algorithms exhibit a continuously diminishing step size from an initial finite step, leading to a monotonically decreasing process (Kingma and Ba, 2014). This behavior underscores their progression towards convergence.</p>
+<p>Let us assume several constraints: 0 <em>≤ β</em><sub>5</sub> <em>≤ β</em><sub>3</sub> <em>≤ β</em><sub>1</sub> <em>≤</em> 1 and 0 <em>≤ β</em><sub>4</sub> <em>≤ β</em><sub>2</sub> <em>≤</em> 1, along with the condition <em>β</em><sub>1</sub> <em>≤ β</em><sub>2</sub>, and a non-negative value for <em>α</em>.</p>
+<p>According to <a class="xref" href="#alg-1">Algorithm 1</a>, we define three sequences, <em>m</em><sub>i</sub><em>, v</em><sub>i</sub><em>, θ</em><sub>i</sub> <em>∈</em> R<sup>n</sup>, where <em>n</em> denotes the dimension of the parameter space. Given an initial point <em>θ</em><sub>0</sub> <em>∈</em> R<sup>n</sup> and setting <em>m</em><sub>0</sub> = <em>v</em><sub>0</sub> = 0, we proceed under three primary assumptions:</p>
+<ul>
+<li>The loss function <em>F</em> is bounded below by an arbitrary function <em>F</em> <sup>∗</sup> for any point <em>∀θ ∈</em> R<sup>n</sup> : <em>F</em> <sup>∗</sup>(<em>θ</em>) <em>≤ F</em> (<em>θ</em>).</li>
+<li>The loss function, concerning the max-norm (<em>l</em><sub>∞</sub>), is uniformly and surely bounded: <em>∀ϵ &gt;</em> 0<em>, ∃r &gt; ϵ∀θ ∈</em> R<sup>n</sup> : <em>||∇F||</em><sub>∞</sub> <em>≤ r − ϵ</em>.</li>
+<li>The loss function maintains L-Lipschitz continuity concerning the <em>l</em><sub>2</sub>-norm: <em>∀θ, ζ ∈</em> R<sup>n</sup> : <em>||∇F</em> (<em>θ</em>) <em>− F</em> (<em>ζ</em>)<em>||</em><sub>2</sub> <em>≤ L||θ − ζ||</em><sub>2</sub>.</li>
+</ul>
+<p>For a specific number of iterations <em>N ∈</em> N, we introduce <em>τ</em> as a random index ranging from <em>{</em>0<em>, . . . , N −</em> 1<em>}</em>, where <em>∀i ∈</em> N : <em>i &lt; N, P</em> [<em>τ</em> = <em>i</em>] <em>∝</em> 1 <em>− β</em><sup>N−i</sup> <sub>1</sub> . This implies that for <em>β</em><sub>1</sub> = 0, <em>τ</em> is uniformly sampled, while higher orders approaching zero lead to fewer samples in later iterations. This stratagem aims to limit the expected squared gradient norm at iteration <em>τ</em>.</p>
+<p>For <em>N &gt; β</em><sub>1</sub><em>/</em>(1 <em>− β</em><sub>1</sub>) <em>∈</em> N, the following inequality holds:</p>
+<div class="equation" id="eq-13"><img src="figures/eq-13.webp" width="425" height="100" alt="||∇F (θτ)||2 ≤2r √ N F (θ0) −F ∗ α(N − β1 1−β1 ) + √ N N − β1 1−β1 ln ( 1 + Nr2 ϵ ) ( αnrL + 12dR2 1 −β1 + 2α2dL2β1 1 −β1 ) (13)" loading="lazy" decoding="async"></div>
+
+<p>Continuing with <a class="xref" href="#alg-1">Algorithm 1</a>, we can split the proof into two cases:</p>
+<ul>
+<li>When <em>β</em><sub>3</sub> = <em>β</em><sub>5</sub> = <em>β</em><sub>4</sub> = 0, the algorithm adopts the form <em>θ</em><sub>t</sub> = <em>θ</em><sub>t−1</sub> <em>− α</em> <sup>mt</sup> <sub>vt</sub> , akin to the AdaGrad algorithm, known for convergence (Defossez et al., 2022).</li>
+<li>For <em>∃j ∈{</em>3<em>,</em> 4<em>,</em> 5<em>}</em> : <em>β</em><sub>j</sub> <em>&gt;</em> 0, <em>dm</em><sub>t</sub><em>, tm</em><sub>5</sub><em>, dv</em><sub>t</sub><em>,</em> and <em>tv</em><sub>t</sub> depend on <em>m</em><sub>t</sub> and <em>v</em><sub>t</sub>, converging at some point following the first case. Thus, a <em>δ ∈</em> N emerges with <em>ϵ∥ψ</em><sub>δ</sub> <em>− ψ</em><sub>δ−1</sub><em>∥</em><sub>2</sub> <em>≤ ϵ</em><sup>∗</sup> for <em>ψ ∈{dm, tm, dv, tv}</em>. Consequently, beyond this interaction (<em>δ</em>), the update rule transforms into <em>∀t &gt; δ</em> : <em>θ</em><sub>t</sub> = <em>θ</em><sub>t−1</sub> <em>− α</em> <sup>mt+c1</sup> <sub>vt+c2</sub> , with <em>c</em><sub>1</sub><em>, c</em><sub>2</sub> <em>∈</em> R<sup>n</sup>. This update rule can be upper-bounded by a constant <em>c</em><sub>3</sub> <em>∈</em> R<sup>n</sup>, resembling ADAgrad, because the adaptive update roughly aligns with the descent direction. Thus, the convergence at <em>τ ∈</em> N implies subsequent steps being smaller, bounded by ADAgrad convergence processes from the same initial configuration.</li>
+</ul>
+<p>Ultimately, by establishing an upper limit to convergence in the second case, we demonstrate convergence in this scenario as well.</p>
+<h2 id="5-conclusion">5 Conclusion</h2>
+<p>FAME represents a substantial advancement in core optimization algorithms, leveraging TEMA to effectively address the well-known limitations of EMA-based optimizers in gradient tracking and optimization lag. In comprehensive evaluations spanning 22 diverse architectures across classification, detection, and dense prediction tasks, FAME demonstrated consistent superiority – achieving state-of-the-art performance in 88.46% of all models’ experiments while maintaining exceptional stability. Critically, FAME delivered a 23.7% reduction in the total number of training epochs while maintaining robust performance across vastly different architectures and benchmarks. This combination of superior accuracy, high robustness, and faster convergence, grounded in the hierarchical EMA structure of FAME, establishes FAME as a powerful optimizer that contributes to the theoretical understanding of optimization dynamics and delivers substantial practical improvements.</p>
+<p>While FAME exhibits significant advantages over previous optimizers, its triple EMA structure adds a <em>∼</em> 3% per-epoch overhead in memory and computation. Though this overhead is generally mitigated by its accelerated convergence, it could potentially present a per-epoch challenge in extremely resource-constrained settings.</p>
+<p><strong>Supplementary Information</strong> The online version contains supplementary material available at https://doi.org /10.1007/s10994-025-06992-x.</p>
+<p><strong>Author Contributions</strong> R.P. contributed to methodology, software development, formal analysis, investigation, data curation, and visualization, as well as manuscript review and editing. Y.S. was involved in software development and experimental work. T.L. was responsible for formal analysis, and manuscript review and editing. A.H. provided overall leadership overseeing conceptualization, methodology, validation, and formal analysis while also managing computational resources, conducting investigations, drafting the manuscript, supervising the research, and overseeing project administration.</p>
+<p><strong>Funding</strong> Open access funding provided by Ariel University. The authors did not receive support from any organization for the submitted work.</p>
+<p><strong>Data Availability</strong> All the analyzed data consists of publicly available benchmark datasets that are widely used for validating techniques in computer vision. Detailed references to these datasets are provided within the paper.</p>
+<h3 id="declarations">Declarations</h3>
+<p><strong>Conflict of interest</strong> The authors declare no Conflict of interest.</p>
+<p><strong>Ethics Approval and Consent to Participate</strong> Not applicable.</p>
+<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 9 February 2025 · Accepted 30 December 2025</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>Deep learning optimization</li><li>Exponential moving average</li><li>Trend tracking</li><li>Gradient-based optimization</li></ul></dd></div></dl></section>
+<h2 id="references">References</h2>
+<ol class="paper-refs"><li id="ref-1">Chen, L., Zhu, Y., Papandreou, G., Schroff, F., &amp; Adam, H. (2018). Encoder-decoder with atrous separable convolution for semantic image segmentation. CoRR abs/1802.02611 Cordts, M., Omran, M., Ramos, S., Rehfeld, T., Enzweiler, M., Benenson, R., Franke, U., Roth, S., &amp; Schiele, B. (2016). The cityscapes dataset for semantic urban scene understanding. In Proceedings of the IEEE conference on computer vision and pattern recognition, pp. 3213–3223. Defossez, A., Bottou, L., Bach, F., &amp; Usunier, N. (2022). A simple convergence proof of adam and adagrad. Machine Learning Research. Diko, A., Avola, D., Cascio, M., &amp; Cinque, L. (2024). ReViT: Enhancing vision transformers feature diversity with attention residual connections, https://arxiv.org/abs/2402.11301.Dosovitskiy, A., Beyer, L., Kolesnikov, A., Weissenborn, D., Zhai, X., Unterthiner, T., Dehghani, M., Minderer, M., Heigold, G., Gelly, S., Uszkoreit, J., &amp; Houlsby, N. (2020). An image is worth 16 × 16 words: Transformers for image recognition at scale. CoRR abs/2010.11929. Duchi, J., Hazan, E., &amp; Singer, Y. (2011). Adaptive subgradient methods for online learning and stochastic optimization. Journal of Machine Learning Research, 12, 2121–2159. Everingham, M., Eslami, S. M. A., Van Gool, L., Williams, C. K. I., Winn, J., &amp; Zisserman, A. (2015). The pascal visual object classes challenge: A retrospective. International Journal of Computer Vision,111(1), 98–136. Han, D., Kim, J., &amp; Kim, J. (2017). Deep pyramidal residual networks. In 2017 IEEE conference on computer vision and pattern recognition (CVPR), pp. 6307–6315. Howard, A., Sandler, M., Chen, B., Wang, W., Chen, L.-C., Tan, M., Chu, G., Vasudevan, V., Zhu, Y., Pang, R., Adam, H., &amp; Le, Q. (2019). Searching for MobileNetV3 . In IEEE/CVF international conference on computer vision (ICCV) pp. 1314–1324. Hu, J., Shen, L., &amp; Sun, G. (2018). Squeeze-and-excitation networks. In 2018 IEEE/CVF conference on computer vision and pattern recognition, pp. 7132–7141. Huang, G., Liu, Z., Van Der Maaten, L., &amp; Weinberger, K.Q. (2017). Densely connected convolutional networks. In 2017 IEEE conference on computer vision and pattern recognition (CVPR), pp. 2261–2269. Keskar, N.S., &amp; Socher, R. (2017). Improving generalization performance by switching from adam to sgd. arXiv Kingma, D.P., &amp; Ba, J. (2014). Adam: A method for stochastic optimization. arXiv preprint arXiv:1412.6980 Krizhevsky, A. (2009). Learning multiple layers of features from tiny images. Technical report, 32–33. Landro, N., Gallo, I., &amp; Grassa, R.L. (2020). Mixing ADAM and SGD: A combined optimization method. CoRR abs/2011.08042 arXiv:2011.08042 Li, S., Tian, J., Wang, Z., Zhang, L., Liu, Z., Jin, W., Liu, Y., Sun, B., &amp; Li, S. Z. (2024). Unveiling the backbone-optimizer coupling bias in visual representation learning https://arxiv.org/abs/2410.06373 Lin, T.-Y., Maire, M., Belongie, S., Hays, J., Perona, P., Ramanan, D., Dollár, P., &amp; Zitnick, C. L. (2014). Microsoft coco: Common objects in context. In European conference on computer vision, pp. 740–755. Springer. Li, A., Sun, S., Zhang, Z., Feng, M., Wu, C., &amp; Li, W. (2023). A multi-scale traffic object detection algorithm for road scenes based on improved yolov5. Electronics, 12(4), 878. Liu, Z., Lin, Y., Cao, Y., Hu, H., Wei, Y., Zhang, Z., Lin, S., &amp; Guo, B. (2021). Swin transformer: Hierarchical vision transformer using shifted windows. CoRR abs/2103.14030 Loshchilov, I., &amp; Hutter, F. (2017). Fixing weight decay regularization in adam. arXiv preprint arXiv:1711.05101, 5:5 Luo, L., Xiong, Y., Liu, Y., &amp; Sun, X. (2019). Adaptive gradient methods with dynamic bound of learning rate. CoRR arxiv:1902.09843 Mulloy, P. G. (1994). Smoothing data with faster moving averages. Technical Analysis of Stocks &amp; Commodities. Polyak, B. T. (1964). Some methods of speeding up the convergence of iteration methods. USSR computational Mathematics and Mathematical Physics. Qian, N. (1999). On the momentum term in gradient descent learning algorithms. Neural networks: the official journal of the International Neural Network Society, 12(1), 145–151. Reddi, S. J., Kale, S., &amp; Kumar, S. (2019). On the convergence of adam and beyond. CoRR arxiv:1904.09237 Robbins, H., &amp; Monro, S. (1951). A stochastic approximation method. The annals of mathematical statistics, 400–407. Russakovsky, O., Deng, J., Su, H., Krause, J., Satheesh, S., Ma, S., Huang, Z., Karpathy, A., Khosla, A., Bernstein, M., Berg, A. C., &amp; Fei-Fei, L. (2015). ImageNet large scale visual recognition challenge. International Journal of Computer Vision (IJCV), 115(3), 211–252. Sadiq, M., Masood, S., &amp; Pal, O. (2022). Fd-yolov5: A fuzzy image enhancement based robust object detection model for safety helmet detection. International Journal of Fuzzy Systems, 24. Tan, M., &amp; Le, Q. V. (2019). Efficientnet: Rethinking model scaling for convolutional neural networks. CoRR abs/1905.11946. Tieleman, T., &amp; Hinton, G. (2012). Lecture 6.5—RmsProp: Divide the gradient by a running average of its recent magnitude. COURSERA: Neural Networks for Machine Learning. Wu, H., Xiao, B., Codella, N., Liu, M., Dai, X., Yuan, L., &amp; Zhang, L. (2021). Cvt: Introducing convolutions to vision transformers. In 2021 IEEE/CVF international conference on computer vision (ICCV), pp. 22–31. Xie, X., Zhou, P., Li, H., Lin, Z., &amp; Yan, S. (2024). Adan: Adaptive nesterov momentum algorithm for faster optimizing deep models. IEEE Transactions on Pattern Analysis and Machine Intelligence, 46(12), 9508–9520. https://doi.org/10.1109/TPAMI.2024.3423382 Yao, Z., Gholami, A., Shen, S., Mustafa, M., Keutzer, K., &amp; Mahoney, M. (2021). Adahessian: An adaptive second order optimizer for machine learning. Proceedings of the AAAI Conference on Artificial Intelligence, 35, 10665–10673. Yu, W., Luo, M., Zhou, P., Si, C., Zhou, Y., Wang, X., Feng, J., &amp; Yan, S. (2022). Metaformer is actually what you need for vision. In 2022 IEEE/CVF conference on computer vision and pattern recognition (CVPR), pp. 10809–10819. https://doi.org/10.1109/CVPR52688.2022.01055 Yuan, L., Chen, Y., Wang, T., Yu, W., Shi, Y., Jiang, Z., Tay, F.E.H., Feng, J., &amp; Yan, S. (2021). Tokens-to-token vit: Training vision transformers from scratch on imagenet. In 2021 IEEE/CVF international conference on computer vision (ICCV), pp. 538–547. Yu, W., Si, C., Zhou, P., Luo, M., Zhou, Y., Feng, J., Yan, S., &amp; Wang, X. (2024). Metaformer baselines for vision. IEEE Transactions on Pattern Analysis and Machine Intelligence, 46(2), 896–912. Authors and Affiliations Roi Peleg1,2 · Yair Smadar1,2 · Teddy Lazebnik3,4 · Assaf Hoogi1,2 Assaf Hoogi ahoogi@gmail.com Roi Peleg roi2307@gmail.com Yair Smadar yair.smadar1@gmail.com Teddy Lazebnik teddy.lazebnik@ju.se <a href="https://doi.org/10.1007/s11263-015-0816-y" target="_blank" rel="noopener">doi:10.1007/s11263-015-0816-y</a> · <a href="https://arxiv.org/abs/2402.11301" target="_blank" rel="noopener">link</a> · <a href="http://arxiv.org/abs/1412.6980" target="_blank" rel="noopener">link</a></li>
+<li id="ref-2">1 School of Computer Science, Ariel University, Ariel, Israel</li>
+<li id="ref-3">2 Data Science and Artificial Intelligence Research Center, Ariel University, Ariel, Israel</li>
+<li id="ref-4">3 Department of Information Systems, Haifa University, Haifa, Israel</li>
+<li id="ref-5">4 Department of Computing, Jonkoping University, Jonkoping, Sweden</li>
+</ol>
+</div>
+        
+        
+        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Peleg et al. (2026), <em>Machine Learning</em>, <a href="https://doi.org/10.1007/s10994-025-06992-x" target="_blank" rel="noopener">doi:10.1007/s10994-025-06992-x</a>, under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY 4.0</a> licence. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+      </article>
+    </div>
+
+    <section class="paper-related" aria-labelledby="related-title"><div class="paper-wrap"><h2 id="related-title">Related research</h2><div class="related-grid"><a class="related-card" href="/publications/blood-test-based-machine-learning-model-predicting/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2025</span><strong>A blood test-based machine learning model for predicting lung cancer risk</strong><span class="related-text">Frontiers in Medicine</span></a><a class="related-card" href="/publications/follow-forest-trail-distillation-gradient-boosting-models/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2026</span><strong>Follow the Forest Trail: Distillation by Gradient Boosting Models to Enhance Symbolic Regression Performance</strong><span class="related-text">IEEE Access</span></a><a class="related-card" href="/publications/tighten-lasso-convex-hull-volume-based-anomaly/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2025</span><strong>Tighten the lasso: a convex hull volume-based anomaly detection method</strong><span class="related-text">International Journal of Data Science and Analytics</span></a></div><p class="related-more"><a href="/publications.html">All publications</a></p></div></section>
+  </main>
+
+  <dialog id="cite-dialog" class="paper-dialog" aria-labelledby="cite-title">
+    <div class="dialog-head">
+      <h2 id="cite-title">Cite this paper</h2>
+      <button type="button" class="dialog-close" aria-label="Close"><i class="ri-close-line" aria-hidden="true"></i></button>
+    </div>
+    <p class="dialog-label">APA</p>
+    <pre class="cite-box" id="cite-apa">Peleg, R., Smadar, Y., Lazebnik, T., &amp; Hoogi, A. (2026). Break a Lag: Triple Exponential Moving Average for Enhanced Optimization. Machine Learning, 115, 58. https://doi.org/10.1007/s10994-025-06992-x</pre>
+    <button type="button" class="paper-btn" data-copy="cite-apa"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy APA</span></button>
+    <p class="dialog-label">BibTeX</p>
+    <pre class="cite-box" id="cite-bib">@article{peleg2026break,
+  title = {Break a Lag: Triple Exponential Moving Average for Enhanced Optimization},
+  author = {Peleg, Roi and Smadar, Yair and Lazebnik, Teddy and Hoogi, Assaf},
+  journal = {Machine Learning},
+  volume = {115},
+  pages = {58},
+  year = {2026},
+  doi = {10.1007/s10994-025-06992-x}
+}</pre>
+    <button type="button" class="paper-btn" data-copy="cite-bib"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy BibTeX</span></button>
+  </dialog>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Games</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
+                  <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
+                  <li><a href="https://rl.teddylazebnik.com/">Pirate War RL Game</a></li>
+                  <li><a href="https://eh.teddylazebnik.com/">Echo Heist</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      
+      <script>
+        (function () {
+          // menu and navbar (js/main.js expects to sit at the site root)
+          var btn = document.getElementById('menu-btn'), menu = document.getElementById('mobile-menu'), nav = document.getElementById('navbar');
+          btn.addEventListener('click', function () { menu.classList.toggle('max-h-0'); menu.classList.toggle('max-h-screen'); });
+          var onScroll = function () { nav.classList.toggle('nav-scrolled', window.scrollY > 10); };
+          window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+          // cite dialog + copy buttons
+          var dialog = document.getElementById('cite-dialog');
+          document.querySelectorAll('[data-dialog]').forEach(function (b) {
+            b.addEventListener('click', function () { if (dialog.showModal) dialog.showModal(); else dialog.setAttribute('open', ''); });
+          });
+          dialog.querySelector('.dialog-close').addEventListener('click', function () { dialog.close(); });
+          dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
+          function flash(button, text) {
+            var label = button.querySelector('span'), old = label.textContent;
+            label.textContent = text; setTimeout(function () { label.textContent = old; }, 1600);
+          }
+          document.querySelectorAll('[data-copy]').forEach(function (b) {
+            b.addEventListener('click', function () {
+              var text = document.getElementById(b.getAttribute('data-copy')).textContent;
+              navigator.clipboard.writeText(text).then(function () { flash(b, 'Copied'); });
+            });
+          });
+          document.getElementById('share-btn').addEventListener('click', function () {
+            var b = this, data = { title: document.title, url: location.href.split('#')[0] };
+            if (navigator.share) { navigator.share(data).catch(function () {}); }
+            else { navigator.clipboard.writeText(data.url).then(function () { flash(b, 'Link copied'); }); }
+          });
+
+          // highlight the section being read in "On this page"
+          var links = {};
+          document.querySelectorAll('.paper-toc a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+          var heads = Array.prototype.filter.call(document.querySelectorAll('#full-text h2[id], #full-text h3[id], #full-text section[id]'), function (h) { return links[h.id]; });
+          if ('IntersectionObserver' in window && heads.length) {
+            var current = null;
+            var io = new IntersectionObserver(function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                  if (current) current.classList.remove('is-active');
+                  current = links[e.target.id]; current.classList.add('is-active');
+                }
+              });
+            }, { rootMargin: '-90px 0px -70% 0px' });
+            heads.forEach(function (h) { io.observe(h); });
+          }
+        })();
+      </script>
+   </body>
+</html>

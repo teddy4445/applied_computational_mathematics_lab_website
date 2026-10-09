@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_papers.py from paper.md + paper.json in this folder. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Detecting the metabolic transition to personalize nutritional timing | ACML</title>
+      <meta name="description" content="Critically ill patients shift from breaking down body tissue (catabolism) to rebuilding it (anabolism), but no validated marker identifies this shift, so…">
+      <meta name="author" content="Yonatan Gargi, Neriya Levran, Jacob Vine, Amir Cohen, Dana Weiner, Dorit Stein, Ori Levi, Dor Cohen, Julia Klein, Hamutal S. Taube, Maxim Glebov, Teddy Lazebnik, Mor Saban, Shaked Efrat, Elad Drori, Yael Haviv, Eran Segal">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/publications/detecting-metabolic-transition-personalize-nutritional-timing-model/">
+      <meta name="citation_title" content="Detecting the metabolic transition to personalize nutritional timing: model development and preliminary validation in a large ICU cohort">
+      <meta name="citation_author" content="Yonatan Gargi">
+      <meta name="citation_author" content="Neriya Levran">
+      <meta name="citation_author" content="Jacob Vine">
+      <meta name="citation_author" content="Amir Cohen">
+      <meta name="citation_author" content="Dana Weiner">
+      <meta name="citation_author" content="Dorit Stein">
+      <meta name="citation_author" content="Ori Levi">
+      <meta name="citation_author" content="Dor Cohen">
+      <meta name="citation_author" content="Julia Klein">
+      <meta name="citation_author" content="Hamutal S. Taube">
+      <meta name="citation_author" content="Maxim Glebov">
+      <meta name="citation_author" content="Teddy Lazebnik">
+      <meta name="citation_author" content="Mor Saban">
+      <meta name="citation_author" content="Shaked Efrat">
+      <meta name="citation_author" content="Elad Drori">
+      <meta name="citation_author" content="Yael Haviv">
+      <meta name="citation_author" content="Eran Segal">
+      <meta name="citation_publication_date" content="2026">
+      <meta name="citation_journal_title" content="Critical Care">
+      <meta name="citation_volume" content="30">
+      <meta name="citation_firstpage" content="132">
+      <meta name="citation_doi" content="10.1186/s13054-026-05874-5">
+      <meta name="citation_pdf_url" content="https://teddylazebnik.com/files/sheba_medicine_1.pdf">
+      <meta name="citation_abstract_html_url" content="https://acml.teddylazebnik.com/publications/detecting-metabolic-transition-personalize-nutritional-timing-model/">
+      <meta name="citation_fulltext_html_url" content="https://acml.teddylazebnik.com/publications/detecting-metabolic-transition-personalize-nutritional-timing-model/">
+      <meta name="citation_keywords" content="Critical illness; Metabolism; Catabolism; Nutrition; Intensive care; Insulin resistance">
+      <meta name="citation_language" content="en">
+      <meta property="og:type" content="article">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Detecting the metabolic transition to personalize nutritional timing">
+      <meta property="og:description" content="Critically ill patients shift from breaking down body tissue (catabolism) to rebuilding it (anabolism), but no validated marker identifies this shift, so…">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/publications/detecting-metabolic-transition-personalize-nutritional-timing-model/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/publications/detecting-metabolic-transition-personalize-nutritional-timing-model/figures/share-fig-1.jpg">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Detecting the metabolic transition to personalize nutritional timing">
+      <meta name="twitter:description" content="Critically ill patients shift from breaking down body tissue (catabolism) to rebuilding it (anabolism), but no validated marker identifies this shift, so…">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/publications/detecting-metabolic-transition-personalize-nutritional-timing-model/figures/share-fig-1.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "Detecting the metabolic transition to personalize nutritional timing: model development and preliminary…",
+  "name": "Detecting the metabolic transition to personalize nutritional timing: model development and preliminary validation in a large ICU cohort",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Yonatan Gargi"
+    },
+    {
+      "@type": "Person",
+      "name": "Neriya Levran"
+    },
+    {
+      "@type": "Person",
+      "name": "Jacob Vine"
+    },
+    {
+      "@type": "Person",
+      "name": "Amir Cohen"
+    },
+    {
+      "@type": "Person",
+      "name": "Dana Weiner"
+    },
+    {
+      "@type": "Person",
+      "name": "Dorit Stein"
+    },
+    {
+      "@type": "Person",
+      "name": "Ori Levi"
+    },
+    {
+      "@type": "Person",
+      "name": "Dor Cohen"
+    },
+    {
+      "@type": "Person",
+      "name": "Julia Klein"
+    },
+    {
+      "@type": "Person",
+      "name": "Hamutal S. Taube"
+    },
+    {
+      "@type": "Person",
+      "name": "Maxim Glebov"
+    },
+    {
+      "@type": "Person",
+      "name": "Teddy Lazebnik"
+    },
+    {
+      "@type": "Person",
+      "name": "Mor Saban"
+    },
+    {
+      "@type": "Person",
+      "name": "Shaked Efrat"
+    },
+    {
+      "@type": "Person",
+      "name": "Elad Drori"
+    },
+    {
+      "@type": "Person",
+      "name": "Yael Haviv"
+    },
+    {
+      "@type": "Person",
+      "name": "Eran Segal"
+    }
+  ],
+  "datePublished": "2026",
+  "url": "https://acml.teddylazebnik.com/publications/detecting-metabolic-transition-personalize-nutritional-timing-model/",
+  "mainEntityOfPage": "https://acml.teddylazebnik.com/publications/detecting-metabolic-transition-personalize-nutritional-timing-model/",
+  "abstract": "Background: The metabolic transition from catabolism to anabolism is a key determinant of recovery in critical illness and should guide nutritional therapy. However, no validated clinical marker currently exists to identify this transition, and current clinical practice relies on calendar-based recommendations. We aim to develop and preliminarily validate a physiology-based, trajectory-driven model to detect the metabolic transition window in critically ill patients. Methods: We conducted a retrospective cohort study in a tertiary-care general ICU. A daily insulin resistance index (IRI) was computed from glucose and insulin data and corrected for steroid exposure. Transition was defined as a ≥ 30% sustained drop in IRI after its peak, together with ≥ 2 of 8 physiologic recovery criteria (lactate, noradrenaline, vasopressin, adrenaline, inflammatory markers-WBC, %neutrophils, CRP, and albumin). Associations with 90-day mortality and caloric exposure were evaluated using Kaplan–Meier analysis and multivariable landmark Cox models. Results: The cohort included 2,350 patients (age 59.8 ± 16.5 years; SOFA 11.7 ± 3.9; 82% mechanically ventilated). A metabolic transition was identified in 94% of patients, with ~ 60% transitioning by ICU day 3. Transition by day 3 was associated with lower 90-day mortality (HR 0.72, 95% CI 0.65–0.81). Patients who never transitioned had substantially higher mortality. High caloric delivery (≥ 1.0 kcal/kg/h for ≥ 24 h) before transition was independently associated with increased 90-day mortality (OR 1.25, 95% CI 1.01–1.55), with a dose–response pattern. In contrast, high caloric delivery based on calendar timing failed to demonstrate a similar pattern. Conclusions: We developed and validated a physiological model for detecting metabolic transition in critical illness and showed that transition occurs early and strongly predicts survival. Higher caloric delivery before transition is associated with increased mortality, supporting nutrition strategies aligned with physiological recovery rather than fixed calendar days.",
+  "description": "Critically ill patients shift from breaking down body tissue (catabolism) to rebuilding it (anabolism), but no validated marker identifies this shift, so…",
+  "image": "https://acml.teddylazebnik.com/publications/detecting-metabolic-transition-personalize-nutritional-timing-model/figures/share-fig-1.jpg",
+  "keywords": "Critical illness, Metabolism, Catabolism, Nutrition, Intensive care, Insulin resistance",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "DOI",
+    "value": "10.1186/s13054-026-05874-5"
+  },
+  "sameAs": "https://doi.org/10.1186/s13054-026-05874-5",
+  "isPartOf": {
+    "@type": "PublicationIssue",
+    "issueNumber": "",
+    "isPartOf": {
+      "@type": "PublicationVolume",
+      "volumeNumber": "30",
+      "isPartOf": {
+        "@type": "Periodical",
+        "name": "Critical Care"
+      }
+    }
+  },
+  "about": "Machine Learning",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "encoding": {
+    "@type": "MediaObject",
+    "contentUrl": "https://teddylazebnik.com/files/sheba_medicine_1.pdf",
+    "encodingFormat": "application/pdf"
+  }
+}
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/paper.css" rel="stylesheet">
+      
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="paper-page">
+    <header class="paper-hero">
+      <div class="paper-wrap">
+        <nav class="paper-crumbs" aria-label="Breadcrumb">
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Machine Learning</span>
+        </nav>
+        <p class="paper-kicker"><span class="oa-badge"><i class="ri-lock-unlock-line" aria-hidden="true"></i>Open access</span><span><em>Critical Care</em> · 2026</span></p>
+        <h1 class="paper-title is-long">Detecting the metabolic transition to personalize nutritional timing: model development and preliminary validation in a large ICU cohort</h1>
+        <p class="paper-authors"><span class="author">Yonatan Gargi</span>, <span class="author">Neriya Levran</span>, <span class="author">Jacob Vine</span>, <span class="author">Amir Cohen</span>, <span class="author">Dana Weiner</span>, <span class="author">Dorit Stein</span>, <span class="author">Ori Levi</span>, <span class="author">Dor Cohen</span>, <span class="author">Julia Klein</span>, <span class="author">Hamutal S. Taube</span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Maxim Glebov</a></span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author">Mor Saban</span>, <span class="author">Shaked Efrat</span>, <span class="author">Elad Drori</span>, <span class="author">Yael Haviv</span>, <span class="author">Eran Segal</span></p>
+        
+        <div class="paper-actions">
+          <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/sheba_medicine_1.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
+          <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
+          
+          <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
+          <a class="paper-btn" href="https://doi.org/10.1186/s13054-026-05874-5" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
+          <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
+        </div>
+        <div class="lab-authors"><span class="lab-authors-label">ACML authors</span><a class="lab-chip" href="/team.html"><img src="/img/lab/max.webp" alt="" width="32" height="32" loading="lazy"><span><strong>Maxim Glebov</strong><small>PhD Student</small></span></a><a class="lab-chip" href="/team.html"><img src="/img/lab/teddy.webp" alt="" width="32" height="32" loading="lazy"><span><strong>Teddy Lazebnik</strong><small>PI</small></span></a></div>
+      </div>
+    </header>
+
+    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Critically ill patients shift from breaking down body tissue (catabolism) to rebuilding it (anabolism), but no validated marker identifies this shift, so feeding plans follow the calendar. We developed a model that tracks a daily insulin resistance index together with physiological recovery criteria and applied it to 2,350 patients in a general intensive care unit. A transition was found in 94% of patients, an early transition was linked to lower 90-day mortality, and high calorie delivery before the transition was linked to higher mortality.</p><div class=glance-stats><div class="stat"><span class="stat-value">2,350</span><span class="stat-label">ICU patients in the cohort</span></div><div class="stat"><span class="stat-value">94%</span><span class="stat-label">patients with an identified metabolic transition</span></div><div class="stat"><span class="stat-value">0.72</span><span class="stat-label">hazard ratio for 90-day mortality, transition by day 3</span></div><div class="stat"><span class="stat-value">1.25</span><span class="stat-label">odds ratio for mortality, high pre-transition calories</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>A metabolic transition was identified in 94% of patients, with about 60% transitioning by ICU day 3.</li><li>Transition by day 3 was associated with lower 90-day mortality (HR 0.72), and patients who never transitioned had substantially higher mortality.</li><li>High caloric delivery before transition was independently associated with increased 90-day mortality (OR 1.25), with a dose-response pattern.</li><li>High caloric delivery based on calendar timing did not show a similar pattern.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1199" height="2204" alt="Fig. 1 Cohort Selection Process for Final Study Population"></a><figcaption><strong>Fig. 1</strong> Cohort Selection Process for Final Study Population <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+
+    <div class="paper-wrap paper-layout">
+      <aside class="paper-aside">
+        <nav class="paper-toc" aria-label="On this page">
+          <p class="aside-title">On this page</p>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#methods">Methods</a></li><li class="toc-sub"><a href="#study-design-and-population">Study design and population</a></li><li class="toc-sub"><a href="#study-outcomes">Study outcomes</a></li><li class="toc-sub"><a href="#data-collection">Data collection</a></li><li class="toc-sub"><a href="#data-management-and-validation">Data management and validation</a></li><li class="toc-sub"><a href="#data-analysis">Data analysis</a></li><li class="toc-sub"><a href="#sample-size-and-precision">Sample size and precision</a></li>
+<li><a href="#results">Results</a></li><li class="toc-sub"><a href="#cohort-and-exposure-definition">Cohort and exposure definition</a></li><li class="toc-sub"><a href="#timing-of-transition">Timing of transition</a></li><li class="toc-sub"><a href="#survival-by-transition-status">Survival by transition status</a></li><li class="toc-sub"><a href="#landmark-cox-proportional-hazards-90-day-mortality">Landmark Cox proportional hazards (90-day mortality)</a></li><li class="toc-sub"><a href="#sensitivity-to-the-iterations-design-choices">Sensitivity to the iteration’s design choices</a></li><li class="toc-sub"><a href="#nutrition-before-transition-overfeeding-and-mortality">Nutrition before transition, overfeeding and mortality</a></li><li class="toc-sub"><a href="#causal-analysis">Causal analysis</a></li>
+<li><a href="#discussion">Discussion</a></li><li class="toc-sub"><a href="#limitations">Limitations</a></li><li class="toc-sub"><a href="#future-directions-and-implications">Future directions and implications</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#supplementary-information">Supplementary Information</a></li><li class="toc-sub"><a href="#declarations">Declarations</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </nav>
+        <div class="paper-info">
+          <p class="aside-title">Article information</p>
+          <dl><div><dt>Journal</dt><dd>Critical Care 30: 132</dd></div><div><dt>Year</dt><dd>2026</dd></div><div><dt>DOI</dt><dd><a href="https://doi.org/10.1186/s13054-026-05874-5" target="_blank" rel="noopener">10.1186/s13054-026-05874-5</a></dd></div><div><dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY</a></dd></div></dl>
+        </div>
+      </aside>
+
+      <article class="paper-body" id="full-text">
+        <details class="paper-toc-mobile">
+          <summary>On this page</summary>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#methods">Methods</a></li><li class="toc-sub"><a href="#study-design-and-population">Study design and population</a></li><li class="toc-sub"><a href="#study-outcomes">Study outcomes</a></li><li class="toc-sub"><a href="#data-collection">Data collection</a></li><li class="toc-sub"><a href="#data-management-and-validation">Data management and validation</a></li><li class="toc-sub"><a href="#data-analysis">Data analysis</a></li><li class="toc-sub"><a href="#sample-size-and-precision">Sample size and precision</a></li>
+<li><a href="#results">Results</a></li><li class="toc-sub"><a href="#cohort-and-exposure-definition">Cohort and exposure definition</a></li><li class="toc-sub"><a href="#timing-of-transition">Timing of transition</a></li><li class="toc-sub"><a href="#survival-by-transition-status">Survival by transition status</a></li><li class="toc-sub"><a href="#landmark-cox-proportional-hazards-90-day-mortality">Landmark Cox proportional hazards (90-day mortality)</a></li><li class="toc-sub"><a href="#sensitivity-to-the-iterations-design-choices">Sensitivity to the iteration’s design choices</a></li><li class="toc-sub"><a href="#nutrition-before-transition-overfeeding-and-mortality">Nutrition before transition, overfeeding and mortality</a></li><li class="toc-sub"><a href="#causal-analysis">Causal analysis</a></li>
+<li><a href="#discussion">Discussion</a></li><li class="toc-sub"><a href="#limitations">Limitations</a></li><li class="toc-sub"><a href="#future-directions-and-implications">Future directions and implications</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#supplementary-information">Supplementary Information</a></li><li class="toc-sub"><a href="#declarations">Declarations</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </details>
+        <section id="abstract" class="paper-abstract">
+          <h2>Abstract</h2>
+          <p>Background: The metabolic transition from catabolism to anabolism is a key determinant of recovery in critical illness and should guide nutritional therapy. However, no validated clinical marker currently exists to identify this transition, and current clinical practice relies on calendar-based recommendations. We aim to develop and preliminarily validate a physiology-based, trajectory-driven model to detect the metabolic transition window in critically ill patients. Methods: We conducted a retrospective cohort study in a tertiary-care general ICU. A daily insulin resistance index (IRI) was computed from glucose and insulin data and corrected for steroid exposure. Transition was defined as a ≥ 30% sustained drop in IRI after its peak, together with ≥ 2 of 8 physiologic recovery criteria (lactate, noradrenaline, vasopressin, adrenaline, inflammatory markers-WBC, %neutrophils, CRP, and albumin). Associations with 90-day mortality and caloric exposure were evaluated using Kaplan–Meier analysis and multivariable landmark Cox models. Results: The cohort included 2,350 patients (age 59.8 ± 16.5 years; SOFA 11.7 ± 3.9; 82% mechanically ventilated). A metabolic transition was identified in 94% of patients, with ~ 60% transitioning by ICU day 3. Transition by day 3 was associated with lower 90-day mortality (HR 0.72, 95% CI 0.65–0.81). Patients who never transitioned had substantially higher mortality. High caloric delivery (≥ 1.0 kcal/kg/h for ≥ 24 h) before transition was independently associated with increased 90-day mortality (OR 1.25, 95% CI 1.01–1.55), with a dose–response pattern. In contrast, high caloric delivery based on calendar timing failed to demonstrate a similar pattern. Conclusions: We developed and validated a physiological model for detecting metabolic transition in critical illness and showed that transition occurs early and strongly predicts survival. Higher caloric delivery before transition is associated with increased mortality, supporting nutrition strategies aligned with physiological recovery rather than fixed calendar days.</p>
+        </section>
+        
+<div class="paper-text">
+<h2 id="introduction">Introduction</h2>
+<p>Optimal timing of nutritional support is an important but unresolved aspect of critical care. Critically ill patients typically traverse distinct metabolic phases. Initially, there is an intense catabolic “ebb” phase (first 24–48 h) characterized by tissue hypoperfusion and decreased overall metabolism, followed by a hypercatabolic “flow” phase (up to 7 days) during which significant protein degradation occurs <span class="cite">[<a href="#ref-1">1</a>, <a href="#ref-2">2</a>]</span>. Subsequently, some patients enter a recovery/anabolic phase, while others may experience prolonged critical illness.</p>
+<p>Both the European Society for Clinical Nutrition and Metabolism (ESPEN) and American Society for Parenteral and Enteral Nutrition (ASPEN) guidelines acknowledge these metabolic shifts and recommend strategies such as permissive underfeeding during the acute catabolic phase, with progressive advancement toward energy and protein targets by days 3–7 after ICU admission <span class="cite">[<a href="#ref-3">3</a>, <a href="#ref-4">4</a>]</span>. However, both societies note that these recommendations are based on expert consensus and not on validated, physiology-driven criteria <span class="cite">[<a href="#ref-3">3</a>, <a href="#ref-4">4</a>]</span>.</p>
+<p>A significant challenge to optimal nutritional provision remains- there is no single, validated clinical marker that precisely identifies the transition point from catabolism to anabolism. As a result, the optimal timing for reaching full nutritional targets is highly individualized and relies on multifactorial clinical assessment rather than a definitive “switch” <span class="cite">[<a href="#ref-2">2</a>–<a href="#ref-6">6</a>]</span>.</p>
+<p>Correctly identifying the timing of this transition is clinically crucial. Aggressive nutritional support during ongoing catabolism may worsen metabolic complications (hyperglycemia, refeeding syndrome, increased ureagenesis suggesting futile catabolism of provided proteins, telomere shortening and altered DNA methylation) and infectious complications as well as blunt beneficial autophagy and ketogenesis <span class="cite">[<a href="#ref-7">7</a>–<a href="#ref-13">13</a>]</span>. Recent large trials further suggest that higher dose or early administration of calories or protein may not improve outcomes and could be harmful in selected populations <span class="cite">[<a href="#ref-7">7</a>, <a href="#ref-14">14</a>–<a href="#ref-21">21</a>]</span>. On the other hand, delayed nutritional support after the onset of anabolism may impede recovery, muscle-mass restoration, and immune function <span class="cite">[<a href="#ref-3">3</a>–<a href="#ref-6">6</a>, <a href="#ref-13">13</a>, <a href="#ref-22">22</a>]</span>.</p>
+<p>Multiple surrogate approaches- nitrogen balance, C-reactive protein (CRP) kinetics, glucose-insulin dynamics, indirect calorimetry, as well as critical care metabolomics- have been proposed to characterize the metabolic shift <span class="cite">[<a href="#ref-5">5</a>, <a href="#ref-23">23</a>–<a href="#ref-26">26</a>]</span>. These are often constrained by technical complexity, intermittent sampling, or limited specificity, and are not routinely implemented at the bedside. Consequently, major trials and guidelines continue to rely on calendar-based criteria, rather than patient-specific-physiology, when determining nutritional targets <span class="cite">[<a href="#ref-3">3</a>, <a href="#ref-4">4</a>, <a href="#ref-17">17</a>–<a href="#ref-20">20</a>, <a href="#ref-27">27</a>–<a href="#ref-29">29</a>]</span>.</p>
+<p>At the cellular level, sepsis impairs GLUT4 (Glucose Transporter Type 4) transcription and translocation, producing marked peripheral insulin resistance <span class="cite">[<a href="#ref-30">30</a>, <a href="#ref-31">31</a>]</span>. Under these conditions, carbohydrate delivery predominantly raises circulating glucose rather than supporting muscle metabolism. These profound alterations in insulin sensitivity highlight the importance of metabolic trajectories during critical illness and suggest that dynamic glucose–insulin relationships may provide insight into the transition from catabolism to anabolism.</p>
+<p>Observational and interventional studies highlight substantial inter-patient variability in the duration of catabolism and the optimal window for full nutritional support <span class="cite">[<a href="#ref-7">7</a>, <a href="#ref-9">9</a>, <a href="#ref-14">14</a>–<a href="#ref-19">19</a>, <a href="#ref-22">22</a>, <a href="#ref-27">27</a>, <a href="#ref-32">32</a>–<a href="#ref-35">35</a>]</span>, suggesting that the benefit of nutritional escalation may depend on <em>when</em> and <em>in whom</em> it is delivered. Emerging proposals and expert consensus therefore advocate for multi-parameter, trajectory-based definitions that incorporate dynamic changes in metabolic, inflammatory, and hemodynamic markers <span class="cite">[<a href="#ref-25">25</a>, <a href="#ref-35">35</a>, <a href="#ref-36">36</a>]</span>. However, such models have not yet been systematically implemented or validated in large, real-world ICU cohorts.</p>
+<p>To address this gap, we developed and tested a reproducible, trajectory-based model to detect the catabolic-to-anabolic transition in a large ICU cohort. The model integrates insulin resistance dynamics with hemodynamic, inflammatory, and metabolic parameters, applying predefined criteria for transition. We hypothesized that:</p>
+<ul>
+<li>
+<ol>
+<li>Earlier transition, as identified by this model, would be associated with improved 90-day mortality,</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>The provision of full caloric delivery before transition would be associated with increased mortality.</li>
+</ol>
+</li>
+</ul>
+<p>This framework may provide a physiology-based foundation for individualized, physiology guided nutrition strategies in critical care.</p>
+<h2 id="methods">Methods</h2>
+<h3 id="study-design-and-population">Study design and population</h3>
+<p>We conducted a retrospective cohort study in the general ICU at Sheba Medical Center between January 2012 and Feb. 2025. Inclusion criteria were defined a priori and consisted of adult age (18–120 years) and an ICU length of stay ≥ 48 h. Analyses were restricted to admissions with extractable insulin infusion records, as insulin infusion time-series data are required to compute the insulin resistance index. We then applied pre-specified technical exclusions for inability to apply the transition model: fewer than three glucose measurements during the ICU stay, no valid continuous insulin infusion segment data (e.g., missing start/end time or rate, or invalid timing preventing IRI computation), or missing recorded body weight. The final study cohort is shown in <a class="xref" href="#fig-1">Fig. 1</a>.</p>
+<p><strong>Definition of catabolic-to-anabolic transition</strong> The primary variable of interest was the physiologic shift from catabolism to anabolism. We established an operational definition using a multi-parameter, trajectory-based model that combined insulin resistance dynamics with complementary metabolic and inflammatory markers.</p>
+<figure id="fig-1">
+<a class="fig-zoom" href="figures/fig-1.webp" aria-label="Open the figure full size"><img src="figures/fig-1.webp" width="460" height="846" alt="Cohort Selection Process for Final Study Population" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 1</strong> Cohort Selection Process for Final Study Population</figcaption>
+</figure>
+
+<p>Insulin resistance was quantified by an Insulin Resistance Index (IRI), calculated as:</p>
+<p>IRI = [glucose <em>×</em> (insulin + 0<em>.</em>5)] <em>×</em> steroid correction factor with daily corticosteroid exposure incorporated as a hydrocortisone-equivalent adjustment. The steroid correction factors of 0.6, 0.8, 0.85 (based on hydrocortisone-equivalent dosing) were selected based on known effects of glucocorticoids on insulin resistance <span class="cite">[<a href="#ref-37">37</a>, <a href="#ref-38">38</a>]</span> as well as extensive sensitivity and feature importance analysis (supplement 1 and 5). To avoid abrupt collapse of the IRI when insulin infusion was stopped, and to simulate a minimal basal endogenous insulin secretion <span class="cite">[<a href="#ref-39">39</a>]</span>, we added a constant of 0.5 U/h to the insulin infusion rate in the formula. Because this adjustment is a modeling assumption, we performed sensitivity analyses with alternative constants (0.1 and 1.0 U/h) and confirmed that transition rates, timing, and the association with mortality were robust to the exact value chosen.</p>
+<p>A transition event was defined by a ≥ 30% decrease from the peak IRI, sustained below 70% of the peak for at least 24 h, allowing for brief (&lt; 10%) rebounds. In addition, fulfillment of at least 2 of 8 physiologic criteria was required to establish transition: <span class="cite">[<a href="#ref-1">1</a>]</span> a 30% decrease or normalization of lactate; <span class="cite">[<a href="#ref-2">2</a>]</span> 30% reduction or cessation of norepinephrine <span class="cite">[<a href="#ref-3">3</a>]</span>, 30% reduction or cessation of adrenaline <span class="cite">[<a href="#ref-4">4</a>]</span>, 30% reduction or cessation of vasopressin; <span class="cite">[<a href="#ref-5">5</a>]</span> a 40% decline or normalization of white blood cell count <span class="cite">[<a href="#ref-6">6</a>]</span> a 30% decline or normalization of neutrophil percentage; <span class="cite">[<a href="#ref-7">7</a>]</span> a 30% decrease in C-reactive protein (CRP); and <span class="cite">[<a href="#ref-8">8</a>]</span> stabilization or increase in serum albumin. These parameters were selected a priori to capture complementary domains of recovery: (i) hemodynamic stabilization (vasopressor requirements, lactate clearance), (ii) resolution of systemic inflammation (WBC, neutrophils, CRP), (iii) attenuation of the stress response (rise or stabilization of albumin, as a negative acute-phase protein).</p>
+<p>The selection of IRI reduction threshold, in addition to the number and thresholds of physiologic parameters, as well as use of nutrition at the denominator and the extent of steroid correction factor were informed by extensive sensitivity analyses, which demonstrated optimal outcome association strength and clinical feasibility across multiple tested configurations (Supplement 1).</p>
+<h3 id="study-outcomes">Study outcomes</h3>
+<p>The primary outcome was 90-day all-cause mortality, examined in relation to the timing of the catabolic-to-anabolic transition, which served as the main physiological exposure.</p>
+<p>Secondary outcomes included exploratory analyses of calories delivery and overfeeding, and evaluation of the model’s robustness across heterogeneous clinical profiles. Descriptive analysis included baseline characteristics, including comorbidities, and admission SOFA score.</p>
+<h3 id="data-collection">Data collection</h3>
+<p>Clinical and laboratory data were obtained from a comprehensive ICU database that includes serial measurements of glucose and insulin, calories intake, vasopressor administration, inflammatory markers, serum albumin, comorbid conditions, chronic medication use, ICU length of stay, and mortality.</p>
+<h3 id="data-management-and-validation">Data management and validation</h3>
+<p>For each patient, a dedicated audit log tracked data completeness, transition status, and trajectories of all included physiologic parameters, including exclusion reasons and key processing steps, to ensure reproducibility and model transparency. Delivered energy was quantified as hourly total kcal/kg/h.</p>
+<h3 id="data-analysis">Data analysis</h3>
+<p>Baseline characteristics are presented as mean ± standard deviation (SD) for continuous variables, and as counts with percentages for categorical variables.</p>
+<p>Model robustness was examined through sensitivity analyses varying IRI thresholds, steroid correction factors, and the number of required criteria. Subgroup analyses across major clinical phenotypes (e.g., sepsis, trauma, pancreatitis) provided internal validation, and an audit log was maintained for each patient to ensure reproducibility and transparency.</p>
+<p>To further assess the potential causal relationship between the catabolic-to-anabolic transition and clinical outcomes, causal inference analyses were conducted using doubly robust estimation methods. Propensity scores for transition were derived from logistic regression models including demographic, clinical, and biochemical covariates measured prior to the transition. These scores were incorporated into inverse probability of treatment weighting (IPTW) and augmented inverse probability weighting (AIPW) frameworks to estimate the average treatment effect (ATE) on 90-day mortality and secondary recovery endpoints. Covariate balance before and after weighting was evaluated using standardized mean differences, and sensitivity analyses explored the robustness of causal estimates to unmeasured confounding using E-values and Rosenbaum bounds.</p>
+<p>The primary outcome, 90-day all-cause mortality, was analyzed with Kaplan–Meier survival curves stratified by transition status at predefined landmark days (<span class="cite">[<a href="#ref-3">3</a>, <a href="#ref-5">5</a>, <a href="#ref-7">7</a>]</span>, and <span class="cite">[<a href="#ref-10">10</a>]</span>), with differences assessed by the log-rank test. Landmark Cox proportional hazards models were constructed at each time point to estimate hazard ratios (HRs) with 95% confidence intervals (CIs) for the association between transition status and mortality.</p>
+<figure class="table-figure" id="table-1">
+<figcaption><strong>Table 1</strong> Baseline demographic, clinical, and comorbidity characteristics of the study cohort</figcaption>
+<div class="table-scroll"><table><tr><th>Characteristic</th><th>Overall (n = 2350)</th></tr><tr><td>Age, years</td><td>59.8 ± 16.5</td></tr><tr><td>SOFA score</td><td>11.7 ± 3.9</td></tr><tr><td>Length of stay</td><td>12.6 ± 13.0</td></tr><tr><td>Sex, n (%)</td><td>Male 1431 (60.9%)</td></tr><tr class="row-group"><td>Admission diagnoses, n (%)</td><td></td></tr><tr><td>Sepsis (non-shock)</td><td>1152 (49.0%)</td></tr><tr><td>Septic shock</td><td>952 (40.5%)</td></tr><tr><td>Pneumonia</td><td>764 (32.5%)</td></tr><tr><td>Acute respiratory failure (non-pneumonia)</td><td>216 (9.2%)</td></tr><tr><td>COPD exacerbation</td><td>52 (2.2%)</td></tr><tr><td>Cardiogenic shock/Acute cardiac syndromes</td><td>436 (18.6%)</td></tr><tr><td>Renal/Metabolic</td><td>1209 (51.4%)</td></tr><tr><td>Gastrointestinal/Hepatic</td><td>474 (20.2%)</td></tr><tr><td>Neurologic diagnoses</td><td>273 (11.6%)</td></tr><tr><td>Trauma/Burns</td><td>185 (7.9%)</td></tr><tr><td>Postoperative</td><td>151 (6.4%)</td></tr><tr class="row-group"><td>Comorbidities, n (%)</td><td></td></tr><tr><td>Hypertension</td><td>873 (37.1%)</td></tr><tr><td>Hyperlipidemia</td><td>433 (18.4%)</td></tr><tr><td>Diabetes mellitus</td><td>824 (35.1%)</td></tr><tr><td>Obesity (BMI &gt; 30)</td><td>722 (30.7%)</td></tr><tr><td>Ischemic heart disease</td><td>380 (16.2%)</td></tr><tr><td>Atrial fibrillation</td><td>299 (12.7%)</td></tr><tr><td>COPD</td><td>210 (8.9%)</td></tr><tr><td>Chronic kidney disease</td><td>194 (8.3%)</td></tr><tr><td>Cirrhosis</td><td>52 (2.2%)</td></tr></table></div>
+<p class="table-note">[SOFA- Sequential organ failure assessment, COPD-chronic obstructive pulmonary disease]</p>
+</figure>
+
+<p>Multivariable models were adjusted for age, sex, baseline SOFA score, admission diagnoses, and major comorbidities. To mitigate immortal-time bias, patients who died or were censored before each landmark were excluded from the respective analysis. Changes in caloric intake before and after transition were assessed with paired and sign tests. A two-sided p value &lt; 0.05 was considered statistically significant. Analyses were performed using Python (version 3.13.3).</p>
+<h3 id="sample-size-and-precision">Sample size and precision</h3>
+<p>This retrospective cohort included all eligible ICU admissions; no a priori sample-size calculation was performed. We report the number at risk and the number of 90-day deaths at each landmark. At the day-3 landmark, 2,242 patients remained at risk and 848 deaths occurred within 90 days; with ~ 60% transitioned by day 3, the available number of events indicates adequate statistical information to detect moderate associations (approximately HR ≤ 0.82 or ≥ 1.22 at two-sided α = 0.05; Schoenfeld approximation).</p>
+<h2 id="results">Results</h2>
+<p>The cohort included 2,350 ICU patients. Baseline demographics, admission diagnoses and comorbidities are detailed in <a class="xref" href="#table-1">Table 1</a>. Admission diagnoses were mapped to APACHE III categories and recorded as co-existing conditions rather than a single primary diagnosis.</p>
+<h3 id="cohort-and-exposure-definition">Cohort and exposure definition</h3>
+<p>Of the 2,350 included patients, 2,209 (94%) fulfilled transition criteria. Most transitions occurred within the first week of ICU admission, with the distribution markedly front-loaded (peak on day 1 and a progressive decline thereafter; <a class="xref" href="#fig-2">Fig. 2</a>).</p>
+<figure id="fig-2">
+<a class="fig-zoom" href="figures/fig-2.webp" aria-label="Open the figure full size"><img src="figures/fig-2.webp" width="578" height="285" alt="Distribution of metabolic transition days in the ICU cohort" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 2</strong> Distribution of metabolic transition days in the ICU cohort. Histogram showing the percentages of patients achieving catabolic-to-anabolic transition on each ICU day (days 1–10, with a final bin for &gt; 10 days). Transition was defined by a ≥ 30% drop in insulin resistance index (IRI) sustained below 70% of peak for 24 h, accompanied by ≥ 2 of 8 physiologic recovery criteria (hemodynamic, inflammatory, and albumin markers). The majority of transitions occurred within the first 72 h, with a peak on day 1, and progressively fewer transitions observed thereafter</figcaption>
+</figure>
+
+<h3 id="timing-of-transition">Timing of transition</h3>
+<p>Transition timing was markedly front-loaded (<a class="xref" href="#fig-2">Fig. 2</a>). Approximately ~ 60% of transitions occurred by day 3, with the modal day at day 1 and a progressively smaller tail thereafter; a minority occurred &gt; 10 days after admission. This pattern indicates that, in this iteration, the catabolic → anabolic transition usually occurs early during ICU stay.</p>
+<h3 id="survival-by-transition-status">Survival by transition status</h3>
+<p>Kaplan–Meier curves overlaid across landmarks (day 3, 5, 7, 10) showed consistent separation: at each landmark, patients who had already transitioned by the landmark had higher subsequent 90-day survival than those who had not yet transitioned. The magnitude of separation increased with later landmarks, in keeping with the growing fraction of patients who had transitioned and with the biological expectation that a sustained anabolic state associates with improved outcomes (Fig. 3A).</p>
+<h3 id="landmark-cox-proportional-hazards-90-day-mortality">Landmark Cox proportional hazards (90-day mortality)</h3>
+<p>Landmark cohorts ranged from 2,338 patients at day 1 to 2,015 at day 10, after excluding those who had died or were censored prior to each landmark. In multivariable landmark Cox models adjusted for age, sex, baseline SOFA score, admission diagnoses, and major comorbidities, metabolic transition by the respective landmark was consistently associated with lower 90-day mortality, with the magnitude of the protective association increasing at later landmarks. At day 1, no association was observed (HR 0.98, 95% CI 0.87–1.09), and a modest effect appeared at day 2 (HR 0.82, 95% CI 0.74–0.91). By day 3, transition status was associated with significantly reduced mortality (HR 0.72, 95% CI 0.65–0.81; <em>n</em> = 2,242; 848 events), with similar results at day 5 (HR 0.72, 95% CI 0.64–0.81; <em>n</em> = 2,165; 771 events). Stronger associations were seen at day 7 (HR 0.68, 95% CI 0.60–0.78; <em>n</em> = 2,094; 700 events) and day 10 (HR 0.60, 95% CI 0.51–0.72; <em>n</em> = 2,015; 621 events). Across days 1–10, the hazard ratio trajectory declined monotonically from ~ 0.98 to ~ 0.60 (Fig. 3B), indicating a progressively stronger survival advantage with earlier transition. When comparing transitioned versus non-transitioned patients overall, transition status was independently associated with improved survival, with an odds ratio for 90-day mortality of 0.57 (95% CI 0.40–0.80; <em>p</em> = 0.001). For more information – see supplement 2 and 3.</p>
+<h3 id="sensitivity-to-the-iterations-design-choices">Sensitivity to the iteration’s design choices</h3>
+<p>To evaluate the robustness of the model, we performed sensitivity analyses focusing on key design assumptions.</p>
+<p>This iteration deliberately excluded nutrition from the IRI denominator and applied a steroid base correction of 0.6; despite these stricter assumptions, the signal was consistent (KM separation and HR &lt; 1 from day 3 onward). Requiring ≥ 2 of 8 ancillary parameters ensured that transition calls aligned with broader clinical recovery (hemodynamics, inflammation, albumin), which likely contributed to the robustness of the association.</p>
+<h3 id="nutrition-before-transition-overfeeding-and-mortality">Nutrition before transition, overfeeding and mortality</h3>
+<p>In adjusted analysis, patients receiving high pre-transition calories exposure (≥ 1.0 kcal/kg/h for ≥ 24 h before transition) had a significantly higher risk of death within 90 days compared with those who remained &lt; 1.0 kcal/kg/h throughout the pre-transition phase (OR 1.25, 95% CI 1.01–1.55, <em>p</em> = 0.038). Sensitivity analyses across thresholds of 0.6, 0.8, 1.0, 1.2, and 1.4 kcal/kg/h demonstrated a consistent excess risk in the high calories group, with absolute mortality differences ranging from 7 to 9% at the lower thresholds to 14% at ≥ 1.4 kcal/kg/h, indicating a dose–response relationship (<a class="xref" href="#fig-4">Fig. 4</a>). For more information see supplement 4.</p>
+<p>Across shifted cutoffs relative to the model-defined transition time (Fig. 4c), higher caloric intake before T₀ was associated with progressively greater 90-day mortality, with odds ratios exceeding 1.3 for several pre-transition windows. The association weakened after the transition, and statistical significance was reached only at the true T₀. In contrast, when using fixed calendar-day cutoffs from admission (Fig. 4d), no significant mortality difference was observed.</p>
+<p>We also compared the calories intake at the 24 h period before versus after transition. The median intake increased slightly from 0.79 ± 0.88 to 0.88 ± 0.90 kcal/kg/h, corresponding to a mean paired change of + 0.09 ± 0.79 kcal/kg/h (95% CI 0.06–0.13), or ~ + 2.2 kcal/kg/day.</p>
+<h3 id="causal-analysis">Causal analysis</h3>
+<p>In order to estimate the potential causal effect of the catabolic-to-anabolic transition on 90-day mortality, doubly robust causal inference models were applied using inverse probability of treatment weighting (IPTW) and augmented inverse probability weighting (AIPW). After weighing, covariate balance was achieved across all major baseline characteristics (standardized mean differences &lt; 0.05). The estimated average treatment effect (ATE) indicated a significant reduction in 90-day mortality among transitioned patients (ATE − 0.044, 95% CI − 0.065 to − 0.023, <em>p</em> &lt; 0.001), corresponding to an absolute survival benefit of approximately 4.4%. The direction and magnitude of this causal effect were consistent across both IPTW and AIPW estimators, and sensitivity analyses suggested robustness to moderate unmeasured confounding (E-value 2.4; Rosenbaum Γ = 1.6).</p>
+<figure id="fig-3">
+<a class="fig-zoom" href="figures/fig-3.webp" aria-label="Open the figure full size"><img src="figures/fig-3.webp" width="578" height="726" alt="Transition versus mortality" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 3</strong> Transition versus mortality. <strong>a.</strong> Kaplan–Meier survival curves by transition status at multiple landmark time points. Survival probability is shown for patients stratified by whether they had achieved metabolic transition (solid lines) or not (dashed lines) by landmark days 3, 5, 7, and 10. At each landmark, patients who had transitioned exhibited consistently higher survival probabilities over the subsequent 90 days, with increasing separation of curves at later landmarks. <strong>b.</strong> Adjusted hazard ratios for 90-day mortality by transition status across landmark days. Hazard ratios (solid line, log scale) with 95% confidence intervals (shaded area) are shown for patients who achieved metabolic transition versus those who had not, at landmark days 1–10. Transition was defined by a ≥ 30% decline in insulin resistance index (IRI) with ≥ 2 physiologic recovery criteria. The protective association of transition strengthened progressively with later landmarks, with hazard ratios declining from ~ 0.98 at day 1 to ~ 0.60 by day 10, indicating lower mortality risk among patients who had transitioned.</figcaption>
+</figure>
+
+<h2 id="discussion">Discussion</h2>
+<p>In this large, retrospective cohort study, we developed and preliminarily evaluated a novel, multi-parameter model to identify the metabolic transition from catabolism to anabolism in critically ill patients. Our primary finding is that an earlier transition, as defined by a sustained drop in an insulin resistance index and concurrent improvement in physiological markers, is strongly and independently associated with lower 90-day mortality. This association strengthened with increased time from ICU admission, with a hazard ratio for mortality reaching 0.60 for patients who transitioned by day 10, suggesting a potential link between sustained metabolic recovery and survival. Patients who did not achieve metabolic transition experienced substantially higher 90-day mortality, underscoring the prognostic importance of this physiological shift.</p>
+<figure id="fig-4">
+<a class="fig-zoom" href="figures/fig-4.webp" aria-label="Open the figure full size"><img src="figures/fig-4.webp" width="578" height="418" alt="Association Between Pre-Transition Overfeeding and 90-Day Mortality Across Caloric Thresholds" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 4</strong> Association Between Pre-Transition Overfeeding and 90-Day Mortality Across Caloric Thresholds. <strong>a.</strong> Ninety-day mortality by exposure group across thresholds (0.6–1.4 kcal/kg/h). Mortality rates in the High nutrition group (≥ threshold for ≥ 24 h) and Low group (&lt; threshold) are plotted for each cutoff. Mortality in the High group consistently exceeded that of the Low group, with divergence increasing at higher thresholds. <strong>b.</strong> Excess mortality (High–Low) across thresholds. Absolute mortality difference between High and Low groups, expressed as percentage points, plotted against the kcal/kg/h threshold. The mortality gap widened progressively from ~ 7–9% at 0.6–1.0 kcal/kg/h to ~ 14% at ≥ 1.4 kcal/kg/h, suggesting a dose–response relationship. <strong>c</strong>. Adjusted odds ratios (OR, 95% CI) for 90-day mortality comparing high versus low pre-transition intake when the cutoff defining the pre-transition window is shifted relative to the model-derived transition time (T₀). Mortality risk is greatest when the window precedes T₀ (negative offsets) and approaches neutrality thereafter. <strong>d.</strong> Adjusted OR (95% CI) using fixed calendar-day cutoffs from ICU admission (days 3–7) with a 1.0 kcal/kg/h threshold, showing no consistent association.</figcaption>
+</figure>
+
+<p>Although sicker patients are expected to have higher mortality, the prognostic value of the transition model extended beyond baseline severity. Transition reflects a dynamic recovery process, not initial acuity, and the association with survival remained strong after adjustment for age, SOFA score, comorbidities, and diagnoses. Moreover, patients with similar initial metabolic derangements separated sharply by timing of transition, indicating that failure to recover—rather than baseline severity alone—drives much of the observed risk.</p>
+<p>Transition timing showed a clear front-loaded pattern, with a greater proportion of patients transitioning earlier and progressively fewer transitioning later during the ICU course. This distribution reflects the heterogeneity of acute illness severity, the specific case mix of a given ICU, and the profound inter-patient heterogeneity in insulin resistance, inflammatory resolution, and metabolic capacity <span class="cite">[<a href="#ref-26">26</a>, <a href="#ref-31">31</a>, <a href="#ref-32">32</a>]</span>. It also suggests that uniform calendar-based feeding strategies may not align with individual metabolic trajectories. Our findings indicate that some patients begin metabolic recovery well before the guideline-defined day 3–7 window, whereas others transition far later, highlighting limitations of a fixed-timeline approach. These results emphasize that current guidelines broad recommendations stem from the absence of validated physiologic markers <span class="cite">[<a href="#ref-3">3</a>, <a href="#ref-4">4</a>, <a href="#ref-26">26</a>, <a href="#ref-31">31</a>, <a href="#ref-32">32</a>, <a href="#ref-36">36</a>]</span>. A transition-based framework may enable more individualized nutritional timing and dosing but requires further validation before influencing clinical practice.</p>
+<p>The predominance of transition on day 1 suggests that for many patients, the IRI peak and early physiologic stabilization occur very rapidly after admission. This may reflect prior resuscitation in the emergency department, OR, or referring department/hospital, meaning the ICU ‘time zero’ does not always coincide with the onset of critical illness.</p>
+<p>High pre-transition caloric exposure is independently associated with increased 90-day mortality, even after adjusting for age, SOFA score, sex, and admission diagnoses. The consistency of findings across multiple caloric thresholds, with progressively greater excess mortality at higher cutoffs, suggests a potential <strong>dose–response</strong> <strong>relationship</strong> and aligns with prior evidence that early overfeeding may be harmful <span class="cite">[<a href="#ref-7">7</a>, <a href="#ref-17">17</a>–<a href="#ref-20">20</a>]</span>.</p>
+<p>The finding that statistical significance was observed only at the model-defined transition time (T₀) supports the physiologic validity of this approach. Mortality risk from high caloric intake was greatest immediately before T₀ and diminished thereafter, indicating that the model identifies a true inflection point in metabolic recovery. In contrast, calendar-based cutoffs showed no association with outcome, emphasizing that nutritional readiness varies between patients and cannot be captured by fixed time-from-admission criteria.</p>
+<p>Metabolic transition was not accompanied by a clinically meaningful change in caloric delivery. The median change in caloric intake across the transition window was only 2.2 kcal/kg/day, and more than half of patients experienced no change in feeding rates. This suggests the shift often occurs silently <span class="cite">[<a href="#ref-36">36</a>]</span>, unrecognized by clinicians. Importantly, this observation addresses a potential alternative explanation for our mortality findings: because caloric delivery did not systematically increase at the time patients met the transition criteria, the association between earlier transition and improved survival is unlikely to be explained simply by contemporaneous clinician-driven escalation of feeding in patients who appeared to be recovering. Rather, it highlights a potential care gap in which routine nutritional support is not dynamically adapted to the patient’s evolving metabolic state.</p>
+<p>Taken together, the data support the hypothesis that the pre-transition metabolic state may not be suited for full caloric provision and suggest the rationale for a <strong>restrictive feeding strategy before transition</strong>, pending confirmation in prospective studies.</p>
+<h3 id="limitations">Limitations</h3>
+<p>Several important limitations must be acknowledged. First, as an observational study, our findings demonstrate strong associations but cannot establish causality. It is plausible that the metabolic transition serves primarily as a marker of underlying recovery and is presumed as a surrogate to transition from catabolic to anabolic state.</p>
+<p>Second, delivered kcal/kg/h may misrepresent true delivery because of interruptions, malabsorption, and unaccounted sources (e.g., propofol calories).</p>
+<p>Third, the model was both developed and validated within a single academic medical center; generalizability to other institutions, patient populations, and clinical practices remain uncertain. External validation and complementary predictive modeling will therefore be essential.</p>
+<h3 id="future-directions-and-implications">Future directions and implications</h3>
+<p>The present findings are hypothesis-generating and establish a foundation for future investigation. The immediate priority is prospective, multicenter validation to confirm accuracy, reproducibility, and clinical utility across diverse ICU populations. If validated, this trajectory-based model could serve as a stratification or enrichment tool for interventional trials, enabling researchers to test whether nutritional therapy titrated to an individual’s physiologic transition point-rather than an arbitrary calendar day-can improve outcomes.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>We developed and preliminary evaluated a novel, trajectory-based model that aims to identify a metabolic transition window in critically ill patients. In this large cohort, an earlier transition was strongly and independently associated with lower mortality risk, though this association may reflect broader recovery processes, presumed to be related to metabolic transition. Demonstrating increased mortality with overfeeding before transition emphasizes the clinical implication. This physiology-driven tool provides a preliminary, hypothesis-generating framework for future research aimed at potentially informing personalized nutritional therapy based on a patient’s evolving metabolic state.</p>
+<h2 id="supplementary-information">Supplementary Information</h2>
+<p>The online version contains supplementary material available at https://doi.or g/10.1186/s13054-026-05874-5.</p>
+<figure class="table-figure" id="table-x2">
+<img src="figures/table-x2.webp" width="121" height="104" alt="Table" loading="lazy" decoding="async">
+
+</figure>
+
+<h4 id="acknowledgements">Acknowledgements</h4>
+<p>Not applicable.</p>
+<h4 id="author-contributions">Author contributions</h4>
+<p>**YG** conceived and designed the study, performed substantial analysis and interpretation of the data, and was a major contributor in drafting the manuscript and substantively revising it. **NL, AC, OL, DC, JK, HS, MG, SE, YH**, **ED** were responsible for the acquisition of data and contributed to substantively revising the work. **JV** contributed significantly to the conception and design of the work, performed substantial analysis and interpretation of data, and participated in drafting the work and substantively revising it. **DW** and **DS** contributed to the acquisition and interpretation of nutrition-related data and substantively revised the work. **TL** performed substantial analysis and interpretation of data and substantively revised the work. **MS** contributed to the interpretation of the data and substantively revised the work. **ES** contributed to the conception and design of the work, interpretation of the data, and was a major contributor in substantively revising the manuscript.All authors read and approved the final manuscript.</p>
+<h4 id="funding">Funding</h4>
+<p>Open access funding provided by Jönköping University. Data analysis validation was supported by the Sheba Hospital Research Fund.</p>
+<h4 id="data-availability">Data availability</h4>
+<p>The datasets used and/or analyzed during the current study are available from the corresponding author on reasonable request.</p>
+<h3 id="declarations">Declarations</h3>
+<h4 id="ethical-considerations">Ethical considerations</h4>
+<p>The study was approved by the Institutional Helsinki Committee of Sheba Medical Center (file number: SMC-D-2493-25), and the requirement for informed consent was waived owing to the retrospective and anonymized nature of the data.</p>
+<h4 id="consent-to-publish">Consent to publish</h4>
+<p>Consent to Publish is waivered by the IRB committee.</p>
+<h4 id="competing-interests">Competing interests</h4>
+<p>The authors declare no competing interests.</p>
+<h4 id="author-details">Author details</h4>
+<p><sup><a href="#ref-1">1</a></sup>Departments of Anesthesiology and Intensive Care, Sheba Medical Center, Ramat Gan, Israel <sup><a href="#ref-2">2</a></sup>Department of Nutrition, Sheba Medical Center, Ramat Gan, Israel <sup><a href="#ref-3">3</a></sup>Department of Intensive Care, Sheba Medical Center, Ramat Gan, Israel <sup><a href="#ref-4">4</a></sup>Departments of Nutrition and Intensive Care, Sheba Medical Center, Ramat Gan, Israel <sup><a href="#ref-5">5</a></sup>Intensive Care Unit, Sheba Medical Center, Ramat Gan, Israel <sup><a href="#ref-6">6</a></sup>Universidad Favaloro, Buenos Aires, Argentina <sup><a href="#ref-7">7</a></sup>Department of Anesthesiology, Sheba Medical Center, Ramat Gan, Israel <sup><a href="#ref-8">8</a></sup>Department of Information Systems, University of Haifa, Haifa, Israel <sup><a href="#ref-9">9</a></sup>Department of Computing, Jonkoping University, Jonkoping, Sweden <sup><a href="#ref-10">10</a></sup>Gertner Institute for Epidemiology and Healthcare Research, Gray Faculty of Medical &amp; Health Sciences, Tel Aviv University, Tel Aviv, Israel <sup><a href="#ref-11">11</a></sup>Department of Clinical Pharmacology, Sheba Medical Center, Ramat Gan, Israel <sup><a href="#ref-12">12</a></sup>Department of Intensive Care, Maaynei Hayeshua, Bnei Brak, Israel</p>
+<p>Received: 16 November 2025 / Accepted: 27 January 2026</p>
+<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Keywords</dt><dd><ul class="kw-list"><li>Critical illness</li><li>Metabolism</li><li>Catabolism</li><li>Nutrition</li><li>Intensive care</li><li>Insulin resistance</li></ul></dd></div></dl></section>
+<h2 id="references">References</h2>
+<ol class="paper-refs"><li id="ref-1">Moore FA, Moore EE. Metabolic response to injury. In: Townsend CM, Beauchamp RD, Evers BM, Mattox KL, editors. Sabiston textbook of surgery: the biological basis of modern surgical practice. 20th ed. Philadelphia: Elsevier; 2017. pp. 83–104.</li>
+<li id="ref-2">Preiser JC, Ichai C, Orban JC, Groeneveld ABJ. Metabolic response to the stress of critical illness. Br J Anaesth. 2014;113(6):945–54. <a href="https://doi.org/10.1093/bja/aeu187" target="_blank" rel="noopener">doi:10.1093/bja/aeu187</a></li>
+<li id="ref-3">Compher C, Bingham AL, McCall M, Patel J, Rice TW, Braunschweig C, McKeever L. Guidelines for the provision of nutrition support therapy in the adult critically ill patient: the American society for parenteral and enteral nutrition. JPEN J Parenter Enter Nutr. 2022;46(1):12–41. <a href="https://doi.org/10.1002/jpen.2267" target="_blank" rel="noopener">doi:10.1002/jpen.2267</a></li>
+<li id="ref-4">Singer P, Blaser AR, Berger MM, et al. ESPEN practical guideline: clinical nutrition in the intensive care unit. Clin Nutr. 2023;42(4):410–43. <a href="https://doi.org/10.1016/j.clnu.2023.02.027" target="_blank" rel="noopener">doi:10.1016/j.clnu.2023.02.027</a></li>
+<li id="ref-5">Dickerson RN. Nitrogen balance and protein requirements for critically ill patients. Nutrients. 2016;8(4):211. <a href="https://doi.org/10.3390/nu8040211" target="_blank" rel="noopener">doi:10.3390/nu8040211</a></li>
+<li id="ref-6">Gunst J, Egi M, Van den Berghe G. Nutrition and metabolic control for ICU patients. Intensive Care Med. 2025;51:1150–2. <a href="https://doi.org/10.1007/s00134-025-07937-7" target="_blank" rel="noopener">doi:10.1007/s00134-025-07937-7</a></li>
+<li id="ref-7">Casaer MP, Mesotten D, Hermans G, Wouters PJ, Schetz M, Meyfroidt G, et al. Early versus late parenteral nutrition in critically ill adults. N Engl J Med. 2011;365(6):506–17. <a href="https://doi.org/10.1056/NEJMoa1102662" target="_blank" rel="noopener">doi:10.1056/NEJMoa1102662</a></li>
+<li id="ref-8">Marik PE, Bedigian MK. Refeeding hypophosphatemia in critically ill patients in an intensive care unit. A prospective study. Arch Surg. 1996;131(10):1043– 7. <a href="https://doi.org/10.1001/archsurg.1996.01430220037007" target="_blank" rel="noopener">doi:10.1001/archsurg.1996.01430220037007</a></li>
+<li id="ref-9">Arabi YM, Al-Dorzi HM, Mehta S, Tamim HM, Haddad SH, Jones G, et al. Association of protein intake with the outcomes of critically ill patients: a post hoc analysis of the PermiT trial. Am J Clin Nutr. 2018;108(5):988–96. <a href="https://doi.org/10.1093/ajcn/nqy189" target="_blank" rel="noopener">doi:10.1093/ajcn/nqy189</a></li>
+<li id="ref-10">Vanhorebeek I, den Van Berghe G. The epigenetic legacy of ICU feeding and its consequences. Curr Opin Crit Care. 2023;29(2):114–22. <a href="https://doi.org/10.1097/MCC.0000000000001021" target="_blank" rel="noopener">doi:10.1097/MCC.0000000000001021</a></li>
+<li id="ref-11">Vanhorebeek I, Casaer M, Gunst J. Nutrition and autophagy deficiency in critical illness. Curr Opin Crit Care. 2023;29(4):306–14. <a href="https://doi.org/10.1097/MCC.0000000000001056" target="_blank" rel="noopener">doi:10.1097/MCC.0000000000001056</a></li>
+<li id="ref-12">Van Dyck L, Casaer MP, Gunst J. Autophagy and its implications against early full nutrition support in critical illness. Nutr Clin Pract. 2018;33(3):339–47. http s://doi.org/10.1002/ncp.10084. <a href="https://doi.org/10.1002/ncp.10084" target="_blank" rel="noopener">doi:10.1002/ncp.10084</a></li>
+<li id="ref-13">Puthucheary ZA, Rawal J, McPhail M, Connolly B, Ratnayake G, Chan P, et al. Acute skeletal muscle wasting in critical illness. JAMA. 2013;310(15):1591– 600. <a href="https://doi.org/10.1001/jama.2013.278481" target="_blank" rel="noopener">doi:10.1001/jama.2013.278481</a></li>
+<li id="ref-14">Heyland DK, Patel J, Compher C, Rice TW, Bear DE, Lee ZY, et al. The effect of higher protein dosing in critically ill patients with high nutritional risk (EFFORT protein): an international, multicentre, pragmatic, registry-based randomised trial. Lancet. 2023;401(10376):568–76. <a href="https://doi.org/10.1016/S0140-6736%2822%2902469-2" target="_blank" rel="noopener">doi:10.1016/S0140-6736(22)02469-2</a></li>
+<li id="ref-15">Bels JLM, Thiessen S, van Gassel RJJ, Beishuizen A, De Bie Dekker A, Fraipont V, et al. Effect of high versus standard protein provision on functional recovery in people with critical illness (PRECISe): an investigator-initiated, double-blinded, multicentre, parallel-group, randomised controlled trial in Belgium and the Netherlands. Lancet. 2024;404(10453):659–69. <a href="https://doi.org/10.1016/S0140-6736%2824%2901304-7" target="_blank" rel="noopener">doi:10.1016/S0140-6736(24)01304-7</a></li>
+<li id="ref-16">TARGET Investigators, for the ANZICS Clinical Trials Group, Chapman M, Peake SL, Bellomo R, Davies A, Deane A, et al. Energy-dense versus routine enteral nutrition in the critically ill. N Engl J Med. 2018;379(19):1823–34. <a href="https://doi.org/10.1056/NEJMoa1811687" target="_blank" rel="noopener">doi:10.1056/NEJMoa1811687</a></li>
+<li id="ref-17">Fuentes Padilla P, Martínez G, Vernooij RW, Urrútia G, Roqué I Figuls M, Bonfill Cosp X. Early enteral nutrition (within 48 hours) versus delayed enteral nutrition (after 48 hours) with or without supplemental parenteral nutrition in critically ill adults. Cochrane Database Syst Rev. 2019;2019(10):CD012340. htt ps://doi.org/10.1002/14651858.CD012340. <a href="https://doi.org/10.1002/14651858.CD012340" target="_blank" rel="noopener">doi:10.1002/14651858.CD012340</a></li>
+<li id="ref-18">Pardo E, Lescot T, Preiser JC, Massanet P, Pons A, Jaber S, et al. Association between early nutrition support and 28-day mortality in critically ill patients: the FRANS prospective nutrition cohort study. Crit Care. 2023;27(1):7. <a href="https://doi.org/10.1186/s13054-022-04298-1" target="_blank" rel="noopener">doi:10.1186/s13054-022-04298-1</a></li>
+<li id="ref-19">Reignier J, Plantefeve G, Mira JP, Argaud L, Asfar P, Aissaoui N, et al. Low versus standard calorie and protein feeding in ventilated adults with shock: a randomised, controlled, multicentre, open-label, parallel-group trial (NUTRIREA-3). Lancet Respir Med. 2023;11(7):602–12. <a href="https://doi.org/10.1016/S2213-2600%2823%2900092-9" target="_blank" rel="noopener">doi:10.1016/S2213-2600(23)00092-9</a></li>
+<li id="ref-20">Ortiz-Reyes L, Patel JJ, Jiang X, Coz Yataco A, Day AG, Shah F, et al. Early versus delayed enteral nutrition in mechanically ventilated patients with circulatory shock: a nested cohort analysis of an international multicenter, pragmatic clinical trial. Crit Care. 2022;26(1):173. <a href="https://doi.org/10.1186/s13054-022-04047-4" target="_blank" rel="noopener">doi:10.1186/s13054-022-04047-4</a></li>
+<li id="ref-21">Summers MJ, Chapple LS, Karahalios A, Bellomo R, Chapman MJ, Ferrie S, et al. Augmented enteral protein during critical illness: the TARGET protein randomized clinical trial. JAMA. 2025;334(4):319–28. <a href="https://doi.org/10.1001/jama.2025.9110" target="_blank" rel="noopener">doi:10.1001/jama.2025.9110</a></li>
+<li id="ref-22">Heyland DK, Stephens KE, Day AG, McClave SA. The success of enteral nutrition and ICU-acquired infections: a multicenter observational study. Clin Nutr. 2011;30(2):148–55. <a href="https://doi.org/10.1016/j.clnu.2010.09.011" target="_blank" rel="noopener">doi:10.1016/j.clnu.2010.09.011</a></li>
+<li id="ref-23">McClave SA, Martindale RG, Kiraly L. The use of indirect calorimetry in the intensive care unit. Curr Opin Clin Nutr Metab Care. 2013;16(2):202–8. <a href="https://doi.org/10.1097/MCO.0b013e32835dbc54" target="_blank" rel="noopener">doi:10.1097/MCO.0b013e32835dbc54</a></li>
+<li id="ref-24">Heyland DK, Dhaliwal R, Jiang X, Day AG. Identifying critically ill patients who benefit the most from nutrition therapy: the development and initial validation of a novel risk assessment tool. Crit Care. 2011;15(6):R268. <a href="https://doi.org/10.1186/cc10546" target="_blank" rel="noopener">doi:10.1186/cc10546</a></li>
+<li id="ref-25">Wernerman J, Christopher KB, Annane D, et al. Metabolic support in the critically ill: a consensus of 19. Crit Care. 2019;23(1):318. <a href="https://doi.org/10.1186/s13054-019-2597-0" target="_blank" rel="noopener">doi:10.1186/s13054-019-2597-0</a></li>
+<li id="ref-26">Christopher KB. Nutritional metabolomics in critical illness. Curr Opin Clin Nutr Metab Care. 2018;21(2):121–5. <a href="https://doi.org/10.1097/MCO.0000000000000451" target="_blank" rel="noopener">doi:10.1097/MCO.0000000000000451</a></li>
+<li id="ref-27">Arabi YM, Aldawood AS, Haddad SH, et al. Permissive underfeeding or standard enteral feeding in critically ill adults. N Engl J Med. 2015;372(25):2398– 408. <a href="https://doi.org/10.1056/NEJMoa1502826" target="_blank" rel="noopener">doi:10.1056/NEJMoa1502826</a></li>
+<li id="ref-28">Singer P, Blaser AR, Berger MM, et al. ESPEN guideline on clinical nutrition in the intensive care unit. Clin Nutr. 2019;38(1):48–79. <a href="https://doi.org/10.1016/j.clnu.2018.08.037" target="_blank" rel="noopener">doi:10.1016/j.clnu.2018.08.037</a></li>
+<li id="ref-29">Doig GS, Simpson F, Finfer S, et al. Effect of evidence-based feeding guidelines on mortality of critically ill adults: a cluster randomized controlled trial. JAMA. 2008;300(23):2731–41. <a href="https://doi.org/10.1001/jama.2008.826" target="_blank" rel="noopener">doi:10.1001/jama.2008.826</a></li>
+<li id="ref-30">Weber-Carstens S, Schneider J, Wollersheim T, Assmann A, Bierbrauer J, Marg A, et al. Critical illness myopathy and GLUT4: significance of insulin and muscle contraction. Am J Respir Crit Care Med. 2013;187(4):387–96. <a href="https://doi.org/10.1164/rccm.201209-1649OC" target="_blank" rel="noopener">doi:10.1164/rccm.201209-1649OC</a></li>
+<li id="ref-31">Lu GP, Cui P, Cheng Y, Lu ZJ, Zhang LE, Kissoon N. Insulin control of blood glucose and GLUT4 expression in the skeletal muscle of septic rats. West Indian Med J. 2015;64(2):62–70. <a href="https://doi.org/10.7727/wimj.2013.181" target="_blank" rel="noopener">doi:10.7727/wimj.2013.181</a></li>
+<li id="ref-32">Heyland DK, Dhaliwal R, Wang M, Day AG. The prevalence of iatrogenic underfeeding in the nutritionally at-risk critically ill patient: results of an international, multicenter, prospective study. Clin Nutr. 2015;34(4):659–66. htt ps://doi.org/10.1016/j.clnu.2014.07.008. <a href="https://doi.org/10.1016/j.clnu.2014.07.008" target="_blank" rel="noopener">doi:10.1016/j.clnu.2014.07.008</a></li>
+<li id="ref-33">Casaer MP, den Van Berghe G. Nutrition in the acute phase of critical illness. N Engl J Med. 2014;370(13):1227–36. <a href="https://doi.org/10.1056/NEJMra1304623" target="_blank" rel="noopener">doi:10.1056/NEJMra1304623</a></li>
+<li id="ref-34">de Aguilar-Nascimento JE, Bicudo-Salomão A, Portari-Filho PE. Optimal timing for the initiation of enteral and parenteral nutrition in critical medical and surgical conditions. Nutrition. 2012;28(9):840–3. <a href="https://doi.org/10.1016/j.nut.2012.01.013" target="_blank" rel="noopener">doi:10.1016/j.nut.2012.01.013</a></li>
+<li id="ref-35">de Man AME, Gunst J, Reintam Blaser A. Nutrition in the intensive care unit: from the acute phase to beyond. Intensive Care Med. 2024;50(7):1035–48. htt ps://doi.org/10.1007/s00134-024-07458-9. <a href="https://doi.org/10.1007/s00134-024-07458-9" target="_blank" rel="noopener">doi:10.1007/s00134-024-07458-9</a></li>
+<li id="ref-36">Reintam Blaser A, Rooyackers O, Bear DE. How to avoid harm with feeding critically ill patients: a synthesis of viewpoints of a basic scientist, dietitian and intensivist. Crit Care. 2023;27(1):258. <a href="https://doi.org/10.1186/s13054-023-04543-1" target="_blank" rel="noopener">doi:10.1186/s13054-023-04543-1</a></li>
+<li id="ref-37">El Youssef J, Castle JR, Branigan DL, Bakhtiani PA, Schneider EH, Turksoy K, et al. A controlled study of the effectiveness of an adaptive closed-loop algorithm to minimize corticosteroid-induced stress hyperglycemia in type 1 diabetes. Diabetes Technol Ther. 2011;13(4):419–24. <a href="https://doi.org/10.1089/dia.2010.0170" target="_blank" rel="noopener">doi:10.1089/dia.2010.0170</a></li>
+<li id="ref-38">Pretty CG, Le Compte AJ, Chase JG, Shaw GM, Preiser JC, Penning S, et al. Impact of glucocorticoids on insulin resistance in the critically ill: a retrospective cohort study. Comput Methods Programs Biomed. 2011;104(2):e102–11. <a href="https://doi.org/10.1016/j.cmpb.2010.12.013" target="_blank" rel="noopener">doi:10.1016/j.cmpb.2010.12.013</a></li>
+<li id="ref-39">Kruszynska YT, Home PD, Hanning I, Alberti KGMM. Basal and 24-h C-peptide and insulin secretion rate in normal man. Diabetologia. 1987;30(1):16–21. htt ps://doi.org/10.1007/BF00295877. <a href="https://doi.org/10.1007/BF00295877" target="_blank" rel="noopener">doi:10.1007/BF00295877</a></li>
+</ol>
+</div>
+        
+        
+        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Gargi et al. (2026), <em>Critical Care</em>, <a href="https://doi.org/10.1186/s13054-026-05874-5" target="_blank" rel="noopener">doi:10.1186/s13054-026-05874-5</a>, under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY</a> licence. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+      </article>
+    </div>
+
+    <section class="paper-related" aria-labelledby="related-title"><div class="paper-wrap"><h2 id="related-title">Related research</h2><div class="related-grid"><a class="related-card" href="/publications/noradrenaline-trajectory-phenotypes-septic-shock-derivation-external/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2026</span><strong>Noradrenaline-trajectory phenotypes in septic shock: derivation and external validation in two independent cohorts</strong><span class="related-text">Intensive Care Medicine Experimental</span></a><a class="related-card" href="/publications/pre-transition-nutrition-dose-mortality-crp-free/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2026</span><strong>Pre-transition nutrition dose and mortality using a CRP-Free operational metabolic transition framework: A MIMIC-IV transportability analysis</strong><span class="related-text">Clinical Nutrition ESPEN</span></a><a class="related-card" href="/publications/comparing-manual-vs-automated-machine-learning-deep/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2026</span><strong>Comparing Manual vs. Automated Machine Learning and Deep Learning Models for Predicting One-Year Mortality in Elderly Hip Fracture Patients</strong><span class="related-text">Frontiers in Medicine</span></a></div><p class="related-more"><a href="/publications.html">All publications</a></p></div></section>
+  </main>
+
+  <dialog id="cite-dialog" class="paper-dialog" aria-labelledby="cite-title">
+    <div class="dialog-head">
+      <h2 id="cite-title">Cite this paper</h2>
+      <button type="button" class="dialog-close" aria-label="Close"><i class="ri-close-line" aria-hidden="true"></i></button>
+    </div>
+    <p class="dialog-label">APA</p>
+    <pre class="cite-box" id="cite-apa">Gargi, Y., Levran, N., Vine, J., Cohen, A., Weiner, D., Stein, D., Levi, O., Cohen, D., Klein, J., Taube, H. S., Glebov, M., Lazebnik, T., Saban, M., Efrat, S., Drori, E., Haviv, Y., &amp; Segal, E. (2026). Detecting the metabolic transition to personalize nutritional timing: model development and preliminary validation in a large ICU cohort. Critical Care, 30, 132. https://doi.org/10.1186/s13054-026-05874-5</pre>
+    <button type="button" class="paper-btn" data-copy="cite-apa"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy APA</span></button>
+    <p class="dialog-label">BibTeX</p>
+    <pre class="cite-box" id="cite-bib">@article{gargi2026detecting,
+  title = {Detecting the metabolic transition to personalize nutritional timing: model development and preliminary validation in a large ICU cohort},
+  author = {Gargi, Yonatan and Levran, Neriya and Vine, Jacob and Cohen, Amir and Weiner, Dana and Stein, Dorit and Levi, Ori and Cohen, Dor and Klein, Julia and Taube, Hamutal S. and Glebov, Maxim and Lazebnik, Teddy and Saban, Mor and Efrat, Shaked and Drori, Elad and Haviv, Yael and Segal, Eran},
+  journal = {Critical Care},
+  volume = {30},
+  pages = {132},
+  year = {2026},
+  doi = {10.1186/s13054-026-05874-5}
+}</pre>
+    <button type="button" class="paper-btn" data-copy="cite-bib"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy BibTeX</span></button>
+  </dialog>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Games</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
+                  <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
+                  <li><a href="https://rl.teddylazebnik.com/">Pirate War RL Game</a></li>
+                  <li><a href="https://eh.teddylazebnik.com/">Echo Heist</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      
+      <script>
+        (function () {
+          // menu and navbar (js/main.js expects to sit at the site root)
+          var btn = document.getElementById('menu-btn'), menu = document.getElementById('mobile-menu'), nav = document.getElementById('navbar');
+          btn.addEventListener('click', function () { menu.classList.toggle('max-h-0'); menu.classList.toggle('max-h-screen'); });
+          var onScroll = function () { nav.classList.toggle('nav-scrolled', window.scrollY > 10); };
+          window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+          // cite dialog + copy buttons
+          var dialog = document.getElementById('cite-dialog');
+          document.querySelectorAll('[data-dialog]').forEach(function (b) {
+            b.addEventListener('click', function () { if (dialog.showModal) dialog.showModal(); else dialog.setAttribute('open', ''); });
+          });
+          dialog.querySelector('.dialog-close').addEventListener('click', function () { dialog.close(); });
+          dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
+          function flash(button, text) {
+            var label = button.querySelector('span'), old = label.textContent;
+            label.textContent = text; setTimeout(function () { label.textContent = old; }, 1600);
+          }
+          document.querySelectorAll('[data-copy]').forEach(function (b) {
+            b.addEventListener('click', function () {
+              var text = document.getElementById(b.getAttribute('data-copy')).textContent;
+              navigator.clipboard.writeText(text).then(function () { flash(b, 'Copied'); });
+            });
+          });
+          document.getElementById('share-btn').addEventListener('click', function () {
+            var b = this, data = { title: document.title, url: location.href.split('#')[0] };
+            if (navigator.share) { navigator.share(data).catch(function () {}); }
+            else { navigator.clipboard.writeText(data.url).then(function () { flash(b, 'Link copied'); }); }
+          });
+
+          // highlight the section being read in "On this page"
+          var links = {};
+          document.querySelectorAll('.paper-toc a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+          var heads = Array.prototype.filter.call(document.querySelectorAll('#full-text h2[id], #full-text h3[id], #full-text section[id]'), function (h) { return links[h.id]; });
+          if ('IntersectionObserver' in window && heads.length) {
+            var current = null;
+            var io = new IntersectionObserver(function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                  if (current) current.classList.remove('is-active');
+                  current = links[e.target.id]; current.classList.add('is-active');
+                }
+              });
+            }, { rootMargin: '-90px 0px -70% 0px' });
+            heads.forEach(function (h) { io.observe(h); });
+          }
+        })();
+      </script>
+   </body>
+</html>

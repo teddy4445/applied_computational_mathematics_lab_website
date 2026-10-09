@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_papers.py from paper.md + paper.json in this folder. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Analytically Obtaining Stable Equilibria of Extended SIR-Type Models | ACML</title>
+      <meta name="description" content="Classical methods failed to analytically find the stable long-term states, known as equilibria, of a large SIR-type epidemic model we developed for viral…">
+      <meta name="author" content="Teddy Lazebnik, Svetlana Bunimovich-Mendrazitsky, and Leonid Shaikhet">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/publications/novel-method-analytically-obtain-asymptotic-stable-equilibria/">
+      <meta name="citation_title" content="Novel Method to Analytically Obtain the Asymptotic Stable Equilibria States of Extended SIR-Type Epidemiological Models">
+      <meta name="citation_author" content="Teddy Lazebnik">
+      <meta name="citation_author" content="Svetlana Bunimovich-Mendrazitsky">
+      <meta name="citation_author" content="and Leonid Shaikhet">
+      <meta name="citation_publication_date" content="2021/06/23">
+      <meta name="citation_journal_title" content="Symmetry">
+      <meta name="citation_volume" content="13">
+      <meta name="citation_firstpage" content="1120">
+      <meta name="citation_doi" content="10.3390/sym13071120">
+      <meta name="citation_pdf_url" content="https://teddylazebnik.com/files/symmetry_sir_paper.pdf">
+      <meta name="citation_abstract_html_url" content="https://acml.teddylazebnik.com/publications/novel-method-analytically-obtain-asymptotic-stable-equilibria/">
+      <meta name="citation_fulltext_html_url" content="https://acml.teddylazebnik.com/publications/novel-method-analytically-obtain-asymptotic-stable-equilibria/">
+      <meta name="citation_keywords" content="markov chain; random variable transformation technique; asymptotic stable equilibria state; three age group SIIRD model">
+      <meta name="citation_language" content="en">
+      <meta property="og:type" content="article">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Analytically Obtaining Stable Equilibria of Extended SIR-Type Models">
+      <meta property="og:description" content="Classical methods failed to analytically find the stable long-term states, known as equilibria, of a large SIR-type epidemic model we developed for viral…">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/publications/novel-method-analytically-obtain-asymptotic-stable-equilibria/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/publications/novel-method-analytically-obtain-asymptotic-stable-equilibria/figures/share-fig-1.jpg">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Analytically Obtaining Stable Equilibria of Extended SIR-Type Models">
+      <meta name="twitter:description" content="Classical methods failed to analytically find the stable long-term states, known as equilibria, of a large SIR-type epidemic model we developed for viral…">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/publications/novel-method-analytically-obtain-asymptotic-stable-equilibria/figures/share-fig-1.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "Novel Method to Analytically Obtain the Asymptotic Stable Equilibria States of Extended SIR-Type…",
+  "name": "Novel Method to Analytically Obtain the Asymptotic Stable Equilibria States of Extended SIR-Type Epidemiological Models",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Teddy Lazebnik"
+    },
+    {
+      "@type": "Person",
+      "name": "Svetlana Bunimovich-Mendrazitsky"
+    },
+    {
+      "@type": "Person",
+      "name": "and Leonid Shaikhet"
+    }
+  ],
+  "datePublished": "2021-06-23",
+  "url": "https://acml.teddylazebnik.com/publications/novel-method-analytically-obtain-asymptotic-stable-equilibria/",
+  "mainEntityOfPage": "https://acml.teddylazebnik.com/publications/novel-method-analytically-obtain-asymptotic-stable-equilibria/",
+  "abstract": "We present a new analytical method to find the asymptotic stable equilibria states based on the Markov chain technique. We reveal this method on the Susceptible-Infectious-Recovered (SIR)-type epidemiological model that we developed for viral diseases with long-term immunity memory. This is a large-scale model containing 15 nonlinear ordinary differential equations (ODEs), and classical methods have failed to analytically obtain its equilibria. The proposed method is used to conduct a comprehensive analysis by a stochastic representation of the dynamics of the model, followed by finding all asymptotic stable equilibrium states of the model for any values of parameters and initial conditions thanks to the symmetry of the population size over time.",
+  "description": "Classical methods failed to analytically find the stable long-term states, known as equilibria, of a large SIR-type epidemic model we developed for viral…",
+  "image": "https://acml.teddylazebnik.com/publications/novel-method-analytically-obtain-asymptotic-stable-equilibria/figures/share-fig-1.jpg",
+  "keywords": "markov chain, random variable transformation technique, asymptotic stable equilibria state, three age group SIIRD model",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "DOI",
+    "value": "10.3390/sym13071120"
+  },
+  "sameAs": "https://doi.org/10.3390/sym13071120",
+  "isPartOf": {
+    "@type": "PublicationIssue",
+    "issueNumber": "",
+    "isPartOf": {
+      "@type": "PublicationVolume",
+      "volumeNumber": "13",
+      "isPartOf": {
+        "@type": "Periodical",
+        "name": "Symmetry"
+      }
+    }
+  },
+  "about": "Biomathematics",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "encoding": {
+    "@type": "MediaObject",
+    "contentUrl": "https://teddylazebnik.com/files/symmetry_sir_paper.pdf",
+    "encodingFormat": "application/pdf"
+  }
+}
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/paper.css" rel="stylesheet">
+      
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="paper-page">
+    <header class="paper-hero">
+      <div class="paper-wrap">
+        <nav class="paper-crumbs" aria-label="Breadcrumb">
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Biomathematics</span>
+        </nav>
+        <p class="paper-kicker"><span><em>Symmetry</em> · 23 June 2021</span></p>
+        <h1 class="paper-title">Novel Method to Analytically Obtain the Asymptotic Stable Equilibria States of Extended SIR-Type Epidemiological Models</h1>
+        <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author">Svetlana Bunimovich-Mendrazitsky</span>, <span class="author">and Leonid Shaikhet</span></p>
+        
+        <div class="paper-actions">
+          <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/symmetry_sir_paper.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
+          <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
+          
+          <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
+          <a class="paper-btn" href="https://doi.org/10.3390/sym13071120" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
+          <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
+        </div>
+        <div class="lab-authors"><span class="lab-authors-label">ACML authors</span><a class="lab-chip" href="/team.html"><img src="/img/lab/teddy.webp" alt="" width="32" height="32" loading="lazy"><span><strong>Teddy Lazebnik</strong><small>PI</small></span></a></div>
+      </div>
+    </header>
+
+    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Classical methods failed to analytically find the stable long-term states, known as equilibria, of a large SIR-type epidemic model we developed for viral diseases with long-term immunity memory, which has 15 nonlinear differential equations. We present a new analytical method based on the Markov chain technique, which describes random transitions between states, and use a stochastic representation of the model&#x27;s dynamics. The method finds all asymptotic stable equilibria for any parameter values and initial conditions.</p><div class=glance-stats><div class="stat"><span class="stat-value">15</span><span class="stat-label">nonlinear differential equations in the epidemiological model</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>We present a new analytical method based on the Markov chain technique to find asymptotic stable equilibria states.</li><li>We apply it to our SIR-type model of viral diseases with long-term immunity memory, which has 15 nonlinear ordinary differential equations.</li><li>Classical methods failed to analytically obtain this model&#x27;s equilibria.</li><li>The method finds all asymptotic stable equilibrium states for any parameter values and initial conditions, thanks to population size symmetry over time.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="595" height="729" alt="Figure 1. Schematic view of the three age group SIIRD model with transition between disease stages, divided by age groups. Each node is an epidemiological age state in the form of Xy, where X ∈ [S, Ia, Is, R, D] is the epidemiological state and y ∈ [c, a, e] is the age group. The edges are the possible transformation, and the value next to them indicates the rate of the population that moves from the source node to the target node. A detailed description of the dynamics is presented in Equations (1)–(15)."></a><figcaption><strong>Figure 1.</strong> Schematic view of the three age group SIIRD model with transition between disease stages, divided by age groups. Each node is an epidemiological age state in the form of <em>X</em><sub>y</sub>, where <em>X ∈</em> [<em>S</em>, <em>I</em><sup>a</sup>, <em>I</em><sup>s</sup>, <em>R</em>, <em>D</em>] is the epidemiological state and <em>y ∈</em> [<em>c</em>, <em>a</em>, <em>e</em>] is the age group. The edges are the possible transformation, and the value next to them indicates the rate of the population that moves from the source node to the target node. A detailed description of the dynamics is presented in Equations (1)–(15). <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+
+    <div class="paper-wrap paper-layout">
+      <aside class="paper-aside">
+        <nav class="paper-toc" aria-label="On this page">
+          <p class="aside-title">On this page</p>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#1-introduction-and-related-work">1. Introduction and Related Work</a></li>
+<li><a href="#2-model-definition">2. Model Definition</a></li>
+<li><a href="#such-that">such that</a></li>
+<li><a href="#3-asymptotic-stable-equilibria-states">3. Asymptotic Stable Equilibria States</a></li>
+<li><a href="#4-comparison-with-classical-methods">4. Comparison with Classical Methods</a></li><li class="toc-sub"><a href="#41-equilibrium">4.1. Equilibrium</a></li><li class="toc-sub"><a href="#42-centralization-and-linearization">4.2. Centralization and Linearization</a></li>
+<li><a href="#5-conclusions-and-future-research-directions">5. Conclusions and Future Research Directions</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </nav>
+        <div class="paper-info">
+          <p class="aside-title">Article information</p>
+          <dl><div><dt>Journal</dt><dd>Symmetry 13: 1120</dd></div><div><dt>Published</dt><dd><time datetime="2021-06-23">23 June 2021</time></dd></div><div><dt>DOI</dt><dd><a href="https://doi.org/10.3390/sym13071120" target="_blank" rel="noopener">10.3390/sym13071120</a></dd></div></dl>
+        </div>
+      </aside>
+
+      <article class="paper-body" id="full-text">
+        <details class="paper-toc-mobile">
+          <summary>On this page</summary>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#1-introduction-and-related-work">1. Introduction and Related Work</a></li>
+<li><a href="#2-model-definition">2. Model Definition</a></li>
+<li><a href="#such-that">such that</a></li>
+<li><a href="#3-asymptotic-stable-equilibria-states">3. Asymptotic Stable Equilibria States</a></li>
+<li><a href="#4-comparison-with-classical-methods">4. Comparison with Classical Methods</a></li><li class="toc-sub"><a href="#41-equilibrium">4.1. Equilibrium</a></li><li class="toc-sub"><a href="#42-centralization-and-linearization">4.2. Centralization and Linearization</a></li>
+<li><a href="#5-conclusions-and-future-research-directions">5. Conclusions and Future Research Directions</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </details>
+        <section id="abstract" class="paper-abstract">
+          <h2>Abstract</h2>
+          <p>We present a new analytical method to find the asymptotic stable equilibria states based on the Markov chain technique. We reveal this method on the Susceptible-Infectious-Recovered (SIR)-type epidemiological model that we developed for viral diseases with long-term immunity memory. This is a large-scale model containing 15 nonlinear ordinary differential equations (ODEs), and classical methods have failed to analytically obtain its equilibria. The proposed method is used to conduct a comprehensive analysis by a stochastic representation of the dynamics of the model, followed by finding all asymptotic stable equilibrium states of the model for any values of parameters and initial conditions thanks to the symmetry of the population size over time.</p>
+        </section>
+        
+<div class="paper-text">
+<h2 id="1-introduction-and-related-work">1. Introduction and Related Work</h2>
+<p>A large group of epidemiological models are extensions of the Susceptible-Infected- Recovered (SIR) model <span class="cite">[<a href="#ref-1">1</a>]</span>. These models were used for both prediction of the pandemic spread and to find optimal intervention policies for multiple types of diseases, such as polio <span class="cite">[<a href="#ref-2">2</a>]</span>, COVID-19 <span class="cite">[<a href="#ref-3">3</a>]</span>, ebola <span class="cite">[<a href="#ref-4">4</a>]</span>, and influenza <span class="cite">[<a href="#ref-5">5</a>]</span>. These models use a wide range of analyses and extensions for the SIR model to properly represent the epidemiological and biological properties unique to each disease. One can use these models to obtain multiple intervention policies and the properties of the pandemic dynamics <span class="cite">[<a href="#ref-3">3</a>]</span>, for example, to predict the required number of intensive care units (ICU) to treat all severely infected individuals <span class="cite">[<a href="#ref-6">6</a>]</span>, in order to estimate the influence of the pandemic on the economy <span class="cite">[<a href="#ref-3">3</a>,<a href="#ref-7">7</a>]</span>. Wang et al. <span class="cite">[<a href="#ref-8">8</a>]</span> provided a review of multiple intervention policies and modeling approaches for the pandemic spread, showing the advantage of the stochastic approach for SIR-type models as compared to deterministic models in representing real-world dynamics.</p>
+<p>However, as models become large, it becomes complicated to numerically solve them and to obtain the model analytical properties. A specific property of interest is asymptotic stable equilibria states <span class="cite">[<a href="#ref-9">9</a>]</span>. The way of obtaining these steps is significantly dependent on the system and its representation. For example, one can obtain the asymptotic stable equilibria states of an ordinary differential equation (ODE) system numerically using a proportional-derivative controller <span class="cite">[<a href="#ref-9">9</a>]</span>. On the other hand, one may use analytical methods, which first obtain the equilibria states by setting the gradient of the system’s state to zero and then solve them to find the system’s state. In order to find the stability properties of such equilibria, one may use several methods, such as adding errors to the equilibria to show if this either decreases or increases and under which conditions <span class="cite">[<a href="#ref-10">10</a>]</span>. Another option is to show that under given conditions the eigenvalues of the Jacobin matrix in the equilibria states are negative <span class="cite">[<a href="#ref-2">2</a>]</span>. An additional common option is using the Lyapunov stability theorem <span class="cite">[<a href="#ref-11">11</a>–<a href="#ref-14">14</a>]</span>. While these methods are useful, they require some level of expertise to understand how to configure a specific dynamic system for each method. Furthermore, these methods first require one to find the equilibria states of the model, which may be a time- and resource-consuming task in itself. Therefore, the analytical analysis of large-scale systems a complex task remains challenging.</p>
+<p>One method shown to be useful in modeling dynamics in epidemics is the Markov chain method <span class="cite">[<a href="#ref-15">15</a>,<a href="#ref-16">16</a>]</span>. In the context of epidemics, the Markov chain method represents the dynamics, that is, the rapid spread of the disease in the population, using a transmission matrix <span class="cite">[<a href="#ref-15">15</a>]</span>.</p>
+<p>Since the pandemic spread is subject to multiple complex factors whose nature is uncertain <span class="cite">[<a href="#ref-16">16</a>]</span>, and these factors change based on the current state of the disease spread, the Markov chain method is a natural approach to use in order to model such dynamics <span class="cite">[<a href="#ref-17">17</a>–<a href="#ref-19">19</a>]</span>. It was shown that the Markov chain method approximates the deterministic SIR model very well <span class="cite">[<a href="#ref-20">20</a>,<a href="#ref-21">21</a>]</span>. In addition, using the Markov chain method it is possible to obtain multiple analytical properties such as equilibria states and asymptotic states <span class="cite">[<a href="#ref-22">22</a>]</span>.</p>
+<p>We propose a novel method to obtain all asymptotic stable equilibria states of an extended SIR for three age groups and for five epidemiological states, which we develop to describe long-term immunity memory in the airborne infection pandemic model <span class="cite">[<a href="#ref-3">3</a>]</span>. Our method approximates the continuous extended SIR model using a discrete, stochastic, Markov chain representation. The paper is organized as follows. First, we introduce an extended SIR model, consisting of 15 ODEs. Second, we present the asymptotic equilibrium state of the proposed model. Third, we compare the proposed method with a classical method. Finally, we discuss the main advantages and limitations of the proposed method.</p>
+<h2 id="2-model-definition">2. Model Definition</h2>
+<p>We describe an extended SIR epidemiological model proposed by us in <span class="cite">[<a href="#ref-23">23</a>]</span>, with the addition of the new age group (elderly) and dividing the infection state into asymptomatic and symptomatic subpopulations. A full description of the proposed model is as follows: The model considers a constant population with a fixed number of individuals <em>N</em>. Each individual belongs to one of the five subpopulations: susceptible (<em>S</em>), infected asymptomatic (<em>I</em><sup>a</sup>), infected symptomatic (<em>I</em><sup>s</sup>), recovered (<em>R</em>), and dead (<em>D</em>), such that <em>N</em> = <em>S</em> + <em>I</em><sup>s</sup> + <em>I</em><sup>a</sup> + <em>R</em> + <em>D</em>, such that each subpopulation is non-negative. When an individual in the susceptible subpopulation (<em>S</em>) is exposed to the infection, they are transformed to either the asymptomatic or symptomatic infected subpopulation (<em>I</em><sup>a</sup>, <em>I</em><sup>s</sup>) in rates <em>β</em><sub>a</sub>, <em>β</em><sub>s</sub>. Individuals in the symptomatic infected subpopulation (<em>I</em><sup>s</sup>) stay in this subpopulation on average <em>d</em><sup>s</sup> <sub>I→R</sub> days, after which they are transformed to either the recovered (<em>R</em>) or dead (<em>D</em>) subpopulation. Therefore, in each time unit, some portion of infected individuals recover while others die or remain seriously ill. Individuals in the asymptomatic infected subpopulation (<em>I</em><sup>a</sup>) stay in this subpopulation on average <em>d</em><sup>a</sup> <sub>I→R</sub> days, after which they are transformed to the recovered subpopulation (<em>R</em>). Thus, our extended SIR model that consists of Susceptible, Infected-Asymptomatic, Infected-Symptomatic, Recovered and Deceased subpopulations is called SIIRD. A schematic view of the transition of an individual in the population between the model’s states is shown in <a class="xref" href="#fig-1">Figure 1</a>.</p>
+<p>The population is divided into three classes based on age: children, adults, and elderly because these subpopulations experience diseases in varying degrees of severity and have different infection probabilities. Individuals below age <em>A</em><sub>1</sub> are associated with the “children” age class, while individuals below age <em>A</em><sub>2</sub> are associated with the “adult” age class and the complementary subpopulation are associated with the “elderly” age class. The specific threshold ages (<em>A</em><sub>1</sub>, <em>A</em><sub>2</sub>) may differ in different locations but the main goal is to divide the population into three representative age classes. Since it takes <em>A</em><sub>1</sub> years from birth to move from a child to an adult age subpopulation and <em>A</em>2 <em>− A</em>1 from an adult to the elderly subpopulation, the conversion rate is set as <em>α</em><sub>1</sub> := 1/<em>A</em><sub>1</sub> and <em>α</em><sub>2</sub> := 1/(<em>A</em><sub>2</sub> <em>− A</em><sub>1</sub>). In addition, children are born and the elderly die at a rate unrelated to the pandemic <em>λ</em>. We assume that different age groups spend most of their time in separation from each other, which results in a relatively small rate of infected individuals infecting a susceptible individual from different age groups. Therefore, we neglect these dynamics by setting these to zero. By expanding the designation to three age classes, we let <em>S</em><sub>c</sub>, <em>I</em><sup>a</sup> <sub>c</sub> , <em>I</em><sup>s</sup> <sub>c</sub>, <em>R</em><sub>c</sub>, <em>D</em><sub>c</sub>, <em>S</em><sub>a</sub>, <em>I</em><sup>a</sup> <sub>a</sub>, <em>I</em><sup>s</sup> <sub>a</sub>, <em>R</em><sub>a</sub>, <em>D</em><sub>a</sub>, and <em>S</em><sub>e</sub>, <em>I</em><sup>a</sup> <sub>e</sub> , <em>I</em><sup>s</sup> <sub>e</sub>, <em>R</em><sub>e</sub>, <em>D</em><sub>e</sub> to represent the susceptible, asymptomatic infected, symptomatic infected, recovered„ and dead subpopulations for children, adults, and the elderly, respectively, such that</p>
+<div class="equation" id="eq-1"><img src="figures/eq-1.webp" width="279" height="60" alt="{x ∈{c, a, e} | Nx := Sx + Ia x + Is x + Rx + Dx}, and N = Σx∈{c,a,e}Nx." loading="lazy" decoding="async"></div>
+
+<p>In addition, we mark <em>n</em> = 15 to be the number of the subpopulation in the model. Afterward, in order to obtain the distribution of the subpopulations sizes in the whole population, we divide each subpopulation by the overall size of the population to obtain</p>
+<div class="equation" id="eq-2"><img src="figures/eq-2.webp" width="294" height="27" alt="{x ∈{c, a, e}, p ∈{S, Ia, Is, R, D} | px := px/N}." loading="lazy" decoding="async"></div>
+
+<p>Equations (1)–(15) describe the epidemic’s dynamics. In Equation (1), <sup>dSc(t)</sup> is the dynamic amount of susceptible individual children over <em>dt</em> time. It is affected by the following four terms. First, at a rate of <em>β</em><sub>cs</sub>, each symptomatic infected child infects susceptible children. Second, at a rate of <em>β</em><sub>ca</sub>, each asymptomatic infected child infects the susceptible children. Third, children grow and pass from the children’s age class to the adult’s age class with a transition rate of <em>α</em><sub>1</sub>, and are removed from the children’s age class. Finally, at a rate of <em>λ</em>, the children born and the elderly die, which is not related to the pandemic.</p>
+<figure id="fig-1">
+<a class="fig-zoom" href="figures/fig-1.webp" aria-label="Open the figure full size"><img src="figures/fig-1.webp" width="342" height="419" alt="Schematic view of the three age group SIIRD model with transition between disease stages, divided by age groups" loading="lazy" decoding="async"></a>
+<figcaption><strong>Figure 1.</strong> Schematic view of the three age group SIIRD model with transition between disease stages, divided by age groups. Each node is an epidemiological age state in the form of <em>X</em><sub>y</sub>, where <em>X ∈</em> [<em>S</em>, <em>I</em><sup>a</sup>, <em>I</em><sup>s</sup>, <em>R</em>, <em>D</em>] is the epidemiological state and <em>y ∈</em> [<em>c</em>, <em>a</em>, <em>e</em>] is the age group. The edges are the possible transformation, and the value next to them indicates the rate of the population that moves from the source node to the target node. A detailed description of the dynamics is presented in Equations (1)–(15).</figcaption>
+</figure>
+
+<div class="equation" id="eq-3"><img src="figures/eq-3.webp" width="495" height="41" alt="dSc(t) dt = −(βcsIs c(t) + βcaIa c (t) + α1)Sc(t) + λ(Se(t) + Is e(t) + Ia e (t) + Re(t)). (1)" loading="lazy" decoding="async"></div>
+
+<p>In Equation (2), <sup>dIsc(t)</sup> is the dynamic amount of symptomatic infected individual <em>dt</em> children over time. It is affected by the following four terms. First, at a rate of <em>β</em><sub>cs</sub>, each symptomatic infected child infects the susceptible children. Second, individuals recover from the disease at a rate of <em>γ</em><sub>cr</sub>. Third, individuals die from the disease at a rate of <em>γ</em><sub>cd</sub>. Finally, children grow and pass from the children’s age class to the adult’s age class at a transition rate of <em>α</em><sub>1</sub>, and are removed from the adult’s age class.</p>
+<div class="equation" id="eq-4"><img src="figures/eq-4.webp" width="406" height="38" alt="dIs c(t) dt = βcsIs c(t)Sc(t) −(α1 + γcr + γcd)Is c(t). (2)" loading="lazy" decoding="async"></div>
+
+<p>In Equation (3), <sup>dIac (t)</sup> is the dynamic amount of asymptomatic infected individual <em>dt</em> children over time. It is affected by the following three terms. First, at a rate of <em>β</em><sub>ca</sub>, each asymptomatic infected child infects the susceptible children. Second, individuals recover from the disease at a rate of <em>γ</em><sub>cr</sub>. Finally, children grow and pass from the children’s age class to the adult’s age class at a transition rate of <em>α</em><sub>1</sub>, and are removed from the adult’s age class.</p>
+<div class="equation" id="eq-5"><img src="figures/eq-5.webp" width="390" height="43" alt="dIa c (t) dt = βcaIa c (t)Sc(t) −(α1 + γcr)Ia c (t). (3)" loading="lazy" decoding="async"></div>
+
+<p>In Equation (4), <sup>dRc(t)</sup> is the dynamic amount of recovered individual children over <em>dt</em> time. It is affected by the following two terms. First, at each point, a portion of the symptomatic and asymptomatic infected children recover at a rate of <em>γ</em><sub>cr</sub>. Second, children grow from birth and pass from the children’s age class to the adult age class at a transition rate of <em>α</em><sub>1</sub>, and are removed from the children’s age class.</p>
+<div class="equation" id="eq-6"><img src="figures/eq-6.webp" width="383" height="41" alt="dRc(t) dt = γcr(Is c(t) + Ia c (t)) −α1Rc(t). (4)" loading="lazy" decoding="async"></div>
+
+<p>In Equation (5), <sup>dDc(t)</sup> is the dynamic amount of dead individual children over time. <em>dt</em> It is affected by the symptomatic infected children that die at a rate of <em>γ</em><sub>cd</sub>.</p>
+<div class="equation" id="eq-7"><img src="figures/eq-7.webp" width="325" height="41" alt="dDc(t) dt = γcdIs c(t). (5)" loading="lazy" decoding="async"></div>
+
+<p>In Equation (6), <sup>dSa(t)</sup> is the dynamic amount of susceptible adult individuals over <em>dt</em> time. It is affected by the following four terms. First, children grow and pass from the children’s age class to the adult’s age class at a transition rate of <em>α</em><sub>1</sub>, and are added to the adult age class. Second, adults grow and pass from the adults’ age class to the elderly age class at a transition rate of <em>α</em><sub>2</sub>, and are removed from the adult’s age class. Third, at a rate of <em>β</em><sub>as</sub>, each symptomatic infected adult infects susceptible adults. Finally, at a rate of <em>β</em><sub>aa</sub>, each asymptomatic infected adult infects susceptible adults.</p>
+<div class="equation" id="eq-8"><img src="figures/eq-8.webp" width="420" height="42" alt="dSa(t) dt = α1Sc(t) −(α2 + βasIs a(t) + βaaIa a(t))Sa(t). (6)" loading="lazy" decoding="async"></div>
+
+<p>In Equation (7), <sup>dIsa(t)</sup> is the dynamic amount of symptomatic infected individual <em>dt</em> adults over time. It is affected by the following five terms. First, children grow and pass from the children’s age class to the adult’s age class at a transition rate of <em>α</em><sub>1</sub>, and are added to the adult age class. Second, adults grow and pass from the adults’ age class to the elderly age class at a transition rate of <em>α</em><sub>2</sub>, and are removed from the adult’s age class. Third, at a rate of <em>β</em><sub>as</sub>, each symptomatic infected adult infects susceptible adults. Forth, individuals recover from the disease at a rate of <em>γ</em><sub>cr</sub>. Finally, individuals die from the disease at a rate of <em>γ</em><sub>ad</sub>.</p>
+<div class="equation" id="eq-9"><img src="figures/eq-9.webp" width="436" height="43" alt="dIs a(t) dt = α1Is c(t) + βasIs a(t)Sa(t) −(α2 + γar + γad)Is a(t). (7)" loading="lazy" decoding="async"></div>
+
+<p>In Equation (8), <sup>dIaa(t)</sup> is the dynamic amount of asymptomatic infected individual <em>dt</em> adults over time. It is affected by the following four terms. First, at a rate of <em>β</em><sub>aa</sub>, each asymptomatic infected adult infects susceptible adults. Second, individuals recover from the disease at a rate of <em>γ</em><sub>ar</sub>. Third, children grow and pass from the children’s age class to the adult’s age class at a transition rate of <em>α</em><sub>1</sub>, and are removed from the adult’s age class. Finally, adults grow and pass from the adults’ age class to the elderly age class at a transition rate of <em>α</em><sub>2</sub>, and are removed from the adult’s age class.</p>
+<div class="equation" id="eq-10"><img src="figures/eq-10.webp" width="420" height="43" alt="dIa a(t) dt = α1Ia c (t) + βaaIa a(t)Sa(t) −(α2 + γar)Ia a(t). (8)" loading="lazy" decoding="async"></div>
+
+<p>In Equation (9), <sup>dRa(t)</sup> is the dynamic amount of recovered individual adults over time. <em>dt</em> It is affected by the following three terms. First, at each point, a portion of the symptomatic and asymptomatic infected adults recover at a rate of <em>γ</em><sub>ar</sub>. Second, children grow from birth and pass from the children’s age class to the adult age class at a transition rate of <em>α</em><sub>1</sub>, and are removed from the children’s age class. Finally, adults grow and pass from the adults’ age class to the elderly age class at a transition rate of <em>α</em><sub>2</sub>, and are removed from the adult’s age class.</p>
+<div class="equation" id="eq-11"><img src="figures/eq-11.webp" width="414" height="41" alt="dRa(t) dt = α1Rc(t) + γar(Is a(t) + Ia a(t)) −α2Ra(t). (9)" loading="lazy" decoding="async"></div>
+
+<p>In Equation (10), <sup>dDa(t)</sup> is the dynamic amount of dead individual adults over time. It <em>dt</em> is affected by the symptomatic infected adult that dies at a rate of <em>γ</em><sub>ad</sub>.</p>
+<div class="equation" id="eq-12"><img src="figures/eq-12.webp" width="327" height="42" alt="dDa(t) dt = γadIs a(t). (10)" loading="lazy" decoding="async"></div>
+
+<p>In Equation (11), <sup>dSe(t)</sup> is the dynamic amount of susceptible elderly individuals over <em>dt</em> time. It is affected by the following four terms. First, adults grow and pass from the adults’ age class to the elderly age class at a transition rate of <em>α</em><sub>2</sub>, and are added to the elderly age class. Second, the elderly naturally die at a transition rate of <em>λ</em>, and are removed from the elderly age class. Third, at a rate of <em>β</em><sub>es</sub>, each symptomatic infected elderly person infects susceptible elderly people. Finally, at a rate of <em>β</em><sub>ea</sub>, each asymptomatic infected elderly person infects susceptible elderly people.</p>
+<div class="equation" id="eq-13"><img src="figures/eq-13.webp" width="417" height="41" alt="dSe(t) dt = α2Sa(t) −(λ + βesIs e(t) + βeaIa e (t))Se(t). (11)" loading="lazy" decoding="async"></div>
+
+<p>In Equation (12), <sup>dIse(t)</sup> is the dynamic amount of symptomatic infected individual <em>dt</em> elderly people over time. It is affected by the following five terms. First, adults grow and pass from the adult’s age class to the elderly age class at a transition rate of <em>α</em><sub>2</sub>, and are added to the elderly age class. Second, the elderly naturally die at a transition rate of <em>λ</em>, and are removed from the elderly age class. Third, at a rate of <em>β</em><sub>es</sub>, each symptomatic infected elderly person infects susceptible elderly people. Forth, individuals recover from the disease at a rate of <em>γ</em><sub>er</sub>. Finally, individuals die from the disease at a rate of <em>γ</em><sub>ed</sub>.</p>
+<div class="equation" id="eq-14"><img src="figures/eq-14.webp" width="432" height="43" alt="dIs e(t) dt = α2Is a(t) + βesIs e(t)Se(t) −(λ + γer + γed)Is e(t). (12)" loading="lazy" decoding="async"></div>
+
+<p>In Equation (13), <sup>dIae (t)</sup> is the dynamic amount of asymptomatic infected individual <em>dt</em> elderly people over time. It is affected by the following four terms. First, at a rate of <em>β</em><sub>ea</sub>, each asymptomatic infected elderly person infects susceptible elderly people. Second, individuals recover from the disease at a rate of <em>γ</em><sub>er</sub>. Third, adults grow and pass from the adult’s age class to the elderly age class at a transition rate of <em>α</em><sub>2</sub>, and are removed from the adult’s age class. Finally, the elderly die naturally at a transition rate of <em>λ</em>, and are removed from the elderly age class.</p>
+<div class="equation" id="eq-15"><img src="figures/eq-15.webp" width="416" height="43" alt="dIa e (t) dt = α2Ia a(t) + βeaIa e (t)Se(t) −(λ + γer)Ia e (t). (13)" loading="lazy" decoding="async"></div>
+
+<p>In Equation (14), <sup>dRe(t)</sup> is the dynamic amount of recovered individual elderly people <em>dt</em> over time. It is affected by the following three terms. First, at each point, a portion of the symptomatic and asymptomatic infected elderly people recover at a rate of <em>γ</em><sub>er</sub>. Second, adults grow from birth and pass from the adult’s age class to the elderly age class at a transition rate of <em>α</em><sub>2</sub>, and are removed from the children’s age class. Finally, the elderly naturally die at a transition rate of <em>λ</em>, and are removed from the elderly age class.</p>
+<div class="equation" id="eq-16"><img src="figures/eq-16.webp" width="410" height="41" alt="dRe(t) dt = α2Ra(t) + γer(Is e(t) + Ia e (t)) −λRe(t). (14)" loading="lazy" decoding="async"></div>
+
+<p>In Equation (15), <sup>dDe(t)</sup> is the dynamic amount of dead individual elderly people over <em>dt</em> time. It is affected by the symptomatic infected elderly that die due to the pandemic at a rate of <em>γ</em><sub>ed</sub>.</p>
+<div class="equation" id="eq-17"><img src="figures/eq-17.webp" width="325" height="42" alt="dDe(t) dt = γedIs e(t). (15)" loading="lazy" decoding="async"></div>
+
+<p>Therefore, the system takes the following form:</p>
+<div class="equation" id="eq-18"><img src="figures/eq-18.webp" width="504" height="548" alt="dSc(t) dt = −(βcsIs c(t) + βcaIa c (t) + α1)Sc(t) + λ(Se(t) + Is e(t) + Ia e (t) + Re(t)), dIsc(t) dt = βcsIs c(t)Sc(t) −(α1 + γcr + γcd)Is c(t), dIac (t) dt = βcaIa c (t)Sc(t) −(α1 + γcr)Ia c (t), dRc(t) dt = γcr(Is c(t) + Ia c (t)) −α1Rc(t), dDc(t) dt = γcdIs c(t), dSa(t) dt = α1Sc(t) −(α2 + βasIs" loading="lazy" decoding="async"></div>
+
+<p>In this notation, the parameters</p>
+<div class="equation" id="eq-19"><img src="figures/eq-19.webp" width="460" height="25" alt="P = {βcs, βca, βas, βaa, βes, βea, γcr, γcd, γar, γad, γer, γed, λ, α1, α2}, (17)" loading="lazy" decoding="async"></div>
+
+<p>are rates and define the changes in the population entirely and not on the individual level.</p>
+<p>One can model the pandemic dynamics using a stochastic process due to the unstable nature of the parameters of the pandemic used in the model, such as the infection rates (<em>β</em><sub>cs</sub>, <em>β</em><sub>ca</sub>, <em>β</em><sub>as</sub>, <em>β</em><sub>aa</sub>, <em>β</em><sub>es</sub>, <em>β</em><sub>ea</sub>) and recovery rates (<em>γ</em><sub>cr</sub>, <em>γ</em><sub>cd</sub>, <em>γ</em><sub>ar</sub>, <em>γ</em><sub>ad</sub>, <em>γ</em><sub>er</sub>, <em>γ</em><sub>ed</sub>), which differ over time. This is because these models are affected by multiple parameters that are unnecessarily taken into consideration or are even unmeasurable in real-world settings. Therefore, it is possible to treat these parameters as an average probability that an event would happen. Following these assumptions, one can represent the epidemiological dynamics as a transition matrix between two consecutive states of the model, which is represented by an n-dimensional vector, corresponding to the number of subpopulations, as follows:</p>
+<div class="equation" id="eq-20"><img src="figures/eq-20.webp" width="350" height="93" alt="⎡ ⎢⎢⎢⎢⎣ Sc(t + h) . . . De(t + h) ⎤ ⎥⎥⎥⎥⎦ = T ⎡ ⎢⎢⎢⎢⎣ Sc(t) . . . De(t) ⎤ ⎥⎥⎥⎥⎦ , (18)" loading="lazy" decoding="async"></div>
+
+<p>where <em>h ∈</em> R is an arbitrary small step in time and <em>T ∈</em> R<sup>n×n</sup> is the transformation matrix. The model’s state at time <em>t</em> is defined by</p>
+<div class="equation" id="eq-21"><img src="figures/eq-21.webp" width="655" height="28" alt="M(t) := [Sc(t), Ia c (t), Is c(t), Rc(t), Dc(t), Sa(t), Ia a(t), Is a(t), Ra(t), Da(t), Se(t), Ia e (t), Is e(t), Re(t), De(t)}; (19)" loading="lazy" decoding="async"></div>
+
+<p>therefore, Equation (18) takes the following form:</p>
+<div class="equation" id="eq-22"><img src="figures/eq-22.webp" width="328" height="23" alt="M(t + h) = TM(t). (20)" loading="lazy" decoding="async"></div>
+
+<p>The transformation matrix is defined as <em>T</em> := <em>I</em> + <em>h</em>Φ, where</p>
+<figure class="table-figure" id="table-x1">
+<img src="figures/table-x1.webp" width="692" height="279" alt="Table" loading="lazy" decoding="async">
+
+</figure>
+
+<h2 id="such-that">such that</h2>
+<div class="equation" id="eq-23"><img src="figures/eq-23.webp" width="192" height="261" alt="φ = ⎛ ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎜ ⎝ −α1 ξcs −α1 −γcr −γcd ξca −α1 −γcr −α1 0 −α2 ξas −α2 −γar −γad ξaa −α2 −γar −α2 0 −λ ξes −λ −γer −γed ξea −λ −γer −λ 0 ⎞ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎟ ⎠ ," loading="lazy" decoding="async"></div>
+
+<p>where the model’s parameters P (see Equation (17)) are probabilities rather than rates, as they represent the probabilities for state transfer at the individual level. The transformation matrix (<em>T</em>) obtained by solving <sup>dM(t)</sup> = Φ<em>M</em>(<em>t</em>), where <sup>dM(t)</sup> , is taken from Equation (16), <em>dt dt</em> after performing linearization on the <em>β</em><sub>kl</sub><em>I</em><sup>l</sup> <sub>k</sub><em>S</em><sub>k</sub> terms to be</p>
+<div class="equation" id="eq-24"><img src="figures/eq-24.webp" width="389" height="29" alt="k ∈{c, a, e}, l ∈{a, s} : βklIl kSk →ξklIl k, (22)" loading="lazy" decoding="async"></div>
+
+<p>such that <em>ξ</em><sub>kl</sub> = <em>β</em><sub>kl</sub><em>S</em><sub>k</sub>(<em>t</em>). Therefore, the parameter <em>ξ</em><sub>kl</sub> is the probability that an infected individual will infect other individuals in the population, while <em>β</em><sub>kl</sub> is the probability that a suspicious individual will be infected by an infected individual. The parameter <em>ξ</em><sub>kl</sub> changes over time as <em>S</em><sub>k</sub>(<em>t</em>) changes over time, but it can be treated as a constant because <em>ξ</em><sub>kl</sub> is a random variable in nature, and so incorporates sufficient variability to capture the dynamics of <em>S</em><sub>k</sub>(<em>t</em>) over time. The motivation for using this linearization is that the alternative, <em>β</em><sub>kl</sub><em>I</em><sup>l</sup> <sub>k</sub><em>S</em><sub>k</sub> <em>→ β</em><sub>kl</sub><em>S</em><sub>k</sub>, provides a worse approximation. For example, consider the following case: <em>k ∈{c</em>, <em>a</em>, <em>e}</em>, <em>l ∈{a</em>, <em>s}</em> : <em>I</em><sup>l</sup> <sub>k</sub> = 0 <em>∧S</em><sub>k</sub> <em>&gt;</em> 0. Following the approximation <em>β</em><sub>kl</sub><em>I</em><sup>l</sup> <sub>k</sub><em>S</em><sub>k</sub> <em>→ β</em><sub>kl</sub><em>S</em><sub>k</sub> means that some portion of the suspicious population become infected, which is impossible from an epidemiological perspective. On the other hand, following the linearization in Equation (22) results in <em>k ∈{c</em>, <em>a</em>, <em>e}</em>, <em>l ∈{a</em>, <em>s}</em> : <em>I</em><sup>l</sup> <sub>k</sub> = 0 in this scenario.</p>
+<p>Therefore, matrix <em>T</em> is the stochastic, linear, approximation of the transformation between two states of the ODE-based model (see Equation (16)). Nevertheless, the models described in Equation (16) (ODE, the deterministic model) and Equations (20) and (21) (the linear transformation matrix, the stochastic model) analytically differ since in Equation (16), the parameters P can be assigned any real value. While it may no longer describe epidemiological dynamics, the mathematical model is well defined in such a scenario. On the other hand, Equations (20) and (21) required the parameters to be <em>∀p ∈</em> P : <em>p ∈</em> (0, 1] according to Equation (21), which is a stochastic matrix and therefore satisfies that each row sums to 1. This condition is not met if <em>∀p ∈</em> P : <em>p ∈</em> (0, 1] does not hold. Therefore, the model represented by Equation (16) includes the model represented by Equations (20) and (21).</p>
+<p>However, for the subspace where both models are defined, they are numerically equal for any finite time. Indeed, this is true for a given norm function <em>|| · ||</em> : R<sup>n</sup> <em>→</em> R, start condition <em>M</em>(0), and time interval [0, <em>t</em><sub>max</sub>]. The state of the stochastic SIIRD (Equations (20) and (21)) <em>M</em><sub>s</sub>(<em>t</em>) and the state of the deterministic SIIRD (Equation (16)) <em>M</em><sub>d</sub>(<em>t</em>) satisfy</p>
+<div class="equation" id="eq-25"><img src="figures/eq-25.webp" width="316" height="25" alt="∀t ∈[0, tmax] ∀ϵ &gt; 0∃h &gt; 0 : ||(Ms(t) −Md(t)|| &lt; ϵ," loading="lazy" decoding="async"></div>
+
+<p>where the parameters <em>{c</em>, <em>a</em>, <em>e}</em>, <em>l ∈{a</em>, <em>s}</em> : <em>ξ</em><sub>kl</sub>(<em>t</em>) = <em>β</em><sub>kl</sub><em>S</em><sub>k</sub>(<em>t</em>) are updated at each point in time <em>t</em>.</p>
+<p>By approximating the deterministic representation (Equation (16)) system using the forward Euler method <span class="cite">[<a href="#ref-24">24</a>]</span> in each of the states, the approximation introduces <em>O</em>(<em>h</em><sup><a href="#ref-2">2</a></sup>) errors for each step in time. Now, one needs to take <sup>tmax</sup> steps in time to cover [0, <em>t</em><sub>max</sub>], which <em>h</em> introduces an overall <sup>tmax</sup> <em>· O</em>(<em>h</em><sup><a href="#ref-2">2</a></sup>) = <em>O</em>(<em>t</em><sub>max</sub><em>h</em>) error. Therefore, <em>||M</em><sub>d</sub> <em>− M</em><sub>s</sub><em>|| &lt; t</em><sub>max</sub><em>h</em>. As <em>h</em> a result, for <em>h &lt; ϵ</em>/<em>t</em><sub>max</sub>, the condition <em>∀t ∈</em> [0, <em>t</em><sub>max</sub>] : <em>||</em>(<em>M</em><sub>s</sub>(<em>t</em>) <em>− M</em><sub>d</sub>(<em>t</em>)<em>|| &lt; ϵ</em> is satisfied. Thereafter, we define a stochastic process of the dynamics in Equations (20) and (21) at each point in time (<em>t</em>) for each subpopulation <em>M</em><sub>i</sub>(<em>t</em>) <em>∈ M</em>(<em>t</em>), in which there are three possible options for each individual in the population in respect to this subpopulation. First, an individual can be transformed from <em>M</em><sub>i</sub>(<em>t</em>) to <em>M</em><sub>j</sub>(<em>t</em> + 1) (<em>i/</em> = <em>j ∈</em> [1, . . . , <em>n</em>]) at a probability <em>α</em>, which results in Φ<sub>i,j</sub> = <em>α</em>. Second, an individual can transform from <em>M</em><sub>j</sub>(<em>t</em>) to <em>M</em><sub>i</sub>(<em>t</em> + 1) at a probability <em>ξ</em>, which results in Φ<sub>j,i</sub> = <em>ξ</em> in a symmetric way to the first case. Third, an individual in <em>M</em><sub>i</sub>(<em>t</em>) can stay in <em>M</em><sub>i</sub>(<em>t</em> + 1). This is a default case and happens at probability 1 <em>−</em>Σ<sup>n</sup> <sub>j=1</sub>(Φ<sub>i,j</sub>), which is the complementary probability to all the probabilities of an individual to transform from <em>M</em><sub>i</sub>(<em>t</em>). These are the only options possible for an individual in each subpopulation <em>M</em><sub>i</sub>(<em>t</em>) as <em>∀t</em> : <em>N</em> = Σ<sup>n</sup> <sub>i=1</sub><em>M</em><sub>i</sub>(<em>t</em>) is constant in time. Therefore, it is possible to define the transformation between each two states in time as follows:</p>
+<div class="equation" id="eq-26"><img src="figures/eq-26.webp" width="519" height="501" alt="Sc(t + h) = (1 −α1)Sc(t) −ξcaIs c(t) −ξcsIa c (t) + λ(Se(t) + Is e(t) + Ia e (t) + Re(t)), Is c(t + h) = (1 −α1 −γcr −γcd + ξcs)Is c(t), Ia c (t + h) = (1 −α1 −γcr + ξca)Is c(t), Rc(t + h) = (1 −α1)Rc(t) + γcr(Is c(t) + Ia c (t)), Dc(t + h) = Dc(t) + γcdIs c(t), Sa(t + h) = (1 −α2)Sa(t) −ξaaIs a(t) " loading="lazy" decoding="async"></div>
+
+<p>The representation in Equation (23) is isomorphic to the one in Equations (20) and (21). However, Equation (23) treats the dynamic as a stochastic process in nature rather than approximating the deterministic ODE-based dynamics while restoring the underline behavior of the epidemiological system.</p>
+<h2 id="3-asymptotic-stable-equilibria-states">3. Asymptotic Stable Equilibria States</h2>
+<p>In epidemiology, there are two types of cases that interest decision makers. First, the state of the population in the long term after the end of a pandemic. Second, the equilibria points and their stable or unstable nature.</p>
+<p>The state of the population in the long term after the pandemic can be mapped to the asymptotic state of the pandemic in time because after long enough (e.g., <em>t →</em> ∞), the population either survives and its regular dynamics are restored or becomes extinct. While the second scenario is trivial as the population is distributed between the different <em>death</em> states of the model, the first scenario holds a larger amount of options. Specifically, the pandemic can die out (i.e., the size of the infected population is zero) and, as a result, after a few generations, only susceptible individuals would remain. On the other hand, in some settings, the pandemic may not die out but be kept under control, such that the pandemic converges to a steady state.</p>
+<p>The equilibria states are important for decision makers as these promise a scenario that remains the same unless some action is taken or a major event takes place. However, the equilibria states should be divided into two groups. On the one hand, unstable equilibria states provide some level of stability but are still problematic due to their unstable nature, in which even a relatively small change results in a drastic outcome. On the other hand, stable equilibria do not have this issue.</p>
+<p>Therefore, in this section, we analyze the model’s asymptotic equilibria states. One may try to obtain the asymptotic equilibria states and their stability properties from the ODE-based representation (e.g., Equation (16)). Nevertheless, this approach would require one to solve a n-dimensional, nonlinear, heterogeneous, ODE system, which is both numerically and analytically complex and time consuming. On the other hand, by defining a nonhomogeneous discrete-time Markov chain represented by the transformation function (Equation (23)) with state space <em>M</em>(<em>t</em>) (Equation (18)), in respect to the states in Equation (16), one can find the asymptotic equilibrium as follows. First, in order to model the dynamics as a Markov chain, one needs to show that</p>
+<div class="equation" id="eq-27"><img src="figures/eq-27.webp" width="446" height="25" alt="P(Mt+h = j|Mt = it, . . . , M0 = i0) = P(Mt+h = j|Mt = it), (24)" loading="lazy" decoding="async"></div>
+
+<p>where <em>{M}</em><sub>t</sub> is a stochastic process with values in the state space for all <em>t ≥</em> 0 and all states <em>i</em><sub>0</sub>, . . . <em>i</em><sub>t</sub>, <em>j</em>, and <em>h</em> is an arbitrary small step in time <span class="cite">[<a href="#ref-25">25</a>]</span>. <em>T</em> satisfies Equation (24) if any value in <em>M</em>(<em>t</em> + <em>h</em>) depends only on the previous state <em>M</em>(<em>t</em>). Indeed, as <em>T</em> does not depend on <em>t</em> or any value of <em>M</em>(<em>t</em>) or the previous state, the condition is satisfied.</p>
+<p>Therefore, we show that Equation (23) describes a Markovian process. As a result, given the model’s initial condition (M(0)), the model’s state at some time <em>t</em> is defined by <em>M</em>(<em>t</em>) = <em>T</em><sup>t</sup><em>M</em>(0) <span class="cite">[<a href="#ref-22">22</a>]</span>. Now, assume any initial condition <em>M</em>(0). From Equation (23) and <a class="xref" href="#fig-1">Figure 1</a>, it is possible to see a few subprocesses in the dynamics. First, an individual that at some time <em>t</em> reaches a death state (corresponding to lines 5, 10, and 15 in Equation (23)) stays there as the coefficients of <em>D</em><sub>c</sub>, <em>D</em><sub>a</sub>, and <em>D</em><sub>e</sub> is 1 for any parameter’s values. Second, if the pandemic ended, namely, <em>I</em><sup>s</sup> <sub>c</sub> + <em>I</em><sup>a</sup> <sub>c</sub> + <em>I</em><sup>s</sup> <sub>a</sub> + <em>I</em><sup>a</sup> <sub>a</sub> + <em>I</em><sup>s</sup> <sub>e</sub> + <em>I</em><sup>a</sup> <sub>e</sub> = 0, there are two possible cases: the population is extended or some portion of the population (or even the whole population) survived. In the case in which the population is extended, the obtained state is a distribution over the <em>{D</em><sub>c</sub>, <em>D</em><sub>a</sub>, <em>D</em><sub>e</sub><em>}</em> states, while the other subpopulations are 0. In the second option, the population is distributed over the <em>{S</em><sub>c</sub>, <em>S</em><sub>a</sub>, <em>S</em><sub>e</sub>, <em>R</em><sub>c</sub>, <em>R</em><sub>a</sub>, <em>R</em><sub>e</sub>, <em>D</em><sub>c</sub>, <em>D</em><sub>a</sub>, <em>D</em><sub>e</sub><em>}</em> as the infection states are 0. However, after <em>t &gt;</em> 1/<em>α</em><sub>1</sub>, all the individuals at <em>R</em><sub>c</sub> transform to <em>R</em><sub>a</sub>. Similarly, after time <em>t &gt;</em> 1/<em>α</em><sub>2</sub>, all the individuals at <em>R</em><sub>a</sub> transform to <em>R</em><sub>e</sub>, and finally, after <em>t &gt; λ</em>, all the individuals at <em>R</em><sub>e</sub> transform to <em>S</em><sub>c</sub>. As a result, after time <em>t &gt;</em> 1/<em>α</em><sub>1</sub> + 1/<em>α</em><sub>2</sub> + 1/<em>λ</em>, the subpopulations <em>R</em><sub>c</sub> = <em>R</em><sub>a</sub> = <em>R</em><sub>e</sub> = 0. While at the same time, the remaining population at <em>S</em><sub>c</sub>, <em>S</em><sub>a</sub> and <em>S</em><sub>e</sub> circulate between these states. Finally, in the case in which the pandemic is not finished, after some time <em>t</em>, the pandemic will end, as</p>
+<div class="equation" id="eq-28"><img src="figures/eq-28.webp" width="163" height="31" alt="∀t : Tt {Isc,Iac ,Isa,Iaa,Ise,Iae }/ = I6×6," loading="lazy" decoding="async"></div>
+
+<p>which means these subpopulations eventually decrease over time. As a result, for any start condition <em>M</em>(0), and parameters <em>∀p ∈</em> P : <em>p ∈</em> (0, 1], at <em>t →</em> ∞, the model’s asymptotic state (lim<sub>t→∞</sub> <em>M</em>(<em>t</em>)) takes the following form:</p>
+<div class="equation" id="eq-29"><img src="figures/eq-29.webp" width="393" height="65" alt="S∗ c = ν1, Is∗ c = 0, Ia∗ c = 0, R∗ c = 0, D∗ c = ν2, S∗ a = ν3, Is∗ a = 0, Ia∗ a = 0, R∗ a = 0, D∗ a = ν4, S∗ e = ν5, Is∗ e = 0, Ia∗ e = 0, R∗ e = 0, D∗ e = ν6, (25)" loading="lazy" decoding="async"></div>
+
+<p>where <em>{ν ≥</em> 0<em>}</em><sup><a href="#ref-6">6</a></sup> <sub>i=1</sub> and Σ<sup><a href="#ref-6">6</a></sup> <sub>i=1</sub><em>v</em><sub>i</sub> = <em>N</em>; and <em>N</em> is the total size of the population as defined in Section 2.</p>
+<p>The values <em>{ν}</em><sup><a href="#ref-6">6</a></sup> <sub>i=1</sub> are dependent on the initial conditions and the model’s parameters and are thus complex and time consuming to find. Therefore, Equation (25) defined the (six-dimensional) subspace in which all possible asymptotically stable states of the model are located with the distribution of the population in the state space, which contains the results of all possible outcomes of the model for any initial condition and model parameters. That is to say, once the model’s state takes the form of Equation (25), it stays in this form from this point on.</p>
+<p>Therefore, one can take advantage of this property in order to obtain the asymptotic stable equilibria, as they necessarily follow Equation (25). In order to obtain the asymptotic equilibrium state, we set Equation (25) in Equation (18) and obtain</p>
+<div class="equation" id="eq-30"><img src="figures/eq-30.webp" width="364" height="261" alt="⎡ ⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎣ ν1(1 −α1) + ν5λ 0 0 0 ν2 ν3(1 −α2) + ν1α1 0 0 0 ν4 ν5(1 −λ) + ν3α2 0 0 0 ν6 ⎤ ⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎦ ←T ⎡ ⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎣ ν1 0 0 0 ν2 ν3 0 0 0 ν4 ν5 0 0 0 ν6 ⎤ ⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎦ . (26)" loading="lazy" decoding="async"></div>
+
+<p>It is possible to divide the types of equilibria into two subgroups: where <em>ν</em><sub>1</sub> = <em>ν</em><sub>3</sub> = <em>ν</em><sub>5</sub> = 0 and otherwise. The first option corresponds to the scenario in which the population is extended due to the pandemic. By setting <em>ν</em><sub>1</sub> = <em>ν</em><sub>3</sub> = <em>ν</em><sub>5</sub> = 0 in Equation (27), one can obtain that all combinations of <em>{ν</em><sub>2</sub>, <em>ν</em><sub>4</sub>, <em>ν</em><sub>6</sub><em>}</em>, such that <em>ν</em><sub>2</sub> + <em>ν</em><sub>4</sub> + <em>ν</em><sub>6</sub> = <em>N</em>, are in equilibrium. This results in (<em>N</em> + 1)<sup><a href="#ref-2">2</a></sup> for the population in size <em>N</em> as it is combinatorially equivalent to dividing <em>N</em> items into three (allowing empty) groups. On the other hand, assuming <em>ν</em>1<em>/</em> = 0, <em>ν</em>3<em>/</em> = 0, <em>ν</em>5<em>/</em> = 0, the state is in equilibrium if and only if</p>
+<div class="equation" id="eq-31"><img src="figures/eq-31.webp" width="358" height="59" alt="⎡ ⎣ ν1(1 −α1) + ν5λ ν3(1 −α2) + ν1α1 ν5(1 −λ) + ν3α2 ⎤ ⎦= ⎡ ⎣ ν1 ν3 ν5 ⎤ ⎦, (27)" loading="lazy" decoding="async"></div>
+
+<p>which means the asymptotic state is also in equilibrium if the following condition is fulfilled:</p>
+<div class="equation" id="eq-32"><img src="figures/eq-32.webp" width="328" height="25" alt="α1ν1 = α2ν3 = λν5. (28)" loading="lazy" decoding="async"></div>
+
+<p>As a result, for any initial condition and the model’s parameters values, there is a time <em>t</em><sub>0</sub> such that for all <em>t &gt; t</em><sub>0</sub>, Equation (25) is fulfilled. In the case in which either <em>ν</em><sub>1</sub> = <em>ν</em><sub>3</sub> = <em>ν</em><sub>5</sub> = 0 or <em>α</em><sub>1</sub><em>ν</em><sub>1</sub> = <em>α</em><sub>2</sub><em>ν</em><sub>3</sub> = <em>λν</em><sub>5</sub>, the model is in an asymptotically stable equilibrium state.</p>
+<h2 id="4-comparison-with-classical-methods">4. Comparison with Classical Methods</h2>
+<p>We compare the proposed method shown in Section 3 with a classical method used to obtain equilibria states and their stability properties for dynamic systems <span class="cite">[<a href="#ref-26">26</a>,<a href="#ref-27">27</a>]</span>.</p>
+<h3 id="41-equilibrium">4.1. Equilibrium</h3>
+<p>The equilibria states of the model (Equation (16)) are defined as the states of the model in which the gradient is zero. Therefore, Equation (16) takes the form</p>
+<div class="equation" id="eq-33"><img src="figures/eq-33.webp" width="424" height="484" alt="−(βcsIs c + βcaIa c + α1)Sc + λ(Se + Is e + Ia e + Re) = 0, βcsIs cSc −(α1 + γcr + γcd)Is c = 0, βcaIa c Sc −(α1 + γcr)Ia c = 0, γcr(Is c + Ia c ) −α1Rc = 0, γcdIs c = 0, α1Sc −(α2 + βasIs a + βaaIa a)Sa = 0, α1Is c + βasIs aSa −(α2 + γar + γad)Is a = 0, α1Ia c + βaaIa aSa −(α2 + γar)Ia a = 0, α1Rc " loading="lazy" decoding="async"></div>
+
+<p>One can notice that from Equations (16) and (29), it follows that</p>
+<div class="equation" id="eq-34"><img src="figures/eq-34.webp" width="355" height="28" alt="Is c = 0, Is a = 0, Is e = 0, Dc = ν2, Da = ν4, De = ν6," loading="lazy" decoding="async"></div>
+
+<p>where <em>ν</em><sub>2</sub>, <em>ν</em><sub>4</sub>, <em>ν</em><sub>6</sub> are arbitrary constants such that <em>{ν</em><sub>2i</sub><em>}</em><sup><a href="#ref-3">3</a></sup> <sub>i=1</sub> <em>≥</em> 0 and ∑<sup><a href="#ref-3">3</a></sup> <sub>i=1</sub> <em>ν</em><sub>2i</sub> <em>≤ N</em>, because if either <em>I</em><sup>s</sup> <sub>c</sub>, <em>I</em><sup>s</sup> <sub>a</sub>, or <em>I</em><sup>s</sup> <sub>e</sub> is not equal zero, then the gradient of <em>D</em><sub>c</sub>, <em>D</em><sub>a</sub>, or <em>D</em><sub>e</sub> is not zero and, therefore, the state is not in equilibrium by definition. Therefore, <em>I</em><sup>s</sup> <sub>c</sub> = 0, <em>I</em><sup>s</sup> <sub>a</sub> = 0, <em>I</em><sup>s</sup> <sub>e</sub> = 0 leads to <em>D</em><sub>c</sub> = <em>ν</em><sub>2</sub>, <em>D</em><sub>a</sub> = <em>ν</em><sub>4</sub>, <em>D</em><sub>e</sub> = <em>ν</em><sub>6</sub> due to Equations (5), (10), and (15). As a result, one is left with</p>
+<div class="equation" id="eq-35"><img src="figures/eq-35.webp" width="387" height="162" alt="−(βcaIa c + α1)Sc + λ(Se + Ia e + Re) = 0, βcaIa c Sc −(α1 + γcr)Ia c = 0, γcrIa c −α1Rc = 0, α1Sc −(α2 + βaaIa a)Sa = 0, α1Ia c + βaaIa aSa −(α2 + γar)Ia a = 0, α1Rc + γarIa a −α2Ra = 0, α2Sa −(λ + βeaIa e )Se = 0, α2Ia a + βeaIa e Se −(λ + γer)Ia e = 0, α2Ra + γerIa e −λRe = 0. (30)" loading="lazy" decoding="async"></div>
+
+<p>By setting <em>I</em><sup>a</sup> <sub>c</sub> = 0, <em>I</em><sup>a</sup> <sub>a</sub> = 0, <em>I</em><sup>a</sup> <sub>e</sub> = 0, <em>R</em><sub>c</sub> = 0, <em>R</em><sub>a</sub> = 0, and <em>R</em><sub>e</sub> = 0 in Equation (30), we obtain <em>α</em><sub>1</sub><em>S</em><sub>c</sub> = <em>α</em><sub>2</sub><em>S</em><sub>a</sub> = <em>λS</em><sub>e</sub>, which coincides with (28). Hence, we obtain the following equilibrium:</p>
+<div class="equation" id="eq-36"><img src="figures/eq-36.webp" width="398" height="25" alt="E = (ν1, 0, 0, 0, ν2, ν3, 0, 0, 0, ν4, ν5, 0, 0, 0, ν6), (31)" loading="lazy" decoding="async"></div>
+
+<p>where <em>||E||</em> = <em>N</em>.</p>
+<h3 id="42-centralization-and-linearization">4.2. Centralization and Linearization</h3>
+<p>Consider the nonlinear differential equation</p>
+<div class="equation" id="eq-37"><img src="figures/eq-37.webp" width="316" height="25" alt="˙x(t) = F(x(t)), (32)" loading="lazy" decoding="async"></div>
+
+<p>where <em>x ∈</em> R<sup>n</sup>, and <em>F</em>(<em>x</em>) = 0 has a solution <em>x</em><sup>∗</sup>, which is an equilibrium of Equation (32). Using a new variable <em>y</em>(<em>t</em>) = <em>x</em>(<em>t</em>) <em>− x</em><sup>∗</sup>, one can represent Equation (32) in the form</p>
+<div class="equation" id="eq-38"><img src="figures/eq-38.webp" width="331" height="25" alt="˙y(t) = F(x∗+ y(t)). (33)" loading="lazy" decoding="async"></div>
+
+<p>The stability of the zero solution of Equation (33) is equivalent to the stability of the equilibrium <em>x</em><sup>∗</sup> in Equation (32).</p>
+<p>Using Taylor’s expansion, Equation (33) takes the form</p>
+<div class="equation" id="eq-39"><img src="figures/eq-39.webp" width="215" height="25" alt="F(x∗+ y) = F(x∗) + J(x∗)y + o(y)," loading="lazy" decoding="async"></div>
+
+<p><em>|o</em>(<em>y</em>)<em>|</em> where <em>J</em>(<em>x</em><sup>∗</sup>) is the Jacobian matrix of Equation (33) and lim<sub>|y|→0</sub> = 0, <em>|y|</em> is the <em>|y|</em> Euclidean norm in R<sup>n</sup>, and the equality <em>F</em>(<em>x</em><sup>∗</sup>) = 0. Thus, we obtain a linear approximation of Equation (33):</p>
+<div class="equation" id="eq-40"><img src="figures/eq-40.webp" width="321" height="26" alt="˙z(t) = J(x∗)z(t). (34)" loading="lazy" decoding="async"></div>
+
+<p>It is easy to check that, for the considered system, the Jacobian matrix <em>J</em>(<em>x</em><sup>∗</sup>) coincides with the matrix Φ given in Equation (21). A state is an asymptotic stable state if and only if the matrix is negative as defined for any values of the parameters (Equation (17)). Unfortunately, the matrix Φ is neither diagonal nor triangular and, therefore, one is able to determine if it is negative definite or not by analytically obtaining the determinant and investigating its properties. However, this will result in a 15-ordered polynomial, which is much more time and resource consuming as compared to the method presented in Section 3.</p>
+<h2 id="5-conclusions-and-future-research-directions">5. Conclusions and Future Research Directions</h2>
+<p>We propose a novel method to analytically obtain all asymptotic stable equilibria states. We present this method for an extended SIR model, for the three age groups SIIRD model. This method is based on the Markov chain model, the parameters of which are deterministic (Equation (23)). Using this representation, one is able to obtain all asymptotic stable equilibrium states of the model for any given start condition and properties using the stationary state (Equation (31)). The method works because there is a symmetry in the time of the population size (e.g., being constant <em>N</em>), which allows the system to converge rather than diverge to infinity or to crash into the trivial case of an extended population.</p>
+<p>When comparing the proposed method with classical methods of obtaining equilibria and its stability properties, it is clear that for large-scale SIR models, the proposed method is superior for several reasons. First, the classic method requires a certain level of algebraic expertise to solve the equations that describe the dynamics, while the proposed method treats them as a single process and therefore renders the aforementioned process unnecessary. Second, the classic method is not able to identify all asymptotic stable equilibria by itself, as one is required to manually find all equilibria states and investigate each one independently. This process is time and resource consuming. On the other hand, the proposed model analytically obtains all asymptotic stable equilibria, as it finds the stationary state of the stochastic process that represents the dynamics.</p>
+<p>Naturally, converting the deterministic biological rate coefficients, such as the recovery rates <em>γ</em> or infection rates <em>ξ</em>, into transformation probabilities may create cases that do not correspond to the biological dynamics on the individual level, and these should, therefore, be treated with care. For example, a susceptible individual (<em>p ∈ S</em><sub>a</sub>) can be infected and transformed into the asymptomatic infected subpopulation (<em>I</em><sup>a</sup> <sub>a</sub>) at a given time <em>t</em>. Immediately afterward, in time <em>t</em> + 1, there is a chance <em>γ</em><sub>ar</sub> that the same individual recovers and is transformed to the recovered subpopulation (<em>R</em><sub>a</sub>).</p>
+<p>The stochastic representation of pandemic dynamics allows for more flexibility and credibility than when treating model parameters as deterministic values. This is because data often involve uncertainty <span class="cite">[<a href="#ref-16">16</a>]</span>. This approach allows for pandemic dynamics to be simulated based on an extended SIR model using distributed systems models. This allows additional social <span class="cite">[<a href="#ref-3">3</a>]</span>, non-pharmaceutical and pharmaceutical intervention (NPI/PI) policies <span class="cite">[<a href="#ref-28">28</a>]</span>, and economical policies <span class="cite">[<a href="#ref-7">7</a>]</span> to be added to the epidemic dynamics.</p>
+<p>We plan to extend the proposed method to handle spatio-temporal SIR-type models, in which the spatial dynamics are taking place in either a continues space or discrete space. For the continues case, the pandemic spread dynamics can be described using a system of partial differential equations <span class="cite">[<a href="#ref-29">29</a>]</span>. For the discrete case, the pandemic spread dynamics can be described using a graph, resulting in a combination of ODE and graph models <span class="cite">[<a href="#ref-8">8</a>]</span>. In either case, the addition of spatial dynamics (and the walk of population) would require principle changes in the proposed method. In addition, a numerical and analytical investigation of the duration that the dynamics converge to for the asymptotic stable equilibrium from any given initial condition and model’s parameters would need to be studied. Furthermore, a comparison of the numerical solution of the proposed model (Equations (1)–(15)) and the proposed analytical results will be explored.</p>
+<p><strong>Author Contributions:</strong> Conceptualization, T.L.; methodology, T.L.; validation, L.S. and S.B.-M.; formal analysis, T.L. and L.S.; writing—original draft preparation, T.L.; writing—review and editing, S.B.-M.; visualization, T.L.; supervision, S.B.-M.; project administration, S.B.-M. All authors have read and agreed to the published version of the manuscript</p>
+<p><strong>Funding:</strong> This research received no external funding.</p>
+<p><strong>Institutional Review Board Statement:</strong> Not applicable.</p>
+<p><strong>Informed Consent Statement:</strong> Not applicable.</p>
+<p><strong>Data Availability Statement:</strong> Not applicable.</p>
+<p><strong>Conflicts of Interest:</strong> The authors declare no conflict of interest.</p>
+<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 27 May 2021 · Accepted 15 June 2021 · Published 23 June 2021</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>markov chain</li><li>random variable transformation technique</li><li>asymptotic stable equilibria state</li><li>three age group SIIRD model</li></ul></dd></div></dl></section>
+<h2 id="references">References</h2>
+<ol class="paper-refs"><li id="ref-1">Kermack, W.O.; McKendrick, A.G. A contribution to the mathematical theory of epidemics. Proc. R. Soc. 1927, 115, 700–721.</li>
+<li id="ref-2">Bunimovich-Mendrazitsky, S.; Stone, L. Modeling polio as a disease of development. J. Theor. Biol. 2005, 237, 302–315.</li>
+<li id="ref-3">Lazebnik, T.; Bunimovich-Mendrazitsky, S. The signature features of COVID-19 pandemic in a hybrid mathematical mode— Implications for optimal work-school lockdown policy. Adv. Theory Simul. 2021, 4, 2000298.</li>
+<li id="ref-4">Chen, W. A Mathematical Model of Ebola Virus Based on SIR Model. In Proceedings of the 2015 International Conference on Industrial Informatics—Computing Technology, Intelligent Technology, Industrial Information Integration, Wuhan, China, 3–4 December 2015; pp. 213–216.</li>
+<li id="ref-5">Tan, X.; Yuan, L.; Zhou, J.; Zheng, Y.; Yang, F. Modeling the initial transmission dynamics of influenza A H1N1 in Guangdong Province, China. Int. J. Infect. Dis. 2013, 17, e479–e484.</li>
+<li id="ref-6">Tuite, A.R.; Fisman, D.N.; Greer, A.L. Mathematical modelling of COVID-19 transmission and mitigation strategies in the population of Ontario, Canada. CMAJ 2020, 192, E497–E505.</li>
+<li id="ref-7">Bethune, Z.A.; Korinek, A. Covid-19 Infection Externalities: Trading off Lives vs. Livelihoods; Working Paper 27009; National Bureau of Economic Research: Cambridge, MA, USA, 2020.</li>
+<li id="ref-8">Wang, Z.; Bauch, C.T.; Bhattacharyya, S.; d’Onofrio, A.; Manfredi, P.; Perc, M.; Perra, N.; Salathe, M.; Zhao, D. Statistical physics of vaccination. Phys. Rep. 2016, 664, 1–113.</li>
+<li id="ref-9">Paden, B.; Panja, R. Globally asymptotically stable ‘PD+’ controller for robot manipulators. Int. J. Control 1988, 47, 1697–1712.</li>
+<li id="ref-10">Ahmed, E.; El-Sayed, A.M.; El-Saka, H.A. Equilibrium points, stability and numerical solutions of fractional-order predator—Prey and rabies models. J. Math. Anal. Appl. 2007, 325, 542–553.</li>
+<li id="ref-11">Bhat, S.P.; Bernstein, D.S. Lyapunov analysis of semistability. In Proceedings of the 1999 American Control Conference (Cat. No. 99CH36251), San Diego, CA, USA, 2–4 June 1999; Volume 3, pp. 1608–1612.</li>
+<li id="ref-12">Magal, P.; McCluskey, C.; Webb, G. Lyapunov functional and global asymptotic stability for an infection-age model. Appl. Anal. 2010, 89, 1109–1140.</li>
+<li id="ref-13">Genesio, R.; Tartaglia, M.; Vicino, A. On the estimation of asymptotic stability regions: State of the art and new proposals. IEEE Trans. Autom. Control 1985, 30, 747–755.</li>
+<li id="ref-14">Shaikhet, L. Construction of Lyapunov functionals for stochastic difference equations with continuous time. Math. Comput. Simul. 2004, 66, 509–521.</li>
+<li id="ref-15">Hamra, G.; MacLehose, R.; Richardson, D. Markov chain Monte Carlo: an introduction for epidemiologists. Int. J. Epidemiol. 2013, 42, 627–634.</li>
+<li id="ref-16">Cortés, J.; El-Labany, S.K.; Navarro-Quiles, A.; Selim, M.M.; Slama, H. A comprehensive probabilistic analysis of approximate SIR-type epidemiological models via full randomized discrete-time Markov chain formulation with applications. Math. Methods Appl. Sci. 2020, 43, 8204–8222.</li>
+<li id="ref-17">Sharma, S. Markov Chain Monte Carlo Methods for Bayesian Data Analysis in Astronomy. Annu. Rev. Astron. Astrophys. 2017, 55, 213–259.</li>
+<li id="ref-18">Nix, A.E.; Vose, M.D. Modeling genetic algorithms with Markov chains. Ann. Math. Artif. Intell. 1992, 5, 79–88.</li>
+<li id="ref-19">Bois, F.Y. GNU MCSim: Bayesian statistical inference for SBML-coded systems biology models. Bioinformatics 2009, 25, 1453–1454.</li>
+<li id="ref-20">Becker, N. A general chain binomial model for infectious diseases. Biometrics 1981, 37, 251–258.</li>
+<li id="ref-21">Allen, L.J.S. An Introduction to Stochastic Processes with Applications to Biology; CRC Press: New York, NY, USA, 2010.</li>
+<li id="ref-22">Privault, N. Understanding Markov Chains; Springer: Singapore, 2018.</li>
+<li id="ref-23">Lazebnik, T.; Shami, L.; Bunimovich-Mendrazitsky, S. Spatio-Temporal Influence of Non-Pharmaceutical Interventions Policies on Pandemic Dynamics and the Economy: The Case of COVID-19. Res. Econ. 2021, <a href="https://doi.org/10.1080/1331677X.2021.1925573" target="_blank" rel="noopener">doi:10.1080/1331677X.2021.1925573</a></li>
+<li id="ref-24">Press, W.H.; Flannery, B.P.; Teukolsky, S.A.; Vetterling, W.T. Numerical Recipes in FORTRAN: The Art of Scientific Computing; Cambridge University Press: Cambridge, UK, 1992; pp. 710–710.</li>
+<li id="ref-25">Bremaud, P. Non-Homogeneous Markov Chains; Springer: Berlin/Heidelberg, Germany, 2020; Voume 31, pp. 399–422.</li>
+<li id="ref-26">Shaikhet, L. About one method of stability investigation for nonlinear stochastic delay differential equations. Int. J. Robust Nonlinear Control 2021, 31, 2946–2959.</li>
+<li id="ref-27">Beretta, E.; Kolmanovskii, V.; Shaikhet, L. Stability of epidemic model with time delays influenced by stochastic perturbations. Math. Comput. Simul. 1998, 45, 269–277.</li>
+<li id="ref-28">Zhao, S.; Stone, L.; Gao, D.; Musa, S.S.; Chong, M.K.C.; He, D.; Wang, M.H. Imitation dynamics in the mitigation of the novel coronavirus disease (COVID-19) outbreak in Wuhan, China from 2019 to 2020. Ann. Transnatl. Med. 2020, 8, 448.</li>
+<li id="ref-29">Di Domenico, L.; Pullano, G.; Sabbatini, C.E.; Bo Elle, P.Y.; Colizza, V. Impact of lockdown on COVID-19 epidemic in Ile-de-France and possible exit strategies. BMC Med. 2020, 18, 240.</li>
+</ol>
+</div>
+        
+        
+        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2021), <em>Symmetry</em>, <a href="https://doi.org/10.3390/sym13071120" target="_blank" rel="noopener">doi:10.3390/sym13071120</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+      </article>
+    </div>
+
+    <section class="paper-related" aria-labelledby="related-title"><div class="paper-wrap"><h2 id="related-title">Related research</h2><div class="related-grid"><a class="related-card" href="/publications/more-numerically-accurate-algorithm-stiff-matrix-exponential/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2024</span><strong>More Numerically Accurate Algorithm for Stiff Matrix Exponential</strong><span class="related-text">Mathematics</span></a><a class="related-card" href="/publications/mathematical-model-coffee-trees-rust-control-snails/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2023</span><strong>Mathematical model of coffee tree’s rust control using snails as biological agents</strong><span class="related-text">Biosystems</span></a><a class="related-card" href="/publications/treatment-bladder-cancer-bcg-immunotherapy-pde-modeling/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2019</span><strong>Treatment of Bladder Cancer Using BCG Immunotherapy: PDE Modeling</strong><span class="related-text">Functional Differential Equations</span></a></div><p class="related-more"><a href="/publications.html">All publications</a></p></div></section>
+  </main>
+
+  <dialog id="cite-dialog" class="paper-dialog" aria-labelledby="cite-title">
+    <div class="dialog-head">
+      <h2 id="cite-title">Cite this paper</h2>
+      <button type="button" class="dialog-close" aria-label="Close"><i class="ri-close-line" aria-hidden="true"></i></button>
+    </div>
+    <p class="dialog-label">APA</p>
+    <pre class="cite-box" id="cite-apa">Lazebnik, T., Bunimovich-Mendrazitsky, S., &amp; Shaikhet, a. L. (2021). Novel Method to Analytically Obtain the Asymptotic Stable Equilibria States of Extended SIR-Type Epidemiological Models. Symmetry, 13, 1120. https://doi.org/10.3390/sym13071120</pre>
+    <button type="button" class="paper-btn" data-copy="cite-apa"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy APA</span></button>
+    <p class="dialog-label">BibTeX</p>
+    <pre class="cite-box" id="cite-bib">@article{lazebnik2021novel,
+  title = {Novel Method to Analytically Obtain the Asymptotic Stable Equilibria States of Extended SIR-Type Epidemiological Models},
+  author = {Lazebnik, Teddy and Bunimovich-Mendrazitsky, Svetlana and Shaikhet, and Leonid},
+  journal = {Symmetry},
+  volume = {13},
+  pages = {1120},
+  year = {2021},
+  doi = {10.3390/sym13071120}
+}</pre>
+    <button type="button" class="paper-btn" data-copy="cite-bib"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy BibTeX</span></button>
+  </dialog>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Games</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
+                  <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
+                  <li><a href="https://rl.teddylazebnik.com/">Pirate War RL Game</a></li>
+                  <li><a href="https://eh.teddylazebnik.com/">Echo Heist</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      
+      <script>
+        (function () {
+          // menu and navbar (js/main.js expects to sit at the site root)
+          var btn = document.getElementById('menu-btn'), menu = document.getElementById('mobile-menu'), nav = document.getElementById('navbar');
+          btn.addEventListener('click', function () { menu.classList.toggle('max-h-0'); menu.classList.toggle('max-h-screen'); });
+          var onScroll = function () { nav.classList.toggle('nav-scrolled', window.scrollY > 10); };
+          window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+          // cite dialog + copy buttons
+          var dialog = document.getElementById('cite-dialog');
+          document.querySelectorAll('[data-dialog]').forEach(function (b) {
+            b.addEventListener('click', function () { if (dialog.showModal) dialog.showModal(); else dialog.setAttribute('open', ''); });
+          });
+          dialog.querySelector('.dialog-close').addEventListener('click', function () { dialog.close(); });
+          dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
+          function flash(button, text) {
+            var label = button.querySelector('span'), old = label.textContent;
+            label.textContent = text; setTimeout(function () { label.textContent = old; }, 1600);
+          }
+          document.querySelectorAll('[data-copy]').forEach(function (b) {
+            b.addEventListener('click', function () {
+              var text = document.getElementById(b.getAttribute('data-copy')).textContent;
+              navigator.clipboard.writeText(text).then(function () { flash(b, 'Copied'); });
+            });
+          });
+          document.getElementById('share-btn').addEventListener('click', function () {
+            var b = this, data = { title: document.title, url: location.href.split('#')[0] };
+            if (navigator.share) { navigator.share(data).catch(function () {}); }
+            else { navigator.clipboard.writeText(data.url).then(function () { flash(b, 'Link copied'); }); }
+          });
+
+          // highlight the section being read in "On this page"
+          var links = {};
+          document.querySelectorAll('.paper-toc a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+          var heads = Array.prototype.filter.call(document.querySelectorAll('#full-text h2[id], #full-text h3[id], #full-text section[id]'), function (h) { return links[h.id]; });
+          if ('IntersectionObserver' in window && heads.length) {
+            var current = null;
+            var io = new IntersectionObserver(function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                  if (current) current.classList.remove('is-active');
+                  current = links[e.target.id]; current.classList.add('is-active');
+                }
+              });
+            }, { rootMargin: '-90px 0px -70% 0px' });
+            heads.forEach(function (h) { io.observe(h); });
+          }
+        })();
+      </script>
+   </body>
+</html>

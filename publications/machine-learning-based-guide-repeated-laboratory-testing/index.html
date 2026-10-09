@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_papers.py from paper.md + paper.json in this folder. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Machine learning guide for repeat lab tests in pediatric emergencies | ACML</title>
+      <meta name="description" content="Children&#x27;s blood tests done in the community are sometimes repeated within hours of arrival at a pediatric emergency department, adding to child discomfort…">
+      <meta name="author" content="Adi Shuchami, Teddy Lazebnik, Shai Ashkenazi, Avner Herman Cohen, Yael Reichenberg, Vered Shkalim Zemer">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/publications/machine-learning-based-guide-repeated-laboratory-testing/">
+      <meta name="citation_title" content="A Machine Learning-Based Guide for Repeated Laboratory Testing in Pediatric Emergency Departments">
+      <meta name="citation_author" content="Adi Shuchami">
+      <meta name="citation_author" content="Teddy Lazebnik">
+      <meta name="citation_author" content="Shai Ashkenazi">
+      <meta name="citation_author" content="Avner Herman Cohen">
+      <meta name="citation_author" content="Yael Reichenberg">
+      <meta name="citation_author" content="Vered Shkalim Zemer">
+      <meta name="citation_publication_date" content="2025/07/28">
+      <meta name="citation_journal_title" content="Diagnostics">
+      <meta name="citation_volume" content="15">
+      <meta name="citation_firstpage" content="1885">
+      <meta name="citation_doi" content="10.3390/diagnostics15151885">
+      <meta name="citation_pdf_url" content="https://teddylazebnik.com/files/repeat_test.pdf">
+      <meta name="citation_abstract_html_url" content="https://acml.teddylazebnik.com/publications/machine-learning-based-guide-repeated-laboratory-testing/">
+      <meta name="citation_fulltext_html_url" content="https://acml.teddylazebnik.com/publications/machine-learning-based-guide-repeated-laboratory-testing/">
+      <meta name="citation_keywords" content="health economics; quality assurance; pediatric emergency department; laboratory tests; community; children; healthcare; data-driven models Diagnostics 2025; 15; 1885 https://doi.org/10.3390/diagnostics15151885">
+      <meta name="citation_language" content="en">
+      <meta property="og:type" content="article">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Machine learning guide for repeat lab tests in pediatric emergencies">
+      <meta property="og:description" content="Children&#x27;s blood tests done in the community are sometimes repeated within hours of arrival at a pediatric emergency department, adding to child discomfort…">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/publications/machine-learning-based-guide-repeated-laboratory-testing/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/publications/machine-learning-based-guide-repeated-laboratory-testing/figures/share-fig-1.jpg">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Machine learning guide for repeat lab tests in pediatric emergencies">
+      <meta name="twitter:description" content="Children&#x27;s blood tests done in the community are sometimes repeated within hours of arrival at a pediatric emergency department, adding to child discomfort…">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/publications/machine-learning-based-guide-repeated-laboratory-testing/figures/share-fig-1.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "A Machine Learning-Based Guide for Repeated Laboratory Testing in Pediatric Emergency Departments",
+  "name": "A Machine Learning-Based Guide for Repeated Laboratory Testing in Pediatric Emergency Departments",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Adi Shuchami"
+    },
+    {
+      "@type": "Person",
+      "name": "Teddy Lazebnik"
+    },
+    {
+      "@type": "Person",
+      "name": "Shai Ashkenazi"
+    },
+    {
+      "@type": "Person",
+      "name": "Avner Herman Cohen"
+    },
+    {
+      "@type": "Person",
+      "name": "Yael Reichenberg"
+    },
+    {
+      "@type": "Person",
+      "name": "Vered Shkalim Zemer"
+    }
+  ],
+  "datePublished": "2025-07-28",
+  "url": "https://acml.teddylazebnik.com/publications/machine-learning-based-guide-repeated-laboratory-testing/",
+  "mainEntityOfPage": "https://acml.teddylazebnik.com/publications/machine-learning-based-guide-repeated-laboratory-testing/",
+  "abstract": "Background/Objectives: Laboratory tests conducted in community settings are occasionally repeated within hours of presentation to pediatric emergency departments (PEDs). Reducing unnecessary repetitions can ease child discomfort and alleviate the healthcare burden without compromising the diagnostic process or quality of care. The aim of this study was to develop a decision tree (DT) model to guide physicians in minimizing unnecessary repeat blood tests in PEDs. The minimal decision tree (MDT) algorithm was selected for its interpretability and capacity to generate optimally pruned classification trees. Methods: Children aged 3 months to 18 years with community-based complete blood count (CBC), electrolyte (ELE), and C-reactive protein (CRP) measurements obtained between 2016 and 2023 were included. Repeat tests performed in the pediatric emergency department within 12 h were evaluated by comparing paired measurements, with tests considered justified when values transitioned from normal to abnormal ranges or changed by ≥20%. Additionally, sensitivity analyses were conducted for absolute change thresholds of 10% and 30% and for repeat intervals of 6, 18, and 24 h. Results: Among 7813 children visits in this study, 6044, 1941, and 2771 underwent repeated CBC, ELE, and CRP tests, respectively. The mean ages of patients undergoing CRP, ELE, and CBC testing were 6.33 ± 5.38, 7.91 ± 5.71, and 5.08 ± 5.28 years, respectively. The majority were of middle socio-economic class, with 66.61–71.24% living in urban areas. Pain was the predominant presented complaint (83.69–85.99%), and in most cases (83.69–85.99%), the examination was conducted by a pediatrician. The DT model was developed and evaluated on training and validation cohorts, and it demonstrated high accuracy in predicting the need for repeat CBC and ELE tests but not CRP. Performance of the DT model significantly exceeded that of the logistic regression model. Conclusions: The data-driven guide derived from the DT model provides clinicians with a practical, interpretable tool to minimize unnecessary repeat laboratory testing, thereby enhancing patient care and optimizing healthcare resource utilization.",
+  "description": "Children's blood tests done in the community are sometimes repeated within hours of arrival at a pediatric emergency department, adding to child discomfort…",
+  "image": "https://acml.teddylazebnik.com/publications/machine-learning-based-guide-repeated-laboratory-testing/figures/share-fig-1.jpg",
+  "keywords": "health economics, quality assurance, pediatric emergency department, laboratory tests, community, children, healthcare, data-driven models Diagnostics 2025, 15, 1885 https://doi.org/10.3390/diagnostics15151885",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "DOI",
+    "value": "10.3390/diagnostics15151885"
+  },
+  "sameAs": "https://doi.org/10.3390/diagnostics15151885",
+  "isPartOf": {
+    "@type": "PublicationIssue",
+    "issueNumber": "",
+    "isPartOf": {
+      "@type": "PublicationVolume",
+      "volumeNumber": "15",
+      "isPartOf": {
+        "@type": "Periodical",
+        "name": "Diagnostics"
+      }
+    }
+  },
+  "about": "Machine Learning",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "encoding": {
+    "@type": "MediaObject",
+    "contentUrl": "https://teddylazebnik.com/files/repeat_test.pdf",
+    "encodingFormat": "application/pdf"
+  }
+}
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/paper.css" rel="stylesheet">
+      
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="paper-page">
+    <header class="paper-hero">
+      <div class="paper-wrap">
+        <nav class="paper-crumbs" aria-label="Breadcrumb">
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Machine Learning</span>
+        </nav>
+        <p class="paper-kicker"><span><em>Diagnostics</em> · 28 July 2025</span></p>
+        <h1 class="paper-title">A Machine Learning-Based Guide for Repeated Laboratory Testing in Pediatric Emergency Departments</h1>
+        <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Adi Shuchami</a></span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author">Shai Ashkenazi</span>, <span class="author">Avner Herman Cohen</span>, <span class="author">Yael Reichenberg</span>, <span class="author">Vered Shkalim Zemer</span></p>
+        <details class="paper-affils"><summary>Affiliations</summary><ol><li value="1">Department of Mathematics, Ariel University, Ariel 4070000, Israel</li><li value="2">Department of Cancer Biology, Cancer Institute, University College London, London WC1 9BT, UK</li><li value="3">Adelson School of Medicine, Ariel University, Ariel 4070000, Israel</li><li value="4">Faculty of Medical and Health Sciences, Tel Aviv University, Tel Aviv 6997801, Israel</li></ol></details>
+        <div class="paper-actions">
+          <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/repeat_test.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
+          <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
+          
+          <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
+          <a class="paper-btn" href="https://doi.org/10.3390/diagnostics15151885" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
+          <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
+        </div>
+        <div class="lab-authors"><span class="lab-authors-label">ACML authors</span><a class="lab-chip" href="/team.html"><img src="/img/lab/adi.webp" alt="" width="32" height="32" loading="lazy"><span><strong>Adi Shuchami</strong><small>Alumni</small></span></a><a class="lab-chip" href="/team.html"><img src="/img/lab/teddy.webp" alt="" width="32" height="32" loading="lazy"><span><strong>Teddy Lazebnik</strong><small>PI</small></span></a></div>
+      </div>
+    </header>
+
+    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Children&#x27;s blood tests done in the community are sometimes repeated within hours of arrival at a pediatric emergency department, adding to child discomfort and healthcare burden. We built an interpretable decision tree model to help physicians avoid unnecessary repeats, using 7813 children&#x27;s visits with community blood count, electrolyte and C-reactive protein (an inflammation marker) tests. The model accurately predicted the need to repeat blood count and electrolyte tests, though not C-reactive protein, and significantly outperformed logistic regression.</p><div class=glance-stats><div class="stat"><span class="stat-value">7813</span><span class="stat-label">children&#x27;s emergency department visits studied</span></div><div class="stat"><span class="stat-value">6044</span><span class="stat-label">visits with a repeated complete blood count</span></div><div class="stat"><span class="stat-value">12 h</span><span class="stat-label">window for counting a test as repeated</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Among 7813 visits, 6044, 1941 and 2771 involved repeated blood count, electrolyte and C-reactive protein tests, respectively.</li><li>A repeat test was considered justified when values moved from normal to abnormal or changed by at least 20%.</li><li>The decision tree accurately predicted the need for repeat blood count and electrolyte tests, but not C-reactive protein tests.</li><li>Its performance significantly exceeded that of a logistic regression model.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1344" height="557" alt="Figure 1. A schematic overview of this study’s methodological framework."></a><figcaption><strong>Figure 1.</strong> A schematic overview of this study’s methodological framework. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+
+    <div class="paper-wrap paper-layout">
+      <aside class="paper-aside">
+        <nav class="paper-toc" aria-label="On this page">
+          <p class="aside-title">On this page</p>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#1-introduction">1. Introduction</a></li>
+<li><a href="#2-materials-and-methods">2. Materials and Methods</a></li>
+<li><a href="#3-results">3. Results</a></li><li class="toc-sub"><a href="#31-study-population">3.1. Study Population</a></li><li class="toc-sub"><a href="#32-repeated-laboratory-testing">3.2. Repeated Laboratory Testing</a></li><li class="toc-sub"><a href="#33-models-for-predicting-the-necessity-of-repeated-laboratory-testing">3.3. Models for Predicting the Necessity of Repeated Laboratory Testing</a></li><li class="toc-sub"><a href="#34-variables-contributing-to-the-decision-tree-models">3.4. Variables Contributing to the Decision Tree Models</a></li>
+<li><a href="#4-discussion">4. Discussion</a></li>
+<li><a href="#5-conclusions">5. Conclusions</a></li>
+<li><a href="#abbreviations">Abbreviations</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </nav>
+        <div class="paper-info">
+          <p class="aside-title">Article information</p>
+          <dl><div><dt>Journal</dt><dd>Diagnostics 15: 1885</dd></div><div><dt>Published</dt><dd><time datetime="2025-07-28">28 July 2025</time></dd></div><div><dt>DOI</dt><dd><a href="https://doi.org/10.3390/diagnostics15151885" target="_blank" rel="noopener">10.3390/diagnostics15151885</a></dd></div></dl>
+        </div>
+      </aside>
+
+      <article class="paper-body" id="full-text">
+        <details class="paper-toc-mobile">
+          <summary>On this page</summary>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#1-introduction">1. Introduction</a></li>
+<li><a href="#2-materials-and-methods">2. Materials and Methods</a></li>
+<li><a href="#3-results">3. Results</a></li><li class="toc-sub"><a href="#31-study-population">3.1. Study Population</a></li><li class="toc-sub"><a href="#32-repeated-laboratory-testing">3.2. Repeated Laboratory Testing</a></li><li class="toc-sub"><a href="#33-models-for-predicting-the-necessity-of-repeated-laboratory-testing">3.3. Models for Predicting the Necessity of Repeated Laboratory Testing</a></li><li class="toc-sub"><a href="#34-variables-contributing-to-the-decision-tree-models">3.4. Variables Contributing to the Decision Tree Models</a></li>
+<li><a href="#4-discussion">4. Discussion</a></li>
+<li><a href="#5-conclusions">5. Conclusions</a></li>
+<li><a href="#abbreviations">Abbreviations</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </details>
+        <section id="abstract" class="paper-abstract">
+          <h2>Abstract</h2>
+          <p>Background/Objectives: Laboratory tests conducted in community settings are occasionally repeated within hours of presentation to pediatric emergency departments (PEDs). Reducing unnecessary repetitions can ease child discomfort and alleviate the healthcare burden without compromising the diagnostic process or quality of care. The aim of this study was to develop a decision tree (DT) model to guide physicians in minimizing unnecessary repeat blood tests in PEDs. The minimal decision tree (MDT) algorithm was selected for its interpretability and capacity to generate optimally pruned classification trees. Methods: Children aged 3 months to 18 years with community-based complete blood count (CBC), electrolyte (ELE), and C-reactive protein (CRP) measurements obtained between 2016 and 2023 were included. Repeat tests performed in the pediatric emergency department within 12 h were evaluated by comparing paired measurements, with tests considered justified when values transitioned from normal to abnormal ranges or changed by ≥20%. Additionally, sensitivity analyses were conducted for absolute change thresholds of 10% and 30% and for repeat intervals of 6, 18, and 24 h. Results: Among 7813 children visits in this study, 6044, 1941, and 2771 underwent repeated CBC, ELE, and CRP tests, respectively. The mean ages of patients undergoing CRP, ELE, and CBC testing were 6.33 ± 5.38, 7.91 ± 5.71, and 5.08 ± 5.28 years, respectively. The majority were of middle socio-economic class, with 66.61–71.24% living in urban areas. Pain was the predominant presented complaint (83.69–85.99%), and in most cases (83.69–85.99%), the examination was conducted by a pediatrician. The DT model was developed and evaluated on training and validation cohorts, and it demonstrated high accuracy in predicting the need for repeat CBC and ELE tests but not CRP. Performance of the DT model significantly exceeded that of the logistic regression model. Conclusions: The data-driven guide derived from the DT model provides clinicians with a practical, interpretable tool to minimize unnecessary repeat laboratory testing, thereby enhancing patient care and optimizing healthcare resource utilization.</p>
+        </section>
+        
+<div class="paper-text">
+<h2 id="1-introduction">1. Introduction</h2>
+<p>Repeat laboratory testing is a well-documented and widespread practice in healthcare <span class="cite">[<a href="#ref-1">1</a>,<a href="#ref-2">2</a>]</span>, accounting for a substantial proportion of overall laboratory utilization <span class="cite">[<a href="#ref-3">3</a>–<a href="#ref-6">6</a>]</span>. A hospital-based study reported that 20% to 30% of laboratory tests were repeated within a 24 h period <span class="cite">[<a href="#ref-3">3</a>]</span>. Repeated testing is intended to reduce diagnostic uncertainty, inform therapeutic decision-making, improve patient care <span class="cite">[<a href="#ref-7">7</a>,<a href="#ref-8">8</a>]</span>, and acknowledge patients’ clinical presentations <span class="cite">[<a href="#ref-2">2</a>]</span>.</p>
+<p>Despite these intended benefits, studies indicated that early repeat laboratory testing yielded negligible or clinically insignificant differences and exerted no influence on clinical decision-making, rendering such repeat tests unjustified <span class="cite">[<a href="#ref-3">3</a>,<a href="#ref-9">9</a>,<a href="#ref-10">10</a>]</span>. These heighten patient discomfort, raise healthcare costs, delay clinical decision-making, and impair the effectiveness of clinical management <span class="cite">[<a href="#ref-11">11</a>]</span>. As highlighted in several studies, although clinicians strive to deliver cost-effective care, limited transparency around laboratory testing expenses may inadvertently lead to occasional overutilization of diagnostic tests <span class="cite">[<a href="#ref-3">3</a>]</span>. The clinical and financial inefficiencies associated with redundant testing have been highlighted <span class="cite">[<a href="#ref-6">6</a>,<a href="#ref-7">7</a>,<a href="#ref-11">11</a>]</span>.</p>
+<p>In line with these observations, laboratory tests conducted in community settings are occasionally repeated within hours of referral to pediatric emergency departments (PEDs) <span class="cite">[<a href="#ref-1">1</a>,<a href="#ref-10">10</a>]</span>. The prevalence of these repeat tests and the factors driving their occurrence remain poorly understood <span class="cite">[<a href="#ref-1">1</a>,<a href="#ref-12">12</a>]</span>. Limited research has investigated repeat testing in PEDs and pediatric intensive care units <span class="cite">[<a href="#ref-1">1</a>,<a href="#ref-11">11</a>,<a href="#ref-13">13</a>]</span>. Pageler et al. <span class="cite">[<a href="#ref-13">13</a>]</span> implemented a computerized physician order entry intervention in a pediatric intensive care unit that restricted select laboratory tests to a single daily order and required daily reassessment of their necessity. This strategy reduced test utilization, shortened both pediatric intensive care unit and overall hospital lengths of stay, and had no adverse effects on mortality. These findings underscore the importance of clear guidelines to minimize unnecessary repeat laboratory testing in clinical decision-making.</p>
+<p>Given the lack of clinical benefit and potential harm of unnecessary repeats, multiple interventions have been proposed to reduce the overuse of laboratory testing <span class="cite">[<a href="#ref-7">7</a>]</span>. Proposed strategies have ranged from physician education and audit-and-feedback programs to electronic health record enhancements that display cost data, financial incentive schemes, and administrative policies limiting specific test orders. While these interventions have been effective in some settings, their availability and applicability in pediatric care remain limited <span class="cite">[<a href="#ref-14">14</a>,<a href="#ref-15">15</a>]</span>. In pediatric settings, decisions to repeat laboratory tests require consideration of additional complexities, including heterogeneous socio-demographic factors <span class="cite">[<a href="#ref-16">16</a>]</span>. Tailored strategies in pediatric emergency departments must balance the potential risks posed by repeat laboratory testing with the necessity of comprehensive clinical evaluation.</p>
+<p>To translate these considerations into a practical solution, this study aims to equip pediatricians with a practical, data-driven guide to minimize unnecessary repeat blood tests in PEDs. To achieve this, a DT model was constructed using routinely available clinical data and initial community laboratory results to predict when repeat testing was warranted. The resulting, user-friendly tool is designed to reduce test repetitions that are unlikely to affect decision-making.</p>
+<p>This study constitutes the first comprehensive application of machine learning to assess the necessity of repeat blood testing in pediatric patients across both community and emergency department settings. The model provides a precise, data-driven framework to assist clinicians in minimizing unnecessary repeated laboratory tests, thereby enhancing patient care, improving healthcare quality, and optimizing resource utilization.</p>
+<h2 id="2-materials-and-methods">2. Materials and Methods</h2>
+<p>Initially, the study cohort and associated clinical and laboratory data were characterized. Next, a metric to assess the necessity of repeat laboratory tests was established. Finally, the data-driven methodology for developing the clinical decision guide and its statistical validation are presented. <a class="xref" href="#fig-1">Figure 1</a> demonstrates a schematic view of the methodological flow of this study, including the data collection process and the model development steps.</p>
+<figure id="fig-1">
+<a class="fig-zoom" href="figures/fig-1.webp" aria-label="Open the figure full size"><img src="figures/fig-1.webp" width="516" height="214" alt="A schematic overview of this study’s methodological framework" loading="lazy" decoding="async"></a>
+<figcaption><strong>Figure 1.</strong> A schematic overview of this study’s methodological framework.</figcaption>
+</figure>
+
+<p>The study cohort was assembled from Clalit Health Services (CHS), Israel’s largest health maintenance organization, which insures and provides care to approximately 54% of the country’s population. CHS maintains a comprehensive electronic database capturing patient demographics, visits to community clinics, emergency departments, and hospitals, laboratory test results, and medication prescriptions and purchases. Each physician visit includes a diagnosis recorded in accordance with the International Classification of Diseases, Ninth Revision (ICD-9). Data were extracted from CHS’s electronic medical records via the MDClone© analytics platform. The inclusion criteria comprised medical visits of children aged 3 months to 18 years across Israel’s three central administrative districts, between January 1, 2016 and December 31, 2023. Eligible visits included instances in which an initial community laboratory test was repeated in a PED within a 12 h interval.</p>
+<p>This study was approved by CHS’s Institutional Review Board for Human Studies (approval number: 0099-21-COM). Signed informed consent was waived, as this retrospective cohort analysis of an existing database did not include any clinical intervention or patient contact.</p>
+<p>Six laboratory tests were analyzed and grouped into three categories: complete blood count (CBC), including white blood cell count, hemoglobin, and platelet count; serum electrolytes (ELEs), including sodium and potassium; and C-reactive protein (CRP). Data collected from the electronic medical records included socio-demographic information such as age, sex, and socio-economic status (SES), as well as details of the laboratory tests conducted in the community and later in the PED. The patient’s SES was based on the Israeli Central Bureau of Statistics classification system, which assigns 10 categories of SES <span class="cite">[<a href="#ref-17">17</a>]</span>. Categorization was based on multiple variables, including demographic characteristics, educational attainment, employment, income levels, and housing conditions. Complete records were available for every patient in the cohort.</p>
+<p>With complete demographic and socio-economic data for all patients, this study then defined criteria for necessary repeat testing. In the absence of a standardized definition in the medical literature, two criteria were applied to classify a repetition as justified. The first criterion deemed tests whose results shifted from within the community’s normal reference range to outside the PED’s reference limits as clinically necessary. The second criterion employed an absolute difference of <em>≥</em>20% between community and PED to denote clinically significant change. The absolute difference threshold was selected because it has been shown to outperform relative percent change in identifying clinically meaningful variations <span class="cite">[<a href="#ref-18">18</a>]</span>. Sensitivity analyses were performed for absolute difference thresholds of 10% and 30% and inter-test intervals of 6, 18, and 24 h.</p>
+<p>Recent advances in machine learning (ML) model applications in medicine <span class="cite">[<a href="#ref-19">19</a>–<a href="#ref-22">22</a>]</span> highlighted the suitability of decision tree algorithms for clinical decision support. Accordingly, a DT-based model <span class="cite">[<a href="#ref-23">23</a>]</span>, elected for its proven clinical performance and straightforward interpretability <span class="cite">[<a href="#ref-24">24</a>–<a href="#ref-26">26</a>]</span>, was developed to translate our established criteria into a practical, data-driven guide. The minimal DT (MDT) algorithm <span class="cite">[<a href="#ref-27">27</a>]</span> was employed to construct the binary DT model. The MDT algorithm was employed because, unlike conventional machine learning methods that iteratively contract decision tree nodes, it performs a global optimization of the entire tree to produce an optimal classification model <span class="cite">[<a href="#ref-28">28</a>]</span>.</p>
+<p>To prepare the data for model development, all continuous variables were converted into discrete categories using a binning approach. To improve the generalization of the results, the k-fold (k = 5) cross-validation method was utilized <span class="cite">[<a href="#ref-29">29</a>]</span>, as well as the SAT post-pruning method <span class="cite">[<a href="#ref-30">30</a>]</span>.</p>
+<p>The study population was initially divided into training and validation cohorts for model development and evaluation. Statistical tests were then performed to confirm that age and sex distributions were comparable between the two groups. This step was essential to ensure that the validation set reflected the distribution of the training set, a critical requirement for the generalizability of machine learning models in clinical settings <span class="cite">[<a href="#ref-31">31</a>]</span>. This balance was achieved using the Directed Bee Colony Optimization algorithm <span class="cite">[<a href="#ref-32">32</a>]</span>. Model performance was evaluated using the receiver operating characteristic area under the curve (ROC-AUC), along with accuracy, sensitivity, specificity, positive predictive value (PPV), negative predictive value (NPV), Cohen’s alpha, and F1 metrics, in accordance with standard practices in medical machine learning <span class="cite">[<a href="#ref-33">33</a>,<a href="#ref-34">34</a>]</span>. For comparison, the widely used logistic regression (LR) model was employed, given its linear structure and interpretability <span class="cite">[<a href="#ref-35">35</a>]</span>.</p>
+<p>To explore the decision-making properties of the resulting DT models, two commonly used techniques were applied. First, feature importance was assessed using the standard permutation importance algorithm, which quantifies the average impact of each parameter on the model’s final decision <span class="cite">[<a href="#ref-36">36</a>]</span>. Second, SHapley Additive exPlanations (SHAP) analysis was applied to further interpret the model by quantifying the contribution of each feature to individual predictions <span class="cite">[<a href="#ref-37">37</a>,<a href="#ref-38">38</a>]</span>. The SHAP values provide a unified measure of feature contribution by attributing the effect of each input variable to a specific model prediction. In feature importance analysis, these values quantify the magnitude and direction of each feature’s influence, with positive values indicating a positive contribution and negative values indicating a negative impact. All analyses were conducted using Python version 3.9.5, with statistical significance defined as <em>p</em> &lt; 0.05.</p>
+<h2 id="3-results">3. Results</h2>
+<h3 id="31-study-population">3.1. Study Population</h3>
+<p>Out of 812,271 pediatric emergency department visits recorded during the study period, 7813 (0.96%) met the inclusion criteria for analysis. Among the included visits, repeated testing was performed in 6044 cases for the complete blood count (CBC), 1941 for electrolytes (ELEs), and 2771 for C-reactive protein (CRP). Some patients underwent more than one type of repeated blood test. The mean ages of patients, stratified by the type of repeated laboratory test, were 5.08 <em>±</em> 5.28 years for the CBC group, 7.91 <em>±</em> 5.71 years for the ELE group, and 6.33 <em>±</em> 5.38 years for the CRP group. The distribution of sexes was balanced, with males comprising 49.43–52.39% across test groups. The majority of patients belonged to the middle SES (66.61–71.24%) and resided in urban areas (66.61–71.24%).</p>
+<p>Pain was the most frequently reported complaint across all test groups (83.69–85.99%), and the majority of patients were diagnosed by pediatricians (83.69–85.99%). The detailed description of the study populations is presented in <a class="xref" href="#table-1">Table 1</a>.</p>
+<figure class="table-figure" id="table-1">
+<figcaption><strong>Table 1.</strong> Description of the socio-demographic characteristics of the study population *.</figcaption>
+<div class="table-scroll"><table><tr><th>Variable</th><th>Repeated<br/>Complete Blood<br/>Count Test<br/>(CBC)</th><th>Repeated<br/>Electrolyte (Na,<br/>K) Tests (ELE)</th><th>Repeated CRP<br/>(CRP)</th></tr><tr><td>Visits, n</td><td>6044</td><td>1941</td><td>2771</td></tr><tr><td>Hospitalization</td><td>2924 (48.38%)</td><td>1078 (55.56%)</td><td>1383 (49.92%)</td></tr><tr><td>Age (years), mean (±SD)</td><td>5.08 (5.28)</td><td>7.91 (5.71)</td><td>6.33 (5.38)</td></tr><tr class="row-group"><td>Age group</td><td></td><td></td><td></td></tr><tr><td>3 mo–2 years</td><td>2758 (45.63%)</td><td>434 (22.37%)</td><td>1080 (30.96%)</td></tr><tr><td>3–10 years</td><td>2001 (33.11%)</td><td>752 (38.72%)</td><td>1175 (42.40%)</td></tr><tr><td>11–18 years</td><td>1285 (21.29%)</td><td>755 (39.91%)</td><td>516 (27.64%)</td></tr><tr class="row-group"><td>Sex</td><td></td><td></td><td></td></tr><tr><td>Male</td><td>2988 (49.43%)</td><td>971 (50.05%)</td><td>1452 (52.39%)</td></tr><tr><td>Female</td><td>2056 (50.57%)</td><td>969 (49.95%)</td><td>1319 (47.61%)</td></tr><tr class="row-group"><td>SES</td><td></td><td></td><td></td></tr><tr><td>Low</td><td>1692 (27.99%)</td><td>615 (31.68%)</td><td>914 (32.98%)</td></tr><tr><td>Middle</td><td>3125 (51.70%)</td><td>903 (46.52%)</td><td>1306 (47.13%)</td></tr><tr><td>High</td><td>1227 (20.31%)</td><td>423 (21.80%)</td><td>551 (19.89%)</td></tr><tr class="row-group"><td>Residence type</td><td></td><td></td><td></td></tr><tr><td>City</td><td>4219 (69.80%)</td><td>1293 (66.61%)</td><td>1974 (71.24%)</td></tr><tr><td>Village</td><td>1458 (24.12%)</td><td>495 (25.50%)</td><td>638 (23.02%)</td></tr><tr><td>Other</td><td>367 (6.98%)</td><td>152 (7.89%)</td><td>159 (5.74%)</td></tr></table></div>
+<p class="table-note">* All values are expressed as <em>N</em> (%), unless otherwise stated.</p>
+</figure>
+
+<h3 id="32-repeated-laboratory-testing">3.2. Repeated Laboratory Testing</h3>
+<p>Approximately half of the patients in each blood test group were hospitalized, with rates ranging from 48.38% to 55.56%. Based on the predefined criteria for appropriateness, only 2924 of 6044 (7.32%) CBC tests, 1078 of 1941 (11.85%) ELE tests, and 1383 of 2771 (13.68%) CRP tests were considered appropriate.</p>
+<h3 id="33-models-for-predicting-the-necessity-of-repeated-laboratory-testing">3.3. Models for Predicting the Necessity of Repeated Laboratory Testing</h3>
+<p><a class="xref" href="#table-2">Table 2</a> presents the performance metrics of three DT models and three LR models, corresponding to the CBC, ELE, and CRP tests. Model evaluation included accuracy, F1-score, sensitivity, specificity, PPV, NPV, Cohen’s alpha, and ROC-AUC. The F1- score, commonly used in classification tasks, represents the harmonic mean of precision and sensitivity.</p>
+<figure class="table-figure" id="table-2">
+<figcaption><strong>Table 2.</strong> Performance of decision tree and logistic regression models across thresholds of 10%, 20%, and 30% and out-of-normal-range absolute changes for CBC, CHS, and CRP tests. Metrics: accuracy; F1-score; ROC-AUC; sensitivity; specificity; positive predictive value; negative predictive value; and Cohen’s κ.</figcaption>
+<div class="table-scroll"><table><tr><th>Model</th><th>Prediction</th><th>Condition</th><th>Accuracy</th><th>F1-Score</th><th>ROC-<br/>AUC</th><th>Sensitivity</th><th>Specificity</th><th>PPV</th><th>NPV</th><th>Cohen’s<br/>Kappa</th></tr><tr><td></td><td>CBC</td><td>10%</td><td>85.81%</td><td>78.68%</td><td>73.40%</td><td>75.48%</td><td>89.96%</td><td>82.26%</td><td>86.97%</td><td>68.60%</td></tr><tr><td></td><td>ELE</td><td>10%</td><td>79.78%</td><td>75.77%</td><td>72.49%</td><td>72.57%</td><td>82.35%</td><td>78.50%</td><td>77.01%</td><td>56.90%</td></tr><tr><td></td><td>CRP</td><td>10%</td><td>72.46%</td><td>70.75%</td><td>68.73%</td><td>67.55%</td><td>75.58%</td><td>74.07%</td><td>70.36%</td><td>44.90%</td></tr><tr><td></td><td>CBC</td><td>20%</td><td>78.72%</td><td>72.19%</td><td>67.34%</td><td>68.99%</td><td>85.21%</td><td>75.69%</td><td>80.46%</td><td>55.00%</td></tr><tr><td></td><td>ELE</td><td>20%</td><td>73.18%</td><td>69.52%</td><td>66.47%</td><td>66.32%</td><td>77.01%</td><td>72.82%</td><td>70.81%</td><td>45.70%</td></tr><tr><td></td><td>CRP</td><td>20%</td><td>66.48%</td><td>64.91%</td><td>63.09%</td><td>61.71%</td><td>70.36%</td><td>68.32%</td><td>65.04%</td><td>33.40%</td></tr><tr><td>Decision tree</td><td>CBC</td><td>30%</td><td>91.70%</td><td>84.09%</td><td>78.43%</td><td>80.89%</td><td>93.30%</td><td>86.81%</td><td>90.76%</td><td>79.30%</td></tr><tr><td></td><td>ELE</td><td>30%</td><td>85.24%</td><td>81.08%</td><td>77.42%</td><td>77.88%</td><td>87.20%</td><td>83.92%</td><td>83.18%</td><td>68.70%</td></tr><tr><td></td><td>CRP</td><td>30%</td><td>77.44%</td><td>75.62%</td><td>73.49%</td><td>72.42%</td><td>80.82%</td><td>79.46%</td><td>75.62%</td><td>56.80%</td></tr><tr><td></td><td>CBC</td><td>out-of-range</td><td>77.15%</td><td>70.75%</td><td>66.00%</td><td>67.55%</td><td>84.18%</td><td>74.07%</td><td>79.16%</td><td>52.10%</td></tr><tr><td></td><td>ELE</td><td>out-of-range</td><td>76.84%</td><td>72.99%</td><td>69.79%</td><td>69.79%</td><td>80.20%</td><td>76.13%</td><td>73.80%</td><td>51.80%</td></tr><tr><td></td><td>CRP</td><td>out-of-range</td><td>69.80%</td><td>68.16%</td><td>66.24%</td><td>64.96%</td><td>73.13%</td><td>71.30%</td><td>67.92%</td><td>39.50%</td></tr><tr><td></td><td>CBC</td><td>10%</td><td>75.57%</td><td>73.09%</td><td>68.14%</td><td>69.89%</td><td>78.96%</td><td>76.62%</td><td>73.71%</td><td>49.90%</td></tr><tr><td></td><td>ELE</td><td>10%</td><td>72.87%</td><td>70.43%</td><td>67.05%</td><td>67.23%</td><td>76.45%</td><td>73.84%</td><td>70.93%</td><td>44.90%</td></tr><tr><td></td><td>CRP</td><td>10%</td><td>66.00%</td><td>65.32%</td><td>64.35%</td><td>62.12%</td><td>70.19%</td><td>68.79%</td><td>65.55%</td><td>34.40%</td></tr><tr><td></td><td>CBC</td><td>20%</td><td>69.33%</td><td>67.05%</td><td>62.51%</td><td>63.85%</td><td>72.76%</td><td>70.47%</td><td>67.57%</td><td>38.00%</td></tr><tr><td></td><td>ELE</td><td>20%</td><td>66.85%</td><td>64.62%</td><td>61.56%</td><td>61.42%</td><td>70.21%</td><td>67.92%</td><td>65.05%</td><td>33.20%</td></tr><tr><td>Logistic</td><td>CRP</td><td>20%</td><td>61.48%</td><td>59.93%</td><td>59.04%</td><td>56.73%</td><td>65.59%</td><td>63.33%</td><td>60.19%</td><td>23.90%</td></tr><tr><td>regression</td><td>CBC</td><td>30%</td><td>80.76%</td><td>78.11%</td><td>72.80%</td><td>74.91%</td><td>84.18%</td><td>81.65%</td><td>79.16%</td><td>60.90%</td></tr><tr><td></td><td>ELE</td><td>30%</td><td>77.85%</td><td>75.29%</td><td>71.70%</td><td>72.09%</td><td>81.33%</td><td>79.25%</td><td>76.44%</td><td>54.00%</td></tr><tr><td></td><td>CRP</td><td>30%</td><td>71.62%</td><td>70.08%</td><td>68.76%</td><td>66.88%</td><td>74.88%</td><td>73.66%</td><td>70.76%</td><td>44.60%</td></tr><tr><td></td><td>CBC</td><td>out-of-range</td><td>67.94%</td><td>65.71%</td><td>61.26%</td><td>62.51%</td><td>71.49%</td><td>69.17%</td><td>66.27%</td><td>35.40%</td></tr><tr><td></td><td>ELE</td><td>out-of-range</td><td>70.19%</td><td>67.85%</td><td>64.64%</td><td>64.65%</td><td>73.08%</td><td>70.78%</td><td>67.92%</td><td>38.90%</td></tr><tr><td></td><td>CRP</td><td>out-of-range</td><td>64.55%</td><td>62.93%</td><td>61.99%</td><td>59.73%</td><td>68.49%</td><td>66.45%</td><td>63.36%</td><td>29.70%</td></tr></table></div>
+
+</figure>
+
+<p>Focusing on the DT models, the CBC model demonstrates the highest performance, achieving an accuracy of 78.72% and an F1-score of 72.19%. The similarity between these two metrics suggests that the model generalized well without overfitting. Conversely, the CRP model exhibited lower accuracy and performed only slightly better than random classification, indicating limited predictive value. The ELE model achieved an accuracy of 73.18% and an F1-score of 69.52%. Notably, across all three test categories, the DT model outperformed the LR in terms of accuracy, F1-score, and ROC-AUC. The superior performance of the DT model may be attributed to its ability to capture non-linear relationships. Consequently, we did not assume a global linear association between repeat laboratory testing and individual model parameters, such as patient age. The DT model demonstrated a consistent performance across all evaluated criteria, including the 10%, 20%, and 30% absolute difference thresholds and the out-of-range definition, supporting its robustness. Based on this consistency, the 20% threshold was selected for further analysis, as it demonstrated a balanced performance across all evaluation metrics. Sensitivity analyses for 6, 18, and 24 h intervals between repeated tests are presented in Supplementary Table S1.</p>
+<p>Supplementary Figure S1 presents the DT models for the CBC, ELE, and CRP laboratory tests, with each node displaying a decision based on a specific model parameter and threshold. The decision path proceeds to the right if the specified condition is met and to the left if it is not, ultimately reaching a leaf node. Each leaf node indicates the model’s recommendation regarding the necessity of repeating the laboratory test. Notably, the root node (first row) in all DT models was defined by the corresponding laboratory test result obtained in the community setting. In cases involving multiple laboratory tests, such as the CBC model, additional community-based test results appeared immediately after the root node in the decision path. In higher-order decisions nodes (i.e., the upper levels of the tree structure), the socio-demographic characteristics, such as patient age and sex, played a prominent role.</p>
+<h3 id="34-variables-contributing-to-the-decision-tree-models">3.4. Variables Contributing to the Decision Tree Models</h3>
+<p>Figure 2a–c illustrate the contributions of various clinical and demographic variables to the decision tree models of the CBC, ELE, and CRP laboratory tests. Feature importance reflects the average contribution of each variable to the model’s predictions, offering an estimate of which features are most informative in determining the necessity of a repeated laboratory test. The laboratory results obtained in the community emerged as the most influential feature, followed by patient age. In contrast, patient sex (represented by the “Male” variable in <a class="xref" href="#fig-2">Figure 2</a>) had minimal to no impact on the model’s predictions, with importance values close to or equal to zero. Furthermore, neither the primary presenting symptom nor the identity of the referring clinician (pediatrician or family physician) demonstrated a measurable predictive value in the models.</p>
+<figure id="fig-2">
+<a class="fig-zoom" href="figures/fig-2.webp" aria-label="Open the figure full size"><img src="figures/fig-2.webp" width="799" height="621" alt="The variables’ relative contributions (feature importance) to the justification for repeat blood testing according to the decision tree models (a) CBC, (b) ELEs, and (c) CRP" loading="lazy" decoding="async"></a>
+<figcaption><strong>Figure 2.</strong> The variables’ relative contributions (feature importance) to the justification for repeat blood testing according to the decision tree models (<strong>a</strong>) CBC, (<strong>b</strong>) ELEs, and (<strong>c</strong>) CRP.</figcaption>
+</figure>
+
+<p><a class="xref" href="#fig-3">Figure 3</a> presents the SHAP analysis of the three DT models corresponding to the CBC, ELE, and CRP tests. In the CBC model, the absolute neutrophil count (ANC) measured in the community emerged as a key predictor. Higher ANC values were associated with an increased probability of the model recommending repeat testing, as indicated by the concentration of blue points to the right of the central reference line, along with several overlapping purple points. The second most important feature was the platelet count (PLT), which exhibited a pattern similar to that of ANC. The third was patient age, where younger patients had a slightly higher likelihood of requiring repeat testing. As age increased, the predicted need for repetition decreased, as reflected by the red values appearing to the left of the central line. For the ELE model, serum potassium level was the most influential feature, with elevated values associated with an increased likelihood of repeat testing. The second and third most influential features were patients age and serum sodium level, both of which exhibited less distinct patterns in relation to the predicted need for repeat testing. For the CRP model, lower serum values were associated with a higher likelihood of repeat testing. Patient age was the second most important feature. With respect to sex, male patients were more likely than female patients to undergo repeat CRP testing.</p>
+<figure id="fig-3">
+<a class="fig-zoom" href="figures/fig-3.webp" aria-label="Open the figure full size"><img src="figures/fig-3.webp" width="832" height="599" alt="The approximate linear relationship between the decision tree model variables and the predictive need for repeat laboratory testing based on SHAP (Shapley Additive exPlanations) analysis: (a) CBC; (b)" loading="lazy" decoding="async"></a>
+<figcaption><strong>Figure 3.</strong> The approximate linear relationship between the decision tree model variables and the predictive need for repeat laboratory testing based on SHAP (Shapley Additive exPlanations) analysis: (<strong>a</strong>) CBC; (<strong>b</strong>) ELEs; (<strong>c</strong>) CRP.</figcaption>
+</figure>
+
+<h2 id="4-discussion">4. Discussion</h2>
+<p>In this study, data-driven guides were developed to assist physicians in determining whether a repeated laboratory test in the PED is warranted when an identical test was recently performed in the community. The guides were based on widely available data, including socio-demographic characteristics and results from the initial community laboratory tests, supporting both their practicality and generalizability.</p>
+<p>Initial findings, as presented in <a class="xref" href="#table-2">Table 2</a>, indicate that the proportion of repeated laboratory tests classified as appropriate is relatively low (7.32–13.68%). This observation is consistent with previous research in pediatric populations, which also reported high rates of seemingly unjustified laboratory test repetition <span class="cite">[<a href="#ref-12">12</a>]</span>. These findings underscore the challenges clinicians face in accurately assessing the necessity of repeated laboratory tests. They also highlight the potential value of a decision support tool to reduce unnecessary repeat testing, with implications for improving the patient experience, healthcare quality, and cost efficiency <span class="cite">[<a href="#ref-7">7</a>,<a href="#ref-8">8</a>]</span>.</p>
+<p>When examining individual laboratory tests, the DT-based data-driven guide demonstrated a strong predictive performance for CBC and ELEs, achieving high accuracy in identifying justified repetitions. However, its performance for CFP was limited, showing only a marginal improvement over random classification (<a class="xref" href="#table-2">Table 2</a>). The limited performance of the CRP model may be attributed to the relatively long half-life of CRP, approximately 48 h, which reduces the likelihood of observing significant changes within a 12 h retesting period. When examining the DT models under a configuration in which false negatives were set to zero, thereby ensuring that no justified repeat tests were incorrectly dismissed, the models achieved a true positive rate higher than that of random guessing, as shown in <a class="xref" href="#fig-2">Figure 2</a>. This configuration indicates that adopting the proposed guides in this manner does not adversely affect clinical outcomes. When compared to the baseline logistic regression model, the DT demonstrated a marginal improvement in predictive accuracy. This difference may be attributed to the non-linear structure of the DT model, in contrast to the linear nature of LR. The result highlights the importance of models that account for multiple interacting variables, rather than relying on a single factor, such as patient age. It is important to note that these tools are intended to support, not replace, clinical judgment; the pediatrician’s assessment and any changes in the patient’s condition remain paramount.</p>
+<p>The DT models and clinical guides developed in this study are consistent with established clinical understanding. For example, as demonstrated in <a class="xref" href="#fig-2">Figures 2</a> and 3, patient age plays an important role in decision-making but remains secondary to clinical status, as reflected by the initial community laboratory results. In support of this observation, Desai et al. conducted an electronic survey among 43 pediatric residents and staff physicians to examine perceptions of laboratory stewardship and testing patterns at a tertiary pediatric hospital <span class="cite">[<a href="#ref-16">16</a>]</span>. The survey revealed a high level of familiarity with laboratory stewardship, with respondents acknowledging that overuse of laboratory testing is a recognized issue both in general medical practice and within their own institution. The majority of survey respondents indicated that increased cost transparency could help reduce laboratory test overuse. However, they reported limited familiarity with key aspects of test utilization, including test costs, specificity and sensitivity, required blood volumes, and existing clinical guidelines for common laboratory tests. The study showed that 53% of laboratory tests were repeated within 7 days, and only half of these repeat tests produced abnormal results <span class="cite">[<a href="#ref-16">16</a>]</span>. Similar findings were observed in both pediatric and adult populations <span class="cite">[<a href="#ref-39">39</a>,<a href="#ref-40">40</a>]</span>. In addition, previous studies emphasized the importance of cost transparency in reducing the frequency and cost of blood tests and imaging studies <span class="cite">[<a href="#ref-41">41</a>,<a href="#ref-42">42</a>]</span>.</p>
+<p>This study has several notable strengths, including the large sample size, the real-world, population-based design, and its practical applicability. The analytical tools developed can be adapted to different threshold criteria, applied to additional laboratory tests, and implemented in various clinical settings to support physicians decision-making.</p>
+<p>However, several limitations should be acknowledged. First, due to the retrospective design of this study, the proposed analyses and decision guides were simplified, and clinical data such as patients’ medical history were not included. This information could have provided additional insight into the patients’ medical conditions and potentially influenced the assessment of whether repeat blood testing was warranted. Additionally, this study did not assess the actual impact of repeated testing on clinical decision-making or patient outcomes, which should be addressed in future prospective studies. Furthermore, cases in which a justified repeat test was not performed were not examined. Second, in the absence of an established definition in the literature for justified repeat testing, two criteria were applied: a change from a normal to an out-of-normal range result, and an absolute change of <em>≥</em>20%. Sensitivity analyses were also conducted to support these thresholds. Third, in this analysis, repeat testing was defined as occurring within a 12 h interval. This strict definition captures a specific subset of repeated tests and does not account for those performed over a longer duration, such as during an extended hospital stay or ongoing interactions with the healthcare system. To address this limitation, additional analyses were performed using extended time intervals of 6, 18, and 24 h between repeated tests. The methodology applied in this study can be readily adapted to evaluate other time intervals and alternative definitions for justified repetition thresholds.</p>
+<h2 id="5-conclusions">5. Conclusions</h2>
+<p>This study presents a novel, data-driven approach for assessing the necessity of repeated blood testing in pediatric emergency settings, grounded in real-world data from both community and hospital settings. The proposed guide supports clinical decision-making and, when used alongside physician judgment, has the potential to reduce unnecessary repeat testing while maintaining high standards of patient care. The tools presented in this study, which are relatively simple and rely on readily available data, can be adapted for use in clinical settings to help reduce unjustified repetition of laboratory testing. Future prospective studies are recommended to evaluate the effectiveness of the proposed model in reducing unnecessary laboratory testing and in supporting clinical decision-making by pediatricians. Demonstrating effectiveness in real-world settings may lead to an improved quality of care, enhanced patient and family experience, and meaningful reduction in healthcare costs and system burden.</p>
+<p><strong>Supplementary Materials:</strong> The following supporting information can be downloaded at https://www.mdpi.com/article/10.3390/diagnostics15151885/s1, Figure S1: DT models for the CBC, ELE, and CRP laboratory tests; Table S1. Model performance (decision tree vs. logistic regression) over the time intervals 6, 12, 18, and 24 h.</p>
+<p><strong>Author Contributions:</strong> Conceptualization, A.S., T.L., S.A., A.H.C. and V.S.Z.; methodology, A.S., T.L., A.H.C. and V.S.Z.; software, T.L. and A.S.; validation, S.A. and A.H.C.; formal analysis, A.S., T.L. and V.S.Z.; data curation, A.H.C., Y.R. and V.S.Z.; visualization, A.S., T.L. and V.S.Z.; supervision, T.L., S.A. and A.H.C.; project administration, Y.R. and V.S.Z. All authors have read and agreed to the published version of the manuscript.</p>
+<p><strong>Funding:</strong> This research received no external funding.</p>
+<p><strong>Institutional Review Board Statement:</strong> This study was conducted following the Declaration of Helsinki and approved by the Institutional Review Board of Clalit Health Services (protocol number 0099-21-COM, August 5, 2024).</p>
+<p><strong>Informed Consent Statement:</strong> Patient consent was waived due to the retrospective nature of this study.</p>
+<p><strong>Data Availability Statement:</strong> All statistical analyses are available upon reasonable request. Because of ethical and privacy issues, patients’ data cannot be shared.</p>
+<p><strong>Conflicts of Interest:</strong> The authors declare no conflicts of interest.</p>
+<h2 id="abbreviations">Abbreviations</h2>
+<p>The following abbreviations are used in this manuscript:</p>
+<p>CBC Complete blood count CHS Clalit Health Services CRP C-reactive protein DT Decision tree ELEs Electrolytes MDT Minimal DT PEDs Pediatric emergency departments SES Socio-economic status</p>
+<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 27 May 2025 · Accepted 23 July 2025 · Published 28 July 2025</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>health economics</li><li>quality assurance</li><li>pediatric emergency department</li><li>laboratory tests</li><li>community</li><li>children</li><li>healthcare</li><li>data-driven models Diagnostics 2025</li><li>15</li><li>1885 https://doi.org/10.3390/diagnostics15151885</li></ul></dd></div></dl></section>
+<h2 id="references">References</h2>
+<ol class="paper-refs"><li id="ref-1">Adair, A.B.; Dejanovich, B.; Walsh, M. Utilization of transport data to decrease unnecessarily repeated laboratory tests. Pediatr. Emerg. Care 2024, 40, 218–222. <a href="https://doi.org/10.1097/PEC.0000000000002730" target="_blank" rel="noopener">doi:10.1097/PEC.0000000000002730</a></li>
+<li id="ref-2">Jose, A.S.; Srivastav, S.; Mehta, B. Investigating the visit-to-visit repeatability of autonomic neuropathy assessment measures in healthy subjects. Ann. Neurosci. Online ahead of print. 2025, 09727531241310034. <a href="https://doi.org/10.1177/09727531241310034" target="_blank" rel="noopener">doi:10.1177/09727531241310034</a></li>
+<li id="ref-3">Cadamuro, J.; Gaksch, M.; Wiedemann, H.; Lippi, G.; von Meyer, A.; Pertersmann, A.; Auer, S.; Mrazek, C.; Kipman, U.; Felder, T.K.; et al. Are laboratory tests always needed? Frequency and causes of laboratory overuse in a hospital setting. Clin. Biochem. 2018, 54, 85–91. <a href="https://doi.org/10.1016/j.clinbiochem.2018.01.024" target="_blank" rel="noopener">doi:10.1016/j.clinbiochem.2018.01.024</a></li>
+<li id="ref-4">Ahrari, A.; Barrett, S.S.; Basharat, P.; Rohekar, S.; Pope, J.E. Appropriateness of laboratory tests in the diagnosis of inflammatory rheumatic diseases among patients newly referred to rheumatologists. Jt. Bone Spine 2020, 87, 588–595. <a href="https://doi.org/10.1016/j.jbspin.2020.05.007" target="_blank" rel="noopener">doi:10.1016/j.jbspin.2020.05.007</a></li>
+<li id="ref-5">Aichinger, E.; Schleck, C.D.; Harmsen, W.S.; Nyre, L.M.; Patel, R. Nonutility of repeat laboratory testing for detection of Clostridium difficile by use of PCR or enzyme immunoassay. J. Clin. Microbiol. 2008, 46, 3795–3797. <a href="https://doi.org/10.1128/JCM.00684-08" target="_blank" rel="noopener">doi:10.1128/JCM.00684-08</a></li>
+<li id="ref-6">Hawkins, R.C. Potentially inappropriate repeat laboratory testing in inpatients. Clin. Chem. 2006, 52, 784–785. <a href="https://doi.org/10.1373/clinchem.2005.064139" target="_blank" rel="noopener">doi:10.1373/clinchem.2005.064139</a></li>
+<li id="ref-7">Sedrak, M.S.; Myers, J.S.; Small, D.S.; Nachamkin, I.; Ziemba, J.B.; Murray, D.; Kurtzman, G.W.; Zhu, J.; Wang, W.; Mincarelli, D.; et al. Effect of a price transparency intervention in the electronic health record on clinician ordering of inpatient laboratory tests: The PRICE randomized clinical trial. JAMA Intern. Med. 2017, 177, 939–945. <a href="https://doi.org/10.1001/jamainternmed.2017.1144" target="_blank" rel="noopener">doi:10.1001/jamainternmed.2017.1144</a></li>
+<li id="ref-8">Iturrate, E.; Jubelt, L.; Volpicelli, F.; Hochman, K. Optimize your electronic medical record to increase value: Reducing laboratory overutilization. Am. J. Med. 2016, 129, 215–220. <a href="https://doi.org/10.1016/j.amjmed.2015.09.009" target="_blank" rel="noopener">doi:10.1016/j.amjmed.2015.09.009</a></li>
+<li id="ref-9">Kahan, N.R.; Waitman, D.A.; Vardy, D.A. Curtailing laboratory test ordering in a managed care setting through redesign of a computerized order form. Am. J. Manag. Care 2009, 15, 173–176.</li>
+<li id="ref-10">Chu, K.H.; Wagholikar, A.S.; Greenslade, J.H.; O’Dwyer, J.A.; Brown, A.F. Sustained reductions in emergency department laboratory test orders: Impact of a simple intervention. Postgrad. Med. J. 2013, 89, 566–571. <a href="https://doi.org/10.1136/postgradmedj-2012-130833" target="_blank" rel="noopener">doi:10.1136/postgradmedj-2012-130833</a></li>
+<li id="ref-11">Coon, E.R.; Young, P.C.; Quinonez, R.A.; Morgan, D.J.; Dhruva, S.S.; Schroeder, A.R. Update on pediatric overuse. Pediatrics 2017, 139, e20162797. <a href="https://doi.org/10.1542/peds.2016-2797" target="_blank" rel="noopener">doi:10.1542/peds.2016-2797</a></li>
+<li id="ref-12">Fieldston, E.S.; Fakeye, O.A.; Friedman, D.F. Repeat laboratory testing in the pediatric emergency department: How often and how important? Pediatr. Emerg. Care 2019, 35, 190–193. <a href="https://doi.org/10.1097/PEC.0000000000001599" target="_blank" rel="noopener">doi:10.1097/PEC.0000000000001599</a></li>
+<li id="ref-13">Pageler, N.M.; Franzon, D.; Longhurst, C.A.; Wood, M.; Shin, A.Y.; Adams, E.S.; Widen, E.; Cornfield, D.N. Embedding time-limited laboratory orders within computerized provider order entry reduces laboratory utilization. Pediatr. Crit. Care Med. 2013, 14, 413–419. <a href="https://doi.org/10.1097/PCC.0b013e318272010c" target="_blank" rel="noopener">doi:10.1097/PCC.0b013e318272010c</a></li>
+<li id="ref-14">Chien, A.T.; Ganeshan, S.; Schuster, M.A.; Lehmann, L.S.; Hatfield, L.A.; Koplan, K.E.; Petty, C.R.; Sinaiko, A.D.; Sequist, T.D.; Rosenthal, M.B. The effect of price information on the ordering of images and procedures. Pediatrics 2017, 139, e20161507. <a href="https://doi.org/10.1542/peds.2016-1507" target="_blank" rel="noopener">doi:10.1542/peds.2016-1507</a></li>
+<li id="ref-15">Johnson, D.P.; Lind, C.; Parker, S.E.; Beuschel, C.; VanVliet, S.; Nichols, J.; Rauch, C.A.; Lee, B.; Muething, S.E. Toward high-value care: A quality improvement initiative to reduce unnecessary repeat complete blood counts and basic metabolic panels on a pediatric hospitalist service. Hosp. Pediatr. 2016, 6, 1–8. <a href="https://doi.org/10.1542/hpeds.2015-0099" target="_blank" rel="noopener">doi:10.1542/hpeds.2015-0099</a></li>
+<li id="ref-16">Desai, T.S.; Tang, K.; Kaul, V.; Blasutig, I.M.; Buba, M. Laboratory stewardship perceptions and testing patterns at a pediatric tertiary care center. Lab. Med. 2024, 55, 571–579. <a href="https://doi.org/10.1093/labmed/lmae003" target="_blank" rel="noopener">doi:10.1093/labmed/lmae003</a></li>
+<li id="ref-17">Central Bureau of Statistics. Available online: https://www.cbs.gov.il/he/cbsnewbrand/Pages/default.aspx (accessed on 21 July 2025). <a href="https://www.cbs.gov.il/he/cbsnewbrand/Pages/default.aspx" target="_blank" rel="noopener">link</a></li>
+<li id="ref-18">Wolpern, A.E.; Burgos, D.J.; Janot, J.M.; Dalleck, L.C. Is a threshold-based model a superior method to the relative percent concept for establishing individual exercise intensity? a randomized controlled trial. BMC Sports Sci. Med. Rehabil. 2015, 7, 16. <a href="https://doi.org/10.1186/s13102-015-0011-z" target="_blank" rel="noopener">doi:10.1186/s13102-015-0011-z</a></li>
+<li id="ref-19">Rajkomar, A.; Dean, J.; Kohane, I. Machine learning in medicine. N. Engl. J. Med. 2019, 380, 1347–1358. <a href="https://doi.org/10.1056/NEJMra1814259" target="_blank" rel="noopener">doi:10.1056/NEJMra1814259</a></li>
+<li id="ref-20">Levi, M.; Lazebnik, T.; Kushnir, S.; Yosef, N.; Shlomi, D. Machine learning computational model to predict lung cancer using electronic medical records. Cancer Epidemiol. 2024, 92, 102631. <a href="https://doi.org/10.1016/j.canep.2024.102631" target="_blank" rel="noopener">doi:10.1016/j.canep.2024.102631</a></li>
+<li id="ref-21">Hasnain, Z.; Mason, J.; Gill, K.; Kuhn, P.; Newton, P.K. Machine learning models for predicting post-cystectomy recurrence and survival in bladder cancer patients. PLoS ONE 2019, 14, e0210976. <a href="https://doi.org/10.1371/journal.pone.0210976" target="_blank" rel="noopener">doi:10.1371/journal.pone.0210976</a></li>
+<li id="ref-22">Garg, A.; Mago, V. Role of machine learning in medical research: A survey. Comput. Sci. Rev. 2021, 40, 100370. <a href="https://doi.org/10.1016/j.cosrev.2021.100370" target="_blank" rel="noopener">doi:10.1016/j.cosrev.2021.100370</a></li>
+<li id="ref-23">Sokol, K.; Flach, P. Desiderata for interpretability: Explaining decision tree predictions with counterfactuals. In AAAI’19/IAAI’19/EAAI’19. In Proceedings of the Thirty-Third AAAI Conference on Artificial Intelligence (AAAI-19) and Thirty-First Innovative Applications of Artificial Intelligence Conference and Ninth AAAI Symposium on Educational Advances in Artificial Intelligence, Honolulu, HI, USA, 27 January–1 February 2019; Volume 33, pp. 10035–10036. <a href="https://doi.org/10.1609/aaai.v33i01.330110035" target="_blank" rel="noopener">doi:10.1609/aaai.v33i01.330110035</a></li>
+<li id="ref-24">Deepika, P. Heart disease prediction using classification with different decision tree techniques. Int. J. Eng. Res. Generic Sci. 2014, 2, 6–11.</li>
+<li id="ref-25">Didik, M.E.; Rianto, A.; Fernandes Andry, J.; Tannady, H.; Chakir, A. Analysis of big data in healthcare using decision tree algorithm. In Proceedings of the 1st International Conference on Computer Science and Artificial Intelligence (ICCSAI), Jakarta, Indonesia, 28 October 2021; Volume 1, pp. 313–317.</li>
+<li id="ref-26">Xu, F.; Uszkoreit, H.; Du, Y.; Fan, W.; Zhao, D.; Zhu, J. Explainable AI: A Brief Survey on History, Research Areas, Approaches and Challenges. In Natural Language Processing and Chinese Computing, Proceedings of the 8th CCF International Conference, NLPCC 2019, Dunhuang, China, 9–14 October 2019; Tang, J., Kan, M.Y., Zhao, D., Li, S., Zan, H., Eds.; Lecture Notes in Computer Science; Springer: Cham, Switzerland, 2019; Volume 11839, pp. 563–574. <a href="https://doi.org/10.1007/978-3-030-32236-6_51" target="_blank" rel="noopener">doi:10.1007/978-3-030-32236-6_51</a></li>
+<li id="ref-27">Carrizosa, E.; Molero-Río, C.; Romero Morales, D. Mathematical optimization in classification and regression trees. Top 2021, 29, 5–33. <a href="https://doi.org/10.1007/s11750-021-00594-1" target="_blank" rel="noopener">doi:10.1007/s11750-021-00594-1</a></li>
+<li id="ref-28">Bertsimas, D.; Dunn, J. Optimal classification trees. Mach. Learn. 2017, 106, 1039–1082. <a href="https://doi.org/10.1007/s10994-017-5633-9" target="_blank" rel="noopener">doi:10.1007/s10994-017-5633-9</a></li>
+<li id="ref-29">Normawati, D.; Dewi Pramudi, I. K-fold cross validation for selection of cardiovascular disease diagnosis features by applying rule-based datamining. Signal Image Process. Lett. 2019, 2, 23–35. <a href="https://doi.org/10.31763/simple.v1i2.3" target="_blank" rel="noopener">doi:10.31763/simple.v1i2.3</a></li>
+<li id="ref-30">Lazebnik, T.; Bunimovich-Mendrazitsky, S. Decision tree post-pruning without loss of accuracy using the SAT-PP algorithm with an empirical evaluation on clinical data. Data Knowl. Eng. 2023, 145, 102173. <a href="https://doi.org/10.1016/j.datak.2023.102173" target="_blank" rel="noopener">doi:10.1016/j.datak.2023.102173</a></li>
+<li id="ref-31">Doshi-Velez, F.; Perlis, R.H. Evaluating machine learning articles. JAMA 2019, 322, 1777–1779. <a href="https://doi.org/10.1001/jama.2019.17304" target="_blank" rel="noopener">doi:10.1001/jama.2019.17304</a></li>
+<li id="ref-32">Goodman, M.D.; Dowsland, K.A.; Thompson, J.M. A grasp-knapsack hybrid for a nurse-scheduling problem. J. Heuristics 2009, 15, 351–379. <a href="https://doi.org/10.1007/s10732-007-9066-7" target="_blank" rel="noopener">doi:10.1007/s10732-007-9066-7</a></li>
+<li id="ref-33">Assegie, T.A.; Lakshmi Tulasi, R.; Komal Kumar, N. Breast cancer prediction model with decision tree and adaptive boosting. IAES Int. J. Artif. Intell. 2021, 10, 184–190. <a href="https://doi.org/10.11591/ijai.v10.i1.pp184-190" target="_blank" rel="noopener">doi:10.11591/ijai.v10.i1.pp184-190</a></li>
+<li id="ref-34">Lazebnik, T.; Bahouth, Z.; Bunimovich-Mendrazitsky, S.; Halachmi, S. Predicting acute kidney injury following open partial nephrectomy treatment using SAT-pruned explainable machine learning model. BMC Med. Inform. Decis. Mak. 2022, 22, 133. <a href="https://doi.org/10.1186/s12911-022-01877-8" target="_blank" rel="noopener">doi:10.1186/s12911-022-01877-8</a></li>
+<li id="ref-35">Hosmer, D.W., Jr.; Lemeshow, S.; Sturdivant, R.X. Applied Logistic Regression, 3rd ed.; John Wiley &amp; Sons: Hoboken, NJ, USA, 2013. <a href="https://doi.org/10.1002/9781118548387" target="_blank" rel="noopener">doi:10.1002/9781118548387</a></li>
+<li id="ref-36">Altmann, A.; Tolo¸si, L.; Sander, O.; Lengauer, T. Permutation importance: A corrected feature importance measure. Bioinformatics 2010, 26, 1340–1347. <a href="https://doi.org/10.1093/bioinformatics/btq134" target="_blank" rel="noopener">doi:10.1093/bioinformatics/btq134</a></li>
+<li id="ref-37">Lu, S.; Chen, R.; Wei, W.; Belovsky, M.; Lu, X. Understanding heart failure patients EHR clinical features via SHAP interpretation of tree-based machine learning model predictions. AMIA Annu. Symp. Proc. 2022, 2021, 813–822.</li>
+<li id="ref-38">Miyakis, S.; Karamanof, G.; Liontos, M.; Mountokalakis, T.D. Factors contributing to inappropriate ordering of tests in an academic medical department and the effect of an educational feedback strategy. Postgrad. Med. J. 2006, 82, 823–829. <a href="https://doi.org/10.1136/pgmj.2006.049551" target="_blank" rel="noopener">doi:10.1136/pgmj.2006.049551</a></li>
+<li id="ref-39">Zhi, M.; Ding, E.L.; Theisen-Toupal, J.; Whelan, J.; Arnaout, R. The landscape of inappropriate laboratory testing: A 15-year meta-analysis. PLoS ONE 2013, 8, e78962. <a href="https://doi.org/10.1371/journal.pone.0078962" target="_blank" rel="noopener">doi:10.1371/journal.pone.0078962</a></li>
+<li id="ref-40">Rock, T.A.; Xiao, R.; Fieldston, E. General pediatric attending physicians’ and residents’ knowledge of inpatient hospital finances. Pediatrics 2013, 131, 1072–1080. <a href="https://doi.org/10.1542/peds.2012-1753" target="_blank" rel="noopener">doi:10.1542/peds.2012-1753</a></li>
+<li id="ref-41">Feldman, L.S.; Shihab, H.M.; Thiemann, D.; Yeh, H.C.; Ardolino, M.; Mandell, S.; Brotman, D.J. Impact of providing fee data on laboratory test ordering: A controlled clinical trial. JAMA Intern. Med. 2013, 173, 903–908. <a href="https://doi.org/10.1001/jamainternmed.2013.232" target="_blank" rel="noopener">doi:10.1001/jamainternmed.2013.232</a></li>
+<li id="ref-42">Goetz, C.; Rotman, S.R.; Hartoularos, G.; Bishop, T.F. The effect of charge display on cost of care and physician practice behaviors: A systematic review. J. Gen. Intern. Med. 2015, 30, 835–842. <a href="https://doi.org/10.1007/s11606-015-3226-5" target="_blank" rel="noopener">doi:10.1007/s11606-015-3226-5</a></li>
+</ol>
+</div>
+        
+        
+        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Shuchami et al. (2025), <em>Diagnostics</em>, <a href="https://doi.org/10.3390/diagnostics15151885" target="_blank" rel="noopener">doi:10.3390/diagnostics15151885</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+      </article>
+    </div>
+
+    <section class="paper-related" aria-labelledby="related-title"><div class="paper-wrap"><h2 id="related-title">Related research</h2><div class="related-grid"><a class="related-card related-project" href="/project.html?pagename=personalized-medicine-ai"><img src="/img/projects/project1.webp" alt="" loading="lazy" decoding="async"><span class="related-kind"><i class="ri-flask-line" aria-hidden="true"></i>Research project</span><strong>Data-Driven Precise and Personalized Medicine</strong><span class="related-text">Harnessing AI to tailor treatments to individuals and improve medical resource allocation at the community level.</span></a><a class="related-card" href="/publications/shall-we-repeat-pediatric-blood-tests/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2026</span><strong>Shall we repeat? Predicting the necessity to repeat blood testing in pediatric emergency departments of laboratory tests previously performed in the community using a machine learning model</strong><span class="related-text">Plos One</span></a><a class="related-card" href="/publications/allergic-diseases-early-childhood-association-migraine-large/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2026</span><strong>Allergic diseases in early childhood and their association with migraine: a large-scale retrospective study</strong><span class="related-text">Frontiers in Allergy</span></a></div><p class="related-more"><a href="/publications.html">All publications</a></p></div></section>
+  </main>
+
+  <dialog id="cite-dialog" class="paper-dialog" aria-labelledby="cite-title">
+    <div class="dialog-head">
+      <h2 id="cite-title">Cite this paper</h2>
+      <button type="button" class="dialog-close" aria-label="Close"><i class="ri-close-line" aria-hidden="true"></i></button>
+    </div>
+    <p class="dialog-label">APA</p>
+    <pre class="cite-box" id="cite-apa">Shuchami, A., Lazebnik, T., Ashkenazi, S., Cohen, A. H., Reichenberg, Y., &amp; Zemer, V. S. (2025). A Machine Learning-Based Guide for Repeated Laboratory Testing in Pediatric Emergency Departments. Diagnostics, 15, 1885. https://doi.org/10.3390/diagnostics15151885</pre>
+    <button type="button" class="paper-btn" data-copy="cite-apa"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy APA</span></button>
+    <p class="dialog-label">BibTeX</p>
+    <pre class="cite-box" id="cite-bib">@article{shuchami2025machine,
+  title = {A Machine Learning-Based Guide for Repeated Laboratory Testing in Pediatric Emergency Departments},
+  author = {Shuchami, Adi and Lazebnik, Teddy and Ashkenazi, Shai and Cohen, Avner Herman and Reichenberg, Yael and Zemer, Vered Shkalim},
+  journal = {Diagnostics},
+  volume = {15},
+  pages = {1885},
+  year = {2025},
+  doi = {10.3390/diagnostics15151885}
+}</pre>
+    <button type="button" class="paper-btn" data-copy="cite-bib"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy BibTeX</span></button>
+  </dialog>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Games</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
+                  <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
+                  <li><a href="https://rl.teddylazebnik.com/">Pirate War RL Game</a></li>
+                  <li><a href="https://eh.teddylazebnik.com/">Echo Heist</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      
+      <script>
+        (function () {
+          // menu and navbar (js/main.js expects to sit at the site root)
+          var btn = document.getElementById('menu-btn'), menu = document.getElementById('mobile-menu'), nav = document.getElementById('navbar');
+          btn.addEventListener('click', function () { menu.classList.toggle('max-h-0'); menu.classList.toggle('max-h-screen'); });
+          var onScroll = function () { nav.classList.toggle('nav-scrolled', window.scrollY > 10); };
+          window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+          // cite dialog + copy buttons
+          var dialog = document.getElementById('cite-dialog');
+          document.querySelectorAll('[data-dialog]').forEach(function (b) {
+            b.addEventListener('click', function () { if (dialog.showModal) dialog.showModal(); else dialog.setAttribute('open', ''); });
+          });
+          dialog.querySelector('.dialog-close').addEventListener('click', function () { dialog.close(); });
+          dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
+          function flash(button, text) {
+            var label = button.querySelector('span'), old = label.textContent;
+            label.textContent = text; setTimeout(function () { label.textContent = old; }, 1600);
+          }
+          document.querySelectorAll('[data-copy]').forEach(function (b) {
+            b.addEventListener('click', function () {
+              var text = document.getElementById(b.getAttribute('data-copy')).textContent;
+              navigator.clipboard.writeText(text).then(function () { flash(b, 'Copied'); });
+            });
+          });
+          document.getElementById('share-btn').addEventListener('click', function () {
+            var b = this, data = { title: document.title, url: location.href.split('#')[0] };
+            if (navigator.share) { navigator.share(data).catch(function () {}); }
+            else { navigator.clipboard.writeText(data.url).then(function () { flash(b, 'Link copied'); }); }
+          });
+
+          // highlight the section being read in "On this page"
+          var links = {};
+          document.querySelectorAll('.paper-toc a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+          var heads = Array.prototype.filter.call(document.querySelectorAll('#full-text h2[id], #full-text h3[id], #full-text section[id]'), function (h) { return links[h.id]; });
+          if ('IntersectionObserver' in window && heads.length) {
+            var current = null;
+            var io = new IntersectionObserver(function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                  if (current) current.classList.remove('is-active');
+                  current = links[e.target.id]; current.classList.add('is-active');
+                }
+              });
+            }, { rootMargin: '-90px 0px -70% 0px' });
+            heads.forEach(function (h) { io.observe(h); });
+          }
+        })();
+      </script>
+   </body>
+</html>

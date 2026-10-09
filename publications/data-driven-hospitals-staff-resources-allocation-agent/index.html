@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_papers.py from paper.md + paper.json in this folder. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Hospital staff and resource allocation with simulation and deep RL | ACML</title>
+      <meta name="description" content="Hospitals must balance patient demand, available resources and quality of care, and traditional manual planning often leads to sub-optimal outcomes. We…">
+      <meta name="author" content="Teddy Lazebnik">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/publications/data-driven-hospitals-staff-resources-allocation-agent/">
+      <meta name="citation_title" content="Data-driven hospitals staff and resources allocation using agent-based simulation and deep reinforcement learning">
+      <meta name="citation_author" content="Teddy Lazebnik">
+      <meta name="citation_publication_date" content="2023">
+      <meta name="citation_journal_title" content="Engineering Applications of Artificial Intelligence">
+      <meta name="citation_volume" content="126">
+      <meta name="citation_firstpage" content="106783">
+      <meta name="citation_doi" content="10.1016/j.engappai.2023.106783">
+      <meta name="citation_pdf_url" content="https://teddylazebnik.com/files/ai_hospitals.pdf">
+      <meta name="citation_abstract_html_url" content="https://acml.teddylazebnik.com/publications/data-driven-hospitals-staff-resources-allocation-agent/">
+      <meta name="citation_fulltext_html_url" content="https://acml.teddylazebnik.com/publications/data-driven-hospitals-staff-resources-allocation-agent/">
+      <meta name="citation_language" content="en">
+      <meta property="og:type" content="article">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Hospital staff and resource allocation with simulation and deep RL">
+      <meta property="og:description" content="Hospitals must balance patient demand, available resources and quality of care, and traditional manual planning often leads to sub-optimal outcomes. We…">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/publications/data-driven-hospitals-staff-resources-allocation-agent/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/publications/data-driven-hospitals-staff-resources-allocation-agent/figures/share-fig-1.jpg">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Hospital staff and resource allocation with simulation and deep RL">
+      <meta name="twitter:description" content="Hospitals must balance patient demand, available resources and quality of care, and traditional manual planning often leads to sub-optimal outcomes. We…">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/publications/data-driven-hospitals-staff-resources-allocation-agent/figures/share-fig-1.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "Data-driven hospitals staff and resources allocation using agent-based simulation and deep reinforcement…",
+  "name": "Data-driven hospitals staff and resources allocation using agent-based simulation and deep reinforcement learning",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Teddy Lazebnik"
+    }
+  ],
+  "datePublished": "2023",
+  "url": "https://acml.teddylazebnik.com/publications/data-driven-hospitals-staff-resources-allocation-agent/",
+  "mainEntityOfPage": "https://acml.teddylazebnik.com/publications/data-driven-hospitals-staff-resources-allocation-agent/",
+  "abstract": "Hospital staff and resources allocation (HSRA) is a critical challenge in healthcare systems, as it involves balancing the demands of patients, the availability of resources, and the need to provide high-quality health in resource-bounded settings. Traditional approaches to HSRA have relied on manual planning and ad-hoc adjustments, which can be time-consuming and usually lead to sub-optimal outcomes. Recent studies show that machine learning solutions are able to produce better HSRA results compared to manual planning. However, these outcomes usually focused on a single hospital and objective. In this paper, we solve the HSRA task using a novel agent-based simulation with a deep reinforcement learning agent. We used real-world data to generate a wide range of synthetic instances that were used to train the HSRA agent. Our results show that the proposed model is able to achieve better outcomes in terms of patient treatment success and cost-effectiveness compared to previous resource allocation algorithms. We show that different planning horizons obtain similar performance in handling anomalies. In addition, we show a second-order polynomial connection between the patient treatment success and both the hospital’s initial budget and funding over time. These results suggest that our approach has the potential to improve the efficiency and effectiveness of HSRA in healthcare systems.",
+  "description": "Hospitals must balance patient demand, available resources and quality of care, and traditional manual planning often leads to sub-optimal outcomes. We…",
+  "image": "https://acml.teddylazebnik.com/publications/data-driven-hospitals-staff-resources-allocation-agent/figures/share-fig-1.jpg",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "DOI",
+    "value": "10.1016/j.engappai.2023.106783"
+  },
+  "sameAs": "https://doi.org/10.1016/j.engappai.2023.106783",
+  "isPartOf": {
+    "@type": "PublicationIssue",
+    "issueNumber": "",
+    "isPartOf": {
+      "@type": "PublicationVolume",
+      "volumeNumber": "126",
+      "isPartOf": {
+        "@type": "Periodical",
+        "name": "Engineering Applications of Artificial Intelligence"
+      }
+    }
+  },
+  "about": "Machine Learning",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "encoding": {
+    "@type": "MediaObject",
+    "contentUrl": "https://teddylazebnik.com/files/ai_hospitals.pdf",
+    "encodingFormat": "application/pdf"
+  }
+}
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/paper.css" rel="stylesheet">
+      
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="paper-page">
+    <header class="paper-hero">
+      <div class="paper-wrap">
+        <nav class="paper-crumbs" aria-label="Breadcrumb">
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Machine Learning</span>
+        </nav>
+        <p class="paper-kicker"><span><em>Engineering Applications of Artificial Intelligence</em> · 2023</span></p>
+        <h1 class="paper-title">Data-driven hospitals staff and resources allocation using agent-based simulation and deep reinforcement learning</h1>
+        <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span></p>
+        
+        <div class="paper-actions">
+          <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/ai_hospitals.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
+          <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
+          
+          <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
+          <a class="paper-btn" href="https://doi.org/10.1016/j.engappai.2023.106783" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
+          <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
+        </div>
+        <div class="lab-authors"><span class="lab-authors-label">ACML authors</span><a class="lab-chip" href="/team.html"><img src="/img/lab/teddy.webp" alt="" width="32" height="32" loading="lazy"><span><strong>Teddy Lazebnik</strong><small>PI</small></span></a></div>
+      </div>
+    </header>
+
+    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Hospitals must balance patient demand, available resources and quality of care, and traditional manual planning often leads to sub-optimal outcomes. We combined an agent-based simulation with a deep reinforcement learning agent, an AI that learns by trial and error, trained on synthetic scenarios generated from real-world data. Our model achieved better patient treatment success and cost-effectiveness than previous allocation algorithms, and treatment success followed a second-order polynomial relationship with the hospital&#x27;s initial budget and funding over time.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Trained on synthetic instances generated from real-world data, the agent outperformed previous resource allocation algorithms in treatment success and cost-effectiveness.</li><li>Different planning horizons achieved similar performance in handling anomalies.</li><li>Patient treatment success has a second-order polynomial connection with both the hospital&#x27;s initial budget and its funding over time.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="678" height="546" alt="Fig. 1. A schematic view of the HSRA task, divided into its components and the interactions between them. The ABS is responsible for the patient population and the hospital’s resources interactions, as influenced by the DRL agent’s decisions in the form of staff hiring, resource acquiring, and available resource allocation."></a><figcaption><strong>Fig. 1.</strong> A schematic view of the HSRA task, divided into its components and the interactions between them. The ABS is responsible for the patient population and the hospital’s resources interactions, as influenced by the DRL agent’s decisions in the form of staff hiring, resource acquiring, and available resource allocation. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+
+    <div class="paper-wrap paper-layout">
+      <aside class="paper-aside">
+        <nav class="paper-toc" aria-label="On this page">
+          <p class="aside-title">On this page</p>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#1-introduction">1. Introduction</a></li>
+<li><a href="#2-related-work">2. Related work</a></li>
+<li><a href="#3-model-definition">3. Model definition</a></li><li class="toc-sub"><a href="#31-hsra-task-definition">3.1. HSRA task definition</a></li><li class="toc-sub"><a href="#32-agent-based-simulation">3.2. Agent-based simulation</a></li><li class="toc-sub"><a href="#33-deep-reinforcement-learning-agent">3.3. Deep reinforcement learning agent</a></li>
+<li><a href="#4-experiment-setup">4. Experiment setup</a></li>
+<li><a href="#5-results">5. Results</a></li><li class="toc-sub"><a href="#51-baseline">5.1. Baseline</a></li><li class="toc-sub"><a href="#52-generalization">5.2. Generalization</a></li><li class="toc-sub"><a href="#53-sensitivity">5.3. Sensitivity</a></li>
+<li><a href="#6-discussion">6. Discussion</a></li>
+<li><a href="#7-conclusion">7. Conclusion</a></li>
+<li><a href="#funding">Funding</a></li>
+<li><a href="#declaration-of-competing-interest">Declaration of competing interest</a></li>
+<li><a href="#data-availability">Data availability</a></li>
+<li><a href="#notes">Notes</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </nav>
+        <div class="paper-info">
+          <p class="aside-title">Article information</p>
+          <dl><div><dt>Journal</dt><dd>Engineering Applications of Artificial Intelligence 126: 106783</dd></div><div><dt>Year</dt><dd>2023</dd></div><div><dt>DOI</dt><dd><a href="https://doi.org/10.1016/j.engappai.2023.106783" target="_blank" rel="noopener">10.1016/j.engappai.2023.106783</a></dd></div></dl>
+        </div>
+      </aside>
+
+      <article class="paper-body" id="full-text">
+        <details class="paper-toc-mobile">
+          <summary>On this page</summary>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#1-introduction">1. Introduction</a></li>
+<li><a href="#2-related-work">2. Related work</a></li>
+<li><a href="#3-model-definition">3. Model definition</a></li><li class="toc-sub"><a href="#31-hsra-task-definition">3.1. HSRA task definition</a></li><li class="toc-sub"><a href="#32-agent-based-simulation">3.2. Agent-based simulation</a></li><li class="toc-sub"><a href="#33-deep-reinforcement-learning-agent">3.3. Deep reinforcement learning agent</a></li>
+<li><a href="#4-experiment-setup">4. Experiment setup</a></li>
+<li><a href="#5-results">5. Results</a></li><li class="toc-sub"><a href="#51-baseline">5.1. Baseline</a></li><li class="toc-sub"><a href="#52-generalization">5.2. Generalization</a></li><li class="toc-sub"><a href="#53-sensitivity">5.3. Sensitivity</a></li>
+<li><a href="#6-discussion">6. Discussion</a></li>
+<li><a href="#7-conclusion">7. Conclusion</a></li>
+<li><a href="#funding">Funding</a></li>
+<li><a href="#declaration-of-competing-interest">Declaration of competing interest</a></li>
+<li><a href="#data-availability">Data availability</a></li>
+<li><a href="#notes">Notes</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </details>
+        <section id="abstract" class="paper-abstract">
+          <h2>Abstract</h2>
+          <p>Hospital staff and resources allocation (HSRA) is a critical challenge in healthcare systems, as it involves balancing the demands of patients, the availability of resources, and the need to provide high-quality health in resource-bounded settings. Traditional approaches to HSRA have relied on manual planning and ad-hoc adjustments, which can be time-consuming and usually lead to sub-optimal outcomes. Recent studies show that machine learning solutions are able to produce better HSRA results compared to manual planning. However, these outcomes usually focused on a single hospital and objective. In this paper, we solve the HSRA task using a novel agent-based simulation with a deep reinforcement learning agent. We used real-world data to generate a wide range of synthetic instances that were used to train the HSRA agent. Our results show that the proposed model is able to achieve better outcomes in terms of patient treatment success and cost-effectiveness compared to previous resource allocation algorithms. We show that different planning horizons obtain similar performance in handling anomalies. In addition, we show a second-order polynomial connection between the patient treatment success and both the hospital’s initial budget and funding over time. These results suggest that our approach has the potential to improve the efficiency and effectiveness of HSRA in healthcare systems.</p>
+        </section>
+        
+<div class="paper-text">
+<h2 id="1-introduction">1. Introduction</h2>
+<p>Effective hospital staff and resources allocation (HSRA) is critical for optimizing healthcare delivery and ensuring that patients receive the care they need in a timely and cost-effective manner (Khashayar et al., 2007; Asante and Zwi, 2009; Fagerstrom, 2009). Currently, many hospitals face many challenges in allocating staff and resources, including patient demand variability (Gupta and Denton, 2008), limited resources (such as staff, beds, and equipment) (Luscombe and Kozan, 2016), high-quality care and costs balancing (Moleman et al., 2022), and strict organizational structure (Harris, 1977).</p>
+<p>In the past, HSRA has typically been done using a combination of manual planning and ad-hoc adjustments (Talati et al., 2014). This often involved hospital managers and staff manually estimating the staffing and resource needs for different departments and units, based on their experience and expert judgment. One common approach to hospital staff allocation has been to use fixed staffing ratios, where the number of staff is determined based on the number of beds in a unit or the volume of patients seen (Athanassopoulos and Gounaris, 2001; Ordu et al., 2021a; Lowery, 2021). However, this approach can be inflexible and may not adequately account for variations in patient demand or the specific needs of individual patients. In particular, these methods relied on a combination of high-level forecasting and just-in-time management to ensure that resources are available when needed.</p>
+<p>These approaches to HSRA have two main limitations: they can be time-consuming and labor-intensive, and may not adequately take into account changes in patient demand or the availability of staff and resources; and they may not be able to effectively optimize the allocation of staff and resources during anomalies such as large-scale security events and sudden outbreaks of plague, leading to inefficiencies and suboptimal patient care.</p>
+<p>In recent years, there has been growing interest in using machine learning (ML) approaches to improve the efficiency and accuracy of HSRA methods (Bushaj et al., 2022). ML algorithms have the ability to process large amounts of data and make predictions or decisions based on that data (Boehm et al., 2019; Nurcahyani and Lee, 2021; Morariu et al., 2020). This can be particularly useful in the context of HSRA, where there may be a large number of factors to consider and complex trade-offs to be made (Chen and Asch, 2017). By using machine learning techniques, it is possible to develop models that can predict the staffing and resource needs of a hospital with greater accuracy and speed than manual methods (Kwak and Lee, 1997; Anderson et al., 2022). Indeed, several different machine-learning techniques have been applied to the HSRA task, including decision trees, neural networks, and support vector machines (Kotsiantis, 2007).</p>
+<p>There are several limitations of the current ML models for HSRA. From the data perspective, they often trained on data from a single hospital or healthcare system, which may not be representative of even a single country. As a result, these models may not generalize well to other hospitals or healthcare systems, and may not be effective in predicting staffing needs or resource allocation in these settings. From the dynamical perspective, current models are designed to optimize one objective at a unit or hospital level while ignoring the effects it has on the entire system and vice versa. A schematic view of the HSRA task, as defined in this work, is presented in <a class="xref" href="#fig-1">Fig. 1</a>.</p>
+<p>In this paper, we present a data-driven HSRA model that addresses these challenges by tackling both the data and modeling fronts. The novelty of the proposed work is two-folded:</p>
+<ul>
+<li>We incorporate data from four community health clinics in Israel about the clinical and operational demands over time. Second, we proposed an agent-based simulation (ABS) with a deep reinforcement learning (DRL) agent model to find an optimal HSRA for different objectives.</li>
+<li>Using this state-of-the-art computational approach and relatively more data compared to previous studies, we were able to provide improved results for the HSRA task.</li>
+</ul>
+<p>Using the proposed model, we show that for the four hospitals in our dataset, the average treatment success score is improved by 4<em>.</em>24±1<em>.</em>23% over a period of an entire year. Moreover, we show that HSRA agents that focus on shorter event horizons have better performance during patient administration anomalies while HSRA agents with longer event horizons are more resilient to budget changes. The novelty of our solution lies in the combination of a multi-agent simulation approach together with a global decision-making mechanism in the form of DRL agent to solve an HRSA which as far as we know, is the first attempt.</p>
+<p>The remainder of the paper is organized as follows. In Section 2, we review data-driven approaches for resource allocation tasks in a clinical context. In Section 3, we describe the modeling approach used in our model and the data used to train it. In Section 3, we outline the experiments’ environment development and usage. In Section 5, we present the results of our model with a comparison to other HSRA methods. In Section 6, we discuss the clinical and healthcare outcomes from the model. Finally, in Section 7, we summarize the key findings, the proposed model’s limitations, and possible future research.</p>
+<h2 id="2-related-work">2. Related work</h2>
+<p>Healthcare organizations face the challenge of efficiently allocating their resources, such as staff, equipment, and supplies, to provide high-quality care to patients while operating under strict budget constraints. As such, HSRA is associated with a wider group of tasks aiming to optimize a resource allocation in resource-bounded scenarios (Arnold et al., 2009). In the extended context, Fiedrich et al. (2000) investigated the optimal assignment of available emergency response resources to operational areas shortly after earthquake disasters. The authors first modeled the main properties of such areas and the linear allocation restrictions to obtain a realistic model. Following the linear restrictions on the resource allocation task, the authors describe the task as a linear optimization one, solving it heuristically using the Simulated Annealing algorithm (Guilmeau et al., 2021). Wang et al. (2018) proposed a machine learning (k-nearest neighbors algorithm) to facilitate the application of new design philosophy in the cloud where users have a restricted amount of credits to run cloud computation. The authors show that using historical records of resource allocation, even if not optimal, can provide a solid starting point for supervised machine learning models to improve resource allocation. In the narrow context of healthcare systems and more specifically, hospital management, many HSRA tasks are solved, mainly focusing on a specific process or department in the hospital (Lehaney and Hlupic, 1995a; Ordu et al., 2021b). For instance, Elitzur et al. (2023) show how predictive analytics methods using machine learning algorithms can be combined with optimal pre-test screening mechanisms in order to increase test efficiency and even allow healthcare professionals to make treatment-related decisions with partial test results without almost reducing the treatment efficiency, on average. Similarly, Xu et al. (2023) proposed a reinforcement learning-based model for managing an elective surgery backlog after pandemic disruption. The authors tested their model through a set of simulated datasets that were based on an elective surgery backlog in a China-based hospital, following the COVID-19 outbreak.</p>
+<figure id="fig-1">
+<a class="fig-zoom" href="figures/fig-1.webp" aria-label="Open the figure full size"><img src="figures/fig-1.webp" width="390" height="314" alt="A schematic view of the HSRA task, divided into its components and the interactions between them" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 1.</strong> A schematic view of the HSRA task, divided into its components and the interactions between them. The ABS is responsible for the patient population and the hospital’s resources interactions, as influenced by the DRL agent’s decisions in the form of staff hiring, resource acquiring, and available resource allocation.</figcaption>
+</figure>
+
+<p>Generally. traditional approaches to RSHA rely on heuristic rules, expert judgment, or historical data analysis, which may not capture the complex dynamics and uncertainties of healthcare operations (Jakovljevic, 2013; Talati et al., 2014; Athanassopoulos and Gounaris, 2001; Ordu et al., 2021a; Lowery, 2021). To overcome these limitations, recent studies have proposed using simulation and optimization techniques, combined with machine learning and data analytics, to support decision-making in hospitals (Boehm et al., 2019; Morariu et al., 2020). For instance, Zlotnik et al. (2015) used data from over a thousand beds in hospitals with more than half of a million patients yearly. The authors tested support vector regression, M5P, and stratified average time series with human-in-the-loop, tested with several prediction horizons, from 2 to 24 weeks. The authors showed that while the ML models provide similar and promising outcomes, human intervention significantly increases the model’s performance. Lehaney and Hlupic (1995b) reviewed multiple simulation applications for the healthcare sector with different tasks such as bed planning, anomaly-case prediction and handling, ambulance allocation, and others. The authors conclude that simulation-based solutions that integrate unique features are shown to be promising tools in practice. Liu and Zhang (2016) present a dynamic logistics model for HSRA that can be used to control epidemic diffusion. The authors’ model couples a forecasting mechanism implemented using the Susceptible-Exposed-Infected-Recovered epidemiological model (Lazebnik et al., 2021) and constructed for the demand of medicine in the course of such epidemic diffusion, and a logistics planning system to satisfy the forecasted demand while minimizing the total cost over time.</p>
+<p>Another line of work, focused on the more generic task of job scheduling shop problems and its specific implementations in the healthcare domain (P. and K., 2008). For example, Ni et al. (2021)</p>
+<p>proposed a multi-graph attributed reinforcement learning based optimization algorithm for a hybrid flow shop scheduling problem. The authors focused on optimizing the sequence of jobs and the assignment of machines to utilize the makespan in warehouses in real-time settings. In a similar manner, Zhang et al. (2020) proposed to automatically learn priority dispatching rules to solve job-shop scheduling problems as manually obtaining them is a time- and resource-consuming task that often requires domain expertise. To this end, the authors utilize the disjunctive graph representation of the problem and a graph neural network showing through several simulated experiments that the agent can learn useful priority dispatching rules while using only a small number of simple features. Despite the promise of this group of models for RSHA, current attempts do not take into consideration the complex dynamics that occur in hospitals and the many types of constraints the algorithm has to comply with in order to produce a feasible outcome. In addition, adoptive scheduling models commonly aim to operate in real-time, as the ones presented above, which is required in our settings. In this work, we partially tackle this issue by formally defining the RSHA task as a resource-bounded optimization task.</p>
+<p>In parallel, recent developments in reinforcement learning (RL) in general and deep reinforcement learning (DRL), in particular, have shown to be powerful tools in many resource management and allocation tasks (Mao et al., 2016a; Hurtado Sánchez et al., 2022; Giupponi et al., 2005). For example, Fujimoto et al. (2018) shows that the double deep Q-learning model outperforms other data-driven models for all the tasks included in the OpenAI gym (Brockman et al., 2016) which also includes complex resource management. Schulman et al. (2017) propose a new family of policy gradient methods for RL, which alternate between sampling data through interaction with the environment, and optimizing a ‘‘surrogate’’ objective function using stochastic gradient ascent. The authors show that their method obtains a favorable balance between sample complexity, simplicity, and computational time compared to other RL methods. In addition, other advances in RL allow this method to obtain state-of-the-art performance on a wide range of tasks (Tang et al., 2022; Ma et al., 2021).</p>
+<p>Specifically, RL gains popularity in resource allocation tasks (El- Bouri et al., 2021). Hao et al. (2021) propose a hierarchical RL-based model with a decomposed action space to deal with the countless choices to ensure efficient and real-time strategies in the context of resource allocation during the COVID-19 pandemic. To train and test their model, the authors developed a pandemic spreading simulator based on real-world data and showed their model reduces infections and death better than other machine learning models. In this work, we adopt this approach as well. Weltz et al. (2022) reviewed multiple usages of RL in public health, concluding that RL has the potential to make a transformative impact in a range of sequential decision problems in public health, by allocating resources if, when, and where they are most impactful. While the RL and DRL agents differ in their computational formalization, the underline idea is closely similar, showing repeatedly to outperform other computational methods in the healthcare-related resource allocation task (Abdellatif et al., 2018).</p>
+<h2 id="3-model-definition">3. Model definition</h2>
+<p>We propose an ABS with DRL agent model for the HSRA task<strong>, which is formally defined below</strong>. The ABS environment is used to train a DRL model which later can be deployed in a realistic environment. The ABS is designed to model the interaction between patients, staff, and resources in a hospital setting over time. The DRL agent obtains the hospital state over time and made decisions on the policy level that effecting which kind of patient gets what kind of staff treatment and resources, based on the hospital states over time.</p>
+<p>Our approach is inspired by the work of Bushaj et al. (2022), who have used DRL for resource allocation and intervention policies in pandemic control settings. We extend their approach by incorporating a more detailed model of patient demand and hospital resources.</p>
+<h3 id="31-hsra-task-definition">3.1. HSRA task definition</h3>
+<p>Formally, the HSRA is an instance of a resource-bounded optimization task (Fioretto et al., 2018; Sheth and Umbarkar, 2015). Following these lines, HSRA is a function, <em>𝛷</em>, that accepts the hospital’s state, <em>𝑀</em>(<em>𝑡</em>), over a fixed duration, [<em>𝑡, 𝑡</em>+ <em>ℎ</em>] as defined by the patient’s clinical status, the staff population, and the resources population and returns a matrix, <em>𝑂</em>, such that the <em>𝑜</em><sub>𝑖,𝑗</sub> ∈ <em>𝑂</em> indicates the amount of the <em>𝑖</em><sub>𝑡ℎ</sub> resource that should be acquired at time <em>𝑡</em> + <em>𝑗</em>. Since the hospital is limited by some budget, <em>𝐵</em> ∈ R<sup>+</sup>, for a fixed duration [<em>𝑡</em><sub>0</sub><em>, 𝑡</em><sub>𝑓</sub>] such that <em>𝑡</em><sub>0</sub> <em>&lt; 𝑡</em><sub>𝑓</sub>, deriving a HSRA can be formulated as follows:</p>
+<div class="equation" id="eq-1"><img src="figures/eq-1.webp" width="346" height="26" alt="min 𝛷𝑇 𝑆𝑡0,𝑡𝑓(𝛷) s.t. 𝑐𝑜𝑠𝑡(𝛷) ≤𝐵, (1)" loading="lazy" decoding="async"></div>
+
+<p>where <em>𝑇 𝑆</em><sub>[𝑡0,𝑡𝑓]</sub> is a function that returns the average treatment success rate during [<em>𝑡</em><sub>0</sub><em>, 𝑡</em><sub>𝑓</sub>] for <em>𝛷</em> and <em>𝑐𝑜𝑠𝑡</em>(<em>𝛷</em>) is a function that returns the total cost of the HSRA <em>𝛷</em>.</p>
+<h3 id="32-agent-based-simulation">3.2. Agent-based simulation</h3>
+<p>The ABS consists of three populations — a patient population (<em>𝑃</em>), a staff population (<em>𝑆</em>), and a resource population (<em>𝑅</em>). The agents of all the population types are represented using a timed finite state machine (Alagar and Periyasamy, 2011). In particular, patients are represented by the following tuple <em>𝑝</em> ∈ <em>𝑃</em> ∶ <em>𝑝</em> ∶= (<em>𝑡</em><sub>𝑒</sub><em>, 𝜏, 𝜈, 𝜋</em>) where <em>𝑡</em><sub>𝑒</sub> ∈ N is the patient’s enter time, <em>𝜏</em> ∈ N is the patient’s minimal treatment duration, <em>𝜈</em> ∈ N<sup>(|𝑅|+|𝑆|)×𝜏</sup> is the matrix of resources and staff required over time, and <em>𝜋</em> ∈[1<em>,</em> … <em>𝛱</em>] is the index of the patient’s disease, such that <em>𝛱&lt;</em> ∞. Similarly, staff members are represented by the following tuple <em>𝑠</em> ∈ <em>𝑆</em> ∶ <em>𝑠</em> ∶= (<em>𝑐, 𝛼, 𝛽, 𝜌</em>) where <em>𝑐</em> ∈ R is the average cost of the staff member for a single step in time she works, <em>𝛼</em> ∈ N is the number of time steps a staff member can work in a row, <em>𝛽</em> ∈ N is the number of time steps a staff member cannot in a row after working, and <em>𝜌</em> ∈{0<em>,</em> 1}<sup>|𝑅|</sup> is a binary classification vector indicates what resources the staff member is able to use for a patient. Resources are represented by the following tuple <em>𝑟</em> ∈ <em>𝑅</em> ∶ <em>𝑟</em> ∶= (<em>𝑐, 𝛿, 𝑑</em>) where <em>𝑐</em> ∈ R is the cost associated with the resource, <em>𝛿</em> ∈ N is the number of time steps from the acquisition of the resource and until it is available to use by the patients, and <em>𝑑</em> ∈ N∪∞ is the duration a resource can be used (such as expiry date for medicine).</p>
+<p>These populations change over time. First, the arrival of new patients to the hospital is defined by a function over time that does not relate to the hospital’s state. Second, the staff population can grow or shrink according to the hospital’s decision on how much staff to hire at each point in time, under some constraints. Similarly, the amount of resources changes over time as patients consume them and the hospital acquires more of them. The latter two decisions as well as the allocation of staff and resources to the patients are made by the hospital and can be changed every several steps in time, <em>𝜉</em> ∈ N. It is assumed the user has a non-negative amount of money <em>𝜇</em>(<em>𝑡</em>) ∈ R<sup>+</sup> in its budget, at each point in time <em>𝑡</em>, and it is used to pay for the HSRA. Since hospitals are commonly funded by governments, a fixed budget <em>𝑏</em> ∈ R<sup>+</sup> is provided to the hospital every <em>𝜁</em> ∈ N steps in time. In addition, if a patient’s needs are not met at some step in time <em>𝑡</em><sup>∗</sup> ∈[<em>𝑡</em><sub>0</sub><em>, 𝑡</em><sub>0</sub> + <em>𝜏</em>], that a function <em>𝐷</em><sub>𝜋</sub>(<em>𝜈, 𝑡</em><sup>∗</sup>) → <em>𝜈</em>, that depended on the patient’s disease, updates the needs of the patient and can lengthen its stay. After several times, the function can return that the patient dies.</p>
+<p>The ABS is operated in rounds where each round <em>𝑡</em> ∈[<em>𝑡</em><sub>0</sub><em>, 𝑡</em><sub>𝑓</sub>] such that <em>𝑡</em><sub>0</sub> <em>&lt; 𝑡</em><sub>𝑓</sub> <em>&lt;</em> ∞. <em>𝑡</em> represents a single step in time with a duration that is collaborated by the user. At the first round (<em>𝑡</em> = <em>𝑡</em><sub>0</sub>), the populations (<em>𝑃, 𝑆, 𝑅</em>) are allocated, which defines the initial condition of the proposed model. Then, at each round <em>𝑡</em>, four processes take place. First, the available staff and resources are computed to define the hospital’s state at time <em>𝑡</em>. Afterward, HSRA is computed according to a policy defined by the user. Next, a reward is computed based on the hospital’s and patient population’s states, and published to the user. Pending, a payment for the hospital’s operation is computed and added to the hospital’s budget. Finally, the user updates its policy.</p>
+<figure id="fig-2">
+<a class="fig-zoom" href="figures/fig-2.webp" aria-label="Open the figure full size"><img src="figures/fig-2.webp" width="621" height="252" alt="The proposed deep reinforcement learning agent’s architecture with policy represented via FcNN" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 2.</strong> The proposed deep reinforcement learning agent’s architecture with policy represented via FcNN. The environment is implemented by the agent based simulation that accepts resource allocation action at each step in time by an agent which gets as a reward the patient treatment success rate as well as the environment’s state.</figcaption>
+</figure>
+
+<h3 id="33-deep-reinforcement-learning-agent">3.3. Deep reinforcement learning agent</h3>
+<p>In order to use a DRL agent, one is required to define an environment, state, action space, and reward function. Moreover, a training procedure should be defined to make sure the agent is exposed to a representative distribution of real-world scenarios. For our usage, we assume an agent aims to optimize a finite horizon of duration <em>ℎ</em> ∈ N at each step in time. As described above, the ABS is operating as the DRL agent’s environment. The remaining components are described below.</p>
+<h4 id="331-state">3.3.1. State</h4>
+<p>The DRL agent’s state at time <em>𝑡</em> is composed of the following information: (a) the state of the three populations (<em>𝑃</em> (<em>𝑡</em>)<em>, 𝑆</em>(<em>𝑡</em>)<em>, 𝑅</em>(<em>𝑡</em>)); (b) the available budget (<em>𝜇</em>); (c) a prediction of the new arrival patient population states during the next <em>ℎ</em> steps in time ({<em>𝑃</em><sup>′</sup>(<em>𝑡</em>+ <em>𝑖</em>) −<em>𝑃</em> (<em>𝑡</em>)}<sup>ℎ</sup> <sub>𝑖=1</sub>); (d) the amount of money that will be added to the budget during the next <em>ℎ</em> steps in time ({<em>𝑏</em>I<sup>(</sup><em>𝑚𝑜𝑑</em>(<em>𝑡</em> + <em>𝑖, 𝜉</em>) = 0<sup>)</sup>}<sup>ℎ</sup> <sub>𝑖=1</sub>. As such, we formulate our state as a one-dimensional array containing this information and denoted by <em>𝑀</em>(<em>𝑡</em>). Formally, the DRL agent’s state for time <em>𝑡</em> is:</p>
+<p><em>𝑀</em>(<em>𝑡</em>) ∶= [<em>𝑃</em> (<em>𝑇</em>)<em>, 𝑆</em>(<em>𝑡</em>)<em>, 𝑅</em>(<em>𝑡</em>)<em>, 𝜇, 𝑃</em><sup>′</sup>(<em>𝑡</em> + 1) − <em>𝑃</em> (<em>𝑡</em>)<em>,</em> … <em>, 𝑃</em><sup>′</sup>(<em>𝑡</em> + <em>ℎ</em>) − <em>𝑃</em> (<em>𝑡</em>)<em>,</em></p>
+<div class="equation" id="eq-2"><img src="figures/eq-2.webp" width="324" height="22" alt="𝑏I(𝑚𝑜𝑑(𝑡+ 1, 𝜉) = 0), … , 𝑏I(𝑚𝑜𝑑(𝑡+ ℎ, 𝜉) = 0)] (2)" loading="lazy" decoding="async"></div>
+
+<h4 id="332-action">3.3.2. Action</h4>
+<p>The proposed DRL agent has three actions it should make: hiring staff, acquiring resources, and allocating available staff and resources to patients. Since the first two decisions are integrated, they are treated as one. Moreover, there is a finite number of staff members’ types (i.e., different types of healthcare professionals) and resource types, each one of them is represented by a non-negative vector where its values indicate how much staff hired and resources acquired at time <em>𝑡</em>. Regarding the allocation decision, an agent is required to allocate a vector of staff and resources to a set of patients, it is represented using a matrix where the columns are the patients, the rows are the staff and resources, and the matrix values are binary, indicating which staff member or resource allocated to a given patient. For convenience, both vector and matrix are merged into a single vector such that the matrix is padded to the maximal number of patients the hospital is allowed to treat at the same time.</p>
+<h4 id="333-reward">3.3.3. Reward</h4>
+<p>While there are multiple possible objectives for the HSRA task such as minimal cost and maximum resource utilization, they can be considered secondarily objective to the main objective of hospitals of treating patients. As such, we use the treatment success rate as the reward of the proposed DRL agent. Formally, the reward of the agent at time <em>𝑡</em> is as follows:</p>
+<div class="equation" id="eq-3"><img src="figures/eq-3.webp" width="346" height="45" alt="𝑅(𝑡) ∶= ∑ {𝑝∈𝑃|𝑡𝑟≡𝑡} −𝑟, 𝐷(𝑝) 𝜏∕𝑒𝑡0+𝜏−𝑡𝑟, otherwise (3)" loading="lazy" decoding="async"></div>
+
+<p>where <em>𝑡</em><sub>𝑟</sub> ∈ N is the release date of the patient, <em>𝑟≫</em> 1 ∈ R is a punishment score for a case in which a patient dies, and <em>𝐷</em>(<em>𝑝</em>) is a binary function that gets a patient and returns if it died or not. Intuitively, we assume that a delay in the treatment protocol results in worse performance and dead patients is an outcome that the agent wishes to avoid as much as possible.</p>
+<h4 id="334-architecture">3.3.4. Architecture</h4>
+<p>In this study, we adopted the DRL agent architecture proposed by Mao et al. (2016b). Namely, the agent’s state and policy for this state are operating as the input and output layers of a Fully connected Neural Network (FcNN) (Sainath et al., 2015). This FcNN is used to learn the policy. The action with the highest probability to produce the largest reward is picked for the agent’s action on the environment. As a result, the environment’s state is altered and provided back to the agent, alongside a reward for the action. Namely, we used four fully connected layers with {(1 −0<em>.</em>1<em>𝑗</em>)<em>𝑁</em><sub>𝑖</sub> + (0<em>.</em>1 + 0<em>.</em>1<em>𝑗</em>)<em>𝑁</em><sub>𝑜</sub>}<sup>4</sup> <sub>𝑗=1</sub> where <em>𝑁</em><sub>𝑖</sub> and <em>𝑁</em><sub>𝑜</sub> are the sizes of the input and output layers. All hidden layers have a Leaky ReLU (Xu et al., 2020) activation function following them. We update the policy network parameters using the <em>rmsprop</em> (Zou et al., 2019) algorithm with a learning rate of 0.001 and batch size of 8. The hyperparameters values are chosen following the default value from Zou et al. (2019). A schematic view of the agent’s architecture is shown in <a class="xref" href="#fig-2">Fig. 2</a>.</p>
+<h2 id="4-experiment-setup">4. Experiment setup</h2>
+<p>The goal of our experiments is to evaluate the performance of our proposed ABS with DRL agent for the HSRA. We want to be flexible and generalize over different possible scenarios and hospital settings. We use a combination of real and synthetic data to train and evaluate the proposed model. The real data is consist of historical records of patient clinical needs, treatment duration, and hospital resources from four community health clinics located in Israel. The data is mapped exactly to the ABS model in Section 3.2. In a complementary manner, the synthetic data will be generated as follows to assure realistic scenarios on the one hand and produce as many cases as needed on the other hand. We define a parametric space for the initial condition, as well as a parametric space for the dynamical process. The first is associated with the patient population, staff population, resource population, and initial amount of money. The latter is associated with the administration rate over time of patients with their needs and the amount of budget the hospital obtains over time. Each scalar parameter is associated with a normally distributed random variable with a mean and standard deviation obtained from the historical data of a real hospital. Non-scaler parameters are divided recursively until scalar parameters are obtained and fitted in the same manner. Using the obtained parameter distributions for both the initial condition and the dynamics, a synthetic instance of the simulation begins by sampling the initial condition distribution. Afterward, at each step in time, new patients as well as the needs of current patients are updated by recursively sampling the related parameter distributions.</p>
+<p>To be exact, in the simulation we take into consideration three types of staff members: administrative workers, nurses, and doctors. For simplicity, it is assumed all the staff tasks are associated with the treatment of the patients. In addition, we assume all staff members are identical, different only by their role, ignoring personal professionalize. Moreover, we ignore most employment laws, taking into consideration that staff members cannot work more than 12 h a day, in a row, and must be provided a work of between 160 and 220 h a month.<sup>2</sup> Moreover, we assume there are only five types of resources: beds, small-size diagnosis machines, large-size diagnosis machines, surgery rooms, and drugs.</p>
+<p>Using the synthetic data, we first train the model on <em>𝑛</em> = 10000 instances (i.e., epochs) with a horizon of <em>ℎ</em> = 30 days, if not stated otherwise. The parameter source sample from the set of real-world records is picked randomly in a uniform manner. We set a simulation’s step in time to be of a single day (<em>𝛥𝑡</em> = 1 day) and the stop condition to be a year (<em>𝑡</em><sub>0</sub> = 0<em>, 𝑡</em><sub>𝑓</sub> = 365 days). For the DRL agent’s training, we used Algorithm 1 in Bushaj et al. (2022). A summary of the staff and resource amount for the four real-world cases and their distributions is provided in <a class="xref" href="#table-1">Table 1</a>.</p>
+<h2 id="5-results">5. Results</h2>
+<p>The following section presents the simulated results of the proposed HSRA. Firstly, we compare the proposed DRL agent with the historical records, checking if it is possible to obtain better results. This allows us to check if the agent learns useful policies for similar scenarios to those it has already been exposed to. Afterward, we examine the agent’s ability to generalize its RHSA policy for both new hospitals and to handle anomalies in the hospitals it trained upon. Next, a sensitivity analysis of the main agent’s hyperparameters is conducted. Finally, a comparison of the proposed model with other resource allocation methods is computed and analyzed. <strong>All experiments are conducted on a Ubuntu 18.04 operation system with a 16-Core (Intel Xeon) LGA 3647 CPU while no other processes are run in parallel.</strong></p>
+<h3 id="51-baseline">5.1. Baseline</h3>
+<p>In order to evaluate the ability of the proposed DRL agent to learn useful HSRA policies, we trained the model on the synthetic data only and tested it on real-world data. Since the historical records define the baseline of the patient’s needs, the treatment success of the historical records would be 100%. However, this is not the case. Therefore, to remedy this bias, we manually divided the patient into 18 groups, based on their initial diagnosis. For each group, the minimal treatment duration, in days, is taken to represent the <em>optimal</em> treatment protocol of the patient. Thus, patients with longer treatment durations contributed to the historical records of a treatment success score according to Eq. (3). The results, divided into the four hospitals, are summarized in <a class="xref" href="#table-2">Table 2</a>.</p>
+<figure class="table-figure" id="table-1">
+<figcaption><strong>Table 1</strong> A summary of the staff and resource amount for the four real-world cases and their distributions. The real-world mean value is based on historical data from four different health service providers in Israel while the synthetic standard deviations are heuristically set to represent a feasible range for each type of resource.</figcaption>
+<div class="table-scroll"><table><tr><th>Hospital</th><th>Staff or resource</th><th>Real-world</th><th>Synthetic standard</th></tr><tr><td></td><td></td><td>mean value</td><td>deviation</td></tr><tr><td></td><td>Administrative workers</td><td>18</td><td>3</td></tr><tr><td></td><td>Nurses</td><td>42</td><td>8</td></tr><tr><td></td><td>Doctors</td><td>8</td><td>1</td></tr><tr><td></td><td>Beds</td><td>218</td><td>10</td></tr><tr><td>1</td><td>Small-size diagnosis machines</td><td>24</td><td>2</td></tr><tr><td></td><td>Large-size diagnosis machines</td><td>3</td><td>0</td></tr><tr><td></td><td>Surgery rooms</td><td>1</td><td>0</td></tr><tr><td></td><td>Drugs</td><td>1</td><td>0</td></tr><tr><td></td><td>Administrative workers</td><td>25</td><td>2</td></tr><tr><td></td><td>Nurses</td><td>48</td><td>3</td></tr><tr><td></td><td>Doctors</td><td>10</td><td>0</td></tr><tr><td></td><td>Beds</td><td>266</td><td>12</td></tr><tr><td>2</td><td>Small-size diagnosis machines</td><td>29</td><td>3</td></tr><tr><td></td><td>Large-size diagnosis machines</td><td>2</td><td>0</td></tr><tr><td></td><td>Surgery rooms</td><td>0</td><td>0</td></tr><tr><td></td><td>Drugs</td><td>6220</td><td>810</td></tr><tr><td></td><td>Administrative workers</td><td>50</td><td>7</td></tr><tr><td></td><td>Nurses</td><td>65</td><td>6</td></tr><tr><td></td><td>Doctors</td><td>12</td><td>2</td></tr><tr><td></td><td>Beds</td><td>340</td><td>20</td></tr><tr><td>3</td><td>Small-size diagnosis machines</td><td>40</td><td>4</td></tr><tr><td></td><td>Large-size diagnosis machines</td><td>5</td><td>1</td></tr><tr><td></td><td>Surgery rooms</td><td>3</td><td>0</td></tr><tr><td></td><td>Drugs</td><td>6750</td><td>920</td></tr><tr><td></td><td>Administrative workers</td><td>12</td><td>1</td></tr><tr><td></td><td>Nurses</td><td>8</td><td>2</td></tr><tr><td></td><td>Doctors</td><td>3</td><td>0</td></tr><tr><td></td><td>Beds</td><td>30</td><td>2</td></tr><tr><td>4</td><td>Small-size diagnosis machines</td><td>6</td><td>1</td></tr><tr><td></td><td>Large-size diagnosis machines</td><td>2</td><td>0</td></tr><tr><td></td><td>Surgery rooms</td><td>0</td><td>0</td></tr><tr><td></td><td>Drugs</td><td>680</td><td>90</td></tr></table></div>
+
+</figure>
+
+<figure class="table-figure" id="table-2">
+<figcaption><strong>Table 2</strong> A comparison of the proposed model and historical records with respect to the average treatment success score over a year.</figcaption>
+<div class="table-scroll"><table><tr><th>Hospital</th><th>Model</th><th>Average treatment<br/>success score</th><th>Delta</th></tr><tr><td></td><td>Historical records</td><td>77.47%</td><td></td></tr><tr><td>1</td><td></td><td></td><td>4.82%</td></tr><tr><td></td><td>Proposed model</td><td>82.29%</td><td></td></tr><tr><td></td><td>Historical records</td><td>81.19%</td><td></td></tr><tr><td>2</td><td></td><td></td><td>5.91%</td></tr><tr><td></td><td>Proposed model</td><td>87.10%</td><td></td></tr><tr><td></td><td>Historical records</td><td>86.82%</td><td></td></tr><tr><td>3</td><td></td><td></td><td>3.51%</td></tr><tr><td></td><td>Proposed model</td><td>90.33%</td><td></td></tr><tr><td></td><td>Historical records</td><td>83.05%</td><td></td></tr><tr><td>4</td><td></td><td></td><td>2.69%</td></tr><tr><td></td><td>Proposed model</td><td>85.74%</td><td></td></tr><tr><td>Average ±</td><td>Historical records</td><td>82.13 ± 3.37%</td><td></td></tr><tr><td>standard deviation</td><td>Proposed model</td><td>86.36 ± 2.88%</td><td>4.23 ± 1.23%</td></tr></table></div>
+
+</figure>
+
+<h3 id="52-generalization">5.2. Generalization</h3>
+<p>An agent’s ability to generalize well for new cases is central in the development of artificially intelligent agents (Ridhawi et al., 2021; Shan et al., 1995). In our case, one can identify two main types of generalization. First, new hospitals with different sizes or distribution of patients’ needs. Second, the ability of the agent to handle anomalies in the patients’ administration rate or needs. To evaluate the agent’s ability in these two cases, we conducted two experiments, as detailed below.</p>
+<h4 id="521-new-hospitals">5.2.1. New hospitals</h4>
+<p>For the evaluation of the ability to generalize for new hospitals, the DRL agent is trained on the synthetic and real-world data of three out of the four hospitals available. Afterward, the agent is tested on the real-world data of the three hospitals used for training as control and on the remaining hospital. <a class="xref" href="#fig-3">Fig. 3</a> outlines the results of this analysis where the <em>𝑦</em>-axis is the average treatment success rate. The average treatment success rate of the control test is the average score of the three hospitals at each time.</p>
+<figure id="fig-3">
+<a class="fig-zoom" href="figures/fig-3.webp" aria-label="Open the figure full size"><img src="figures/fig-3.webp" width="506" height="380" alt="The HSRA agent’s average treatment success score for each hospital after training on synthetic and real-world data of the remaining hospitals" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 3.</strong> The HSRA agent’s average treatment success score for each hospital after training on synthetic and real-world data of the remaining hospitals. Namely, a k-fold cross-validation with <em>𝑘</em> = 4 is presented.</figcaption>
+</figure>
+
+<figure id="fig-4">
+<a class="fig-zoom" href="figures/fig-4.webp" aria-label="Open the figure full size"><img src="figures/fig-4.webp" width="687" height="219" alt="The DRL agent’s average treatment success score as a function of anomaly duration and amplitude" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 4.</strong> The DRL agent’s average treatment success score as a function of anomaly duration and amplitude. The results are shown as the mean of <em>𝑛</em> = 100 repetitions.</figcaption>
+</figure>
+
+<h4 id="522-anomalies-handling">5.2.2. Anomalies handling</h4>
+<p>Since hospitals are very now and then handle peaks in patients’ administration rate due to a wide range of social, economic, and natural events such as wars and pandemics (Mowafi et al., 2016; Valdmanis et al., 2010). To simulate these cases, we tested the model’s ability to handle picks in demand following a two-dimensional parameter space. First, the rate between the patients’ administration normal rate and the one during the peak. Second, the duration in days in which the peak is taking place. The beginning of the artificial peak event is decided at random between <em>𝑡</em><sub>0</sub> and <em>𝑇</em>, in a uniformly distributed manner. <a class="xref" href="#fig-4">Fig. 4</a> presents the results of this analysis, divide into short-term (<em>ℎ</em> = 7), middle-term (<em>ℎ</em> = 30), and long-term (<em>ℎ</em> = 180) horizons.</p>
+<p>In order to evaluate the average influence of the patient administration rate and duration of the peak in patient administration rate on the average treatment success rate, we fitted the results from the simulation using a linear function. Namely, the fitting function is calculated using the least mean square (LMS) method (Bjorck, 1996). The results for the fitting for each horizon value are as follows:</p>
+<p><em>𝐴𝑇 𝑆𝑅</em><sub>ℎ=7</sub> = 132<em>.</em>01 −0<em>.</em>99<em>𝑃 𝐴𝑅</em> −43<em>.</em>34<em>𝐷,</em></p>
+<div class="equation" id="eq-4"><img src="figures/eq-4.webp" width="343" height="22" alt="𝐴𝑇 𝑆𝑅ℎ=30 = 159.43 −2.34𝑃 𝐴𝑅−63.86𝐷, (4)" loading="lazy" decoding="async"></div>
+
+<div class="equation" id="eq-5"><img src="figures/eq-5.webp" width="207" height="22" alt="𝐴𝑇 𝑆𝑅ℎ=180 = 154.16 −1.85𝑃 𝐴𝑅−59.24𝐷," loading="lazy" decoding="async"></div>
+
+<p>obtained with the coefficient of determination of <em>𝑅</em><sup>2</sup> = 0<em>.</em>865<em>,</em> 0<em>.</em>960, and 0.917, respectively; where <em>𝐴𝑇 𝑆𝑅, 𝑃 𝐴𝑅</em>, and <em>𝐷</em> stands for the average treatment success rate, patient administration rate, and the duration of the peak in patient administration rate, respectively. These fittings</p>
+<h3 id="53-sensitivity">5.3. Sensitivity</h3>
+<p>The agent’s performance is directly dependent on the external factors that define its behavior and constraints. Specifically, the agent’s horizon (<em>ℎ</em>), the duration between funding to the hospital budget (<em>𝜉</em>), and the amount of funding the hospital receives at a time (<em>𝜇</em>). To evaluate the influence of these parameters on the agent’s performance, we examined instances of the agent after re-training for each configuration (Hamby, 1995). We tested the obtained agent each time on <em>𝑛</em> = 100 random synthetic instances. <a class="xref" href="#fig-4">Fig. 4</a> shows the results of the sensitivity analysis.</p>
+<figure id="fig-5">
+<a class="fig-zoom" href="figures/fig-5.webp" aria-label="Open the figure full size"><img src="figures/fig-5.webp" width="717" height="194" alt="Sensitivity analysis of the DRL agent’s treatment success score as a function of several model parameters" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 5.</strong> Sensitivity analysis of the DRL agent’s treatment success score as a function of several model parameters. The results are shown as the mean ± standard divination of <em>𝑛</em> = 100 repetitions.</figcaption>
+</figure>
+
+<p>In order to capture the underline functional dynamics revealed by the sensitivity analysis, we utilized the <em>SciMED</em> symbolic regression tool (Simon et al., 2023), obtaining:</p>
+<p><em>𝐴𝑇 𝑆𝑅</em>(<em>𝑇</em>) = 85<em>.</em>59 + 1<em>.</em>54<em>𝜉</em> −0<em>.</em>84<em>𝜉</em><sup>2</sup><em>,</em></p>
+<div class="equation" id="eq-6"><img src="figures/eq-6.webp" width="20" height="19" alt="(5)" loading="lazy" decoding="async"></div>
+
+<div class="equation" id="eq-7"><img src="figures/eq-7.webp" width="178" height="21" alt="𝐴𝑇 𝑆𝑅(𝑇) = 85.33 + 1.13𝜇−0.087𝜇2," loading="lazy" decoding="async"></div>
+
+<p>with coefficient of determination <em>𝑅</em><sup>2</sup> = 0<em>.</em>98 and 0.97, respectively.</p>
+<p><em>5.4. Comparison</em></p>
+<p>We compare the performance of the proposed model to three baseline approaches, greedy (Federgruen and Groenevelt, 1986), ML with Discrete-Event Simulation (ML-DES) (Atalan et al., 2022), and an automatic deep learning model (ADL) (Jin et al., 2019). Formally, the greedy algorithm is designed to optimize the treatment success metric for each step in time. The ML-DES algorithm is described in detail in Atalan et al. (2022). We adopt this algorithm in our case by formalizing each patient’s administration as a need. Since the ML-DES is a supervised ML algorithm, the training set is defined to be the set of states, actions, and results used by the proposed algorithm to make sure both algorithms are exposed to the same data. Similarly, we used the ADL algorithm, implemented using the Auto-Keras framework (Jin et al., 2019), and trained on the data generated by the proposed model during its training phase. <a class="xref" href="#fig-6">Fig. 6</a> shows the performance of all four algorithms where the y-axis is the average treatment success rate presented as mean ± standard deviation of <em>𝑛</em> = 100 random and synthetic cases.</p>
+<h2 id="6-discussion">6. Discussion</h2>
+<p>In this paper, we solve the hospital staff and resources allocation (HSRA) task using a novel agent-based simulation (ABS) with Deep Reinforcement Learning (DRL) model. In particular, we propose an agent that can be trained to plan ahead and allocate staff and resources under both legal and economic constraints in a stochastic environment. To this end, we used synthetic data originating in real-world data to enrich the training data for the DRL agent. Since the proposed model is based on real data from several healthcare service providers, the following results can be considered to fairly approximate realistic scenarios.</p>
+<p>In order to evaluate the proposed model, we compared it to the historical records (see <a class="xref" href="#table-2">Table 2</a>). It is clear that the agent was able to learn a feasible HSRA policy from synthetic data and <em>in silico</em> experiments for realistic settings with 4<em>.</em>23±1<em>.</em>23% improvement on average for the four hospitals used a test set. The comparison is done under the assumption of the shortest duration treatment protocol of the historical patient with the same diagnosis. This assumption ignores the complexity of differences between patients and the stochastic nature of the treatments required for each one. Nonetheless, this is a common reduction in clinical settings (Verdi et al., 2021). In such settings, these results show improvement over the decision made historically, which is based on an unknown HSRA model.</p>
+<p>The baseline results show that the model is able to achieve better results on previous results but one can question if it can generalize to a new hospital without a reach historical records on even none at all. To this end, <a class="xref" href="#fig-3">Fig. 3</a> shows that the model is able to generalize to other hospitals while training only on a small number of hospitals (namely, three hospitals). That said, a reduction of around four percent in the average treatment success, on average, is revealed by this analysis. This reduction in performance is expected in data-driven-based solutions such as the proposed one (Zhang et al., 2018; Packer et al., 2019; Witty et al., 2021). Moreover, <a class="xref" href="#fig-4">Fig. 4</a> and Eq. (4) show that the patient administration rate and the duration of the peak in the patient administration rate have a mostly linear relationship to the average treatment success rate such that the duration has slightly more negative effect for all three optimization horizons. This can indicate that a longer anomaly causes the agent to perform more sub-optimal decisions which result in lower performance.</p>
+<p>Any HSRA agent is influenced by economic and organizational properties that impact the hospital’s action space and therefore an agent’s policy. We tested three of such properties — the optimization horizon (<em>ℎ</em>), the rate at which the hospital receives budget (<em>𝜉</em>), and the amount of budget the hospital receives every <em>𝜉</em> step in time <em>𝜇</em> on the model’s performance, as presented in <a class="xref" href="#fig-5">Figs. 5</a>(a), 5(b), and 5(c), respectively. We found that the optimization horizon, <em>ℎ</em>, has a non-linear and even non-monotonic behavior. This outcome is common for DRL operating in complex settings (Hao et al., 2023; Stooke and Abbeel, 2019; Kahn et al., 2018). In addition, we found a cubic decreasing performance for a longer budget duration. Oppositely, a cubic increasing performance is detected for a larger budget. Both are well-known by economics based on both empirical and theoretical studies (O’Reilly et al., 2012; Newhouse, 1970). The fact that these properties are well-known in the literature, supports that the proposed DRL agent is able to capture realistic hospital dynamics and reconstruct pragmatic dynamics associated with hospitals and their funding and management. Moreover, our proposed model can be adapted to other resource allocation, management, and scheduling tasks common in the hospital on various levels such as surgical case scheduling (May et al., 2011). Since Pham and Klinkert (2008) show that the surgical case scheduling is a generalized instance of the job shop scheduling problem, it can be also, in the generic context, efficiently solved by the proposed method.</p>
+<p>Moreover, <a class="xref" href="#fig-6">Fig. 6</a> shows that the proposed model outperforms significantly three such algorithms. Specifically, an ANOVA test (Girden, 1992) results in a <em>𝑝</em>-value smaller than 0.05. From the graph, the greedy algorithm obtained an average treatment success of 18.6%. This outcome is expected as the uncertain dynamical nature of hospitals requires planning ahead. Indeed, the ML-DES and ADL algorithms that can plan ahead achieve betters results compared to the greedy algorithm. The ML-DES still obtained poor results as it seems to search for a pattern in the dynamics of the events which is not in the scope of its fidelity due to a large number of parallel processes and parameters participating in the dynamics. Unsurprisingly, the ADL algorithm obtained decent results with an average treatment success rate of around 70% as out-of-the-box deep learning solutions showed promising results in many optimization tasks, given enough data (Marcus and Papaemmanouil, 2018; Cummins et al., 2017; Kreinovich and Kosheleva, 2021). Theoretically, the ADL can be even further improved given a larger training set and deeper architecture (Karmaker et al., 2021). Thus, the better performance of the proposed model compared to others is the usage of DRL, allowing the agent to intelligently sample the action and state space.</p>
+<figure id="fig-6">
+<a class="fig-zoom" href="figures/fig-6.webp" aria-label="Open the figure full size"><img src="figures/fig-6.webp" width="544" height="416" alt="A comparison of the proposed model with the greedy, ML-DES, and ADL methods in terms of the average treatment success score" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 6.</strong> A comparison of the proposed model with the greedy, ML-DES, and ADL methods in terms of the average treatment success score. The results are shown as the average of <em>𝑛</em> = 100 random, synthetic cases.</figcaption>
+</figure>
+
+<p>When manually analyzed to capture a systematic behavior of the agent over multiple scenarios, it shows that allocating resources for low-risk patients that required fewer treatments (e.g., they have fewer treatment needs) yields better results compared to allocating resources for more demanding cases. While this outcome is expected from a purely computational point of view as the reward for a successful treatment is identical for both cases while the latter consumes more resources from the overall pool. This kind of behavior often collides with the humanitarian, social, and cultural objectives of civil populations. Hence, such objectives can be integrated into the system in order to obtain more balanced results. Nonetheless, this outcome is supported by previous empirical research (Zlotnik et al., 2015; Clark et al., 2015; Kirubarajan et al., 2020). Moreover, algorithms from the scheduling domain can be adopted for the HRSA task and provide similar or even better results. Further investigation in this direction might result in better HRSA models.</p>
+<p>Our results suggest that the proposed approach is a promising solution for the HSRA task, with the potential for improved decision-making and resource allocation in hospitals. That said, the proposed model requires relatively a lot of computational power and it is very sensitive to changes in the task’s definition such as changes in employment policies, the introduction of new resource types, or changes in the objective’s definition.</p>
+<h2 id="7-conclusion">7. Conclusion</h2>
+<p>In this paper, we presented a novel approach for solving the hospital staff and resources allocation (HSRA) task using a Deep Reinforcement Learning (DRL) model in an agent-based simulation (ABS) framework. Our proposed approach is able to learn a feasible HSRA policy from synthetic data and in silico experiments for realistic settings with a 4<em>.</em>23 ± 1<em>.</em>23% improvement on average compared to historical records. We further demonstrated the generalization ability of our model to new hospitals while training only a small number of hospitals. We evaluated the impact of economic and organizational properties on the model’s performance and found that the optimization horizon, budget duration, and budget size have non-linear and non-monotonic behaviors. Additionally, we compared the proposed model with other optimization algorithms and demonstrated its superiority in terms of average treatment success rate.</p>
+<p>The proposed model has several limitations that restrict its usability in real-world scenarios. First, the proposed model does not take into consideration spontaneous events of the staff and resources demand. For example, staff members can get sick, take a vacation, go to a course for professional training, or even resign. In a similar manner, the number of resources can be limited over time due to changes in the supply chain (Shukar et al., 2021). Second, the proposed model assumes a fixed cost for staff and resources over time. This assumption is a good approximation for a short period of time. However, an analysis of longer duration should integrate a more complex employee payment model and resources cost over time (Giri and Chudhuri, 1997; Franklin et al., 2001). Third, the model takes into consideration only patient-facing staff such as doctors and nurses, and neglects the complex organizational operation required by a hospital. In the same manner, the patient-facing staff is assumed to have only treatment-related tasks while in practice additional administrative tasks are commonly part of their duties. Fourth, the model assumes simple employment laws for the staff, which is normally not the case as a wide range of regulations and laws limits the operation space a hospital has on how to manage its staff (Witkoski and Dickson, 2010; Springer, 1971; Munnich, 2014). Fifth, the proposed model does not handle the case of patients that are known to pass from the beginning even if their needs are met. This extension of the model raises also ethical questions as treating such patients is mathematically non-optimal (Hinkka et al., 2001; Swartz, 1985; De Vries and Plaskota, 2017). Sixth, during the training phase of the DRL agent, we used only the treatment success rate, ignoring secondary objectives such as minimal cost and maximum resource utilization. Thus, introducing these objectives with lower weight to the agent’s loss function might result in even better policies. <strong>Seventh, we adopt the DRL’s architecture from</strong> Zou et al. (2019) <strong>which obtained them for a different dataset and use-case entirely. As such, one can obtain even sightly better results by performing a hyperparameter tuning and architecture search.</strong> Finally, it is assumed that each patient has a perfect analysis and a known treatment plan. However, this is not true most of the time (Meyer et al., 2021; Korb and Blackie, 2015). This results in an additional level of uncertainty in the HSRA agent’s decision-making process. As possible future work, one can remedy one or more of these limitations to obtain more realistic HSRA simulations and agents.</p>
+<h2 id="funding">Funding</h2>
+<p>This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors.</p>
+<h2 id="declaration-of-competing-interest">Declaration of competing interest</h2>
+<p>The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.</p>
+<h2 id="data-availability">Data availability</h2>
+<p>Data will be made available on request.</p>
+<h2 id="notes">Notes</h2>
+<p><sup>2</sup> For more details, refer to https://www.nevo.co.il/law_html/law01/p222_001.htm (in Hebrew).</p>
+<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 22 January 2023 · Accepted 6 July 2023</dd></div></dl></section>
+<h2 id="references">References</h2>
+<ul class="paper-refs">
+<li>Abdellatif, A.A., Mhaisen, N., Chkirbene, Z., Mohamed, A., Erbad, A., Guizani, M., 2018. Reinforcement learning for intelligent healthcare systems: A comprehensive survey. In: arXiv. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb1" target="_blank" rel="noopener">link</a></li>
+<li>Alagar, V.S., Periyasamy, K., 2011. Extended finite state machine. In: Specification of Software Systems. Springer London, pp. 105–128. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb2" target="_blank" rel="noopener">link</a></li>
+<li>Anderson, D., Bjarnadottir, M.V., Nenova, Z., 2022. Machine learning in healthcare: Operational and financial impact. In: Babich, V., Birge, J.R., Hilary, G. (Eds.), Innovative Technology at the Interface of Finance and Operations: Volume I. Springer International Publishing, pp. 153–174. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb3" target="_blank" rel="noopener">link</a></li>
+<li>Arnold, D., Girling, A., Stevens, A., Lilford, R., 2009. Comparison of direct and indirect methods of estimating health state utilities for resource allocation: review and empirical analysis. BMJ 339, b2688. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb4" target="_blank" rel="noopener">link</a></li>
+<li>Asante, A.D., Zwi, A.B., 2009. Factors influencing resource allocation decisions and equity in the health system of Ghana. Public Health 123 (5), 371–377. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb5" target="_blank" rel="noopener">link</a></li>
+<li>Atalan, A., Şahin, H., Atalan, Y.A., 2022. Integration of machine learning algorithms and discrete-event simulation for the cost of healthcare resources. Healthcare 10 (10). <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb6" target="_blank" rel="noopener">link</a></li>
+<li>Athanassopoulos, A., Gounaris, C., 2001. Assessing the technical and allocative efficiency of hospital operations in greece and its resource allocation implications. European J. Oper. Res. 133 (2), 416–431. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb7" target="_blank" rel="noopener">link</a></li>
+<li>Bjorck, A., 1996. Numerical Methods for Least Squares Problems, Vol. 5. Society for Industrial and Applied Mathmatics, pp. 497–513. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb8" target="_blank" rel="noopener">link</a></li>
+<li>Boehm, M., Antonov, I., Baunsgaard, S., Dokter, M., Ginthör, R., Innerebner, K., Klezin, F., Lindstaedt, S., Phani, A., Rath, B., et al., 2019. SystemDS: A declarative machine learning system for the end-to-end data science lifecycle. arXiv preprint arXiv:1909.02976. <a href="http://arxiv.org/abs/1909.02976" target="_blank" rel="noopener">link</a></li>
+<li>Brockman, G., Cheung, V., Pettersson, L., Schneider, J., Schulman, J., Tang, J., Zaremba, W., 2016. Openai gym. In: arXiv. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb10" target="_blank" rel="noopener">link</a></li>
+<li>Bushaj, S., Yin, X., Beqiri, A., et al., 2022. A simulation-deep reinforcement learning (SiRL) approach for epidemic control optimization. Ann. Oper. Res.. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb11" target="_blank" rel="noopener">link</a></li>
+<li>Chen, J.H., Asch, S.M., 2017. Machine learning and prediction in medicine - Beyond the peak of inflated expectations. N. Engl. J. Med. 376 (26), 2507–2509. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb12" target="_blank" rel="noopener">link</a></li>
+<li>Clark, A., Moule, P., Topping, A., Serpell, M., 2015. Rescheduling nursing shifts: scoping the challenge and examining the potential of mathematical model based tools. J. Nurs. Manag. 23 (4), 411–420. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb13" target="_blank" rel="noopener">link</a></li>
+<li>Cummins, C., Petoumenos, P., Wang, Z., Leather, H., 2017. End-to-End deep learning of optimization heuristics. In: 2017 26th International Conference on Parallel Architectures and Compilation Techniques (PACT). pp. 219–232. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb14" target="_blank" rel="noopener">link</a></li>
+<li>De Vries, K., Plaskota, M., 2017. Ethical dilemmas faced by hospice nurses when administering palliative sedation to patients with terminal cancer. Palliat. Support. Care 15 (2), 148–157. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb15" target="_blank" rel="noopener">link</a></li>
+<li>El-Bouri, R., Taylor, T., Youssef, A., Zhu, T., Clifton, D.A., 2021. Machine learning in patient flow: a review. Prog. Biomed. Eng. 3 (2), 022002. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb16" target="_blank" rel="noopener">link</a></li>
+<li>Elitzur, R., Krass, D., Zimlichman, E., 2023. Machine learning for optimal test admission in the presence of resource constraints. Health Care Manage.. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb17" target="_blank" rel="noopener">link</a></li>
+<li>Fagerstrom, L., 2009. Evidence-based human resource management: a study of nurse leaders’ resource allocation. J. Nurs. Manag. 17 (4), 415–425. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb18" target="_blank" rel="noopener">link</a></li>
+<li>Federgruen, A., Groenevelt, H., 1986. The greedy procedure for resource allocation problems: Necessary and sufficient conditions for optimality. Oper. Res. 34 (6), 909–918. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb19" target="_blank" rel="noopener">link</a></li>
+<li>Fiedrich, F., Gehbauer, F., Rickers, U., 2000. Optimized resource allocation for emergency response after earthquake disasters. Saf. Sci. 35 (1), 41–57. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb20" target="_blank" rel="noopener">link</a></li>
+<li>Fioretto, F., Pontelli, E., Yeoh, W., 2018. Distributed constraint optimization problems and applications: A survey. European J. Oper. Res. 61. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb21" target="_blank" rel="noopener">link</a></li>
+<li>Franklin, D., Richard, E., Michael, M.H., 2001. A statistical analysis of weekday operating room anesthesia group staffing costs at nine independently managed surgical suites. Anesth. Analg. 92 (6), 1493–1498. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb22" target="_blank" rel="noopener">link</a></li>
+<li>Fujimoto, S., van Hoof, H., Meger, D., 2018. Addressing function approximation error in actor-critic methods. In: Proceedings of the 35th International Conference on Machine Learning. 80, PMLR, pp. 1587–1596. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb23" target="_blank" rel="noopener">link</a></li>
+<li>Girden, E.R., 1992. ANOVA: Repeated Measures, Vol. 84. Sage. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb24" target="_blank" rel="noopener">link</a></li>
+<li>Giri, B.C., Chudhuri, K.S., 1997. Heuristic models for deteriorating items with shortages and time-varying demand and costs. Internat. J. Systems Sci. 28 (2), 153–159. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb25" target="_blank" rel="noopener">link</a></li>
+<li>Giupponi, L., Agusti, R., Perez-Romero, J., Sallent, O., 2005. A novel joint radio resource management approach with reinforcement learning mechanisms. In: PCCC 2005. 24th IEEE International Performance, Computing, and Communications Conference, 2005.. pp. 621–626. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb26" target="_blank" rel="noopener">link</a></li>
+<li>Guilmeau, T., Chouzenoux, E., Elvira, V., 2021. Simulated annealing: a review and a new scheme. In: 2021 IEEE Statistical Signal Processing Workshop (SSP). pp. 101–105. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb27" target="_blank" rel="noopener">link</a></li>
+<li>Gupta, D., Denton, B., 2008. Appointment scheduling in health care: Challenges and opportunities. IIE Trans. 40 (9), 800–819. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb28" target="_blank" rel="noopener">link</a></li>
+<li>Hamby, D.M., 1995. A comparison of sensitivity analysis techniques. Health Phys. 68 (2), 195–204. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb29" target="_blank" rel="noopener">link</a></li>
+<li>Hao, Q., Xu, F., Chen, L., Hui, P., Li, Y., 2021. Hierarchical reinforcement learning for scarce medical resource allocation with imperfect information. In: Proceedings of the 27th ACM SIGKDD Conference on Knowledge Discovery &amp; Data Mining. pp. 2955–2963. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb30" target="_blank" rel="noopener">link</a></li>
+<li>Hao, J., Yang, T., Tang, H., Bai, C., Liu, J., Meng, Z., Liu, P., Wang, Z., 2023. Exploration in deep reinforcement learning: A comprehensive survey. In: arXiv. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb31" target="_blank" rel="noopener">link</a></li>
+<li>Harris, J.E., 1977. The internal organization of hospitals: Some economic implications. Bell J. Econ. 8 (2), 467–482. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb32" target="_blank" rel="noopener">link</a></li>
+<li>Hinkka, H., Kosunen, E., Metsanoja, R., Lammi, U.-K., Kellokumpu-Lehtinen, P., 2001. To resuscitate or not: a dilemma in terminal cancer care. Resuscitation 49 (3), 289–297. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb33" target="_blank" rel="noopener">link</a></li>
+<li>Hurtado Sánchez, J.A., Casilimas, K., Caicedo Rendon, O.M., 2022. Deep reinforcement learning for resource management on network slicing: A survey. Sensors 22 (8). <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb34" target="_blank" rel="noopener">link</a></li>
+<li>Jakovljevic, M.B., 2013. Resource allocation strategies in southeastern european health policy. Eur. J. Health Econ. 14, 153–159. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb35" target="_blank" rel="noopener">link</a></li>
+<li>Jin, H., Song, Q., Hu, X., 2019. Auto-Keras: An efficient neural architecture search system. In: Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery &amp; Data Mining. pp. 1946–1956. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb36" target="_blank" rel="noopener">link</a></li>
+<li>Kahn, G., Villaflor, A., Ding, B., Abbeel, P., Levine, S., 2018. Self-supervised deep reinforcement learning with generalized computation graphs for robot navigation. In: 2018 IEEE International Conference on Robotics and Automation (ICRA). pp. 5129–5136. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb37" target="_blank" rel="noopener">link</a></li>
+<li>Karmaker, S.K., Hassan, M.M., Smith, M.J., Xu, L., Zhai, C., Veeramachaneni, K., 2021. Automl to date and beyond: challenges and opportunities. ACM Comput. Surv. 54 (8), 1–36. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb38" target="_blank" rel="noopener">link</a></li>
+<li>Khashayar, V., Jason, R., Samir, F., 2007. Optimizing physician staffing and resource allocation: Sine-wave variation in hourly trauma admission. J. Trauma: Injury Infect. Crit. Care 62 (3), 610–614. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb39" target="_blank" rel="noopener">link</a></li>
+<li>Kirubarajan, A., Taher, A., Khan, S., Masood, S., 2020. Artificial intelligence in emergency medicine: A scoping review. J. Am. Coll. Emerg. Phys. Open 1 (6), 1691–1702. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb40" target="_blank" rel="noopener">link</a></li>
+<li>Korb, D.R., Blackie, C.A., 2015. ‘‘Dry eye’’ is the wrong diagnosis for millions. Optom. Vis. Sci. 92 (9). <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb41" target="_blank" rel="noopener">link</a></li>
+<li>Kotsiantis, S.B., 2007. Supervised machine learning: A review of classification techniques. Informatica 249–268. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb42" target="_blank" rel="noopener">link</a></li>
+<li>Kreinovich, V., Kosheleva, O., 2021. Optimization under uncertainty explains empirical success of deep learning heuristics. In: Pardalos, P.M., Rasskazova, V., Vrahatis, M.N. (Eds.), Black Box Optimization, Machine Learning, And No-Free Lunch Theorems. pp. 195–220. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb43" target="_blank" rel="noopener">link</a></li>
+<li>Kwak, N.K., Lee, C., 1997. A linear goal programming model for human resource allocation in a health-care organization. J. Med. Syst. 21, 129–140. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb44" target="_blank" rel="noopener">link</a></li>
+<li>Lazebnik, T., Bunimovich-Mendrazitsky, S., Shaikhet, L., 2021. Novel method to analytically obtain the asymptotic stable equilibria states of extended SIR-type epidemiological models. Symmetry 13 (7). <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb45" target="_blank" rel="noopener">link</a></li>
+<li>Lehaney, B., Hlupic, V., 1995a. Simulation modelling for resource allocation and planning in the health sector. J. R. Soc. Health 115 (6), 382–385. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb46" target="_blank" rel="noopener">link</a></li>
+<li>Lehaney, B., Hlupic, V., 1995b. Simulation modelling for resource allocation and planning in the health sector. J. R. Soc. Health 115 (6), 382–385. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb47" target="_blank" rel="noopener">link</a></li>
+<li>Liu, M., Zhang, D., 2016. A dynamic logistics model for medical resources allocation in an epidemic control with demand forecast updating. J. Oper. Res. Soc. 67 (6), 841–852. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb48" target="_blank" rel="noopener">link</a></li>
+<li>Lowery, J.C., 2021. Simulations of a hospital’s surgical suite and critical care area. J. Oper. Res. Soc. 72 (3), 485–500. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb49" target="_blank" rel="noopener">link</a></li>
+<li>Luscombe, R., Kozan, E., 2016. Dynamic resource allocation to improve emergency department efficiency in real time. European J. Oper. Res. 255 (2), 593–603. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb50" target="_blank" rel="noopener">link</a></li>
+<li>Ma, Y., Hao, X., Hao, J., Lu, J., Liu, X., Xialiang, T., Yuan, M., Li, Z., Tang, J., Meng, Z., 2021. A hierarchical reinforcement learning based optimization framework for large-scale dynamic pickup and delivery problems. In: Ranzato, M., Beygelzimer, A., Dauphin, Y., Liang, P.S., Vaughan, J.W. (Eds.), Advances in Neural Information Processing Systems, Vo. 34. pp. 23609–23620. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb51" target="_blank" rel="noopener">link</a></li>
+<li>Mao, H., Alizadeh, M., Menache, I., Kandula, S., 2016a. Resource management with deep reinforcement learning. In: Proceedings of the 15th ACM Workshop on Hot Topics in Networks. Association for Computing Machinery, pp. 50–56. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb52" target="_blank" rel="noopener">link</a></li>
+<li>Mao, H., Alizadeh, M., Menache, I., Kandula, S., 2016b. Resource management with deep reinforcement learning. In: Proceedings of the 15th ACM Workshop on Hot Topics in Networks. Association for Computing Machinery, pp. 50–56. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb53" target="_blank" rel="noopener">link</a></li>
+<li>Marcus, R., Papaemmanouil, O., 2018. Towards a hands-free query optimizer through deep learning. In: arXiv. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb54" target="_blank" rel="noopener">link</a></li>
+<li>May, J.H., Spangler, W.E., Strum, D.P., Vargas, L.G., 2011. The surgical scheduling problem: current research and future opportunities. Prod. Oper. Manage. 20 (3), 392–405. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb55" target="_blank" rel="noopener">link</a></li>
+<li>Meyer, F.M.L., Filipovic, M.G., Balestra, G.M., Tisljar, K., Sellmann, T., Marsch, S., 2021. Diagnostic errors induced by a wrong a priori diagnosis: A prospective randomized simulator-based trial. J. Clin. Med. 10 (4). <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb56" target="_blank" rel="noopener">link</a></li>
+<li>Moleman, M., Zuiderent-Jerak, T., Lageweg, M., van den Braak, G.L., Schuitmaker- Warnaar, T.J., 2022. Doctors as resource stewards? Translating high-value, cost-conscious care to the consulting room. Health Care Anal. 30, 215–239. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb57" target="_blank" rel="noopener">link</a></li>
+<li>Morariu, C., Morariu, O., Raileanu, S., Borangiu, T., 2020. Machine learning for predictive scheduling and resource allocation in large scale manufacturing systems. Comput. Ind. 120, 103244. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb58" target="_blank" rel="noopener">link</a></li>
+<li>Mowafi, H., Hariri, M., Alnahhas, H., Ludwig, E., Allodami, T., Mahameed, B., Koly, J.K., Aldbis, A., Saqqur, M., Zhang, B., Al-Kassem, A., 2016. Results of a Nationwide Capacity Survey of Hospitals Providing Trauma Care in War-Affected Syria. JAMA Surg. 151 (9), 815–822. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb59" target="_blank" rel="noopener">link</a></li>
+<li>Munnich, E.L., 2014. The labor market effects of California’s minimum nurse staffing law. Health Econ. 23 (8), 935–950. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb60" target="_blank" rel="noopener">link</a></li>
+<li>Newhouse, J.P., 1970. Toward a theory of nonprofit institutions: An economic model of a hospital. Am. Econ. Rev. 60 (1), 64–74. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb61" target="_blank" rel="noopener">link</a></li>
+<li>Ni, F., Hao, J., Lu, J., Tong, X., Yuan, M., Duan, J., Ma, Y., He, K., 2021. A multi-graph attributed reinforcement learning based optimization algorithm for large-scale hybrid flow shop scheduling problem. In: Proceedings of the 27th ACM SIGKDD Conference on Knowledge Discovery &amp; Data Mining. pp. 3441–3451. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb62" target="_blank" rel="noopener">link</a></li>
+<li>Nurcahyani, I., Lee, J.W., 2021. Role of machine learning in resource allocation strategy over vehicular networks: A survey. Sensors 21 (19). <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb63" target="_blank" rel="noopener">link</a></li>
+<li>Ordu, M., Demir, E., Tofallis, C., Gunal, M.M., 2021a. A novel healthcare resource allocation decision support tool: A forecasting-simulation-optimization approach. J. Oper. Res. Soc. 72 (3), 485–500. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb64" target="_blank" rel="noopener">link</a></li>
+<li>Ordu, M., Demir, E., Tofallis, C., Gunal, M.M., 2021b. A novel healthcare resource allocation decision support tool: A forecasting-simulation-optimization approach. J. Oper. Res. Soc. 72 (3), 485–500. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb65" target="_blank" rel="noopener">link</a></li>
+<li>O’Reilly, J., Busse, R., Häkkinen, U., Or, Z., Street, S., Wiley, M., 2012. Paying for hospital care: the experience with implementing activity-based funding in five European countries. Health Econ. Policy Law 7 (1), 73–101. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb66" target="_blank" rel="noopener">link</a></li>
+<li>P., D.-N., K., A., 2008. Surgical case scheduling as a generalized job shop scheduling problem. European J. Oper. Res. 185 (3), 1011–1025. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb67" target="_blank" rel="noopener">link</a></li>
+<li>Packer, C., Gao, K., Kos, J., Krähenbühl, P., Koltun, V., Song, D., Packer, C., Gao, K., Kos, J., Krähenbühl, P., Koltun, V., Song, D., 2019. Assessing generalization in deep reinforcement learning. In: arXiv. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb68" target="_blank" rel="noopener">link</a></li>
+<li>Pham, D.-N., Klinkert, A., 2008. Surgical case scheduling as a generalized job shop scheduling problem. European J. Oper. Res. 185 (3), 1011–1025. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb69" target="_blank" rel="noopener">link</a></li>
+<li>Ridhawi, I.A., Otoum, S., Aloqaily, M., Boukerche, A., 2021. Generalizing AI: Challenges and opportunities for plug and play AI solutions. IEEE Netw. 35 (1), 372–379. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb70" target="_blank" rel="noopener">link</a></li>
+<li>Sainath, T.N., Vinyals, O., Senior, A., Sak, H., 2015. Convolutional, long short-term memory, fully connected deep neural networks. In: 2015 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). pp. 4580–4584. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb71" target="_blank" rel="noopener">link</a></li>
+<li>Schulman, J., Wolski, F., Dhariwal, P., Radford, O., 2017. Proximal policy optimization algorithms. In: arXiv. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb72" target="_blank" rel="noopener">link</a></li>
+<li>Shan, N., Ziarko, W., Hamilton, H.J., Cercone, N., 1995. Using rough sets as tools for knowledge discovery. In: KDD-95 Proceedings. pp. 263–268. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb73" target="_blank" rel="noopener">link</a></li>
+<li>Sheth, P., Umbarkar, A., 2015. Constrained optimization problems solving using evolutionary algorithms: A review. In: 2015 International Conference on Computational Intelligence and Communication Networks (CICN). pp. 1251–1257. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb74" target="_blank" rel="noopener">link</a></li>
+<li>Shukar, S., Zahoor, F., Hayat, K., Saeed, A., Gillani, A.H., Omer, S., Hu, S., Babar, Z.- U.-D., Fang, Y., Yang, C., 2021. Drug shortage: causes, impact, and mitigation strategies. Front. Pharmacol. 12. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb75" target="_blank" rel="noopener">link</a></li>
+<li>Simon, L., Liberzon, A., Lazebnik, T., 2023. A computational framework for physics-informed symbolic regression with straightforward integration of domain knowledge. Sci. Rep.. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb76" target="_blank" rel="noopener">link</a></li>
+<li>Springer, E.W., 1971. Medical staff law and the hospital. N. Engl. J. Med. 285 (17), 952–959. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb77" target="_blank" rel="noopener">link</a></li>
+<li>Stooke, A., Abbeel, P., 2019. Accelerated methods for deep reinforcement learning. In: arXiv. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb78" target="_blank" rel="noopener">link</a></li>
+<li>Swartz, M., 1985. The patient who refuses medical treatment: A dilemma for hospitals and physicians. Am. J. Law Med. 11 (2), 147–194. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb79" target="_blank" rel="noopener">link</a></li>
+<li>Talati, S., Bhatia, P., Kumar, A., Gupta, A.K., Ojha, C.D., 2014. Strategic planning and designing of a hospital disaster manual in a tertiary care, teaching, research and referral institute in india. World J. Emerg. Med. 5 (1), 35–41. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb80" target="_blank" rel="noopener">link</a></li>
+<li>Tang, H., Meng, Z., Hao, J., Chen, C., Graves, D., Li, D., Yu, C., Mao, H., Liu, W., Yang, Y., Tao, W., Wang, L., 2022. What about inputting policy in value function: policy representation and policy-extended value function approximator. In: Proceedings of the AAAI Conference on Artificial Intelligence, Vol. 36. pp. 8441–8449, (8). <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb81" target="_blank" rel="noopener">link</a></li>
+<li>Valdmanis, V., Bernet, P., Moises, J., 2010. Hospital capacity, capability, and emergency preparedness. European J. Oper. Res. 207 (3), 1628–1634. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb82" target="_blank" rel="noopener">link</a></li>
+<li>Verdi, S., Marquand, A.F., Schott, J.M., Cole, J.H., 2021. Beyond the average patient: how neuroimaging models can address heterogeneity in dementia. Brain 144 (10), 2946–2953. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb83" target="_blank" rel="noopener">link</a></li>
+<li>Wang, J.-B., Wang, J., Wu, Y., Wang, J.-Y., Zhu, H., Lin, M., Wang, J., 2018. A machine learning framework for resource allocation assisted by cloud computing. IEEE Netw. 32 (2), 144–151. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb84" target="_blank" rel="noopener">link</a></li>
+<li>Weltz, J., Volfovsky, A., Laber, E.B., 2022. Reinforcement learning methods in public health. Clin. Ther. 44 (1), 139–154. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb85" target="_blank" rel="noopener">link</a></li>
+<li>Witkoski, A., Dickson, V.V., 2010. Hospital staff nurses’ work hours, meal periods, and rest breaks: A review from an occupational health nurse perspective. AAOHN J. 58 (11), 489–497. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb86" target="_blank" rel="noopener">link</a></li>
+<li>Witty, S., Lee, J.K., Tosch, E., Atrey, A., Clary, K., Littman, M.L., Jensen, D., 2021. Measuring and characterizing generalization in deep reinforcement learning. Appl. AI Lett. 2 (4), e45. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb87" target="_blank" rel="noopener">link</a></li>
+<li>Xu, H., Fang, Y., Chou, C.-A., Luo, L., 2023. A reinforcement learning-based optimal control approach for managing an elective surgery backlog after pandemic disruption. Health Care Manage.. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb88" target="_blank" rel="noopener">link</a></li>
+<li>Xu, J., Li, Z., Du, B., Zhang, M., Liu, J., 2020. Reluplex made more practical: Leaky relu. In: 2020 IEEE Symposium on Computers and Communications (ISCC). pp. 1–7. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb89" target="_blank" rel="noopener">link</a></li>
+<li>Zhang, C., Song, W., Cao, Z., Zhang, J., Tan, P.S., Xu, C., 2020. Learning to dispatch for job shop scheduling via deep reinforcement learning. In: 34th Conference on Neural Information Processing Systems. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb90" target="_blank" rel="noopener">link</a></li>
+<li>Zhang, C., Vinyals, O., Munos, R., Bengio, S., 2018. A study on overfitting in deep reinforcement learning. In: arXiv. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb91" target="_blank" rel="noopener">link</a></li>
+<li>Zlotnik, A., Gallardo-Antolin, A., Alfaro, M.C., Perez, M.C.R., Martinez, J.M.M., 2015. Emergency department visit forecasting and dynamic nursing staff allocation using machine learning techniques with readily available open-source software. Comput. Inform. Nurs. 33 (8), 368–377. <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb92" target="_blank" rel="noopener">link</a></li>
+<li>Zou, F., Shen, L., Jie, Z., Zhang, W., Liu, W., 2019. A sufficient condition for convergences of adam and RMSProp. In: Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR). <a href="http://refhub.elsevier.com/S0952-1976%2823%2900967-3/sb93" target="_blank" rel="noopener">link</a></li>
+</ul>
+</div>
+        
+        
+        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik (2023), <em>Engineering Applications of Artificial Intelligence</em>, <a href="https://doi.org/10.1016/j.engappai.2023.106783" target="_blank" rel="noopener">doi:10.1016/j.engappai.2023.106783</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+      </article>
+    </div>
+
+    <section class="paper-related" aria-labelledby="related-title"><div class="paper-wrap"><h2 id="related-title">Related research</h2><div class="related-grid"><a class="related-card related-project" href="/project.html?pagename=personalized-medicine-ai"><img src="/img/projects/project1.webp" alt="" loading="lazy" decoding="async"><span class="related-kind"><i class="ri-flask-line" aria-hidden="true"></i>Research project</span><strong>Data-Driven Precise and Personalized Medicine</strong><span class="related-text">Harnessing AI to tailor treatments to individuals and improve medical resource allocation at the community level.</span></a><a class="related-card" href="/publications/symbolic-regression-feature-engineering-method-machine-deep/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2024</span><strong>Symbolic regression as a feature engineering method for machine and deep learning regression tasks</strong><span class="related-text">Machine Learning: Science and Technology</span></a><a class="related-card" href="/publications/machine-deep-learning-performance-out-distribution-regressions/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2025</span><strong>Machine and deep learning performance in out-of-distribution regressions</strong><span class="related-text">Machine Learning: Science and Technology</span></a></div><p class="related-more"><a href="/publications.html">All publications</a></p></div></section>
+  </main>
+
+  <dialog id="cite-dialog" class="paper-dialog" aria-labelledby="cite-title">
+    <div class="dialog-head">
+      <h2 id="cite-title">Cite this paper</h2>
+      <button type="button" class="dialog-close" aria-label="Close"><i class="ri-close-line" aria-hidden="true"></i></button>
+    </div>
+    <p class="dialog-label">APA</p>
+    <pre class="cite-box" id="cite-apa">Lazebnik, T. (2023). Data-driven hospitals staff and resources allocation using agent-based simulation and deep reinforcement learning. Engineering Applications of Artificial Intelligence, 126, 106783. https://doi.org/10.1016/j.engappai.2023.106783</pre>
+    <button type="button" class="paper-btn" data-copy="cite-apa"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy APA</span></button>
+    <p class="dialog-label">BibTeX</p>
+    <pre class="cite-box" id="cite-bib">@article{lazebnik2023driven,
+  title = {Data-driven hospitals staff and resources allocation using agent-based simulation and deep reinforcement learning},
+  author = {Lazebnik, Teddy},
+  journal = {Engineering Applications of Artificial Intelligence},
+  volume = {126},
+  pages = {106783},
+  year = {2023},
+  doi = {10.1016/j.engappai.2023.106783}
+}</pre>
+    <button type="button" class="paper-btn" data-copy="cite-bib"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy BibTeX</span></button>
+  </dialog>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Games</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
+                  <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
+                  <li><a href="https://rl.teddylazebnik.com/">Pirate War RL Game</a></li>
+                  <li><a href="https://eh.teddylazebnik.com/">Echo Heist</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      
+      <script>
+        (function () {
+          // menu and navbar (js/main.js expects to sit at the site root)
+          var btn = document.getElementById('menu-btn'), menu = document.getElementById('mobile-menu'), nav = document.getElementById('navbar');
+          btn.addEventListener('click', function () { menu.classList.toggle('max-h-0'); menu.classList.toggle('max-h-screen'); });
+          var onScroll = function () { nav.classList.toggle('nav-scrolled', window.scrollY > 10); };
+          window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+          // cite dialog + copy buttons
+          var dialog = document.getElementById('cite-dialog');
+          document.querySelectorAll('[data-dialog]').forEach(function (b) {
+            b.addEventListener('click', function () { if (dialog.showModal) dialog.showModal(); else dialog.setAttribute('open', ''); });
+          });
+          dialog.querySelector('.dialog-close').addEventListener('click', function () { dialog.close(); });
+          dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
+          function flash(button, text) {
+            var label = button.querySelector('span'), old = label.textContent;
+            label.textContent = text; setTimeout(function () { label.textContent = old; }, 1600);
+          }
+          document.querySelectorAll('[data-copy]').forEach(function (b) {
+            b.addEventListener('click', function () {
+              var text = document.getElementById(b.getAttribute('data-copy')).textContent;
+              navigator.clipboard.writeText(text).then(function () { flash(b, 'Copied'); });
+            });
+          });
+          document.getElementById('share-btn').addEventListener('click', function () {
+            var b = this, data = { title: document.title, url: location.href.split('#')[0] };
+            if (navigator.share) { navigator.share(data).catch(function () {}); }
+            else { navigator.clipboard.writeText(data.url).then(function () { flash(b, 'Link copied'); }); }
+          });
+
+          // highlight the section being read in "On this page"
+          var links = {};
+          document.querySelectorAll('.paper-toc a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+          var heads = Array.prototype.filter.call(document.querySelectorAll('#full-text h2[id], #full-text h3[id], #full-text section[id]'), function (h) { return links[h.id]; });
+          if ('IntersectionObserver' in window && heads.length) {
+            var current = null;
+            var io = new IntersectionObserver(function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                  if (current) current.classList.remove('is-active');
+                  current = links[e.target.id]; current.classList.add('is-active');
+                }
+              });
+            }, { rootMargin: '-90px 0px -70% 0px' });
+            heads.forEach(function (h) { io.observe(h); });
+          }
+        })();
+      </script>
+   </body>
+</html>

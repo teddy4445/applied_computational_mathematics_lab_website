@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_papers.py from paper.md + paper.json in this folder. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Improved Bladder Geometry for the BCG Immunotherapy Treatment Model | ACML</title>
+      <meta name="description" content="We extend an earlier model of BCG-based immunotherapy for bladder cancer, proposed by Lazebnik et al. (2021), by approximating the bladder&#x27;s shape as an…">
+      <meta name="author" content="Teddy Lazebnik, Svetlana Bunimovich-Mendrazitsky">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/publications/improved-geometric-configuration-bladder-cancer-bcg-based/">
+      <meta name="citation_title" content="Improved Geometric Configuration for the Bladder Cancer BCG-Based Immunotherapy Treatment Model">
+      <meta name="citation_author" content="Teddy Lazebnik">
+      <meta name="citation_author" content="Svetlana Bunimovich-Mendrazitsky">
+      <meta name="citation_publication_date" content="2021">
+      <meta name="citation_journal_title" content="International Symposium on Mathematical and Computational Oncology">
+      <meta name="citation_doi" content="10.1007/978-3-030-91241-3_6">
+      <meta name="citation_pdf_url" content="https://teddylazebnik.com/files/ISMCO_2021.pdf">
+      <meta name="citation_abstract_html_url" content="https://acml.teddylazebnik.com/publications/improved-geometric-configuration-bladder-cancer-bcg-based/">
+      <meta name="citation_fulltext_html_url" content="https://acml.teddylazebnik.com/publications/improved-geometric-configuration-bladder-cancer-bcg-based/">
+      <meta name="citation_keywords" content="Nonlinear systems; PDE cancer treatment model; geometrical PDE systems dynamics">
+      <meta name="citation_language" content="en">
+      <meta property="og:type" content="article">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Improved Bladder Geometry for the BCG Immunotherapy Treatment Model">
+      <meta property="og:description" content="We extend an earlier model of BCG-based immunotherapy for bladder cancer, proposed by Lazebnik et al. (2021), by approximating the bladder&#x27;s shape as an…">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/publications/improved-geometric-configuration-bladder-cancer-bcg-based/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/publications/improved-geometric-configuration-bladder-cancer-bcg-based/figures/share-fig-1.jpg">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Improved Bladder Geometry for the BCG Immunotherapy Treatment Model">
+      <meta name="twitter:description" content="We extend an earlier model of BCG-based immunotherapy for bladder cancer, proposed by Lazebnik et al. (2021), by approximating the bladder&#x27;s shape as an…">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/publications/improved-geometric-configuration-bladder-cancer-bcg-based/figures/share-fig-1.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "Improved Geometric Configuration for the Bladder Cancer BCG-Based Immunotherapy Treatment Model",
+  "name": "Improved Geometric Configuration for the Bladder Cancer BCG-Based Immunotherapy Treatment Model",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Teddy Lazebnik"
+    },
+    {
+      "@type": "Person",
+      "name": "Svetlana Bunimovich-Mendrazitsky"
+    }
+  ],
+  "datePublished": "2021",
+  "url": "https://acml.teddylazebnik.com/publications/improved-geometric-configuration-bladder-cancer-bcg-based/",
+  "mainEntityOfPage": "https://acml.teddylazebnik.com/publications/improved-geometric-configuration-bladder-cancer-bcg-based/",
+  "abstract": "We present an extension to the model proposed by Lazebnik et al. (2021) by improving the approximation of the bladder’s geometry from sphere-ring to ellipsoid-ring [2]. We show the differences between the models on the clinical results and their influence on the optimal treatment protocol.",
+  "description": "We extend an earlier model of BCG-based immunotherapy for bladder cancer, proposed by Lazebnik et al. (2021), by approximating the bladder's shape as an…",
+  "image": "https://acml.teddylazebnik.com/publications/improved-geometric-configuration-bladder-cancer-bcg-based/figures/share-fig-1.jpg",
+  "keywords": "Nonlinear systems, PDE cancer treatment model, geometrical PDE systems dynamics",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "DOI",
+    "value": "10.1007/978-3-030-91241-3_6"
+  },
+  "sameAs": "https://doi.org/10.1007/978-3-030-91241-3_6",
+  "isPartOf": {
+    "@type": "Periodical",
+    "name": "International Symposium on Mathematical and Computational Oncology"
+  },
+  "about": "Epidemiology",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "encoding": {
+    "@type": "MediaObject",
+    "contentUrl": "https://teddylazebnik.com/files/ISMCO_2021.pdf",
+    "encodingFormat": "application/pdf"
+  }
+}
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/paper.css" rel="stylesheet">
+      
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="paper-page">
+    <header class="paper-hero">
+      <div class="paper-wrap">
+        <nav class="paper-crumbs" aria-label="Breadcrumb">
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Epidemiology</span>
+        </nav>
+        <p class="paper-kicker"><span><em>International Symposium on Mathematical and Computational Oncology</em> · 2021</span></p>
+        <h1 class="paper-title">Improved Geometric Configuration for the Bladder Cancer BCG-Based Immunotherapy Treatment Model</h1>
+        <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author">Svetlana Bunimovich-Mendrazitsky</span></p>
+        
+        <div class="paper-actions">
+          <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/ISMCO_2021.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
+          <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
+          
+          <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
+          <a class="paper-btn" href="https://doi.org/10.1007/978-3-030-91241-3_6" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
+          <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
+        </div>
+        <div class="lab-authors"><span class="lab-authors-label">ACML authors</span><a class="lab-chip" href="/team.html"><img src="/img/lab/teddy.webp" alt="" width="32" height="32" loading="lazy"><span><strong>Teddy Lazebnik</strong><small>PI</small></span></a></div>
+      </div>
+    </header>
+
+    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">We extend an earlier model of BCG-based immunotherapy for bladder cancer, proposed by Lazebnik et al. (2021), by approximating the bladder&#x27;s shape as an ellipsoid ring instead of a sphere ring. We show how the original and extended models differ in their clinical results and how the change influences the optimal treatment protocol.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>The approximation of the bladder&#x27;s geometry is improved from a sphere-ring to an ellipsoid-ring.</li><li>We show differences between the models in clinical results and in their influence on the optimal treatment protocol.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1099" height="364" alt="Figure 1: Schematic view of the transformation between the model’s geometry from [1] to the proposed one as shown in Eq. (1)."></a><figcaption>Figure 1: Schematic view of the transformation between the model’s geometry from <span class="cite">[<a href="#ref-1">1</a>]</span> to the proposed one as shown in Eq. (1). <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+
+    <div class="paper-wrap paper-layout">
+      <aside class="paper-aside">
+        <nav class="paper-toc" aria-label="On this page">
+          <p class="aside-title">On this page</p>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#1-introduction-and-related-work">1 Introduction and Related Work</a></li>
+<li><a href="#2-mathematical-modeling-extension">2 Mathematical Modeling Extension</a></li><li class="toc-sub"><a href="#21-model-definition">2.1 Model definition</a></li><li class="toc-sub"><a href="#22-numerical-solution">2.2 Numerical Solution</a></li><li class="toc-sub"><a href="#23-treatment-protocol-based-on-initial-tumor-distribution">2.3 Treatment Protocol Based On Initial Tumor Distribution</a></li>
+<li><a href="#3-discussion">3 Discussion</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </nav>
+        <div class="paper-info">
+          <p class="aside-title">Article information</p>
+          <dl><div><dt>Journal</dt><dd>International Symposium on Mathematical and Computational Oncology</dd></div><div><dt>Year</dt><dd>2021</dd></div><div><dt>DOI</dt><dd><a href="https://doi.org/10.1007/978-3-030-91241-3_6" target="_blank" rel="noopener">10.1007/978-3-030-91241-3_6</a></dd></div></dl>
+        </div>
+      </aside>
+
+      <article class="paper-body" id="full-text">
+        <details class="paper-toc-mobile">
+          <summary>On this page</summary>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#1-introduction-and-related-work">1 Introduction and Related Work</a></li>
+<li><a href="#2-mathematical-modeling-extension">2 Mathematical Modeling Extension</a></li><li class="toc-sub"><a href="#21-model-definition">2.1 Model definition</a></li><li class="toc-sub"><a href="#22-numerical-solution">2.2 Numerical Solution</a></li><li class="toc-sub"><a href="#23-treatment-protocol-based-on-initial-tumor-distribution">2.3 Treatment Protocol Based On Initial Tumor Distribution</a></li>
+<li><a href="#3-discussion">3 Discussion</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </details>
+        <section id="abstract" class="paper-abstract">
+          <h2>Abstract</h2>
+          <p>We present an extension to the model proposed by Lazebnik et al. (2021) by improving the approximation of the bladder’s geometry from sphere-ring to ellipsoid-ring [2]. We show the differences between the models on the clinical results and their influence on the optimal treatment protocol.</p>
+        </section>
+        
+<div class="paper-text">
+<h2 id="1-introduction-and-related-work">1 Introduction and Related Work</h2>
+<p>Bladder cancer (BC) is a major clinical problem with an estimated 549,000 new cases and 200,000 deaths each year which makes it the 10th most common form of cancer worldwide <span class="cite">[<a href="#ref-3">3</a>]</span>. Most of the incidents occur in developed and industrialized areas, such as Australia, North America, and Europe <span class="cite">[<a href="#ref-3">3</a>]</span>. The high rates of recurrence, invasive surveillance strategies, and high treatment costs combine to make BC the single most expensive cancer in both the United States and England <span class="cite">[<a href="#ref-4">4</a>]</span>.</p>
+<p>Treatment of non-invasive BC has not advanced significantly over the past five decades following the treatment protocol suggested by Morales et al. (1976) that involves weekly instillations of Bacillus Calmette–Gu´erin (BCG) <span class="cite">[<a href="#ref-5">5</a>]</span>. The most common protocol is based upon treatment suggested by Morales et al. (1976) and involves weekly instillations of BCG over a 6-week period. It is called <em>induction treatment</em> protocol. BCG is a type of immunotherapy used to treat non-invasive BC <span class="cite">[<a href="#ref-6">6</a>]</span>. The BCG treatment protocol has yet to be specifically optimized for those patients who do not achieve remission from the treatment that follows the current standard protocol.</p>
+<p>Mathematical modeling is shown to be a useful tool in clinical settings in general and oncology in particular, allowing to investigate both the disease and possible treatments <span class="cite">[<a href="#ref-7">7</a>]</span>. Several attempts were made to describe the cell dynamics taking into account biological interactions in the physical space based on partial differential equations (PDE) <span class="cite">[<a href="#ref-8">8</a>, <a href="#ref-9">9</a>, <a href="#ref-1">1</a>]</span>. Specifically, the authors of <span class="cite">[<a href="#ref-1">1</a>]</span> combined and extended the models proposed by <span class="cite">[<a href="#ref-10">10</a>, <a href="#ref-8">8</a>]</span> and shows how to evaluate the patient’s spatial data - distribution of cancer polyps, to obtain a personalized treatment. However, <span class="cite">[<a href="#ref-1">1</a>]</span> approximate the bladder’s geometry using sphere-ring which may result in large errors due to the poor approximation of the bladder’s geometry <span class="cite">[<a href="#ref-2">2</a>]</span>.</p>
+<p>Based on the model by <span class="cite">[<a href="#ref-1">1</a>]</span>, we approximate the bladder’s geometry using ellipsoid-ring configuration to obtain a more clinically accurate treatment protocol. The manuscript is organized as follows. First, we describe the model with the new geometrical configuration and the numerical methods used to solve it. Second, we obtain the treatment protocols based on the proposed model. Third, we compare the results of both models with clinical data. Finally, we discuss the improvements and limitations of the proposed model.</p>
+<h2 id="2-mathematical-modeling-extension">2 Mathematical Modeling Extension</h2>
+<h3 id="21-model-definition">2.1 Model definition</h3>
+<p>We assume the bladder’s geometry satisfies Eq. (1) as an approximation to the bladder’s geometrical configuration:</p>
+<div class="equation" id="eq-1"><img src="figures/eq-1.webp" width="366" height="42" alt="r0 ≤x2 g1 + y2 g2 + z2 g3 ≤R. (1)" loading="lazy" decoding="async"></div>
+
+<p>In Eq. (1), the variables <em>x</em>, <em>y</em>, <em>z</em> are the Cartesian coordinate system, <em>r</em><sub>0</sub> = <em>r</em><sup><a href="#ref-1">1</a></sup> <sub>0</sub> + <em>r</em><sup><a href="#ref-2">2</a></sup> <sub>0</sub> and <em>R</em> = <em>R</em><sup><a href="#ref-1">1</a></sup> +<em>R</em><sup><a href="#ref-2">2</a></sup> are the radius of the internal and external ellipsoids of the geometrical configuration, respectively. The bladder’s geometry is approximated using a perfect (e.g., the parameters <em>g</em><sub>1</sub><em>, g</em><sub>2</sub><em>,</em> and <em>g</em><sub>3</sub> are equal for the inner and outer ellipsoid) ellipsoid-ring while the real human bladder has additional three tunnels <span class="cite">[<a href="#ref-10">10</a>, <a href="#ref-2">2</a>]</span>. The geometry of the system and the transformation from the original (sphere-ring) approximation are visualized in <a class="xref" href="#fig-1">Fig. 1</a>.</p>
+<figure id="fig-1">
+<a class="fig-zoom" href="figures/fig-1.webp" aria-label="Open the figure full size"><img src="figures/fig-1.webp" width="632" height="209" alt="Schematic view of the transformation between the model’s geometry from [1] to the proposed one as shown in Eq" loading="lazy" decoding="async"></a>
+<figcaption>Figure 1: Schematic view of the transformation between the model’s geometry from <span class="cite">[<a href="#ref-1">1</a>]</span> to the proposed one as shown in Eq. (1).</figcaption>
+</figure>
+
+<h3 id="22-numerical-solution">2.2 Numerical Solution</h3>
+<p>All the numerical calculations have been performed with <em>C#</em> programming language (version 8.0) using an agent-based approach <span class="cite">[<a href="#ref-11">11</a>]</span>. First, we sampled the space (Eq. (1)) using a polar coordinate system (<em>φ, θ, r</em>) such that the volume between each eight neighbor points is approximately the same. Second, each such segment is considered a ”cell” and allocated to a state according to the initial and boundary condition of the system. At each point at time <em>t</em>, Eqs. (1-9) in <span class="cite">[<a href="#ref-1">1</a>]</span> solved using the finite difference method where the state at time <em>t −</em>1 is stored in the simulation memory while the spatial (diffusion) dynamics simulated using the particle-particle potentials method <span class="cite">[<a href="#ref-12">12</a>]</span>.</p>
+<h3 id="23-treatment-protocol-based-on-initial-tumor-distribution">2.3 Treatment Protocol Based On Initial Tumor Distribution</h3>
+<p>Using the new geometrical configuration (see Section 2.1) and numerical analysis method (see Section 2.2) we take advantage of the treatment personalization method proposed by <span class="cite">[<a href="#ref-1">1</a>]</span>.</p>
+<p>To carry out the numerical simulations of the tumor-immune model (Eqs. (1-10) in <span class="cite">[<a href="#ref-1">1</a>]</span> and Eq. (1)), we used the parameter values from Table 3 in <span class="cite">[<a href="#ref-1">1</a>]</span>. The results are shown in <a class="xref" href="#table-1">Table 1</a>, where <em>RP</em> (Range of successful Protocols) is defined as the difference between the amount of BCG-uninfected cancer cell the most aggressive (largest <em>b</em>) and most non-aggressive treatment (lowest <em>b</em>) such that the treatment successed. In addition, <em>AP</em> (Average successful Protocol) is defined as the average BCG-uninfected cancer population size for all the possible combinations of different treatment protocols that differ in the distribution of the BCG-uninfected cancer cells in the layers of the urothelium such that the treatment will be successful. Namely, <em>RP</em> defines the range of successful treatments while <em>AP</em> defines the average of this set in the terms of BCG injection <em>b</em> as a function of the initial tumor cell distribution in the bladder’s geometry. The treatment duration <em>t</em><sub>max</sub> is set to 42 days. In addition, parameters <em>g</em><sub>1</sub><em>, g</em><sub>2</sub><em>,</em> and <em>g</em><sub>3</sub> (in Eq. (1)) set to 1<em>.</em>2<em>,</em> 1<em>.</em>35<em>,</em> and 1, respectively <span class="cite">[<a href="#ref-2">2</a>]</span>. Furthermore, the optimal treatment protocol in the manner of BCG injection <em>b</em> as a function of the layer of the urothelium the BCG-uninfected cancer cells are allocated at the beginning of the treatment, divided by the geometrical configuration used to approximate the bladder’s geometry, is shown in <a class="xref" href="#table-2">Table 2</a>.</p>
+<figure class="table-figure" id="table-1">
+<figcaption>Table 1: The sensitivity of the model to the initial distribution of cancer cells in different layers of the bladder at the beginning of treatment (<em>t</em><sub>0</sub>). The values were calculated over the first four weeks of the treatment <span class="cite">[<a href="#ref-1">1</a>]</span>.</figcaption>
+<div class="table-scroll"><table><tr><th>Metric</th><th>Model</th><th>1 layer</th><th>2 layers</th><th>3 layers</th><th>4 layers</th><th>5 layers</th><th>6 layers</th></tr><tr><td>RP [m3t · 107]</td><td>Sphere-ring <span class="cite">[<a href="#ref-1">1</a>]</span></td><td>1.90</td><td>1.63</td><td>1.36</td><td>0.88</td><td>0.70</td><td>0.54</td></tr><tr><td>RP [m3t · 107]</td><td>Ellipsoid-ring</td><td>1.846</td><td>1.651</td><td>1.421</td><td>1.009</td><td>0.776</td><td>0.522</td></tr><tr><td>AP [m3t · 109]</td><td>Sphere-ring <span class="cite">[<a href="#ref-1">1</a>]</span></td><td>1.157</td><td>1.155</td><td>1.159</td><td>1.158</td><td>1.159</td><td>1.157</td></tr><tr><td>AP [m3t · 109]</td><td>Ellipsoid-ring</td><td>2.09</td><td>2.085</td><td>2.089</td><td>2.083</td><td>2.077</td><td>2.065</td></tr></table></div>
+
+</figure>
+
+<figure class="table-figure" id="table-2">
+<figcaption>Table 2: The amount of BCG needed to be injected in the first week as a function of the layer where the BCG-uninfected cancer cell population is located at, during the beginning of the treatment, in order to obtain the optimal treatment protocol extendting the <em>induction treatment</em> protocol proposed by <span class="cite">[<a href="#ref-13">13</a>]</span>. The initial condition are <em>T</em><sub>u</sub>(0) = 1 <em>·</em> 10<sup><a href="#ref-6">6</a></sup> and <em>b</em> = 10<sup><a href="#ref-6">6</a></sup>.</figcaption>
+<div class="table-scroll"><table><tr><th>Layer</th><th></th><th>1st layer</th><th>2nd</th><th>3rd</th><th>4th</th><th>5th</th><th>6th</th><th>7th</th><th>8th</th></tr><tr><td>BCG (b · 106)</td><td>- Sphere-ring model <span class="cite">[<a href="#ref-1">1</a>]</span></td><td>1.07</td><td>1.16</td><td>1.48</td><td>1.91</td><td>2.49</td><td>3.12</td><td>3.88</td><td>5.04</td></tr><tr><td>BCG (b · 106)</td><td>- Ellipsoid-ring model</td><td>1.91</td><td>1.98</td><td>2.23</td><td>2.65</td><td>3.21</td><td>3.76</td><td>4.38</td><td>5.36</td></tr></table></div>
+
+</figure>
+
+<h2 id="3-discussion">3 Discussion</h2>
+<p>In this research, we have proposed a better approximation of the human bladder in an ellipsoidal-ring to improve individualized BCG immunotherapy treatment. By comparing the results that based on the sphere-ring, the novel results show that in order to optimally use the <em>induction treatment</em> protocol after the first week, one would require almost twice the amount of BCG compared to the amount predicted by <span class="cite">[<a href="#ref-1">1</a>]</span> in the case the cancer cells are located at the most shallow layer of the urothelium and the difference decreases as the initial layer the cells are located at is deeper, as shown in <a class="xref" href="#table-2">Table 2</a>. This means, that the models highly differ for stages I and II in cancer where it is still in the shallow layers while converge where the diseases approach to stage III where the treatment is shown to be ineffective anyway <span class="cite">[<a href="#ref-13">13</a>]</span>.</p>
+<p>In addition, one can notice that both models agree on the difference between the worst and the best treatment, as shown in <a class="xref" href="#table-1">Table 1</a> - the <em>RP</em> parameter. In addition, from the <em>AP</em> parameter in <a class="xref" href="#table-1">Table 1</a>, it is shown that the average treatment successful protocol that differs in the distribution of the BCG-uninfected cancer cells in the layers of the urothelium are 80% higher in the case of the ellipsoid-ring compared to the sphere-ring which indicates that while the range of the treatment protocols is more or less equal, the average treatment in the ellipsoid-ring configuration should be much more aggressive to obtain a similar clinical outcome.</p>
+<p>These results are evaluated for a mean case (patient) in the population and can be highly altered between patients according, but not limited, to their age, gender, and weight. One can overcome this challenge by introducing these parameters to the proposed model in one of two ways. One way is by setting personalized <em>r</em><sub>0</sub> and <em>R</em> values in Eq. (1) according to a measurement of a single patent and recomputing the simulations results. A more generic way is to use machine learning methods to learn a regression model between these parameters and the <em>r</em><sub>0</sub> and <em>R</em> parameters using a dataset of samples from a heterogeneous population of individuals (not necessarily patients). Once such a model is obtained, it can be used to extend the proposed model into a family of models, each one approximating a possible single patents’ parameters.</p>
+<p>The lack of recorded and publicly available clinical data regarding the course of bladder cancer BCG treatment, especially in the context of the BCG and cancer cells distribution in the bladder’s geometry, results in the incapability of evaluating the presented outcomes in realistic settings. As more such data will become available, better parameter estimation and evaluation of the models are recommended. In addition, another possible future to further improve the accuracy of the model is to take into consideration the change over time of the geometrical configuration as the bladder fill and empty during the day.</p>
+<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Keywords</dt><dd><ul class="kw-list"><li>Nonlinear systems</li><li>PDE cancer treatment model</li><li>geometrical PDE systems dynamics</li></ul></dd></div></dl></section>
+<h2 id="references">References</h2>
+<ol class="paper-refs"><li id="ref-1">T. Lazebnik, S. Bunimovich-Mendrazitsky, and N. Haroni. PDE based geometry model for BCG immunotherapy of bladder cancer. Biosystems, 2021.</li>
+<li id="ref-2">N. K. Kristiansen, H. Ringgaard, S. Nygaard, and J. C. Djurhuus. Effect of bladder volume, gender and body position on the shape and position of the urinary bladder. Scand J Urol Nephrol, 38:462–468, 2004.</li>
+<li id="ref-3">F. Bray, J. Ferlay, I. Soerjomataram, R. L. Siegel, L.A. Torre, and A. Jemal. Global cancer statistics 2018: Globocan estimates of incidence and mortality worldwide for 36 cancers in 185 countries. CA Cancer J Cling, 68(2):394–424, 2018.</li>
+<li id="ref-4">M. Eylert, L. Hounsome, R. Persad, A. Bahl, E. Jefferies, J. Verne, and H. Mostafid. Falling bladder cancer incidence from 1990 to 2009 is not producing universal mortality improvements. Journal of Clinical Urology, 7(2):90–98, 2014.</li>
+<li id="ref-5">A. Morales, D. Eidinger, and A.W. Bruce. Intracavity Bacillus Calmette-Gu´erin in the treatment of superficial bladder tumors. J. Urol, 116:180–183, 1976.</li>
+<li id="ref-6">H. W. Herr, V. P. Laudone, R. A. Badalament, H. F. Oettgen, P. C. Sogani, B. D. Freedman, M. R. Melamed, and W. F. Whitmore. Bacillus Calmette-Gu´erin therapy alters the progression of superficial bladder cancer. Journal of Clinical Oncology, pages 1450–1455, 1988.</li>
+<li id="ref-7">S. Bhattacharya, P. P. Sah, A. Banerjee, and S. Ray. Structural impact due to ppqee deletion in multiple cancer associated protein - integrin v: An in silico exploration. ABiosystems, page 104216, 2020.</li>
+<li id="ref-8">T. Lazebnik, S. Yanetz, S. Bunimovich-Mendrazitsky, and N. Haroni. Treatment of bladder cancer using bcg immunotherapy: Pde modeling. Partial Differential Equations, 2020.</li>
+<li id="ref-9">A. Fridman and C.Y. Kao. Mathematical modeling of biological processs. Lecture Notes on Mathematical Modeling in the Life Sciences, 2014.</li>
+<li id="ref-10">E. Guzev, S. Halachmi, and S. Bunimovich-Mendrazitsky. Additional extension of the mathematical model for BCG immunotherapy of bladder cancer and its validation by auxiliary tools. International Journal of Nonlinear Sciences and Numerical Simulation, 20:675–689, 2019.</li>
+<li id="ref-11">G. Fullstone, J. Wood, M. Holcombe, and G. Battaglia. Modelling the transport of nanopar-ticles under blood flow using an agent-based approach. Scientific Reports volume, page 10649, 2015.</li>
+<li id="ref-12">J. Sch¨oneberg, A. Ullrich, and F. No´e. Simulation tools for particle-based reaction-diffusion dynamics in continuous space. BMC Biophys, 7(11), 2014.</li>
+<li id="ref-13">D.L. Paterson and A. Patel. Bactillus Calmette-Guerin (BCG) immunotherapy for bladder cancer: Reivew of complications and their treatment. BMC Biophys, pages 340–344, 1998.</li>
+</ol>
+</div>
+        
+        
+        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2021), <em>International Symposium on Mathematical and Computational Oncology</em>, <a href="https://doi.org/10.1007/978-3-030-91241-3_6" target="_blank" rel="noopener">doi:10.1007/978-3-030-91241-3_6</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+      </article>
+    </div>
+
+    <section class="paper-related" aria-labelledby="related-title"><div class="paper-wrap"><h2 id="related-title">Related research</h2><div class="related-grid"><a class="related-card" href="/publications/pde-based-geometry-model-bcg-immunotherapy-bladder/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2020</span><strong>PDE based geometry model for BCG immunotherapy of bladder cancer</strong><span class="related-text">biosystems</span></a><a class="related-card" href="/publications/mathematical-model-bcg-based-treatment-type-1/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2023</span><strong>Mathematical Model for the BCG-based Treatment Of Type 1 Diabetes</strong><span class="related-text">Physica A: Statistical Mechanics and its Applications</span></a><a class="related-card" href="/publications/treatment-bladder-cancer-bcg-immunotherapy-pde-modeling/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2019</span><strong>Treatment of Bladder Cancer Using BCG Immunotherapy: PDE Modeling</strong><span class="related-text">Functional Differential Equations</span></a></div><p class="related-more"><a href="/publications.html">All publications</a></p></div></section>
+  </main>
+
+  <dialog id="cite-dialog" class="paper-dialog" aria-labelledby="cite-title">
+    <div class="dialog-head">
+      <h2 id="cite-title">Cite this paper</h2>
+      <button type="button" class="dialog-close" aria-label="Close"><i class="ri-close-line" aria-hidden="true"></i></button>
+    </div>
+    <p class="dialog-label">APA</p>
+    <pre class="cite-box" id="cite-apa">Lazebnik, T., &amp; Bunimovich-Mendrazitsky, S. (2021). Improved Geometric Configuration for the Bladder Cancer BCG-Based Immunotherapy Treatment Model. International Symposium on Mathematical and Computational Oncology. https://doi.org/10.1007/978-3-030-91241-3_6</pre>
+    <button type="button" class="paper-btn" data-copy="cite-apa"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy APA</span></button>
+    <p class="dialog-label">BibTeX</p>
+    <pre class="cite-box" id="cite-bib">@article{lazebnik2021improved,
+  title = {Improved Geometric Configuration for the Bladder Cancer BCG-Based Immunotherapy Treatment Model},
+  author = {Lazebnik, Teddy and Bunimovich-Mendrazitsky, Svetlana},
+  journal = {International Symposium on Mathematical and Computational Oncology},
+  year = {2021},
+  doi = {10.1007/978-3-030-91241-3_6}
+}</pre>
+    <button type="button" class="paper-btn" data-copy="cite-bib"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy BibTeX</span></button>
+  </dialog>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Games</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
+                  <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
+                  <li><a href="https://rl.teddylazebnik.com/">Pirate War RL Game</a></li>
+                  <li><a href="https://eh.teddylazebnik.com/">Echo Heist</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      
+      <script>
+        (function () {
+          // menu and navbar (js/main.js expects to sit at the site root)
+          var btn = document.getElementById('menu-btn'), menu = document.getElementById('mobile-menu'), nav = document.getElementById('navbar');
+          btn.addEventListener('click', function () { menu.classList.toggle('max-h-0'); menu.classList.toggle('max-h-screen'); });
+          var onScroll = function () { nav.classList.toggle('nav-scrolled', window.scrollY > 10); };
+          window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+          // cite dialog + copy buttons
+          var dialog = document.getElementById('cite-dialog');
+          document.querySelectorAll('[data-dialog]').forEach(function (b) {
+            b.addEventListener('click', function () { if (dialog.showModal) dialog.showModal(); else dialog.setAttribute('open', ''); });
+          });
+          dialog.querySelector('.dialog-close').addEventListener('click', function () { dialog.close(); });
+          dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
+          function flash(button, text) {
+            var label = button.querySelector('span'), old = label.textContent;
+            label.textContent = text; setTimeout(function () { label.textContent = old; }, 1600);
+          }
+          document.querySelectorAll('[data-copy]').forEach(function (b) {
+            b.addEventListener('click', function () {
+              var text = document.getElementById(b.getAttribute('data-copy')).textContent;
+              navigator.clipboard.writeText(text).then(function () { flash(b, 'Copied'); });
+            });
+          });
+          document.getElementById('share-btn').addEventListener('click', function () {
+            var b = this, data = { title: document.title, url: location.href.split('#')[0] };
+            if (navigator.share) { navigator.share(data).catch(function () {}); }
+            else { navigator.clipboard.writeText(data.url).then(function () { flash(b, 'Link copied'); }); }
+          });
+
+          // highlight the section being read in "On this page"
+          var links = {};
+          document.querySelectorAll('.paper-toc a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+          var heads = Array.prototype.filter.call(document.querySelectorAll('#full-text h2[id], #full-text h3[id], #full-text section[id]'), function (h) { return links[h.id]; });
+          if ('IntersectionObserver' in window && heads.length) {
+            var current = null;
+            var io = new IntersectionObserver(function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                  if (current) current.classList.remove('is-active');
+                  current = links[e.target.id]; current.classList.add('is-active');
+                }
+              });
+            }, { rootMargin: '-90px 0px -70% 0px' });
+            heads.forEach(function (h) { io.observe(h); });
+          }
+        })();
+      </script>
+   </body>
+</html>

@@ -1,0 +1,112 @@
+{
+  "title": "Comparing Manual vs. Automated Machine Learning and Deep Learning Models for Predicting One-Year Mortality in Elderly Hip Fracture Patients",
+  "pub_type": "Paper",
+  "short_title": "Manual vs. Automated ML for Mortality in Elderly Hip Fracture Patients",
+  "authors": [
+    {
+      "name": "Adi Shuchami",
+      "given": "Adi",
+      "family": "Shuchami"
+    },
+    {
+      "name": "Maxim Glebov",
+      "given": "Maxim",
+      "family": "Glebov"
+    },
+    {
+      "name": "Maksim  Katsin",
+      "given": "Maksim",
+      "family": "Katsin"
+    },
+    {
+      "name": "Yotam Portnoy",
+      "given": "Yotam",
+      "family": "Portnoy"
+    },
+    {
+      "name": "Haim Berkenstadt",
+      "given": "Haim",
+      "family": "Berkenstadt"
+    },
+    {
+      "name": "Dina Orkin",
+      "given": "Dina",
+      "family": "Orkin"
+    },
+    {
+      "name": "Teddy Lazebnik",
+      "given": "Teddy",
+      "family": "Lazebnik"
+    }
+  ],
+  "affiliations": {
+    "1": "Department of Mathematics, Ariel University, Ariel, Israel",
+    "2": "Department of Anesthesiology, Sheba Medical Center, Ramat Gan, Israel",
+    "3": "Department of Information Systems, University of Haifa, Haifa, Israel",
+    "4": "Faculty of Medicine, Tel-Aviv University, Tel Aviv, Israel",
+    "5": "Department of Computing, Jönköping University, Jönköping, Sweden"
+  },
+  "journal": "Frontiers in Medicine",
+  "year": 2026,
+  "volume": "",
+  "issue": "",
+  "pages": "",
+  "doi": "10.3389/fmed.2026.1804645",
+  "published": "2026-06-01",
+  "received": "2026-02-05",
+  "accepted": "2026-04-21",
+  "abstract": "Background: Hip fractures are associated with significant mortality, especially among elderly patients. Accurate prediction of mortality risk is crucial for optimising perioperative care and resource allocation. Recent advances in machine learning (ML) and deep learning (DL) offer promising methods to enhance clinical risk prediction models; however, their clinical implementation often remains limited due to the complexity of these techniques. Methods: This retrospective cohort study included 2,604 elderly patients (≥65 years) undergoing urgent hip fracture surgery at Sheba Medical Center, Israel, between January 2017 and November 2023. Multiple ML and DL algorithms were evaluated for predicting one-year all-cause mortality using a comprehensive set of clinical, demographic, perioperative, and laboratory variables. Models were rigorously developed and validated through stratified 5-fold cross-validation, addressing class imbalance with the Synthetic Minority Oversampling Technique (SMOTE). Additionally, an automated ML pipeline, generated using a large language model (LLM) coupled with the Tree-based Pipeline Optimisation Tool (TPOT), was benchmarked against manually optimised models. Model performances were assessed using area under the receiver operating characteristic curve (AUC), accuracy, precision, recall, F1-score, false-positive rate, and true-negative rate, supplemented by permutation importance and SHapley Additive exPlanations (SHAP) for interpretability. Results: Among all models evaluated, the manually optimised Extreme Gradient Boosting (XGB) algorithm demonstrated superior predictive performance (AUC=0.846, accuracy=0.791, F1-score=0.667, precision=0.773, NPV=0.798). Important predictors identified included baseline serum albumin and urea levels, patient age, intraoperative hypothermia, and the number of chronic diseases. The automated ML model, generated via LLM and TPOT frameworks, showed comparable performance to the XGB model (AUC=0.844), with a higher recall but slightly lower precision. Discussion: ML-based models, particularly the XGB algorithm, significantly enhance predictive accuracy for one-year mortality among elderly hip fracture patients. Crucially, an automated ML framework leveraging large language models provides a practical, clinically accessible alternative, effectively democratising advanced predictive analytics in healthcare settings.",
+  "keywords": [],
+  "license": {
+    "url": "https://creativecommons.org/licenses/by/4.0/",
+    "name": "CC BY"
+  },
+  "funding": "",
+  "competing_interests": "",
+  "data_availability": "",
+  "editor": "",
+  "abbreviations": [],
+  "summary": "Hip fractures carry a high risk of death in older patients, and accurate risk prediction can help plan their care. Using data from 2,604 patients aged 65 or older who had urgent hip fracture surgery at Sheba Medical Center, we compared machine learning and deep learning models for predicting death within one year. A manually tuned gradient boosting model (XGB) performed best, with an AUC of 0.846, and an automated pipeline built with a large language model performed comparably, with an AUC of 0.844.",
+  "key_findings": [
+    "Manually optimized Extreme Gradient Boosting performed best (AUC=0.846, accuracy=0.791, F1-score=0.667).",
+    "Important predictors included baseline serum albumin and urea levels, patient age, hypothermia during surgery and the number of chronic diseases.",
+    "An automated pipeline generated with a large language model and TPOT matched XGB closely (AUC=0.844), with higher recall but slightly lower precision."
+  ],
+  "key_numbers": [
+    {
+      "value": "2,604",
+      "label": "elderly hip fracture surgery patients"
+    },
+    {
+      "value": "0.846",
+      "label": "AUC of the best, manually optimized XGB model"
+    },
+    {
+      "value": "0.844",
+      "label": "AUC of the LLM-generated automated model"
+    }
+  ],
+  "featured_figure": "fig-3",
+  "related_project": "",
+  "pdf_url": "https://teddylazebnik.com/files/adi_3.pdf",
+  "slug": "comparing-manual-vs-automated-machine-learning-deep",
+  "lang": "en",
+  "reviewed": false,
+  "extracted": {
+    "with": "pymupdf4llm 1.28.2, PyMuPDF 1.28.2",
+    "on": "2026-10-09",
+    "from": "adi_3.pdf",
+    "pages": 12,
+    "figures": 7,
+    "tables": 3,
+    "tables_as_images": 0,
+    "equations": 0,
+    "references": 13,
+    "reference_style": "num",
+    "coverage": 1.0,
+    "check": [
+      "p5 drop: Pearson correlations between the dataset’s features. BMI, body mass index; ASA, American S",
+      "p10 drop: Performance evaluation and explainability analysis of the predictive model developed using"
+    ]
+  }
+}

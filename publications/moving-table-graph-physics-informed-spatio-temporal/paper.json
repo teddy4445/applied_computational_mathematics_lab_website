@@ -1,0 +1,70 @@
+{
+  "title": "Moving from table to graph in physics-informed spatio-temporal symbolic regression",
+  "pub_type": "Paper",
+  "short_title": "Moving from table to graph in physics-informed symbolic regression",
+  "authors": [
+    {
+      "name": "Teddy Lazebnik",
+      "given": "Teddy",
+      "family": "Lazebnik"
+    },
+    {
+      "name": "Alex Liberzon",
+      "given": "Alex",
+      "family": "Liberzon"
+    }
+  ],
+  "affiliations": {
+    "1": "Department of Information Systems, University of Haifa, Haifa, Israel.",
+    "2": "Department of Computing, Jonkoping University, Jonkoping, Sweden.",
+    "3": "Turbulence Structure Laboratory, School of Mechanical Engineering, Tel Aviv University, Tel Aviv, Israel. *email: lazebnik.teddy@gmail.com"
+  },
+  "journal": "Scientific Reports",
+  "year": 2026,
+  "volume": "16",
+  "issue": "",
+  "pages": "16016",
+  "doi": "10.1038/s41598-026-53882-w",
+  "published": "",
+  "received": "",
+  "accepted": "",
+  "abstract": "Symbolic Regression (SR) is a powerful technique for discovering analytical mathematical expressions that describe observed numerical data. Traditionally, SR models work on data in tabular form, imposing a purely functional mapping without considering the underlying spatio-temporal dependencies or the governing physical laws. Such approaches are ill-suited for physical problems, where data evolves dynamically across time and space and is governed by ordinary/partial differential equations (ODEs/PDEs). Moreover, as SR are commonly measured by their ability to obtain generalized equations from a relatively small amount of data, representing the data efficiently plays a central role in the performance of such models. In this study, we propose a simple yet powerful solver-agnostic approach for SR fitting by using a dual representation — one that preserves explainability, while the other is physically informed. Our main novelty lies in combining the standard tabular representation with a graph-based spatio-temporal representation in a unified SR fitting framework that can enhance existing SR solvers without modifying their internal search mechanism. Namely, the method uses both tabular and graph-based data representation, where nodes in the graph are associated with spatio-temporal coordinates and dynamic state variables, while edges encode spatial or temporal dependencies. This approach allows for the direct generation of differential equations that describe the underlying physical system by implicitly incorporating spatio-temporal patterns and constraints. Benchmarks across multiple synthetic datasets originated from functional, ordinary/partial different equations (O/PDE), integral, and delayed ODE, demonstrate the ability of the proposed method to recover governing equations with high accuracy, even in noisy settings, improving a wide range of SR out-of-the box. These results indicate that enriching SR with graph-based spatio-temporal structure provides a practical pathway toward more robust and physically consistent equation discovery. At the same time, the current framework assumes that a meaningful spatio-temporal neighborhood structure can be constructed and is validated primarily on controlled synthetic benchmark systems.",
+  "keywords": [],
+  "license": {
+    "url": "https://creativecommons.org/licenses/by/4.0/",
+    "name": "CC BY 4.0"
+  },
+  "funding": "",
+  "competing_interests": "",
+  "data_availability": "",
+  "editor": "",
+  "abbreviations": [],
+  "summary": "Symbolic regression searches for mathematical formulas that describe data, but it usually treats data as a flat table and ignores how physical systems change across space and time. We paired the usual table with a graph whose nodes hold points in space and time and whose edges link neighbors, letting existing solvers recover differential equations without changing their search. On synthetic benchmarks, including noisy ones, this improved a wide range of symbolic regression tools out of the box.",
+  "key_findings": [
+    "Combining a tabular and a graph-based spatio-temporal representation enhances existing symbolic regression solvers without modifying their internal search mechanism.",
+    "The graph representation allows direct generation of differential equations by implicitly incorporating spatio-temporal patterns and constraints.",
+    "Benchmarks from functional, ordinary and partial differential, integral and delayed equations showed accurate recovery of governing equations, even with noise.",
+    "The framework assumes a meaningful spatio-temporal neighborhood can be built and was validated mainly on controlled synthetic benchmarks."
+  ],
+  "key_numbers": [],
+  "featured_figure": "fig-2",
+  "related_project": "",
+  "pdf_url": "https://teddylazebnik.com/files/table_to_graph.pdf",
+  "slug": "moving-table-graph-physics-informed-spatio-temporal",
+  "lang": "en",
+  "reviewed": false,
+  "extracted": {
+    "with": "pymupdf4llm 1.28.2, PyMuPDF 1.28.2",
+    "on": "2026-10-09",
+    "from": "table_to_graph.pdf",
+    "pages": 20,
+    "figures": 6,
+    "tables": 8,
+    "tables_as_images": 7,
+    "equations": 4,
+    "references": 115,
+    "reference_style": "num",
+    "coverage": 0.9938,
+    "check": []
+  }
+}

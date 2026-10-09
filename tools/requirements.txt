@@ -1,6 +1,7 @@
 # Paper pages (tools/paper_extract.py and tools/build_papers.py)
 # pip install -r tools/requirements.txt
 pymupdf4llm>=1.28   # PDF layout analysis, runs offline (extract only)
-pyspellchecker      # mends end-of-line hyphenation (extract only, optional)
+pyspellchecker      # mends end-of-line hyphenation and lost ligatures (extract only, optional)
+fonttools           # reads the math fonts of older Elsevier / Taylor & Francis PDFs (extract only, optional)
 markdown>=3.5       # build
 pillow>=10          # extract + build

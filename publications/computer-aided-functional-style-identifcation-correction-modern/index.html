@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_papers.py from paper.md + paper.json in this folder. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Functional Style Identification and Correction in Modern Russian | ACML</title>
+      <meta name="description" content="Functional style describes which set of linguistic norms a text follows, such as artistic or academic writing. We trained a deep learning attention neural…">
+      <meta name="author" content="Elizaveta Savchenko, Teddy Lazebnik">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/publications/computer-aided-functional-style-identifcation-correction-modern/">
+      <meta name="citation_title" content="Computer aided functional style identifcation and correction in modern Russian texts">
+      <meta name="citation_author" content="Elizaveta Savchenko">
+      <meta name="citation_author" content="Teddy Lazebnik">
+      <meta name="citation_publication_date" content="2022">
+      <meta name="citation_journal_title" content="Journal of Data, Information and Management">
+      <meta name="citation_doi" content="10.1007/s42488-021-00062-2">
+      <meta name="citation_pdf_url" content="https://teddylazebnik.com/files/liza_paper.pdf">
+      <meta name="citation_abstract_html_url" content="https://acml.teddylazebnik.com/publications/computer-aided-functional-style-identifcation-correction-modern/">
+      <meta name="citation_fulltext_html_url" content="https://acml.teddylazebnik.com/publications/computer-aided-functional-style-identifcation-correction-modern/">
+      <meta name="citation_keywords" content="Russian text; Linguistic tasks; Text classification; Text styling; Deep learning">
+      <meta name="citation_language" content="en">
+      <meta property="og:type" content="article">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Functional Style Identification and Correction in Modern Russian">
+      <meta property="og:description" content="Functional style describes which set of linguistic norms a text follows, such as artistic or academic writing. We trained a deep learning attention neural…">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/publications/computer-aided-functional-style-identifcation-correction-modern/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/publications/computer-aided-functional-style-identifcation-correction-modern/figures/share-fig-1.jpg">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Functional Style Identification and Correction in Modern Russian">
+      <meta name="twitter:description" content="Functional style describes which set of linguistic norms a text follows, such as artistic or academic writing. We trained a deep learning attention neural…">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/publications/computer-aided-functional-style-identifcation-correction-modern/figures/share-fig-1.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "Computer aided functional style identifcation and correction in modern Russian texts",
+  "name": "Computer aided functional style identifcation and correction in modern Russian texts",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Elizaveta Savchenko"
+    },
+    {
+      "@type": "Person",
+      "name": "Teddy Lazebnik"
+    }
+  ],
+  "datePublished": "2022",
+  "url": "https://acml.teddylazebnik.com/publications/computer-aided-functional-style-identifcation-correction-modern/",
+  "mainEntityOfPage": "https://acml.teddylazebnik.com/publications/computer-aided-functional-style-identifcation-correction-modern/",
+  "abstract": "Functional style (FS) identification is a classification task in linguistics that categorizes unrestricted texts into several categories of linguistic norms. FS is widely used to attain a satisfying outcome in style processing. As such, we train a deep learning attention neural network model on modern-Russian texts, divide them into four FS categories. The model obtained an accuracy of 0.72. In particular, 81.08% and 85.71% accuracy in classifying the artistic and academic FS. The proposed model is able to automate the FS identification process and aids both domain experts and non-domain experts to perform FS correction by highlighting style anomalies concerning a desired style for the text. In particular, we show a 34% and 31% average improvement in the duration of performing the style correction task. Moreover, domain experts and non-domain experts obtain 3% and 9% more accurate results, respectively.",
+  "description": "Functional style describes which set of linguistic norms a text follows, such as artistic or academic writing. We trained a deep learning attention neural…",
+  "image": "https://acml.teddylazebnik.com/publications/computer-aided-functional-style-identifcation-correction-modern/figures/share-fig-1.jpg",
+  "keywords": "Russian text, Linguistic tasks, Text classification, Text styling, Deep learning",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "DOI",
+    "value": "10.1007/s42488-021-00062-2"
+  },
+  "sameAs": "https://doi.org/10.1007/s42488-021-00062-2",
+  "isPartOf": {
+    "@type": "Periodical",
+    "name": "Journal of Data, Information and Management"
+  },
+  "about": "Machine Learning",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "encoding": {
+    "@type": "MediaObject",
+    "contentUrl": "https://teddylazebnik.com/files/liza_paper.pdf",
+    "encodingFormat": "application/pdf"
+  }
+}
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/paper.css" rel="stylesheet">
+      
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="paper-page">
+    <header class="paper-hero">
+      <div class="paper-wrap">
+        <nav class="paper-crumbs" aria-label="Breadcrumb">
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Machine Learning</span>
+        </nav>
+        <p class="paper-kicker"><span><em>Journal of Data, Information and Management</em> · 2022</span></p>
+        <h1 class="paper-title">Computer aided functional style identifcation and correction in modern Russian texts</h1>
+        <p class="paper-authors"><span class="author">Elizaveta Savchenko</span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span></p>
+        <details class="paper-affils"><summary>Affiliations</summary><ol><li value="2">Department of Cancer Biology, Cancer Institute, University College London, London, UK</li></ol></details>
+        <div class="paper-actions">
+          <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/liza_paper.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
+          <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
+          
+          <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
+          <a class="paper-btn" href="https://doi.org/10.1007/s42488-021-00062-2" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
+          <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
+        </div>
+        <div class="lab-authors"><span class="lab-authors-label">ACML authors</span><a class="lab-chip" href="/team.html"><img src="/img/lab/teddy.webp" alt="" width="32" height="32" loading="lazy"><span><strong>Teddy Lazebnik</strong><small>PI</small></span></a></div>
+      </div>
+    </header>
+
+    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Functional style describes which set of linguistic norms a text follows, such as artistic or academic writing. We trained a deep learning attention neural network to sort modern Russian texts into four functional styles, reaching 0.72 accuracy, and used it to highlight style anomalies so people can correct a text toward a desired style. With the tool, style correction time improved by 34% and 31% on average, and domain experts and non-experts were 3% and 9% more accurate.</p><div class=glance-stats><div class="stat"><span class="stat-value">0.72</span><span class="stat-label">overall accuracy across four functional styles</span></div><div class="stat"><span class="stat-value">81.08%</span><span class="stat-label">accuracy for artistic style texts</span></div><div class="stat"><span class="stat-value">85.71%</span><span class="stat-label">accuracy for academic style texts</span></div><div class="stat"><span class="stat-value">9%</span><span class="stat-label">accuracy gain for non-domain experts</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>The attention neural network classified modern Russian texts into four functional styles with an accuracy of 0.72.</li><li>Accuracy reached 81.08% for the artistic style and 85.71% for the academic style.</li><li>Highlighting style anomalies gave 34% and 31% average improvements in the time needed to perform style correction.</li><li>Domain experts and non-domain experts obtained 3% and 9% more accurate results, respectively.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1518" height="1066" alt="Fig. 1 The user interface of a linguistic text classification (in Russian)"></a><figcaption><strong>Fig. 1</strong> The user interface of a linguistic text classification (in Russian) <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+
+    <div class="paper-wrap paper-layout">
+      <aside class="paper-aside">
+        <nav class="paper-toc" aria-label="On this page">
+          <p class="aside-title">On this page</p>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#1-introduction">1 Introduction</a></li>
+<li><a href="#2-related-work">2 Related work</a></li>
+<li><a href="#3-materials-and-methods">3 Materials and methods</a></li><li class="toc-sub"><a href="#31-fs-identification-data-acquisition">3.1 FS identification data acquisition</a></li><li class="toc-sub"><a href="#32-fs-identification-model">3.2 FS identification model</a></li><li class="toc-sub"><a href="#33-text-style-correction">3.3 Text style correction</a></li>
+<li><a href="#4-results">4 Results</a></li><li class="toc-sub"><a href="#41-data-acquisition">4.1 Data acquisition</a></li><li class="toc-sub"><a href="#42-models-validation">4.2 Model’s validation</a></li><li class="toc-sub"><a href="#43-text-style-correction">4.3 Text style correction</a></li>
+<li><a href="#5-conclusion-and-future-work">5 Conclusion and future work</a></li><li class="toc-sub"><a href="#compliance-with-ethical-standards">Compliance with ethical standards</a></li>
+<li><a href="#notes">Notes</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </nav>
+        <div class="paper-info">
+          <p class="aside-title">Article information</p>
+          <dl><div><dt>Journal</dt><dd>Journal of Data, Information and Management</dd></div><div><dt>Year</dt><dd>2022</dd></div><div><dt>DOI</dt><dd><a href="https://doi.org/10.1007/s42488-021-00062-2" target="_blank" rel="noopener">10.1007/s42488-021-00062-2</a></dd></div></dl>
+        </div>
+      </aside>
+
+      <article class="paper-body" id="full-text">
+        <details class="paper-toc-mobile">
+          <summary>On this page</summary>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#1-introduction">1 Introduction</a></li>
+<li><a href="#2-related-work">2 Related work</a></li>
+<li><a href="#3-materials-and-methods">3 Materials and methods</a></li><li class="toc-sub"><a href="#31-fs-identification-data-acquisition">3.1 FS identification data acquisition</a></li><li class="toc-sub"><a href="#32-fs-identification-model">3.2 FS identification model</a></li><li class="toc-sub"><a href="#33-text-style-correction">3.3 Text style correction</a></li>
+<li><a href="#4-results">4 Results</a></li><li class="toc-sub"><a href="#41-data-acquisition">4.1 Data acquisition</a></li><li class="toc-sub"><a href="#42-models-validation">4.2 Model’s validation</a></li><li class="toc-sub"><a href="#43-text-style-correction">4.3 Text style correction</a></li>
+<li><a href="#5-conclusion-and-future-work">5 Conclusion and future work</a></li><li class="toc-sub"><a href="#compliance-with-ethical-standards">Compliance with ethical standards</a></li>
+<li><a href="#notes">Notes</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </details>
+        <section id="abstract" class="paper-abstract">
+          <h2>Abstract</h2>
+          <p>Functional style (FS) identification is a classification task in linguistics that categorizes unrestricted texts into several categories of linguistic norms. FS is widely used to attain a satisfying outcome in style processing. As such, we train a deep learning attention neural network model on modern-Russian texts, divide them into four FS categories. The model obtained an accuracy of 0.72. In particular, 81.08% and 85.71% accuracy in classifying the artistic and academic FS. The proposed model is able to automate the FS identification process and aids both domain experts and non-domain experts to perform FS correction by highlighting style anomalies concerning a desired style for the text. In particular, we show a 34% and 31% average improvement in the duration of performing the style correction task. Moreover, domain experts and non-domain experts obtain 3% and 9% more accurate results, respectively.</p>
+        </section>
+        
+<div class="paper-text">
+<h2 id="1-introduction">1 Introduction</h2>
+<p>The recent research of artificial intelligence (AI) resulted in promising outcomes such as several steps towards automatic vehicles (Guo and Gao 2020), optimization of clinical processes (Briganti and Le Moine 2020), and improved agriculture growing (Niraj and Thangadurai 2019). In particular, AI allowing computer to more naturally interact with humans throughout natural language processing (NLP) (Nadkarni et al. 2011). These NLP models are able to extract the subject of a text (Pan and Chen 2021), classify texts into categories (Li et al. 2018), and provide summary of long texts (Christian et al. 2016). Nevertheless, current AI models are not able to fully replace human abilities in multiple areas and in particular in ones that based on a less strict definitions (Zanzotto 2019; Li 2017), including NLP tasks (Lertvittayakumjorn et al. 2020; Wang et al. 2020).</p>
+<p>There is a growing emergence of systems where people and agents work together (Ofra and Kobi 2013). These systems, often called Human-Agent Systems or Human- Agent Cooperatives, have moved from theory to reality in many forms, including digital personal assistants, recommendation systems, training and tutoring systems, service robots, chatbots, planning systems, and self-driving cars (Richardson and Rosenfeld 2018; Fox et al. 2017; Jennings et al. 2014; Kleinerman et al. 2018; Langley et al. 2017; Lazebnik et al. 2021; Richardson et al. 2008; Rosenfeld et al. 2017; Lazebnik and Alexi 2021; Salem et al. 2015; Sheh 2017; Sierhuis et al. 2003; Lazebnik et al. 2021; Traum et al. 2003; VanLehn et al. 2011; Xiao and Benbasat 2007; Lazebnik and Bunimovich-Mendrazitsky 2021). The ability of computers teammates to accelerate and improve human-performed tasks is known as computer-aided systems.</p>
+<p>One NLP-related task that is considered important for generating convincing texts by an AI is functional style (FS) identification (Michos et al. 1996a). This task has been tackled using statistical methods (Michos et al. 1996b), domain-expert based rules (Roudsari et al. 2020), and machine learning (ML) models (Dubovik 2017). In particular, Dubovik (2017) showed promising results in FS identification for Russian texts with multiple similar linguistic properties using a ML-based model. The author suggested that text style correction using ML is still a challenging task due to the multiple correct options and the deep content understanding required by a model to correctly handle this task (Dubovik 2017).</p>
+<p>Our work proposes a FS identification model that is based on the deep learning attention architecture and trained on domain-expert tagged modern Russian texts. We relax the linguistic similarity between texts of the same FS category requirement proposed by Dubovik (2017) by taking random texts from the literature and the internet. In addition, the proposed model is used to aid users in performing the text style correction (TSC) task in a faster and more accurate way in order to better fulfill language norms. As a result, semi-automating the TSC task. Therefore, the main contribution of this work lies in the empirical proof that attention-based deep learning models used in a human-in-the-loop approach can reduce time and improve performance in text styling tasks in Russian.</p>
+<p>The paper is organized as follows. In Section 2, we provide a short overview of FS identification solutions and the unique FS categories and challenges with modern Russian texts. Afterward, in Section 3, we describe the data gathering process with the validation of the tagging process, followed by a description of the attention neural network used as the base of the model. In addition, we introduce the TSC computer-aided experiment, using the obtained FS identification model. Then, in Section 4, we present the obtained tagged corpus of texts, the model’s performance, and the improvement in individuals’ performance in the TSC task using the obtained model. Finally, in Section 5, some conclusions are drawn and future research directions are suggested.</p>
+<h2 id="2-related-work">2 Related work</h2>
+<p>In modern times, written communication is taking an increasing place in the way individuals share information, keep records, and entertain (Zhu et al. 2005; Whitemna 1981). Due to the wide range of cases where written communication is used, unique language norms are emerged to fit each one of them Kraus (1987); Michos et al. (1987).</p>
+<p>In particular, the Russian language’s style is significantly altered according to the time and social context it is used Koltsova and Bodrunova (2019). Russian is an East-Slavic language from the Indo-European language family. Today, estimations suggest that there are 258 million Russian speakers, of which 154 million (59.6%) of them are native speakers, making it the eighth-most widespread language in the world (Yanushevskaya and Buncic 2015). Socio-political changes taking place during the 20th century radically influenced the current state of the Russian language. The collapse of the Union of Soviet Socialist Republics (USSR), the transition from a planned to a market economy, the abolition of censorship, and the emergence of the internet have largely affected the vocabulary and styling of the Russian language. These changes lead to a new and more diverse range of social situations, making the identification of linguistics styles more complex since the borders between the styles became less clear (Ryazanova-Clarke and Wade 1999; Golub and Starodubets 2008).</p>
+<p>According to Vinogradov (1955), the general term “functional style” (FS) was coined in 1955 aiming to categories socially accepted, functionally differentiated set of methods for selecting, combining, and using linguistic means. In addition, Rosenthal (2001) treated FS as different variations of a language, characterized by a unique set of lexical, phraseological, and syntactic means used entirely or predominantly in this variant. Similarly, Golovin (1988) defines FS as the structural and functionally determined part of the language, correlated with certain types of social activity (Golovin 1988).</p>
+<p>Multiple interpretations and classifications have been proposed for FS in modern Russian. For example, Vinogradov (1963) identify the following eight FS: 1) colloquial; 2) oratorical; 3) administrative-academic; 4) newspaper; 5) publicistic; 6) official; 7) belles-lettres and poetical; and 8) scientific styles. The author proposed these categories based on their functionality which is measured by the communicative purpose, referential (e.g., a combination of cognitive and communicative functions), and expressive (Vinogradov 1963). On the other hand, Kozhina and Salimovsky (Kozhina and Salimovsky 2008) proposed six FS: 1) scientific; 2) business; 3) journalistic; 4) belles-letter; 5) religious; and 6) conversational styles. A distinctive feature of this classification is the separation of the religious style. The separation of the religious style in the Soviet-Russian stylistics is associated with the changes in the state policy towards religion. In the context of stylistics, the religious style has a basis for separation due to its distinctive features which appear at all the linguistics levels of the language. However, in practice, this separation is not common. In terms of sociolinguistics, the linguistic FS is a sign of the communication scenario, not the other way around (Kirilenko 2015). Consequently, Kirilenko (2015) proposed the following four FS categories: 1) formal; 2) informal; 3) professional; and 4) ritual styles. This classification approach is rooted in the idea that human communication is strictly regulated. Hence, the communication form is determined by the social situation in which individuals are participating (Nikolski 1976).</p>
+<p>Nevertheless, there is a broad consensus about five main FS: 1) academic; 2) business; 3) journalistic; 4) belles-lettres and poetical; and 5) conversational styles (Goldin et al. 2001; Solganik 2001; Matveeva 1990; Maximov et al. 2010). Even so, the conversational style is still considered inappropriate by many (Lapteva 1974; Gorshkov 2006). In this work, we adhere to this classification for the Russian FS, including the reduction of the conversational style since it is predominantly oral and does not require stylistic identification nor correction in written text.</p>
+<p>From a computational point of view, style classification is a complex task that has been tackled multiple times in general (Yang et al. 2018; Malmi et al. 2020; Michielutte et al. 1992; Li et al. 2019; Sudhakar et al. 2019) and for FS identification in particular (Michos et al. 1996a, b). One approach to tackle this task is by using a structured representation of stylistic rules, usually defined by a domain expert (Wong et al. year; Schneider et al. 1990). Moreover, several attempts used statistical analysis of style by counting certain words or phrases texts and comparing the results to a “representing” candidates in each classification to decide the FS of the text (Cluett 1990; DiMarco and Hirst 1993; Hovy 1990). While these attempts performed well they are considered outdated since the introduction of large neural-network-based language models (Che and Zhang 2021; Magnini et al. 2021). These methods obtain satisfactory results for multiple languages such as English (Wong et al. year) and Greek (Michos et al. 1996a) but as far as we know do not produce similar success in Russian. In addition, none of the above tackled the task of human-in-the-loop style correction in general and in Russian, in particular.</p>
+<h2 id="3-materials-and-methods">3 Materials and methods</h2>
+<h3 id="31-fs-identification-data-acquisition">3.1 FS identification data acquisition</h3>
+<p>Since the Russian language changed dramatically over the last three centuries (Ryazanova-Clarke and Wade 2002), we decided to gather modern Russian text from the internet. We used the <em>Google</em> and <em>Yandex</em> search engines to find a wide range of texts. The obtained web pages are manually reviewed to find texts associated with the modern Russian language (Vinogradov 1955).</p>
+<p>In order to classify each text into the appropriate FS category, we deploy a website with a tagging tool that works as follows. First, the web-page shows an explanation regarding the experiment alongside a form requesting participants to declare their level of formal education in Russian linguistics - first, second, or third degree. After the participants declare their level of formal education, they are introduced with a random text out of the database (excluding texts that already had three tags from previous participants), and four buttons following the proposed classification paradigm: business, academic, journalistic, and belles-lettres and poetical, as shown in <a class="xref" href="#fig-1">Fig. 1</a>. This tagging process repeats itself until the participant is no longer willing to tag more texts. After all the texts have been tagged exactly three times. The classification that all three participants agreed on is declared as the final classification of the text (Poesio et al. 2019). Texts which ambiguity removed from the dataset.</p>
+<h3 id="32-fs-identification-model">3.2 FS identification model</h3>
+<p>We based our model on the deep learning technology, as this technology is able to extract complex, multidimensional properties in unstructured data such as free text (Socher et al. 2021; Kulkarni and Shivananda 2021; Ramaswamy and DeClerck 2018). Specifically, we used the AttentionXML architecture, which is an attention-aware deep learning model with a bidirectional long short-term memory (BiLSTM) with a multi-label attention layer (You et al. 2019). The AttentionXML model requires a text representation in the form of a numerical vector rather than the text itself (You et al. 2019). Therefore, we used the RuBERT model (Kuratov and Arkhipov 2019) which is a bidirectional encoder representation from Transformers (BERT) model (Devlin et al. 2018) that is pre-trained on masked language corpora and next sentence prediction tasks to convert text into a vector-representation for the AttentionXML model. Peculiarly, the RuBERT model is trained on the Russian part of Wikipedia. This data has been used to build a vocabulary of Russian words (Kuratov and Arkhipov 2019).</p>
+<p>In order to evaluate the model, we divided the data set into training and validation cohorts with sizes of 80% and 20% from the data, respectively. In addition, both cohorts had the same distribution of samples for all four categories. Moreover, we performed a five-fold cross-validation (Kohavi 1995) to make sure the results are stable. The training cohort was divided into five cohorts where four cohorts were used for the training cohort and one for the testing cohort. The process was repeated five times, allowing each text to be included in both the training and test cohorts. We computed the accuracy of the model on each one of the five iterations and obtain the mean and standard deviation of both of them. Later, the entire training set is used to train the model and the model’s accuracy is computed using the validation cohort.</p>
+<h3 id="33-text-style-correction">3.3 Text style correction</h3>
+<p>Once the FS identification model is obtained (see Section 3.2), we perform additional experiment to evaluate if the model help domain experts and non-domain expert users to fix misplaced words and sentences given a text and intended FS - also known as TSC. The experiment goes as follows. First, the participants were introduced with an explanation of the task, alongside a form requesting participants to declare their level of formal education (either first, second, or third degree) and that Russian is their mother language. Afterward, participants arrive at a web-page where they are presented with a text and intended FS (out of the four possible FS). For half of the participants, the text is highlighted in shades of red indicating the words the model identifies as unfitted to the intended FS, using the self-attention layer. While for the other half, the text is not highlighted. The participants from both groups are asked to modify the presented text to make it more aligned with the intended FS. While the participants of both groups are performing the task, we stored the indexes of the words they change and the duration it took for finishing the task. A screenshot of the experiment webpage is presented in <a class="xref" href="#fig-2">Fig. 2</a>. The task repeated for five different texts, pick randomly in a uniform distribution from the data obtained in the FS identification’s data acquisition process (see Section 3.1).</p>
+<figure id="fig-1">
+<a class="fig-zoom" href="figures/fig-1.webp" aria-label="Open the figure full size"><img src="figures/fig-1.webp" width="582" height="409" alt="The user interface of a linguistic text classification (in Russian)" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 1</strong> The user interface of a linguistic text classification (in Russian)</figcaption>
+</figure>
+
+<p>In parallel, to define the correctness of the participants in modifying the text presented to them, each text is reviewed by three experts (with a third degree in either linguistics or Russian language and Russian as a mother language). The words that were modified by at least one of the three reviewers are defined as the correct modification of the text. We define this metric as the <em>legitimate-fixing</em> metric.</p>
+<figure id="fig-2">
+<a class="fig-zoom" href="figures/fig-2.webp" aria-label="Open the figure full size"><img src="figures/fig-2.webp" width="582" height="387" alt="The user interface for the linguistic style text correction using the proposed model to mark suggestions (in Russian)" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 2</strong> The user interface for the linguistic style text correction using the proposed model to mark suggestions (in Russian)</figcaption>
+</figure>
+
+<h2 id="4-results">4 Results</h2>
+<h3 id="41-data-acquisition">4.1 Data acquisition</h3>
+<p>We mainly picked 668 texts and classify them into the four FS categories. While this classification is replaced later during the experiment, this initial classification provides an estimation for the number of texts that would be in each FS category to have a balanced dataset for the FS identification model later on under the assumption that the agreement between experts in this task is high.</p>
+<p>In the experiment, participated <em>n</em> = 154 individuals such that 6.6% (10) of them had a first degree, 81.1% (125) had a second degree, and 12.3% (19) had a third degree in either linguistic or journalistic and Russian is there mother language. The participants were recruited by posting in academic forms and by personal invite emails sent to lecturers in Russian universities, listed on their respected universities’ websites. Each participant tagged 13.1 texts on average with 2.9 standard deviation. A detailed distribution of the number of tagging by a participant, divided by the level of expertly of the participants is shown in <a class="xref" href="#fig-3">Fig. 3</a>. In addition, <a class="xref" href="#table-1">Table 1</a> shows the mean ± standard deviation of the number of tagging for each level of expertly.</p>
+<p>After all the participants tagged the texts, each text had exactly three tags. By filtering only the texts that the majority tagged in the same FS category, we left with 614 ( 91.9% ) of the texts. Moreover, only 578 ( 86.5% ) texts were tagged identically by all three taggers. Therefore, we obtain a dataset with 142 (24.57%), 147 (25.44%), 141 (24.39%), and 148 (25.60%) samples for the business, academic, journalistic, and belles-lettres FS categories, respectively. Hence, the dataset is well balanced.</p>
+<figure id="fig-3">
+<a class="fig-zoom" href="figures/fig-3.webp" aria-label="Open the figure full size"><img src="figures/fig-3.webp" width="387" height="223" alt="Histogram of the number of tags per participant in the first experiment" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 3</strong> Histogram of the number of tags per participant in the first experiment</figcaption>
+</figure>
+
+<figure class="table-figure" id="table-1">
+<figcaption><strong>Table 1</strong> Mean and standard deviation of tags per participant, divided by the participant’s level of expertise</figcaption>
+<div class="table-scroll"><table><tr><th>Level of expertly</th><th>First degree</th><th>Second degree</th><th>Third degree</th></tr><tr><td>Tags</td><td>12.7 ± 3.9 ,</td><td>13.3 ± 2.7 ,</td><td>12.2 ± 3.3 ,</td></tr><tr><td></td><td>n = 10</td><td>n = 125</td><td>n = 19</td></tr></table></div>
+
+</figure>
+
+<figure class="table-figure" id="table-2">
+<figcaption><strong>Table 2</strong> A confusion matrix between the four FS categories</figcaption>
+<div class="table-scroll"><table><tr><th></th><th>Business</th><th>Academic</th><th>Journalistic</th><th>Belles-Lettres</th></tr><tr><td>Business</td><td>79</td><td>36</td><td>24</td><td>3</td></tr><tr><td>Academic</td><td>13</td><td>126</td><td>7</td><td>1</td></tr><tr><td>Journalistic</td><td>28</td><td>14</td><td>91</td><td>8</td></tr><tr><td>Belles-Lettres</td><td>5</td><td>4</td><td>18</td><td>120</td></tr></table></div>
+
+</figure>
+
+<h3 id="42-models-validation">4.2 Model’s validation</h3>
+<p>Using the obtained tagged data, we train the proposed model (see Section 3.2). From the k-fold ( <em>k</em> = 5 ) cross-validation (Kohavi 1995) we obtain an accuracy of 0.73 ± 0.02 . When evaluating the model on the test cohort, an accuracy of 0.72 is obtained, showing the model is well generalized. The confusion matrix between the four FS categories is shown in <a class="xref" href="#table-2">Table 2</a>. One can see that the academic and belles-lettres are classified better compared to the business and journalistic FS. In particular, the belles-lettres and academic FS are classified currently 81.08% and 85.71% of the time, respectively. This is significantly higher compared to the business and journalistic FS that classified correctly only 55.63% and 64.53% of the time, respectively.</p>
+<h3 id="43-text-style-correction">4.3 Text style correction</h3>
+<p>Using Amazon Mechanical Turk<sup>1</sup>, we hire qualified workers with 1) over 100 approved assignments; 2) a 98% approval rate; 3) Russian as their mother language. Furthermore, for the domain-expert group, we required the workers to have a second- or third- degree in the language-related subject (for example, linguistics). Similarly, workers with a first degree or without any relevant higher education are allocated to the second, non-domain-expert (NDE) group. We paid participants 0.5$ per text correction, resulting in 2.5$ per participant. In the experiment participated <em>n</em> = 160 individuals, such that half (80) of the participants belong to the domain-expert group while the other half (80) belong to the NDE group. In addition, each of these groups is divided into two, where half (40) were shown the proposed model’s markers while the second half (40) were not provided with these markers. In total, 200 texts have been corrected, each one four times by members of each one of the four groups, respectively. The four groups of participants were divided by their level of expertise and if they showed the model’s markers or not. A summary of each group’s performance is shown in <a class="xref" href="#table-3">Table 3</a>.</p>
+<figure class="table-figure" id="table-3">
+<figcaption><strong>Table 3</strong> Summary of the mean ± standard deviation of the participants’ accuracy in fixing the text’s FS as defined by the <em>legitimate-fixing</em> metric. In addition the mean ± standard deviation of the time in seconds that took the workers to fulfil a single text’s style fixing assignment</figcaption>
+<div class="table-scroll"><table><tr><th></th><th>Domain experts</th><th>Non domain experts<br/>(NDEs)</th></tr><tr><td>Baseline</td><td>84 ± 05% (172 ± 31s)</td><td>67 ± 11% (153 ± 51s)</td></tr><tr><td>Computer aided</td><td>87 ± 03% (114 ± 27s)</td><td>78 ± 05% (105 ± 34s)</td></tr></table></div>
+
+</figure>
+
+<h2 id="5-conclusion-and-future-work">5 Conclusion and future work</h2>
+<p>To the best of our knowledge, our model is the first to provide FS identification for computer-aided FS correction in modern Russian. The proposed model has been developed based on the Russian part of Wikipedia as the baseline language model and fine-tune for the FS identification using 578 samples, as described in Sections 3.1 and 3.2. The proposed model obtain an accuracy of 0, 72 on the test cohort and 0.73 ± 0.03 for 5-fold cross-validation on the training cohort. This indicates that the proposed model can classify the text to the FS correctly with fine accuracy. Moreover, the model can classify the academic and belles-lettres FS categories with 81.08% and 85.71%, respectively, due to the unique properties of such FS, as shown in <a class="xref" href="#table-2">Table 2</a>. On the other hand, the Business and journalistic FS are more diverge, commonly contain both belles-lettres and academic properties which makes the division line between them less clear. Indeed, the proposed model obtain only 55.63% and 64.53% accuracy on these FS. These results agree with the one obtained by Dubovik (2017) using a ML-based model.</p>
+<p>In addition, a list of 668 texts equally divided into four FS categories (167 texts per FS category) is presented to a wide range of domain experts operating as taggers, resulting in 614 (91.4%) texts which the majority of taggers (at least two out of three) agree upon the FS classification of these texts. Similarly, 578 (86.5%) texts are tagged identically by all three taggers. Hence, there is a wide acceptance regarding the FS of texts by domain experts. This outcome highlights that while the task is relatively easy for trained taggers, there is still a subset of non-trivial cases (formally, 13.5% of the cases) classified differently at least by one of three taggers and 8% tagged differently by all three taggers. As such, a suggested FS identified by an AI can help in improving the agreement across domain experts.</p>
+<p>Moreover, our TSC experiment (see Section 3.3) suggests that domain experts do not gain a significant increase in performance (i.e., (3%) improvement) on average by using the markers suggested by the proposed model. Nonetheless, they shorten the duration to accomplish the TSC task by 58 seconds which is 34% improvement on average, as shown in <a class="xref" href="#table-3">Table 3</a>. Contrastingly, for the NDE group, the proposed model’s markers increase the average accuracy in 11% and provide statistically significant ( <em>p &lt;</em> 0.05 , two-tailed T-test) improvement. In addition, the standard deviation of the NDE with the computer aid is identical to the one obtained for the domain experts without the computer aid of (5%). This indicates that the proposed model help NDE to focus on relevant parts in the text when compared to the standard deviation of the same group without the computer aid of 11% . Furthermore, the TSC task’s duration for NDCs is shortened by 48 seconds on average which is 31% improvement.</p>
+<p>Thus, the usage of the computer-aided FS identification model in other text styling tasks (e.g., the TSC task) provides a significant time reduction for both domain experts and NDE. Moreover, the performance of both groups is improving while the improvement NDEs gain is more significant compared to these of the domain experts. These results show that AI-driven models that teammate with humans on “soft” text styling tasks provide a significant improvement in time and performance. Practically, one can integrate the proposed model to a text editor and introduce a window asking the user to explicitly state the wanted FS. This way, the text editor software can mark words and phrases that potently do not fit the chosen FS, similar to the grammatical errors correction of such text editor software.</p>
+<p>Accordingly, future work may take into consideration a more fine division of the FS categories, also known as FS sub-categories. For example, one can extend the proposed model to take into consideration the common 16 sub-categories in the modern Russian language. Moreover, it would be appealing to investigate our method on other style-related tasks, examine if models with self-attention layer-based markers can aid in these tasks as well.</p>
+<p><strong>Author Contributions</strong> Conceptualization, formal analysis and investigation, data gathering, original draft preparation, and manuscript editing were performed by Elizaveta Savchenko; Conceptualization, formal analysis and investigation, coding, and manuscript editing were performed by Teddy Lazebnik.</p>
+<p><strong>Funding</strong> The authors did not receive support from any organization for the submitted work.</p>
+<p><strong>Data and Code Availibility</strong> The texts used as part of this study, including the manual tagging are provided as supplementary material. Upon acceptance, we will publish all the source code used in a GitHub repository.</p>
+<h3 id="compliance-with-ethical-standards">Compliance with ethical standards</h3>
+<p><strong>Conflicts of interest</strong> The authors have no relevant financial or non-financial interests to disclose.</p>
+<h2 id="notes">Notes</h2>
+<p><sup>1</sup> https://www.mturk.com</p>
+<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 17 November 2021 · Accepted 1 December 2021</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>Russian text</li><li>Linguistic tasks</li><li>Text classification</li><li>Text styling</li><li>Deep learning</li></ul></dd></div></dl></section>
+<h2 id="references">References</h2>
+<ul class="paper-refs">
+<li>Briganti G, Le Moine O (2020) Artificial intelligence in medicine: today and tomorrow. Frontiers in Medicine 7(27)</li>
+<li>Che W, Zhang Y (2021) Deep learning in lexical analysis and parsing. In: Natural language processing. Springer, pp 79–116</li>
+<li>Christian H, Agus MP, Suhartono D (2016) Single document automatic text summarization using term frequency-inverse document frequency (TF-IDF). ComTech: Comput Math Eng Appl 7(4)</li>
+<li>Cluett R (1990) Canadian literary prose: a preliminary stylistic atlas. ECW Press</li>
+<li>Devlin J, Chang MW, Lee K, Toutanova K (2018) BERT: Pre-training of deep bidirectional transformers for language understanding. arXiv</li>
+<li>DiMarco C, Hirst G (1993) A computational theory of goal-directed style in syntax. Computational Linguistics 19(3):452–459</li>
+<li>Dubovik AR (2017) Automatic determination of the stylistic affiliation of texts by their statistical parameters. Computational linguistics and computational ontologies. In: Russian</li>
+<li>Fox M, Long D, Magazzeni D (2017) Explainable planning. arxiv: 1709.10256 <a href="http://arxiv.org/abs/1709.10256" target="_blank" rel="noopener">link</a></li>
+<li>Goldin VE, Sirotinina OB, Yagubova MA (2001) Russian language and culture of speech. Saratov State University Publishing House, Russian, p 86 <a href="http://arxiv.org/abs/1709.10256" target="_blank" rel="noopener">link</a></li>
+<li>Golovin BN (1988) The basic language norm. Higher School Publishing House, Russian, p 261</li>
+<li>Golub IB, Starodubets SN (2008) Stylistics of the Russian language and culture of speech. Urait:91</li>
+<li>Gorshkov AI (2006) Russian stylistics. Textual and functional stylistics, Astrel, Russian, p 269</li>
+<li>Guo P, Gao F (2020) Automated scenario generation and evaluation strategy for automatic driving system. In: 2020 7th International conference on information science and control engineering (ICISCE), pp 1722–1733</li>
+<li>Hovy EH (1990) Pragmatics and natural language generation. Artificial Intelligence 43:153–197</li>
+<li>Jennings NR, Moreau L, Nicholson D, Ramchurn S, Roberts S, Rodden T, Rogers A (2014) Human-agent collectives. Communications of the ACM 57(12):80–88</li>
+<li>Kirilenko CV (2015) The processes of forming the conceptual apparatus of sociolinguistics. Russian, Institute of Linguistics RAS, p 237</li>
+<li>Kleinerman A, Rosenfeld A, Kraus S (2018) Providing explanations for recommendations in reciprocal environments. In: Proceedings of the 12th ACM conference on recommender systems, pp 22–30</li>
+<li>Kohavi R (1995) A study of cross validation and bootstrap for accuracy estimation and model select. Int Joint Conf Artif Intell</li>
+<li>Koltsova, Bodrunova SS (2019) Public discussion in russian social media: an introduction. Media Commun 7(3)</li>
+<li>Kozhina MN, Salimovsky VA (2008) Stylistics of the Russian language. Nauka, Russian, pp 412–432</li>
+<li>Kraus J (1987) On the sociolinguistic aspects of the notion of functional style. Reader in Czech Sociolinguistics, Russian</li>
+<li>Kulkarni A, Shivananda A (2021) Deep learning for NLP. In: Natural language processing recipes, Springer</li>
+<li>Kuratov Y, Arkhipov M (2019) Adaptation of deep bidirectional multilingual transformers for russian language. arXiv</li>
+<li>Langley P, Meadows B, Sridharan M, Choi D (2017) Explainable agency for intelligent autonomous systems. In: AAAI, pp 4762–4764</li>
+<li>Lapteva OA (1974) Oral-colloquial variety of the modern Russian literary language. Stylistics issues of Saratov State University, Russian, pp 8–9</li>
+<li>Lazebnik T, Alexi A (2021) Comparison of pandemic intervention policies in several building types using heterogeneous population model. Medrxiv</li>
+<li>Lazebnik T, Bunimovich-Mendrazitsky S (2021) The signature features of COVID-19 pandemic in a hybrid mathematical model–implications for optimal work–school lock-down policy. Adv Theory Simul</li>
+<li>Lazebnik T, Bunimovich-Mendrazitsky S, Shami L (2021) Pandemic management by a spatio-temporal mathematical model. Int J Nonlinear Sci Numer Simul</li>
+<li>Lazebnik T, Shami L, Bunimovich-Mendrazitsky S (2021) Spatio-temporal influence of non-pharmaceutical interventions policies on pandemic dynamics and the economy: the case ofCOVID-19. economic research-ekonomska istrazivanja</li>
+<li>Lertvittayakumjorn P, Specia L, Toni F (2020) FIND: human-in-the-loop debugging deep text classifiers. arXiv</li>
+<li>Li G (2017) Human-in-the-loop data integration. Proceedings of the VLDB Endowment 10(12):2006–2017</li>
+<li>Li D, Zhang Y, Gan Z, Cheng Y, Brockett C, Sun MT, Dolan B (2019) Domain adaptive text style transfer. arXiv</li>
+<li>Li C, Zhan G, Li Z (2018) News text classification based on improved Bi-LSTM-CNN. In: 9th International conference on information technology in medicine and education (ITME), pp 890–893</li>
+<li>Magnini B, Lavelli A, Magnolini S (2021) Comparing machine learning and deep learning approaches on NLP tasks for the italian language. In: Proceedings of the 12th language resources and evaluation conference, pp 2110–2119</li>
+<li>Malmi E, Severyn A, Rothe S (2020) Unsupervised text style transfer with padded masked language models. In: Proceedings of the 2020 conference on empirical methods in natural language processing, pp 8671–8680</li>
+<li>Matveeva TV (1990) Functional styles in the aspect of text categories. Ural University Publishing House, Russian, pp 36–158</li>
+<li>Maximov BI, Baranova NR, Ivanov AF, Kazarinova NV (2010) Russian language and the literary norm. Publising house Zlatoust, Russian, p 55</li>
+<li>Michielutte R, Bahnson J, Dignan MB, Schroeder EM (1992) The use of illustration sand narrative text style to improve readability of a health education brochure. Journal of Cancer Education 7(3):251–260</li>
+<li>Michos SE, Fakotakis N, Kokkinakis G (1987) Using functional style features to enhance information extraction from greek texts. Advances in Intelligent System, Springer</li>
+<li>Michos SE, Stamatatos E, Fakotakis N, Kokkinakis G (1996a) Categorizing texts by using a three-level functional style description. Artif Intell Methodol, Syst, Appl:191–198</li>
+<li>Michos SE, Stamatatos E, Fakotakis N, Kokkinakis G (1996b) Identification of functional style in unrestricted texts based on a three-level stylistic description. In: Proceedings of the AISB 1996 workshop on language engineering for document analysis and recognition</li>
+<li>Nadkarni PM, Ohno-Machado L, Chapman WW (2011) Natural language processing: an introduction. Journal of the American Medical Informatics Association 18(5):544–551</li>
+<li>Nikolski LN (1976) Synchronous sociolinguistics (theory and problems). Nauka Publishers, Russian, p 48</li>
+<li>Niraj PB, Thangadurai N (2019) Utilization of IOT and AI for agriculture applications. Int J Eng Adv Technol 8(5)</li>
+<li>Ofra A, Kobi G (2013) Plan recognition and visualization in exploratory learning environments. ACM Transactions on Interactive Intelligent Systems 3(3):16</li>
+<li>Pan P, Chen Y (2021) Automatic Subject Classification of Public Messages in E-government Affairs. Journal of Data, Information and Management 5(3):336–347</li>
+<li>Poesio M, Chamberlain J, Paun S, Yu J, Uma A, Kruschwitz U (2019) A crowd sourced corpus of multiple judgments and disagreement on anaphoric interpretation. In: Proceedings of the 2019 conference of the north american chapter of the association for computational linguistics: human language technologies. Association for Computational Linguistics, pp 1778–1789</li>
+<li>Ramaswamy S, DeClerck N (2018) Customer perception analysis using deep learning and NLP. Procedia Computer Science 140:170–178</li>
+<li>Richardson A, Kraus S, Weiss PL, Rosenblum S (2008) COACH-cumulative online algorithm for classification of handwriting deficiencies. In: AAAI, pp 1725–1730</li>
+<li>Richardson A, Rosenfeld A (2018) A survey of interpretability and explainability in human-agent systems. XAI:37</li>
+<li>Rosenfeld A, Agmon N, Maksimov O, Kraus S (2017) Intelligent agent supporting human-multi-robot team collaboration. Artificial Intelligence 252:211–231</li>
+<li>Rosenthal DE (2001) Practical stylistics, pelling and literary editing. Onyx 21st Century, 12</li>
+<li>Roudsari AH, Afshar J, Lee CC, Lee W (2020) Multi-label patent classification using attention-aware deep learning model. In: IEEE International conference on big data and smart computing</li>
+<li>Ryazanova-Clarke L, Wade T (2002) Changes in the Russian language in the post-soviet period. Dialog on Language Instruction 15(1–2):19–25</li>
+<li>Ryazanova-Clarke L, Wade T (1999) The russian language today. Taylor and Francis Group</li>
+<li>Salem M, Lakatos G, Amirabdollahian F, Dautenhahn K (2015) Would you trust a (faulty) robot?: Effects of error, task type and personality on human-robot cooperation and trust. In: IEEE International conference on human-robot interaction, pp 141–148</li>
+<li>Schneider W, Korkel J, Weinert FE (1990) Expert knowledge, general abilities, and text processing. Interactions among Aptitudes, Strategies, and Knowledge in Cognitive Performance, Springer 8(2):133–156</li>
+<li>Sheh R (2017) Why did you do that? explainable intelligent robots. In: AAAI workshop on human-aware artificial intelligence</li>
+<li>Sierhuis M, Bradshaw JM, Acquisti A, Van Hoof R, Jeffers R, Uszok A (2003) Human-agent teamwork and adjustable autonomy in practice. In: Proceedings of the seventh inter-national symposium on artificial intelligence, robotics and automation in space</li>
+<li>Socher R, Bengio Y, Manning CD (2012) Deep learning for NLP (without magic). Association for Computational Linguistics</li>
+<li>Solganik GY (2001) Stylistics of the modern Russian language and the literary norm. Publishing house Academia, Russian, p 86</li>
+<li>Sudhakar A, Upadhyay B, Maheswaran A (2019) Transforming delete, retrieve, generate approach for controlled text style transfer. arXiv</li>
+<li>Traum D, Rickel J, Gratch J, Marsella S (2003) Negotiation over tasks in hybrid human-agent teams for simulation-based training. In: Proceedings of the second international joint conference on autonomous agents and multiagent systems, pp 441–448</li>
+<li>VanLehn K (2011) The relative effectiveness of human tutoring, intelligent tutoring systems, and other tutoring systems. Educational Psychologist 46(4):197–221</li>
+<li>Vinogradov VV (1955) Results of discussion of issues of stylistics. Topics in the Study of Language, Russian, pp 1–73</li>
+<li>Vinogradov VV (1963) Stylistics: The theory of poetic speech. USSR’s Academy of Sciences, Russian, pp 5–6</li>
+<li>Wang ZJ, Choi D, Xu D, Yang D (2020) Putting humans in the natural language processing loop: A survey. arXiv</li>
+<li>Whitemna MF (1981) Variation in writing: functional and linguistic-cultural differences. Writing: the nature, development, and teaching of written communication, Routledge</li>
+<li>Wong KC, Pulos HG, Thorne CP (1989) Site classification by expert systems. Computers and Geotechnics 8(2):133–156</li>
+<li>Xiao B, Benbasat I (2007) E-commerce product recommendation agents: use, characteristics, and impact. MIS Quarterly 31(1):137–209</li>
+<li>Yang Z, Hu Z, Xing EP, Berg-Kirkpatrck T (2018) Unsupervised text style transfer using language models as discriminators. In: 32nd Conference on neural information processing systems</li>
+<li>Yanushevskaya I, Buncic D (2015) Russian. Journal of the International Phonetic Association 45(2):221–228</li>
+<li>You R, Zhang Z, Wang Z, Dai S, Mamitsuka H, Zhu S (2019) Attention XML: label tree-based attention-aware deep model for high-performance extreme multi-label text classification. arXiv</li>
+<li>Zanzotto FM (2019) Viewpoint: human-in-the-loop artificial intelligence. J Artif Intell Res 64</li>
+<li>Zhu Y (2005) A sociocognitive perspective on business genres. Written Communication across Cultures</li>
+</ul>
+</div>
+        
+        
+        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Savchenko et al. (2022), <em>Journal of Data, Information and Management</em>, <a href="https://doi.org/10.1007/s42488-021-00062-2" target="_blank" rel="noopener">doi:10.1007/s42488-021-00062-2</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+      </article>
+    </div>
+
+    <section class="paper-related" aria-labelledby="related-title"><div class="paper-wrap"><h2 id="related-title">Related research</h2><div class="related-grid"><a class="related-card" href="/publications/computational-model-individual-scholars-writing-style-dynamics/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2025</span><strong>A computational model for individual scholars&#x27; writing style dynamics</strong><span class="related-text">Journal of writing research</span></a><a class="related-card" href="/publications/whose-llm-it-anyway-linguistic-comparison-llm/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2026</span><strong>Whose LLM Is It Anyway? Linguistic Comparison and LLM Attribution for GPT-3.5, GPT-4 and Bard</strong><span class="related-text">Mathematics</span></a><a class="related-card" href="/publications/does-tail-show-when-nose-knows-artificial/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2025</span><strong>Does the tail show when the nose knows? Artificial intelligence outperforms human experts at predicting detection dogs finding their target through tail kinematics</strong><span class="related-text">Royal Society Open science</span></a></div><p class="related-more"><a href="/publications.html">All publications</a></p></div></section>
+  </main>
+
+  <dialog id="cite-dialog" class="paper-dialog" aria-labelledby="cite-title">
+    <div class="dialog-head">
+      <h2 id="cite-title">Cite this paper</h2>
+      <button type="button" class="dialog-close" aria-label="Close"><i class="ri-close-line" aria-hidden="true"></i></button>
+    </div>
+    <p class="dialog-label">APA</p>
+    <pre class="cite-box" id="cite-apa">Savchenko, E., &amp; Lazebnik, T. (2022). Computer aided functional style identifcation and correction in modern Russian texts. Journal of Data, Information and Management. https://doi.org/10.1007/s42488-021-00062-2</pre>
+    <button type="button" class="paper-btn" data-copy="cite-apa"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy APA</span></button>
+    <p class="dialog-label">BibTeX</p>
+    <pre class="cite-box" id="cite-bib">@article{savchenko2022computer,
+  title = {Computer aided functional style identifcation and correction in modern Russian texts},
+  author = {Savchenko, Elizaveta and Lazebnik, Teddy},
+  journal = {Journal of Data, Information and Management},
+  year = {2022},
+  doi = {10.1007/s42488-021-00062-2}
+}</pre>
+    <button type="button" class="paper-btn" data-copy="cite-bib"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy BibTeX</span></button>
+  </dialog>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Games</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
+                  <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
+                  <li><a href="https://rl.teddylazebnik.com/">Pirate War RL Game</a></li>
+                  <li><a href="https://eh.teddylazebnik.com/">Echo Heist</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      
+      <script>
+        (function () {
+          // menu and navbar (js/main.js expects to sit at the site root)
+          var btn = document.getElementById('menu-btn'), menu = document.getElementById('mobile-menu'), nav = document.getElementById('navbar');
+          btn.addEventListener('click', function () { menu.classList.toggle('max-h-0'); menu.classList.toggle('max-h-screen'); });
+          var onScroll = function () { nav.classList.toggle('nav-scrolled', window.scrollY > 10); };
+          window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+          // cite dialog + copy buttons
+          var dialog = document.getElementById('cite-dialog');
+          document.querySelectorAll('[data-dialog]').forEach(function (b) {
+            b.addEventListener('click', function () { if (dialog.showModal) dialog.showModal(); else dialog.setAttribute('open', ''); });
+          });
+          dialog.querySelector('.dialog-close').addEventListener('click', function () { dialog.close(); });
+          dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
+          function flash(button, text) {
+            var label = button.querySelector('span'), old = label.textContent;
+            label.textContent = text; setTimeout(function () { label.textContent = old; }, 1600);
+          }
+          document.querySelectorAll('[data-copy]').forEach(function (b) {
+            b.addEventListener('click', function () {
+              var text = document.getElementById(b.getAttribute('data-copy')).textContent;
+              navigator.clipboard.writeText(text).then(function () { flash(b, 'Copied'); });
+            });
+          });
+          document.getElementById('share-btn').addEventListener('click', function () {
+            var b = this, data = { title: document.title, url: location.href.split('#')[0] };
+            if (navigator.share) { navigator.share(data).catch(function () {}); }
+            else { navigator.clipboard.writeText(data.url).then(function () { flash(b, 'Link copied'); }); }
+          });
+
+          // highlight the section being read in "On this page"
+          var links = {};
+          document.querySelectorAll('.paper-toc a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+          var heads = Array.prototype.filter.call(document.querySelectorAll('#full-text h2[id], #full-text h3[id], #full-text section[id]'), function (h) { return links[h.id]; });
+          if ('IntersectionObserver' in window && heads.length) {
+            var current = null;
+            var io = new IntersectionObserver(function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                  if (current) current.classList.remove('is-active');
+                  current = links[e.target.id]; current.classList.add('is-active');
+                }
+              });
+            }, { rootMargin: '-90px 0px -70% 0px' });
+            heads.forEach(function (h) { io.observe(h); });
+          }
+        })();
+      </script>
+   </body>
+</html>

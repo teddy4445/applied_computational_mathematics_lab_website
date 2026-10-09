@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_papers.py from paper.md + paper.json in this folder. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Interpretable knowledge distillation via symbolic regression | ACML</title>
+      <meta name="description" content="Neural networks predict well but are hard to interpret, while symbolic regression produces readable mathematical formulas that are usually less accurate. We…">
+      <meta name="author" content="Assaf Shmuel, Nir Koren, Oren Glickman, Teddy Lazebnik">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/publications/interpretable-knowledge-distillation-symbolic-regression-feedforward-neural/">
+      <meta name="citation_title" content="Interpretable knowledge distillation via symbolic regression for feedforward neural networks">
+      <meta name="citation_author" content="Assaf Shmuel">
+      <meta name="citation_author" content="Nir Koren">
+      <meta name="citation_author" content="Oren Glickman">
+      <meta name="citation_author" content="Teddy Lazebnik">
+      <meta name="citation_publication_date" content="2026/04/02">
+      <meta name="citation_journal_title" content=" Neural Computing and Applications">
+      <meta name="citation_volume" content="38">
+      <meta name="citation_firstpage" content="243">
+      <meta name="citation_doi" content="10.1007/s00521-026-12067-2">
+      <meta name="citation_pdf_url" content="https://teddylazebnik.com/files/distillation_sr_nn.pdf">
+      <meta name="citation_abstract_html_url" content="https://acml.teddylazebnik.com/publications/interpretable-knowledge-distillation-symbolic-regression-feedforward-neural/">
+      <meta name="citation_fulltext_html_url" content="https://acml.teddylazebnik.com/publications/interpretable-knowledge-distillation-symbolic-regression-feedforward-neural/">
+      <meta name="citation_keywords" content="Interpretable machine learning; Symbolic regression; Knowledge distillation; Neural network compression">
+      <meta name="citation_language" content="en">
+      <meta property="og:type" content="article">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Interpretable knowledge distillation via symbolic regression">
+      <meta property="og:description" content="Neural networks predict well but are hard to interpret, while symbolic regression produces readable mathematical formulas that are usually less accurate. We…">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/publications/interpretable-knowledge-distillation-symbolic-regression-feedforward-neural/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/publications/interpretable-knowledge-distillation-symbolic-regression-feedforward-neural/figures/share-fig-1.jpg">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Interpretable knowledge distillation via symbolic regression">
+      <meta name="twitter:description" content="Neural networks predict well but are hard to interpret, while symbolic regression produces readable mathematical formulas that are usually less accurate. We…">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/publications/interpretable-knowledge-distillation-symbolic-regression-feedforward-neural/figures/share-fig-1.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "Interpretable knowledge distillation via symbolic regression for feedforward neural networks",
+  "name": "Interpretable knowledge distillation via symbolic regression for feedforward neural networks",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Assaf Shmuel"
+    },
+    {
+      "@type": "Person",
+      "name": "Nir Koren"
+    },
+    {
+      "@type": "Person",
+      "name": "Oren Glickman"
+    },
+    {
+      "@type": "Person",
+      "name": "Teddy Lazebnik"
+    }
+  ],
+  "datePublished": "2026-04-02",
+  "url": "https://acml.teddylazebnik.com/publications/interpretable-knowledge-distillation-symbolic-regression-feedforward-neural/",
+  "mainEntityOfPage": "https://acml.teddylazebnik.com/publications/interpretable-knowledge-distillation-symbolic-regression-feedforward-neural/",
+  "abstract": "Neural networks (NNs) are widely used for modeling complex, high-dimensional relationships but often lack interpretability, limiting their adoption in critical domains such as healthcare, finance, and engineering. Symbolic regression (SR), in contrast, generates explicit mathematical expressions that enhance transparency but typically underperform in predictive accuracy. To bridge this gap, we propose a knowledge distillation framework that approximates the activations of a trained feedforward NN’s final hidden layer using SR models. This approach enhances interpretability while retaining a substantial fraction of the neural network’s predictive performance in structured data settings. Our method is evaluated across 20 diverse datasets, demonstrating a 7-21% improvement in RMSE over baseline SR models. These results highlight the potential of symbolic knowledge distillation as a practical tool for enhancing model transparency in structured data applications.",
+  "description": "Neural networks predict well but are hard to interpret, while symbolic regression produces readable mathematical formulas that are usually less accurate. We…",
+  "image": "https://acml.teddylazebnik.com/publications/interpretable-knowledge-distillation-symbolic-regression-feedforward-neural/figures/share-fig-1.jpg",
+  "keywords": "Interpretable machine learning, Symbolic regression, Knowledge distillation, Neural network compression",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "DOI",
+    "value": "10.1007/s00521-026-12067-2"
+  },
+  "sameAs": "https://doi.org/10.1007/s00521-026-12067-2",
+  "isPartOf": {
+    "@type": "PublicationIssue",
+    "issueNumber": "",
+    "isPartOf": {
+      "@type": "PublicationVolume",
+      "volumeNumber": "38",
+      "isPartOf": {
+        "@type": "Periodical",
+        "name": " Neural Computing and Applications"
+      }
+    }
+  },
+  "about": "Machine Learning",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "encoding": {
+    "@type": "MediaObject",
+    "contentUrl": "https://teddylazebnik.com/files/distillation_sr_nn.pdf",
+    "encodingFormat": "application/pdf"
+  }
+}
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      <link href="/css/videos.css" rel="stylesheet">
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/paper.css" rel="stylesheet">
+      
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="paper-page">
+    <header class="paper-hero">
+      <div class="paper-wrap">
+        <nav class="paper-crumbs" aria-label="Breadcrumb">
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Machine Learning</span>
+        </nav>
+        <p class="paper-kicker"><span class="oa-badge"><i class="ri-lock-unlock-line" aria-hidden="true"></i>Open access</span><span><em> Neural Computing and Applications</em> · 2 April 2026</span></p>
+        <h1 class="paper-title">Interpretable knowledge distillation via symbolic regression for feedforward neural networks</h1>
+        <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Assaf Shmuel</a></span>, <span class="author">Nir Koren</span>, <span class="author">Oren Glickman</span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span></p>
+        
+        <div class="paper-actions">
+          <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/distillation_sr_nn.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
+          <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
+          <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
+          <a class="paper-btn" href="https://doi.org/10.1007/s00521-026-12067-2" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
+          <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
+        </div>
+        <div class="lab-authors"><span class="lab-authors-label">ACML authors</span><a class="lab-chip" href="/team.html"><img src="/img/lab/assaf.webp" alt="" width="32" height="32" loading="lazy"><span><strong>Assaf Shmuel</strong><small>Alumni</small></span></a><a class="lab-chip" href="/team.html"><img src="/img/lab/teddy.webp" alt="" width="32" height="32" loading="lazy"><span><strong>Teddy Lazebnik</strong><small>PI</small></span></a></div>
+      </div>
+    </header>
+
+    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Neural networks predict well but are hard to interpret, while symbolic regression produces readable mathematical formulas that are usually less accurate. We proposed a knowledge distillation method that uses symbolic regression to approximate the activations of a trained network&#x27;s final hidden layer. Across 20 diverse datasets, this improved prediction error (RMSE) by 7-21% compared with baseline symbolic regression models, while retaining a substantial share of the network&#x27;s predictive performance.</p><div class=glance-stats><div class="stat"><span class="stat-value">20</span><span class="stat-label">diverse datasets used for evaluation</span></div><div class="stat"><span class="stat-value">7-21%</span><span class="stat-label">RMSE improvement over baseline symbolic regression</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Symbolic regression models are used to approximate the final hidden layer activations of a trained feedforward neural network.</li><li>The approach enhances interpretability while retaining a substantial fraction of the network&#x27;s predictive performance on structured data.</li><li>Across 20 diverse datasets, it improved RMSE by 7-21% over baseline symbolic regression models.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1800" height="845" alt="Fig. 1 Overview of the proposed framework for Neural Network approximation using SR. Stage 1 involves training a neural network on the input data, with activations from the final hidden layer serving as feature representations. In Stage 2, each activation is approximated by a SR model using the original input features, resulting in interpretable symbolic expressions. In Stage 3, the neural network mapping from the input to the final hidden layer is replaced by a composite SR layer, and the output layer is fine tuned, preserving the model’s predictive performance while enhancing interpretability"></a><figcaption><strong>Fig. 1</strong> Overview of the proposed framework for Neural Network approximation using SR. Stage 1 involves training a neural network on the input data, with activations from the final hidden layer serving as feature representations. In Stage 2, each activation is approximated by a SR model using the original input features, resulting in interpretable symbolic expressions. In Stage 3, the neural network mapping from the input to the final hidden layer is replaced by a composite SR layer, and the output layer is fine tuned, preserving the model’s predictive performance while enhancing interpretability <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+
+    <div class="paper-wrap paper-layout">
+      <aside class="paper-aside">
+        <nav class="paper-toc" aria-label="On this page">
+          <p class="aside-title">On this page</p>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#1-introduction">1 Introduction</a></li>
+<li><a href="#2-related-work">2 Related work</a></li><li class="toc-sub"><a href="#21-knowledge-distillation">2.1 Knowledge distillation</a></li><li class="toc-sub"><a href="#22-neural-networks-for-tabular-data">2.2 Neural networks for tabular data</a></li><li class="toc-sub"><a href="#23-symbolic-regression">2.3 Symbolic regression</a></li>
+<li><a href="#3-neural-network-approximation-using-symbolic-regression">3 Neural network approximation using symbolic regression</a></li>
+<li><a href="#4-experimental-setup">4 Experimental setup</a></li><li class="toc-sub"><a href="#41-dataset-descriptions">4.1 Dataset descriptions</a></li><li class="toc-sub"><a href="#42-neural-network-training">4.2 Neural network training</a></li><li class="toc-sub"><a href="#43-symbolic-regression-training">4.3 Symbolic regression training</a></li><li class="toc-sub"><a href="#44-training-and-testing-procedures">4.4 Training and testing procedures</a></li><li class="toc-sub"><a href="#45-computational-resources">4.5 Computational resources</a></li>
+<li><a href="#5-results">5 Results</a></li>
+<li><a href="#6-discussion">6 Discussion</a></li>
+<li><a href="#7-conclusion">7 Conclusion</a></li>
+<li><a href="#appendix">Appendix</a></li><li class="toc-sub"><a href="#a1-representative-symbolic-regression-example">A.1 Representative symbolic regression example</a></li><li class="toc-sub"><a href="#declarations">Declarations</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </nav>
+        <div class="paper-info">
+          <p class="aside-title">Article information</p>
+          <dl><div><dt>Journal</dt><dd> Neural Computing and Applications 38: 243</dd></div><div><dt>Published</dt><dd><time datetime="2026-04-02">2 April 2026</time></dd></div><div><dt>DOI</dt><dd><a href="https://doi.org/10.1007/s00521-026-12067-2" target="_blank" rel="noopener">10.1007/s00521-026-12067-2</a></dd></div><div><dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY</a></dd></div></dl>
+        </div>
+      </aside>
+
+      <article class="paper-body" id="full-text">
+        <details class="paper-toc-mobile">
+          <summary>On this page</summary>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#1-introduction">1 Introduction</a></li>
+<li><a href="#2-related-work">2 Related work</a></li><li class="toc-sub"><a href="#21-knowledge-distillation">2.1 Knowledge distillation</a></li><li class="toc-sub"><a href="#22-neural-networks-for-tabular-data">2.2 Neural networks for tabular data</a></li><li class="toc-sub"><a href="#23-symbolic-regression">2.3 Symbolic regression</a></li>
+<li><a href="#3-neural-network-approximation-using-symbolic-regression">3 Neural network approximation using symbolic regression</a></li>
+<li><a href="#4-experimental-setup">4 Experimental setup</a></li><li class="toc-sub"><a href="#41-dataset-descriptions">4.1 Dataset descriptions</a></li><li class="toc-sub"><a href="#42-neural-network-training">4.2 Neural network training</a></li><li class="toc-sub"><a href="#43-symbolic-regression-training">4.3 Symbolic regression training</a></li><li class="toc-sub"><a href="#44-training-and-testing-procedures">4.4 Training and testing procedures</a></li><li class="toc-sub"><a href="#45-computational-resources">4.5 Computational resources</a></li>
+<li><a href="#5-results">5 Results</a></li>
+<li><a href="#6-discussion">6 Discussion</a></li>
+<li><a href="#7-conclusion">7 Conclusion</a></li>
+<li><a href="#appendix">Appendix</a></li><li class="toc-sub"><a href="#a1-representative-symbolic-regression-example">A.1 Representative symbolic regression example</a></li><li class="toc-sub"><a href="#declarations">Declarations</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </details>
+        <section id="abstract" class="paper-abstract">
+          <h2>Abstract</h2>
+          <p>Neural networks (NNs) are widely used for modeling complex, high-dimensional relationships but often lack interpretability, limiting their adoption in critical domains such as healthcare, finance, and engineering. Symbolic regression (SR), in contrast, generates explicit mathematical expressions that enhance transparency but typically underperform in predictive accuracy. To bridge this gap, we propose a knowledge distillation framework that approximates the activations of a trained feedforward NN’s final hidden layer using SR models. This approach enhances interpretability while retaining a substantial fraction of the neural network’s predictive performance in structured data settings. Our method is evaluated across 20 diverse datasets, demonstrating a 7-21% improvement in RMSE over baseline SR models. These results highlight the potential of symbolic knowledge distillation as a practical tool for enhancing model transparency in structured data applications.</p>
+        </section>
+        
+<div class="paper-text">
+<h2 id="1-introduction">1 Introduction</h2>
+<p>Neural networks (NNs) are widely used for predictive modeling in structured data applications, including healthcare <span class="cite">[<a href="#ref-1">1</a>]</span>, finance <span class="cite">[<a href="#ref-2">2</a>]</span>, manufacturing <span class="cite">[<a href="#ref-3">3</a>]</span>, transportation <span class="cite">[<a href="#ref-4">4</a>]</span>, and agriculture <span class="cite">[<a href="#ref-5">5</a>]</span>. Their ability to model high-dimensional, non-linear relationships has led to state-of-the-art performance in many tasks <span class="cite">[<a href="#ref-6">6</a>–<a href="#ref-8">8</a>]</span>. However, the lack of interpretability in NN models poses a significant challenge in domains where understanding the reasoning behind predictions is critical for decision-making, regulatory compliance, and trust <span class="cite">[<a href="#ref-9">9</a>, <a href="#ref-10">10</a>]</span>. Unlike structured models such as decision trees or rule-based systems, NNs do not inherently provide human-interpretable explanations of their learned representations.</p>
+<p>Symbolic regression (SR) has gained attention as a promising alternative for interpretable modeling <span class="cite">[<a href="#ref-11">11</a>, <a href="#ref-12">12</a>]</span>. Unlike NNs, SR generates explicit mathematical expressions that describe relationships within data, improving transparency and interpretability <span class="cite">[<a href="#ref-13">13</a>]</span>. Additionally, SR models often require fewer parameters and are computationally efficient compared to deep NNs <span class="cite">[<a href="#ref-14">14</a>, <a href="#ref-15">15</a>]</span>. Despite these advantages, SR models generally underperform in predictive accuracy, particularly in capturing complex feature interactions present in deep learning models <span class="cite">[<a href="#ref-16">16</a>, <a href="#ref-17">17</a>]</span>.</p>
+<p>Assaf Shmuel and Nir Koren contributed equally to this work.</p>
+<p>This gap between NN’s predictive power and SR’s interpretability highlights an opportunity to combine the strengths of both methods. Previous studies have explored hybrid approaches to improve interpretability by estimating NN-based models using tree-based methods <span class="cite">[<a href="#ref-18">18</a>]</span>, or by leveraging SR for feature engineering in machine learning and deep learning models <span class="cite">[<a href="#ref-19">19</a>]</span>. For example, <span class="cite">[<a href="#ref-20">20</a>]</span> used deep learning to generate SR expressions for physical equations, and <span class="cite">[<a href="#ref-21">21</a>, <a href="#ref-22">22</a>]</span> have demonstrated efficient methods to approximate tree-based models with SR. However, direct attempts to bridge NN and SR in a unified framework remain limited.</p>
+<p>In this study, we propose a knowledge distillation (KD) framework that transfers knowledge from feedforward NN models to SR. Our approach approximates the activations of an NN’s final hidden layer using SR models, thereby retaining predictive accuracy while enhancing interpretability. This method is particularly suited for structured data applications where model transparency is a priority, such as healthcare <span class="cite">[<a href="#ref-23">23</a>]</span>.</p>
+<p>To this end, we systematically evaluate the approach across 20 structured datasets, achieving a 7–21% improvement in RMSE over baseline SR models. Our approach demonstrates that it is possible to retain high predictive accuracy while offering explicit symbolic representations, providing a powerful tool for applications that require both transparency and performance.</p>
+<p>Despite the extensive literature on KD, most existing approaches focus on output-based transfer, where a student model is trained to mimic the predictions of a teacher network, rather than on transferring internal representations to interpretable models. In particular, representation-level distillation of neural network activations into SR models remains unexplored. Given SR’s difficulty in matching NNs on high-dimensional data, this motivates a framework that distills neural representations into explicit symbolic models, extending KD to interpretable machine learning.</p>
+<p>The remainder of this paper is structured as follows. Section 2 briefly reviews methods in NN approximation using tree-based machine learning models, NN compression methods, and SR methods. Section 3 presents the proposed methodology, detailing how a set of SR models are used to approximate an NN-based model. Section 4 describes the experimental setup and datasets used for evaluation as well as the results obtained. In Sect. 5 we present the results of the research. Finally, in Sect. 6 and Section 7, we present and discuss the applicative potential of the proposed method and suggest promising future research venues.</p>
+<h2 id="2-related-work">2 Related work</h2>
+<p>The proposed study draws upon advancements in KD, NNs for regression on tabular data, and symbolic regression. In this section, we review key developments in each of these areas, highlighting how they inform our approach of combining NNs with SR to achieve both high predictive performance and interpretability.</p>
+<h3 id="21-knowledge-distillation">2.1 Knowledge distillation</h3>
+<p>KD is a prominent technique used to transfer knowledge from complex, high-capacity NNs (teacher models) to simpler, more efficient models (student models), thereby achieving high predictive accuracy with reduced computational resources <span class="cite">[<a href="#ref-10">10</a>, <a href="#ref-24">24</a>, <a href="#ref-25">25</a>]</span>. Initially developed to distill knowledge from large ensembles to smaller models, KD has since evolved to encompass various methods tailored for different applications, including computer vision, natural language processing, and reinforcement learning <span class="cite">[<a href="#ref-26">26</a>, <a href="#ref-27">27</a>]</span>.</p>
+<p>In the most common approach, KD leverages soft labels from the teacher model to guide student training, which has been shown to improve model generalization and performance, especially when training data is limited <span class="cite">[<a href="#ref-28">28</a>]</span>. More recent methods also explore structural distillation techniques, where student models are encouraged to mimic specific representational structures within the teacher network, such as through contrastive learning <span class="cite">[<a href="#ref-29">29</a>]</span>. Additionally, self-distillation approaches allow models to refine their representations by learning from their own intermediate outputs, enhancing compactness and efficiency <span class="cite">[<a href="#ref-30">30</a>]</span>. Despite these advancements, most KD methods focus on improving efficiency or predictive performance and do not explicitly target interpretability or symbolic model extraction.</p>
+<h3 id="22-neural-networks-for-tabular-data">2.2 Neural networks for tabular data</h3>
+<p>NNs are frequently applied to regression tasks in tabular data due to their ability to capture complex, non-linear relationships <span class="cite">[<a href="#ref-31">31</a>]</span>, with a growing body of recent work focused on understanding the conditions under which DL models can outperform traditional machine learning methods in tabular data <span class="cite">[<a href="#ref-32">32</a>, <a href="#ref-33">33</a>]</span>. However, despite their predictive power, NNs often operate as “black-box” models, which makes interpreting their outputs challenging. This lack of transparency poses significant issues in fields such as healthcare, finance, and law, where decisions must be explainable to build trust, ensure accountability, and comply with regulatory standards.</p>
+<h3 id="23-symbolic-regression">2.3 Symbolic regression</h3>
+<p>SR is a technique aimed at discovering mathematical expressions that best describe relationships within data <span class="cite">[<a href="#ref-34">34</a>, <a href="#ref-35">35</a>]</span>. Unlike traditional regression, which fits parameters to a predefined model structure, SR simultaneously searches for both the optimal model structure and its parameters, providing flexible and interpretable representations <span class="cite">[<a href="#ref-36">36</a>]</span>. SR’s unique advantage lies in its ability to produce explicit symbolic expressions, allowing for interpretability that is generally absent in NNs, making it particularly valuable in applications requiring transparent models.</p>
+<p>Recent advancements in SR have further improved its performance and flexibility. Methods such as sparse regression focus on creating parsimonious models by introducing sparsity constraints, thus reducing overfitting and improving generalizability <span class="cite">[<a href="#ref-11">11</a>, <a href="#ref-37">37</a>]</span>. Genetic algorithms have also gained popularity for SR, using evolutionary strategies to search the function space efficiently and handle complex, non-linear relationships <span class="cite">[<a href="#ref-38">38</a>, <a href="#ref-39">39</a>]</span>. Additionally, some recent works integrate SR with deep learning frameworks to manage noisy data and increase robustness, although generalization remains a challenge <span class="cite">[<a href="#ref-22">22</a>, <a href="#ref-40">40</a>]</span>. These limitations have motivated prior research exploring hybrid approaches that combine SR with other machine learning paradigms.</p>
+<h2 id="3-neural-network-approximation-using-symbolic-regression">3 Neural network approximation using symbolic regression</h2>
+<p>Our proposed framework leverages KD to transfer the predictive capabilities of a NN into SR models. Unlike output-based KD or post-hoc surrogate modeling, the proposed method operates at the level of internal neural representations by approximating the activations of the final hidden layer using symbolic regression. This approach combines the accuracy and expressive power of NN with the interpretability of SR, resulting in a model that is both high-performing and transparent. The core idea is to approximate the learned representations within the NN’s final hidden layer using SR models, effectively substituting the NN’s hidden layer with interpretable symbolic expressions.</p>
+<p>The framework comprises three primary stages:</p>
+<ul>
+<li>1.<strong>Neural Network Training and Feature Extraction:</strong> We begin by training an NN on the input data to perform a regression task. Upon training, the activations from the final hidden layer serve as a compact, high-level feature representation of the input data, capturing complex, non-linear relationships learned by the NN. These activations provide the distilled knowledge that the SR models will approximate.</li>
+<li>2.<strong>Distillation to Symbolic Regression Models:</strong> Next, each neuron’s activation in the NN’s final hidden layer is individually modeled using SR, with the original input features as predictors. This step involves fitting a separate SR model to approximate the activation pattern of each neuron based on the input data. The resulting</li>
+</ul>
+<p>symbolic expressions form a composite SR layer, capturing the essential patterns from the NN in an interpretable form.</p>
+<ul>
+<li>3.<strong>Integration and Fine-Tuning:</strong> The final stage involves replacing the NN’s last hidden layer with the trained SR models. This SR-enhanced model is then fine-tuned by adjusting the output layer weights, ensuring that the predictive performance remains consistent or improves after integrating the symbolic models. The SR layer thus functions as a transparent substitute for the original NN layer, preserving model accuracy while enhancing interpretability.</li>
+</ul>
+<p><a class="xref" href="#fig-1">Figure 1</a> presents a schematic view of the proposed method. By following this framework, we distill the predictive knowledge of the NN into interpretable mathematical expressions, resulting in a model that balances high performance with interpretability. This approach is particularly useful in contexts where model transparency is essential alongside accurate predictions.</p>
+<h2 id="4-experimental-setup">4 Experimental setup</h2>
+<p>To evaluate the proposed framework, we conducted experiments by training both NN and SR models on 20 datasets, with 10 train-test splits for each dataset to ensure robustness. The experimental setup was designed to systematically compare the performance of the NN, the baseline SR models, and the distilled SR models generated through KD.</p>
+<h3 id="41-dataset-descriptions">4.1 Dataset descriptions</h3>
+<p>To evaluate the robustness and generalizability of the proposed distillation framework, we conducted experiments on 20 regression datasets spanning diverse domains and data properties <span class="cite">[<a href="#ref-33">33</a>]</span>. These datasets were selected to capture a range of real-world scenarios, ensuring the applicability of the model to various use cases and data structures.</p>
+<figure id="fig-1">
+<a class="fig-zoom" href="figures/fig-1.webp" aria-label="Open the figure full size"><img src="figures/fig-1.webp" width="786" height="369" alt="Overview of the proposed framework for Neural Network approximation using SR" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 1</strong> Overview of the proposed framework for Neural Network approximation using SR. Stage 1 involves training a neural network on the input data, with activations from the final hidden layer serving as feature representations. In Stage 2, each activation is approximated by a SR model using the original input features, resulting in interpretable symbolic expressions. In Stage 3, the neural network mapping from the input to the final hidden layer is replaced by a composite SR layer, and the output layer is fine tuned, preserving the model’s predictive performance while enhancing interpretability</figcaption>
+</figure>
+
+<p>The datasets include examples from fields such as healthcare, physics, material science, and engineering, where interpretability and high predictive performance are essential. They encompass a range of data complexities, from simple, low-dimensional cases to high-dimensional datasets with intricate, non-linear relationships. This variety allows us to assess the performance of SR in distilling the knowledge from NN across both straightforward and challenging prediction tasks. A detailed list of the datasets, including the number of rows and columns, is provided in the appendix (<a class="xref" href="#table-3">Table 3</a>).</p>
+<p>Each dataset was sourced from established public repositories, including OpenML, to facilitate reproducibility. The choice of these datasets reflects typical regression tasks in scientific and industrial applications, making them suitable for evaluating the balance of interpretability and predictive power in the proposed SR-based models. Additionally, these datasets provide diverse data distributions and noise levels, testing the framework’s robustness to varied data characteristics.</p>
+<h3 id="42-neural-network-training">4.2 Neural network training</h3>
+<p>The NN model used in this study is a fully connected multilayer perceptron (MLP) with two hidden layers, each consisting of 32 neurons. The MLP was configured for regression tasks, with ReLU activation functions in the hidden layers and a linear activation in the output layer. During training, we minimized the mean squared error (MSE) loss function using the Adam optimizer with a learning rate of 0.2 and a batch size of 128. Training was performed over 300 epochs.</p>
+<p>After replacing the network representation up to the final hidden layer with the SR models, we fine tuned the output layer to adapt to the symbolic features. During fine tuning, the symbolic layer was kept fixed and only the parameters of the final linear output layer were optimized using mean squared error on the training set. We used stochastic gradient descent with learning rate 0.01 for 100 epochs.</p>
+<h3 id="43-symbolic-regression-training">4.3 Symbolic regression training</h3>
+<p>To approximate the activations of the NN’s final hidden layer, we used three established SR models <span class="cite">[<a href="#ref-41">41</a>]</span>: Feyn, PySR, and gplearn. Each SR model was configured with hyperparameters suited to balancing model complexity and predictive accuracy:</p>
+<ul>
+<li><strong>Feyn</strong> <span class="cite">[<a href="#ref-42">42</a>]</span>: The Feyn SR model employed an automatic model selection process with a complexity limit of 20, ensuring interpretable results while retaining model performance.</li>
+<li><strong>PySR</strong> <span class="cite">[<a href="#ref-43">43</a>]</span>: The PySR model used genetic programming to evolve equations over 30 populations, using standard binary operators (+<em>, −, ∗, /</em>), 30 iterations and a timeout limit of 600 seconds to manage runtime.</li>
+<li><strong>gplearn</strong> <span class="cite">[<a href="#ref-44">44</a>]</span>: The gplearn model, based on scikit-learn’s SymbolicRegressor, was run with default settings for consistency across datasets. The gplearn model also applies genetic programming principles, making it suitable for use in traditional machine learning pipelines <span class="cite">[<a href="#ref-44">44</a>]</span>.</li>
+</ul>
+<p>Each SR model was trained using the input data to predict the activations of individual neurons in the NN’s final hidden layer. This process resulted in a set of symbolic expressions that collectively approximated the learned representations in the NN.</p>
+<h3 id="44-training-and-testing-procedures">4.4 Training and testing procedures</h3>
+<p>For each dataset, we randomly split the data into training (70%) and testing (30%) cohorts. The NN was initially trained on the training data, with the resulting activations from its final hidden layer used as targets for the SR models. The SR models were trained separately for each neuron in the final hidden layer using the training data, generating symbolic expressions that could approximate these activations based on the input features.</p>
+<figure id="fig-2">
+<a class="fig-zoom" href="figures/fig-2.webp" aria-label="Open the figure full size"><img src="figures/fig-2.webp" width="796" height="111" alt="A schematic view of the training and testing procedures" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 2</strong> A schematic view of the training and testing procedures. <em>X</em> denotes the input feature matrix and <em>y</em> denotes the target variable.</figcaption>
+</figure>
+
+<figure class="table-figure" id="table-1">
+<figcaption><strong>Table 1</strong> The relative improvement of the proposed method achieved for each of the three SR algorithms</figcaption>
+<img src="figures/table-1.webp" width="535" height="86" alt="Table 1 The relative improvement of the proposed method achieved for each of the three SR algorithms" loading="lazy" decoding="async">
+
+</figure>
+
+<p>After substituting the NN’s final hidden layer with the trained SR models, we fine-tuned the output layer weights while keeping the SR layer static. The resulting hybrid model was then evaluated on the testing data. As a baseline comparison, we also trained each SR model directly on the target variable using the training data and evaluated its performance on the testing set. <a class="xref" href="#fig-2">Fig. 2</a> presents a schematic view of the training and testing procedures.</p>
+<h3 id="45-computational-resources">4.5 Computational resources</h3>
+<p>All experiments were conducted using Google Colab, which provides access to GPU-accelerated resources suitable for deep learning experiments. The neural network training leveraged Colab’s available GPU instances, while SR models, which are less computationally intensive, were trained on CPU. This setup allowed for efficient experimentation across multiple datasets and SR model configurations, taking advantage of Colab’s flexible environment for both NN and SR training.</p>
+<h2 id="5-results">5 Results</h2>
+<p><a class="xref" href="#table-1">Table 1</a> summarizes the results across all datasets, showing the percent improvement of our proposed method compared to the performance of the baseline SR model. Our method demonstrates a notable improvement in RMSE for the majority of datasets when compared to the baseline SR models, with mean improvements of 14.8%, 7.3%, and 21.3% for the gplearn, Feyn, and PySR models, respectively. The median improvements are also substantial (7.0%, 6.0%, and 7.4% respectively), showing that the improvement is consistent and not driven by one or two extreme values. These results indicate that the proposed distillation approach effectively leverages the knowledge captured by the NN model, translating it into more accurate SR-based predictions. Furthermore, the distilled SR models outperform their baseline SR counterparts in the majority of datasets, with gplearn, Feyn and PySR showing improvements in 12, 13, and 16 out of 20 datasets, respectively. This consistency demonstrates the clear advantage of the KD approach across different SR models.</p>
+<p><a class="xref" href="#table-2">Table 2</a> presents the median RMSE values for all models, including the baseline SR models and our method integrating each of the models with the NN, per dataset. The table clearly presents the advantage of the method, as summarized in <a class="xref" href="#table-1">Table 1</a>. The performance of the proposed method with respect to the baseline NN is provided in <a class="xref" href="#fig-4">Fig. 4</a>. The proposed method is comparable to the baseline NN model for the Feyn and PySR models, yet still does not perform as well as the NN model with gplearn.</p>
+<figure class="table-figure" id="table-2">
+<figcaption><strong>Table 2</strong> Median RMSE values for all models and datasets. Datasets with numerical names are taken from OpenML such that the value represents their dataset identificator</figcaption>
+<div class="table-scroll"><table><tr><th>Dataset</th><th>baseline NN</th><th>gplearn Baseline</th><th>gplearn+NN</th><th>Feyn Baseline</th><th>Feyn+NN</th><th>PySR Baseline</th><th>PySR +NN</th></tr><tr><td>Huang (CS)</td><td>9.50</td><td>13.86</td><td>15.79</td><td>9.66</td><td>9.75</td><td>13.33</td><td>9.14</td></tr><tr><td>Huang (FS)</td><td>1.53</td><td>1.89</td><td>2.01</td><td>1.83</td><td>1.43</td><td>1.53</td><td>1.56</td></tr><tr><td>Su1</td><td>1.40</td><td>1.80</td><td>1.64</td><td>1.38</td><td>1.30</td><td>1.51</td><td>1.45</td></tr><tr><td>Su2</td><td>1.53</td><td>1.60</td><td>1.77</td><td>1.33</td><td>1.53</td><td>1.55</td><td>1.55</td></tr><tr><td>Koya1 (cte)</td><td>4.64 × 10−7</td><td>4.30 × 10−7</td><td>3.62 × 10−7</td><td>4.01 × 10−7</td><td>3.33 × 10−7</td><td>4.03 × 10−7</td><td>3.69 × 10−7</td></tr><tr><td>Koya2 (comp28)</td><td>471.09</td><td>501.42</td><td>522.15</td><td>536.69</td><td>464.52</td><td>493.27</td><td>475.57</td></tr><tr><td>Koya2 (elast28)</td><td>527590</td><td>491497</td><td>453361</td><td>526891</td><td>411551</td><td>712675</td><td>414834</td></tr><tr><td>Koya2 (poisson28nu)</td><td>0.02</td><td>0.02</td><td>0.01</td><td>0.02</td><td>0.01</td><td>0.02</td><td>0.01</td></tr><tr><td>Koya2(split28)</td><td>41.56</td><td>39.41</td><td>38.52</td><td>36.62</td><td>39.03</td><td>41.52</td><td>37.68</td></tr><tr><td>Matbench</td><td>149.69</td><td>242.14</td><td>252.48</td><td>190.18</td><td>165.80</td><td>201.17</td><td>166.46</td></tr><tr><td>Yin (Fmax)</td><td>0.03</td><td>0.10</td><td>0.12</td><td>0.03</td><td>0.04</td><td>0.06</td><td>0.07</td></tr><tr><td>Yin (ifss)</td><td>6.17</td><td>16.55</td><td>11.27</td><td>8.59</td><td>6.54</td><td>8.44</td><td>7.26</td></tr><tr><td>Bachir</td><td>5.26</td><td>10.86</td><td>8.46</td><td>5.45</td><td>4.93</td><td>6.20</td><td>6.05</td></tr><tr><td>45103</td><td>309.89</td><td>445.04</td><td>461.47</td><td>300.58</td><td>274.71</td><td>388.93</td><td>306.78</td></tr><tr><td>507</td><td>2158501</td><td>3843371</td><td>3380903</td><td>3318376</td><td>2896722</td><td>3711099</td><td>3178488</td></tr><tr><td>550</td><td>0.20</td><td>0.21</td><td>0.20</td><td>0.20</td><td>0.20</td><td>0.20</td><td>0.20</td></tr><tr><td>560</td><td>1.09</td><td>0.36</td><td>1.80</td><td>0.34</td><td>0.78</td><td>0.66</td><td>0.78</td></tr><tr><td>562</td><td>3.18</td><td>13.31</td><td>4.39</td><td>3.47</td><td>3.21</td><td>3.81</td><td>3.35</td></tr><tr><td>574</td><td>34808</td><td>52190</td><td>46298</td><td>42137</td><td>41807</td><td>42938</td><td>41383</td></tr><tr><td>8</td><td>2.40</td><td>3.06</td><td>2.82</td><td>1.68</td><td>2.21</td><td>2.37</td><td>2.58</td></tr></table></div>
+
+</figure>
+
+<p>In order to evaluate the robustness of our approach, we analyze the distributions of relative performance improvements obtained through distillation for each SR method. <a class="xref" href="#fig-3">Figure 3</a> presents the histograms of per-run relative improvements for gplearn, Feyn, and PySR. While occasional runs exhibit degraded performance, the majority of paired comparisons result in improvements. Statistical significance is assessed using a paired Wilcoxon signed-rank test applied to per-run improvements, with pairing defined by dataset and random seed. This analysis reveals a statistically significant positive shift in performance for all three methods <em>p &lt;</em> 0<em>.</em>01. The corresponding median relative improvements are 0.016, 0.162, and 0.215 for gplearn, Feyn, and PySR, respectively, with rank-biserial correlations of 0.37, 0.28, and 0.23, indicating consistent gains across datasets.</p>
+<p>PySR exhibits the largest mean improvement, suggesting that certain SR models may better capture the high-dimensional representations distilled from the NN model. The consistent performance gains across diverse SR models further validate the robustness of our approach, as it maintains effectiveness regardless of the underlying SR technique used for distillation <a class="xref" href="#fig-4">Fig. 4</a>.</p>
+<h2 id="6-discussion">6 Discussion</h2>
+<p>This study presents a novel framework for combining NN and SR through KD, enabling models that balance predictive power with interpretability. In contrast to output-based KD and black-box surrogate models, our approach operates at the level of internal neural representations, replacing the final hidden layer with SR models. The results demonstrate that the proposed method not only achieves improved root mean square error (RMSE) performance compared to baseline SR models but also offers practical advantages in interpretability. This interpretability is illustrated by a representative neuron-level SR example provided in Appendix A.1, which shows how the distilled symbolic expressions recover nonlinear structure learned by the neural network while remaining human-readable.</p>
+<figure id="fig-3">
+<a class="fig-zoom" href="figures/fig-3.webp" aria-label="Open the figure full size"><img src="figures/fig-3.webp" width="378" height="491" alt="Histogram of improvement rates of the proposed methods in comparison to the baseline SR models" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 3</strong> Histogram of improvement rates of the proposed methods in comparison to the baseline SR models. Subfigures (<strong>a-c</strong>) represent the results for the gplearn, Feyn, and PySR models respectively. The mean and median improvements are marked by the vertical lines</figcaption>
+</figure>
+
+<p>Our analysis reveals that the effectiveness of the proposed distillation method is closely related to the performance of the original NN model. As shown in <a class="xref" href="#fig-5">Fig. 5</a>, there is a strong positive correlation between the relative performance of the NN model and the relative improvement observed in the distilled SR model across datasets. Datasets where the baseline NN significantly outperforms the baseline SR model exhibit the largest improvements after distillation. This finding underscores the potential of our approach to leverage the predictive power of NNs, particularly in cases where SR struggles with complex, high-dimensional data, such as tabular datasets with many correlated features, strong nonlinear interactions, or heterogeneous feature scales commonly encountered in finance, healthcare, and industrial process modeling <span class="cite">[<a href="#ref-45">45</a>]</span>. Unlike prior surrogate approaches that operate at the output level <span class="cite">[<a href="#ref-54">54</a>]</span>, the proposed method distills internal neural representations, explaining its effectiveness in these challenging regimes. Consequently, improving the baseline NN model could further enhance the performance of the distilled SR models, potentially resulting in even more accurate SR representations without compromising interpretability.</p>
+<p>The proposed method holds significant potential for applications requiring both high accuracy and interpretability, such as in healthcare, finance, and engineering. In these fields, models are often required not only to provide accurate predictions but also to yield transparent, interpretable results that stakeholders can understand and validate. By distilling the NN’s complex learned representations into symbolic forms, our method enables the creation of interpretable, mathematically explicit models, which may facilitate decision-making and increase user trust.</p>
+<p>While the proposed method demonstrates promising results, it also has limitations that warrant consideration. First, this framework is currently limited to regression tasks due to the nature of the SR models used; adapting it for classification tasks remains a challenge for future work. Moreover, the method has been tested on relatively moderate NN architectures. As model complexity increases, such as in deep or transformer-based NNs, it may be increasingly difficult for SR models to approximate the rich, high-dimensional representations learned by the NN.</p>
+<figure id="fig-4">
+<a class="fig-zoom" href="figures/fig-4.webp" aria-label="Open the figure full size"><img src="figures/fig-4.webp" width="378" height="478" alt="Histogram of improvement rates of the proposed methods in comparison to the baseline NN" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 4</strong> Histogram of improvement rates of the proposed methods in comparison to the baseline NN. Subfigures (<strong>a-c</strong>) represent the results for the gplearn, Feyn, and PySR models respectively. The mean and median improvements are marked by the vertical lines. The proposed method is comparable to the baseline NN model for the Feyn and PySR models, yet still does not perform as well when using the gplearn model</figcaption>
+</figure>
+
+<p>The framework may also exhibit variability in performance improvements across datasets, as shown in certain cases where distillation did not yield significant gains.</p>
+<p>There are several promising directions for future research. One avenue is to extend this framework to other task types, such as classification or sequence prediction, by exploring SR methods tailored to categorical data or temporal patterns. In addition, incorporating advanced SR techniques or more efficient distillation strategies may further optimize the balance between interpretability and performance. It would also be valuable to explore applying this approach to deeper and more complex NN architectures, potentially by distilling knowledge from intermediate layers to capture multi-level representations.</p>
+<p>This work contributes to the broader field of explainable artificial intelligence by providing a pathway for making high-performing, complex models more interpretable. KD from NN to SR addresses the “black-box” problem commonly associated with NNs, aligning with the goals of Explainable AI to create models that are not only accurate but also understandable and trustworthy. By bridging the gap between predictive power and interpretability, the proposed framework offers a practical solution for real-world applications where transparency is paramount, setting a foundation for further advancements in interpretable machine learning.</p>
+<h2 id="7-conclusion">7 Conclusion</h2>
+<p>In this study, we proposed a novel approach for combining NN and SR through KD, creating a model that balances high predictive accuracy with interpretability. By distilling the complex representations learned by the NN into symbolic expressions, our framework enables interpretable models that retain the NN’s predictive power, while being computationally efficient at inference. Our experiments demonstrate that the proposed method consistently outperforms baseline SR models, with improvements closely linked to the original NN model’s performance. The applicability of the proposed approach extends to domains where interpretability is essential alongside accuracy, such as healthcare, finance, and engineering. While the method currently focuses on regression tasks, future research could explore adaptations for classification and sequence prediction, as well as applications to more complex NN architectures. Taken jointly, this work provides a practical contribution to explainable machine learning, offering a method that bridges the gap between the transparency of SR and the performance of NN, paving the way for interpretable yet powerful models in data-driven decision-making.</p>
+<figure id="fig-5">
+<a class="fig-zoom" href="figures/fig-5.webp" aria-label="Open the figure full size"><img src="figures/fig-5.webp" width="378" height="698" alt="Improvement of our method as a function of the performance ratio between the baseline NN and SR models" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 5</strong> Improvement of our method as a function of the performance ratio between the baseline NN and SR models. Higher values on the horizontal axis indicate a better performance of the NN compared to the SR model (units in normalized RMSE difference). The vertical axis indicates the relative improvement gained by our method compared to the baseline SR model. Subfigures (a-c) represent the results for the gplearn, Feyn, and PySR models respectively</figcaption>
+</figure>
+
+<h2 id="appendix">Appendix</h2>
+<p><a class="xref" href="#table-3">Table 3</a> describes the datasets used in the study. <a class="xref" href="#fig-6">Figures 6</a> and 7 present additional experimental results illustrating the training-set improvements and the contribution of the fine-tuning stage, respectively.</p>
+<figure class="table-figure" id="table-3">
+<figcaption><strong>Table 3</strong> The datasets used as part of the experiments with their source and properties</figcaption>
+<div class="table-scroll"><table><tr><th>Dataset</th><th>Group</th><th>Reference</th><th># Rows</th><th># Cols</th></tr><tr><td>8</td><td>OpenML <span class="cite">[<a href="#ref-46">46</a>]</span></td><td><span class="cite">[<a href="#ref-46">46</a>]</span></td><td>345</td><td>6</td></tr><tr><td>507</td><td>OpenML <span class="cite">[<a href="#ref-46">46</a>]</span></td><td><span class="cite">[<a href="#ref-46">46</a>]</span></td><td>3107</td><td>7</td></tr><tr><td>549</td><td>OpenML <span class="cite">[<a href="#ref-46">46</a>]</span></td><td><span class="cite">[<a href="#ref-46">46</a>]</span></td><td>625</td><td>8</td></tr><tr><td>550</td><td>OpenML <span class="cite">[<a href="#ref-46">46</a>]</span></td><td><span class="cite">[<a href="#ref-46">46</a>]</span></td><td>2178</td><td>4</td></tr><tr><td>560</td><td>OpenML <span class="cite">[<a href="#ref-46">46</a>]</span></td><td><span class="cite">[<a href="#ref-46">46</a>]</span></td><td>252</td><td>15</td></tr><tr><td>562</td><td>OpenML <span class="cite">[<a href="#ref-46">46</a>]</span></td><td><span class="cite">[<a href="#ref-46">46</a>]</span></td><td>8192</td><td>13</td></tr><tr><td>574</td><td>OpenML <span class="cite">[<a href="#ref-46">46</a>]</span></td><td><span class="cite">[<a href="#ref-46">46</a>]</span></td><td>22784</td><td>17</td></tr><tr><td>45103</td><td>OpenML <span class="cite">[<a href="#ref-46">46</a>]</span></td><td><span class="cite">[<a href="#ref-46">46</a>]</span></td><td>731</td><td>13</td></tr><tr><td>Yin (Fmax)</td><td>Materials Benchmark <span class="cite">[<a href="#ref-47">47</a>]</span></td><td><span class="cite">[<a href="#ref-48">48</a>]</span></td><td>925</td><td>12</td></tr><tr><td>Yin (IFSS)</td><td>Materials Benchmark <span class="cite">[<a href="#ref-47">47</a>]</span></td><td><span class="cite">[<a href="#ref-48">48</a>]</span></td><td>925</td><td>12</td></tr><tr><td>Su 1</td><td>Materials Benchmark <span class="cite">[<a href="#ref-47">47</a>]</span></td><td><span class="cite">[<a href="#ref-49">49</a>]</span></td><td>122</td><td>8</td></tr><tr><td>Su 2</td><td>Materials Benchmark <span class="cite">[<a href="#ref-47">47</a>]</span></td><td><span class="cite">[<a href="#ref-49">49</a>]</span></td><td>136</td><td>6</td></tr><tr><td>Matbench</td><td>Materials Benchmark <span class="cite">[<a href="#ref-47">47</a>]</span></td><td><span class="cite">[<a href="#ref-50">50</a>]</span></td><td>312</td><td>23</td></tr><tr><td>Koya 1 (Cte)</td><td>Materials Benchmark <span class="cite">[<a href="#ref-47">47</a>]</span></td><td><span class="cite">[<a href="#ref-51">51</a>]</span></td><td>110</td><td>11</td></tr><tr><td>Koya 2 (Poisson28nu)</td><td>Materials Benchmark <span class="cite">[<a href="#ref-47">47</a>]</span></td><td><span class="cite">[<a href="#ref-51">51</a>]</span></td><td>110</td><td>11</td></tr><tr><td>Koya 2 (Elast28)</td><td>Materials Benchmark <span class="cite">[<a href="#ref-47">47</a>]</span></td><td><span class="cite">[<a href="#ref-51">51</a>]</span></td><td>110</td><td>11</td></tr><tr><td>Koya 2 (Split28)</td><td>Materials Benchmark <span class="cite">[<a href="#ref-47">47</a>]</span></td><td><span class="cite">[<a href="#ref-51">51</a>]</span></td><td>110</td><td>11</td></tr><tr><td>Koya 2 (Comp28)</td><td>Materials Benchmark <span class="cite">[<a href="#ref-47">47</a>]</span></td><td><span class="cite">[<a href="#ref-51">51</a>]</span></td><td>110</td><td>11</td></tr><tr><td>Huang (FS)</td><td>Materials Benchmark <span class="cite">[<a href="#ref-47">47</a>]</span></td><td><span class="cite">[<a href="#ref-52">52</a>]</span></td><td>114</td><td>10</td></tr><tr><td>Huang (CS)</td><td>Materials Benchmark <span class="cite">[<a href="#ref-47">47</a>]</span></td><td><span class="cite">[<a href="#ref-52">52</a>]</span></td><td>114</td><td>10</td></tr><tr><td>Bachir</td><td>Materials Benchmark <span class="cite">[<a href="#ref-47">47</a>]</span></td><td><span class="cite">[<a href="#ref-53">53</a>]</span></td><td>112</td><td>4</td></tr></table></div>
+
+</figure>
+
+<h3 id="a1-representative-symbolic-regression-example">A.1 Representative symbolic regression example</h3>
+<p>To qualitatively illustrate the interpretability of the proposed neuron-level symbolic distillation approach, we report representative SR formulas for a small and well-studied regression task: the daily bike rental demand dataset. The dataset contains 731 daily observations and includes calendar and weather-related features: season, year, month, weekday, holiday indicator, working-day indicator, weather situation, temperature, apparent temperature, humidity, and wind speed. Identifier variables, such as dates and row indices, are excluded. All symbolic expressions in this example are learned using gplearn.</p>
+<p>As a reference, we first train a single symbolic regressor directly on the input features to predict bike rental demand. The resulting simplified symbolic expression is:</p>
+<div class="equation" id="eq-1"><img src="figures/eq-1.webp" width="512" height="29" alt="ˆy = 0.74 · atemp −weathersit_3 + yr_1 −0.56, (1)" loading="lazy" decoding="async"></div>
+
+<p>where atemp denotes apparent temperature, weathersit_3 indicates adverse weather conditions, and yr_1 denotes the second year of data.</p>
+<p>This baseline model captures expected monotonic relationships: higher apparent temperature and later years are associated with increased bike rentals, while adverse weather conditions reduce demand.</p>
+<p>Next, we apply SR to approximate the pre-activation of individual neurons in the second hidden layer of the trained neural network. Neurons are ranked by the absolute value of their output layer weights, and we report the most influential neuron.</p>
+<p>The symbolic approximation for this neuron is:</p>
+<div class="equation" id="eq-2"><img src="figures/eq-2.webp" width="544" height="29" alt="z(x) = −0.14 · atemp2 + 0.27 · atemp + 0.45 · yr_1 −0.23. (2)" loading="lazy" decoding="async"></div>
+
+<p>Unlike the baseline SR model, this neuron-level expression includes a quadratic term in apparent temperature, indicating a nonlinear effect with diminishing returns at higher temperatures. This indicates that the neural network captures nonlinear temperature–demand relationships that are not expressed in the baseline symbolic model, while remaining interpretable through symbolic distillation.</p>
+<figure id="fig-6">
+<a class="fig-zoom" href="figures/fig-6.webp" aria-label="Open the figure full size"><img src="figures/fig-6.webp" width="378" height="491" alt="Histogram of training set improvement rates of the proposed methods in comparison to the baseline NN" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 6</strong> Histogram of training set improvement rates of the proposed methods in comparison to the baseline NN. Subfigures (<strong>a-c</strong>) represent the results for the gplearn, Feyn, and PySR models respectively. The mean and median improvements are marked by the vertical lines</figcaption>
+</figure>
+
+<figure id="fig-7">
+<a class="fig-zoom" href="figures/fig-7.webp" aria-label="Open the figure full size"><img src="figures/fig-7.webp" width="378" height="491" alt="Histogram of improvement rates of the proposed methods in comparison to the baseline NN, without fine tuning" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 7</strong> Histogram of improvement rates of the proposed methods in comparison to the baseline NN, without fine tuning. Subfigures (<strong>a-c</strong>) represent the results for the gplearn, Feyn, and PySR models respectively. The mean and median improvements are marked by the vertical lines. The results highlight the contribution of fine tuning to the proposed approach</figcaption>
+</figure>
+
+<p>This example demonstrates how neuron-level SR complements baseline symbolic models by revealing nonlinear structure learned by the neural network.</p>
+<p><strong>Funding</strong> Open access funding provided by Bar-Ilan University. This research received no external funding.</p>
+<p><strong>Data availability</strong> The datasets used and analyzed in this study are publicly available.</p>
+<h3 id="declarations">Declarations</h3>
+<p><strong>Conflict of interest</strong> The authors have no conflict of interest to declare that are relevant to the content of this article.</p>
+<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 31 August 2025 · Accepted 25 February 2026 · Published 2 April 2026</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>Interpretable machine learning</li><li>Symbolic regression</li><li>Knowledge distillation</li><li>Neural network compression</li></ul></dd></div></dl></section>
+<h2 id="references">References</h2>
+<ol class="paper-refs"><li id="ref-1">Veturi YA, Woof W, Lazebnik T, Moghul I, Woodward-Court P, Wagner SK, Cabral de Guimaraes TA, Varela MD, Liefers B, Patel PJ, Beck S, Webster AR, Mahroo O, Keane PA, Michaelides M, Balaskas K, Pontikos N (2022) Syntheye: Investigating the impact of synthetic data on ai-assisted gene diagnosis of inherited retinal disease. Ophthalmology Science, page 100258,</li>
+<li id="ref-2">Lazebnik T (2024) Going a step deeper down the rabbit hole: deep learning model to measure the size of the unregistered economy activity. Comput Econ. <a href="https://doi.org/10.1007/s10614-024-10606-4" target="_blank" rel="noopener">doi:10.1007/s10614-024-10606-4</a></li>
+<li id="ref-3">Wang J, Ma Y, Zhang L, Gao RX, Wu D (2018) Deep learning for smart manufacturing: methods and applications. J Manuf Syst 48:144–156 <a href="https://doi.org/10.1007/s10614-024-10606-4" target="_blank" rel="noopener">doi:10.1007/s10614-024-10606-4</a></li>
+<li id="ref-4">Nguyen H, Kieu L-M, Wen T, Cai C (2018) Deep learning methods in transportation domain: a review. IET Intell Transp Syst 12(9):998–1004</li>
+<li id="ref-5">Kamilaris A, Prenafeta-Boldu FX (2018) Deep learning in agriculture: a survey. Comput Electron Agric 147:70–90</li>
+<li id="ref-6">Kutz JN (2017) Deep learning in fluid dynamics. J Fluid Mech 814:1–4</li>
+<li id="ref-7">Reichstein M, Camps-Valls G, Stevens B, Jung M, Denzler J, Carvalhais N et al (2019) Deep learning and process understanding for data-driven earth system science. Nature 566(7743):195–204</li>
+<li id="ref-8">Willard J, Jia X, Xu S, Steinbach M, Kumar V (2020) Integrating physics-based modeling with machine learning: A survey. arXiv preprint arXiv:2003.04919, 1(1):1–34 <a href="http://arxiv.org/abs/2003.04919" target="_blank" rel="noopener">link</a></li>
+<li id="ref-9">Alzubaidi L, Zhang J, Humaidi AJ, Al-Dujaili A, Duan Y, Al-Shamma O, Santamaría J, Fadhel MA, Al-Amidie M, Farhan L (2021) Review of deep learning: concepts, CNN architectures, challenges, applications, future directions. J Big Data 8(1):1–74 <a href="http://arxiv.org/abs/2003.04919" target="_blank" rel="noopener">link</a></li>
+<li id="ref-10">Lazebnik T, Simon-Keren L (2024) Knowledge-integrated autoencoder model. Expert Syst Appl 252:124108</li>
+<li id="ref-11">Quade M, Abel M, Nathanutz J, Brunton SL (2018) Sparse identification of nonlinear dynamics for rapid model recovery. Chaos 28:063116</li>
+<li id="ref-12">Reinbold PAK, Kageorge LM, Schatz MF, Grigoriev RO (2021) Robust learning from noisy, incomplete, high-dimensional experimental data via physically constrained symbolic regression. Nat Commun 12(1):1–8</li>
+<li id="ref-13">Searson DP, Leahy DE, Willis MJ (2010) Gptips: an open source genetic programming toolbox for multigene symbolic regression. Proc Int Multiconf Eng Comput Sci 1:77–80</li>
+<li id="ref-14">Burlacu B, Kronberger G, Kommenda M (2020) Operon c++ an efficient genetic programming framework for symbolic regression. In Proc 2020 Genetic and Evolut Computat Conf Comp, pp 1562–1570</li>
+<li id="ref-15">Virgolin M, Alderliesten T, Witteveen C, Bosman PAN (2021) Improving model-based genetic programming for symbolic regression of small expressions. Evol Comput 29(2):211–237</li>
+<li id="ref-16">La Cava W, Orzechowski P, Burlacu B, de França FO, Virgolin M, Jin Y, Kommenda M, Moore JH (2021) Contemporary symbolic regression methods and their relative performance. arXiv</li>
+<li id="ref-17">Chen Q, Xue B (2022) Generalisation in Genetic Programming for Symbolic Regression: Challenges and Future Directions. Women in computational intelligence: key advances and perspectives on emerging topics. Springer International Publishing, pp 281–302</li>
+<li id="ref-18">Gjxrum VG, Strumke I, Lover J, Miller T, Lekkas AM (2023) Model tree methods for explaining deep reinforcement learning agents in real-time robotic applications. Neurocomputing 515:133–144</li>
+<li id="ref-19">Shmuel A, Glickman O, Lazebnik T (2023) Symbolic regression as a feature engineering method for machine and deep learning regression tasks. Mach Learn: Sci Technol 5(2)</li>
+<li id="ref-20">Udrescu SM, Tegmark M (2020) AI feynman: a physics-inspired method for symbolic regression. Sci Adv 6(16):eaay2631</li>
+<li id="ref-21">Keren LS, Liberzon A, Lazebnik T (2023) A computational framework for physics-informed symbolic regression with straightforward integration of domain knowledge. Sci Rep 13:1249</li>
+<li id="ref-22">Orzechowski P, La Cava W, Moore JH (2018) Where are we now?: a large benchmark study of recent symbolic regression methods. GECCO18: Proc Genetic and Evolut Computat Conf</li>
+<li id="ref-23">Shick AA, Webber CM, Kiarashi N, Weinberg JP, Deoras A, Petrick N, Saha A, Diamond MC (2024) Transparency of artificial intelligence/machine learning-enabled medical devices. NPJ Digit Med 7(1):21</li>
+<li id="ref-24">Hinton G, Vinyals O, Dean J (2015) Distilling the knowledge in a neural network. arXiv</li>
+<li id="ref-25">Gou J, Yu B, Maybank SJ, Tao D (2021) Knowledge distillation: a survey. Int J Comput Vis 129(6):1789–1819</li>
+<li id="ref-26">Mei Y (2023) Knowledge distillation and reward shaping of deep reinforcement learning. In Proceedings of the 2023 Int Conf Innov Comput, Mach Learn Data Mining (ICICML)</li>
+<li id="ref-27">Yang Z, Zeng A, Li Z, Zhang T, Yuan C, Li Y (2023) From knowledge distillation to self-knowledge distillation: A unified approach with normalized loss and customized soft labels. In Proc IEEE/CVF Int Conf Comput Vision, pp 17185–17194. IEEE</li>
+<li id="ref-28">Li H, Chen X, Ditzler G, Roveda J, Li A (2024) Knowledge distillation under ideal joint classifier assumption. Neural Netw 173:106160</li>
+<li id="ref-29">Tian Y, Krishnan D, Isola P (2019) Contrastive representation distillation. arXiv</li>
+<li id="ref-30">Zhang L, Bao C, Ma K (2022) Self-distillation: towards efficient and compact neural networks. IEEE Trans Pattern Anal Mach Intell. <a href="https://doi.org/10.1109/TPAMI.2021.3067100" target="_blank" rel="noopener">doi:10.1109/TPAMI.2021.3067100</a></li>
+<li id="ref-31">Arik SO, Pfister T (2020) Tabnet: attentive interpretable tabular learning. arXiv <a href="https://doi.org/10.1109/TPAMI.2021.3067100" target="_blank" rel="noopener">doi:10.1109/TPAMI.2021.3067100</a></li>
+<li id="ref-32">Fayaz SA, Kaul S, Zaman M, Butt MA (2022) Is deep learning on tabular data enough? an assessment. Int J Adv Comput Sci Appl 13(4)</li>
+<li id="ref-33">Shmuel A, Glickman O, Lazebnik T (2025) A comprehensive benchmark of machine and deep learning models on structured data for regression and classification. Neurocomputing. <a href="https://doi.org/10.1016/j.neucom.2025.131337" target="_blank" rel="noopener">doi:10.1016/j.neucom.2025.131337</a></li>
+<li id="ref-34">Alibekov E, Kubalík J, Babuška R (2016) Symbolic method for deriving policy in reinforcement learning. In IEEE 55th Conf Decision and Control (CDC), pp 2789–2795. IEEE <a href="https://doi.org/10.1016/j.neucom.2025.131337" target="_blank" rel="noopener">doi:10.1016/j.neucom.2025.131337</a></li>
+<li id="ref-35">Veran T, Portier PE, Fouquet F (2023) Interpretable hierarchical symbolic regression for safety-critical systems with an application to highway crash prediction. Eng Appl Artif Intell 117:105534</li>
+<li id="ref-36">Billard L, Diday E (2002) Symbolic regression analysis. Classification, clustering, and data analysis. Springer, pp 281– 288</li>
+<li id="ref-37">Kaiser E, Kutz JN, Brunton SL (2018) Sparse identification of nonlinear dynamics for model predictive control in the low-data limit. Proc R Soc Lond A Math Phys Eng Sci 474(2219):20180335</li>
+<li id="ref-38">Kronberger G, Olivetti de França F, Burlacu B, Haider C, Kommenda M (2022) Shape-constrained symbolic regression-improving extrapolation with prior knowledge. Evol Comput 30(1):75–98</li>
+<li id="ref-39">Salustowicz R, Schmidhuber J (1997) Probabilistic incremental program evolution. Evol Comput 5(2):123–141</li>
+<li id="ref-40">Petersen BK, Larma ML, Mundhenk TN, Santiago CP, Kim SK, Kim JT (2019) Deep symbolic regression: Recovering mathematical expressions from data via risk-seeking policy gradients. arXiv preprint arXiv:1912.04871 <a href="http://arxiv.org/abs/1912.04871" target="_blank" rel="noopener">link</a></li>
+<li id="ref-41">Zegklitz J, Posik P (2021) Benchmarking state-of-the-art symbolic regression algorithms. Genet Program Evolvable Mach 22:5–33 <a href="http://arxiv.org/abs/1912.04871" target="_blank" rel="noopener">link</a></li>
+<li id="ref-42">Broløs KR, Machado MV, Cave C, Kasak J, Stentoft-Hansen V, Batanero VG, Wilstrup C (2021) An approach to symbolic regression using feyn. arXiv</li>
+<li id="ref-43">Cranmer M (2023) Interpretable machine learning for science with pysr and symbolicregression.jl. arXiv</li>
+<li id="ref-44">Stephens T (2016) Genetic programming in python with a scikit-learn inspired api: Gplearn,</li>
+<li id="ref-45">Makke N., Chawla S (2024) Symbolic regression: A pathway to interpretability towards automated scientific discovery. In Proc 30th ACM SIGKDD Conf Knowl Dis Data Mining, pp 6588–6596. ACM, August</li>
+<li id="ref-46">Vanschoren J, Van Rijn JN, Bischl B, Torgo L (2014) OpenML: networked science in machine learning. ACM SIGKDD Explor Newsl 15(2):49–60</li>
+<li id="ref-47">Conrad F, Mälzer M, Schwarzenberger M, Wiemer H, Ihlenfeldt S (2022) Benchmarking AutoML for regression tasks on small tabular data in materials design. Sci Rep 12(1):19350</li>
+<li id="ref-48">Yin BB, Liew KM (2021) Machine learning and materials informatics approaches for evaluating the interfacial properties of fiber-reinforced composites. Compos Struct 273:114328</li>
+<li id="ref-49">Su M, Zhong Q, Peng H, Li S (2021) Selected machine learning approaches for predicting the interfacial bond strength between FRPs and concrete. Constr Build Mater 270:121456</li>
+<li id="ref-50">Dunn A, Wang Q, Ganose A, Dopp D, Jain A (2020) Benchmarking materials property prediction methods: the Matbench test set and Automatminer reference algorithm. Comput Mater 6(1):138</li>
+<li id="ref-51">Koya BP, Aneja S, Gupta R, Valeo C (2022) Comparative analysis of different machine learning algorithms to predict mechanical properties of concrete. Mech Adv Mater Struct 29(25):4032–4043</li>
+<li id="ref-52">Huang JS, Liew JX, Liew KM (2021) Data-driven machine learning approach for exploring and assessing mechanical properties of carbon nanotube-reinforced cement composites. Compos Struct 267:113917</li>
+<li id="ref-53">Bachir R, Mohammed AMS, Habib T (2018) Using artificial neural networks approach to estimate compressive strength for rubberized concrete. Period Polytech Civ Eng 62(4):858–865</li>
+<li id="ref-54">Shmuel A, Lazebnik T, Glickman O (2026) Follow the Forest Trail: Distillation by Gradient Boosting Models to Enhance Symbolic Regression Performance. IEEE Access.‏ Authors and Affiliations Assaf Shmuel1 · Nir Koren1 · Oren Glickman1 · Teddy Lazebnik2,3 Assaf Shmuel assafshmuel91@gmail.com 1 Department of Computer Science, Bar Ilan University, Ramat Gan, Israel 2 Information Systems Department, University of Haifa, Haifa, Israel 3 Computing Department, Jonkoping University, Jonkoping, Sweden <a href="http://orcid.org/0000-0002-1794-9381" target="_blank" rel="noopener">link</a></li>
+</ol>
+</div>
+        
+        <section id="video" class="paper-video"><h2>Watch the explainer</h2><div class="yt-player yt-9x16" data-yt-id="gleSQMKECUA" data-yt-title="Symbolic Distillation in Neural Networks"><a class="yt-play" href="https://www.youtube.com/shorts/gleSQMKECUA" aria-label="Play video: Symbolic Distillation in Neural Networks"><img src="https://i.ytimg.com/vi/gleSQMKECUA/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/gleSQMKECUA/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div></section>
+        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Shmuel et al. (2026), <em> Neural Computing and Applications</em>, <a href="https://doi.org/10.1007/s00521-026-12067-2" target="_blank" rel="noopener">doi:10.1007/s00521-026-12067-2</a>, under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY</a> licence. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+      </article>
+    </div>
+
+    <section class="paper-related" aria-labelledby="related-title"><div class="paper-wrap"><h2 id="related-title">Related research</h2><div class="related-grid"><a class="related-card related-project" href="/project.html?pagename=physics-inspired-symbolic-regression"><img src="/img/projects/project4.webp" alt="" loading="lazy" decoding="async"><span class="related-kind"><i class="ri-flask-line" aria-hidden="true"></i>Research project</span><strong>Developing the Next Step of Physics-Inspired Symbolic Regression</strong><span class="related-text">Advancing physics-informed symbolic regression for interpretable models discovered from data.</span></a><a class="related-card" href="/publications/follow-forest-trail-distillation-gradient-boosting-models/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2026</span><strong>Follow the Forest Trail: Distillation by Gradient Boosting Models to Enhance Symbolic Regression Performance</strong><span class="related-text">IEEE Access</span></a><a class="related-card" href="/publications/symbolic-regression-feature-engineering-method-machine-deep/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2024</span><strong>Symbolic regression as a feature engineering method for machine and deep learning regression tasks</strong><span class="related-text">Machine Learning: Science and Technology</span></a></div><p class="related-more"><a href="/publications.html">All publications</a></p></div></section>
+  </main>
+
+  <dialog id="cite-dialog" class="paper-dialog" aria-labelledby="cite-title">
+    <div class="dialog-head">
+      <h2 id="cite-title">Cite this paper</h2>
+      <button type="button" class="dialog-close" aria-label="Close"><i class="ri-close-line" aria-hidden="true"></i></button>
+    </div>
+    <p class="dialog-label">APA</p>
+    <pre class="cite-box" id="cite-apa">Shmuel, A., Koren, N., Glickman, O., &amp; Lazebnik, T. (2026). Interpretable knowledge distillation via symbolic regression for feedforward neural networks.  Neural Computing and Applications, 38, 243. https://doi.org/10.1007/s00521-026-12067-2</pre>
+    <button type="button" class="paper-btn" data-copy="cite-apa"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy APA</span></button>
+    <p class="dialog-label">BibTeX</p>
+    <pre class="cite-box" id="cite-bib">@article{shmuel2026interpretable,
+  title = {Interpretable knowledge distillation via symbolic regression for feedforward neural networks},
+  author = {Shmuel, Assaf and Koren, Nir and Glickman, Oren and Lazebnik, Teddy},
+  journal = { Neural Computing and Applications},
+  volume = {38},
+  pages = {243},
+  year = {2026},
+  doi = {10.1007/s00521-026-12067-2}
+}</pre>
+    <button type="button" class="paper-btn" data-copy="cite-bib"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy BibTeX</span></button>
+  </dialog>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Games</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
+                  <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
+                  <li><a href="https://rl.teddylazebnik.com/">Pirate War RL Game</a></li>
+                  <li><a href="https://eh.teddylazebnik.com/">Echo Heist</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <script src="/js/videos.js"></script>
+      <script>
+        (function () {
+          // menu and navbar (js/main.js expects to sit at the site root)
+          var btn = document.getElementById('menu-btn'), menu = document.getElementById('mobile-menu'), nav = document.getElementById('navbar');
+          btn.addEventListener('click', function () { menu.classList.toggle('max-h-0'); menu.classList.toggle('max-h-screen'); });
+          var onScroll = function () { nav.classList.toggle('nav-scrolled', window.scrollY > 10); };
+          window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+          // cite dialog + copy buttons
+          var dialog = document.getElementById('cite-dialog');
+          document.querySelectorAll('[data-dialog]').forEach(function (b) {
+            b.addEventListener('click', function () { if (dialog.showModal) dialog.showModal(); else dialog.setAttribute('open', ''); });
+          });
+          dialog.querySelector('.dialog-close').addEventListener('click', function () { dialog.close(); });
+          dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
+          function flash(button, text) {
+            var label = button.querySelector('span'), old = label.textContent;
+            label.textContent = text; setTimeout(function () { label.textContent = old; }, 1600);
+          }
+          document.querySelectorAll('[data-copy]').forEach(function (b) {
+            b.addEventListener('click', function () {
+              var text = document.getElementById(b.getAttribute('data-copy')).textContent;
+              navigator.clipboard.writeText(text).then(function () { flash(b, 'Copied'); });
+            });
+          });
+          document.getElementById('share-btn').addEventListener('click', function () {
+            var b = this, data = { title: document.title, url: location.href.split('#')[0] };
+            if (navigator.share) { navigator.share(data).catch(function () {}); }
+            else { navigator.clipboard.writeText(data.url).then(function () { flash(b, 'Link copied'); }); }
+          });
+
+          // highlight the section being read in "On this page"
+          var links = {};
+          document.querySelectorAll('.paper-toc a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+          var heads = Array.prototype.filter.call(document.querySelectorAll('#full-text h2[id], #full-text h3[id], #full-text section[id]'), function (h) { return links[h.id]; });
+          if ('IntersectionObserver' in window && heads.length) {
+            var current = null;
+            var io = new IntersectionObserver(function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                  if (current) current.classList.remove('is-active');
+                  current = links[e.target.id]; current.classList.add('is-active');
+                }
+              });
+            }, { rootMargin: '-90px 0px -70% 0px' });
+            heads.forEach(function (h) { io.observe(h); });
+          }
+        })();
+      </script>
+   </body>
+</html>

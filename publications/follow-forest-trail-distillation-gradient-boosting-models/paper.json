@@ -1,0 +1,83 @@
+{
+  "title": "Follow the Forest Trail: Distillation by Gradient Boosting Models to Enhance Symbolic Regression Performance",
+  "pub_type": "Paper",
+  "short_title": "Follow the Forest Trail: Distillation to Enhance Symbolic Regression",
+  "authors": [
+    {
+      "name": "Assaf Shmuel",
+      "given": "Assaf",
+      "family": "Shmuel"
+    },
+    {
+      "name": "Teddy Lazebnik",
+      "given": "Teddy",
+      "family": "Lazebnik"
+    },
+    {
+      "name": "Oren Glickman",
+      "given": "Oren",
+      "family": "Glickman"
+    }
+  ],
+  "affiliations": {
+    "1": "Department of Computer Science, Bar-Ilan University, Ramat Gan 5290002, Israel",
+    "2": "Information Systems Department, University of Haifa, Haifa 3498838, Israel",
+    "3": "Computing Department, Jönköping University, 55111 Jönköping, Sweden"
+  },
+  "journal": "IEEE Access",
+  "year": 2026,
+  "volume": "",
+  "issue": "",
+  "pages": "",
+  "doi": "10.1109/ACCESS.2026.3657793",
+  "published": "",
+  "received": "2025-12-29",
+  "accepted": "2026-01-15",
+  "abstract": "In recent years, Machine Learning (ML) models have been introduced across diverse scientific fields, due to their strong predictive performance. However, in many applications the demand for interpretable models often surpasses the need for mere accuracy. Symbolic Regression (SR) offers a solution with its concise and explainable formulas, yet it typically falls short in accuracy when compared to other ML models such as Random Forests. This paper proposes a novel two-step ensemble approach, inspired by the student-teacher model in knowledge distillation. Initially, a Gradient Boosting Model (GBM) is trained to harness its high accuracy; this model acts as the ‘teacher.’ Subsequently, an SR ‘student’ model is trained on the output of the gradient boosting model, effectively distilling the knowledge into a form that combines interpretability with enhanced performance. We perform an extensive evaluation of this method across three different SR models and 10 regression datasets. Our findings show that the proposed method exhibits a consistent improvement of 3.3-6.7% in accuracy compared to standard SR models. Furthermore, this process serves as an explainability framework that helps to uncover and interpret the decisions of complex ML models.",
+  "keywords": [],
+  "license": {
+    "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+    "name": "CC BY-NC-ND 4.0"
+  },
+  "funding": "",
+  "competing_interests": "",
+  "data_availability": "",
+  "editor": "",
+  "abbreviations": [],
+  "summary": "Symbolic regression produces short, explainable formulas but is usually less accurate than models such as random forests. We proposed a two-step teacher-student approach: a gradient boosting model is trained for accuracy, and a symbolic regression model is then trained on its outputs. Tested with three symbolic regression models on 10 regression datasets, the approach consistently improved accuracy by 3.3-6.7% over standard symbolic regression and also helps explain the decisions of complex models.",
+  "key_findings": [
+    "A gradient boosting model acts as the teacher, and a symbolic regression student model is trained on its output.",
+    "Across three symbolic regression models and 10 regression datasets, accuracy improved consistently by 3.3-6.7% over standard symbolic regression.",
+    "The process also serves as an explainability framework for interpreting the decisions of complex machine learning models."
+  ],
+  "key_numbers": [
+    {
+      "value": "3.3-6.7%",
+      "label": "accuracy gain over standard symbolic regression"
+    },
+    {
+      "value": "10",
+      "label": "regression datasets in the evaluation"
+    }
+  ],
+  "featured_figure": "fig-1",
+  "related_project": "",
+  "pdf_url": "https://teddylazebnik.com/files/gbm_to_sr.pdf",
+  "slug": "follow-forest-trail-distillation-gradient-boosting-models",
+  "lang": "en",
+  "reviewed": false,
+  "extracted": {
+    "with": "pymupdf4llm 1.28.2, PyMuPDF 1.28.2",
+    "on": "2026-10-09",
+    "from": "gbm_to_sr.pdf",
+    "pages": 12,
+    "figures": 8,
+    "tables": 7,
+    "tables_as_images": 7,
+    "equations": 0,
+    "references": 71,
+    "reference_style": "num",
+    "coverage": 1.0,
+    "check": []
+  }
+}

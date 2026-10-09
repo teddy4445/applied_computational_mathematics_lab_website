@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_papers.py from paper.md + paper.json in this folder. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Detecting LLM-assisted writing in science: Are we there yet? | ACML</title>
+      <meta name="description" content="Researchers are expected to acknowledge when large language models (LLMs) such as ChatGPT help write their papers, yet such acknowledgment remains rare. We…">
+      <meta name="author" content="Teddy Lazebnik, Ariel Rosenfeld">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/publications/detecting-llm-assisted-writing-scientific-communication-we/">
+      <meta name="citation_title" content="Detecting LLM-assisted writing in scientific communication: Are we there yet?">
+      <meta name="citation_author" content="Teddy Lazebnik">
+      <meta name="citation_author" content="Ariel Rosenfeld">
+      <meta name="citation_publication_date" content="2024">
+      <meta name="citation_journal_title" content="Journal of Data and Information Science">
+      <meta name="citation_pdf_url" content="https://teddylazebnik.com/files/llm_1.pdf">
+      <meta name="citation_abstract_html_url" content="https://acml.teddylazebnik.com/publications/detecting-llm-assisted-writing-scientific-communication-we/">
+      <meta name="citation_fulltext_html_url" content="https://acml.teddylazebnik.com/publications/detecting-llm-assisted-writing-scientific-communication-we/">
+      <meta name="citation_keywords" content="LLM-assisted writing; Scientific communication; Writing style">
+      <meta name="citation_language" content="en">
+      <meta property="og:type" content="article">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Detecting LLM-assisted writing in science: Are we there yet?">
+      <meta property="og:description" content="Researchers are expected to acknowledge when large language models (LLMs) such as ChatGPT help write their papers, yet such acknowledgment remains rare. We…">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/publications/detecting-llm-assisted-writing-scientific-communication-we/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/publications/detecting-llm-assisted-writing-scientific-communication-we/figures/share-fig-1.jpg">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Detecting LLM-assisted writing in science: Are we there yet?">
+      <meta name="twitter:description" content="Researchers are expected to acknowledge when large language models (LLMs) such as ChatGPT help write their papers, yet such acknowledgment remains rare. We…">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/publications/detecting-llm-assisted-writing-scientific-communication-we/figures/share-fig-1.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "Detecting LLM-assisted writing in scientific communication: Are we there yet?",
+  "name": "Detecting LLM-assisted writing in scientific communication: Are we there yet?",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Teddy Lazebnik"
+    },
+    {
+      "@type": "Person",
+      "name": "Ariel Rosenfeld"
+    }
+  ],
+  "datePublished": "2024",
+  "url": "https://acml.teddylazebnik.com/publications/detecting-llm-assisted-writing-scientific-communication-we/",
+  "mainEntityOfPage": "https://acml.teddylazebnik.com/publications/detecting-llm-assisted-writing-scientific-communication-we/",
+  "abstract": "Large Language Models (LLMs), exemplified by ChatGPT, have significantly reshaped text generation, particularly in the realm of writing assistance. While ethical considerations underscore the importance of transparently acknowledging LLM use, especially in scientific communication, genuine acknowledgment remains infrequent. A potential avenue to encourage accurate acknowledging of LLM-assisted writing involves employing automated detectors. Our evaluation of four cutting-edge LLM-generated text detectors reveals their suboptimal performance compared to a simple ad-hoc detector designed to identify abrupt writing style changes around the time of LLM proliferation. We contend that the development of specialized detectors exclusively dedicated to LLM-assisted writing detection is necessary. Such detectors could play a crucial role in fostering more authentic recognition of LLM involvement in scientific communication, addressing the current challenges in acknowledgment practices.",
+  "description": "Researchers are expected to acknowledge when large language models (LLMs) such as ChatGPT help write their papers, yet such acknowledgment remains rare. We…",
+  "image": "https://acml.teddylazebnik.com/publications/detecting-llm-assisted-writing-scientific-communication-we/figures/share-fig-1.jpg",
+  "keywords": "LLM-assisted writing, Scientific communication, Writing style",
+  "isPartOf": {
+    "@type": "Periodical",
+    "name": "Journal of Data and Information Science"
+  },
+  "about": "Machine Learning",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "encoding": {
+    "@type": "MediaObject",
+    "contentUrl": "https://teddylazebnik.com/files/llm_1.pdf",
+    "encodingFormat": "application/pdf"
+  }
+}
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/paper.css" rel="stylesheet">
+      
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="paper-page">
+    <header class="paper-hero">
+      <div class="paper-wrap">
+        <nav class="paper-crumbs" aria-label="Breadcrumb">
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Machine Learning</span>
+        </nav>
+        <p class="paper-kicker"><span><em>Journal of Data and Information Science</em> · 2024</span></p>
+        <h1 class="paper-title">Detecting LLM-assisted writing in scientific communication: Are we there yet?</h1>
+        <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author">Ariel Rosenfeld</span></p>
+        <details class="paper-affils"><summary>Affiliations</summary><ol><li value="1">Department of Mathematics, Ariel University, Ariel, Israel</li><li value="2">Department of Cancer Biology, Cancer Institute, University College London, London, UK</li><li value="3">Department of Information Science, Bar Ilan University, Ramat Gan, Israel</li></ol></details>
+        <div class="paper-actions">
+          <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/llm_1.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
+          <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
+          
+          <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
+          
+          <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
+        </div>
+        <div class="lab-authors"><span class="lab-authors-label">ACML authors</span><a class="lab-chip" href="/team.html"><img src="/img/lab/teddy.webp" alt="" width="32" height="32" loading="lazy"><span><strong>Teddy Lazebnik</strong><small>PI</small></span></a></div>
+      </div>
+    </header>
+
+    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Researchers are expected to acknowledge when large language models (LLMs) such as ChatGPT help write their papers, yet such acknowledgment remains rare. We evaluated four leading detectors of LLM-generated text and compared them with a simple ad-hoc detector that looks for abrupt changes in writing style around the time LLMs spread. The existing detectors performed worse than the simple one, so we argue that dedicated detectors built specifically for LLM-assisted writing are needed.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Four cutting-edge detectors of LLM-generated text showed suboptimal performance.</li><li>A simple ad-hoc detector of abrupt writing style changes around the time of LLM proliferation outperformed them.</li><li>We argue for specialized detectors dedicated to LLM-assisted writing to encourage more authentic acknowledgment of LLM use in science.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1110" height="622" alt="Figure 1. A schematic view of the LLM-Assisted Writing (LAW) detector. The detection process consists of two phases: First, during training, manuscripts are converted into vectors representing the author’s writing style using the technique provided in (Lazebnik &amp;amp; Rosenfeld, 2023). The average change and standard deviation of the presented writing style are measured to capture the dynamics in one’s writing style. Then, during inference, for each manuscript, we examine whether the change in its author’s writing style is substantial enough to be considered an anomaly and whether this anomaly is aligned with the style of an LLM-generated manuscript of the same title and abstract. If both conditions are met, the manuscript is deemed as an LLM-assisted manuscript."></a><figcaption>Figure 1. A schematic view of the LLM-Assisted Writing (LAW) detector. The detection process consists of two phases: First, during training, manuscripts are converted into vectors representing the author’s writing style using the technique provided in (Lazebnik &amp; Rosenfeld, 2023). The average change and standard deviation of the presented writing style are measured to capture the dynamics in one’s writing style. Then, during inference, for each manuscript, we examine whether the change in its author’s writing style is substantial enough to be considered an anomaly and whether this anomaly is aligned with the style of an LLM-generated manuscript of the same title and abstract. If both conditions are met, the manuscript is deemed as an LLM-assisted manuscript. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+
+    <div class="paper-wrap paper-layout">
+      <aside class="paper-aside">
+        <nav class="paper-toc" aria-label="On this page">
+          <p class="aside-title">On this page</p>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#1-introduction">1 Introduction</a></li>
+<li><a href="#2-methods-and-materials">2 Methods and materials</a></li><li class="toc-sub"><a href="#21-data">2.1 Data</a></li><li class="toc-sub"><a href="#22-llm-generated-text-detectors">2.2 LLM-generated text detectors</a></li><li class="toc-sub"><a href="#23-alternative-detector">2.3 Alternative detector</a></li>
+<li><a href="#3-results">3 Results</a></li>
+<li><a href="#4-discussion">4 Discussion</a></li>
+<li><a href="#funding-information">Funding information</a></li>
+<li><a href="#data-availability">Data availability</a></li>
+<li><a href="#author-contributions">Author contributions</a></li>
+<li><a href="#statement-of-using-aigc">Statement of using AIGC</a></li>
+<li><a href="#appendix">Appendix</a></li>
+<li><a href="#3-further-statistical-analysis">3 Further statistical analysis</a></li><li class="toc-sub"><a href="#agreement-levels">Agreement levels</a></li>
+<li><a href="#notes">Notes</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </nav>
+        <div class="paper-info">
+          <p class="aside-title">Article information</p>
+          <dl><div><dt>Journal</dt><dd>Journal of Data and Information Science</dd></div><div><dt>Year</dt><dd>2024</dd></div></dl>
+        </div>
+      </aside>
+
+      <article class="paper-body" id="full-text">
+        <details class="paper-toc-mobile">
+          <summary>On this page</summary>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#1-introduction">1 Introduction</a></li>
+<li><a href="#2-methods-and-materials">2 Methods and materials</a></li><li class="toc-sub"><a href="#21-data">2.1 Data</a></li><li class="toc-sub"><a href="#22-llm-generated-text-detectors">2.2 LLM-generated text detectors</a></li><li class="toc-sub"><a href="#23-alternative-detector">2.3 Alternative detector</a></li>
+<li><a href="#3-results">3 Results</a></li>
+<li><a href="#4-discussion">4 Discussion</a></li>
+<li><a href="#funding-information">Funding information</a></li>
+<li><a href="#data-availability">Data availability</a></li>
+<li><a href="#author-contributions">Author contributions</a></li>
+<li><a href="#statement-of-using-aigc">Statement of using AIGC</a></li>
+<li><a href="#appendix">Appendix</a></li>
+<li><a href="#3-further-statistical-analysis">3 Further statistical analysis</a></li><li class="toc-sub"><a href="#agreement-levels">Agreement levels</a></li>
+<li><a href="#notes">Notes</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </details>
+        <section id="abstract" class="paper-abstract">
+          <h2>Abstract</h2>
+          <p>Large Language Models (LLMs), exemplified by ChatGPT, have significantly reshaped text generation, particularly in the realm of writing assistance. While ethical considerations underscore the importance of transparently acknowledging LLM use, especially in scientific communication, genuine acknowledgment remains infrequent. A potential avenue to encourage accurate acknowledging of LLM-assisted writing involves employing automated detectors. Our evaluation of four cutting-edge LLM-generated text detectors reveals their suboptimal performance compared to a simple ad-hoc detector designed to identify abrupt writing style changes around the time of LLM proliferation. We contend that the development of specialized detectors exclusively dedicated to LLM-assisted writing detection is necessary. Such detectors could play a crucial role in fostering more authentic recognition of LLM involvement in scientific communication, addressing the current challenges in acknowledgment practices.</p>
+        </section>
+        
+<div class="paper-text">
+<h2 id="1-introduction">1 Introduction</h2>
+<p>Sophisticated Large Language Models (LLMs), such as ChatGPT, have become highly effective in comprehending and generating human-like texts and have become pivotal in various applications, including writing assistance (Seßler et al., 2023). From an ethical standpoint, appropriately acknowledging the use of LLMs is conscientious as Journal of Data and Information Science it underscores a commitment to transparency, honesty, and integrity in writing (Sallam, 2023). In scientific communication, where the pursuit and dissemination of knowledge are deeply guided by these principles (Sikes, 2009), clearly articulating the involvement of these models in the writing process is of great importance (Bin- Nashwan et al., 2023). Indeed, such acknowledgment is mandated by most publishers (Nature editorial, 2023). Unfortunately, the current landscape presents a formidable challenge in terms of enforcing the explicit acknowledgment of LLMs in general and in scientific communication in particular. First, the evolving capabilities of LLMs and their intricate role in the writing process introduce uncertainty and ambiguity, thus estimating the extent of LLM influence and establishing clear boundaries for acknowledgment can be elusive. In addition, certain authors may hesitate to overtly admit their use of LLM for various reasons, including a traditional authorship viewpoint, concerns about potential negative perceptions, or the lack of established guidelines in this regard, to name a few (Draxler et al., 2023).</p>
+<p>One promising strategy to promote genuine disclosure of LLM usage involves the development of automated tools for LLM use detection. Indeed, various detectors were created for distinguishing between human and LLM- generated texts (Tang et al., 2023). Nevertheless, these detectors need not necessarily be proficient in detecting LLM-assisted writing, as they were not originally designed for this purpose. To our knowledge, the automated detection of LLM-assisted writing in scientific communication has yet to be explicitly considered by the scientific community.</p>
+<p>In this work, we investigate the viability of using four state-of-the-art LLM-generated text detectors for detecting LLM-assisted writing in scientific communication. Our findings reveal subpar performance, raising substantial concerns regarding the practical value of using these models to detect potentially undisclosed LLM-assisted writing. To make the case for the viability of the LLM-assisted writing detection challenge, we present and evaluate an alternative detector designed for identifying abrupt “writing style changes” occurring around the period of LLM proliferation, which can reasonably be associated with LLM writing. While our proposed approach need not claim optimality and is limited in several respects, it does demonstrate a noteworthy improvement compared to existing detectors, indicating that the challenge of detecting LLM-assisted writing remains unsolved.</p>
+<h2 id="2-methods-and-materials">2 Methods and materials</h2>
+<h3 id="21-data">2.1 Data</h3>
+<p>Journal of Data and Information Science For our evaluation, we curated two data sets: First, an assessment set consisted of a meticulously garnered set of twenty-two scientific publications in the form of eleven matched samples. Specifically, we manually identified and extracted eleven publications where ChatGPT was either listed as a co-author or appropriately acknowledged in the text. As these publications self-evidently belong to the “LLM-Assisted” category, for each of these publications, a counterpart publication that was authored by the leading human author (i.e. first author) during the 2021- 2022 period was matched, resulting in eleven paired samples. Note that the publications chosen from the 2021- 2022 period are assumed to be free of any LLM influences given that this period predates LLM proliferation (Lund &amp; Wang, 2023). The full list of publications considered is provided in Appendix 1. Second, a false-positive set was assembled, comprising of a varied compilation of 1,094 publications published in or before 2022 (i.e. devoid of any LLM influences). The curation process, which is detailed in Appendix 2, follows a similar technique to that presented in recent literature (Alexi et al., 2024; Zargari et al., 2023). The resulting false-positive set consists of full-text manuscripts from established authors across diverse academic institutions, disciplines, and ranks.</p>
+<h3 id="22-llm-generated-text-detectors">2.2 LLM-generated text detectors</h3>
+<p>We consider four state-of-the-art open-access LLM-generated text detectors: DetectLLM (Su et al., 2023), Zippy, LLMDet (Wu et al., 2023), and ConDA (Bhattacharjee et al., 2023). These four detectors exemplify the two predominant approaches in detecting LLM-generated text: zero-shot, represented by the first two detectors, meaning they do not necessitate additional input during inference other than the provided text of interest; and few-shot, represented by the latter two detectors, re- quiring a small number of reference samples for their inference. We utilized the implementations of these detectors as originally published by their authors for our analysis. It is worth noting that two of the detectors offer a “soft classification”, meaning they provide a continuous measure that requires conversion into a “hard classification”, i.e. a binary label of “LLM-assisted” or not. We tune these decision threshold parameters using a simple grid search approach with the assessment set.</p>
+<h3 id="23-alternative-detector">2.3 Alternative detector</h3>
+<p>We further evaluate a simple writing style-based approach for detecting LLM-assisted writing. The approach is based on the premise that a sudden change in one’s writing style around the time of LLM proliferation could potentially indicate LLM-assisted writing, especially if the change aligns with LLM writing style. Our detector, which we term the LLM-Assisted Writing (LAW) detector for simplicity, works as illustrated in <a class="xref" href="#fig-1">Figure 1</a>: First, for training, we adopt the writing style modeling technique provided by (Lazebnik &amp; Rosenfeld, 2023), and for a given author <em>a</em>, we Journal of Data and Information Science use the most recent publications made in or before 2022 (i.e. free of LLM influences) for modeling the author’s writing style dynamics. Specifically, since one’s writing style may vary over time regardless of LLM influences (Lazebnik &amp; Rosenfeld, 2023), we measure the average change in the presented writing style from one publication to the next, and the standard deviation of this change, for the most recent six LLM-free publications, denoted <em>Avg</em>(<em>a</em>) and <em>STD</em>(<em>a</em>), respectively. Then, at the inference phase, for a given publication made in 2023 by <em>a</em>, we use a naive anomaly detection approach and consider the publication anomalous if its writing style significantly differs from <em>a</em>’s earlier publications by at least <em>Avg</em>(<em>a</em>) + <em>STD</em>(<em>a</em>). Note that slight variations to the above definitions, such as relying on a different number of prior publications (i.e. between 2 and 10) for computing <em>Avg</em>(<em>a</em>) and <em>STD</em>(<em>a</em>) and/or using a <em>Avg</em>(<em>a</em>) + <em>k ‧ STD</em>(<em>a</em>) (with <em>k</em> instead of <em>k=1</em>) bring about highly similar outcomes using our data and thus are not considered separately. For an identified anomaly, we compute the difference between its writing style vector and the average writing style vector computed for earlier works, resulting in a so-called “delta vector”. Intuitively, this vector represents the unique characteristics of the given publication compared to earlier publications. To attribute these changes to LLM assistance we follow (Semrl et al., 2023), and provide an LLM of interest with the title and abstract of the publication, asking it to generate an academic manuscript, using the following query: “You are a scholar working on a new academic manuscript. The title of the manuscript is: <em>&lt;</em>title-goes-here<em>&gt;</em>. The abstract of the Journal of Data and Information Science manuscript is: <em>&lt;</em>abstract-goes-here<em>&gt;</em>. Please write the entire manuscript.” Once the LLM-written manuscript was obtained, we computed the cosine similarity between the delta vector and the writing style vector of the LLM-written text. Finally, if the similarly is higher than a given decision threshold parameter θ, the anomaly is classified as LLM-assisted writing. We tune this parameter using a grid search, as before.</p>
+<figure id="fig-1">
+<a class="fig-zoom" href="figures/fig-1.webp" aria-label="Open the figure full size"><img src="figures/fig-1.webp" width="451" height="253" alt="A schematic view of the LLM-Assisted Writing (LAW) detector" loading="lazy" decoding="async"></a>
+<figcaption>Figure 1. A schematic view of the LLM-Assisted Writing (LAW) detector. The detection process consists of two phases: First, during training, manuscripts are converted into vectors representing the author’s writing style using the technique provided in (Lazebnik &amp; Rosenfeld, 2023). The average change and standard deviation of the presented writing style are measured to capture the dynamics in one’s writing style. Then, during inference, for each manuscript, we examine whether the change in its author’s writing style is substantial enough to be considered an anomaly and whether this anomaly is aligned with the style of an LLM-generated manuscript of the same title and abstract. If both conditions are met, the manuscript is deemed as an LLM-assisted manuscript.</figcaption>
+</figure>
+
+<h2 id="3-results">3 Results</h2>
+<p><a class="xref" href="#table-1">Table 1</a> presents the results of each model in terms of accuracy, <em>F</em><sub>1</sub> score, recall, precision, and false positive rate. Starting with the assessment data, the LAW detector favorably compares to the LLM-generated text detectors by providing a marginal improvement between 0.09 and 0.181 in accuracy, between 0.1 and 0.414 in terms of <em>F</em><sub>1</sub> score, between 0.073 and 0.366 in terms of recall and between 0.125 and 0.45 in terms of precision. Similarly, for the false-positive set, the LAW detector favorably compares to the baseline detectors by providing a marginal improvement between 5.7% and 14.1% in the false positive rate.</p>
+<p>Statistically, the five detectors do not differ significantly on the assessment set given its very limited size (11 paired samples). Nevertheless, the detectors statistically differ in their performance on the false positive set χ<sup>2</sup> = 133<em>, p &lt;</em> 0<em>.</em>001 with the LAW detector statistically outperforming three out of the four detectors at <em>p &lt;</em> 0<em>.</em>001 following a Bonferroni post-hoc correction. The complete pair-wise comparison between the detectors, along with their agreement levels, are provided in Appendix 3.</p>
+<figure class="table-figure" id="table-1">
+<figcaption>Table 1. The performance of the examined detectors (columns) on the assessment set (first row) and the false- positive set (second row). The performance is presented as the accuracy with the <em>F</em><sub>1</sub>-score in brackets (for the assessment set) and as the false positive rate (for the false-positive set).</figcaption>
+<div class="table-scroll"><table><tr><th>Model</th><th>LLMDet</th><th>DetectLLM</th><th>ZipPy</th><th>ConDA</th><th>LAW</th></tr><tr><td>Accuracy</td><td>0.546</td><td>0.591</td><td>0.637</td><td>0.637</td><td>0.727</td></tr><tr><td>F1-score</td><td>0.286</td><td>0.471</td><td>0.600</td><td>0.600</td><td>0.700</td></tr><tr><td>Recall</td><td>0.334</td><td>0.534</td><td>0.627</td><td>0.627</td><td>0.700</td></tr><tr><td>Precision</td><td>0.250</td><td>0.421</td><td>0.575</td><td>0.575</td><td>0.700</td></tr><tr><td>False Positive</td><td>17.2%</td><td>13.8%</td><td>9.7%</td><td>8.8%</td><td>3.1%</td></tr></table></div>
+
+</figure>
+
+<h2 id="4-discussion">4 Discussion</h2>
+<p>The observed results suggest that existing state-of-the-art LLM-generated text detectors are suboptimal, at the very least, for the task of detecting LLM-assisted writing in scientific communication. This subpar performance is manifested as low Journal of Data and Information Science accuracy, F1-scores, and high false positive rate, particularly when contrasted with the simple writing style change detector we implemented in this study. We contend that these results should prompt a call for the development of specialized detectors, exclusively dedicated to LLM-assisted writing detection, aiming for more robust performance in the near future. We are of the opinion that such development is warranted and could play a pivotal role in fostering more authentic recognition of LLM-assisted writing and, consequently, it has the potential to enhance transparency, honesty, and integrity in scientific communication.</p>
+<p>Our study is not without limitations. First, our ad-hoc writing style-based detector is consciously developed to detect an unexpected change in writing style during the time of LLM proliferation. As such, authors with a limited number of publications made prior to that period could not be considered by the detector. Moreover, mild changes in writing style from one publication to the next would likely not be detected, allowing for more substantial undetected LLM-assisted writing over time. In general, applying our detector for future publications would entail a major challenge of determining how and if to use current publications, be they classified by the detector as LLM-assisted or not, for future inference. Regarding our evaluation, it relies on two data sets with the first being relatively small. Unfortunately, at least in the realm of scientific communication, gathering more unsolicited instances of LLM-assisted writing is highly challenging since, as currently believed, most authors who practice LLM-assisted writing avoid explicitly reporting it for a variety of reasons (Dergaa et al., 2023; Yuan et al., 2022).</p>
+<h2 id="funding-information">Funding information</h2>
+<p>This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors.</p>
+<h2 id="data-availability">Data availability</h2>
+<p>The data that has been used in this study is available by a formal request from the authors.</p>
+<h2 id="author-contributions">Author contributions</h2>
+<p>Teddy Lazebnik (lazebnik.teddy@gmail.com): Conceptualization, Methodology, Software, Formal analysis, Investigation, Visualization, Project administration, Writing - Review &amp; Editing.</p>
+<p>Journal of Data and Information Science Ariel Rosenfeld (ariel.rosenfeld@biu.ac.il): Conceptualization, Methodology, Investigation, Validation, Writing - Original Draft, Writing - Review &amp; Editing.</p>
+<h2 id="statement-of-using-aigc">Statement of using AIGC</h2>
+<p>The authors used ChatGPT-4 during the writing of the manuscript to improve the wording of the text.</p>
+<h2 id="appendix">Appendix</h2>
+<p><strong>1 Assessment set: List of publications</strong></p>
+<p>Table A1. List of manuscripts included in the assessment set.</p>
+<p><strong>LLM-assisted Writing Counterpart</strong> Osterrieder, J., GPTChat, A Primer on Deep Finance, F., Osterrieder, J., Generative Adversarial Reinforcement Learning for Finance, SSRN (2023) Networks in finance: an overview, arXiv (2021) Biswas, S., Will ChatGPT take my Job? Replies and Biswas, S., Role of Sonography in Ocular Advice by ChatGPT, SSRN (2023) Trauma: A Study, ARC Journal of Surgery (2021) Askr, H., Darwish, A., Hassanien, A.E., ChatGPT, The Gad, I., Hassanien, A. E., A wind turbine fault Future of Metaverse in the Virtual Era and Physical identification using machine learning approach World: Analysis and Applications. Studies in Big Data based on pigeon inspired optimizer, Tenth (2023) International Conference on Intelligent Computing and Information Systems (2021) King, M. R., chatGPT, A Conversation on Artificial King, M. R., CMBE Moves to the Structured Intelligence, Chatbots, and Plagiarism in Higher Abstract Format: A Note from the Editor, Cellular Education, Cellular and Molecular Bioengineering and Molecular Bioengineering (2017) (2023) Kung et al., Performance of ChatGPT on USMLE: Kung, H. K., Host physician perspectives to Potential for AI-Assisted Medical Education Using improve predeparture training for global health Large Language Models, medRxiv (2022) electives, medical education (2017) O’Connor S., Open artificial intelligence platforms in O’Connor S., Exoskeletons in Nursing and nursing education: Tools for academic progress or Healthcare: A Bionic Future, Clinical nursing abuse?, Nurse Education in Practice (2022) research (2021) Rossoni, L., A inteligencia artificial e eu: escrevendo o ˆ Rossoni, L., Editorial: A RECADM no Redalyc e editorial juntamente com o ChatGPT, Revista Eletronica o Dilema das Bases e Indexadores, Revista ˆ de Ciencia Administrativa (2022) Eletronica de ˆ Ciencia Administrativa (2021) chatGPT, Zhavoronkov, A., Rapamycin in the context of Zhavoronkov, A., The inherent challenges of Pascal’s Wager: generative pre-trained transformer classifying senescence, Science (2020) perspective, Oncoscience (2022) Biswas, S., ChatGPT and the Future of Medical Writing, Biswas, S., Biswas, S., A Study on penile doppler, Radiology (2023) MedCrave Online Journal of Surgery (2017) Lazebnik, T., ChatGPT, The Impact of Fruit and Lazebnik, T., Bunimovich-Mendrazitsky, S., The Vegetable Consumption and Physical Activity on Signature Features of COVID-19 Pandemic in a Diabetes Risk among Adults, arXiv (2022) Hybrid Mathematical Model—Implications for Optimal Work–School Lockdown Policy, Advanced Theory and Simulations (2021) BaHammam, A. S., Trabelsi, K., Pandi-Perumal, S. R., Akhtar, N., Ravi Gupta, S.R. Pandi-Perumal, Jahrami, H., Adapting to the Impact of AI in Scientific Ahmed S. BaHammam: Clinical Atlas of Writing: Balancing Benefits and Drawbacks while Polysomnography: A Book Review, Sleep and Developing Policies and Regulations, Journal of Nature Vigilance (2021) and Science of Medicine (2023)</p>
+<p>Journal of Data and Information Science <strong>2 False-positive set: Curation process</strong></p>
+<p>We utilized 359 Google Scholar (GS) profiles, originally retrieved and analyzed by Zargari et al. (2023) for different research purposes. These profiles were sampled by the original authors from the top 200 U.S.-based institutions (based on the Shanghai Academic Ranking of National Universities ranking of 2022), covering five disciplines (Life Sciences, Exact Sciences, Law, Humanities, and Social Sciences) and five academic ranks (Adjunct Professor, Assistant Professor, Associate Professor, Full Professor, and Professor Emeritus). For the curation of the false-positive set, these 359 scholars served as “seed” points for a breadth-first search retrieval process through which we extracted these scholars’ GS profiles, their co-authors’ GS profiles, and their co-authors’ co-authors’ GS profiles. Through this process, a set of roughly 120 thousand GS profiles were retrieved. For evaluation purposes, we focus on profiles for which we have full access<sup>①</sup> to at least six publications made in or before 2022 (for training) and at least one additional publication made in or before 2022 (for inference). Overall, 1,094 profiles met the above requirements. For each of these profiles, the most recent publication made in or before 2022 was included in the false-positive set.</p>
+<h2 id="3-further-statistical-analysis">3 Further statistical analysis</h2>
+<h4 id="pair-wise-comparisons">Pair-wise comparisons</h4>
+<figure class="table-figure" id="table-a2">
+<figcaption>Table A2. Pairwise comparison between the five detectors. The results are shown as <em>p value</em> with the statistics in brackets. Each cell contains the results for the assessment set on the left, and the results for the false positive set on the right.</figcaption>
+<div class="table-scroll"><table><tr><th></th><th>LLMDet</th><th>DetectLLM</th><th>ZipPy ConDA</th></tr><tr><td>DetectLLM</td><td>0.66(0.19)/&lt; 0.01(10.45)</td><td></td><td></td></tr><tr><td>ZipPy</td><td>0.38(0.78)/&lt; 0.01(69.63)</td><td>0.66(0.20)/&lt; 0.01(20.96)</td><td></td></tr><tr><td>ConDA</td><td>0.06(3.67)/&lt; 0.01(95.71)</td><td>0.66(0.20)/&lt; 0.01(34.21)</td><td>1.0(0.0)/0.28(1.13)</td></tr><tr><td>LAW</td><td>0.01(0.03)/&lt; 0.01(729.19)</td><td>0.15(2.06)/&lt; 0.01(34.21)</td><td>0.34(0.92)/&lt; 0.01(161.74) 0.34(0.92)/&lt; 0.01(120.46)</td></tr></table></div>
+
+</figure>
+
+<h3 id="agreement-levels">Agreement levels</h3>
+<p>The Fleiss’ κ calculated between the five detectors in question is 0<em>.</em>78. <a class="xref" href="#table-a3">Table A3</a> reports the pairwise Cohan’s κ.</p>
+<p>Journal of Data and Information Science assessment set on the left, and the results for the false positive set on the right.</p>
+<figure class="table-figure" id="table-a3">
+<figcaption>Table A3. Pairwise Cohan’s κs calculated for the five detectors. Each cell contains the results for the</figcaption>
+<div class="table-scroll"><table><tr><th></th><th>DetectLLM</th><th>ZipPy</th><th>ConDA</th><th>LAW</th></tr><tr><td>LLMDet</td><td>0.86 / 0.82</td><td>0.68 / 0.74</td><td>0.67 / 0.72</td><td>0.63 / 0.69</td></tr><tr><td>DetectLLM</td><td></td><td>0.72 / 0.76</td><td>0.67 / 0.75</td><td>0.59 / 0.62</td></tr><tr><td>ZipPy</td><td></td><td></td><td>0.86 / 0.96</td><td>0.77 / 0.88</td></tr><tr><td>ConDA</td><td></td><td></td><td></td><td>0.81 / 0.90</td></tr></table></div>
+
+</figure>
+
+<h2 id="notes">Notes</h2>
+<p><sup>①</sup> Through our institutions’ publisher agreements or open access.</p>
+<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 6 March 2024 · Accepted 26 June 2024</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>LLM-assisted writing</li><li>Scientific communication</li><li>Writing style</li></ul></dd></div></dl></section>
+<h2 id="references">References</h2>
+<ul class="paper-refs">
+<li>Alexi, A., Lazebnik, T., &amp; Rosenfeld, A. (2024). The scientometrics and reciprocality underlying co-authorship panels in Google Scholar profiles. Scientometrics, 1–11. <a href="https://doi.org/10.1007/s11192-024-05026-y" target="_blank" rel="noopener">doi:10.1007/s11192-024-05026-y</a></li>
+<li>Bhattacharjee, A., Kumarage, T., Moraffah, R., &amp; Liu, H. (2023). Conda: Contrastive domain adaptation for AI-generated text detection. In Proceedings of the 13th International Joint Conference on Natural Language Processing and the 3rd Conference of the Asia-Pacific Chapter of the Association for Computational Linguistics (pp. 598–610). Association for Computational Linguistics.</li>
+<li>Bin-Nashwan, S. A., Sadallah, M., &amp; Bouteraa, M. (2023). Use of ChatGPT in academia: Academic integrity hangs in the balance. Technology in Society, 75, 102370.</li>
+<li>Dergaa, I., Chamari, K., Zmijewski, P., &amp; Ben Saad, H. (2023). From human writing to artificial intelligence generated text: Examining the prospects and potential threats of ChatGPT in academic writing. Biology of Sport, 40(2), 615–622.</li>
+<li>Draxler, F., Werner, A., Lehmann, F., Hoppe, M., Schmidt, A., Buschek, D., &amp; Welsch, R. (2023). The AI ghostwriter effect: When users do not perceive ownership of AI-generated text but self-declare as authors. arXiv:2303.03283</li>
+<li>Editorial. (2023). Tools such as ChatGPT threaten transparent science; here are our ground rules for their use. Nature, 613.</li>
+<li>Lazebnik, T., &amp; Rosenfeld, A. (2023). A computational model for individual scholars’ writing style dynamics. arXiv:2305.04900</li>
+<li>Lund, B. D., &amp; Wang, T. (2023). Chatting about ChatGPT: How may AI and GPT impact academia and libraries? Library Hi Tech News, 40(3), 26–29.</li>
+<li>Sallam, M. (2023). ChatGPT utility in healthcare education, research, and practice: Systematic review on the promising perspectives and valid concerns. Healthcare, 11(6), 887.</li>
+<li>Seßler, K., Xiang, T., Bogenrieder, L., &amp; Kasneci, E. (2023). Peer: Empowering writing with large language models. In O. Viberg, I. Jivet, P. Muñoz-Merino, M. Perifanou, &amp; T. Papathoma (Eds.), Responsive and sustainable educational futures (pp. 755–761). Lecture Notes in Computer Science, vol 14200. Springer, Cham. <a href="https://doi.org/10.1007/978-3-031-42682-7_73" target="_blank" rel="noopener">doi:10.1007/978-3-031-42682-7_73</a></li>
+<li>Semrl, N., Feigl, S., Taumberger, N., Bracic, T., Fluhr, H., Blockeel, C., &amp; Kollmann, M. (2023). AI language models in human reproduction research: Exploring ChatGPT’s potential to assist academic writing. Human Reproduction, 38(12), 2281–2288.</li>
+<li>Journal of Data and</li>
+<li>Information Science</li>
+<li>Journal of Data and Information Science</li>
+<li>Perspectives Sikes, P. (2009). Will the real author come forward? Questions of ethics, plagiarism, theft and collusion in academic research writing. International Journal of Research &amp; Method in Education, 32(1), 13–24. Su, J., Zhuo, T. Y., Wang, D., &amp; Nakov, P. (2023). DetectLLM: Leveraging log rank information for zero-shot detection of machine-generated text. arXiv:2306.05540 Tang, R., Chuang, Y.-N., &amp; Hu, X. (2023). The science of detecting LLM-generated texts. arXiv:2303.07205 Wu, K., Pang, L., Shen, H., Cheng, X., &amp; Chua, T.-S. (2023). LLMDet: A third party large language models generated text detection tool. In H. Bouamor, J. Pino, &amp; K. Bali (Eds.), Findings of the Association for Computational Linguistics: EMNLP 2023 (pp. 2113–2133). Association for Computational Linguistics. Yuan, A., Coenen, A., Reif, E., &amp; Ippolito, D. (2022). Wordcraft: Story writing with large language models. In Proceedings of the 27th International Conference on Intelligent User Interfaces (IUI '22). Association for Computing Machinery, New York, NY, USA, 841–852. Zargari, H., Rosenfeld, A., &amp; Elmalech, A. (2023). Online self-presentation: Examining gender differences in academic scholars’ personal web-pages. In Proceedings of iConference 2023. Copyright: © 2024 Teddy Lazebnik, Ariel Rosenfeld. Published under a Creative Commons Attribution 4.0 International (CC BY 4.0) license. <a href="https://doi.org/10.1145/3490099.3511105" target="_blank" rel="noopener">doi:10.1145/3490099.3511105</a></li>
+<li>Journal of Data and</li>
+<li>Information Science</li>
+</ul>
+</div>
+        
+        
+        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik et al. (2024), <em>Journal of Data and Information Science</em>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+      </article>
+    </div>
+
+    <section class="paper-related" aria-labelledby="related-title"><div class="paper-wrap"><h2 id="related-title">Related research</h2><div class="related-grid"><a class="related-card related-project" href="/project.html?pagename=bio-informed-scientometrics"><img src="/img/projects/project5.webp" alt="" loading="lazy" decoding="async"><span class="related-kind"><i class="ri-flask-line" aria-hidden="true"></i>Research project</span><strong>A Biologically-Informed and Data-Driven Approach to Scientometrics</strong><span class="related-text">Leveraging biological principles and advanced analytics to evaluate scientific impact and trends.</span></a><a class="related-card" href="/publications/whose-llm-it-anyway-linguistic-comparison-llm/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2026</span><strong>Whose LLM Is It Anyway? Linguistic Comparison and LLM Attribution for GPT-3.5, GPT-4 and Bard</strong><span class="related-text">Mathematics</span></a><a class="related-card" href="/publications/computational-model-individual-scholars-writing-style-dynamics/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2025</span><strong>A computational model for individual scholars&#x27; writing style dynamics</strong><span class="related-text">Journal of writing research</span></a></div><p class="related-more"><a href="/publications.html">All publications</a></p></div></section>
+  </main>
+
+  <dialog id="cite-dialog" class="paper-dialog" aria-labelledby="cite-title">
+    <div class="dialog-head">
+      <h2 id="cite-title">Cite this paper</h2>
+      <button type="button" class="dialog-close" aria-label="Close"><i class="ri-close-line" aria-hidden="true"></i></button>
+    </div>
+    <p class="dialog-label">APA</p>
+    <pre class="cite-box" id="cite-apa">Lazebnik, T., &amp; Rosenfeld, A. (2024). Detecting LLM-assisted writing in scientific communication: Are we there yet?. Journal of Data and Information Science.</pre>
+    <button type="button" class="paper-btn" data-copy="cite-apa"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy APA</span></button>
+    <p class="dialog-label">BibTeX</p>
+    <pre class="cite-box" id="cite-bib">@article{lazebnik2024detecting,
+  title = {Detecting LLM-assisted writing in scientific communication: Are we there yet?},
+  author = {Lazebnik, Teddy and Rosenfeld, Ariel},
+  journal = {Journal of Data and Information Science},
+  year = {2024}
+}</pre>
+    <button type="button" class="paper-btn" data-copy="cite-bib"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy BibTeX</span></button>
+  </dialog>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Games</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
+                  <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
+                  <li><a href="https://rl.teddylazebnik.com/">Pirate War RL Game</a></li>
+                  <li><a href="https://eh.teddylazebnik.com/">Echo Heist</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      
+      <script>
+        (function () {
+          // menu and navbar (js/main.js expects to sit at the site root)
+          var btn = document.getElementById('menu-btn'), menu = document.getElementById('mobile-menu'), nav = document.getElementById('navbar');
+          btn.addEventListener('click', function () { menu.classList.toggle('max-h-0'); menu.classList.toggle('max-h-screen'); });
+          var onScroll = function () { nav.classList.toggle('nav-scrolled', window.scrollY > 10); };
+          window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+          // cite dialog + copy buttons
+          var dialog = document.getElementById('cite-dialog');
+          document.querySelectorAll('[data-dialog]').forEach(function (b) {
+            b.addEventListener('click', function () { if (dialog.showModal) dialog.showModal(); else dialog.setAttribute('open', ''); });
+          });
+          dialog.querySelector('.dialog-close').addEventListener('click', function () { dialog.close(); });
+          dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
+          function flash(button, text) {
+            var label = button.querySelector('span'), old = label.textContent;
+            label.textContent = text; setTimeout(function () { label.textContent = old; }, 1600);
+          }
+          document.querySelectorAll('[data-copy]').forEach(function (b) {
+            b.addEventListener('click', function () {
+              var text = document.getElementById(b.getAttribute('data-copy')).textContent;
+              navigator.clipboard.writeText(text).then(function () { flash(b, 'Copied'); });
+            });
+          });
+          document.getElementById('share-btn').addEventListener('click', function () {
+            var b = this, data = { title: document.title, url: location.href.split('#')[0] };
+            if (navigator.share) { navigator.share(data).catch(function () {}); }
+            else { navigator.clipboard.writeText(data.url).then(function () { flash(b, 'Link copied'); }); }
+          });
+
+          // highlight the section being read in "On this page"
+          var links = {};
+          document.querySelectorAll('.paper-toc a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+          var heads = Array.prototype.filter.call(document.querySelectorAll('#full-text h2[id], #full-text h3[id], #full-text section[id]'), function (h) { return links[h.id]; });
+          if ('IntersectionObserver' in window && heads.length) {
+            var current = null;
+            var io = new IntersectionObserver(function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                  if (current) current.classList.remove('is-active');
+                  current = links[e.target.id]; current.classList.add('is-active');
+                }
+              });
+            }, { rootMargin: '-90px 0px -70% 0px' });
+            heads.forEach(function (h) { io.observe(h); });
+          }
+        })();
+      </script>
+   </body>
+</html>

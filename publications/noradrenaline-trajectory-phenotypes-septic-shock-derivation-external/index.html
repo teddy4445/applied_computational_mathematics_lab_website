@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_papers.py from paper.md + paper.json in this folder. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Noradrenaline-trajectory phenotypes in septic shock: two cohorts | ACML</title>
+      <meta name="description" content="Patients with septic shock need changing doses of noradrenaline, a drug that supports blood pressure, and we asked whether these dose patterns form…">
+      <meta name="author" content="Yonatan Gargi, Amir Cohen, Dorit Stein, Ori Levi, Dor Cohen, Julia Klein, Hamutal S Taube, Jacob Vine, Maxim Glebov, Teddy Lazebnik, Mor Saban, Yael Haviv, Eran Segal">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/publications/noradrenaline-trajectory-phenotypes-septic-shock-derivation-external/">
+      <meta name="citation_title" content="Noradrenaline-trajectory phenotypes in septic shock: derivation and external validation in two independent cohorts">
+      <meta name="citation_author" content="Yonatan Gargi">
+      <meta name="citation_author" content="Amir Cohen">
+      <meta name="citation_author" content="Dorit Stein">
+      <meta name="citation_author" content="Ori Levi">
+      <meta name="citation_author" content="Dor Cohen">
+      <meta name="citation_author" content="Julia Klein">
+      <meta name="citation_author" content="Hamutal S Taube">
+      <meta name="citation_author" content="Jacob Vine">
+      <meta name="citation_author" content="Maxim Glebov">
+      <meta name="citation_author" content="Teddy Lazebnik">
+      <meta name="citation_author" content="Mor Saban">
+      <meta name="citation_author" content="Yael Haviv">
+      <meta name="citation_author" content="Eran Segal">
+      <meta name="citation_publication_date" content="2026">
+      <meta name="citation_journal_title" content="Intensive Care Medicine Experimental">
+      <meta name="citation_volume" content="14">
+      <meta name="citation_firstpage" content="77">
+      <meta name="citation_doi" content="10.1186/s40635-026-00910-8">
+      <meta name="citation_pdf_url" content="https://teddylazebnik.com/files/septic_shock.pdf">
+      <meta name="citation_abstract_html_url" content="https://acml.teddylazebnik.com/publications/noradrenaline-trajectory-phenotypes-septic-shock-derivation-external/">
+      <meta name="citation_fulltext_html_url" content="https://acml.teddylazebnik.com/publications/noradrenaline-trajectory-phenotypes-septic-shock-derivation-external/">
+      <meta name="citation_keywords" content="Septic shock; Phenotypes; Noradrenaline trajectories">
+      <meta name="citation_language" content="en">
+      <meta property="og:type" content="article">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Noradrenaline-trajectory phenotypes in septic shock: two cohorts">
+      <meta property="og:description" content="Patients with septic shock need changing doses of noradrenaline, a drug that supports blood pressure, and we asked whether these dose patterns form…">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/publications/noradrenaline-trajectory-phenotypes-septic-shock-derivation-external/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/publications/noradrenaline-trajectory-phenotypes-septic-shock-derivation-external/figures/share-fig-1.jpg">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Noradrenaline-trajectory phenotypes in septic shock: two cohorts">
+      <meta name="twitter:description" content="Patients with septic shock need changing doses of noradrenaline, a drug that supports blood pressure, and we asked whether these dose patterns form…">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/publications/noradrenaline-trajectory-phenotypes-septic-shock-derivation-external/figures/share-fig-1.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "Noradrenaline-trajectory phenotypes in septic shock: derivation and external validation in two independent…",
+  "name": "Noradrenaline-trajectory phenotypes in septic shock: derivation and external validation in two independent cohorts",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Yonatan Gargi"
+    },
+    {
+      "@type": "Person",
+      "name": "Amir Cohen"
+    },
+    {
+      "@type": "Person",
+      "name": "Dorit Stein"
+    },
+    {
+      "@type": "Person",
+      "name": "Ori Levi"
+    },
+    {
+      "@type": "Person",
+      "name": "Dor Cohen"
+    },
+    {
+      "@type": "Person",
+      "name": "Julia Klein"
+    },
+    {
+      "@type": "Person",
+      "name": "Hamutal S Taube"
+    },
+    {
+      "@type": "Person",
+      "name": "Jacob Vine"
+    },
+    {
+      "@type": "Person",
+      "name": "Maxim Glebov"
+    },
+    {
+      "@type": "Person",
+      "name": "Teddy Lazebnik"
+    },
+    {
+      "@type": "Person",
+      "name": "Mor Saban"
+    },
+    {
+      "@type": "Person",
+      "name": "Yael Haviv"
+    },
+    {
+      "@type": "Person",
+      "name": "Eran Segal"
+    }
+  ],
+  "datePublished": "2026",
+  "url": "https://acml.teddylazebnik.com/publications/noradrenaline-trajectory-phenotypes-septic-shock-derivation-external/",
+  "mainEntityOfPage": "https://acml.teddylazebnik.com/publications/noradrenaline-trajectory-phenotypes-septic-shock-derivation-external/",
+  "abstract": "Background: Septic shock is heterogeneous, and noradrenaline (NA) requirements evolve over time in ways that reflect vascular responsiveness and shock biology. Whether long-horizon NA dose-trajectory phenotypes are reproducible across healthcare systems and identifiable early in the clinical course remains uncertain. Methods: We retrospectively analyzed 1111 adults with septic shock at Sheba Medical Center (Israel) and 9343 adults from MIMIC-IV. Hourly NA infusion trajectories were reconstructed for 10 days. A fully prespecified clustering pipeline combining static-feature K-means with dynamic time warping refinement was derived in Sheba and applied unchanged to MIMIC-IV. The primary outcome was 90-day mortality; 30-day mortality was analyzed as a supportive secondary outcome. Secondary analyses included feature interpretability, multivariable landmark Cox models (24–144 h), and early phenotype prediction using exposure features available at 24–96 h. Results: Five stable phenotypes emerged in Sheba and six in MIMIC-IV. Despite this numerical difference and somewhat more prolonged high-dose exposure in Sheba sustained/late-escalating patterns, both cohorts exhibited the same core families of trajectory shapes with preserved mortality gradients (90-day mortality 37–89% in Sheba; 16–69% in MIMIC-IV). Mortality gradients were preserved at both 30 and 90 days across cohorts. Across cohorts, exposure-persistence features—particularly time to maximal NA dose and cumulative NA burden during days 2–4—were key determinants of phenotype structure and mortality. Early-prediction models identified final phenotypes using 24-h data with 85% accuracy in Sheba and 86% in MIMIC-IV, improving by 48 h to 89% and 88%, respectively; high-confidence assignments achieved approximately 91%–95% accuracy. Conclusions: Long-horizon NA dose-trajectory phenotypes are clinically interpretable hemodynamic exposure/response patterns, prognostically coherent, and externally reproducible. Their defining features were detectable within the first 24 h and showed stronger discrimination by 48 h. At present, these phenotypes should be interpreted as descriptive hemodynamic-response patterns that may support dynamic risk stratification, prognostic enrichment for future trials, and hypothesis generation; whether early phenotype identification can improve management or outcomes requires prospective evaluation.",
+  "description": "Patients with septic shock need changing doses of noradrenaline, a drug that supports blood pressure, and we asked whether these dose patterns form…",
+  "image": "https://acml.teddylazebnik.com/publications/noradrenaline-trajectory-phenotypes-septic-shock-derivation-external/figures/share-fig-1.jpg",
+  "keywords": "Septic shock, Phenotypes, Noradrenaline trajectories",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "DOI",
+    "value": "10.1186/s40635-026-00910-8"
+  },
+  "sameAs": "https://doi.org/10.1186/s40635-026-00910-8",
+  "isPartOf": {
+    "@type": "PublicationIssue",
+    "issueNumber": "",
+    "isPartOf": {
+      "@type": "PublicationVolume",
+      "volumeNumber": "14",
+      "isPartOf": {
+        "@type": "Periodical",
+        "name": "Intensive Care Medicine Experimental"
+      }
+    }
+  },
+  "about": "Machine Learning",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "encoding": {
+    "@type": "MediaObject",
+    "contentUrl": "https://teddylazebnik.com/files/septic_shock.pdf",
+    "encodingFormat": "application/pdf"
+  }
+}
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/paper.css" rel="stylesheet">
+      
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="paper-page">
+    <header class="paper-hero">
+      <div class="paper-wrap">
+        <nav class="paper-crumbs" aria-label="Breadcrumb">
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Machine Learning</span>
+        </nav>
+        <p class="paper-kicker"><span class="oa-badge"><i class="ri-lock-unlock-line" aria-hidden="true"></i>Open access</span><span><em>Intensive Care Medicine Experimental</em> · 2026</span></p>
+        <h1 class="paper-title">Noradrenaline-trajectory phenotypes in septic shock: derivation and external validation in two independent cohorts</h1>
+        <p class="paper-authors"><span class="author">Yonatan Gargi</span>, <span class="author">Amir Cohen</span>, <span class="author">Dorit Stein</span>, <span class="author">Ori Levi</span>, <span class="author">Dor Cohen</span>, <span class="author">Julia Klein</span>, <span class="author">Hamutal S Taube</span>, <span class="author">Jacob Vine</span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Maxim Glebov</a></span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author">Mor Saban</span>, <span class="author">Yael Haviv</span>, <span class="author">Eran Segal</span></p>
+        
+        <div class="paper-actions">
+          <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/septic_shock.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
+          <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
+          
+          <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
+          <a class="paper-btn" href="https://doi.org/10.1186/s40635-026-00910-8" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
+          <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
+        </div>
+        <div class="lab-authors"><span class="lab-authors-label">ACML authors</span><a class="lab-chip" href="/team.html"><img src="/img/lab/max.webp" alt="" width="32" height="32" loading="lazy"><span><strong>Maxim Glebov</strong><small>PhD Student</small></span></a><a class="lab-chip" href="/team.html"><img src="/img/lab/teddy.webp" alt="" width="32" height="32" loading="lazy"><span><strong>Teddy Lazebnik</strong><small>PI</small></span></a></div>
+      </div>
+    </header>
+
+    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Patients with septic shock need changing doses of noradrenaline, a drug that supports blood pressure, and we asked whether these dose patterns form reproducible groups. We reconstructed hourly doses over 10 days for 1111 adults at Sheba Medical Center and 9343 adults in the MIMIC-IV database, and grouped their trajectories by shape. Both cohorts showed the same core families of patterns with consistent mortality differences, and the final group could be predicted from the first 24 hours of data with 85% and 86% accuracy.</p><div class=glance-stats><div class="stat"><span class="stat-value">1111</span><span class="stat-label">Sheba Medical Center adults with septic shock</span></div><div class="stat"><span class="stat-value">9343</span><span class="stat-label">MIMIC-IV adults with septic shock</span></div><div class="stat"><span class="stat-value">85%</span><span class="stat-label">Sheba phenotype prediction accuracy from 24-hour data</span></div><div class="stat"><span class="stat-value">86%</span><span class="stat-label">MIMIC-IV phenotype prediction accuracy from 24-hour data</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Five stable phenotypes emerged at Sheba and six in MIMIC-IV, sharing the same core families of trajectory shapes.</li><li>Mortality gradients were preserved, with 90-day mortality ranging from 37-89% at Sheba and 16-69% in MIMIC-IV across phenotypes.</li><li>Time to maximal dose and cumulative noradrenaline burden during days 2-4 were key determinants of phenotype structure and mortality.</li><li>Using 24-hour data, models predicted final phenotypes with 85% accuracy at Sheba and 86% in MIMIC-IV, rising to 89% and 88% by 48 hours.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1800" height="689" alt="Fig. 1 Median NA trajectories by cluster. Solid lines represent the cluster‐specific median dose (µg/kg/min) from ICU admission; shaded bands represent the interquartile range. a Sheba cohort trajectories, b MIMIC-IV cohort trajectories"></a><figcaption><strong>Fig. 1</strong> Median NA trajectories by cluster. Solid lines represent the cluster‐specific median dose (µg/kg/min) from ICU admission; shaded bands represent the interquartile range. <strong>a</strong> Sheba cohort trajectories, <strong>b</strong> MIMIC-IV cohort trajectories <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+
+    <div class="paper-wrap paper-layout">
+      <aside class="paper-aside">
+        <nav class="paper-toc" aria-label="On this page">
+          <p class="aside-title">On this page</p>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#methods">Methods</a></li><li class="toc-sub"><a href="#study-design-and-cohort">Study design and cohort</a></li><li class="toc-sub"><a href="#exposure-construction">Exposure construction</a></li><li class="toc-sub"><a href="#feature-engineering">Feature engineering</a></li><li class="toc-sub"><a href="#clustering-workflow">Clustering workflow</a></li><li class="toc-sub"><a href="#outcomes">Outcomes</a></li><li class="toc-sub"><a href="#feature-importance-and-outcome-association-interpretability">Feature importance and outcome association (interpretability)</a></li><li class="toc-sub"><a href="#landmarked-multivariable-modeling-across-time-points">Landmarked multivariable modeling across time points</a></li><li class="toc-sub"><a href="#internal-validation">Internal validation</a></li><li class="toc-sub"><a href="#external-validation">External validation</a></li>
+<li><a href="#results">Results</a></li><li class="toc-sub"><a href="#cohort-and-cluster-structure">Cohort and cluster structure</a></li><li class="toc-sub"><a href="#trajectory-phenotypes-qualitative">Trajectory phenotypes (qualitative)</a></li><li class="toc-sub"><a href="#survival-analyses">Survival analyses</a></li><li class="toc-sub"><a href="#individualfeature-analysis-phenotype-interpretability">Individual‑feature analysis (phenotype interpretability)</a></li><li class="toc-sub"><a href="#consistency-of-covariate-effects-across-landmarks">Consistency of covariate effects across landmarks</a></li><li class="toc-sub"><a href="#internal-validation_1">Internal validation</a></li><li class="toc-sub"><a href="#external-validation_1">External validation</a></li><li class="toc-sub"><a href="#early-cluster-prediction">Early cluster prediction</a></li><li class="toc-sub"><a href="#derivation-cohort-sheba">Derivation cohort (Sheba)</a></li><li class="toc-sub"><a href="#external-validation-cohort-mimiciv">External validation cohort (MIMIC‑IV)</a></li>
+<li><a href="#discussion">Discussion</a></li><li class="toc-sub"><a href="#phenotypic-structure-and-hemodynamicresponse-interpretation">Phenotypic structure and hemodynamic‑response interpretation</a></li><li class="toc-sub"><a href="#stability-and-crosscohort-reproducibility-of-the-cluster-structure">Stability and cross‑cohort reproducibility of the cluster structure</a></li><li class="toc-sub"><a href="#drivers-of-phenotypic-separation-and-mortality">Drivers of phenotypic separation and mortality</a></li><li class="toc-sub"><a href="#internal-and-external-prognostic-validation">Internal and external prognostic validation</a></li><li class="toc-sub"><a href="#early-recognition-of-phenotypes">Early recognition of phenotypes</a></li><li class="toc-sub"><a href="#limitations">Limitations</a></li>
+<li><a href="#conclusions">Conclusions</a></li>
+<li><a href="#supplementary-information">Supplementary Information</a></li><li class="toc-sub"><a href="#declarations">Declarations</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </nav>
+        <div class="paper-info">
+          <p class="aside-title">Article information</p>
+          <dl><div><dt>Journal</dt><dd>Intensive Care Medicine Experimental 14: 77</dd></div><div><dt>Year</dt><dd>2026</dd></div><div><dt>DOI</dt><dd><a href="https://doi.org/10.1186/s40635-026-00910-8" target="_blank" rel="noopener">10.1186/s40635-026-00910-8</a></dd></div><div><dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY</a></dd></div></dl>
+        </div>
+      </aside>
+
+      <article class="paper-body" id="full-text">
+        <details class="paper-toc-mobile">
+          <summary>On this page</summary>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#methods">Methods</a></li><li class="toc-sub"><a href="#study-design-and-cohort">Study design and cohort</a></li><li class="toc-sub"><a href="#exposure-construction">Exposure construction</a></li><li class="toc-sub"><a href="#feature-engineering">Feature engineering</a></li><li class="toc-sub"><a href="#clustering-workflow">Clustering workflow</a></li><li class="toc-sub"><a href="#outcomes">Outcomes</a></li><li class="toc-sub"><a href="#feature-importance-and-outcome-association-interpretability">Feature importance and outcome association (interpretability)</a></li><li class="toc-sub"><a href="#landmarked-multivariable-modeling-across-time-points">Landmarked multivariable modeling across time points</a></li><li class="toc-sub"><a href="#internal-validation">Internal validation</a></li><li class="toc-sub"><a href="#external-validation">External validation</a></li>
+<li><a href="#results">Results</a></li><li class="toc-sub"><a href="#cohort-and-cluster-structure">Cohort and cluster structure</a></li><li class="toc-sub"><a href="#trajectory-phenotypes-qualitative">Trajectory phenotypes (qualitative)</a></li><li class="toc-sub"><a href="#survival-analyses">Survival analyses</a></li><li class="toc-sub"><a href="#individualfeature-analysis-phenotype-interpretability">Individual‑feature analysis (phenotype interpretability)</a></li><li class="toc-sub"><a href="#consistency-of-covariate-effects-across-landmarks">Consistency of covariate effects across landmarks</a></li><li class="toc-sub"><a href="#internal-validation_1">Internal validation</a></li><li class="toc-sub"><a href="#external-validation_1">External validation</a></li><li class="toc-sub"><a href="#early-cluster-prediction">Early cluster prediction</a></li><li class="toc-sub"><a href="#derivation-cohort-sheba">Derivation cohort (Sheba)</a></li><li class="toc-sub"><a href="#external-validation-cohort-mimiciv">External validation cohort (MIMIC‑IV)</a></li>
+<li><a href="#discussion">Discussion</a></li><li class="toc-sub"><a href="#phenotypic-structure-and-hemodynamicresponse-interpretation">Phenotypic structure and hemodynamic‑response interpretation</a></li><li class="toc-sub"><a href="#stability-and-crosscohort-reproducibility-of-the-cluster-structure">Stability and cross‑cohort reproducibility of the cluster structure</a></li><li class="toc-sub"><a href="#drivers-of-phenotypic-separation-and-mortality">Drivers of phenotypic separation and mortality</a></li><li class="toc-sub"><a href="#internal-and-external-prognostic-validation">Internal and external prognostic validation</a></li><li class="toc-sub"><a href="#early-recognition-of-phenotypes">Early recognition of phenotypes</a></li><li class="toc-sub"><a href="#limitations">Limitations</a></li>
+<li><a href="#conclusions">Conclusions</a></li>
+<li><a href="#supplementary-information">Supplementary Information</a></li><li class="toc-sub"><a href="#declarations">Declarations</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </details>
+        <section id="abstract" class="paper-abstract">
+          <h2>Abstract</h2>
+          <p>Background: Septic shock is heterogeneous, and noradrenaline (NA) requirements evolve over time in ways that reflect vascular responsiveness and shock biology. Whether long-horizon NA dose-trajectory phenotypes are reproducible across healthcare systems and identifiable early in the clinical course remains uncertain. Methods: We retrospectively analyzed 1111 adults with septic shock at Sheba Medical Center (Israel) and 9343 adults from MIMIC-IV. Hourly NA infusion trajectories were reconstructed for 10 days. A fully prespecified clustering pipeline combining static-feature K-means with dynamic time warping refinement was derived in Sheba and applied unchanged to MIMIC-IV. The primary outcome was 90-day mortality; 30-day mortality was analyzed as a supportive secondary outcome. Secondary analyses included feature interpretability, multivariable landmark Cox models (24–144 h), and early phenotype prediction using exposure features available at 24–96 h. Results: Five stable phenotypes emerged in Sheba and six in MIMIC-IV. Despite this numerical difference and somewhat more prolonged high-dose exposure in Sheba sustained/late-escalating patterns, both cohorts exhibited the same core families of trajectory shapes with preserved mortality gradients (90-day mortality 37–89% in Sheba; 16–69% in MIMIC-IV). Mortality gradients were preserved at both 30 and 90 days across cohorts. Across cohorts, exposure-persistence features—particularly time to maximal NA dose and cumulative NA burden during days 2–4—were key determinants of phenotype structure and mortality. Early-prediction models identified final phenotypes using 24-h data with 85% accuracy in Sheba and 86% in MIMIC-IV, improving by 48 h to 89% and 88%, respectively; high-confidence assignments achieved approximately 91%–95% accuracy. Conclusions: Long-horizon NA dose-trajectory phenotypes are clinically interpretable hemodynamic exposure/response patterns, prognostically coherent, and externally reproducible. Their defining features were detectable within the first 24 h and showed stronger discrimination by 48 h. At present, these phenotypes should be interpreted as descriptive hemodynamic-response patterns that may support dynamic risk stratification, prognostic enrichment for future trials, and hypothesis generation; whether early phenotype identification can improve management or outcomes requires prospective evaluation.</p>
+        </section>
+        
+<div class="paper-text">
+<h2 id="introduction">Introduction</h2>
+<p>Septic shock is a life-threatening manifestation of sepsis, characterized by profound hypotension and organ hypoperfusion, with mortality rates often exceeding 40% <span class="cite">[<a href="#ref-1">1</a>]</span>. NA is widely recommended as the first-line vasopressor to restore adequate mean arterial pressure in septic shock <span class="cite">[<a href="#ref-2">2</a>]</span>, and its dosing requirements are often interpreted as a marker of shock severity <span class="cite">[<a href="#ref-3">3</a>–<a href="#ref-5">5</a>]</span>. Patients who require high-dose NA have particularly poor outcomes <span class="cite">[<a href="#ref-6">6</a>, <a href="#ref-7">7</a>]</span>.</p>
+<p>However, clinical responses to NA vary widely: some patients rapidly stabilize and can be weaned off vasopressors within 24–48 h, whereas others require escalating or sustained support, or develop refractory vasoplegia despite increasing doses <span class="cite">[<a href="#ref-8">8</a>–<a href="#ref-10">10</a>]</span>, and often progress to multiorgan failure. These divergent patterns underscore the biological and clinical heterogeneity of septic shock and motivate the use of phenotyping approaches grounded in dynamic vasopressor behavior rather than isolated measurements.</p>
+<p>Prior observational studies have shown that prolonged or escalating NA exposure is strongly associated with increased mortality and organ failure <span class="cite">[<a href="#ref-11">11</a>, <a href="#ref-12">12</a>]</span>, and that an inability to taper vasopressors in the first several days is a powerful predictor of poor prognosis <span class="cite">[<a href="#ref-12">12</a>]</span>.</p>
+<p>Unsupervised machine learning methods have proven to be powerful methods for uncovering phenotypes derived from temporal clinical data <span class="cite">[<a href="#ref-8">8</a>, <a href="#ref-9">9</a>]</span>. Earlier approaches primarily clustered patients using static features, yielding phenotypes defined mainly by organ-failure patterns <span class="cite">[<a href="#ref-13">13</a>–<a href="#ref-17">17</a>]</span>.</p>
+<p>More recent approaches have incorporated time-series information to better capture the dynamic evolution of critical illness <span class="cite">[<a href="#ref-18">18</a>, <a href="#ref-19">19</a>]</span>. For example, Shen et al. showed that the mortality impact of vasoactive drug dose and duration varies markedly across sepsis phenotypes <span class="cite">[<a href="#ref-20">20</a>]</span>, underscoring the clinical relevance of vasopressor time-course patterns. However, these studies continue to treat vasopressor use as an exposure rather than as a defining dynamic phenotype. This motivates the need to characterize vasopressor trajectories themselves as reproducible shock phenotypes.</p>
+<p>More recent work has focused on vasopressor-dose trajectories. For example, Yang et al. (2025) applied group-based trajectory modeling to NA dosing over the first 4 days of septic shock and identified three distinct dose-trajectory phenotypes: low, intermediate, and high <span class="cite">[<a href="#ref-12">12</a>]</span>. The high-dose group had worse baseline severity and mortality.</p>
+<p>These studies show that clustering in the time domain, not just the static domain, can reveal meaningful septic-shock phenotypes with potential relevance for dynamic risk stratification and later supportive decision-making.</p>
+<p>Classifying septic-shock patients according to their NA dose trajectories may improve dynamic risk stratification after the initial resuscitation phase, may help characterize persistence versus resolution of hemodynamic support needs, and may reduce physiologic heterogeneity in observational studies and interventional trials. However, it remains unknown whether long-horizon NA-trajectory phenotypes are reproducible across healthcare systems and whether phenotype-related trajectory signal can already be identified within the first 24 h of shock management, with more robust discrimination by 48 h.</p>
+<p>To address these gaps, we pursued two objectives: (1) derive robust NA-trajectory phenotypes in a large single-center cohort using a transparent and reproducible clustering pipeline, and (2) perform external validation of the identical, fully prespecified pipeline in the MIMIC-IV database, representing a different continent, healthcare system and ICU practice environment.</p>
+<h2 id="methods">Methods</h2>
+<h3 id="study-design-and-cohort">Study design and cohort</h3>
+<p>The derivation cohort comprised 1111 adult ICU admissions with septic shock at Sheba Medical Center (Israel) between 2012 and mid-2025, defined by a clinical septic shock diagnosis with lactate &gt; 2 mmol/L prior to or at ICU admission and active NA infusion. NA infusion trajectories were reconstructed and standardized to norepinephrine base-equivalent µg/kg/min using first-day recorded weight. In the Sheba cohort, norepinephrine was administered as Levophed or equivalent formulations, which are supplied as bitartrate salts but labeled in base-equivalent terms; thus, doses were analyzed on a harmonized base-equivalent scale <span class="cite">[<a href="#ref-21">21</a>]</span>.</p>
+<p>The external validation cohort was drawn from MIMIC-IV v2.2 (2008–2019) at Beth Israel Deaconess Medical Center (Boston, USA) <span class="cite">[<a href="#ref-22">22</a>]</span>. Septic shock was identified using the published Sepsis-3 computable phenotype (mimiciv_derived.septic_shock); to enable trajectory construction, we additionally required documented NA infusion records. For cross-cohort comparability, MIMIC-IV norepinephrine doses were likewise interpreted on a base-equivalent µg/kg/min scale. The final validation cohort included 9343 ICU stays (Supplement Fig. S1).</p>
+<h3 id="exposure-construction">Exposure construction</h3>
+<p>Medication administration records were converted into hourly NA infusion time-series over a 10-day horizon.</p>
+<h3 id="feature-engineering">Feature engineering</h3>
+<p>From each hourly NA series, we derived features capturing exposure magnitude and persistence (AUC-based measures), escalation timing and intensity, time-above clinically relevant dose thresholds, de-escalation kinetics, and post-peak rebound behavior. Full feature definitions and rationale regarding high-dose cutoffs are provided in the Supplement.</p>
+<h3 id="clustering-workflow">Clustering workflow</h3>
+<p>We applied a prespecified two-stage clustering framework combining feature-based K-means with DTW-based refinement of NA time-series trajectories. In this framework, the primary coarse cluster structure was learned in the engineered feature space, whereas DTW refinement was used to improve alignment with similarity in the underlying temporal trajectories. We did not apply unsupervised feature reduction or formal de-correlation before clustering. This was intentional: the feature library included partially overlapping cumulative AUC and time-over-threshold variables, but also non-AUC trajectory descriptors such as time to maximal dose, post-peak rebound count, slopes, slope-angle changes, and recovery metrics. These variables were retained because they encode complementary and clinically interpretable aspects of exposure magnitude, timing, persistence, escalation, and resolution. Accordingly, the resulting phenotypes should be interpreted as clusters derived within a prespecified norepinephrine exposure–response feature representation, rather than as representation-neutral biological endotypes. Clusters with fewer than 30 patients were absorbed into the most similar larger cluster based on DTW medoid similarity. This minimum-size rule was chosen to favor stability and reproducibility of the final phenotype set, although it may reduce sensitivity for rare but potentially meaningful micro-phenotypes. For interpretability purposes only, phenotypes were renumbered by prognosis and assigned descriptive labels based on their NA dose–time patterns; this step did not influence clustering, feature selection, or external validation.</p>
+<h3 id="outcomes">Outcomes</h3>
+<p>The primary outcome was 90-day all-cause mortality. Because longer term mortality may be influenced by baseline comorbidity and post-acute events, 30-day all-cause mortality was also examined as a supportive secondary outcome. Survival was evaluated using landmarked Kaplan–Meier analyses, ΔRMST, and Cox proportional hazards models, with the lowest mortality phenotype as the reference. Sensitivity analyses are detailed in the Supplement.</p>
+<h3 id="feature-importance-and-outcome-association-interpretability">Feature importance and outcome association (interpretability)</h3>
+<p>To identify which trajectory features distinguished phenotypes and contributed to prognosis, we performed an individual-feature interpretability analysis assessing both feature discrimination across clusters and univariable associations with 90-day mortality (HR per 1 SD). Methodological details are provided in the Supplement.</p>
+<h3 id="landmarked-multivariable-modeling-across-time-points">Landmarked multivariable modeling across time points</h3>
+<p>We fitted separate Cox models for 90-day mortality at prespecified landmarks (24–144 h) after ICU admission, including age, sex, SOFA, APACHE II, and the top trajectory features. At each landmark, the risk set included only patients alive and still under observation at that time; accordingly, estimates should be interpreted as prognosis conditional on survival to the relevant landmark rather than prognosis from ICU admission. Because the cardiovascular component of the conventional SOFA score incorporates vasopressor use, we additionally performed sensitivity Cox analyses at the 96-h landmark replacing SOFA with a modified SOFA score excluding the cardiovascular component. These 96-h sensitivity analyses were performed in both the Sheba and MIMIC- IV cohorts for both 30-day and 90-day mortality, using a base model that included cluster, age, sex, APACHE II, and the modified non-cardiovascular SOFA score, and an extended model that further adjusted for use of non-norepinephrine vasopressors, inotropic support, and renal replacement therapy by the landmark. Continuous covariates were standardized, with light penalization applied to improve stability. Hazard ratios with 95% CIs were reported for all landmarks (methodological details are provided in the Supplement).</p>
+<h3 id="internal-validation">Internal validation</h3>
+<p>Internal validation was performed using an event-stratified train/test split, with discrimination assessed by Harrell’s C-index. Additional details are provided in the Supplement.</p>
+<h3 id="external-validation">External validation</h3>
+<p>The entire feature-engineering and clustering pipeline was frozen after derivation and applied without modification to the MIMIC-IV dataset.</p>
+<p>We evaluated whether NA-trajectory phenotypes could be identified early by training horizon-limited multinomial logistic regression models using data available within the first 24–96 h after ICU admission. For each horizon, models used the top eight Sheba-ranked exposure features computable within that window. Continuous variables were standardized using the Sheba training data.</p>
+<p>Because the derivation cohort yielded five phenotypes whereas MIMIC-IV produced six, external labels were harmonized prior to validation by merging two low-dose, early-resolving MIMIC-IV phenotypes into a single minimal/low early resolver class; remaining phenotypes were mapped based on DTW-refined trajectory similarity.</p>
+<p>Models were trained exclusively in Sheba using class-balanced multinomial logistic regression with L2 regularization and temperature scaling. Performance was evaluated internally on an independent Sheba test set and externally in the harmonized MIMIC-IV cohort without retraining, using accuracy, macro-F1, Brier score, and correctness of high-confidence predictions (P_max ≥ 0.80).</p>
+<h2 id="results">Results</h2>
+<h3 id="cohort-and-cluster-structure">Cohort and cluster structure</h3>
+<p>A total of 1111 admissions were included in the Sheba derivation cohort and 9343 admissions in the MIMIC-IV validation cohort. Patient demographics, illness severity, mortality, organ-support variables, selected early laboratory markers, major comorbidities, and infection source are summarized for selected matched phenotype pairs in <a class="xref" href="#table-1">Table 1</a>, with full native-cluster characterization of all five Sheba phenotypes and all six MIMIC-IV phenotypes provided in Supplementary Table S1.</p>
+<p>Values are shown for selected matched phenotype pairs to provide concise clinical context. The full native-cluster table, including all five Sheba phenotypes and all six MIMIC-IV phenotypes separately, is provided in Supplementary Table S1. Mortality values refer to patients alive at the 96-h landmark. Continuous variables are shown as mean ± SD or median [IQR], as appropriate. Lactate is reported in mmol/L.</p>
+<p>After clustering and DTW-based refinement, one small cluster (<em>n</em> = 24) representing an extreme early high-dose “Fulminant Shock” pattern did not meet the prespecified minimum size and was absorbed into the most similar phenotype.</p>
+<p>The final phenotype composition was low dose–early resolver (54.9%), high dose–early resolver (14.2%), intermediate dose–gradual wean (15.3%), high dose–slow resolver (5.7%), and intermediate dose–non-resolver (10.0%).</p>
+<h3 id="trajectory-phenotypes-qualitative">Trajectory phenotypes (qualitative)</h3>
+<p>Median NA trajectories (IQR ribbons) presented distinct temporal exposure patterns across clusters (<a class="xref" href="#fig-1">Fig. 1</a>).</p>
+<p>In general, lower risk clusters (low dose–early resolver for Sheba, minimal dose–early resolver and low dose– early resolver for MIMIC-IV) exhibited quicker early de-escalation, lower AUCs on days 2–4, and earlier t50. Higher risk clusters (high dose–slow resolver and intermediate dose–non-resolver) maintained higher exposures into days 2–4, with longer t50 and more time above 0.10 µg/kg/min.</p>
+<h3 id="survival-analyses">Survival analyses</h3>
+<p>At prespecified landmarks (e.g., 96 h), Kaplan–Meier analyses demonstrated clear and consistent separation in 90-day survival across trajectory phenotypes, with lowest mortality in the minimal/low–early resolver and highest mortality in the intermediate–non-resolver phenotype (<a class="xref" href="#fig-2">Fig. 2</a>). Corresponding Cox models showed progressively higher hazard ratios for higher risk phenotypes.</p>
+<p>Similar mortality gradients were also observed at 30 days in both cohorts, supporting that the prognostic signal of the trajectory phenotypes was already evident in the earlier post-shock period (Supplementary Table S1 and Figure S5).</p>
+<h3 id="individualfeature-analysis-phenotype-interpretability">Individual‑feature analysis (phenotype interpretability)</h3>
+<p>Across both cohorts, phenotype separation and mortality associations were dominated by exposure magnitude and persistence, particularly cumulative NA exposure and mid-course (24–72 h) dosing, as well as time-above physiologic thresholds (<a class="xref" href="#fig-3">Fig. 3</a>). Univariable analyses showed monotonic increases in mortality risk across prognosis-ordered phenotypes, with time to maximal NA dose emerging as a strong and consistent predictor independent of cumulative exposure. Withdrawal-speed metrics contributed comparatively little additional prognostic information.</p>
+<h3 id="consistency-of-covariate-effects-across-landmarks">Consistency of covariate effects across landmarks</h3>
+<p>Multivariable landmark Cox models (24–144 h) showed broadly consistent covariate–mortality associations across time points and across health systems (<a class="xref" href="#fig-4">Fig. 4</a>). Age and SOFA-24 h were consistently associated with higher 90-day mortality in both cohorts. At the 96-h landmark, sensitivity analyses replacing SOFA with SOFA without the cardiovascular component yielded concordant associations for both 30-day and 90-day mortality in Sheba and MIMIC-IV, in both base and extended models.</p>
+<p>Several norepinephrine-trajectory features also demonstrated reproducible independent associations, particularly delayed escalation (time to maximal dose, <em>t_to_max_d</em>), rebound frequency (<em>rebound_cnt</em>), and persistence above clinically relevant dose thresholds (<em>time_ over_0.10</em> and <em>time_over_0.45</em>). When exposure was decomposed into non-overlapping time-window AUC components, later-phase burden (days 3–4; AUC 48–72 h and 72–96 h) exhibited the most consistent adverse associations at the corresponding landmarks, whereas earlier window AUCs (day 1–2) showed weaker and less stable effects. Overall, the trajectory features that distinguish the phenotypes were also those most consistently associated with outcome, with similar directionality and magnitude in the external MIMIC-IV cohort.</p>
+<figure class="table-figure" id="table-1">
+<figcaption><strong>Table 1</strong> Condensed clinical characteristics of selected matched norepinephrine-trajectory phenotypes in Sheba and MIMIC-IV</figcaption>
+<div class="table-scroll"><table><tr><th>Variable</th><th>Sheba low, early<br/>resolver (n = 610)</th><th>MIMIC low, early<br/>resolver (n = 2205)</th><th>Sheba<br/>intermediate,<br/>gradual wean<br/>(n = 167)</th><th>MIMIC<br/>intermediate,<br/>gradual wean<br/>(n = 177)</th><th>Sheba<br/>intermediate,<br/>non-resolver<br/>(n = 112)</th><th>MIMIC<br/>intermediate, non-<br/>resolver (n = 114)</th></tr><tr><td>Demographics, severity</td><td>and mortality</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Age, years</td><td>63.0 ± 15.3</td><td>67.3 ± 15.1</td><td>61.1 ± 14.6</td><td>62.6 ± 13.8</td><td>62.5 ± 13.6</td><td>63.7 ± 15.0</td></tr><tr><td>Male sex</td><td>344 (56.4%)</td><td>1287 (58.4%)</td><td>100 (59.9%)</td><td>106 (59.9%)</td><td>72 (64.3%)</td><td>69 (60.5%)</td></tr><tr><td>APACHE II</td><td>29.3 ± 8.8</td><td>29.9 ± 8.2</td><td>31.5 ± 7.1</td><td>34.6 ± 7.4</td><td>30.1 ± 6.5</td><td>29.1 ± 9.0</td></tr><tr><td>SOFA (24 h max)</td><td>12.5 ± 3.9</td><td>11.1 ± 3.5</td><td>14.9 ± 3.6</td><td>13.0 ± 2.9</td><td>14.1 ± 3.6</td><td>11.7 ± 3.8</td></tr><tr><td>SOFA with-<br/>out cardiovascu-<br/>lar component</td><td>9.7 ± 3.5</td><td>8.2 ± 3.4</td><td>11.3 ± 3.5</td><td>10.1 ± 2.8</td><td>10.8 ± 3.2</td><td>9.4 ± 3.5</td></tr><tr><td>90-day mortality<br/>(96-h landmark)</td><td>37.0%</td><td>18.7%</td><td>53.5%</td><td>55.1%</td><td>89.3%</td><td>69.3%</td></tr><tr><td>30-day mortality<br/>(96-h landmark)</td><td>23.1%</td><td>17.1%</td><td>39.6%</td><td>50.4%</td><td>74.1%</td><td>66.7%</td></tr><tr><td>Mechanical<br/>ventilation<br/>(admission)</td><td>495 (81.1%)</td><td>1731 (78.5%)</td><td>146 (87.4%)</td><td>156 (88.1%)</td><td>107 (95.5%)</td><td>88 (77.2%)</td></tr><tr><td>Acute kidney<br/>injury (admis-<br/>sion)</td><td>298 (48.9%)</td><td>1403 (63.6%)</td><td>93 (55.7%)</td><td>150 (84.7%)</td><td>54 (48.2%)</td><td>83 (72.8%)</td></tr><tr><td>RRT any ICU</td><td>164 (27.4%)</td><td>405 (18.4%)</td><td>99 (59.3%)</td><td>101 (57.1%)</td><td>67 (59.8%)</td><td>73 (64.0%)</td></tr><tr><td>Cardiogenic<br/>shock</td><td>17 (2.8%)</td><td>305 (13.8%)</td><td>9 (5.4%)</td><td>41 (23.2%)</td><td>9 (8.0%)</td><td>30 (26.3%)</td></tr><tr><td>Any non-NE<br/>vasopressor any<br/>ICU</td><td>434 (72.5%)</td><td>1234 (56.0%)</td><td>163 (97.6%)</td><td>171 (96.6%)</td><td>110 (98.2%)</td><td>96 (84.2%)</td></tr><tr><td>Any inotrope<br/>any ICU</td><td>140 (23.4%)</td><td>495 (22.4%)</td><td>77 (46.1%)</td><td>99 (55.9%)</td><td>49 (43.8%)</td><td>49 (43.0%)</td></tr><tr><td>Peak lactate first<br/>24 h, mmol/L</td><td>3.0 [2.0, 5.16]</td><td>3.4 [2.2, 6.4]</td><td>4.6 [2.7, 9.5]</td><td>5.5 [3.1, 8.3]</td><td>2.7 [2.0, 4.0]</td><td>3.0 [1.9, 6.2]</td></tr><tr><td>Platelets,<br/>minimum first<br/>24 h, × 10⁹/L</td><td>153.0 [72.0, 238.5]</td><td>157.0 [97.0, 232.0]</td><td>120.5 [39.8, 203.2]</td><td>123.0 [62.0, 204.0]</td><td>147.5 [68.2, 245.0]</td><td>161.0 [76.2, 217.8]</td></tr><tr><td>D-dimer, first,<br/>ng/mL</td><td>3535.0 [1569.0,<br/>7745.0]</td><td>3130.0 [1453.0,<br/>8037.0]</td><td>3539.0 [2045.5,<br/>7599.5]</td><td>3812.0 [2081.5,<br/>8072.5]</td><td>3340.5 [1752.2,<br/>6614.0]</td><td>3934.0 [1623.0,<br/>5673.0]</td></tr><tr><td>CRP, first, mg/L<br/>Sepsis source</td><td>226.4 [155.5, 316.7]</td><td>129.4 [67.4, 216.2]</td><td>208.3 [130.6, 282.8]</td><td>135.0 [94.6, 145.9]</td><td>222.9 [156.9, 299.0]</td><td>203.1 [77.2, 241.2]</td></tr><tr><td>Abdominal</td><td>124 (20.3%)</td><td>186 (8.4%)</td><td>32 (19.2%)</td><td>21 (11.9%)</td><td>12 (10.7%)</td><td>6 (5.3%)</td></tr><tr><td>Pneumonia/res-<br/>piratory</td><td>197 (32.3%)</td><td>640 (29.0%)</td><td>53 (31.7%)</td><td>64 (36.2%)</td><td>47 (42.0%)</td><td>51 (44.7%)</td></tr><tr><td>Urinary tract<br/>Comorbidities</td><td>69 (11.3%)</td><td>449 (20.4%)</td><td>13 (7.8%)</td><td>39 (22.0%)</td><td>6 (5.4%)</td><td>14 (12.3%)</td></tr><tr><td>Chronic kidney<br/>disease</td><td>109 (17.9%)</td><td>633 (28.7%)</td><td>29 (17.4%)</td><td>54 (30.5%)</td><td>25 (22.3%)</td><td>43 (37.7%)</td></tr><tr><td>Diabetes mellitus</td><td>200 (32.8%)</td><td>735 (33.3%)</td><td>46 (27.5%)</td><td>56 (31.6%)</td><td>35 (31.2%)</td><td>37 (32.5%)</td></tr><tr><td>Hypertension</td><td>315 (51.6%)</td><td>1381 (62.6%)</td><td>75 (44.9%)</td><td>94 (53.1%)</td><td>51 (45.5%)</td><td>67 (58.8%)</td></tr><tr><td>Ischemic heart<br/>disease</td><td>122 (20.0%)</td><td>886 (40.2%)</td><td>37 (22.2%)</td><td>61 (34.5%)</td><td>23 (20.5%)</td><td>44 (38.6%)</td></tr></table></div>
+
+</figure>
+
+<figure id="fig-1">
+<a class="fig-zoom" href="figures/fig-1.webp" aria-label="Open the figure full size"><img src="figures/fig-1.webp" width="777" height="297" alt="Median NA trajectories by cluster" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 1</strong> Median NA trajectories by cluster. Solid lines represent the cluster‐specific median dose (µg/kg/min) from ICU admission; shaded bands represent the interquartile range. <strong>a</strong> Sheba cohort trajectories, <strong>b</strong> MIMIC-IV cohort trajectories</figcaption>
+</figure>
+
+<figure id="fig-2">
+<a class="fig-zoom" href="figures/fig-2.webp" aria-label="Open the figure full size"><img src="figures/fig-2.webp" width="777" height="569" alt="Survival by NA‐trajectory cluster and ΔRMST versus lowest mortality cluster (landmark 96 h)" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 2</strong> Survival by NA‐trajectory cluster and ΔRMST versus lowest mortality cluster (landmark 96 h). <strong>a</strong> Kaplan–Meier survival to 90 days by cluster— Sheba cohort. <strong>b</strong> Kaplan–Meier survival to 90 days—MIMIC-IV cohort. <strong>c</strong> Difference in restricted mean survival time (ΔRMST) at 90 days relative to the first, lowest mortality cluster—Sheba cohort. <strong>d</strong> ΔRMST at 90 days—MIMIC-IV cohort</figcaption>
+</figure>
+
+<figure id="fig-3">
+<a class="fig-zoom" href="figures/fig-3.webp" aria-label="Open the figure full size"><img src="figures/fig-3.webp" width="777" height="268" alt="Top discriminating features and top mortality-associated features" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 3</strong> Top discriminating features and top mortality-associated features. <strong>a</strong> Top discriminating features of NA trajectories in Sheba and MIMIC-IV. Bar plot showing the eight highest ranking features for separating cluster phenotypes in each cohort, based on combined random forest importance and ANOVA F-statistics. Exposure-related variables, particularly cumulative AUC windows (0–2 to 0–10 days) and mid-course exposure (AUC 24–48 h and 48–72 h), consistently ranked highest in both datasets, indicating strong cross-cohort agreement on the dimensions that define trajectory phenotypes. <strong>b</strong> Top mortality-associated NA-trajectory features (96-h landmark, 90-day mortality). Forest plot showing hazard ratios per 1-SD increase for the eight most prognostic features shared by Sheba and MIMIC-IV, using linear HR scale. Cumulative exposure features (e.g., AUC 0–10 days, 0–5 days, 0–4 days, 0–3 days) and early mid-course exposure (AUC 48–72 h, 72–96 h) show the strongest mortality associations in both cohorts, with broadly consistent effect sizes. Vertical dashed line denotes HR = 1.0 (no association)</figcaption>
+</figure>
+
+<h3 id="internal-validation_1">Internal validation</h3>
+<p>Prognostic performance of landmark Cox models incorporating trajectory phenotypes was assessed with and without adjustment for baseline severity. At the 96-h landmark, cluster-only models achieved a Harrell’s C-index of 0.65, increasing to 0.70–0.72 after covariate adjustment. Across landmarks (24–144 h), cluster-only C-indices ranged from 0.63 to 0.66, and adjusted models from 0.68 to 0.72 (Supplementary Fig. S4). Bootstrap optimism correction showed minimal attenuation (&lt; 0.02).</p>
+<p>(See figure on next page.)</p>
+<h3 id="external-validation_1">External validation</h3>
+<p>Generalizability was evaluated in the independent MIMIC-IV cohort using the frozen derivation pipeline and prespecified phenotype mapping. Mortality gradients were preserved across externally assigned phenotypes, reproducing the internal risk hierarchy (<a class="xref" href="#fig-2">Fig. 2</a>). In unrefitted external Cox models, cluster-only Harrell’s C-indices ranged from 0.61 to 0.63 across landmarks (0.61 at 96 h), with closely parallel development and validation performance (Supplementary Fig. S4).</p>
+<h3 id="early-cluster-prediction">Early cluster prediction</h3>
+<h3 id="derivation-cohort-sheba">Derivation cohort (Sheba)</h3>
+<p>Although phenotypes were defined from full 10-day NA trajectories, a phenotype-related signal was already present at 24 h and became more discriminative by 48 h. Using 24-h features, the temperature-scaled multinomial model achieved 85% accuracy; 75% of patients met the high-confidence threshold (P_max ≥ 0.80), with 94% <strong><a class="xref" href="#fig-4">Fig. 4</a></strong> Multivariate landmark Cox models (24–144 h). Forest plots of hazard ratios (HRs) and 95% confidence intervals from multivariable landmark Cox proportional hazards models estimated at prespecified landmarks (24, 48, 72, 96, 120, and 144 h after ICU admission) in <strong>a</strong> the Sheba derivation cohort and <strong>b</strong> the external MIMIC-IV validation cohort. Points denote HR estimates and horizontal bars denote 95% confidence intervals; colors indicate landmark time. Continuous predictors were standardized to 1 SD to enable comparison of effect magnitudes; <em>time_over_</em> variables are scaled per + 0.1 absolute increase. The vertical dashed line indicates HR = 1.0. Across both cohorts, age and SOFA-24 h were consistently associated with increased mortality risk, and norepinephrine-trajectory features reflecting delayed escalation (<em>t_to_max_d</em>), rebound (<em>rebound_ cnt</em>), and time above dose thresholds (<em>time_over_0.10</em>, <em>time_over_0.45</em>) showed reproducible adverse associations. Decomposition of exposure into non-overlapping AUC windows highlighted a stronger and more consistent association for later-phase burden (48–96 h) compared with earlier windows accuracy within this subgroup. By 48 h, overall accuracy increased to 89%, high-confidence coverage to 78%, and high-confidence subgroup accuracy to 95%. Performance remained stable at later horizons, with 72-h and 96-h models achieving 90% and 85% overall accuracy, respectively, and 96% accuracy within high-confidence subsets.</p>
+<figure id="fig-4">
+<a class="fig-zoom" href="figures/fig-4.webp" aria-label="Open the figure full size"><img src="figures/fig-4.webp" width="777" height="958" alt="(See legend on previous page.)" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 4</strong> (See legend on previous page.)</figcaption>
+</figure>
+
+<h3 id="external-validation-cohort-mimiciv">External validation cohort (MIMIC‑IV)</h3>
+<p>External performance closely paralleled derivation results. Using 24-h features, the model achieved 86% accuracy; 88% of patients met the high-confidence threshold, with 91% accuracy within this subgroup. By 48 h, overall accuracy increased to 88%, high-confidence coverage to 89%, and high-confidence subgroup accuracy to 93%. Performance remained stable to improved at later horizons, reaching 89% accuracy at 72 h and 90% at 96 h, with high-confidence subgroup accuracy of 93% and 95%, respectively. Misclassification patterns mirrored those observed in Sheba, with errors concentrated among intermediate phenotypes, whereas extreme phenotypes were rarely confused with one another. Temperature scaling yielded stable probability estimates across horizons. Detailed performance metrics and confusion matrices are provided in Supplementary Tables S5 and S6.</p>
+<p>To complement the confusion matrices, <a class="xref" href="#fig-5">Fig. 5</a> provides an alluvial visualization of 48-h predicted versus final phenotype assignment, illustrating classification stability and the main directional misclassification patterns.</p>
+<h2 id="discussion">Discussion</h2>
+<p>In this study, we derived and externally validated NA dose-trajectory phenotypes in septic shock using a transparent clustering framework applied independently to two large ICU populations. Across both cohorts, the approach revealed distinct and clinically interpretable NA trajectories that corresponded closely with differences in 90-day mortality, reinforcing that dynamic vasopressor response captures meaningful heterogeneity in hemodynamic response during septic shock. We used 90-day mortality as the primary endpoint and also examined 30-day mortality. Similar risk gradients at 30 days indicate that the prognostic signal was already present early after shock.</p>
+<h3 id="phenotypic-structure-and-hemodynamicresponse-interpretation">Phenotypic structure and hemodynamic‑response interpretation</h3>
+<p>The trajectory phenotypes reflected clinically recognizable hemodynamic-response patterns. Favorable groups showed rapid early de-escalation, low cumulative exposure during days 2–4, and earlier half-dose recovery (t50), patterns compatible with earlier hemodynamic stabilization and treatment responsiveness. Unfavorable groups required sustained high doses, exhibited rebound-prone behavior, or developed late dose escalation patterns likely reflecting more persistent vasoplegia, ongoing shock, or evolving multiorgan dysfunction <span class="cite">[<a href="#ref-7">7</a>, <a href="#ref-11">11</a>, <a href="#ref-12">12</a>]</span>.</p>
+<figure id="fig-5">
+<a class="fig-zoom" href="figures/fig-5.webp" aria-label="Open the figure full size"><img src="figures/fig-5.webp" width="777" height="398" alt="Flow from 48-h predicted phenotype to final trajectory phenotype assignment" loading="lazy" decoding="async"></a>
+<figcaption><strong>Fig. 5</strong> Flow from 48-h predicted phenotype to final trajectory phenotype assignment. Alluvial diagrams show the relationship between phenotype predicted from truncated 48-h norepinephrine exposure data and final phenotype assignment based on the full trajectory framework in the derivation cohort (<strong>a</strong>, Sheba full derivation cohort with out-of-fold predictions) and the external validation cohort (<strong>b</strong>, MIMIC-IV). Left-sided strata represent the phenotype predicted at 48 h; right-sided strata represent the final assigned phenotype. Ribbon widths are proportional to patient counts. Dominant straight flows indicate stable early classification, whereas crossing flows indicate directional misclassification, most prominently among intermediate phenotypes</figcaption>
+</figure>
+
+<p>An important interpretive point is that these phenotypes were designed to describe the evolution of noradrenaline requirement itself. They therefore represent hemodynamic-response phenotypes rather than pure biological endotypes of septic shock. Importantly, NA dose is not a direct physiological measurement. It reflects a composite of vascular responsiveness, disease severity, volume status, cardiac function, institutional practice, and clinician titration against conventional hemodynamic targets. Accordingly, the dose required over time should not be viewed as an arbitrary treatment choice alone, but as a treatment-response trajectory with physiological correlates that also reflects bedside management. To provide clinical and biological context for these hemodynamic-response patterns, we also examined phenotype-level distributions of lactate, platelet count, CRP, D-dimer, and infection source. Notably, the high early resolver phenotype showed marked early metabolic and hematologic derangement yet lower mortality than the high slow resolver and non-resolver phenotypes, suggesting that persistence of noradrenaline requirement conveys information beyond initial insult severity alone. Consistent with a more coagulopathic phenotype, the high slow resolver cluster showed the highest early D-dimer values in both cohorts.</p>
+<p>Two design choices enhanced interpretability and robustness: (1) outcome-agnostic clustering with outcome-based renumbering, which prevented outcome leakage while producing clinically intuitive labels, and (2) a rich feature set that captured both smooth and abrupt changes in vasopressor support, yielding a stable and high-resolution phenotypic structure.</p>
+<h3 id="stability-and-crosscohort-reproducibility-of-the-cluster-structure">Stability and cross‑cohort reproducibility of the cluster structure</h3>
+<p>The core trajectory families were highly reproducible across the two health systems, with only two expected differences at the extremes of severity and duration.</p>
+<ul>
+<li>
+<ol>
+<li>Cluster number differed slightly.</li>
+</ol>
+</li>
+</ul>
+<p>Sheba ultimately produced five stable clusters after the very small “Fulminant Shock’’ group—marked by extreme early NA requirements and very high early mortality—was absorbed during DTW refinement.</p>
+<p>This reflected a deliberate preference for a stable and reproducible phenotype structure over retention of very small extreme-tail groups as standalone clusters. While such rare micro-phenotypes may still be clinically informative, we considered them less suitable as primary phenotypes unless they met the prespecified minimum-size criterion. In contrast, MIMIC-IV retained six stable clusters.</p>
+<ul>
+<li>
+<ol start="2">
+<li>Prolonged-exposure phenotypes differed in duration. Sustained and late-escalating phenotypes (e.g., “Intermediate-dose Gradual Wean’’ and “Intermediate-dose Non-resolver”) persisted longer in Sheba, even though their shapes were nearly identical to their counterparts in MIMIC-IV.</li>
+</ol>
+</li>
+</ul>
+<p>These discrepancies likely reflect institutional differences in aggressive support and end-of-life practices. Sheba commonly maintains full hemodynamic support for longer periods, generating both the brief, high-dose ‘Fulminant Shock’ trajectory and prolonged vasopressor courses in survivors. At the MIMIC-IV source hospital, earlier transition to comfort-focused care and a pharmacy/protocol norepinephrine ceiling of 0.5 µg/kg/min may have limited representation of very high dose exposures and shortened observable trajectories, thereby influencing the final cluster structure.</p>
+<p>Despite these differences in duration, the shape, relative structure, and prognostic ordering of the phenotypes were strongly preserved across cohorts, supporting that trajectory-based phenotyping captures stable and transportable dimensions of vasopressor-response behavior in septic shock.</p>
+<h3 id="drivers-of-phenotypic-separation-and-mortality">Drivers of phenotypic separation and mortality</h3>
+<p>Individual-feature analyses showed that dose duration and persistence metrics were the primary determinants of both phenotype separation and mortality. Cumulative AUC windows, mid-course exposure (24–72 h), and time-over-threshold measures consistently ranked highest across cohorts <span class="cite">[<a href="#ref-3">3</a>–<a href="#ref-5">5</a>]</span>. This finding should be interpreted in light of the prespecified feature representation: the clustering library intentionally included overlapping cumulative AUC windows and time-over-threshold metrics to capture clinically interpretable dimensions of vasopressor burden and persistence. Therefore, the emergence of exposure-persistence phenotypes is partly a consequence of this predefined representation rather than a representation-neutral discovery.</p>
+<p>However, the phenotypes were not determined by cumulative exposure alone. Time to maximal NA dose (t_to_max_d) emerged as a strong, reproducible predictor in both Sheba and MIMIC-IV, indicating that the timing of the hemodynamic peak carries adverse prognostic information beyond total exposure burden <span class="cite">[<a href="#ref-6">6</a>]</span>. This may reflect ongoing shock physiology, delayed hemodynamic stabilization, incomplete control of the underlying insult, or progression of multiorgan dysfunction.</p>
+<p>Withdrawal-speed features, including early slopes, t50, and half-drop metrics, added comparatively little incremental prognostic value. This suggests that the dominant independent signal lies less in the fine structure of vasopressor tapering and more in the broader pattern of dose burden, escalation timing, persistence, and failure of resolution.</p>
+<p>Multivariable landmark models (24–144 h) showed stable effect directions across time and across cohorts, with expected attenuation and occasional CI overlap due to collinearity and smaller samples at later horizons (<a class="xref" href="#fig-4">Fig. 4</a>).</p>
+<p>These findings should be interpreted as both confirmatory and additive. The broad clinical observation that persistent or escalating vasopressor requirement is associated with worse outcome is already well recognized. The added value of the present framework is that it extends this intuition beyond dose or duration alone by integrating multiple trajectory descriptors, including cumulative exposure, threshold persistence, timing of maximal dose, rebound behavior, and recovery metrics. Thus, the framework does not merely restate that prolonged vasopressor dependence is harmful; it converts clinically recognizable vasopressor-response patterns into a transparent, externally tested structure for dynamic risk stratification, cohort enrichment, and future trajectory-informed studies.</p>
+<p>Taken together, these results support interpretation of the clusters as clinically interpretable hemodynamic-response trajectories, while acknowledging that alternative representations, such as de-correlated feature sets, raw time-series clustering alone, or multimodal physiologic inputs, might yield different phenotype structures.</p>
+<h3 id="internal-and-external-prognostic-validation">Internal and external prognostic validation</h3>
+<p>In the derivation cohort, trajectory membership demonstrated strong prognostic separation at 96 h (optimism-corrected Harrell’s <em>C</em> = 0.636). The entire frozen pipeline applied to MIMIC-IV reproduced the trajectory families and demonstrated monotonic 90-day mortality gradients from lowest to highest risk clusters (16–69%), which is highly comparable to the prognostic range captured by complex biological subphenotypes <span class="cite">[<a href="#ref-13">13</a>, <a href="#ref-14">14</a>]</span>.</p>
+<p>When cluster number was treated as an ordinal variable in a non-refitted Cox model, discrimination in MIMIC- IV remained meaningful (C-index 0.619; AUROC 0.63), consistent with expected attenuation when transporting dynamic physiologic models across systems.</p>
+<p>Feature-outcome associations were directionally and rank-order consistent across cohorts, further supporting external validity and physiologic transportability.</p>
+<h3 id="early-recognition-of-phenotypes">Early recognition of phenotypes</h3>
+<p>The ability to identify NA trajectory phenotypes from data available within the first 24 h, with stronger discrimination by 48 h, indicates that meaningful differences in hemodynamic trajectories emerge early in the course of illness. The reproducibility of this early signal across two health systems—despite differences in documentation density, patient mix, and clinical workflows—suggests that the trajectory structure reflects stable and transportable patterns embedded in routine dosing data rather than artifacts of local practice.</p>
+<p>Early misclassification patterns were clinically coherent and consistent with the expected temporal evolution of the phenotypes. In the derivation cohort, the primary source of ambiguity involved the intermediate gradual wean and minimal/low early resolver groups, which share a low-dose pattern during the first 24–48 h before diverging thereafter. This early similarity accounts for the directional misclassification of those clusters and reflects the genuine difficulty of distinguishing these two trajectories before mid-course exposure accumulates. In contrast, the high slow resolver phenotype begins at substantially higher doses and remained well separated in the derivation data; its occasional reassignment to intermediate, gradual wean cluster in the external cohort likely reflects differences in early exposure distributions and the limited discriminatory power of the truncated early-feature set, rather than true overlap in the underlying trajectory pattern.</p>
+<p>Although the classifier demonstrated strong generalizability, the external misclassification patterns underscore that site-level calibration may be necessary to optimize early prediction. Differences in dose ceilings, recording density, and the distribution of early exposures can shift the mapping between features and phenotypes, and modest recalibration may further improve discrimination, particularly for intermediate phenotypes.</p>
+<p>Importantly, 24-h and 48-h classification should not be considered clinically equivalent: a phenotype-related signal was already present at 24 h, but classification was more stable and informative by 48 h.</p>
+<p>Together, these findings show that the core differences encoded within NA trajectories arise early and are reproducible across health systems. However, the present study demonstrates early descriptive and prognostic classification rather than an established phenotype-specific treatment algorithm. The intended near-term use of early classification is therefore best viewed in three domains: dynamic risk stratification, enrichment of future observational or interventional studies, and generation of hypotheses regarding trajectory-specific supportive strategies.</p>
+<p>A conceptual clinical interpretation is that a high-confidence assignment at 24 h may provide early risk awareness, whereas by 48 h, when phenotype discrimination was stronger and misclassification decreased, persistence of a slow-resolving or non-resolving pattern may identify a more prognostically enriched subgroup for closer reassessment or for inclusion in future trials testing monitoring or de-escalation strategies. Conversely, early-resolving patterns may help define lower risk comparator groups in research settings. At this stage, these interpretations should be viewed as hypothesis-generating; prospective studies are required to determine whether early phenotype assignment can meaningfully influence management or patient outcomes.</p>
+<p>In future prospective work, this framework could be evaluated as a decision-support layer that continuously updates phenotype probabilities from routinely charted norepinephrine exposure during the first 24–48 h. Rather than dictating a fixed treatment algorithm, such a tool could flag patients whose early course appears more compatible with slow resolution or non-resolution, thereby prompting closer reassessment of hemodynamic trajectory, supportive intensity, and readiness for de-escalation. Because calibration differed across cohorts, any such implementation would require local recalibration before bedside deployment.</p>
+<h3 id="limitations">Limitations</h3>
+<p>This study has several limitations. First, its retrospective design precludes causal inference, and NA dosing inevitably reflects both underlying illness severity and clinician decision-making (“confounding by indication”). Second, although trajectory phenotypes were reproducible across two large health systems, differences in treatment-limitation practices, including withholding or withdrawal of life-sustaining therapy, and differences in duration of supportive care may have influenced the expression of prolonged trajectories. Third, despite extensive feature engineering, unmeasured physiologic variables—such as microcirculatory flow, cardiac output, or autonomic tone—may contribute to phenotype structure but were not directly captured. Fourth, dose trajectories were reconstructed from routine medication administration records, and varying documentation density across systems may introduce subtle measurement error. Finally, while early classification performance generalized well, calibration differed between cohorts, indicating that site-specific recalibration procedures may be necessary to optimize early phenotype assignment in new clinical environments.</p>
+<h4 id="funding">Funding</h4>
+<h2 id="conclusions">Conclusions</h2>
+<p>Noradrenaline-trajectory phenotypes derived from routine medication data were clinically interpretable, prognostically coherent, and reproducible across two ICU populations. Despite minor cross-system differences, the core trajectory shapes and associated mortality gradients were conserved. Two exposure-persistence features—time to maximal NA dose and cumulative NA load during days 2–4—consistently dominated prognosis and drove phenotype separation. Because these defining elements were already detectable at 24 h and became more discriminative by 48 h, trajectory phenotypes may support dynamic risk stratification after initial resuscitation and phenotype-enriched clinical trial design. Their role in guiding monitoring, de-escalation, or supportive strategies remains hypothesis-generating and requires prospective evaluation.</p>
+<h2 id="supplementary-information">Supplementary Information</h2>
+<p>The online version contains supplementary material available at https://doi.org/10.1186/s40635-026-00910-8.</p>
+<p>Additional file1 (DOCX 620 kb)</p>
+<h4 id="acknowledgements">Acknowledgements</h4>
+<p>The authors acknowledge the MIT Laboratory for Computational Physiology for maintaining the MIMIC-IV database and PhysioNet for hosting the data <span class="cite">[<a href="#ref-22">22</a>]</span>. The authors completed the required training and received approval to use the data.</p>
+<h4 id="author-contributions">Author contributions</h4>
+<p>YG conceived and designed the study, performed substantial analysis and interpretation of the data, and was a major contributor in drafting the manuscript and substantively revising it. AC, OL, DC, JK, HS, MG, YH, JV and DS were responsible for the acquisition of data and contributed to substantively revising the work. TL performed substantial analysis and interpretation of data and substantively revised the work. MS contributed to the interpretation of the data and substantively revised the work. ES contributed to the conception and design of the work, interpretation of the data, and was a major contributor in substantively revising the manuscript. All the authors read and approved the final manuscript.</p>
+<p>Open access funding provided by Jönköping University. Data extraction and analysis validation was supported by the Sheba Hospital Research Fund.</p>
+<h4 id="availability-of-data-and-materials">Availability of data and materials</h4>
+<p>The datasets used and/or analyzed during the current study are available from the corresponding author upon reasonable request.</p>
+<h3 id="declarations">Declarations</h3>
+<h4 id="ethics-approval-and-consent-to-participate">Ethics approval and consent to participate</h4>
+<p>The study was approved by the Institutional Helsinki Committee of Sheba Medical Center (SMC-D-2642-25). The requirement for informed consent was waived due to the retrospective design and use of anonymized data. All procedures were conducted in accordance with the ethical standards of the responsible committee and with the 1964 Declaration of Helsinki and its later amendments.</p>
+<p>MIMIC-IV is a publicly available, fully de-identified critical care database approved for research use with a waiver of informed consent. All analyses were conducted under the required data use agreement and did not require additional IRB approval.</p>
+<h4 id="consent-for-publication">Consent for publication</h4>
+<p>The Sheba Hospital Research IRB provided a waiver for consent due to the retrospective and aggregative nature of the study.</p>
+<h4 id="competing-interests">Competing interests</h4>
+<p>All the authors declare that they have no conflicts of interest.</p>
+<h4 id="author-details">Author details</h4>
+<p><sup><a href="#ref-1">1</a></sup> Departments of Anesthesiology and Intensive Care, Sheba Medical Center, Ramat Gan, Israel. <sup><a href="#ref-2">2</a></sup> Department of Intensive Care, Sheba Medical Center, Ramat Gan, Israel. <sup><a href="#ref-3">3</a></sup> Departments of Nutrition and Intensive Care, Sheba Medical Center, Ramat Gan, Israel. <sup><a href="#ref-4">4</a></sup> Intensive Care Unit, Sheba Medical Center, Ramat Gan, Israel. <sup><a href="#ref-5">5</a></sup> Universidad Favaloro, Buenos Aires, Argentina. <sup><a href="#ref-6">6</a></sup> Department of Information Systems, University of Haifa, Haifa, Israel. <sup><a href="#ref-7">7</a></sup> Department of Computing, Jonkoping University, Jonkoping, Sweden. <sup><a href="#ref-8">8</a></sup> Gertner Institute for Epidemiology and Healthcare Research, Gray Faculty of Medical and Health Sciences, Tel Aviv University, Tel Aviv‑Yafo, Israel. <sup><a href="#ref-9">9</a></sup> Department of Intensive Care, Maaynei Hayeshua, Bnei Brak, Israel.</p>
+<p>Received: 11 March 2026 Accepted: 6 May 2026</p>
+<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Keywords</dt><dd><ul class="kw-list"><li>Septic shock</li><li>Phenotypes</li><li>Noradrenaline trajectories</li></ul></dd></div></dl></section>
+<h2 id="references">References</h2>
+<ol class="paper-refs"><li id="ref-1">Singer M, Deutschman CS, Seymour CW et al (2016) The third international consensus definitions for sepsis and septic shock (Sepsis-3). JAMA 315(8):801–810. <a href="https://doi.org/10.1001/jama.2016.0287" target="_blank" rel="noopener">doi:10.1001/jama.2016.0287</a></li>
+<li id="ref-2">Rhodes A, Evans LE, Alhazzani W, Levy MM, Antonelli M, Ferrer R, Kumar A, Sevransky JE, Sprung CL, Nunnally ME, Rochwerg B, Rubenfeld GD, Angus DC, Annane D, Beale RJ, Bellinghan GJ, Bernard GR, Chiche JD, Coopersmith C, De Backer DP, French CJ, Fujishima S, Gerlach H, Hidalgo JL, Hollenberg SM, Jones AE, Karnad DR, Kleinpell RM, Koh Y, Lisboa TC, Machado FR, Marini JJ, Marshall JC, Mazuski JE, McIntyre LA, McLean AS, Mehta S, Moreno RP, Myburgh J, Navalesi P, Nishida O, Osborn TM, Perner A, Plunkett CM, Ranieri M, Schorr CA, Seckel MA, Seymour CW, Shieh L, Shukri KA, Simpson SQ, Singer M, Thompson BT, Townsend SR, Van der Poll T, Vincent JL, Wiersinga WJ, Zimmerman JL, Dellinger RP (2017) Surviving Sepsis Campaign: International guidelines for management of sepsis and septic shock: 2016. Intensive Care Med 43(3):304–377. (Epub 2017 Jan 18. ) <a href="https://doi.org/10.1007/s00134-017-4683-6" target="_blank" rel="noopener">doi:10.1007/s00134-017-4683-6</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/28101605/" target="_blank" rel="noopener">PubMed 28101605</a></li>
+<li id="ref-3">Reinikainen M, Delamarre L, Blaser AR, Hollenberg SM, Lobo SM, Rezende E, Moreno R, Rhodes A, Ranzani OT, Singer M, Lakbar I (2025) Association of noradrenaline dose with mortality in critically ill patients: a systematic review and dose-response meta-analysis. Crit Care 29(1):498. <a href="https://doi.org/10.1186/s13054-025-05717-9" target="_blank" rel="noopener">doi:10.1186/s13054-025-05717-9</a></li>
+<li id="ref-4">Ceausu D, Boulet N, Roger C, Alonso S, Lefrant JY, Boisson C, Mura T, Muller L (2024) Critical norepinephrine dose to predict early mortality during circulatory shock in intensive care: a retrospective study in 3423 ICU patients over 4-year period. Shock 62(5):682–687. <a href="https://doi.org/10.1097/SHK.0000000000002454" target="_blank" rel="noopener">doi:10.1097/SHK.0000000000002454</a></li>
+<li id="ref-5">Pölkki A, Pekkarinen PT, Hess B, Blaser AR, Bachmann KF, Lakbar I, Hollenberg SM, Lobo SM, Rezende E, Selander T, Reinikainen M (2024) Noradrenaline dose cutoffs to characterise the severity of cardiovascular failure: data-based development and external validation. Acta Anaesthe-siol Scand 68(10):1400–1408. <a href="https://doi.org/10.1111/aas.14519" target="_blank" rel="noopener">doi:10.1111/aas.14519</a></li>
+<li id="ref-6">Sacha GL, Lam SW, Wang L, Duggal A, Reddy AJ, Bauer SR (2022) Association of catecholamine dose, lactate, and shock duration at vasopressin initiation with mortality in patients with septic shock. Crit Care Med 50(4):614–623. <a href="https://doi.org/10.1097/CCM.0000000000005317" target="_blank" rel="noopener">doi:10.1097/CCM.0000000000005317</a></li>
+<li id="ref-7">Auchet T, Regnier M-A, Girerd N et al (2017) Outcome of patients with septic shock and high-dose vasopressor therapy. Ann Intensive Care 7:43. <a href="https://doi.org/10.1186/s13613-017-0261-x" target="_blank" rel="noopener">doi:10.1186/s13613-017-0261-x</a></li>
+<li id="ref-8">Teja B et al (2023) How we escalate vasopressor and corticosteroid therapy in sepsis. Chest 164(4):984–993. <a href="https://doi.org/10.1016/j.chest.2022.11.018" target="_blank" rel="noopener">doi:10.1016/j.chest.2022.11.018</a></li>
+<li id="ref-9">Russell JA et al (2008) Vasopressin versus NA infusion in patients with septic shock (VASST). N Engl J Med 358:877–887</li>
+<li id="ref-10">Russell JA (2019) Vasopressor therapy in critically ill patients with shock. Intensive Care Med 45(11):1503–1517. <a href="https://doi.org/10.1007/s00134-019-05801-z" target="_blank" rel="noopener">doi:10.1007/s00134-019-05801-z</a></li>
+<li id="ref-11">Yang J, Liujiao Y, Zhang X, Xiong J, Wang F, Shen F (2025) High NE dose trajectory is associated with new onset of acute kidney injury patients: a group-based trajectory modeling analysis. PLoS ONE 20(5):e0323431. <a href="https://doi.org/10.1371/journal.pone.0323431" target="_blank" rel="noopener">doi:10.1371/journal.pone.0323431</a></li>
+<li id="ref-12">Chotalia M, Matthews T, Arunkumar S, Bangash MN, Parekh D, Patel JM (2021) A time-sensitive analysis of the prognostic utility of vasopressor dose in septic shock. Anaesthesia 76(10):1358–1366. <a href="https://doi.org/10.1111/anae.15453" target="_blank" rel="noopener">doi:10.1111/anae.15453</a></li>
+<li id="ref-13">Seymour CW et al (2019) Derivation, validation, and potential treatment implications of novel clinical phenotypes for sepsis. JAMA 321(20):2003– 2017. <a href="https://doi.org/10.1001/jama.2019.5791" target="_blank" rel="noopener">doi:10.1001/jama.2019.5791</a></li>
+<li id="ref-14">Aldewereld ZT, Zhang LA, Urbano A, Parker RS, Swigon D, Banerjee I, Gómez H, Clermont G (2022) Identification of clinical phenotypes in septic patients presenting with hypotension or elevated lactate. Front Med 9:794423. <a href="https://doi.org/10.3389/fmed.2022.794423" target="_blank" rel="noopener">doi:10.3389/fmed.2022.794423</a></li>
+<li id="ref-15">Liu G, Wu R, He J, Xu Y, Han L, Yu Y, Zhu H, Guo Y, Fu H, Chen T, Zheng S, Shen X (2025) Clinical phenotyping of septic shock with latent profile analysis: a retrospective multicenter study. J Crit Care 85:154932. <a href="https://doi.org/10.1016/j.jcrc.2024.154932" target="_blank" rel="noopener">doi:10.1016/j.jcrc.2024.154932</a></li>
+<li id="ref-16">Shald EA, Erdman MJ, Ferreira JA (2022) Impact of clinical sepsis phenotypes on mortality and fluid status in critically ill patients. Shock 57(1):57–62. <a href="https://doi.org/10.1097/SHK.0000000000001864" target="_blank" rel="noopener">doi:10.1097/SHK.0000000000001864</a></li>
+<li id="ref-17">Gårdlund B, Dmitrieva NO, Pieper CF, Finfer S, Marshall JC, Taylor Thompson B (2018) Six subphenotypes in septic shock: latent class analysis of the PROWESS Shock study. J Crit Care 47:70–79. <a href="https://doi.org/10.1016/j.jcrc.2018.06.012" target="_blank" rel="noopener">doi:10.1016/j.jcrc.2018.06.012</a></li>
+<li id="ref-18">Bhavani SV, Xiong L, Pius A, Semler M, Qian ET, Verhoef PA, Robichaux C, Coopersmith CM, Churpek MM (2023) Comparison of time series clustering methods for identifying novel subphenotypes of patients with infection. J Am Med Inform Assoc 30(6):1158–1166. <a href="https://doi.org/10.1093/jamia/ocad063" target="_blank" rel="noopener">doi:10.1093/jamia/ocad063</a></li>
+<li id="ref-19">Bhavani SV et al (2022) Development and validation of novel sepsis subphenotypes using trajectories of vital signs. Intensive Care Med 48(11):1582–1592. <a href="https://doi.org/10.1007/s00134-022-06890-z" target="_blank" rel="noopener">doi:10.1007/s00134-022-06890-z</a></li>
+<li id="ref-20">Shen J, Fang K, Xie J, Sun D, Li L (2025) Analysis of the heterogeneous treatment effect of vasoactive drug dosage and time on hospital mortality across different sepsis phenotypes: a retrospective cohort study. Eur J Med Res 30(1):410. <a href="https://doi.org/10.1186/s40001-025-02660-x" target="_blank" rel="noopener">doi:10.1186/s40001-025-02660-x</a></li>
+<li id="ref-21">Kotani Y, Belletti A, D’Andria Ursoleo J, Salvati S, Landoni G (2023) Norepinephrine dose should be reported as base equivalence in clinical research manuscripts. J Cardiothorac Vasc Anesth 37(9):1523–1524. <a href="https://doi.org/10.1053/j.jvca.2023.05.013" target="_blank" rel="noopener">doi:10.1053/j.jvca.2023.05.013</a></li>
+<li id="ref-22">Johnson AEW, Bulgarelli L, Shen L, Gayles A, Shammout A, Horng S, Pollard TJ, Hao S, Moody B, Gow B, Lehman LH, Celi LA, Mark RG (2023) MIMIC-IV, a freely accessible electronic health record dataset. Sci Data 10(1):1. 10.1038/s41597-022-01899-x. Erratum in: Sci Data. 2023 Jan 16;10(1):31. Erratum in: Sci Data. 2023 Apr 18;10(1):219. https://doi.org/10.1038/s41597-023-02136-9 <a href="https://doi.org/10.1038/s41597-023-01945-2" target="_blank" rel="noopener">doi:10.1038/s41597-023-01945-2</a></li>
+</ol>
+</div>
+        
+        
+        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Gargi et al. (2026), <em>Intensive Care Medicine Experimental</em>, <a href="https://doi.org/10.1186/s40635-026-00910-8" target="_blank" rel="noopener">doi:10.1186/s40635-026-00910-8</a>, under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY</a> licence. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+      </article>
+    </div>
+
+    <section class="paper-related" aria-labelledby="related-title"><div class="paper-wrap"><h2 id="related-title">Related research</h2><div class="related-grid"><a class="related-card" href="/publications/detecting-metabolic-transition-personalize-nutritional-timing-model/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2026</span><strong>Detecting the metabolic transition to personalize nutritional timing: model development and preliminary validation in a large ICU cohort</strong><span class="related-text">Critical Care</span></a><a class="related-card" href="/publications/pre-transition-nutrition-dose-mortality-crp-free/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2026</span><strong>Pre-transition nutrition dose and mortality using a CRP-Free operational metabolic transition framework: A MIMIC-IV transportability analysis</strong><span class="related-text">Clinical Nutrition ESPEN</span></a><a class="related-card" href="/publications/time-series-clustering-analysis-postinduction-blood-pressure/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2026</span><strong>A time-series clustering analysis of postinduction blood pressure trajectories</strong><span class="related-text">Scientific Reports</span></a></div><p class="related-more"><a href="/publications.html">All publications</a></p></div></section>
+  </main>
+
+  <dialog id="cite-dialog" class="paper-dialog" aria-labelledby="cite-title">
+    <div class="dialog-head">
+      <h2 id="cite-title">Cite this paper</h2>
+      <button type="button" class="dialog-close" aria-label="Close"><i class="ri-close-line" aria-hidden="true"></i></button>
+    </div>
+    <p class="dialog-label">APA</p>
+    <pre class="cite-box" id="cite-apa">Gargi, Y., Cohen, A., Stein, D., Levi, O., Cohen, D., Klein, J., Taube, H. S., Vine, J., Glebov, M., Lazebnik, T., Saban, M., Haviv, Y., &amp; Segal, E. (2026). Noradrenaline-trajectory phenotypes in septic shock: derivation and external validation in two independent cohorts. Intensive Care Medicine Experimental, 14, 77. https://doi.org/10.1186/s40635-026-00910-8</pre>
+    <button type="button" class="paper-btn" data-copy="cite-apa"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy APA</span></button>
+    <p class="dialog-label">BibTeX</p>
+    <pre class="cite-box" id="cite-bib">@article{gargi2026noradrenaline,
+  title = {Noradrenaline-trajectory phenotypes in septic shock: derivation and external validation in two independent cohorts},
+  author = {Gargi, Yonatan and Cohen, Amir and Stein, Dorit and Levi, Ori and Cohen, Dor and Klein, Julia and Taube, Hamutal S and Vine, Jacob and Glebov, Maxim and Lazebnik, Teddy and Saban, Mor and Haviv, Yael and Segal, Eran},
+  journal = {Intensive Care Medicine Experimental},
+  volume = {14},
+  pages = {77},
+  year = {2026},
+  doi = {10.1186/s40635-026-00910-8}
+}</pre>
+    <button type="button" class="paper-btn" data-copy="cite-bib"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy BibTeX</span></button>
+  </dialog>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Games</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
+                  <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
+                  <li><a href="https://rl.teddylazebnik.com/">Pirate War RL Game</a></li>
+                  <li><a href="https://eh.teddylazebnik.com/">Echo Heist</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      
+      <script>
+        (function () {
+          // menu and navbar (js/main.js expects to sit at the site root)
+          var btn = document.getElementById('menu-btn'), menu = document.getElementById('mobile-menu'), nav = document.getElementById('navbar');
+          btn.addEventListener('click', function () { menu.classList.toggle('max-h-0'); menu.classList.toggle('max-h-screen'); });
+          var onScroll = function () { nav.classList.toggle('nav-scrolled', window.scrollY > 10); };
+          window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+          // cite dialog + copy buttons
+          var dialog = document.getElementById('cite-dialog');
+          document.querySelectorAll('[data-dialog]').forEach(function (b) {
+            b.addEventListener('click', function () { if (dialog.showModal) dialog.showModal(); else dialog.setAttribute('open', ''); });
+          });
+          dialog.querySelector('.dialog-close').addEventListener('click', function () { dialog.close(); });
+          dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
+          function flash(button, text) {
+            var label = button.querySelector('span'), old = label.textContent;
+            label.textContent = text; setTimeout(function () { label.textContent = old; }, 1600);
+          }
+          document.querySelectorAll('[data-copy]').forEach(function (b) {
+            b.addEventListener('click', function () {
+              var text = document.getElementById(b.getAttribute('data-copy')).textContent;
+              navigator.clipboard.writeText(text).then(function () { flash(b, 'Copied'); });
+            });
+          });
+          document.getElementById('share-btn').addEventListener('click', function () {
+            var b = this, data = { title: document.title, url: location.href.split('#')[0] };
+            if (navigator.share) { navigator.share(data).catch(function () {}); }
+            else { navigator.clipboard.writeText(data.url).then(function () { flash(b, 'Link copied'); }); }
+          });
+
+          // highlight the section being read in "On this page"
+          var links = {};
+          document.querySelectorAll('.paper-toc a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+          var heads = Array.prototype.filter.call(document.querySelectorAll('#full-text h2[id], #full-text h3[id], #full-text section[id]'), function (h) { return links[h.id]; });
+          if ('IntersectionObserver' in window && heads.length) {
+            var current = null;
+            var io = new IntersectionObserver(function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                  if (current) current.classList.remove('is-active');
+                  current = links[e.target.id]; current.classList.add('is-active');
+                }
+              });
+            }, { rootMargin: '-90px 0px -70% 0px' });
+            heads.forEach(function (h) { io.observe(h); });
+          }
+        })();
+      </script>
+   </body>
+</html>

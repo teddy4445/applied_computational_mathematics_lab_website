@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_papers.py from paper.md + paper.json in this folder. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Cost-optimal seeding strategy during a botanical pandemic | ACML</title>
+      <meta name="description" content="Plant disease pandemics cause enormous economic damage and food shortages, and they are here to stay in the short to medium term. We built a mathematical…">
+      <meta name="author" content="Teddy Lazebnik">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/publications/cost-optimal-seeding-strategy-during-botanical-pandemic/">
+      <meta name="citation_title" content="Cost-optimal Seeding Strategy During a Botanical Pandemic in Domesticated Fields">
+      <meta name="citation_author" content="Teddy Lazebnik">
+      <meta name="citation_publication_date" content="2024/03/18">
+      <meta name="citation_journal_title" content="Chaos">
+      <meta name="citation_doi" content="10.1063/5.0192426">
+      <meta name="citation_pdf_url" content="https://teddylazebnik.com/files/eco_pandemic_in_the_field.pdf">
+      <meta name="citation_abstract_html_url" content="https://acml.teddylazebnik.com/publications/cost-optimal-seeding-strategy-during-botanical-pandemic/">
+      <meta name="citation_fulltext_html_url" content="https://acml.teddylazebnik.com/publications/cost-optimal-seeding-strategy-during-botanical-pandemic/">
+      <meta name="citation_language" content="en">
+      <meta property="og:type" content="article">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Cost-optimal seeding strategy during a botanical pandemic">
+      <meta property="og:description" content="Plant disease pandemics cause enormous economic damage and food shortages, and they are here to stay in the short to medium term. We built a mathematical…">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/publications/cost-optimal-seeding-strategy-during-botanical-pandemic/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/publications/cost-optimal-seeding-strategy-during-botanical-pandemic/figures/share-fig-1.jpg">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Cost-optimal seeding strategy during a botanical pandemic">
+      <meta name="twitter:description" content="Plant disease pandemics cause enormous economic damage and food shortages, and they are here to stay in the short to medium term. We built a mathematical…">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/publications/cost-optimal-seeding-strategy-during-botanical-pandemic/figures/share-fig-1.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "Cost-optimal Seeding Strategy During a Botanical Pandemic in Domesticated Fields",
+  "name": "Cost-optimal Seeding Strategy During a Botanical Pandemic in Domesticated Fields",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Teddy Lazebnik"
+    }
+  ],
+  "datePublished": "2024-03-18",
+  "url": "https://acml.teddylazebnik.com/publications/cost-optimal-seeding-strategy-during-botanical-pandemic/",
+  "mainEntityOfPage": "https://acml.teddylazebnik.com/publications/cost-optimal-seeding-strategy-during-botanical-pandemic/",
+  "abstract": "Botanical pandemics cause enormous economic damage and food shortages around the globe. However, since botanical pandemics are here to stay in the short-medium term, domesticated field owners can strategically seed their fields to optimize each session’s economic profit. In this work, we propose a novel epidemiological-economic mathematical model that describes the economic profit from a field of plants during a botanical pandemic. We describe the epidemiological dynamics using a spatiotemporal extended susceptible-infected-recovered epidemiological model with a non-linear output economic model. We provide an algorithm to obtain an optimal grid-formed seeding strategy to maximize economic profit, given field and pathogen properties. We show that the recovery and basic infection rates have a similar economic influence. Unintuitively, we show that a larger farm does not promise higher economic profit. Our results demonstrate a significant benefit of using the proposed seeding strategy and shed more light on the dynamics of the botanical pandemic.",
+  "description": "Plant disease pandemics cause enormous economic damage and food shortages, and they are here to stay in the short to medium term. We built a mathematical…",
+  "image": "https://acml.teddylazebnik.com/publications/cost-optimal-seeding-strategy-during-botanical-pandemic/figures/share-fig-1.jpg",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "DOI",
+    "value": "10.1063/5.0192426"
+  },
+  "sameAs": "https://doi.org/10.1063/5.0192426",
+  "isPartOf": {
+    "@type": "Periodical",
+    "name": "Chaos"
+  },
+  "about": "Biomathematics",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "encoding": {
+    "@type": "MediaObject",
+    "contentUrl": "https://teddylazebnik.com/files/eco_pandemic_in_the_field.pdf",
+    "encodingFormat": "application/pdf"
+  }
+}
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/paper.css" rel="stylesheet">
+      
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="paper-page">
+    <header class="paper-hero">
+      <div class="paper-wrap">
+        <nav class="paper-crumbs" aria-label="Breadcrumb">
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Biomathematics</span>
+        </nav>
+        <p class="paper-kicker"><span><em>Chaos</em> · 18 March 2024</span></p>
+        <h1 class="paper-title">Cost-optimal Seeding Strategy During a Botanical Pandemic in Domesticated Fields</h1>
+        <p class="paper-authors"><span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span></p>
+        
+        <div class="paper-actions">
+          <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/eco_pandemic_in_the_field.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
+          <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
+          
+          <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
+          <a class="paper-btn" href="https://doi.org/10.1063/5.0192426" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
+          <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
+        </div>
+        <div class="lab-authors"><span class="lab-authors-label">ACML authors</span><a class="lab-chip" href="/team.html"><img src="/img/lab/teddy.webp" alt="" width="32" height="32" loading="lazy"><span><strong>Teddy Lazebnik</strong><small>PI</small></span></a></div>
+      </div>
+    </header>
+
+    <section class="paper-glance" aria-labelledby="glance-title"><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Plant disease pandemics cause enormous economic damage and food shortages, and they are here to stay in the short to medium term. We built a mathematical model linking the spread of a plant disease across a field to the field&#x27;s economic profit, along with an algorithm that finds the grid-shaped seeding pattern that maximizes profit for given field and pathogen properties. We found that recovery and infection rates have a similar economic influence, and that a larger farm does not promise higher profit.</p><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>We combined a spatiotemporal extended susceptible-infected-recovered epidemic model with a non-linear economic output model for a field of plants.</li><li>We provide an algorithm that finds an optimal grid-formed seeding strategy to maximize profit, given field and pathogen properties.</li><li>The recovery rate and the basic infection rate have a similar economic influence.</li><li>Unintuitively, a larger farm does not promise higher economic profit.</li></ul></div><figure class="glance-figure"><a href="#fig-1"><img src="figures/fig-1.webp" width="1800" height="449" alt="FIG. 1. A schematic view of the model’s spatiotemporal dynamics. At the beginning (t = 1), the field is seeded and some plants are infected. Next, for a duration, T &amp;lt; ∞, the plants grow and infect each other. After T steps in time, the plants are harvested and the non-infected plants are sold for profit."></a><figcaption><strong>FIG. 1.</strong> A schematic view of the model’s spatiotemporal dynamics. At the beginning (<em>t</em> = 1), the field is seeded and some plants are infected. Next, for a duration, <em>T</em> &lt; ∞, the plants grow and infect each other. After <em>T</em> steps in time, the plants are harvested and the non-infected plants are sold for profit. <a href="#fig-1">See it in the paper</a></figcaption></figure></div></div></section>
+
+    <div class="paper-wrap paper-layout">
+      <aside class="paper-aside">
+        <nav class="paper-toc" aria-label="On this page">
+          <p class="aside-title">On this page</p>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#i-introduction">I. Introduction</a></li>
+<li><a href="#ii-model-definition">Ii. Model Definition</a></li><li class="toc-sub"><a href="#a-the-epidemiological-component">A. The epidemiological component</a></li><li class="toc-sub"><a href="#b-the-economic-component">B. The economic component</a></li><li class="toc-sub"><a href="#c-computer-simulation">C. Computer simulation</a></li>
+<li><a href="#iii-optimal-seeding-strategy">Iii. Optimal Seeding Strategy</a></li>
+<li><a href="#iv-numerical-analysis">Iv. Numerical Analysis</a></li><li class="toc-sub"><a href="#a-baseline">A. Baseline</a></li><li class="toc-sub"><a href="#b-sensitivity-analysis">B. Sensitivity analysis</a></li><li class="toc-sub"><a href="#c-optimal-seeding-strategy">C. Optimal seeding strategy</a></li>
+<li><a href="#v-discussion">V. Discussion</a></li>
+<li><a href="#author-declarations">Author Declarations</a></li>
+<li><a href="#conflict-of-interest">Conflict of Interest</a></li>
+<li><a href="#author-contributions">Author Contributions</a></li>
+<li><a href="#data-availability">Data Availability</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </nav>
+        <div class="paper-info">
+          <p class="aside-title">Article information</p>
+          <dl><div><dt>Journal</dt><dd>Chaos</dd></div><div><dt>Published</dt><dd><time datetime="2024-03-18">18 March 2024</time></dd></div><div><dt>DOI</dt><dd><a href="https://doi.org/10.1063/5.0192426" target="_blank" rel="noopener">10.1063/5.0192426</a></dd></div></dl>
+        </div>
+      </aside>
+
+      <article class="paper-body" id="full-text">
+        <details class="paper-toc-mobile">
+          <summary>On this page</summary>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#i-introduction">I. Introduction</a></li>
+<li><a href="#ii-model-definition">Ii. Model Definition</a></li><li class="toc-sub"><a href="#a-the-epidemiological-component">A. The epidemiological component</a></li><li class="toc-sub"><a href="#b-the-economic-component">B. The economic component</a></li><li class="toc-sub"><a href="#c-computer-simulation">C. Computer simulation</a></li>
+<li><a href="#iii-optimal-seeding-strategy">Iii. Optimal Seeding Strategy</a></li>
+<li><a href="#iv-numerical-analysis">Iv. Numerical Analysis</a></li><li class="toc-sub"><a href="#a-baseline">A. Baseline</a></li><li class="toc-sub"><a href="#b-sensitivity-analysis">B. Sensitivity analysis</a></li><li class="toc-sub"><a href="#c-optimal-seeding-strategy">C. Optimal seeding strategy</a></li>
+<li><a href="#v-discussion">V. Discussion</a></li>
+<li><a href="#author-declarations">Author Declarations</a></li>
+<li><a href="#conflict-of-interest">Conflict of Interest</a></li>
+<li><a href="#author-contributions">Author Contributions</a></li>
+<li><a href="#data-availability">Data Availability</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </details>
+        <section id="abstract" class="paper-abstract">
+          <h2>Abstract</h2>
+          <p>Botanical pandemics cause enormous economic damage and food shortages around the globe. However, since botanical pandemics are here to stay in the short-medium term, domesticated field owners can strategically seed their fields to optimize each session’s economic profit. In this work, we propose a novel epidemiological-economic mathematical model that describes the economic profit from a field of plants during a botanical pandemic. We describe the epidemiological dynamics using a spatiotemporal extended susceptible-infected-recovered epidemiological model with a non-linear output economic model. We provide an algorithm to obtain an optimal grid-formed seeding strategy to maximize economic profit, given field and pathogen properties. We show that the recovery and basic infection rates have a similar economic influence. Unintuitively, we show that a larger farm does not promise higher economic profit. Our results demonstrate a significant benefit of using the proposed seeding strategy and shed more light on the dynamics of the botanical pandemic.</p>
+        </section>
+        
+<div class="paper-text">
+<h2 id="i-introduction">I. Introduction</h2>
+<p>For thousands of years, humankind based its food supply on agriculture.<sup>1</sup> Multiple historical records show large-size agricultural pandemics that cause heavy losses for farmers and society.<sup>2</sup> In particular, multiple plant virus disease pandemics and major botanical pandemics occurred worldwide in the last century.<sup>3–7</sup> Overall, the number of agricultural crop epidemics exhibits a monotonic increase while recently reaching an asymptotic rate.<sup>8</sup></p>
+<p>In recent times where agriculture is part of the multi-sectoral economy, an agricultural pandemic has a twofolded impact on society: food shortages and direct economic losses to the agriculture sector.<sup>9,10</sup> For instance, during 2014 alone, virus disease pandemics were estimated to have a global economic impact of at least 30 billion dollars.<sup>11</sup> Moreover, as farmers and companies aim to increase their profit from the same land and to cope with growing demand, they adopted multiple methods such as the cultivation of annual crops as monocultures and plant breeding.<sup>12,13</sup> As a direct result, the plants’ immunity is often harmed due to these practices, which provide an underlying basic ingredient of instability.<sup>14</sup> In repercussion, severe virus disease epidemics became regularly recurring features in many herbaceous crops.<sup>13</sup> Hence, it is of interest to farmers and policymakers to control such pandemics, minimizing their negative impacts.</p>
+<p>Mathematical and computational models are key tools for understanding pandemic spread and designing intervention policies that help control a pandemic’s spread. In particular, coupled ordinary and partial differential equations, as well as simpler growth-curve equations, are especially useful deterministic models for representing plant disease development in fields.<sup>9,15–17</sup> The authors of Ref. 8 used the Susceptible-Infected-Removed (SIR) model, originally proposed by Ref. 18 to describe pandemics in humans, to examine the effects of different models for the effect of host responses to a load of infection on the production of susceptible tissue. The authors tested their model on the stem canker disease of potatoes caused by the soil-borne fungus (Rhizoctonia Solani), showing a promising prediction capability on historical data. The authors of Ref. 19 utilized a Healthy-Latently- Infected-Diseased (HLD) model for tomato bacterial canker (TBC) caused by the pathogenic plant bacteria Clavibacter Michiganensis Subsp. Michiganensis (Cmm). They assumed the infection was transferred to healthy plants through contaminated scissors used to cut symptomless infected plants and fitted the model on a dedicated experiment. Their results show that the model can fairly predict the number of diseased plants over time. The authors of Ref. 20 extended the SIR model, proposing an SIRX model that incorporates two sources of infection, with primary infection arising from “free-living” inoculum and secondary infection occurring by transmission from infected to susceptible hosts. Their model focused on soil-borne plant diseases caused by various fungal and bacterial pathogens in crops. The authors analyzed the sensitivity of various epidemiological and botanical properties, showing that the infection rate is susceptible to most of them.</p>
+<p>This paper focuses on the grid-based seeding strategy during a botanical pandemic from an economic perspective. Namely, the novelty of the proposed work is the formalization and analysis of a two-parametric seeding strategy for a field experiencing a botanical pandemic. To accomplish this objective, we developed a spatiotemporal stochastic SIR model with an economic dynamic where the plants are organized on a two-dimensional grid, seeded at the beginning of a season, and harvested and sold at the end of the season.</p>
+<p>The remainder of this paper is organized as follows. Section II formally introduces the proposed model and formalizes the objective. Next, Sec. III describes an algorithm to obtain the optimal seeding strategy for the worst-case pandemic, given initial conditions. Afterward, Sec. IV presents <em>in silico</em> experiment of the proposed model, analyzing the sensitivity of the pandemic spread and economic profit to the pathogen’s properties and the optimal seeding strategy for different scenarios. Lastly, in Sec. V, we discuss the results and suggest possible future work.</p>
+<h2 id="ii-model-definition">Ii. Model Definition</h2>
+<p>The proposed model M is defined as a tuple of two interconnected components M := (P, E), where P is the epidemiological component responsible for capturing the spatiotemporal pandemic spread of a pathogen in a population of plants and E is the economy component responsible for capturing the economic profit the field’s owner obtain over time. Below, a formal description of the two components and their interactions is provided. Moreover, a description of the model’s implementation as a computer simulation is also provided. A schematic view of the model’s dynamics over time (<em>t</em> ∈ [1, . . . , <em>T</em>) is presented in <a class="xref" href="#fig-1">Fig. 1</a>.</p>
+<h3 id="a-the-epidemiological-component">A. The epidemiological component</h3>
+<p>Let us define a sub-model (i.e., component) that takes into consideration a population of plants, <em>P</em> (|<em>P</em>| := <em>N</em> ∈ N), that is allocated in a finite and rectangular-shaped field <em>F</em> := (<em>W</em>, <em>H</em>) ⊂ R<sup>2</sup>. The model treats both space and time as continuous variables. Importantly, in Sec. II C, during the implementation of this model as a computer simulation, we would discrete both space and time.<sup>21–24</sup> Interactions are local and stochastic. It is further assumed that <em>F</em> is homogeneous and isotropic.<sup>25</sup> The plant population, <em>P</em>, is allocated to the field <em>F</em> such that it creates rows and columns with a distance <em>d</em><sub>x</sub> and <em>d</em><sub>y</sub> between them, respectively.</p>
+<p>Each plant in the population, <em>p</em> ∈ <em>P</em>, belongs to one of three epidemiological groups: Susceptible (<em>S</em>), Infected (<em>I</em>), or Removed (<em>R</em>) such that <em>N</em> := <em>S</em> + <em>I</em> + <em>R</em>. Plants in the first group have no immunity and are susceptible to infection. When a plant in the susceptible group (<em>S</em>) is exposed to the pathogen, the plant is transferred to the infected group (<em>I</em>), at an average rate β. The plant stays in the infected group for γ steps in time, after which the plant is transferred to the removed group (<em>R</em>). Removed plants do not practice in any epidemiological nor economic dynamics. We define the infection rate, β, to be <em>distance-depended</em>. Particularly, the rate at which plant <em>p</em><sub>i</sub> is infecting plant <em>p</em><sub>j</sub> is defined to be</p>
+<div class="equation" id="eq-1"><img src="figures/eq-1.webp" width="227" height="39" alt="β(pi, pj) := β0 ∥pi −pj∥, (1)" loading="lazy" decoding="async"></div>
+
+<p>where β<sub>0</sub> ∈ [0, 1] is the basic infection probability of the pathogen and ∥<em>p</em><sub>i</sub> − <em>p</em><sub>j</sub>∥ stands for the Euclidean distance between the plants <em>p</em><sub>i</sub> and <em>p</em><sub>j</sub>. Thus, the spatiotemporal epidemiological dynamics obey the following system of coupled ordinary differential equations:</p>
+<div class="equation" id="eq-2"><img src="figures/eq-2.webp" width="305" height="124" alt="dS(t) dt = −βS(t)I(t), dI(t) dt = βS(t)I(t) −γ I(t), dR(t) dt = γ I(t). (2) 01 April 2024 08:36:32" loading="lazy" decoding="async"></div>
+
+<h3 id="b-the-economic-component">B. The economic component</h3>
+<p>Continuing the definition of the epidemiological component, let us define the economic sub-model of the same population of plants over time. The economic component considers the cost of seeding, growing, and harvesting plants and the profit one obtains from selling them. Formally, at the beginning of the session, one is required to seed the plants. This process is associated with a cost for each plant (0 ≤ <em>a</em><sup>s</sup> <sub>1</sub> ∈ R) and some fixed overhead cost (0 ≤ <em>a</em><sup>s</sup> <sub>2</sub> ∈ R). However, the cost per plant is growing in a logarithmic manner to the size of the plant population.<sup>26,27</sup> Thus, for a plant population of size <em>N</em>, the seeding cost is <em>O</em><sub>seeding</sub>(<em>N</em>) = <em>a</em><sup>s</sup> <sub>1</sub><em>ln</em>(<em>N</em>) + <em>a</em><sup>s</sup> <sub>2</sub>. In the same manner, the cost of growing the plants in a single step in time corresponds to some fixed overhead and a cost per plant, increas- <em>g g</em> ing in a logarithmic manner: <em>O</em><sub>growing</sub>(<em>N</em>) = <em>a</em><sub>1</sub><em>ln</em>(<em>N</em>) + <em>a</em><sub>2</sub>. Finally, the cost of harvesting a plant population follows the same dynamics: <em>O</em><sub>harvesting</sub>(<em>N</em>) = <em>a</em><sup>h</sup> <sub>1</sub><em>ln</em>(<em>N</em>) + <em>a</em><sup>h</sup> <sub>2</sub>. After harvesting, the plants can be sold. The plants has a fixed price, 0 &lt; ψ<sub>1</sub> ∈ R, while the overall sales size results in a reduced value, 0 &lt; ψ<sub>2</sub> ∈ R, in a logarithmic manner to the size of the plant population:<sup>28–30</sup> <em>O</em><sub>sell</sub>(<em>N</em>) = ψ<sub>1</sub><em>N</em> − ψ<sub>2</sub><em>ln</em>(<em>N</em>). Therefore, the economic output of the field at time <em>t</em> ∈ [1, . . . , <em>T</em>] is as follows:</p>
+<figure id="fig-1">
+<a class="fig-zoom" href="figures/fig-1.webp" aria-label="Open the figure full size"><img src="figures/fig-1.webp" width="813" height="203" alt="A schematic view of the model’s spatiotemporal dynamics" loading="lazy" decoding="async"></a>
+<figcaption><strong>FIG. 1.</strong> A schematic view of the model’s spatiotemporal dynamics. At the beginning (<em>t</em> = 1), the field is seeded and some plants are infected. Next, for a duration, <em>T</em> &lt; ∞, the plants grow and infect each other. After <em>T</em> steps in time, the plants are harvested and the non-infected plants are sold for profit.</figcaption>
+</figure>
+
+<div class="equation" id="eq-3"><img src="figures/eq-3.webp" width="301" height="61" alt="O(Nt) := ⎧ ⎪⎨ −Oseeding(Nt) −Ogrowing(Nt), t = 1, −Ogrowing(Nt), 1 &lt; t &lt; T, Osell(Nt) −Oharvesting(Nt), t = T, (3)" loading="lazy" decoding="async"></div>
+
+<p>such that <em>O</em>(<em>N</em><sub>1</sub>) = 0 and <em>N</em><sub>t</sub> := <em>N</em> − <em>R</em>(<em>t</em>).</p>
+<p>Importantly, as plants require some minimal area for seeding and growing, there exists a minimal seeding distance, 1 ∈ R<sup>+</sup>, to allow plants to grow. A seeding with a distance smaller than 1 will result in the early death of the plant and no profit, as a result.</p>
+<h3 id="c-computer-simulation">C. Computer simulation</h3>
+<p>In order to simulate the model, we used an agent-based simulation approach.<sup>31,32</sup> To this end, we assume a discrete version of the proposed model. The plants in the population interacts in rounds <em>t</em> ∈ [1, . . . , <em>T</em>], where <em>T</em> &lt; ∞. Each plant in the population, <em>p</em><sub>j</sub> := (<em>x</em><sub>j</sub>, <em>y</em><sub>j</sub>, ξ<sub>i,j</sub>) ∈ P, is represented by a timed finite state machine<sup>33</sup> such that, at round <em>i</em>, ξ<sub>i,j</sub> denotes the plant’s epidemiological status <em>p</em><sub>j</sub> ∈{<em>S</em>, <em>I</em>, <em>R</em>} and (<em>x</em><sub>j</sub>, <em>y</em><sub>j</sub>) denoted the plant’s location in the field (<em>F</em>). At the first round (<em>t</em> = 1), the population (P) is allocated to <em>F</em> given the values <em>d</em><sub>x</sub> and <em>d</em><sub>y</sub>. In practice, during the seeding or immediately after the plants are susceptible, and only a subset is infected by a pathogen. At the beginning of the pandemic (<em>t</em> = 1), the seeding cost is computed. Then, at each round 1 ≤ <em>t</em> &lt; <em>T</em>, the pathogen spreads between the plants, and the growing cost is computed. After <em>T</em> rounds, the economic profit from the field, <em>E</em>, is computed after taking the harvesting cost and profits from selling into account.</p>
+<h2 id="iii-optimal-seeding-strategy">Iii. Optimal Seeding Strategy</h2>
+<p>In the case of a pandemic where the pathogen properties and the economic costs are known, one can aim to optimize its profit from a given field by strategically seeding the plant population. On the one hand, seeding the plants as close to each other as possible would lead to a maximum profit, assuming the profit from selling the entire plant population is higher than the overall cost. However, on the other hand, it would increase the average infection rate [see Eq. (1)] and result in more removed plants that cause economic loss.</p>
+<p>Hence, one can formalize the above motivation as follows. Given the proposed model, one wishes to maximize the economic profit of the field during a single session (i.e., <em>t</em> ∈ [1, <em>T</em>]) while controlling the seeding strategy. Formally, the optimization task takes the form</p>
+<div class="equation" id="eq-4"><img src="figures/eq-4.webp" width="211" height="47" alt="max dx,dy∈R T X t=1 O(Nt), (4)" loading="lazy" decoding="async"></div>
+
+<p>where <em>d</em><sub>x</sub>, <em>d</em><sub>y</sub> &gt; 0. Furthermore, it is assumed assume that <em>k</em> plants are exposed to a pathogen immediately after seeding, setting the initial condition to be <em>S</em>(0) = <em>N</em> − <em>k</em>, <em>I</em>(0) = <em>k</em>, <em>R</em>(0) = 0.</p>
+<p>Now, the locations of the initially infected plants in the field play a critical role in the pandemic spread rate, as one can see from Eq. (1). Thus, it is possible to provide a worst-case scenario as a boundary condition by choosing the <em>k</em> plants that the maximum distance between at least one of them to any other plant is minimal (i.e., the <em>metric k-center</em> task).<sup>34</sup> Let us denote this distance by 0 &lt; <em>r</em> ∈ R such that <em>r</em> := q<em>d</em><sup>2</sup> <sub>x</sub> + <em>d</em><sup>2</sup> <sub>y</sub>.</p>
+<p>Assuming the worst-case scenario, in order to compute Eq. (3), one is required to compute <em>N</em><sub>t</sub> for <em>t</em> ∈ [1, . . . , <em>T</em>]. Hence, to obtain the number of removed plants, one can compute</p>
+<div class="equation" id="eq-5"><img src="figures/eq-5.webp" width="196" height="47" alt="T X t=1 dR(t) dt . (5)" loading="lazy" decoding="async"></div>
+
+<p>Now, using the next generation matrix (NGM) method,<sup>35</sup> we can bound the value of <em>I</em>(<em>t</em>) for each <em>t</em> ∈ [0, . . . , <em>T</em>] using the formula: <em>I</em>(<em>t</em> + 1) ≤ β<em>I</em>(<em>t</em>). By setting this condition to Eq. (5) and using Eq. (1), one obtains</p>
+<div class="equation" id="eq-6"><img src="figures/eq-6.webp" width="298" height="101" alt="T X t=1 dR(t) dt = T X t=1 γ I(t) = T X t=1 γβt−1k ≤γ k T X t=1 βt−1 0 rt−1 = γ k (β0/r)T −1 (β0/r) (β0/r) −1 . (6)" loading="lazy" decoding="async"></div>
+
+<p>From Eq. (6), it is possible to obtain a close form for</p>
+<div class="equation" id="eq-7"><img src="figures/eq-7.webp" width="325" height="31" alt="Nt ≡N −R(t) = N − γ k (β0/r)T −1 / (β0/r) (β0/r) −1 ." loading="lazy" decoding="async"></div>
+
+<p>As a result, Eq. (4) can be rewritten as the following optimization tasks, solving for the worst-case scenario. For the conditions approximation with less computational burden.<sup>36</sup></p>
+<figure class="table-figure" id="table-1">
+<figcaption><strong>TABLE I.</strong> The model’s parameters notations, descriptions, and values.</figcaption>
+<div class="table-scroll"><table><tr><th>H, no plants are seeded in the field which</th><th>Symbol</th><th>Parameter definition</th><th>Value</th></tr><tr><td>to return 0. As a result, the problem<br/>an optimization problem to N,</td><td>S(t)<br/>I(t)</td><td>Susceptible plants at time t (1)<br/>Infected plants at time t (1)</td><td></td></tr><tr><td></td><td>R(t)</td><td>Removed plants at time t (1)</td><td></td></tr><tr><td>max XT O(Nt)<br/>dx,dy t=1</td><td>Nt</td><td>Number of plants in the population at time t (1)</td><td></td></tr><tr><td></td><td>r</td><td>The minimal distance of the maximum distance</td><td></td></tr><tr><td>s.t.</td><td></td><td>between an susceptible and infected plant at</td><td></td></tr><tr><td>(7)<br/>dx ≤W,</td><td></td><td>t = 1 (m)</td><td></td></tr><tr><td></td><td>N</td><td>Default plant population size (plants)</td><td>25000</td></tr><tr><td>dy ≤H,</td><td>dx</td><td>Default x axis distance between plants (m)</td><td>0.2</td></tr><tr><td>dx, dy ≥0.</td><td>dy</td><td>Default y axis distance between plants (m)</td><td>0.2</td></tr><tr><td></td><td>W</td><td>The fields width (m)</td><td>100</td></tr><tr><td>spatial step of size δ ∈R+, one can solve this</td><td>H</td><td>The fields height (m)</td><td>100</td></tr><tr><td>brute force or using Monte Carlo for good</td><td>T</td><td>The duration of a session (plants)</td><td>3</td></tr><tr><td>computational burden.36</td><td>β0</td><td>Basic infection probability (t−1 plants−1)</td><td>0.003</td></tr><tr><td></td><td>γ</td><td>Removed rate (t−1)</td><td>1/42</td></tr><tr><td>ANALYSIS</td><td>k</td><td>The initial number of infected plants at the</td><td></td></tr><tr><td>model and its implementation as a com-<br/>investigate several scenarios of interest for the</td><td>as 1</td><td>beginning of the pandemic (plants)<br/>Average cost per plant for seeding ($)</td><td>3<br/>0.01</td></tr><tr><td>that influences potatoes. The param-</td><td>as 2</td><td>Average overhead for seeding ($)</td><td>0.14N</td></tr><tr><td>calculations (if not stated otherwise) are</td><td>g<br/>a 1</td><td>Average cost per plant for growing per day ($)</td><td>0.033</td></tr><tr><td>values are taken from the United States<br/>constantly change over time. First, we</td><td>g<br/>a 2</td><td>Average overhead for growing per day ($)</td><td>0.019N</td></tr><tr><td>spread and economic profit for small,</td><td>ah 1</td><td>Average cost per plant for harvesting ($)</td><td>0.06</td></tr><tr><td>Subsequently, a sensitivity analysis of the</td><td>ah 2</td><td>Average overhead for harvesting ($)</td><td>0.11N</td></tr><tr><td>properties on the pandemic spread and eco-<br/>Finally, a comparison of default and<br/>for random and worst-case initial condi-</td><td>ψ1<br/>ψ2</td><td>Average cost per plant for selling ($)<br/>Average discount for selling plants ($)</td><td>5.32<br/>1.71</td></tr></table></div>
+
+</figure>
+
+<h2 id="iv-numerical-analysis">Iv. Numerical Analysis</h2>
+<p>tions is analyzed. In order to capture the pandemic spread, we used the basic reproduction number (<em>R</em><sub>0</sub>) over time which is defined as <em>I</em>(<em>t</em>+1)−<em>I</em>(<em>t</em>) <em>R</em><sub>0</sub>(<em>t</em>) := <sub>R(t+1)−R(t)</sub> for <em>R</em>(<em>t</em> + 1) &gt; <em>R</em>(<em>t</em>) and <em>R</em><sub>0</sub>(<em>t</em>) := <em>I</em>(<em>t</em> + 1) − <em>I</em>(<em>t</em>), otherwise.<sup>37</sup> In a complementary manner, the average basic reproduction number, <em>E</em>[<em>R</em><sub>0</sub>], is defined as follows: <em>E</em>[<em>R</em><sub>0</sub>] := <sup>1</sup> <sub>t=1</sub> <em>R</em><sub>0</sub>(<em>t</em>). <sub>T</sub> P<sub>T</sub></p>
+<figure id="fig-2">
+<a class="fig-zoom" href="figures/fig-2.webp" aria-label="Open the figure full size"><img src="figures/fig-2.webp" width="813" height="311" alt="The basic reproduction number (dashed, red) and economic profit (dotted, blue) over time, divided into (a) small, (b) medium, and (c) large-size fields" loading="lazy" decoding="async"></a>
+<figcaption><strong>FIG. 2.</strong> The basic reproduction number (dashed, red) and economic profit (dotted, blue) over time, divided into (a) small, (b) medium, and (c) large-size fields. The results are shown as an average of <em>n</em> = 1000 random instances with the parameter values from Table I.</figcaption>
+</figure>
+
+<h3 id="a-baseline">A. Baseline</h3>
+<p><a class="xref" href="#fig-2">Figure 2</a> shows the basic reproduction number and economic profit over time, divided into small (<em>N</em> = 5000), medium (<em>N</em> = 25 000), and large (<em>N</em> = 125 000) fields with the same size. All fields are of the same size. The results show the average of <em>n</em> = 1000 simulations for each field that differ from each other by the position of initially infected plants. The overall infection rate over time increases as the field size increases and the distance between plants decreases. As a direct outcome, the economic profit at the end of the session is not monotonically increasing as expected (assuming it is profitable to grow a single plant) since a more significant portion of the plants is removed.</p>
+<h3 id="b-sensitivity-analysis">B. Sensitivity analysis</h3>
+<p>In order to capture the influence of the epidemiological parameters associated with the pathogen, β<sub>0</sub> and γ , a sensitivity analysis of the pandemic spread as the average basic reproduction number (a) and economic profit (b) are shown in <a class="xref" href="#fig-3">Fig. 3</a>. The results are shown relative to the baseline configuration provided in <a class="xref" href="#table-1">Table I</a>, where β<sub>0</sub> = 0.003 and γ = 1/42. We fitted the numerical data with an analytical two-dimensional linear function using the least mean square (LMS) method,<sup>38</sup> obtaining</p>
+<div class="equation" id="eq-8"><img src="figures/eq-8.webp" width="275" height="43" alt="E[R0] = 226.61β0 −42.88γ + 0.53 ∧E(T) = −213.18β0 + 37.27γ −0.32, (8)" loading="lazy" decoding="async"></div>
+
+<p>with a coefficient of determination (<em>R</em><sup>2</sup>) of 0.896 and 0.954, respectively.</p>
+<p>In addition, we measured the influence of three economic ratios <em>g g g a</em><sub>1</sub>/<em>a</em><sub>2</sub>, ψ<sub>1</sub>/ψ<sub>2</sub>, and <em>a</em><sub>1</sub>/ψ<sub>1</sub> on the economic profit as shown in <a class="xref" href="#fig-4">Fig. 4</a>. The results are shown as mean ± standard deviation of <em>n</em> = 1000 instances. The square (red) value indicates the baseline configura- <em>g g</em> tion shown in <a class="xref" href="#table-1">Table I</a>. One can notice that <em>a</em><sub>1</sub>/<em>a</em><sub>2</sub> obtains an optimum around 2. The economic profit is monotonically increasing as a function of ψ<sub>1</sub>/ψ<sub>2</sub>. Oppositely, the economic profit is monotonically <em>g</em> decreasing as a function of <em>a</em><sub>1</sub>/ψ<sub>1</sub>.</p>
+<h3 id="c-optimal-seeding-strategy">C. Optimal seeding strategy</h3>
+<p>Following the algorithm for the optimal seeding strategy (see Sec. III), we computed the difference between the default (<em>d</em><sub>x</sub> = <em>d</em><sub>y</sub> = 0.2) and optimal seeding strategy for random and worst case of initial condition. The results are summarized in <a class="xref" href="#fig-5">Fig. 5</a> such that the results obtained from <em>n</em> = 10 000 random instances where the field size (<em>W</em>, <em>H</em>) and pathogen properties (β<sub>0</sub>, γ ) are different for each instance. The blue and green area indicates the convex hull obtained from the dots using the Graham scan algorithm.<sup>39</sup></p>
+<p>In order to capture the underline functional dynamics generating the economic profit from the economic and epidemiological parameters, we utilized the <em>SciMED</em> symbolic regression tool.<sup>40</sup> Symbolic regression involves conducting regression analysis by exploring the realm of mathematical expressions to discover the most suitable model for a provided data set, prioritizing both accuracy and simplicity. We obtained the following equation:</p>
+<div class="equation" id="eq-9"><img src="figures/eq-9.webp" width="256" height="39" alt="E(T) = ψ1 −a g 1Tβ0r2 γ + a g 2T N, (9)" loading="lazy" decoding="async"></div>
+
+<figure id="fig-3">
+<a class="fig-zoom" href="figures/fig-3.webp" aria-label="Open the figure full size"><img src="figures/fig-3.webp" width="813" height="332" alt="Sensitivity analysis of the (a) average basic reproduction number and (b) economic profit as a function of the basic infection rate and recovery rate, relative to the baseline configuration—β0 = 0.003" loading="lazy" decoding="async"></a>
+<figcaption><strong>FIG. 3.</strong> Sensitivity analysis of the (a) average basic reproduction number and (b) economic profit as a function of the basic infection rate and recovery rate, relative to the baseline configuration—β<sub>0</sub> = 0.003, γ = 1/42. The results are shown as an average of <em>n</em> = 1000 random instances with the parameter values from Table I. The reader should note the different color scales in panels (a) and (b).</figcaption>
+</figure>
+
+<figure id="fig-4">
+<a class="fig-zoom" href="figures/fig-4.webp" aria-label="Open the figure full size"><img src="figures/fig-4.webp" width="813" height="265" alt="Sensitivity analysis of the economic profit as a function of several economic ratios—(a) ag 1/ag 2, (b) ψ1/ψ2, and (c) ag 1/ψ1" loading="lazy" decoding="async"></a>
+<figcaption><strong>FIG. 4.</strong> Sensitivity analysis of the economic profit as a function of several economic ratios—(a) <em>a</em><sup>g</sup> <sub>1</sub>/<em>a</em><sup>g</sup> <sub>2</sub>, (b) ψ<sub>1</sub>/ψ<sub>2</sub>, and (c) <em>a</em><sup>g</sup> <sub>1</sub>/ψ<sub>1</sub>. The results are shown as an average ± standard deviation of <em>n</em> = 1000 random instances with the parameter values from Table I. The square (red) value indicates the baseline configuration shown in Table I.</figcaption>
+</figure>
+
+<p>with a coefficient of determination <em>R</em><sup>2</sup> = 0.741 for the random case with the optimal seeding strategy.</p>
+<h2 id="v-discussion">V. Discussion</h2>
+<p>In this study, we have developed a mathematical model to establish the economic profit from a field of plants during a botanical pandemic. The proposed model establishes the connection between a spatiotemporal SIR-based epidemiological model and a non-linear economic production model. Based on this model, we propose an algorithm to find the economically optimal seeding strategy given a known pathogen and economic properties.</p>
+<p>Considering <em>Rhizoctonia solani</em> for potatoes as a representative example, we implemented an agent-based simulation. We studied the influence of several environmental, epidemiological, and economic properties of the pandemic spread and economic profit. In particular, we demonstrate the potential benefits of the proposed seeding strategy for both a random and worst-case pandemic scenario, regardless of the pathogen’s properties and field size.</p>
+<p>The baseline analysis aims to indicate a connection between the plant population size and the pandemic spread. On average, as the plant population size increases, the infection rate, reflected by the mean basic reproduction number (<em>R</em><sub>0</sub>), increases as well, as shown in <a class="xref" href="#fig-2">Fig. 2</a>. Moreover, the economic profit, at the end of the season (<em>T</em>), first increases and then decreases, demonstrating a parabolic-like behavior. These results agree with multiple spatiotemporal epidemiological models, and historical data in human and animal pandemics.<sup>41,42</sup></p>
+<p>Following the same path, an analysis of the pandemic spread and economic profit as a function of the basic infection rate (β<sub>0</sub>) and recovery rate (γ ) is conducted as shown in <a class="xref" href="#fig-3">Fig. 3</a>. Unsurprisingly, as the basic infection rate increases and the recovery rate decreases, the pandemic spread increases, and the economic profit decreases. Moreover, from Eq. (8), one can see that the basic infection rate has six times more influence on the decrease in economic profit compared to the recovery rate. Thus, when designing pandemic intervention policies, researchers and developers might prefer to focus on the pandemic intervention policies or the development of plants that are more resilient to an infection to reduce the pandemic spread.</p>
+<p>In an interconnected way, the sensitivity analysis of the economic profit as a function of the ratio between growing overhead and per plant cost, the ratio between the average plant selling price and overall reduced price, and the ratio between average growing cost per plant to the selling cost is studied in <a class="xref" href="#fig-4">Fig. 4</a>. <a class="xref" href="#fig-4">Figure 4</a>(a) reveals that as the ratio between the per plant growing cost and the growing overhead cost increases, it reaches an optimum and then sharply decreases. However, for the two other quantities, the dynamics are monotonic, agreeing with previous economic models.<sup>43,44</sup></p>
+<p>Most importantly, <a class="xref" href="#fig-5">Fig. 5</a> reveals that the optimal seeding strategy indeed increases the average (and in general) economic profit while decreasing the pandemic spread for both the random and worst-case scenarios. Specifically, the improvement for the random case is statistically significantly better than for the worst-case scenario (<em>p</em> &lt; 0.005), obtained using an ANOVA test. Nevertheless, for both the random and worst case, the optimal seeding configuration is statistically outperforming the default seeding configuration (<em>p</em> &lt; 0.001), obtained using a paired two-sided T-test. Interestingly, while the relationship between the average basic reproduction number and the economic profit for both cases is complex and non-linear, the figure reveals a somewhat linear decreasing trend. Moreover, one can notice that the improvement of using the optimal seeding configuration compared to the default seeding configuration in the random case has less impact compared to the worst case.</p>
+<p>Altogether, field owners and policymakers can adopt the seeding strategy at the beginning of a new session, assuming they are familiar with the possible pathogen that might cause a pandemic in their field, given a crop they wish to grow. Moreover, the proposed model provides a tool to approximate the economic influence such a pandemic might have on a specific situation. Our model and simulator are published as open source (the source code is available at https://github.com/teddy4445/pandemic_in_the_field), so other researchers and policymakers can replicate and extend our study for their needs.</p>
+<figure id="fig-5">
+<a class="fig-zoom" href="figures/fig-5.webp" aria-label="Open the figure full size"><img src="figures/fig-5.webp" width="813" height="430" alt="The average pandemic spread and economic profit for the (a) random case and (b) worst-case optimal seeding strategy" loading="lazy" decoding="async"></a>
+<figcaption><strong>FIG. 5.</strong> The average pandemic spread and economic profit for the (a) random case and (b) worst-case optimal seeding strategy. The results are based on <em>n</em> = 10 000 random instances with the parameter values from Table I and <em>W</em> ∈ [50, 250], <em>H</em> ∈ [50, 250], β<sub>0</sub> ∈ [0.001, 0.005], γ ∈ [1/65, 1/21].</figcaption>
+</figure>
+
+<p>This study has several limitations, which provide opportunities for future research. First, the proposed model assumes that the plant population is homogeneous in its epidemiological and economic properties, an assumption known to be false.<sup>45,46</sup> As such, by introducing unique epidemiological and economic properties for each individual plant, such as recovery rate and amount of profit from selling, one would obtain a more accurate economic profit prediction. In a complementary manner, the proposed work focused on the seeding strategy alone, ignoring current and novel possible monitoring and intervention policies strategies that can control a pandemic spread and, therefore, increase the economic profit.<sup>47,48</sup> In addition, as each plant type is susceptible to multiple pathogens, an extension of the proposed model for the case of a multi-strain pandemic can be of great interest.<sup>49–53</sup> Finally, the proposed analysis was conducted for a single pathogen, as shown in <a class="xref" href="#table-1">Table I</a>, which limits our current understanding of the model’s generalization capabilities. Future work can explore the proposed model for more pathogens. Moreover, in this work, we assume a two-dimensional field. However, many fields take advantage of three-dimensional phenomena. A possible extension of this work is to include a three-dimensional surface.</p>
+<h2 id="author-declarations">Author Declarations</h2>
+<h2 id="conflict-of-interest">Conflict of Interest</h2>
+<p>The author has no conflicts to disclose.</p>
+<h2 id="author-contributions">Author Contributions</h2>
+<p><strong>Teddy Lazebnik:</strong> Conceptualization (equal); Data curation (equal); Formal analysis (equal); Investigation (equal); Methodology (equal); Project administration (equal); Resources (equal); Software (equal); Visualization (equal); Writing – original draft (equal); Writing – review &amp; editing (equal).</p>
+<h2 id="data-availability">Data Availability</h2>
+<p>The data that support the findings of this study are openly available in arXiv at https://arxiv.org/abs/2301.02817, Ref. 54. The code and materials are available from the corresponding author upon reasonable request.</p>
+<section id="article-notes" class="paper-notes"><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Accepted 16 February 2024 · Published 18 March 2024</dd></div></dl></section>
+<h2 id="references">References</h2>
+<ul class="paper-refs">
+<li>1R. A. C. Jones, “Global plant virus disease pandemics and epidemics,” Plants 10(2), 233 (2021). 2J. C. Zadoks, “Twenty-five years of botanical epidemiology,” Philos. Trans. R. Soc. Lond. B 321, 377–387 (1988). 3J. M. Thresh, “The impact of plant virus diseases in developing countries,” in Virus and Virus-like Diseases of Major Crops in Developing Countries, edited by G. <a href="https://doi.org/10.3390/plants10020233" target="_blank" rel="noopener">doi:10.3390/plants10020233</a></li>
+<li>Loebenstein and G. Thottappilly (Springer, 2004). 4M. J. Jeger and J. M. Thresh, “Modelling reinfection of replanted cocoa by swollen shoot virus in pandemically diseased areas,” J. Appl. Ecol. 30, 187–196 (1993). 5G. W. Otim-Nape and J. M. Thresh, “The current pandemic of cassava mosaic virus disease in Uganda,” in The Epidemiology of Plant Diseases, edited by D. <a href="https://doi.org/10.2307/2404282" target="_blank" rel="noopener">doi:10.2307/2404282</a></li>
+<li>Gareth Jones (Springer, 1998). 6D. J. Bailey, W. Otten, and C. A. Gilligan, “Saprotrophic invasion by the soil-borne fungal plant pathogen Rhizoctonia solani and percolation thresholds,” New Phytol. 146(3), 535–544 (2000). 7S. Poggi, F. M. Neri, V. Deytieux, A. Bates, W. Otten, C. A. Gilligan, and D. J. Bailey, “Percolation-based risk index for pathogen invasion: Application to soilborne disease in propagation systems,” Phytopathology 103(10), 1012–1019 (2013). 8C. A. Gilligan, S. Gubbins, and S. A. Simons, “Analysis and fitting of an SIR model with host response to infection load for a plant disease,” Philos. Trans. R. Soc. Lond. Ser. B Biol. Sci. 352(1351), 353–364 (1997). 9L. V. Madden, “Botanical epidemiology: Some key advances and its continuing role in disease management,” Eur. J. Plant. Pathol. 115, 3–23 (2006). 10S. Galiani, “On the application of the window of opportunity and complex network to risk analysis of process plants operations during a pandemic,” J. Econ. Behav. Organ. 193, 269–275 (2022). 11S. K. Sastry and T. A. Zitter, “Management of virus and viroid diseases of crops in the tropics,” in Plant Virus and Viroid Diseases in the Tropics, Epidemiology and Management, edited by K. Subramanya Sastry and Thomas A. Zitter (Springer, 2014), Vol. 2. 12P. K. Anderson, A. A. Cunningham, N. G. Patel, F. J. Morales, P. R. Epstein, and P. Daszak, “Emerging infectious diseases of plants: Pathogen pollution, climate change and agrotechnology drivers,” Trends Ecol. Evol. 19, 535–544 (2004). 13J. M. Thresh, “The origins and epidemiology of some important plant virus diseases,” Appl. Biol. 5, 1–65 (1980). 14J. M. Thresh, “Cropping practices and virus spread,” Annu. Rev. Phytopathol. 20, 193–218 (1982). 15P. Kampmeijer and J. C. Zadoks, EPIMUL: A simulator of foci and epidemics in mixtures, multilines, and mosaics of resistant and susceptible plants, edited by P. <a href="https://doi.org/10.1046/j.1469-8137.2000.00660.x" target="_blank" rel="noopener">doi:10.1046/j.1469-8137.2000.00660.x</a></li>
+<li>Kampmeijer and J. C. Zadoks (Wagenin Center for Agricultural Publishing and Documentation, 1997), p. 50. 16L. V. Madden and F. Van den Bosch, “A population-dynamics approach to assess the threat of plant pathogens as biological weapons against annual crops,” BioScience 52, 65–74 (2002). 17C. A. Gilligan and S. Gubbins, “Analysis and fitting of an SIR model with host response to infection load for a plant disease,” Philos. Trans. R. Soc. B Biol. Sci. 352, 353–364 (1997). 18W. O. Kermack and A. G. McKendrick, “A contribution to the mathematical theory of epidemics,” Proc. R. Soc. 115, 700–721 (1927). 19A. Kawaguchi, S. Kitabayashi, K. Inoue, and K. Tanina, “An HLD model for tomato bacterial canker focusing on epidemics of the pathogen due to cutting by infected scissors,” Plants 11(17), 2253 (2022). 20N. J. Cunniffe and C. A. Gilligan, “Invasion, persistence and control in epidemic models for plant pathogens: The effect of host demography,” J. R. Soc. Interface 7, 439–451 (2010). 21T. Lazebnik and A. Alexi, “Comparison of pandemic intervention policies in several building types using heterogeneous population model,” Commun. <a href="https://doi.org/10.1641/0006-3568%282002%29052[0065:APDATA]2.0.CO;2" target="_blank" rel="noopener">doi:10.1641/0006-3568(2002)052[0065:APDATA]2.0.CO;2</a></li>
+<li>Nonlinear Sci. Numer. Simul. 107(4), 106176 (2022). 22D. Chumachenko, V. Dobriak, M. Mazorchuk, I. Meniailov, and K. Bazilevych, “On agent-based approach to influenza and acute respiratory virus infection simulation,” in 2018 14th International Conference on Advanced Trends in Radioele-crtronics, Telecommunications and Computer Engineering (TCSET) (IEEE, 2018), pp. 192–195. 23J. D. Priest, A. Kishore, L. Machi, C. J. Kuhlman, D. Machi, and S. S. Ravi, “Csonnet: An agent-based modeling software system for discrete time simulation,” in 2021 Winter Simulation Conference (WSC) (ACM, 2021), pp. 1–12. 24K. M. Carley, D. B. Fridsma, E. Casman, A. Yahja, N. Altman, C. Li-Chiou, B. <a href="https://doi.org/10.1016/j.cnsns.2021.106176" target="_blank" rel="noopener">doi:10.1016/j.cnsns.2021.106176</a></li>
+<li>Kaminsky, and D. Nave, “Biowar: Scalable agent-based model of bioattacks,” IEEE Trans. Syst. Man Cybern. A Syst. Humans 36(2), 252–265 (2006). 25N. Cressie, Statistics for Spatial Data (John Wiley &amp; Sons, 1991). 26D. Levy, S. Dutta, M. Bergen, and R. Venable, “Price adjustment at multiproduct retailers,” Manag. Decis. Econ. 19(2), 81–120 (1998). 27P. J. Klenow and B. A. Malin, “Microeconomic evidence on price-setting,” in Handbook of Monetary Economics (Elsevier, 2010), Vol. 3, pp. 231–284. 28M. G. Dekimpe and D. M. Hanssens, “Advertising response models,” in The Sage Handbook of Advertising (Sage Publications, 2007), pp. 247–263. 29J. L. Simon, Issues in the Economics of Advertising (University of Illinois Press, 1970). 30J. L. Simon and J. Arndt, “The shape of the advertising response function,” J. Adv. Res. 20(4), 11–28 (1980). 31L. Tesfatsion, “Agent-based computational economics: Growing economies from the bottom up,” Art. Life 8(1), 55–82 (2002). 32T. Lazebnik, S. Bunimovich-Mendrazitsky, and L. Shami, “Pandemic management by a spatio–temporal mathematical model,” Int. J. Nonlinear Sci. Numer. Simul. 107(4), 106176 (2021). 33V. S. Alagar and K. Periyasamy, Extended Finite State Machine (Springer London, 2011), pp. 105–128. 34J. Chuzhoy, S. Guha, E. Halperin, S. Khanna, G. Kortsarz, R. Krauthgamer, and J. Naor, “Asymmetric k-center is log* n-hard to approximate,” J. ACM 52(4), 538–551 (2005). 35O. Diekmann, J. A. Heesterbeek, and M. G. Roberts, “The construction of next-generation matrices for compartmental epidemic models,” J. R. Soc. 7(47), 873–885 (2010). 36E. Zio, Monte Carlo Simulation: The Method (Springer London, London, 2013), pp. 19–58. 37T. Lazebnik and S. Bunimovich-Mendrazitsky, “The signature features of COVID-19 pandemic in a hybrid mathematical model—Implications for optimal work-school lockdown policy,” Adv. Theory Simul. 4(5), 2000298 (2021). 38A. Bjorck, “Numerical methods for least squares problems,” Soc. Ind. Appl. Math. 5, 497–513 (1996). 39R. L. Graham, “An efficient algorithm for determining the convex hull of a finite planar set,” Inf. Process. Lett. 1(4), 132–133 (1972). 40L. S. Keren, A. Liberzon, and T. Lazebnik, “A computational framework for physics-informed symbolic regression with straightforward integration of domain knowledge,” Sci. Rep. 13, 1249 (2023). 41M. J. Keeling and K. T. D. Eames, “Networks and epidemic models,” J. R. Soc. <a href="https://doi.org/10.1109/TSMCA.2005.851291" target="_blank" rel="noopener">doi:10.1109/TSMCA.2005.851291</a></li>
+<li>Interface 2, 295–307 (2005). 42C. Moore and M. E. J. Newman, “Epidemics and percolation in small-world networks,” Phys. Rev. E 61, 5678–5682 (2000). 43A. Atkeson, M. C. Droste, M. J. Mina, and J. Stock, “Economic benefits of COVID-19 screening tests with a vaccine rollout,” medRxiv (2021). 44M. Bognanni, H. Doug, D. Kolliner, and K. Mitman, Economics and epidemics: Evidence from an estimated spatial ECON-SIR model, Finance and Economics Discussion Series 2020-091 (Board of Governors of the Federal Reserve System, Washington, 2020). 45H. Sun, H. Wang, M. Yang, and G. Reniers, “On the application of the window of opportunity and complex network to risk analysis of process plants operations during a pandemic,” J. Loss Prev. Process Ind. 68, 104322 (2020). 46C.-H. Li, C.-C. Tsai, and S.-Y. Yang, “Analysis of epidemic spreading of an SIRS model in complex heterogeneous networks,” Commun. Nonlinear Sci. Numer. Simul. 19(4), 1042–1054 (2014). 47J. B. Ristaino, P. K. Anderson, D. P. Bebber, K. A. Brauman, N. J. Cunniffe, N. V. Fedoroff, C. Finegold, K. A. Garrett, C. A. Gilligan, C. M. Jones, M. D. Martin, G. K. MacDonald, P. Neenan, A. Records, D. G. Schmale, L. Tateosian, and Q. <a href="https://doi.org/10.1098/rsif.2005.0051" target="_blank" rel="noopener">doi:10.1098/rsif.2005.0051</a></li>
+<li>Wei, “The persistent threat of emerging plant disease pandemics to global food security,” Proc. Natl. Acad. Sci. U.S.A. 118(23), e2022239118 (2021). 48J. P. Legg, R. Shirima, L. S. Tajebe, D. Guastella, S. Boniface, S. Jeremiah, E. Nsami, P. Chikoti, and C. Rapisarda, “Biology and management of Bemisia whitefly vectors of cassava virus pandemics in Africa,” Pest Manage. Sci. 70(10), 1446–1453 (2014). 49I. Gordo, M. G. M. Gomes, D. G. Reis, and P. R. A. Campos, “Genetic diversity in the SIR model of pathogen evolution,” PLoS One 4(3), e4876 (2009). 50O. Khyar and K. Allali, “Global dynamics of a multi-strain SEIR epidemic model with general incidence rates: Application to COVID-19 pandemic,” Nonlinear Dyn. 102, 489–509 (2020). 51T. Lazebnik and S. Bunimovich-Mendrazitsky, “Generic approach for mathematical model of multi-strain pandemics,” PLoS One 17(4), e0260683 (2022). 52P. Minayev and N. Ferguson, “Improving the realism of deterministic multi-strain models: Implications for modelling influenza A,” J. R. Soc. Interface 6(35), 509 (2008). 53Y.-X. Dang, X.-Z. Li, and M. Martcheva, “Competitive exclusion in a multi-strain immuno-epidemiological influenza model with environmental transmission,” J. Biol. Dyn. 10(1), 416–456 (2016). 54T. Lazebnik, “Cost-optimal seeding strategy during a botanical pandemic in domesticated fields,” arXiv (2023). <a href="https://doi.org/10.1073/pnas.2022239118" target="_blank" rel="noopener">doi:10.1073/pnas.2022239118</a></li>
+</ul>
+</div>
+        
+        
+        <p class="paper-source"><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Lazebnik (2024), <em>Chaos</em>, <a href="https://doi.org/10.1063/5.0192426" target="_blank" rel="noopener">doi:10.1063/5.0192426</a>, with the permission of the publisher. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+      </article>
+    </div>
+
+    <section class="paper-related" aria-labelledby="related-title"><div class="paper-wrap"><h2 id="related-title">Related research</h2><div class="related-grid"><a class="related-card" href="/publications/economicalepidemiological-analysis-coffee-trees-rust-pandemic/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2024</span><strong>Economical–epidemiological analysis of the coffee trees rust pandemic</strong><span class="related-text">Chaos</span></a><a class="related-card" href="/publications/hybrid-mathematical-model-optimal-border-closure-policy/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2023</span><strong>A Hybrid Mathematical Model for Optimal Border Closure Policy during Pandemic</strong><span class="related-text">International Journal of Applied Mathematics and Computer Science</span></a><a class="related-card" href="/publications/economic-aspects-detection-new-strains-multi-strain/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2022</span><strong>Economic aspects of the detection of new strains in a multi-strain epidemiological–mathematical model</strong><span class="related-text">Chaos, Solitons &amp; Fractals</span></a></div><p class="related-more"><a href="/publications.html">All publications</a></p></div></section>
+  </main>
+
+  <dialog id="cite-dialog" class="paper-dialog" aria-labelledby="cite-title">
+    <div class="dialog-head">
+      <h2 id="cite-title">Cite this paper</h2>
+      <button type="button" class="dialog-close" aria-label="Close"><i class="ri-close-line" aria-hidden="true"></i></button>
+    </div>
+    <p class="dialog-label">APA</p>
+    <pre class="cite-box" id="cite-apa">Lazebnik, T. (2024). Cost-optimal Seeding Strategy During a Botanical Pandemic in Domesticated Fields. Chaos. https://doi.org/10.1063/5.0192426</pre>
+    <button type="button" class="paper-btn" data-copy="cite-apa"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy APA</span></button>
+    <p class="dialog-label">BibTeX</p>
+    <pre class="cite-box" id="cite-bib">@article{lazebnik2024cost,
+  title = {Cost-optimal Seeding Strategy During a Botanical Pandemic in Domesticated Fields},
+  author = {Lazebnik, Teddy},
+  journal = {Chaos},
+  year = {2024},
+  doi = {10.1063/5.0192426}
+}</pre>
+    <button type="button" class="paper-btn" data-copy="cite-bib"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy BibTeX</span></button>
+  </dialog>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Games</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
+                  <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
+                  <li><a href="https://rl.teddylazebnik.com/">Pirate War RL Game</a></li>
+                  <li><a href="https://eh.teddylazebnik.com/">Echo Heist</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      
+      <script>
+        (function () {
+          // menu and navbar (js/main.js expects to sit at the site root)
+          var btn = document.getElementById('menu-btn'), menu = document.getElementById('mobile-menu'), nav = document.getElementById('navbar');
+          btn.addEventListener('click', function () { menu.classList.toggle('max-h-0'); menu.classList.toggle('max-h-screen'); });
+          var onScroll = function () { nav.classList.toggle('nav-scrolled', window.scrollY > 10); };
+          window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+          // cite dialog + copy buttons
+          var dialog = document.getElementById('cite-dialog');
+          document.querySelectorAll('[data-dialog]').forEach(function (b) {
+            b.addEventListener('click', function () { if (dialog.showModal) dialog.showModal(); else dialog.setAttribute('open', ''); });
+          });
+          dialog.querySelector('.dialog-close').addEventListener('click', function () { dialog.close(); });
+          dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
+          function flash(button, text) {
+            var label = button.querySelector('span'), old = label.textContent;
+            label.textContent = text; setTimeout(function () { label.textContent = old; }, 1600);
+          }
+          document.querySelectorAll('[data-copy]').forEach(function (b) {
+            b.addEventListener('click', function () {
+              var text = document.getElementById(b.getAttribute('data-copy')).textContent;
+              navigator.clipboard.writeText(text).then(function () { flash(b, 'Copied'); });
+            });
+          });
+          document.getElementById('share-btn').addEventListener('click', function () {
+            var b = this, data = { title: document.title, url: location.href.split('#')[0] };
+            if (navigator.share) { navigator.share(data).catch(function () {}); }
+            else { navigator.clipboard.writeText(data.url).then(function () { flash(b, 'Link copied'); }); }
+          });
+
+          // highlight the section being read in "On this page"
+          var links = {};
+          document.querySelectorAll('.paper-toc a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+          var heads = Array.prototype.filter.call(document.querySelectorAll('#full-text h2[id], #full-text h3[id], #full-text section[id]'), function (h) { return links[h.id]; });
+          if ('IntersectionObserver' in window && heads.length) {
+            var current = null;
+            var io = new IntersectionObserver(function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                  if (current) current.classList.remove('is-active');
+                  current = links[e.target.id]; current.classList.add('is-active');
+                }
+              });
+            }, { rootMargin: '-90px 0px -70% 0px' });
+            heads.forEach(function (h) { io.observe(h); });
+          }
+        })();
+      </script>
+   </body>
+</html>

@@ -75,16 +75,13 @@ ${jsonld}
         <p class="paper-kicker">${oa_badge}<span>${kicker}</span></p>
         <h1 class="paper-title${title_class}">${title}</h1>
         <p class="paper-authors">${authors_html}</p>
-        <details class="paper-affils">
-          <summary>Affiliations</summary>
-          <ol>${affiliations_html}</ol>
-        </details>
+        ${affiliations}
         <div class="paper-actions">
-          <a class="paper-btn paper-btn-primary" href="${pdf}"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
-          <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
+          <a class="paper-btn paper-btn-primary" href="${pdf}" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
+          <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>${read_label}</a>
           ${video_button}
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
-          <a class="paper-btn" href="https://doi.org/${doi}" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
+          ${doi_button}
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
         </div>
         ${lab_authors}
@@ -118,6 +115,7 @@ ${toc}
           <h2>Abstract</h2>
           <p>${abstract}</p>
         </section>
+        ${see_also}
 ${body}
         ${notes}
         ${video_section}
