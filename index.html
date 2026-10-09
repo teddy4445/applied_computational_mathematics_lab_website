@@ -120,7 +120,7 @@
 </script>
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="css/styles.css" rel="stylesheet">
       <link href="css/videos.css" rel="stylesheet">
@@ -133,7 +133,7 @@
     <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
       <!-- Logo -->
       <div class="flex items-center gap-2">
-        <img src="img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px">
+        <a href="/" aria-label="ACML home"><img src="img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
       </div>
 
       <!-- Desktop Menu -->
@@ -149,7 +149,7 @@
       </div>
 
       <!-- Mobile Menu Button -->
-      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100">
+      <button id="menu-btn" aria-label="Open menu" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100">
         <i class="ri-menu-line text-xl"></i>
       </button>
     </div>
@@ -198,7 +198,7 @@
                      </div>
                      <div class="h-12 w-px bg-white/20"></div>
                      <div>
-                        <p class="text-4xl font-bold count-up-ready" data-countup="16">16</p>
+                        <p class="text-4xl font-bold count-up-ready" id="team-members-count" data-countup="16">16</p>
                         <p class="text-sm text-gray-300">Team Members</p>
                      </div>
                      <div class="h-12 w-px bg-white/20"></div>
@@ -244,7 +244,7 @@
          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                <h2 class="text-4xl font-bold text-gray-900 mb-6">Who We Are</h2>
-               <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">We are a multidisciplinary research group dedicated to developing innovative computational methods and mathematical models that address complex problems across science, engineering, and industry. ACML is a scientific research lab at the <a href="https://ju.se/en/about-us/school-of-engineering/organisation/computing.html">Computing Department</a> at <a href="https://ju.se/">Jonkoping University (Sweden)</a> together with the <a href="https://is-web.hevra.haifa.ac.il/index.php/en">Information Systems Department</a> at the <a href="https://uhaifa.org/">University of Haifa (Israel)</a>.</p>
+               <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">We are a multidisciplinary research group dedicated to developing innovative computational methods and mathematical models that address complex problems across science, engineering, and industry. ACML is a scientific research lab at the <a href="https://ju.se/en/about-us/school-of-engineering/organisation/computing.html">Computing Department</a> at <a href="https://ju.se/">Jönköping University (Sweden)</a> together with the <a href="https://is-web.hevra.haifa.ac.il/index.php/en">Information Systems Department</a> at the <a href="https://uhaifa.org/">University of Haifa (Israel)</a>.</p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
                <div class="text-center p-6 bg-gray-50 rounded-xl">
@@ -306,7 +306,7 @@
                <span class="study-orbit" aria-hidden="true"></span>
             </div>
             <div class="p-6">
-               <h3 class="text-xl font-semibold mb-3">AI for Physics laws Discovery</h3>
+               <h3 class="text-xl font-semibold mb-3">AI for Discovering Physics Laws</h3>
                <p class="text-gray-600 mb-4">Moving from table to graph in physics-informed spatio-temporal symbolic regression.</p>
                <a href="https://www.nature.com/articles/s41598-026-53882-w" class="text-primary font-medium hover:text-secondary transition-colors duration-200">Learn More →</a>
             </div>
@@ -332,7 +332,7 @@
                <span class="study-orbit" aria-hidden="true"></span>
             </div>
             <div class="p-6">
-               <h3 class="text-xl font-semibold mb-3">Wound Clousre Mathematical Model</h3>
+               <h3 class="text-xl font-semibold mb-3">Wound Closure Mathematical Model</h3>
                <p class="text-gray-600 mb-4">PDE and agent based simulation approaches to Ischemic Dermal Wound Closure.</p>
                <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0340624" class="text-primary font-medium hover:text-secondary transition-colors duration-200">Learn More →</a>
             </div>
@@ -360,7 +360,7 @@
                   </div>
                   <div class="pt-4">
                      <h3 class="text-2xl font-semibold mb-3">Data collection / analysis</h3>
-                     <p class="text-gray-600 text-lg">We will help you to help us to collect the data that answers your research question with our methods. </p>
+                     <p class="text-gray-600 text-lg">We help you collect the data that answers your research question with our methods. </p>
                   </div>
                   <div class="absolute left-12 top-24 h-24 border-l-2 border-dashed border-gray-300 hidden md:block"></div>
                </div>
@@ -370,7 +370,7 @@
                   </div>
                   <div class="pt-4">
                      <h3 class="text-2xl font-semibold mb-3">Data Modeling and Analysis</h3>
-                     <p class="text-gray-600 text-lg">We develop models that solve the problem. We do not have such models? we try to invent them....</p>
+                     <p class="text-gray-600 text-lg">We develop models that solve the problem. No suitable model exists yet? Then we invent one.</p>
                   </div>
                   <div class="absolute left-12 top-24 h-24 border-l-2 border-dashed border-gray-300 hidden md:block"></div>
                </div>
@@ -390,7 +390,7 @@
                   </div>
                   <div class="pt-4">
                      <h3 class="text-2xl font-semibold mb-3">Publications</h3>
-                     <p class="text-gray-600 text-lg">We lead the writting of the methodological and results sections of technical reports and scientific manuscripts.</p>
+                     <p class="text-gray-600 text-lg">We lead the writing of the methodological and results sections of technical reports and scientific manuscripts.</p>
                   </div>
                </div>
             </div>
@@ -422,13 +422,13 @@
                   </div>
                </div>
                <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                  <img loading="lazy" decoding="async" src="img/media/chan_11_reshet_b.webp" alt="What happen when you write an email using LLMs?" class="w-full h-48 object-cover object-top">
+                  <img loading="lazy" decoding="async" src="img/media/chan_11_reshet_b.webp" alt="What happens when you write an email using LLMs?" class="w-full h-48 object-cover object-top">
                   <div class="p-6">
                      <div class="flex items-center justify-between mb-4">
                         <span class="text-sm font-medium text-primary">Kan - Reshet B</span>
                         <span class="text-xs text-gray-400">August 2026</span>
                      </div>
-                     <h3 class="font-semibold mb-3 text-lg">What happen when you write an email using LLMs?</h3>
+                     <h3 class="font-semibold mb-3 text-lg">What happens when you write an email using LLMs?</h3>
                      <a href="https://acml.teddylazebnik.com/img/media/chan_11_reshet_b.mpeg" class="text-secondary hover:text-primary transition-colors duration-200 text-sm font-medium flex items-center">
                      Read Article <i class="ri-arrow-right-line ml-1"></i>
                      </a>
@@ -624,19 +624,19 @@
                <img loading="lazy" decoding="async" src="img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
                <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
             </div>
-            
             <div>
                <h4 class="font-semibold mb-3">Games</h4>
                <ul class="space-y-2 text-gray-400">
                   <li><a href="mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
                   <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
-				  <li><a href="https://rl.teddylazebnik.com/">Pirate War RL Game</a></li>
-				  <li><a href="https://eh.teddylazebnik.com/">Echo Heist</a></li>
+                  <li><a href="https://rl.teddylazebnik.com/" class="hover:text-white">Pirate War RL Game</a></li>
+                  <li><a href="https://eh.teddylazebnik.com/" class="hover:text-white">Echo Heist</a></li>
                </ul>
             </div>
             <div>
                <h4 class="font-semibold mb-3">Resources</h4>
                <ul class="space-y-2 text-gray-400">
+                  <li><a href="publications.html" class="hover:text-white">Publications</a></li>
                   <li><a href="tools.html" class="hover:text-white">Tools</a></li>
                   <li><a href="media.html" class="hover:text-white">Media</a></li>
                   <li><a href="videos.html" class="hover:text-white">Videos</a></li>
@@ -644,7 +644,7 @@
             </div>
             <div>
                <h4 class="font-semibold mb-3">Contact Info</h4>
-               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jonkoping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
             </div>
          </div>
          <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
@@ -652,9 +652,6 @@
          </div>
       </footer>
       <!-- js -->
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-         crossorigin="anonymous"></script>
       <script src="js/main.js"> </script>
       <script src="js/videos.js"></script>
 	  <script type="module" src="js/hero-sphere.js"></script>

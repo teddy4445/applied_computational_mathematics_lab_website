@@ -310,7 +310,7 @@ window.addEventListener("scroll", () => {
       card.className =
         "media-card bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-100";
 
-      const safeImg = item.image || "img/media/placeholder.png";
+      const safeImg = item.image || "img/media/placeholder.webp";
 
       card.innerHTML = `
         <div class="w-full h-48 overflow-hidden bg-gray-100">
@@ -653,7 +653,7 @@ window.addEventListener("scroll", () => {
     const linksHtml = links.length ? " · " + links.join(" · ") : "";
     return `
       <div class="flex items-center gap-3">
-        <img src="${p.avatar || "img/people/default.jpg"}" alt="${p.name}" class="w-10 h-10 rounded-full object-cover" loading="lazy" decoding="async">
+        <img src="${p.avatar || "img/lab/user.webp"}" alt="${p.name}" class="w-10 h-10 rounded-full object-cover" loading="lazy" decoding="async">
         <div class="text-sm">
           <div class="font-medium">${p.name}${p.degree ? ", " + p.degree : ""}</div>
           <div class="text-gray-500">${p.role || ""}${linksHtml}</div>
@@ -693,3 +693,24 @@ window.addEventListener("scroll", () => {
   enhanceAnimatedContent(container);
 })();
 
+// Home page: keep the hero numbers in step with the data files (papers rounded down to tens, e.g. "140+").
+(function refreshHomeCounts() {
+  const teamEl = document.getElementById('team-members-count');
+  if (!teamEl) return; // only the home page has this counter
+  const papersEl = document.getElementById('papers-count');
+  const update = (el, value, suffix) => {
+    if (!el || !value || Number(el.dataset.countup) === value) return;
+    window.ACMLAnimations?.refreshCount(el, value, suffix);
+  };
+  const run = () => {
+    fetch('data/lab.json').then((r) => (r.ok ? r.json() : null)).then((d) => {
+      const n = (d?.members || []).filter((m) => String(m.category_name || '').trim().toLowerCase().startsWith('current')).length;
+      update(teamEl, n, '');
+    }).catch(() => {});
+    fetch('data/academic-publications.json').then((r) => (r.ok ? r.json() : null)).then((d) => {
+      const n = new Set((d?.publications || []).map((p) => String(p.name || '').trim().toLowerCase())).size;
+      update(papersEl, Math.floor(n / 10) * 10, '+');
+    }).catch(() => {});
+  };
+  if ('requestIdleCallback' in window) requestIdleCallback(run, { timeout: 3000 }); else setTimeout(run, 1500);
+})();

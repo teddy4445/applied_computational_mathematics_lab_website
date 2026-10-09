@@ -42,7 +42,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet" />
@@ -58,7 +58,7 @@
     <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
       <!-- Logo -->
       <div class="flex items-center gap-2">
-        <img src="img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px">
+        <a href="/" aria-label="ACML home"><img src="img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
       </div>
 
       <!-- Desktop Menu -->
@@ -74,7 +74,7 @@
       </div>
 
       <!-- Mobile Menu Button -->
-      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100">
+      <button id="menu-btn" aria-label="Open menu" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100">
         <i class="ri-menu-line text-xl"></i>
       </button>
     </div>
@@ -105,11 +105,11 @@
               </p>
               <div class="flex items-center space-x-6 pt-4">
                 <div class="text-center">
-                  <div id="team-count" class="text-3xl font-bold text-primary count-up-ready" data-countup="15">15</div>
+                  <div id="team-count" class="text-3xl font-bold text-primary count-up-ready" data-countup="16">16</div>
                   <div class="text-sm text-gray-600">Team Members</div>
                 </div>
                 <div class="text-center">
-                  <div id="alumni-count" class="text-3xl font-bold text-primary count-up-ready" data-countup="11">11</div>
+                  <div id="alumni-count" class="text-3xl font-bold text-primary count-up-ready" data-countup="19">19</div>
                   <div class="text-sm text-gray-600">Alumni</div>
                 </div>
                 <div class="text-center">
@@ -271,50 +271,42 @@
 	  
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12 mt-20">
-      <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
-        <div>
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
                <img loading="lazy" decoding="async" src="img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
-          <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
-        </div>
-        
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
             <div>
                <h4 class="font-semibold mb-3">Games</h4>
                <ul class="space-y-2 text-gray-400">
                   <li><a href="mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
                   <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
-				  <li><a href="https://rl.teddylazebnik.com/">Pirate War RL Game</a></li>
-				  <li><a href="https://eh.teddylazebnik.com/">Echo Heist</a></li>
+                  <li><a href="https://rl.teddylazebnik.com/" class="hover:text-white">Pirate War RL Game</a></li>
+                  <li><a href="https://eh.teddylazebnik.com/" class="hover:text-white">Echo Heist</a></li>
                </ul>
             </div>
             <div>
                <h4 class="font-semibold mb-3">Resources</h4>
                <ul class="space-y-2 text-gray-400">
+                  <li><a href="publications.html" class="hover:text-white">Publications</a></li>
                   <li><a href="tools.html" class="hover:text-white">Tools</a></li>
                   <li><a href="media.html" class="hover:text-white">Media</a></li>
                   <li><a href="videos.html" class="hover:text-white">Videos</a></li>
                </ul>
             </div>
-        <div>
-          <h4 class="font-semibold mb-3">Contact Info</h4>
-          <p class="text-gray-400">
-            Department of Information Systems,<br />University of Haifa<br />Department of Computing,<br />Jonkoping University<br />Lazebnik.teddy (at) gmail.com<br />
-          </p>
-        </div>
-      </div>
-      <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
-        © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to
-        <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
-      </div>
-    </footer>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
 
     <!-- js -->
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
     <script src="js/main.js"></script>
     <!-- NEW: dynamic loader for lab data -->
     <script type="module" src="js/lab.js"></script>

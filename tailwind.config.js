@@ -3,7 +3,7 @@
 // css/tailwind-default.css -> sock.html and project.html (Tailwind's default theme, as before)
 // Rebuild after adding or changing Tailwind classes:  npm install  then  npm run build:css
 const shared = {
-  content: ['./*.html', './js/*.js', './data/*.json'],
+  content: ['./*.html', './js/*.js', './data/*.json', './tools/templates/*.html'],
   // main.js builds these badge classes from a colour name at run time
   safelist: ['blue', 'green', 'purple', 'orange', 'indigo'].flatMap((c) => [`bg-${c}-100`, `text-${c}-800`]),
 };

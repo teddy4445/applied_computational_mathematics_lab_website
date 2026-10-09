@@ -36,7 +36,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/author-analyzer.css" rel="stylesheet">
@@ -55,7 +55,7 @@
       <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
         <!-- Logo -->
         <div class="flex items-center gap-2">
-          <img src="img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px" />
+          <a href="/" aria-label="ACML home"><img src="img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px" /></a>
         </div>
 
         <!-- Desktop Menu -->
@@ -88,7 +88,7 @@
 
         <!-- Mobile Menu Button -->
         <button
-          id="menu-btn"
+          id="menu-btn" aria-label="Open menu"
           class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100"
         >
           <i class="ri-menu-line text-xl"></i>
@@ -127,7 +127,7 @@
                 Scholar Disruptiveness Analyzer
               </h1>
               <p class="text-lg text-gray-600 leading-relaxed">
-                Using OpenAlex data, we compute a schoalr's works disruptivness level and properties. 
+                Using OpenAlex data, we compute how disruptive a scholar's work is, along with related properties. 
               </p>
 
               <form id="analyzeForm" class="space-y-4">
@@ -335,7 +335,7 @@
     <div class="text-xs text-gray-500 mb-1">Formula</div>
     <div class="font-mono text-sm text-gray-900">D = (nf − nb) / (nf + nb + nl)</div>
     <div class="mt-2 text-xs text-gray-500">
-      Note: this page computes <b>nf</b> and <b>nb</b> by fetching citers (with their referenced works), and can in this calcualtor we skip <b>nl</b> to stay fast in-browser.
+      Note: this page computes <b>nf</b> and <b>nb</b> by fetching citers (with their referenced works), and, to stay fast in the browser, this calculator skips <b>nl</b>.
     </div>
   </div>
 
@@ -483,47 +483,40 @@
       </section>
     </main>
 
-    <!-- Footer (identical to team.html) -->
-    <footer class="bg-gray-900 text-white py-12 mt-20">
-      <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
-        <div>
-               <img loading="lazy" decoding="async" src="img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px" />
-          <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
-        </div>
-        <div>
-          <h4 class="font-semibold mb-3">Quick Links</h4>
-          <ul class="space-y-2 text-gray-400">
-            <li><a href="team.html" class="hover:text-white">Team</a></li>
-            <li><a href="media.html" class="hover:text-white">Media</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-semibold mb-3">Resources</h4>
-          <ul class="space-y-2 text-gray-400">
-            <li><a href="publications.html" class="hover:text-white">Publications</a></li>
-            <li><a href="tools.html" class="hover:text-white">Tools</a></li>
-            <li><a href="videos.html" class="hover:text-white">Videos</a></li>
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Games</h4>
+               <ul class="space-y-2 text-gray-400">
                   <li><a href="mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
                   <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
-          <li><a href="https://rl.teddylazebnik.com/">Pirate War RL Game</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-semibold mb-3">Contact Info</h4>
-          <p class="text-gray-400">
-            Department of Information Systems,<br />
-            University of Haifa<br />
-            Department of Computing,<br />
-            Jonkoping University<br />
-            Lazebnik.teddy (at) gmail.com<br />
-          </p>
-        </div>
-      </div>
-      <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
-        © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to
-        <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
-      </div>
-    </footer>
+                  <li><a href="https://rl.teddylazebnik.com/" class="hover:text-white">Pirate War RL Game</a></li>
+                  <li><a href="https://eh.teddylazebnik.com/" class="hover:text-white">Echo Heist</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
 
     <!-- Loading Overlay -->
     <div id="loadingOverlay" class="loading-overlay hidden-author-analyzer" role="status" aria-live="polite" aria-busy="true">
@@ -548,11 +541,6 @@
     </div>
 
     <!-- Same JS includes order as team.html (+ your analyzer module) -->
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
     <script src="js/main.js"></script>
 
     <!-- Analyzer logic -->

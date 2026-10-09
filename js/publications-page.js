@@ -3,6 +3,9 @@
   const GENERATED_BASE_DIR = 'publications';
   const PAGE_SIZE = 24;
   const PDF_BASE_URL = 'https://teddylazebnik.com/files/';
+  // Papers with their own page (made by tools/build_papers.py). Only these titles become links.
+  const PAGES_URL = 'data/paper-pages.json';
+  let paperPages = new Map();
 
   let allPublications = [];
   let visiblePublications = [];
@@ -21,6 +24,25 @@
       .replaceAll('>', '&gt;')
       .replaceAll('"', '&quot;')
       .replaceAll("'", '&#039;');
+  }
+
+  function normTitle(value) {
+    return String(value || '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '');
+  }
+
+  function paperPageUrl(publication) {
+    return paperPages.get(normTitle(publication.name)) || '';
+  }
+
+  async function loadPaperPages() {
+    try {
+      const response = await fetch(PAGES_URL, { cache: 'no-cache' });
+      if (!response.ok) return;
+      const payload = await response.json();
+      paperPages = new Map((payload.pages || []).map((page) => [normTitle(page.title), page.url]));
+    } catch (error) {
+      paperPages = new Map();
+    }
   }
 
   function slugify(value) {
@@ -138,7 +160,7 @@
   }
 
   function renderCard(publication) {
-    const meta = getGeneratedMeta(publication);
+    const pageUrl = paperPageUrl(publication);
     const description = String(publication.description || '').trim();
     const shortDescription = description.length > 520 ? `${description.slice(0, 517).trim()}...` : description;
     const schema = {
@@ -152,19 +174,19 @@
       datePublished: publication.year ? String(publication.year) : undefined,
       publisher: publication.publisher ? { '@type': 'Organization', name: String(publication.publisher).trim() } : undefined,
       description: description || undefined,
-      url: `${GENERATED_BASE_DIR}/${meta.slug}/`
+      url: pageUrl ? new URL(pageUrl, location.href).href : undefined
     };
 
     return `
       <article class="publication-card-shell bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg transition p-6 flex flex-col" itemscope itemtype="https://schema.org/ScholarlyArticle" data-title="${escapeHtml(publication.name)}" data-year="${escapeHtml(publication.year)}" data-topic="${escapeHtml(publication.topic)}">
         <h3 class="text-xl font-bold text-gray-900 leading-snug mb-3" itemprop="headline">
-          <a href="${escapeHtml(`${GENERATED_BASE_DIR}/${meta.slug}/`)}" class="hover:text-primary transition-colors">${escapeHtml(publication.name)}</a>
+          ${pageUrl ? `<a href="${escapeHtml(pageUrl)}" class="hover:text-primary transition-colors">${escapeHtml(publication.name)}</a>` : escapeHtml(publication.name)}
         </h3>
         <p class="text-sm text-gray-600 mb-2" itemprop="author"><strong>Authors:</strong> ${escapeHtml(publication.authors || 'Not listed')}</p>
         <p class="text-sm text-gray-600 mb-4"><strong>Published in:</strong> <span itemprop="publisher">${escapeHtml(publication.publisher || 'Not listed')}</span></p>
         <div class="mb-4 flex flex-wrap gap-2 items-center">
+          ${pageUrl ? `<a class="publication-action-button publication-source-button publication-read-button" href="${escapeHtml(pageUrl)}"><i class="ri-article-line"></i>Read online</a>` : ''}
           ${sourceButtons(publication)}
-          <!--${generatedButtons(publication)}-->
           ${citationButton(publication)}
         </div>
         ${description ? `
@@ -273,6 +295,7 @@
       if (!response.ok) throw new Error(`Could not load ${JSON_URL}`);
 
       const payload = await response.json();
+      await loadPaperPages();
       allPublications = assignPublicationSlugs(Array.isArray(payload.publications) ? payload.publications : []);
       els.container.innerHTML = '';
       populateYears();

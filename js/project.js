@@ -117,7 +117,7 @@ function teamRow(member) {
   wrap.className = "flex items-center gap-3";
   const img = document.createElement("img");
   img.loading = "lazy";
-  img.src = member.avatar || "img/people/default.jpg";
+  img.src = member.avatar || "img/lab/user.webp";
   img.alt = member.name;
   img.className = "w-10 h-10 rounded-full object-cover";
   const name = document.createElement("div");

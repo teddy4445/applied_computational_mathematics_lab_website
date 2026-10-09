@@ -12,7 +12,7 @@ const normalizeCategory = (cat = '') => {
 
 const fallbackImg = (img) => {
   img.onerror = null;
-  img.src = 'img/lab/user.png';
+  img.src = 'img/lab/user.webp';
 };
 
 // Build a hover image path by inserting "hover-" before the filename.
@@ -42,7 +42,7 @@ const deriveHoverFromPrimary = (src = '') => {
 
 const cardTemplate = (m) => {
   const hasLink = (m.info_link || '').trim().length > 0;
-  const image = (m.image_link || '').trim() || 'img/lab/user.png';
+  const image = (m.image_link || '').trim() || 'img/lab/user.webp';
   const hoverImage = deriveHoverFromPrimary(image);
   const useHover = !!hoverImage && hoverImage !== image;
 
@@ -59,7 +59,7 @@ const cardTemplate = (m) => {
             alt="${m.name}"
             loading="lazy" decoding="async"
             class="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-300 ${useHover ? 'group-hover:opacity-0' : ''}"
-            onerror="this.onerror=null;this.src='img/lab/user.png';"
+            onerror="this.onerror=null;this.src='img/lab/user.webp';"
           />
           ${useHover ? `
             <img

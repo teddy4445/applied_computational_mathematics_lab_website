@@ -36,7 +36,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/stats-guider.css" rel="stylesheet">
@@ -52,7 +52,7 @@
       <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
         <!-- Logo -->
         <div class="flex items-center gap-2">
-          <img src="img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px" />
+          <a href="/" aria-label="ACML home"><img src="img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px" /></a>
         </div>
 
         <!-- Desktop Menu -->
@@ -85,7 +85,7 @@
 
         <!-- Mobile Menu Button -->
         <button
-          id="menu-btn"
+          id="menu-btn" aria-label="Open menu"
           class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100"
         >
           <i class="ri-menu-line text-xl"></i>
@@ -117,6 +117,10 @@
       <section class="py-16 bg-gradient-to-b from-gray-50 to-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
+          <div class="text-center">
+            <h1 class="text-4xl font-bold text-gray-900">Stats Guider</h1>
+            <p class="text-lg text-gray-600 mt-3 max-w-2xl mx-auto">Upload a CSV, map your variables, get a transparent statistical test recommendation, and run the analysis in your browser.</p>
+          </div>
           <div class="mt-12 stats-shell reveal-card">
             <div class="wizard-shell">
               <div class="wizard-progress">
@@ -534,47 +538,40 @@
       </section>
     </main>
 
-    <!-- Footer (identical to team.html) -->
-    <footer class="bg-gray-900 text-white py-12 mt-20">
-      <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
-        <div>
-               <img loading="lazy" decoding="async" src="img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px" />
-          <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
-        </div>
-        <div>
-          <h4 class="font-semibold mb-3">Quick Links</h4>
-          <ul class="space-y-2 text-gray-400">
-            <li><a href="team.html" class="hover:text-white">Team</a></li>
-            <li><a href="media.html" class="hover:text-white">Media</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-semibold mb-3">Resources</h4>
-          <ul class="space-y-2 text-gray-400">
-            <li><a href="publications.html" class="hover:text-white">Publications</a></li>
-            <li><a href="tools.html" class="hover:text-white">Tools</a></li>
-            <li><a href="videos.html" class="hover:text-white">Videos</a></li>
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Games</h4>
+               <ul class="space-y-2 text-gray-400">
                   <li><a href="mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
                   <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
-          <li><a href="https://rl.teddylazebnik.com/">Pirate War RL Game</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-semibold mb-3">Contact Info</h4>
-          <p class="text-gray-400">
-            Department of Information Systems,<br />
-            University of Haifa<br />
-            Department of Computing,<br />
-            Jonkoping University<br />
-            Lazebnik.teddy (at) gmail.com<br />
-          </p>
-        </div>
-      </div>
-      <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
-        © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to
-        <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
-      </div>
-    </footer>
+                  <li><a href="https://rl.teddylazebnik.com/" class="hover:text-white">Pirate War RL Game</a></li>
+                  <li><a href="https://eh.teddylazebnik.com/" class="hover:text-white">Echo Heist</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
 
     <div id="statsLoader" class="stats-loader hidden" role="status" aria-live="polite" aria-busy="true">
       <div class="stats-loader-card">
@@ -585,11 +582,6 @@
       </div>
     </div>
 
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
     <script src="js/main.js"></script>
     <script type="module" src="js/stats-guider.js"></script>
   </body>
