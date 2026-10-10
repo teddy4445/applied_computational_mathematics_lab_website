@@ -78,7 +78,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -129,7 +129,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/family.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.3389/fhumd.2026.1744764" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -150,6 +150,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1 Introduction</a></li>
 <li><a href="#2-related-work">2 Related work</a></li><li class="toc-sub"><a href="#21-family-satisfaction-and-related-family-outcomes">2.1 Family satisfaction and related family outcomes</a></li><li class="toc-sub"><a href="#22-family-structure-and-family-tree-topology">2.2 Family structure and family-tree topology</a></li><li class="toc-sub"><a href="#23-graph-representation-learning-and-graph-based-prediction">2.3 Graph representation learning and graph-based prediction</a></li>
 <li><a href="#3-computational-technique">3 Computational technique</a></li>
@@ -174,6 +175,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1 Introduction</a></li>
 <li><a href="#2-related-work">2 Related work</a></li><li class="toc-sub"><a href="#21-family-satisfaction-and-related-family-outcomes">2.1 Family satisfaction and related family outcomes</a></li><li class="toc-sub"><a href="#22-family-structure-and-family-tree-topology">2.2 Family structure and family-tree topology</a></li><li class="toc-sub"><a href="#23-graph-representation-learning-and-graph-based-prediction">2.3 Graph representation learning and graph-based prediction</a></li>
 <li><a href="#3-computational-technique">3 Computational technique</a></li>
@@ -191,7 +193,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>Background: Family members’ satisfaction with one another is an important component of family well-being, yet most quantitative studies examine specific dyadic or household-level variables rather than the overall topology of the family tree.Methods: We present an exploratory machine-learning framework for studying whether family-tree topology contains predictive information about reported family satisfaction. In the proposed approach, each family is represented as a topology-only graph whose nodes correspond to family members and whose edges encode family relationships. A Variational Graph AutoEncoder (VGAE) is used to obtain latent graph representations, which are then used in supervised regression models to predict Extended Family Satisfaction (EFS) and Nuclear Family Satisfaction (NFS). The approach is evaluated on a self-selected online convenience sample of N=486 families recruited through social-media platforms, using a family-level train/test protocol.Results: The proposed topology-based representation showed predictive performance for reported family satisfaction and was compared with regression models based on established aggregate family variables and additional graph-based baselines. These results suggest that family-tree topology may contain information relevant to reported satisfaction, although the evidence remains predictive and exploratory.Conclusion: The findings provide preliminary evidence that graph-based representations of family structure can support the study of family satisfaction. However, the results should not be interpreted as causal or population-level conclusions, given the study’s sampling limitations, low response rate, and absence of sociodemographic control variables.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="O6NdOZXsqKs" data-yt-title="Can the Shape of Your Family Tree Predict How Relatives Feel?"><a class="yt-play" href="https://www.youtube.com/shorts/O6NdOZXsqKs" aria-label="Play video: Can the Shape of Your Family Tree Predict How Relatives Feel?"><img src="https://i.ytimg.com/vi/O6NdOZXsqKs/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/O6NdOZXsqKs/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">Can the Shape of Your Family Tree Predict How Relatives Feel?</p><p>From the shape of a family tree alone, a graph AI predicted how satisfied relatives are with each other, off by about 0.3 points on a 10-point scale for close family.</p><p class="paper-video-more"><a href="/videos.html#v-O6NdOZXsqKs">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/O6NdOZXsqKs" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <h2 id="1-introduction">1 Introduction</h2>
@@ -490,7 +492,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {

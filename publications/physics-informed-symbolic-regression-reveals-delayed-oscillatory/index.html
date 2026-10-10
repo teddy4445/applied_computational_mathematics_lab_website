@@ -93,7 +93,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -144,7 +144,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/teddy_alex_p.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.1088/2632-2153/ae9c8b" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -165,6 +165,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1. Introduction</a></li>
 <li><a href="#2-background">2. Background</a></li><li class="toc-sub"><a href="#21-the-physics-of-solid-particles-through-density-stratified-fluids">2.1. The physics of solid particles through density-stratified fluids</a></li><li class="toc-sub"><a href="#22-pisr">2.2. Pisr</a></li>
 <li><a href="#3-methods-and-materials">3. Methods and materials</a></li><li class="toc-sub"><a href="#31-data-collection">3.1. Data collection</a></li><li class="toc-sub"><a href="#32-trajectory-preprocessing-and-event-definitions">3.2. Trajectory preprocessing and event definitions</a></li><li class="toc-sub"><a href="#33-sr-model">3.3. SR model</a></li><li class="toc-sub"><a href="#34-parameter-fitting-procedure">3.4. Parameter fitting procedure</a></li><li class="toc-sub"><a href="#35-statistical-analysis">3.5. Statistical analysis</a></li>
@@ -191,6 +192,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1. Introduction</a></li>
 <li><a href="#2-background">2. Background</a></li><li class="toc-sub"><a href="#21-the-physics-of-solid-particles-through-density-stratified-fluids">2.1. The physics of solid particles through density-stratified fluids</a></li><li class="toc-sub"><a href="#22-pisr">2.2. Pisr</a></li>
 <li><a href="#3-methods-and-materials">3. Methods and materials</a></li><li class="toc-sub"><a href="#31-data-collection">3.1. Data collection</a></li><li class="toc-sub"><a href="#32-trajectory-preprocessing-and-event-definitions">3.2. Trajectory preprocessing and event definitions</a></li><li class="toc-sub"><a href="#33-sr-model">3.3. SR model</a></li><li class="toc-sub"><a href="#34-parameter-fitting-procedure">3.4. Parameter fitting procedure</a></li><li class="toc-sub"><a href="#35-statistical-analysis">3.5. Statistical analysis</a></li>
@@ -210,7 +212,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>Particles settling through sharply density-stratified fluids exhibit transient dynamics that remain difficult to capture with classical buoyancy–drag models, including strong deceleration, prolonged retention near the interface, and, in some cases, apparent bouncing. Existing mechanistic models that reproduce parts of this behavior through the equation of motion rely on auxiliary artificial virtual-mass ODEs whose physical interpretation and predictive generality are limited. In this study, we demonstrate implementation of physics-informed symbolic regression (PISR) method, applied to high-resolution dataset of particle-tracking experiments across stratified interface, enabling a compact analytical closure for the delayed stratification-induced force acting on spheres crossing sharp density interfaces, replacing an virtual mass ODE and capturing complex transient dynamics. Using fully resolved position-time trajectories of spheres from water–salt and water–glycerol stratified experiments, the PISR framework is designed to select a delayed, exponentially damped oscillatory force closure that is consistent with physical mechanisms of interfacial memory, wake detachment, recoil, and viscous relaxation. The resulting force closure reproduces qualitatively and quantitatively key features of the observed sphere dynamics and improves reconstruction transient-rich cases relative to a virtual-mass-based baseline. More broadly, the study demonstrates how scientist-in-the-loop or physically-informed symbolic regression (SR) can assist physical-model discovery by combining fully resolved time series experimental data, dimensional and physical constraints, and physically interpretable analytical model selection. These results provide a practical modeling framework for sphere motion across stably-stratified density interfaces and illustrate the potential of artificial intelligence assisted SR for extracting compact, testable closures in complex fluid dynamics problems.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="dEDBkA_2D8Y" data-yt-title="A Ball That Bounces Back Up Underwater? AI Found the Missing Force"><a class="yt-play" href="https://www.youtube.com/shorts/dEDBkA_2D8Y" aria-label="Play video: A Ball That Bounces Back Up Underwater? AI Found the Missing Force"><img src="https://i.ytimg.com/vi/dEDBkA_2D8Y/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/dEDBkA_2D8Y/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">A Ball That Bounces Back Up Underwater? AI Found the Missing Force</p><p>A ball sinking through two layered liquids can drift back up at the boundary. Physics-informed AI found the missing force: a delayed kick that fades as it wobbles.</p><p class="paper-video-more"><a href="/videos.html#v-dEDBkA_2D8Y">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/dEDBkA_2D8Y" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <h2 id="1-introduction">1. Introduction</h2>
@@ -606,7 +608,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {

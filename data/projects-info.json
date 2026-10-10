@@ -198,7 +198,9 @@
         "cancer-inspired-genomics-mapper-model-generation-synthetic",
         "mathematical-model-bcg-based-treatment-type-1"
       ],
-      "videos": [],
+      "videos": [
+        "BEhxF878f4Y"
+      ],
       "media": [
         "https://open.spotify.com/episode/1eUN8f8wnxLtcw6biDffhg",
         "https://www.jpost.com/health-and-wellness/mind-and-spirit/article-873975"
@@ -333,9 +335,9 @@
     {
       "slug": "physics-inspired-symbolic-regression",
       "title": "Developing the Next Step of Physics-Inspired Symbolic Regression",
-      "subtitle": "Interpretable equation discovery that blends domain knowledge, modern machine learning, and scientific priors.",
+      "subtitle": "Interpretable equation discovery that blends domain knowledge, modern machine learning, scientific priors, and physics-informed generative data enrichment.",
       "summary": "Advancing physics-informed symbolic regression for interpretable models discovered from data.",
-      "description": "This project advances symbolic regression from a niche equation-search tool into a practical scientific machine-learning pipeline. The lab studies how to inject domain knowledge, distill strong black-box predictors into symbolic forms, and improve out-of-distribution robustness without sacrificing interpretability. The resulting systems are aimed at physics, engineering, and structured-data settings where researchers need both predictive performance and equations they can inspect.",
+      "description": "This project advances symbolic regression from a niche equation-search tool into a practical scientific machine-learning pipeline. The lab studies how to inject domain knowledge, distill strong black-box predictors into symbolic forms, and improve out-of-distribution robustness without sacrificing interpretability. The resulting systems are aimed at physics, engineering, and structured-data settings where researchers need both predictive performance and equations they can inspect. A newer direction uses physics-informed temporal diffusion models as a data-enrichment step: they generate synthetic trajectories that keep the governing dynamics, boundary conditions, or conservation structure, so that symbolic regression can recover compact equations even from scarce, noisy, or partially observed measurements.",
       "image": "img/projects/project4.webp",
       "heroImage": "img/projects/project4.webp",
       "category": "Scientific ML",
@@ -347,12 +349,17 @@
         "Knowledge integration",
         "Teacher-student distillation",
         "Genetic algorithms",
-        "Out-of-distribution evaluation"
+        "Out-of-distribution evaluation",
+        "Diffusion models for time series",
+        "Synthetic data generation",
+        "Noise-robust equation discovery"
       ],
       "outcomes": [
         "Open frameworks for knowledge-aware symbolic regression",
         "Improved accuracy through symbolic feature engineering and distillation",
-        "More robust equation recovery under noise, sparse data, and distribution shift"
+        "More robust equation recovery under noise, sparse data, and distribution shift",
+        "A pipeline for generating physically plausible synthetic trajectories",
+        "Benchmarks for measuring symbolic-regression gains from diffusion-based enrichment"
       ],
       "timeline": [
         {
@@ -376,7 +383,10 @@
         "Physics-Informed ML",
         "Interpretable AI",
         "Scientific Discovery",
-        "OOD Generalization"
+        "OOD Generalization",
+        "Diffusion Models",
+        "Data Enrichment",
+        "Time Series"
       ],
       "team": [
         {
@@ -404,6 +414,14 @@
           "focus": "Adding domain knowledge to physical symbolic regression with pre-trained large language models"
         },
         {
+          "name": "Simon De Reuver",
+          "focus": "Physics-informed diffusion models for enriching symbolic-regression data"
+        },
+        {
+          "name": "Tamas Kristof Toth",
+          "focus": "Physics-informed diffusion models for enriching symbolic-regression data"
+        },
+        {
           "name": "Alexander Liberzon",
           "role": "Collaborator",
           "avatar": "img/lab/alex.webp",
@@ -427,6 +445,7 @@
         "introducing-inside-out-distribution"
       ],
       "videos": [
+        "dEDBkA_2D8Y",
         "gleSQMKECUA"
       ],
       "media": [
@@ -441,7 +460,7 @@
       "title": "Moving Computational Economy To the AI Era",
       "subtitle": "Hidden-economy estimation, incentive modeling, and public-policy analysis through machine learning and simulation.",
       "summary": "Using AI to uncover patterns, behaviors, and socio-economic impacts in the formal and informal economy.",
-      "description": "This project examines how AI can help measure hidden economic activity, model institutional incentives, and analyze the behavior of street-level bureaucracies. Rather than treating the informal economy as a single scalar target, the work studies its structure, local variation, and policy sensitivity. The project mixes machine learning, deep learning, and agent-based reasoning to connect economic signals with institutional behavior and public outcomes.",
+      "description": "This project examines how AI can help measure hidden economic activity, model institutional incentives, and analyze the behavior of street-level bureaucracies. Rather than treating the informal economy as a single scalar target, the work studies its structure, local variation, and policy sensitivity. The project mixes machine learning, deep learning, and agent-based reasoning to connect economic signals with institutional behavior and public outcomes. The project also models microeconomic processes as physical dynamical systems and learns to steer them with reinforcement learning from data, including a teacher-student setup in which pre-trained large language models speed up reinforcement-learning agents, and it applies AI to industrial operations, such as cutting the cost of testing in electronics production without losing quality.",
       "image": "img/projects/project3.webp",
       "heroImage": "img/projects/project3.webp",
       "category": "Computational Social Science",
@@ -453,7 +472,9 @@
         "Agent-based simulation",
         "Policy modeling",
         "Behavioral analysis of public institutions",
-        "Counterfactual evaluation"
+        "Counterfactual evaluation",
+        "Reinforcement learning",
+        "Physics-inspired dynamical models of microeconomic processes"
       ],
       "outcomes": [
         "Models for estimating the size and local structure of unregistered economic activity",
@@ -482,7 +503,8 @@
         "Economic AI",
         "Agent-Based Modeling",
         "Policy Simulation",
-        "Institutional Behavior"
+        "Institutional Behavior",
+        "Reinforcement Learning"
       ],
       "team": [
         {
@@ -496,6 +518,26 @@
         {
           "name": "Inbar Kirshenboim",
           "focus": "Crisis management and recovery; energy poverty under a maritime blockade"
+        },
+        {
+          "name": "Mahmut Osmanovic",
+          "focus": "Data-driven modeling of microeconomic processes as physical processes, with reinforcement learning"
+        },
+        {
+          "name": "Isac Paulsson",
+          "focus": "Data-driven modeling of microeconomic processes as physical processes, with reinforcement learning"
+        },
+        {
+          "name": "Lukas Toral",
+          "focus": "A teacher-student setup in which pre-trained large language models speed up reinforcement learning"
+        },
+        {
+          "name": "Tzach Fleischer",
+          "focus": "Data curation, study design and experiments for the AutoML-for-economics benchmark"
+        },
+        {
+          "name": "Noufa Haneefa",
+          "focus": "AI-driven test optimization for industrial manufacturing (with Dr. Einav Peretz-Andersson)"
         },
         {
           "name": "Labib Shami",
@@ -530,16 +572,20 @@
         "providing-safe-space-honest-mistakes-public-sector",
         "decision-tree-model-profiling-citizens-support-self",
         "implications-maritime-blockade-energy-poverty-israel",
-        "benchmarking-biologically-inspired-automatic-machine-learning-economic"
+        "benchmarking-biologically-inspired-automatic-machine-learning-economic",
+        "quality-preserving-model-test-reduction-electronics-production"
       ],
       "videos": [
+        "t4F5oDjFakY",
         "sy7TWN2ktXM"
       ],
       "media": [
         "https://doctorsonly.co.il/2026/04/369966/",
         "https://www.ynet.co.il/yedioth/article/yokra14260817"
       ],
-      "tools": []
+      "tools": [
+        "exploration-lab.html"
+      ]
     },
     {
       "slug": "bio-informed-scientometrics",
@@ -631,6 +677,7 @@
         "portfolio-theoretic-algorithm-institutional-research-planning-under"
       ],
       "videos": [
+        "OMLdtVsEILg",
         "MvFNaMPmKdI"
       ],
       "media": [],
@@ -638,178 +685,6 @@
         "author-analyzer.html",
         "authorship-deal-risk-checker.html"
       ]
-    },
-    {
-      "slug": "diffusion-sr",
-      "title": "Physics-Informed Diffusion Models for Symbolic Regression",
-      "subtitle": "Generative data enrichment for recovering equations from sparse, noisy, and partially observed dynamics.",
-      "summary": "Developing physics-informed temporal diffusion models as a data-enrichment method for symbolic regression.",
-      "description": "This project focuses on one of the lab's newer scientific-ML directions: using diffusion models to generate physically consistent trajectories that improve symbolic-regression performance. The central idea is to enrich scarce or noisy measurements with synthetic samples that preserve governing dynamics, boundary conditions, or conservation structure. This makes the downstream symbolic model less brittle and more likely to recover compact equations from realistic data.",
-      "image": "img/projects/project8.webp",
-      "heroImage": "img/projects/project8.webp",
-      "category": "Scientific ML",
-      "status": "completed",
-      "period": "10/2025 - 06/2026",
-      "methods": [
-        "Diffusion models for time series",
-        "Physics-informed constraints",
-        "Synthetic data generation",
-        "Symbolic-regression benchmarking",
-        "Noise-robust equation discovery",
-        "Uncertainty-aware augmentation"
-      ],
-      "outcomes": [
-        "A pipeline for generating physically plausible synthetic trajectories",
-        "Benchmarks for measuring symbolic-regression gains from diffusion-based enrichment",
-        "A bridge between modern generative models and interpretable scientific discovery"
-      ],
-      "timeline": [
-        {
-          "date": "10/2025",
-          "title": "Project kickoff",
-          "text": "Initial work defined the data-enrichment problem and the target family of physical systems for evaluation."
-        },
-        {
-          "date": "01/2026",
-          "title": "Generative backbone in place",
-          "text": "The team assembled early diffusion pipelines for temporally structured physical trajectories."
-        },
-        {
-          "date": "04/2026",
-          "title": "Integration with symbolic regression",
-          "text": "Experiments shifted toward measuring whether enriched datasets improve equation recovery under noise and scarcity."
-        }
-      ],
-      "tags": [
-        "Diffusion Models",
-        "Symbolic Regression",
-        "Physics-Informed ML",
-        "Data Enrichment",
-        "Time Series"
-      ],
-      "team": [
-        {
-          "name": "Prof. Teddy Lazebnik",
-          "focus": "Principal investigator"
-        },
-        {
-          "name": "Simon De Reuver",
-          "focus": "Physics-informed diffusion models for enriching symbolic-regression data"
-        },
-        {
-          "name": "Tamas Kristof Toth",
-          "focus": "Physics-informed diffusion models for enriching symbolic-regression data"
-        },
-        {
-          "name": "Bilge Taskin",
-          "focus": "Earlier related work: LLM-guided domain knowledge for symbolic regression"
-        },
-        {
-          "name": "Wenxiong Xie",
-          "focus": "Earlier related work: LLM-guided domain knowledge for symbolic regression"
-        }
-      ],
-      "papers": [
-        "knowledge-integration-physics-informed-symbolic-regression-pre",
-        "follow-forest-trail-distillation-gradient-boosting-models",
-        "computational-framework-physics-informed-symbolic-regression-straightforward"
-      ],
-      "videos": [],
-      "media": [],
-      "tools": [],
-      "papers_label": "Related publications",
-      "papers_note": "Earlier lab papers on symbolic regression that this project builds on."
-    },
-    {
-      "slug": "economy-physics-rl",
-      "title": "Data-Driven Economic Dynamics with Physics and Reinforcement Learning",
-      "subtitle": "Modeling microeconomic processes as physical processes and learning to steer them with reinforcement learning.",
-      "summary": "Using reinforcement learning and ideas from physics to model and control microeconomic processes from data.",
-      "description": "This project studies microeconomic processes through the lens of physical dynamical systems and uses reinforcement learning to learn and steer them from data. It ran mainly as Master's research at the Department of Computing, Jönköping University: Mahmut Osmanovic and Isac Paulsson worked on data-driven modeling of microeconomic processes as physical processes via reinforcement learning, and Lukas Toral studied a teacher-student architecture in which pre-trained large language models speed up the convergence of reinforcement-learning agents. The project builds on the lab's earlier computational-economy work, such as a microfounded tax-revenue forecast model and a benchmark of biologically-inspired automatic machine learning on economic tasks.",
-      "image": "img/projects/project9.webp",
-      "heroImage": "img/projects/project9.webp",
-      "category": "Computational Economy",
-      "status": "completed",
-      "period": "07/2024 - 09/2026",
-      "methods": [
-        "Reinforcement learning",
-        "Dynamical-systems modeling",
-        "Agent-based simulation",
-        "Policy optimization",
-        "Synthetic economic environments",
-        "Representation transfer from physical systems"
-      ],
-      "outcomes": [
-        "Master's theses (Jönköping University, 2026) on reinforcement-learning models of microeconomic processes built on physical-process analogies",
-        "A teacher-student approach in which pre-trained large language models speed up reinforcement-learning convergence (Master's thesis, 2025)",
-        "A direct line to the lab's published computational-economy work on tax-revenue forecasting and automatic machine learning for economic tasks"
-      ],
-      "timeline": [
-        {
-          "date": "2023",
-          "title": "Groundwork",
-          "text": "The lab published a microfounded tax-revenue forecast model and benchmarked biologically-inspired automatic machine learning on economic tasks."
-        },
-        {
-          "date": "07/2024",
-          "title": "Project started",
-          "text": "The project took shape around reinforcement-learning control of economic processes using physically inspired models."
-        },
-        {
-          "date": "01/2025 - 07/2025",
-          "title": "LLM teacher, RL student",
-          "text": "Lukas Toral's Master's research used pre-trained large language models as teachers to speed up reinforcement learning."
-        },
-        {
-          "date": "12/2025 - 06/2026",
-          "title": "Microeconomics as physics",
-          "text": "Mahmut Osmanovic and Isac Paulsson completed their Master's research on modeling microeconomic processes as physical processes via reinforcement learning."
-        }
-      ],
-      "tags": [
-        "Reinforcement Learning",
-        "Computational Economy",
-        "Control",
-        "Simulation",
-        "Complex Systems"
-      ],
-      "team": [
-        {
-          "name": "Prof. Teddy Lazebnik",
-          "focus": "Principal investigator"
-        },
-        {
-          "name": "Mahmut Osmanovic",
-          "focus": "Data-driven modeling of microeconomic processes as physical processes, with reinforcement learning"
-        },
-        {
-          "name": "Isac Paulsson",
-          "focus": "Data-driven modeling of microeconomic processes as physical processes, with reinforcement learning"
-        },
-        {
-          "name": "Lukas Toral",
-          "focus": "A teacher-student setup in which pre-trained large language models speed up reinforcement learning"
-        },
-        {
-          "name": "Tzach Fleischer",
-          "focus": "Data curation, study design and experiments for the AutoML-for-economics benchmark"
-        }
-      ],
-      "papers": [
-        "microfounded-tax-revenue-forecast-model-heterogeneous-population",
-        "benchmarking-biologically-inspired-automatic-machine-learning-economic",
-        "got-much-got-nothing-analyzing-impact-increased",
-        "going-step-deeper-down-rabbit-hole-deep",
-        "implementing-machine-learning-methods-estimating-size-non",
-        "data-driven-hospitals-staff-resources-allocation-agent"
-      ],
-      "videos": [],
-      "media": [],
-      "tools": [
-        "exploration-lab.html"
-      ],
-      "papers_label": "Related publications",
-      "papers_note": "Published lab work on computational economics that this project builds on."
     },
     {
       "slug": "cyber-federated-learning",

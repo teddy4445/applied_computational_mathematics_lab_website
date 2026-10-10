@@ -3,7 +3,7 @@
 
 The pages are plain HTML (no JSON loaded in the browser), so search engines and language models read them in full.
 Data:
-  data/projects-info.json   the projects: text, methods, outcomes, timeline, tags, and the curated lists
+  data/projects-info.json   the projects: text, methods, outcomes, tags, and the curated lists
                             "papers" (folders in publications/), "team", "videos", "media" and "tools"
   data/lab.json             photo, title, dates and current/alumni status of every lab member named in "team"
   publications/*/paper.json title, authors, journal, year, summary and featured figure of each paper
@@ -29,6 +29,7 @@ from PIL import Image  # noqa: E402
 TEMPLATE = ROOT / 'tools' / 'templates' / 'project.html'
 MARK_START, MARK_END = 'project pages: start (made by tools/build_projects.py)', 'project pages: end'
 LIST_START, LIST_END = 'project list: start (made by tools/build_projects.py)', 'project list: end'
+STATS_START, STATS_END = 'project stats: start (made by tools/build_projects.py)', 'project stats: end'
 MONTHS = 'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split()
 TITLE_RE = re.compile(r'^(Prof\.|Dr\.|Mr\.|Ms\.|Mrs\.)\s+')
 RANKS = [('pi', 0), ('post', 1), ('lab manager', 1), ('phd', 2), ('msc', 3), ('master', 3), ('bsc', 4), ('bachelor', 4), ('research assistant', 5)]
@@ -74,27 +75,6 @@ def fmt_month(ym):
         return ''
     y, m = ym
     return f'{MONTHS[m - 1]} {y}' if m and 1 <= m <= 12 else str(y)
-
-
-def period_parts(period):
-    bits = re.split(r'\s*[-–—]\s*', period or '')
-    start = month(bits[0]) if bits and bits[0] else None
-    end = month(bits[1]) if len(bits) > 1 and bits[1] else None
-    return start, end
-
-
-def fmt_period(period):
-    start, end = period_parts(period)
-    if start and end:
-        return f'{fmt_month(start)} – {fmt_month(end)}'
-    return fmt_month(start) or (period or '')
-
-
-def iso_month(ym):
-    if not ym:
-        return None
-    y, m = ym
-    return f'{y}-{m:02d}' if m else str(y)
 
 
 def plural(n, word, many=None):
@@ -208,7 +188,7 @@ def rank(title):
 def role_label(m):
     title = m.get('title') or ''
     if title.strip().upper() == 'PI':
-        return 'Principal investigator'
+        return ''
     if lab_status(m) == 'past':
         return {'PhD Student': 'PhD (alumni)', 'MSc Student': 'MSc (alumni)', 'BSc Student': 'BSc (alumni)',
                 'Research Assistant': 'Research assistant (alumni)'}.get(title, f'{title} (alumni)')
@@ -312,25 +292,6 @@ def tool_info(href, data):
             'icon': 'ri-gamepad-line', 'href': '/' + href}
 
 
-def related_projects(p, data):
-    mine_papers, mine_team = set(p.get('papers', [])), {norm(plain_name(t['name'])) for t in p.get('team', [])} - {'teddylazebnik'}
-    mine_tags = {t.lower() for t in p.get('tags', [])}
-    scored = []
-    for q in data.projects:
-        if q is p:
-            continue
-        s = 3 * len(mine_papers & set(q.get('papers', []))) + 2 * len(mine_team & ({norm(plain_name(t['name'])) for t in q.get('team', [])}))
-        s += len(mine_tags & {t.lower() for t in q.get('tags', [])}) + (2 if q.get('category') == p.get('category') else 0)
-        scored.append((s, q))
-    scored.sort(key=lambda x: -x[0])
-    return [q for s, q in scored[:3]]
-
-
-def status_html(p):
-    s = 'completed' if (p.get('status') or '').lower() == 'completed' else 'ongoing'
-    return f'<span class="status is-{s}">{s.capitalize()}</span>'
-
-
 def years_span(papers):
     years = sorted({int(str(m.get('year') or m['date'])[:4]) for m in papers if str(m.get('year') or m['date'])[:4].isdigit()})
     return years
@@ -351,8 +312,6 @@ def build_one(p, data, template):
     tools = [t for t in (tool_info(h, data) for h in p.get('tools', [])) if t]
     others = coauthors(p, data, [c['name'] for c in collab])
     img = p.get('heroImage') or p.get('image') or 'img/logo.png'
-    status = 'completed' if (p.get('status') or '').lower() == 'completed' else 'ongoing'
-    start, end = period_parts(p.get('period'))
     papers_label = p.get('papers_label') or 'Publications'
 
     # hero
@@ -361,8 +320,6 @@ def build_one(p, data, template):
              (len(others) + len(collab), 'collaborators and frequent co-authors')]
     if years:
         stats.append((f'{years[0]}–{years[-1]}' if years[0] != years[-1] else str(years[0]), 'years of papers'))
-    else:
-        stats.append((fmt_period(p.get('period')).split(' – ')[0].split(' ')[-1] or '–', 'project start'))
     stats = [(v, t) for v, t in stats if v not in (0, '0', '', '–')]
     stats_html = ''.join(f'<div class="proj-stat"><strong{" class=is-long" if len(str(v)) > 5 else ""}>{esc(v)}</strong><span>{esc(t)}</span></div>' for v, t in stats)
     actions = []
@@ -376,7 +333,7 @@ def build_one(p, data, template):
       <div class="proj-wrap proj-hero-grid">
         <div>
           <nav class="proj-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/projects.html">Projects</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>{esc(p.get("category", ""))}</span></nav>
-          <p class="proj-kicker">{status_html(p)}<span><i class="ri-calendar-line" aria-hidden="true"></i>{esc(fmt_period(p.get("period")))}</span><span><i class="ri-price-tag-3-line" aria-hidden="true"></i>{esc(p.get("category", ""))}</span></p>
+          <p class="proj-kicker"><span><i class="ri-price-tag-3-line" aria-hidden="true"></i>{esc(p.get("category", ""))}</span></p>
           <h1 class="proj-title">{esc(p["title"])}</h1>
           <p class="proj-subtitle">{esc(p.get("subtitle") or p.get("summary") or "")}</p>
           <div class="proj-stats">{stats_html}</div>
@@ -394,8 +351,7 @@ def build_one(p, data, template):
 
     # overview
     lead = p.get('summary') or ''
-    glance = [('Status', status_html(p)), ('Period', esc(fmt_period(p.get('period')))), ('Research area', esc(p.get('category', ''))),
-              ('Principal investigator', '<a href="https://teddylazebnik.com" target="_blank" rel="noopener">Prof. Teddy Lazebnik</a>')]
+    glance = [('Research area', esc(p.get('category', '')))]
     if lab_people:
         glance.append(('Lab members', f'{len(current)} current · {len(past)} past'))
     if papers:
@@ -500,13 +456,6 @@ def build_one(p, data, template):
       <p class="proj-lead">The lab members who work or worked on this project, with their part in it, and the researchers we work with. See the whole lab on the <a href="/team.html" class="text-primary">team page</a>.</p>
       <div style="margin-top:1.5rem">{"".join(team_parts)}</div>''')
 
-    # timeline
-    if p.get('timeline'):
-        tl = ''.join(f'<li><time>{esc(t.get("date", ""))}</time><h3>{esc(t.get("title", ""))}</h3><p>{esc(t.get("text", ""))}</p></li>' for t in p['timeline'])
-        add('timeline', 'Timeline', f'''      <h2 id="timeline-title" class="proj-h2">Timeline</h2>
-      <p class="proj-lead">How the project developed.</p>
-      <ol class="proj-timeline">{tl}</ol>''', soft=True)
-
     if videos:
         add('videos', 'Videos', f'''      <h2 id="videos-title" class="proj-h2">Videos</h2>
       <p class="proj-lead">Short explainers of the research in this project.</p>
@@ -533,14 +482,6 @@ def build_one(p, data, template):
         add('tools', 'Tools', f'''      <h2 id="tools-title" class="proj-h2">Interactive tools</h2>
       <p class="proj-lead">Browser tools and simulations that grew out of this research.</p>
       <div class="proj-grid is-3">{cards}</div>''')
-    rel = related_projects(p, data)
-    if rel:
-        cards = ''.join(f'<a class="rel-card" href="/projects/{esc(q["slug"])}/"><img src="/{esc(q.get("image", ""))}" alt="" loading="lazy" decoding="async">'
-                        f'<div class="card-body"><p class="card-meta">{esc(q.get("category", ""))} · {plural(len(q["_papers"]), "paper")}</p><p class="card-title">{esc(q["title"])}</p>'
-                        f'<p class="card-text">{esc(clip(q.get("summary", ""), 150))}</p></div></a>' for q in rel)
-        add('related', 'Related', f'''      <h2 id="related-title" class="proj-h2">Related projects</h2>
-      <div class="proj-grid is-3">{cards}</div>''', soft=True)
-
     subnav = f'    <nav class="proj-subnav" aria-label="Sections of this page"><div class="proj-wrap"><ul>{"".join(menu)}</ul></div></nav>'
     cta = f'''    <div class="proj-cta"><div class="proj-cta-box">
       <div><h2>Interested in this project?</h2><p>We welcome collaborations, data partnerships and students who want to work on {esc(p.get("category", "this topic").lower())} problems with us.</p></div>
@@ -550,13 +491,12 @@ def build_one(p, data, template):
     # search-engine data
     share = share_image(p, out_dir)
     desc = clip(f'{p.get("summary", "")} {p.get("subtitle", "")}'.strip(), 158)
-    people = [{'@type': 'Person', 'name': plain_name(x['name']), 'jobTitle': x['role'],
+    people = [{'@type': 'Person', 'name': plain_name(x['name']), **({'jobTitle': x['role']} if x['role'] else {}),
                **({'sameAs': x['link']} if x['link'] else {})} for x in lab_people + collab]
     project_ld = {
         '@type': 'ResearchProject', '@id': url + '#project', 'name': p['title'], 'url': url, 'description': p.get('description') or desc,
         'disambiguatingDescription': p.get('subtitle') or None, 'image': SITE + '/' + img, 'keywords': ', '.join(p.get('tags', [])) or None,
-        'knowsAbout': p.get('methods') or None, 'foundingDate': iso_month(start),
-        'dissolutionDate': iso_month(end) if status == 'completed' else None,
+        'knowsAbout': p.get('methods') or None,
         'founder': {'@type': 'Person', 'name': 'Teddy Lazebnik', 'url': 'https://teddylazebnik.com'},
         'parentOrganization': {'@type': 'ResearchOrganization', 'name': 'Applied Computational Mathematics Laboratory', 'alternateName': 'ACML', 'url': SITE + '/'},
         'member': people or None,
@@ -585,7 +525,7 @@ def build_one(p, data, template):
     if old != page:
         path.write_text(page, encoding='utf-8')
     return {'slug': slug, 'url': f'projects/{slug}/', 'title': p['title'], 'summary': p.get('summary', ''), 'subtitle': p.get('subtitle', ''),
-            'changed': old != page, 'image': img, 'status': status, 'period': fmt_period(p.get('period')), 'category': p.get('category', ''),
+            'changed': old != page, 'image': img, 'category': p.get('category', ''),
             'papers': papers, 'current': current, 'past': past, 'collab': collab, 'videos': videos, 'tags': p.get('tags', []), 'project': p}
 
 
@@ -594,7 +534,7 @@ def update_project_list(built):
     """The project cards on projects.html (plain HTML between the markers)."""
     path = ROOT / 'projects.html'
     text = path.read_text(encoding='utf-8')
-    order = sorted(built, key=lambda b: b['status'] == 'completed')
+    order = list(built)
     cards = []
     for b in order:
         people = b['current'] + b['past']
@@ -608,7 +548,7 @@ def update_project_list(built):
         cards.append(f'''      <article class="pl-card">
         <a class="pl-media" href="{href}" tabindex="-1" aria-hidden="true"><img src="/{esc(b["image"])}" alt="" loading="lazy" decoding="async"></a>
         <div>
-          <p class="pl-meta">{status_html(b["project"])}<span>{esc(b["category"])}</span><span>{esc(b["period"])}</span></p>
+          <p class="pl-meta"><span>{esc(b["category"])}</span></p>
           <h3 class="pl-title"><a href="{href}">{esc(b["title"])}</a></h3>
           <p class="pl-summary">{esc(b["summary"] or b["subtitle"])}</p>
           <p class="pl-counts">{"".join(c for c in counts if c)}</p>
@@ -624,6 +564,19 @@ def update_project_list(built):
         if not old:
             old = re.search(r'[ \t]*<div id="projects-container"[^>]*></div>\s*\n', text)
         new = text[:old.start()] + block + text[old.end():]
+    # the numbers at the top of the page
+    papers = {m['slug'] for b in built for m in b['papers']}
+    people = {norm(plain_name(x['name'])) for b in built for x in b['current'] + b['past']}
+    nums = [(len(built), 'Research projects'), (len(papers), 'Papers'), (len(people), 'Lab members, current and past')]
+    stats = (f'                <!-- {STATS_START} -->\n                <div class="flex items-center space-x-6 pt-4">\n' +
+             ''.join(f'                    <div class="text-center">\n                        <div class="text-3xl font-bold text-primary">{n}</div>\n'
+                     f'                        <div class="text-sm text-gray-600">{label}</div>\n                    </div>\n' for n, label in nums) +
+             f'                </div>\n                <!-- {STATS_END} -->\n')
+    done = replace_block(new, STATS_START, STATS_END, stats)
+    if done is None:
+        old = re.search(r'[ \t]*<div class="flex items-center space-x-6 pt-4">\s*(?:<div class="text-center">\s*<div[^>]*>[^<]*</div>\s*<div[^>]*>[^<]*</div>\s*</div>\s*)+</div>[ \t]*\n', new)
+        done = new[:old.start()] + stats + new[old.end():] if old else new
+    new = done
     if '/css/project.css' not in new:
         new = new.replace('<link href="css/tailwind.css" rel="stylesheet">', '<link href="css/tailwind.css" rel="stylesheet">\n      <link href="/css/project.css" rel="stylesheet">', 1)
     # the list in the page's structured data
@@ -675,10 +628,10 @@ def update_llms(built):
     text = raw.decode('utf-8-sig')
     eol = '\r\n' if '\r\n' in text else '\n'
     lines = [f'<!-- {MARK_START} -->', '## Projects', '',
-             f'Each ACML research project has its own page ({len(built)} pages) with an overview, methods, outcomes, a timeline, the full list of '
+             f'Each ACML research project has its own page ({len(built)} pages) with an overview, methods, outcomes, the full list of '
              'its papers (linked to the paper pages), the current and past lab members who work on it, collaborators, and related videos, media '
              'coverage and tools.', '']
-    for b in sorted(built, key=lambda b: (b['status'] == 'completed', b['title'])):
+    for b in sorted(built, key=lambda b: b['title']):
         p = b['project']
         cur = ', '.join(plain_name(x['name']) for x in b['current'])
         past = ', '.join(plain_name(x['name']) for x in b['past'])
@@ -687,7 +640,7 @@ def update_llms(built):
                                       f'collaborators: {col}' if col else ''] if x)
         n = len(b['papers'])
         papers = (f' {plural(n, "paper")}' + (f', e.g. ' + '; '.join(f'[{m["title"]}]({SITE}{m["url"]})' for m in b['papers'][:3]) if n else '') + '.') if n else ''
-        lines.append(f'- [{b["title"]}]({SITE}/{b["url"]}): {b["status"].capitalize()}, {b["period"]}. {p.get("summary", "")} '
+        lines.append(f'- [{b["title"]}]({SITE}/{b["url"]}): {p.get("summary", "")} '
                      f'{re.sub(r"[.]$", "", p.get("subtitle", ""))}. Team ({team}).{papers}')
     lines += ['', f'<!-- {MARK_END} -->']
     block = eol.join(lines) + eol

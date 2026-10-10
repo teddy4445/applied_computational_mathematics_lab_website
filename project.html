@@ -11,8 +11,10 @@
       <link href="img/favicon.ico" rel="icon" type="image/x-icon">
       <script>
         (function () {
-          var known = ["pandemic-modeling-and-allocation", "biomath-cancer-and-beyond", "personalized-medicine-ai", "physics-inspired-symbolic-regression", "informal-economy-ai", "bio-informed-scientometrics", "diffusion-sr", "economy-physics-rl", "cyber-federated-learning", "animal-wellness-ai"];
+          var known = ["pandemic-modeling-and-allocation", "biomath-cancer-and-beyond", "personalized-medicine-ai", "physics-inspired-symbolic-regression", "informal-economy-ai", "bio-informed-scientometrics", "cyber-federated-learning", "animal-wellness-ai"];
+          var moved = {"diffusion-sr": "physics-inspired-symbolic-regression", "economy-physics-rl": "informal-economy-ai"};
           var slug = new URLSearchParams(location.search).get('pagename');
+          slug = moved[slug] || slug;
           location.replace(known.indexOf(slug) !== -1 ? '/projects/' + slug + '/' + location.hash : '/projects.html');
         })();
       </script>
@@ -28,8 +30,6 @@
           <li><a href="/projects/physics-inspired-symbolic-regression/">Developing the Next Step of Physics-Inspired Symbolic Regression</a></li>
           <li><a href="/projects/informal-economy-ai/">Moving Computational Economy To the AI Era</a></li>
           <li><a href="/projects/bio-informed-scientometrics/">A Biologically-Informed and Data-Driven Approach to Scientometrics</a></li>
-          <li><a href="/projects/diffusion-sr/">Physics-Informed Diffusion Models for Symbolic Regression</a></li>
-          <li><a href="/projects/economy-physics-rl/">Data-Driven Economic Dynamics with Physics and Reinforcement Learning</a></li>
           <li><a href="/projects/cyber-federated-learning/">Cybersecurity Federated Learning</a></li>
           <li><a href="/projects/animal-wellness-ai/">Understanding Animals' Behavior and Improving Their Wellness using AI</a></li>
       </ul>
