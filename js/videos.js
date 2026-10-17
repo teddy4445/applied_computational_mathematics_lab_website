@@ -21,6 +21,7 @@
   }
 
   const isShort = (video) => video.format === 'short';
+  const isEducational = (video) => video.section === 'educational';
   const watchUrl = (video) => (isShort(video) ? `https://www.youtube.com/shorts/${video.id}` : `https://www.youtube.com/watch?v=${video.id}`);
   const embedUrl = (id) => `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?autoplay=1&rel=0&playsinline=1`;
 
@@ -182,22 +183,24 @@
   async function renderVideosPage() {
     const longGrid = document.getElementById('videos-long');
     const shortGrid = document.getElementById('videos-shorts');
-    if (!longGrid && !shortGrid) return;
+    const eduGrid = document.getElementById('videos-educational');
+    if (!longGrid && !shortGrid && !eduGrid) return;
 
     let videos = [];
     try {
       videos = await loadVideos();
     } catch (error) {
       console.error(error);
-      const target = longGrid || shortGrid;
+      const target = longGrid || shortGrid || eduGrid;
       target.innerHTML = `<div class="video-load-error">Videos could not be loaded. Check that <code>${esc(DATA_URL)}</code> exists and is valid JSON.</div>`;
       return;
     }
 
     const animate = Boolean(window.ACMLAnimations && window.ACMLAnimations.enhance);
     const groups = [
-      [longGrid, videos.filter((video) => !isShort(video)), 'videos-long-count'],
-      [shortGrid, videos.filter(isShort), 'videos-shorts-count']
+      [longGrid, videos.filter((video) => !isShort(video) && !isEducational(video)), 'videos-long-count'],
+      [shortGrid, videos.filter((video) => isShort(video) && !isEducational(video)), 'videos-shorts-count'],
+      [eduGrid, videos.filter(isEducational), 'videos-educational-count']
     ];
 
     groups.forEach(([grid, list, countId]) => {
