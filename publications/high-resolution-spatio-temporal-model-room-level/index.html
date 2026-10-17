@@ -88,7 +88,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -139,7 +139,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/aura_1.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.3390/math11020426" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -160,6 +160,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-background">1. Background</a></li>
 <li><a href="#2-model-definition">2. Model Definition</a></li><li class="toc-sub"><a href="#21-the-environment-e">2.1. The Environment E</a></li><li class="toc-sub"><a href="#22-the-population-p">2.2. The Population P</a></li><li class="toc-sub"><a href="#23-model-implementation">2.3. Model Implementation</a></li>
 <li><a href="#3-simulations-and-results">3. Simulations and Results</a></li><li class="toc-sub"><a href="#31-baseline-model-dynamics">3.1. Baseline Model Dynamics</a></li><li class="toc-sub"><a href="#32-pandemic-intervention-policies">3.2. Pandemic Intervention Policies</a></li><li class="toc-sub"><a href="#33-model-sensitivity-analysis">3.3. Model Sensitivity Analysis</a></li>
@@ -180,6 +181,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-background">1. Background</a></li>
 <li><a href="#2-model-definition">2. Model Definition</a></li><li class="toc-sub"><a href="#21-the-environment-e">2.1. The Environment E</a></li><li class="toc-sub"><a href="#22-the-population-p">2.2. The Population P</a></li><li class="toc-sub"><a href="#23-model-implementation">2.3. Model Implementation</a></li>
 <li><a href="#3-simulations-and-results">3. Simulations and Results</a></li><li class="toc-sub"><a href="#31-baseline-model-dynamics">3.1. Baseline Model Dynamics</a></li><li class="toc-sub"><a href="#32-pandemic-intervention-policies">3.2. Pandemic Intervention Policies</a></li><li class="toc-sub"><a href="#33-model-sensitivity-analysis">3.3. Model Sensitivity Analysis</a></li>
@@ -193,7 +195,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>Airborne pandemics have caused millions of deaths worldwide, large-scale economic losses, and catastrophic sociological shifts in human history. Researchers have developed multiple mathematical models and computational frameworks to investigate and predict pandemic spread on various levels and scales such as countries, cities, large social events, and even buildings. However, attempts of modeling airborne pandemic dynamics on the smallest scale, a single room, have been mostly neglected. As time indoors increases due to global urbanization processes, more infections occur in shared rooms. In this study, a high-resolution spatio-temporal epidemiological model with airflow dynamics to evaluate airborne pandemic spread is proposed. The model is implemented, using Python, with high-resolution 3D data obtained from a light detection and ranging (LiDAR) device and computing model based on the Computational Fluid Dynamics (CFD) model for the airflow and the Susceptible–Exposed–Infected (SEI) model for the epidemiological dynamics. The pandemic spread is evaluated in four types of rooms, showing significant differences even for a short exposure duration. We show that the room’s topology and individual distribution in the room define the ability of air ventilation to reduce pandemic spread throughout breathing zone infection.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="p2FAXx-bnQY" data-yt-title="The Cinema vs. the Meeting Room: Where Does a Virus Spread More?"><a class="yt-play" href="https://www.youtube.com/shorts/p2FAXx-bnQY" aria-label="Play video: The Cinema vs. the Meeting Room: Where Does a Virus Spread More?"><img src="https://i.ytimg.com/vi/p2FAXx-bnQY/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/p2FAXx-bnQY/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">The Cinema vs. the Meeting Room: Where Does a Virus Spread More?</p><p>We scanned 20 real rooms with LiDAR and simulated every breath of one sick person over 90 minutes. About three in four people were exposed in meeting rooms and about half in cinemas: where people face matters more than how crowded the room is.</p><p class="paper-video-more"><a href="/videos.html#v-p2FAXx-bnQY">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/p2FAXx-bnQY" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <h2 id="1-background">1. Background</h2>
@@ -489,7 +491,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {

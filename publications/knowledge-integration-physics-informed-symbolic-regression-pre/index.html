@@ -92,7 +92,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -143,7 +143,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/llm_sr.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.1038/s41598-026-35327-6" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -164,6 +164,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#related-work">Related work</a></li><li class="toc-sub"><a href="#symbolic-regression">Symbolic regression</a></li><li class="toc-sub"><a href="#physics-informed-symbolic-regression">Physics-informed symbolic regression</a></li><li class="toc-sub"><a href="#large-language-models-and-symbolic-regression">Large language models and symbolic regression</a></li>
 <li><a href="#llm-based-knowledge-integration-to-sr">LLM-based knowledge integration to SR</a></li>
 <li><a href="#experiments">Experiments</a></li><li class="toc-sub"><a href="#experiment-components">Experiment components</a></li><li class="toc-sub"><a href="#experiment-types">Experiment types</a></li><li class="toc-sub"><a href="#expression-tree-distance-metric">Expression tree distance metric</a></li>
@@ -184,6 +185,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#related-work">Related work</a></li><li class="toc-sub"><a href="#symbolic-regression">Symbolic regression</a></li><li class="toc-sub"><a href="#physics-informed-symbolic-regression">Physics-informed symbolic regression</a></li><li class="toc-sub"><a href="#large-language-models-and-symbolic-regression">Large language models and symbolic regression</a></li>
 <li><a href="#llm-based-knowledge-integration-to-sr">LLM-based knowledge integration to SR</a></li>
 <li><a href="#experiments">Experiments</a></li><li class="toc-sub"><a href="#experiment-components">Experiment components</a></li><li class="toc-sub"><a href="#experiment-types">Experiment types</a></li><li class="toc-sub"><a href="#expression-tree-distance-metric">Expression tree distance metric</a></li>
@@ -197,7 +199,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>Symbolic regression (SR) has emerged as a powerful tool for automated scientific discovery, enabling the derivation of governing equations from experimental data. A growing body of work illustrates the promise of integrating domain knowledge into the SR to improve the discovered equation’s generality and usefulness. Physics-informed SR (PiSR) addresses this by incorporating domain knowledge, but current methods often re- quire specialized formulations and manual feature engineering, limiting their adaptability only to domain experts. In this study, we leverage pre-trained Large Language Models (LLMs) to facilitate knowledge integration in PiSR. By harnessing the contextual understanding of LLMs trained on vast scientific literature, we aim to automate the incorporation of domain knowledge, reducing the need for manual intervention and making the process more accessible to a broader range of scientific problems. Namely, the LLM is integrated into the SR’s loss function, adding a term of the LLM’s evaluation of the SR’s produced equation. We extensively evaluate our method using three SR algorithms (DEAP, gplearn, and PySR) and three pre-trained LLMs (Falcon, Mistral, and LLama 2) across three physical dynamics (dropping ball, simple harmonic motion, and electromagnetic wave). The results demonstrate that LLM integration consistently improves the reconstruction of physical dynamics from data, enhancing the robustness of SR models to noise and complexity. We further explore the impact of prompt engineering, finding that more informative prompts significantly improve performance.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="gxAtLOmkN-g" data-yt-title="Plain Words In, True Equations Out: We Put an LLM Inside the Equation Search"><a class="yt-play" href="https://www.youtube.com/shorts/gxAtLOmkN-g" aria-label="Play video: Plain Words In, True Equations Out: We Put an LLM Inside the Equation Search"><img src="https://i.ytimg.com/vi/gxAtLOmkN-g/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/gxAtLOmkN-g/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">Plain Words In, True Equations Out: We Put an LLM Inside the Equation Search</p><p>A language model grades every candidate equation inside the search. Briefed in plain words, every model and engine found the true equation&#x27;s exact structure.</p><p class="paper-video-more"><a href="/videos.html#v-gxAtLOmkN-g">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/gxAtLOmkN-g" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <p>Scientific discovery is based on the interplay between empirical observation and theoretical modeling<sup><a href="#ref-1">1</a>,<a href="#ref-2">2</a></sup>. Throughout the subsequent centuries, this approach of expressing scientific knowledge through mathematical relationships has remained central to physics and other natural sciences<sup><a href="#ref-3">3</a>–<a href="#ref-7">7</a></sup>, mathematical formulations have consistently provided the language through which we articulate physical laws<sup><a href="#ref-8">8</a></sup>. These symbolic expressions serve not merely as descriptive tools but as engines of discovery<sup><a href="#ref-9">9</a></sup>, enabling scientists to derive new insights and make predictions beyond what has been directly observed.</p>
@@ -510,7 +512,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {

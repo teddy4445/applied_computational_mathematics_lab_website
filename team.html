@@ -48,6 +48,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/tailwind.css" rel="stylesheet">
+    <link href="css/collab-map.css" rel="stylesheet">
   </head>
 
   <body class="bg-gray-50 font-['Inter']">
@@ -246,6 +247,56 @@
       </section>
 	  
 
+      <!-- Collaboration map (drawn by js/coauthor-map.js, loaded on demand by js/collab-map-loader.js; data: data/collab-map.js from tools/build_statistics.py) -->
+      <section class="flow-section py-16 bg-gray-50" aria-labelledby="map-title">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-8">
+            <h2 id="map-title" class="text-3xl font-bold text-gray-900 mb-4">Who We Write With</h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+              Every co-author on our papers, placed at the university, hospital or company printed on our latest paper together. Our two homes, the University of Haifa and Jönköping University, are joined by the yellow line. Press play to watch the network grow, one paper at a time.
+            </p>
+          </div>
+
+          <div class="cm-toolbar">
+            <p class="cm-summary" id="cm-summary"></p>
+            <div class="cm-views" role="group" aria-label="Map view">
+              <button type="button" data-view="world" aria-pressed="true">World</button>
+              <button type="button" data-view="europe" aria-pressed="false">Europe</button>
+              <button type="button" data-view="israel" aria-pressed="false">Israel</button>
+            </div>
+          </div>
+
+          <div class="cm-time">
+            <button type="button" id="cm-play" class="cm-play" aria-label="Play: grow the network paper by paper"><span class="cm-play-icon" aria-hidden="true"></span><span class="cm-play-text">Play</span></button>
+            <div class="cm-slider">
+              <input type="range" id="cm-step" min="0" max="0" value="0" step="1" aria-label="Papers on the map, oldest to newest">
+              <div class="cm-ticks" id="cm-ticks" aria-hidden="true"></div>
+            </div>
+            <div class="cm-time-text">
+              <p class="cm-time-label" id="cm-time-label" aria-live="polite"></p>
+              <p class="cm-time-paper" id="cm-time-paper"></p>
+            </div>
+          </div>
+
+          <div class="cm-card">
+            <div class="cm-map" id="cm-map">
+              <svg id="cm-svg" role="group" aria-labelledby="map-title map-desc"><desc id="map-desc">World map with a yellow line between Haifa and Jönköping, and blue lines from the middle of that line to every city where our co-authors work.</desc></svg>
+              <div class="cm-zoom"><button type="button" data-zoom="in" aria-label="Zoom in">+</button><button type="button" data-zoom="out" aria-label="Zoom out">−</button></div>
+              <div class="cm-tip" id="cm-tip" role="tooltip" hidden></div>
+              <p class="cm-loading" id="cm-loading">Loading the map…</p>
+            </div>
+            <aside class="cm-panel" id="cm-panel" aria-live="polite"></aside>
+          </div>
+
+          <div class="cm-legend" aria-label="Legend">
+            <span><i class="cm-key-home" aria-hidden="true"></i>Our two homes: University of Haifa and Jönköping University</span>
+            <span><i class="cm-key-line" aria-hidden="true"></i>Collaboration</span>
+            <span class="cm-key-sizes"><i style="--d:8px" aria-hidden="true"></i><i style="--d:13px" aria-hidden="true"></i><i style="--d:20px" aria-hidden="true"></i>1, 5 and 20 co-authors</span>
+          </div>
+          <p class="cm-note">How we made it: we read the author list and affiliations printed on each of our papers. Each co-author appears once, at the affiliation on our most recent paper together. Dots sit on city centres.</p>
+        </div>
+      </section>
+
       <!-- ALUMNI (dynamic) -->
       <section class="flow-section py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -311,6 +362,7 @@
     <!-- NEW: dynamic loader for lab data -->
     <script type="module" src="js/lab.js"></script>
     <script type="module" src="js/hero-team.js"></script>
+    <script src="js/collab-map-loader.js" defer></script>
   </body>
 </html>
 

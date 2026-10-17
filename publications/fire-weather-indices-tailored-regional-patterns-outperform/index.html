@@ -101,7 +101,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -152,7 +152,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/fires_global.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.1038/s44304-025-00126-y" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -173,6 +173,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#results">Results</a></li>
 <li><a href="#discussion">Discussion</a></li>
 <li><a href="#methods">Methods</a></li><li class="toc-sub"><a href="#calibrated-fwi">Calibrated FWI:</a></li>
@@ -192,6 +193,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#results">Results</a></li>
 <li><a href="#discussion">Discussion</a></li>
 <li><a href="#methods">Methods</a></li><li class="toc-sub"><a href="#calibrated-fwi">Calibrated FWI:</a></li>
@@ -204,7 +206,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>Fire weather indices (FWIs) are widely used to assess wildfire risk, but are typically designed for specific regions and not adapted globally. Here, we present a systematic effort to generate country-specific FWIs that capture regional fire-weather patterns. We evaluate three widely used indices across countries, finding that the Canadian FWI performs best overall (ROC AUC of 0.69). Tailoring the index to each country with a Genetic Algorithm significantly improves its accuracy, raising the ROC AUC from 0.69 to 0.79. To further improve accuracy while maintaining interpretability, we develop a single Decision Tree model per country, achieving an ROC AUC of 0.86. Attempts to develop a single global Decision Tree yielded substantially lower accuracy, highlighting the limitations of universal models and the importance of capturing regional characteristics such as weather patterns, vegetation types, and topography for accurately predicting wildfire risk. Adapting FWIs regionally is crucial under accelerating climate change conditions.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="D5OCNTrKQ5k" data-yt-title="Can One Fire-Danger Formula Work for the Whole Planet?"><a class="yt-play" href="https://www.youtube.com/shorts/D5OCNTrKQ5k" aria-label="Play video: Can One Fire-Danger Formula Work for the Whole Planet?"><img src="https://i.ytimg.com/vi/D5OCNTrKQ5k/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/D5OCNTrKQ5k/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">Can One Fire-Danger Formula Work for the Whole Planet?</p><p>We tested the three classic fire-danger formulas on over 7 million wildfires in 160 countries. Rules tuned to each region beat one formula for the whole planet.</p><p class="paper-video-more"><a href="/videos.html#v-D5OCNTrKQ5k">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/D5OCNTrKQ5k" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <p>Wildfires pose risks to wildlife and human societies throughout the globe<sup><a href="#ref-1">1</a>,<a href="#ref-2">2</a></sup>, while also contributing to increasing emissions of aerosols and greenhouse gases into the atmosphere<sup><a href="#ref-3">3</a></sup>. Recently, the frequency of extreme wildfires has substantially increased due to Climate Change<sup><a href="#ref-4">4</a></sup>. A key element of wildfire preparedness is effective wildfire prediction<sup><a href="#ref-5">5</a></sup>. Prediction of wildfire occurrence provides firefighters with an opportunity to extinguish wildfires in their early stages and provide life-saving alerts to populations at risk<sup><a href="#ref-6">6</a></sup>. A common method of estimating wildfire risk is with Fire Weather Indices (FWIs), which are based on various meteorological factors and fuel loads and provide a fire danger indicator<sup><a href="#ref-7">7</a>,<a href="#ref-8">8</a></sup>.</p>
@@ -456,7 +458,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {

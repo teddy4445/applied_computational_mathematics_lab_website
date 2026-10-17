@@ -88,7 +88,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -139,7 +139,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/academic_data_fruad.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.3390/data8110165" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -160,6 +160,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1. Introduction</a></li>
 <li><a href="#2-statistical-operators-of-benfords-law">2. Statistical Operators of Benford’s Law</a></li>
 <li><a href="#3-experimental-setup">3. Experimental Setup</a></li><li class="toc-sub"><a href="#31-performance-evaluation">3.1. Performance Evaluation</a></li><li class="toc-sub"><a href="#32-sensitivity-analysis">3.2. Sensitivity Analysis</a></li><li class="toc-sub"><a href="#33-economic-manuscripts-use-case">3.3. Economic Manuscripts Use Case</a></li>
@@ -180,6 +181,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1. Introduction</a></li>
 <li><a href="#2-statistical-operators-of-benfords-law">2. Statistical Operators of Benford’s Law</a></li>
 <li><a href="#3-experimental-setup">3. Experimental Setup</a></li><li class="toc-sub"><a href="#31-performance-evaluation">3.1. Performance Evaluation</a></li><li class="toc-sub"><a href="#32-sensitivity-analysis">3.2. Sensitivity Analysis</a></li><li class="toc-sub"><a href="#33-economic-manuscripts-use-case">3.3. Economic Manuscripts Use Case</a></li>
@@ -193,7 +195,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>The reproducibility of academic research has long been a persistent issue, contradicting one of the fundamental principles of science. Recently, there has been an increasing number of false claims found in academic manuscripts, casting doubt on the validity of reported results. In this paper, we utilize an adapted version of Benford’s law, a statistical phenomenon that describes the distribution of leading digits in naturally occurring datasets, to identify the potential manipulation of results in research manuscripts, solely using the aggregated data presented in those manuscripts rather than the commonly unavailable raw datasets. Our methodology applies the principles of Benford’s law to commonly employed analyses in academic manuscripts, thus reducing the need for the raw data itself. To validate our approach, we employed 100 open-source datasets and successfully predicted 79% of them accurately using our rules. Moreover, we tested the proposed method on known retracted manuscripts, showing that around half (48.6%) can be detected using the proposed method. Additionally, we analyzed 100 manuscripts published in the last two years across ten prominent economic journals, with 10 manuscripts randomly sampled from each journal. Our analysis predicted a 3% occurrence of results manipulation with a 96% confidence level. Our findings show that Benford’s law adapted for aggregated data, can be an initial tool for identifying data manipulation; however, it is not a silver bullet, requiring further investigation for each flagged manuscript due to the relatively low prediction accuracy.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card"><div class="yt-player yt-16x9" data-yt-id="OCX3LAuDLtA" data-yt-title="Fake Numbers Leave Fingerprints (Benford&#x27;s Law)"><a class="yt-play" href="https://www.youtube.com/watch?v=OCX3LAuDLtA" aria-label="Play video: Fake Numbers Leave Fingerprints (Benford&#x27;s Law)"><img src="https://i.ytimg.com/vi/OCX3LAuDLtA/maxresdefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/OCX3LAuDLtA/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">Fake Numbers Leave Fingerprints (Benford&#x27;s Law)</p><p>Real-world numbers start with a 1 about 30% of the time. We checked the numbers papers report in their results tables against Benford&#x27;s law: the test flagged half of 37 retracted papers and 3 of 100 recent economics papers. A flag is a reason to look closer, not proof.</p><p class="paper-video-more"><a href="/videos.html#v-OCX3LAuDLtA">More videos from the lab</a> · <a href="https://www.youtube.com/watch?v=OCX3LAuDLtA" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <h2 id="1-introduction">1. Introduction</h2>
@@ -400,7 +402,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
