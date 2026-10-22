@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_papers.py from paper.md + paper.json in this folder. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Simple spiral-drawing measures for tremor assessment | ACML</title>
+      <meta name="description" content="Can measurements from spiral drawings reflect clinicians’ assessments of essential tremor? We compared three metrics across 410 observations from 106…">
+      <meta name="author" content="Mark Katson, Teddy Lazebnik, Meirav Har-Even, Maxim Glebov, Fawzia Naamnih, Alon Sinai, Maria Nassar, Inna Senderova, Marius Constantinescu, Lior Lev Tov, Vered Aharonson, Ilana Schlesinger">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/publications/less-more-comparison-automated-spiral-drawing-metrics/">
+      <meta name="citation_title" content="Less is more: comparison of automated spiral-drawing metrics with clinician-rated tremor scores after MRgFUS thalamotomy">
+      <meta name="citation_author" content="Mark Katson">
+      <meta name="citation_author" content="Teddy Lazebnik">
+      <meta name="citation_author" content="Meirav Har-Even">
+      <meta name="citation_author" content="Maxim Glebov">
+      <meta name="citation_author" content="Fawzia Naamnih">
+      <meta name="citation_author" content="Alon Sinai">
+      <meta name="citation_author" content="Maria Nassar">
+      <meta name="citation_author" content="Inna Senderova">
+      <meta name="citation_author" content="Marius Constantinescu">
+      <meta name="citation_author" content="Lior Lev Tov">
+      <meta name="citation_author" content="Vered Aharonson">
+      <meta name="citation_author" content="Ilana Schlesinger">
+      <meta name="citation_publication_date" content="2026/07/29">
+      <meta name="citation_journal_title" content="Frontiers in Neurology">
+      <meta name="citation_volume" content="17">
+      <meta name="citation_firstpage" content="1848802">
+      <meta name="citation_doi" content="10.3389/fneur.2026.1848802">
+      <meta name="citation_pdf_url" content="https://teddylazebnik.com/files/fneur-17-1848802.pdf">
+      <meta name="citation_abstract_html_url" content="https://acml.teddylazebnik.com/publications/less-more-comparison-automated-spiral-drawing-metrics/">
+      <meta name="citation_fulltext_html_url" content="https://acml.teddylazebnik.com/publications/less-more-comparison-automated-spiral-drawing-metrics/">
+      <meta name="citation_keywords" content="clinical computer vision; essential tremor; image-based biomarkers; model evaluation and validation; MRI guided focused ultrasound; spiral drawing analysis">
+      <meta name="citation_language" content="en">
+      <meta property="og:type" content="article">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Simple spiral-drawing measures for tremor assessment">
+      <meta property="og:description" content="Can measurements from spiral drawings reflect clinicians’ assessments of essential tremor? We compared three metrics across 410 observations from 106…">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/publications/less-more-comparison-automated-spiral-drawing-metrics/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/publications/less-more-comparison-automated-spiral-drawing-metrics/figures/share-fig-2.jpg">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Simple spiral-drawing measures for tremor assessment">
+      <meta name="twitter:description" content="Can measurements from spiral drawings reflect clinicians’ assessments of essential tremor? We compared three metrics across 410 observations from 106…">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/publications/less-more-comparison-automated-spiral-drawing-metrics/figures/share-fig-2.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "Less is more: comparison of automated spiral-drawing metrics with clinician-rated tremor scores after MRgFUS…",
+  "name": "Less is more: comparison of automated spiral-drawing metrics with clinician-rated tremor scores after MRgFUS thalamotomy",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Mark Katson"
+    },
+    {
+      "@type": "Person",
+      "name": "Teddy Lazebnik"
+    },
+    {
+      "@type": "Person",
+      "name": "Meirav Har-Even"
+    },
+    {
+      "@type": "Person",
+      "name": "Maxim Glebov"
+    },
+    {
+      "@type": "Person",
+      "name": "Fawzia Naamnih"
+    },
+    {
+      "@type": "Person",
+      "name": "Alon Sinai"
+    },
+    {
+      "@type": "Person",
+      "name": "Maria Nassar"
+    },
+    {
+      "@type": "Person",
+      "name": "Inna Senderova"
+    },
+    {
+      "@type": "Person",
+      "name": "Marius Constantinescu"
+    },
+    {
+      "@type": "Person",
+      "name": "Lior Lev Tov"
+    },
+    {
+      "@type": "Person",
+      "name": "Vered Aharonson"
+    },
+    {
+      "@type": "Person",
+      "name": "Ilana Schlesinger"
+    }
+  ],
+  "datePublished": "2026-07-29",
+  "url": "https://acml.teddylazebnik.com/publications/less-more-comparison-automated-spiral-drawing-metrics/",
+  "mainEntityOfPage": "https://acml.teddylazebnik.com/publications/less-more-comparison-automated-spiral-drawing-metrics/",
+  "abstract": "Objective measures of tremor could improve assessment of response to magnetic resonance-guided focused ultrasound (MRgFUS) for essential tremor in practice, but it is unclear whether image-derived metrics from spiral drawings reflect clinician judgment. In this study, we analyzed 410 spiral-drawing observations from 106 patients with essential tremor undergoing MRgFUS thalamotomy and compared two recent computer-vision measures with a simple geometric metric (total line length) against an ordinal clinical rating scale for tremor spiral scores using ordered logistic mixed-effects models. Only line length independently tracked worse clinician-rated severity (odds ratio(per 1 mm) 1.017, p < 0.01), whereas the two image-based scores showed no significant association. The model captured the expected treatment signature, with marked post-procedural improvement confined to the treated hand. These findings suggest that low-complexity interpretable features may better approximate clinically meaningful tremor severity than more elaborate image-processing metrics and support further validation against functional outcomes.",
+  "description": "Can measurements from spiral drawings reflect clinicians’ assessments of essential tremor? We compared three metrics across 410 observations from 106…",
+  "image": "https://acml.teddylazebnik.com/publications/less-more-comparison-automated-spiral-drawing-metrics/figures/share-fig-2.jpg",
+  "keywords": "clinical computer vision, essential tremor, image-based biomarkers, model evaluation and validation, MRI guided focused ultrasound, spiral drawing analysis",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "DOI",
+    "value": "10.3389/fneur.2026.1848802"
+  },
+  "sameAs": "https://doi.org/10.3389/fneur.2026.1848802",
+  "isPartOf": {
+    "@type": "PublicationIssue",
+    "issueNumber": "",
+    "isPartOf": {
+      "@type": "PublicationVolume",
+      "volumeNumber": "17",
+      "isPartOf": {
+        "@type": "Periodical",
+        "name": "Frontiers in Neurology"
+      }
+    }
+  },
+  "about": "Machine Learning",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "encoding": {
+    "@type": "MediaObject",
+    "contentUrl": "https://teddylazebnik.com/files/fneur-17-1848802.pdf",
+    "encodingFormat": "application/pdf"
+  }
+}
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/paper.css" rel="stylesheet">
+      
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="paper-page">
+    <header class="paper-hero">
+      <div class="paper-wrap">
+        <nav class="paper-crumbs" aria-label="Breadcrumb">
+          <a href="/publications.html">Publications</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span data-pagefind-filter="Topic">Machine Learning</span>
+        </nav>
+        <p class="paper-kicker"><span class="oa-badge"><i class="ri-lock-unlock-line" aria-hidden="true"></i>Open access</span><span><em>Frontiers in Neurology</em> · 29 July 2026</span></p>
+        <h1 class="paper-title" data-pagefind-meta="title" data-pagefind-filter="Year:2026">Less is more: comparison of automated spiral-drawing metrics with clinician-rated tremor scores after MRgFUS thalamotomy</h1>
+        <p class="paper-authors"><span class="author">Mark Katson</span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Teddy Lazebnik</a></span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Meirav Har-Even</a></span>, <span class="author"><a class="is-lab" href="/team.html" title="ACML team member">Maxim Glebov</a></span>, <span class="author">Fawzia Naamnih</span>, <span class="author">Alon Sinai</span>, <span class="author">Maria Nassar</span>, <span class="author">Inna Senderova</span>, <span class="author">Marius Constantinescu</span>, <span class="author">Lior Lev Tov</span>, <span class="author">Vered Aharonson</span>, <span class="author">Ilana Schlesinger</span></p>
+        <details class="paper-affils"><summary>Affiliations</summary><ol><li value="1">Department of Neurology, Rambam Health Care Campus, Haifa, Israel</li><li value="2">Department of Information Systems, University of Haifa, Haifa, Israel</li><li value="3">Department of Computing, Jonkoping University, Jonkoping, Sweden</li><li value="4">Department of Anesthesiology, Sheba Medical Center, Ramat Gan, Israel</li><li value="5">Department of Neurosurgery, Rambam Health Care Campus, Haifa, Israel</li><li value="6">School of Electrical and Information Engineering, University of the Witwatersrand, Johannesburg, South Africa</li><li value="7">Medical School, University of Nicosia, Nicosia, Cyprus</li><li value="8">Rappaport Faculty of Medicine, Technion-Israel Institute of Technology, Haifa, Israel</li></ol></details>
+        <div class="paper-actions">
+          <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/fneur-17-1848802.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
+          <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
+          
+          <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
+          <a class="paper-btn" href="https://doi.org/10.3389/fneur.2026.1848802" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
+          <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
+        </div>
+        <div class="lab-authors"><span class="lab-authors-label">ACML authors</span><a class="lab-chip" href="/team.html"><img src="/img/lab/teddy.webp" alt="" width="32" height="32" loading="lazy"><span><strong>Teddy Lazebnik</strong><small>PI</small></span></a><a class="lab-chip" href="/team.html"><img src="/img/lab/meirav.webp" alt="" width="32" height="32" loading="lazy"><span><strong>Meirav Har-Even</strong><small>Lab Manager &amp; Post-doc</small></span></a><a class="lab-chip" href="/team.html"><img src="/img/lab/max.webp" alt="" width="32" height="32" loading="lazy"><span><strong>Maxim Glebov</strong><small>PhD Student</small></span></a></div>
+      </div>
+    </header>
+
+    <section class="paper-glance" aria-labelledby="glance-title" data-pagefind-body><div class="paper-wrap"><div class="glance-card"><div class="glance-text"><h2 id="glance-title" class="glance-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>The paper at a glance</h2><p class="glance-summary">Can measurements from spiral drawings reflect clinicians’ assessments of essential tremor? We compared three metrics across 410 observations from 106 patients undergoing focused-ultrasound thalamotomy. Total line length tracked clinician-rated severity, while two more elaborate image-based scores did not show independent associations. The findings support further validation of simple, interpretable measurements against functional outcomes.</p><div class=glance-stats><div class="stat"><span class="stat-value">106</span><span class="stat-label">patients</span></div><div class="stat"><span class="stat-value">410</span><span class="stat-label">spiral-drawing observations</span></div><div class="stat"><span class="stat-value">1.017</span><span class="stat-label">odds ratio per mm of line length</span></div></div><h3 class=glance-sub>Key findings</h3><ul class=glance-findings><li>Only total line length independently tracked worse clinician-rated tremor severity (odds ratio 1.017 per mm; p &lt; 0.01).</li><li>The two computer-vision scores showed no significant independent association with clinician ratings.</li><li>The model captured post-procedural improvement confined to the treated hand.</li><li>Further validation against functional outcomes is needed before drawing broader clinical conclusions.</li></ul></div><figure class="glance-figure"><a href="#fig-2"><img src="figures/fig-2.webp" width="1790" height="1194" alt="FIGURE 2 CRST reference distribution and heat maps of image-based spiral metrics vs clinician-rated spiral drawing scores. (A) shows the distribution of clinician-rated CRST spiral scores across all observations. Most values are concentrated in the mild-to-moderate range, with fewer observations at the lowest and highest scores. (B-D) show heat maps depicting the relationship between CRST score and each quantitative spiral metric. In these panels, color indicates the number of observations within each bin, with warmer colors representing higher counts and cooler colors representing lower counts. (B) demonstrates a visible trend between higher CRST scores and greater total line length, suggesting a positive association with clinician-rated tremor severity. In contrast, (C) (Sobel-based orientation irregularity score) and (D) (optimal solution deviation score) do not show a clear visual trend across CRST categories. Overall, these plots suggest that total line length corresponds more closely with CRST than the two more complex image-derived metrics."></a><figcaption>FIGURE 2 CRST reference distribution and heat maps of image-based spiral metrics vs clinician-rated spiral drawing scores. (A) shows the distribution of clinician-rated CRST spiral scores across all observations. Most values are concentrated in the mild-to-moderate range, with fewer observations at the lowest and highest scores. (B-D) show heat maps depicting the relationship between CRST score and each quantitative spiral metric. In these panels, color indicates the number of observations within each bin, with warmer colors representing higher counts and cooler colors representing lower counts. (B) demonstrates a visible trend between higher CRST scores and greater total line length, suggesting a positive association with clinician-rated tremor severity. In contrast, (C) (Sobel-based orientation irregularity score) and (D) (optimal solution deviation score) do not show a clear visual trend across CRST categories. Overall, these plots suggest that total line length corresponds more closely with CRST than the two more complex image-derived metrics. <a href="#fig-2">See it in the paper</a></figcaption></figure></div></div></section>
+
+    <div class="paper-wrap paper-layout">
+      <aside class="paper-aside">
+        <form class="paper-search" action="/publications.html" method="get" role="search">
+          <label for="paper-q" class="aside-title">Search all our papers</label>
+          <div class="paper-search-box"><i class="ri-search-line" aria-hidden="true"></i><input id="paper-q" name="q" type="search" placeholder="e.g. Thompson sampling" autocomplete="off"></div>
+        </form>
+        <nav class="paper-toc" aria-label="On this page">
+          <p class="aside-title">On this page</p>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#1-introduction">1 Introduction</a></li>
+<li><a href="#2-methods-and-materials">2 Methods and Materials</a></li><li class="toc-sub"><a href="#21-patients">2.1 Patients</a></li><li class="toc-sub"><a href="#22-mrgfus-treatments">2.2 MRgFUS treatments</a></li><li class="toc-sub"><a href="#23-ethics">2.3 Ethics</a></li><li class="toc-sub"><a href="#24-spiral-drawings-dataset">2.4 Spiral drawings dataset</a></li><li class="toc-sub"><a href="#25-clinician-rated-spiral-drawing-score">2.5 Clinician-rated spiral drawing score</a></li><li class="toc-sub"><a href="#26-image-metric-computation">2.6 Image metric computation</a></li><li class="toc-sub"><a href="#27-statistical-analysis">2.7 Statistical analysis</a></li>
+<li><a href="#3-results">3 Results</a></li><li class="toc-sub"><a href="#31-sample-and-outcome-distribution">3.1 Sample and outcome distribution</a></li><li class="toc-sub"><a href="#32-primary-analysis-ordinal-mixed-effects-model">3.2 Primary analysis: ordinal mixed-effects model</a></li>
+<li><a href="#4-discussion">4 Discussion</a></li>
+<li><a href="#5-conclusions">5 Conclusions</a></li>
+<li><a href="#data-availability-statement">Data availability statement</a></li>
+<li><a href="#ethics-statement">Ethics statement</a></li>
+<li><a href="#author-contributions">Author contributions</a></li>
+<li><a href="#funding">Funding</a></li>
+<li><a href="#acknowledgments">Acknowledgments</a></li>
+<li><a href="#conflict-of-interest">Conflict of interest</a></li>
+<li><a href="#generative-ai-statement">Generative AI statement</a></li>
+<li><a href="#publishers-note">Publisher’s note</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </nav>
+        <div class="paper-info">
+          <p class="aside-title">Article information</p>
+          <dl><div><dt>Journal</dt><dd>Frontiers in Neurology 17: 1848802</dd></div><div><dt>Published</dt><dd><time datetime="2026-07-29">29 July 2026</time></dd></div><div><dt>DOI</dt><dd><a href="https://doi.org/10.3389/fneur.2026.1848802" target="_blank" rel="noopener">10.3389/fneur.2026.1848802</a></dd></div><div><dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY 4.0</a></dd></div></dl>
+        </div>
+      </aside>
+
+      <article class="paper-body" id="full-text" data-pagefind-body>
+        <details class="paper-toc-mobile" data-pagefind-ignore>
+          <summary>On this page</summary>
+          <ol>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#1-introduction">1 Introduction</a></li>
+<li><a href="#2-methods-and-materials">2 Methods and Materials</a></li><li class="toc-sub"><a href="#21-patients">2.1 Patients</a></li><li class="toc-sub"><a href="#22-mrgfus-treatments">2.2 MRgFUS treatments</a></li><li class="toc-sub"><a href="#23-ethics">2.3 Ethics</a></li><li class="toc-sub"><a href="#24-spiral-drawings-dataset">2.4 Spiral drawings dataset</a></li><li class="toc-sub"><a href="#25-clinician-rated-spiral-drawing-score">2.5 Clinician-rated spiral drawing score</a></li><li class="toc-sub"><a href="#26-image-metric-computation">2.6 Image metric computation</a></li><li class="toc-sub"><a href="#27-statistical-analysis">2.7 Statistical analysis</a></li>
+<li><a href="#3-results">3 Results</a></li><li class="toc-sub"><a href="#31-sample-and-outcome-distribution">3.1 Sample and outcome distribution</a></li><li class="toc-sub"><a href="#32-primary-analysis-ordinal-mixed-effects-model">3.2 Primary analysis: ordinal mixed-effects model</a></li>
+<li><a href="#4-discussion">4 Discussion</a></li>
+<li><a href="#5-conclusions">5 Conclusions</a></li>
+<li><a href="#data-availability-statement">Data availability statement</a></li>
+<li><a href="#ethics-statement">Ethics statement</a></li>
+<li><a href="#author-contributions">Author contributions</a></li>
+<li><a href="#funding">Funding</a></li>
+<li><a href="#acknowledgments">Acknowledgments</a></li>
+<li><a href="#conflict-of-interest">Conflict of interest</a></li>
+<li><a href="#generative-ai-statement">Generative AI statement</a></li>
+<li><a href="#publishers-note">Publisher’s note</a></li>
+<li><a href="#article-notes">Article notes</a></li>
+<li><a href="#references">References</a></li>
+          </ol>
+        </details>
+        <section id="abstract" class="paper-abstract">
+          <h2 id="abstract-heading">Abstract</h2>
+          <p>Objective measures of tremor could improve assessment of response to magnetic resonance-guided focused ultrasound (MRgFUS) for essential tremor in practice, but it is unclear whether image-derived metrics from spiral drawings reflect clinician judgment. In this study, we analyzed 410 spiral-drawing observations from 106 patients with essential tremor undergoing MRgFUS thalamotomy and compared two recent computer-vision measures with a simple geometric metric (total line length) against an ordinal clinical rating scale for tremor spiral scores using ordered logistic mixed-effects models. Only line length independently tracked worse clinician-rated severity (odds ratio(per 1 mm) 1.017, p &lt; 0.01), whereas the two image-based scores showed no significant association. The model captured the expected treatment signature, with marked post-procedural improvement confined to the treated hand. These findings suggest that low-complexity interpretable features may better approximate clinically meaningful tremor severity than more elaborate image-processing metrics and support further validation against functional outcomes.</p>
+        </section>
+        
+        
+<div class="paper-text">
+<h2 id="1-introduction">1 Introduction</h2>
+<p>Essential tremor (ET) is the most common movement disorder, typically manifesting as postural and kinetic tremor, most commonly of the upper extremities, that can substantially impair activities of daily living, including eating, drinking, and handwriting (1). ET affects roughly 0.9% of the population overall and increases with age (reported at a rate of 4.6% in individuals over 65 years of age). As the condition progresses, many patients show insufficient response to pharmacologic therapies (2). For these refractory patients, lesioning or neuromodulation has long been an effective strategy.</p>
+<p>Magnetic resonance-guided focused ultrasound (MRgFUS) thalamotomy has emerged as a minimally invasive alternative to more invasive functional neurosurgical approaches for tremor (3–5). MRgFUS delivers acoustic energy through the skull to thermally ablate tissue, while MRI provides stereotactic planning and real-time thermometry (6). In ET, the procedure commonly targets the ventral intermediate nucleus (VIM), a key cerebellar motor relay component implicated in tremor generation. During treatment, sonications are typically escalated stepwise with repeated bedside examinations to verify tremor improvement and monitor adverse effects (7). This highlights a practical need: objective, sensitive tremor quantification that can complement clinical examination before and after intervention, and if possible, also during intervention.</p>
+<p>In routine care and trials, tremor severity is commonly captured using clinician-rated scales such as the Clinical Rating Scale for Tremor (CRST; also referred to as the Fahn–Tolosa–Marin tremor rating scale), which incorporates drawing tasks (e.g., Archimedes spirals and lines) (8, 9). The CRST spiral score uses a 0–4 ordinal scale that captures the clinician’s global visual assessment of tremor severity during spiral drawing, integrating features such as oscillation amplitude, irregularity, line deviation, smoothness, and the extent to which tremor interferes with task performance. However, although being considered the clinical “gold standard” for assessment of tremor, these assessments are inherently subjective; drawing sub-scores in particular may show limited inter-rater reliability, and overall ratings can vary by examiner (9).</p>
+<p>Accordingly, multiple approaches have attempted to quantify tremor objectively from writing and drawing (1, 2, 10). Recently, Aharonson et al. (11) presented a rapid, explainable image-processing approach designed for repeated use around FUS treatments. The method applied Sobel edge detection (12) to estimate local gradients, converted these to edge angles, and then computed a “relative orientation angle”. An intentional choice of a single interpretable feature was made for this preliminary stage, and it was noted that future work to compare automated outputs with manual tremor ratings was needed. In the subsequent study, a more elaborate objective tool was introduced, combining image processing and a distance-based scoring framework to quantify tremor change longitudinally after FUS thalamotomy (7). An “optimal solution” reference line between the spiral’s guide boundaries was generated. Both the patient trace and the reference line were then sampled to equal point counts, and a performance score was computed as the Manhattan (L1) distance between corresponding sampled points. Using this score, the authors reported significant improvement after FUS in the treated hand and also detected changes in the non-treated hand, alongside evidence suggestive of waning efficacy over time.</p>
+<p>Despite the promise of modern computer-vision-based approaches, an important question remains unresolved: how do these automated metrics compare to the clinical “gold standard” clinician-rated spiral drawing scores (8) when both are evaluated on the same observations?</p>
+<p>The primary objective of this study was to determine which automated spiral-drawing metric best aligned with clinician-rated tremor severity in patients with essential tremor undergoing unilateral MRgFUS thalamotomy. The primary endpoint was the prediction of the clinician-rated CRST spiral drawing score, recorded on an ordinal 0–4 scale, by the Sobel-based orientation irregularity score, the optimal-solution deviation score, and an additional “common sense” method based on total drawn line length. Secondary endpoints were the ability of these metrics and the overall model to capture the expected treatment-related pattern, defined as a differential pre- to post-MRgFUS change between the treated and non-treated hands. As a supportive internal consistency analysis, we also examined the association between clinician-rated scores for spiral A and spiral B and performed a <em>post-hoc</em> reliability sub-sample analysis.</p>
+<h2 id="2-methods-and-materials">2 Methods and Materials</h2>
+<h3 id="21-patients">2.1 Patients</h3>
+<p>In total, 132 consecutive patients with ET were initially included in the study, with 106 people included in the final analysis due to incomplete or poor-quality spiral scans. The final cohort included 72 (67.9%) men. Mean patient age was 71.9 ± 7.3 (SD) years, with a range of 43–87 years. Hand dominance was right-sided in 93 patients (87.7%). Among right-hand dominant patients, the dominant side was treated in 91 of 93 patients (97.8%). Among left-hand dominant patients, the dominant side was treated in 12 of 13 patients (92.3%). All patients had medication-refractory tremor and underwent unilateral MRgFUS thalamotomy at Rambam Health Care campus, Haifa, Israel. Patients with baseline drawings for both hands and an immediate 1-week or 1-month follow up (364 and 46 observations, respectively) were included. Additional screening criteria for non-inclusion included conditions which could affect performance, such as reduced visual acuity, upper limb musculoskeletal conditions, cognitive impairment, or uncontrolled hyperthyroidism.</p>
+<h3 id="22-mrgfus-treatments">2.2 MRgFUS treatments</h3>
+<p>MRgFUS thalamotomy was performed in a 3-T MRI system (GE Medical Systems, Milwaukee, WI, USA) using an ExAblate Neuro 4,000 device with a silicone membrane (InSightec, Tirat Hacarmel, Israel). The patient’s head was immobilized with an MRI-compatible stereotactic frame (Integra Radionics, Burlington, MA, USA). Target temperature was monitored using MR thermometry. Treatment proceeded stepwise: the initial target was planned using a brain atlas and the patient’s MRI, followed by low-energy sonication to confirm clinical effect and absence of side effects while gradually increasing target temperature to 45–50 <sup>◦</sup>C. The team reassessed the awake patient repeatedly as the temperature was raised, typically observing resolution of contralateral tremor. Once the target was confirmed without adverse effects, energy was increased to reach 54–60 <sup>◦</sup>C (10–39 s sonications) to create a permanent lesion. If tremor reduction was insufficient or side effects appeared at low temperatures, the target was adjusted until benefit was achieved without unwanted effects.</p>
+<h3 id="23-ethics">2.3 Ethics</h3>
+<p>The study followed the Helsinki Declaration (1964) and subsequent amendments and was approved by the Rambam Health Care Campus IRB (4040–17). Data were collected retrospectively and pseudonymized; therefore, written informed consent was not required. The IRB approved the publication, and all authors reviewed and approved the final manuscript.</p>
+<h3 id="24-spiral-drawings-dataset">2.4 Spiral drawings dataset</h3>
+<p>According to CRST, patients received a paper template with two Archimedean spirals. The spirals were labeled A and B, with B being narrower than A. Patients were asked to trace the spirals between the guidelines. They were given guidance not to support their arm while drawing. All the patients were seated at a desk with proper lighting while completing the task. No guidance was given for drawing speed or pressure application on paper. Patients completed the spiral-drawing test before treatment and at multiple follow-up visits, using both the right and left hands each time.</p>
+<p>For each template, staff recorded the hand used for drawing and the patient’s dominant hand. Templates were scanned at 300 DPI and saved under an anonymized patient/session code. A companion spreadsheet recorded the drawing date, treated hand, and treatment date. Scans then underwent computerized preprocessing to isolate the spirals and remove human markings (patient/clinician notes) and scanning artifacts (e.g., rotation, pixelation). Spiral A and B regions were cropped consistently, resized to 500 × 500 pixels, and converted to grayscale. Spiral A was selected <em>a priori</em> as the primary image-analysis target because it is the wider of the two spirals and therefore provides a more robust substrate for trace isolation, skeletonization, and template-based comparison. Although Spiral B is narrower and may be more sensitive to subtle tremor, its narrower spacing also increases susceptibility to boundary effects, overlap with template guide lines, and small differences in cropping, registration, or binarization. To preserve a simple and reproducible primary analysis with minimal additional parameter choices, we therefore used a single predefined spiral rather than combining A and B or selecting between them <em>post hoc</em>. Spiral B was retained for an internal consistency analysis of the clinician-rated scores, providing an independent check that ratings of the two spiral tasks reflected a shared clinical construct.</p>
+<h3 id="25-clinician-rated-spiral-drawing-score">2.5 Clinician-rated spiral drawing score</h3>
+<p>The clinical reference (“gold standard”) was the clinician-rated spiral drawing severity score from the Clinical Rating Scale for Tremor (CRST; Fahn–Tolosa–Marin scale), recorded on the standard ordinal scale ranging from 0 to 4 (0 = no tremor; 4 = severe tremor affecting task performance). This ordinal CRST spiral score served as the dependent variable in all primary models. It was rated by a single highly experienced rater and reflected well the clinical impression documented within each patient’s file. The rater is a PhD-certified neurophysiologist with 18 years of experience evaluating Parkinson’s disease and essential tremor patients academically and during DBS and MRgFUS procedures. They have authored numerous publications for functional neurosurgery literature and frequently serve as a study rater. The second rater, who served for the <em>post hoc</em> reliability sub-sample, is a movement disorders specialist with 7 years of experience and was blinded to treatment.</p>
+<h3 id="26-image-metric-computation">2.6 Image metric computation</h3>
+<p>All image-derived metrics were computed from the same preprocessed Spiral A images. Following scan-level quality control, each spiral image was cropped from the original template, converted to grayscale, resized to 500 × 500 pixels, and processed to isolate the patient-drawn trace from the printed template and background artifacts. Prior to feature extraction, all spiral scans underwent quality control to determine whether the patient-drawn trace could be reliably isolated from the template and from non-drawing artifacts. A spiral was considered low quality and excluded when computerized preprocessing or visual inspection indicated that valid trace extraction was not possible. Principal causes of rejection included incomplete or missing scans; missing essential metadata such as drawing hand, treatment date, or follow-up status; severe cropping of the spiral region; excessive rotation, skew, blur, pixelation, or poor scan contrast; template misalignment that prevented consistent cropping; and patient or clinician markings, notes, or overwritten lines that overlapped the spiral trace and could not be removed without altering the drawing. Drawings were not excluded solely because of severe tremor, line waviness, retracing, or poor task performance, as these features may reflect true clinical severity. They were excluded only when such features, or superimposed artifacts, prevented reliable separation of the patient trace from the template or background. Three scalar metrics were then computed for each observation: the Sobel-based orientation irregularity score, the optimal-solution deviation score, and total drawn line length. These metrics were computed independently of the clinician-rated CRST spiral score. The Sobel-based orientation irregularity score was computed according to the method described by Aharonson et al. (11). Briefly, Sobel edge detection was applied to the isolated spiral image to estimate the local image gradient at each edge pixel. Horizontal and vertical gradients were obtained by convolving the image (I) with Sobel kernels (<em>S</em><sub>x</sub>) and (<em>S</em><sub>y</sub>). For each edge pixel with coordinates ((x, y)), the local edge orientation was compared with the radial azimuth from the estimated spiral center ((<em>C</em><sub>x</sub>, <em>C</em><sub>y</sub>)). The relative orientation angle was therefore defined as follows:</p>
+<div class="equation" id="eq-1"><img src="figures/eq-1.webp" width="234" height="46" alt="θ x, y = arctan S∗ xI S∗yI −arctan x −Cx y −Cy ." loading="lazy" decoding="async"></div>
+
+<p>where <sup>∗</sup> denotes the convolution operator. The distribution of <em>θ</em> values across all eligible edge pixels in the spiral trace was summarized by its standard deviation. This value was used as the Sobel-based orientation irregularity score, with larger values indicating a wider dispersion of local edge orientations relative to the expected spiral geometry, and therefore greater drawing irregularity.</p>
+<p>The optimal-solution deviation score was computed using the template-based reference-trajectory approach described by Aharonson et al. In brief, the spiral image was binarized, and the patient-drawn trace was isolated after removal of the empty template representation. An ideal reference trajectory was generated from the printed spiral guide boundaries by dividing the template boundary pixels into equal-length segments and connecting equidistant midpoints, thereby creating an “optimal solution” midline between the spiral guide boundaries. The patient trace and the optimal reference line were then resampled to the same number of points. The deviation score was calculated as the aggregate Manhattan distance between corresponding sampled points on the patient trace and the optimal reference trajectory:</p>
+<div class="equation" id="eq-2"><img src="figures/eq-2.webp" width="154" height="47" alt="D = n i=1 ( xi −ˆxi + |yi −ŷi|)" loading="lazy" decoding="async"></div>
+
+<p>where (<em>x</em><sub>i</sub>, <em>y</em><sub>i</sub>) denotes a sampled point on the patient-drawn trace and ( ˆ<em>x</em><sub>i</sub>, <em>ŷ</em><sub>i</sub>) denotes the corresponding point on the optimal reference trajectory. Higher values indicate greater deviation from the expected spiral path.</p>
+<p>In addition, we computed the total line length of the patient’s spiral trace. Namely, we followed a two-step computational process. First, from the cleaned binary trace mask, we computed a 1-pixel skeleton of the trace (morphological thinning) to minimize sensitivity to pen thickness and scanning artifacts. Second, we estimated length by summing local step distances along the skeleton using 8-connectivity (orthogonal steps counted as 1 pixel; diagonal steps counted as <sup>√</sup>2 pixels), then converted pixels to physical units using the known scan resolution (300 DPI). The resulting scalar value represents the total inked path length of the spiral trace, where a higher length is interpreted as more oscillatory stroke production and/or retracing, consistent with worse tremor.</p>
+<h3 id="27-statistical-analysis">2.7 Statistical analysis</h3>
+<p>We analyzed the clinician-rated spiral drawing score (ordinal 0–4) as the primary outcome. Due to the fact that multiple observations were available per subject (up to four) and observations were obtained for both hands across pre- and post-treatment visits, we used an ordered logistic mixed-effects regression (13) to account for within-subject correlation by including a subject-specific random intercept. Fixed effects included the Sobel edge-detection score, the optimal-solution deviation score, and total line length (all continuous predictors), as well as time (post-MRgFUS vs pre-MRgFUS), hand (treated vs non-treated), and their interaction (time × hand), to test whether pre/post change differed between treated and non-treated hands. Overall model significance was evaluated using a Wald chi-square test (14) for the fixed effects, and individual predictors were assessed using Wald tests, reporting effects on the odds-ratio scale, where odds ratios greater than 1 indicate higher odds of a worse/higher clinician score. Because the interaction was prespecified and clinically central, we decomposed it using planned simple comparisons: non-treated versus treated hand at baseline, non-treated versus treated hand post-treatment, and post- versus pre-treatment changes within each hand; these were reported as odds ratios with 95% confidence intervals and <em>p</em>-values. Moreover, we derived model-based expected scores by computing predicted probabilities across score categories for each time-by-hand condition and summarizing them into an expected ordinal score. As a sensitivity check, we refit an ordered logistic regression without random effects but with cluster-robust standard errors by subject; conclusions for the key effects were qualitatively consistent with the mixed-effects model. Due to the imbalance in the number of patients who had a 1-week or a 1-month follow-up appointment (364 and 46 observations, respectively), an additional sensitivity analysis was performed by excluding 1-month follow-up observations. To address inter-rater reliability, a <em>post-hoc</em> reliability analysis was performed in a subset of 100 randomly chosen spiral-drawing observations. The original CRST spiral A ratings were compared with ratings provided by a second rater. Inter-rater agreement was assessed using quadratic weighted Cohen’s kappa.</p>
+<h2 id="3-results">3 Results</h2>
+<h3 id="31-sample-and-outcome-distribution">3.1 Sample and outcome distribution</h3>
+<p>Observations with missing outcome, time, or treatment status were excluded from the analysis (18 observations). The analyzed data comprised 410 observations taken from 106 subjects with ET (3.9 mean observations per subject; range 1–4). Spiral drawing clinician impression ranged from 0 to 4. The observed distribution was: 0 (22.2%), 1 (29.3%), 2 (27.8%), 3 (14.2%), and 4 (6.6%).</p>
+<h3 id="32-primary-analysis-ordinal-mixed-effects-model">3.2 Primary analysis: ordinal mixed-effects model</h3>
+<p>A mixed-effects ordered logistic regression with a random intercept for subjects was performed to account for repeated measurements for the prediction of clinician-rated spiral drawing scores. Fixed effects included Sobel edge detection score, optimal solution deviation score, line length, time (post-MRgFUS vs pre- MRgFUS), treated-hand (non-treated vs treated), and their time × treated-hand interaction. This model showed overall statistical significance (Wald <em>χ</em><sup><a href="#ref-2">2</a></sup> = 165.15, <em>p &lt;</em> 0.001). Among the image-derived predictors, only total line length was independently associated with higher clinician-rated spiral severity. Each unit increase in line length was associated with higher odds of a worse CRST spiral score (OR<sub>(per 1 mm)</sub> = 1.017, 95% CI 1.007–1.027, z = 3.32, <em>p</em> = 0.001). In contrast, the Sobel-based orientation irregularity score (OR = 1.003, 95% CI 0.993–1.013, z = 0.64, <em>p</em> = 0.524) and the optimal-solution deviation score (OR = 0.999, 95% CI 0.996–1.002, z = −0.56, <em>p</em> = 0.578) were not independently associated with clinician-rated tremor severity.</p>
+<p>The time × treated-hand interaction was significant (<em>χ</em><sup><a href="#ref-2">2</a></sup> = 74.81, <em>p &lt;</em> 0.001). Prespecified 2 × 2 comparisons and Odds-ratio scale (ordered logit interpretation) were calculated for further interaction analysis, with OR <em>&gt;</em> 1 meaning higher odds of a worse/higher score. Both methods showed significant tremor reduction in the treated hand only, with the between-hand difference being minimal at baseline but becoming significant at Post-MRgFUS (<a class="xref" href="#table-1">Table 1</a>, <a class="xref" href="#fig-1">Figure 1</a>).</p>
+<p>We performed a practical sensitivity check using a non-mixed ordered logistic regression with cluster-robust SEs by subject; results were qualitatively consistent with the mixed model for the key effects. Due to the imbalance in the number of patients who had 1 week or 1 month of follow-up (364 and 46 observations, respectively), an additional sensitivity analysis restricted to the 1- week follow-up cohort yielded results consistent with the primary analysis. Total line length remained independently associated with higher clinician-rated spiral severity [OR = 1.016, <em>p</em> = 0.012], whereas the Sobel-based orientation irregularity score [<em>p</em> = 0.608] and optimal-solution deviation score [<em>p</em> = 0.681] remained nonsignificant. The time × treated-hand interaction also remained significant [<em>χ</em><sup><a href="#ref-2">2</a></sup> = 68.42, <em>p &lt;</em> 0.001], indicating that the expected post-treatment improvement remained confined to the treated hand. Additionally, <a class="xref" href="#fig-2">Figure 2</a> compares the distribution of the spiral metrics against the clinician-rated spiral drawing scores. The heat maps show a trend in Figure 2B for Line length, but Figures 2C, D do not show a trend for Sobel-based orientation irregularity and optimal solution deviation scores. Figure 2A shows the distribution of the CRST in our cohort for reference.</p>
+<figure class="table-figure" id="table-1">
+<figcaption>TABLE 1 Simple odds ratio comparisons.</figcaption>
+<div class="table-scroll"><table><tr><th>Condition</th><th>Pre–MRgFUS</th><th>Post–MRgFUS</th></tr><tr><th>Non–Treated vs.</th><th>OR 0.66 (95% CI</th><th>OR 118.55 (95% CI</th></tr><tr><td>Treated</td><td>0.27–1.63), p = 0.364</td><td>49.44–284.24), p &lt; 0.001</td></tr><tr><td></td><td>Treated</td><td>Non–Treated</td></tr><tr><td>Post–MRgFUS vs.</td><td>OR 0.0039 (95% CI</td><td>OR 0.70 (95% CI</td></tr><tr><td>Pre–MRgFUS</td><td>0.0013–0.0116), p &lt;<br/>0.001</td><td>0.41–1.19), p = 0.188</td></tr></table></div>
+<p class="table-note">This table presents prespecified 2 × 2 odds-ratio comparisons based on unadjusted data. The ordinal outcome ranges from 0 to 4, with lower scores indicating better performance. OR <em>&gt;</em> 1 indicates higher odds of a worse score. At baseline, Treated and Non-Treated hands did not differ significantly. Post-MRgFUS, the Non-Treated hand showed markedly higher odds of worse scores than the Treated hand. Within-hand comparisons demonstrated significant improvement only in the Treated hand, while the Non-Treated hand remained unchanged. Together, these findings are consistent with a significant Time×Treatment interaction, indicating a treatment-specific effect.</p>
+</figure>
+
+<p>For an internal consistency check for the clinical ratings, we used the Spearman test to examine the correlation between the clinician-rated spiral drawing scores for spiral A and spiral B, which were highly correlated and significant (r<sub>s</sub> = 0.88, <em>p &lt;</em> 0.001), showing good internal consistency. In the <em>post-hoc</em> inter-rater reliability analysis of 100 spiral-drawing observations, quadratic weighted agreement between the two raters was high. The observed weighted agreement was 97.38%, compared with an expected agreement of 86.55%, yielding a high quadratic weighted Cohen’s kappa (κ = 0.805, <em>p &lt;</em> 0.001). See <a class="xref" href="#fig-3">Figure 3</a> for visualization of internal consistency (Figure 3A) and <em>Post-Hoc</em> reliability (Figure 3B).</p>
+<figure id="fig-1">
+<a class="fig-zoom" href="figures/fig-1.webp" aria-label="Open the figure full size"><img src="figures/fig-1.webp" width="551" height="349" alt="FIGURE 1 Model-based expected score by time and treated hand" loading="lazy" decoding="async"></a>
+<figcaption>FIGURE 1 Model-based expected score by time and treated hand. Bars show the expected score, E[y], from the ordinal mixed model, and error bars show 95% confidence intervals. Lower values indicate less severe tremor. The treated and non-treated hands were similar before treatment. After MRgFUS, the treated hand showed a marked reduction in expected tremor score (Post vs Pre within Treated: E[y] = −1.75, 95% CI−2.05 −1.46, <em>p &lt;</em> 0.001), whereas the non-treated hand showed no clear change over time. Accordingly, at follow-up, the non-treated hand had a substantially higher expected score than the treated hand (Non-Treated vs Treated at Post-MRgFUS: E[y] = 1.45, 95% CI 1.24 to 1.66, <em>p &lt;</em> 0.001). Overall, improvement was mainly confined to the treated hand. Please note that the y-axis shows a probability-weighted average across ordinal score categories (0–4) derived from the mixed-effects ordered logit model, rather than a directly observed raw ordinal score.</figcaption>
+</figure>
+
+<figure id="fig-2">
+<a class="fig-zoom" href="figures/fig-2.webp" aria-label="Open the figure full size"><img src="figures/fig-2.webp" width="687" height="458" alt="FIGURE 2 CRST reference distribution and heat maps of image-based spiral metrics vs clinician-rated spiral drawing scores" loading="lazy" decoding="async"></a>
+<figcaption>FIGURE 2 CRST reference distribution and heat maps of image-based spiral metrics vs clinician-rated spiral drawing scores. (A) shows the distribution of clinician-rated CRST spiral scores across all observations. Most values are concentrated in the mild-to-moderate range, with fewer observations at the lowest and highest scores. (B-D) show heat maps depicting the relationship between CRST score and each quantitative spiral metric. In these panels, color indicates the number of observations within each bin, with warmer colors representing higher counts and cooler colors representing lower counts. (B) demonstrates a visible trend between higher CRST scores and greater total line length, suggesting a positive association with clinician-rated tremor severity. In contrast, (C) (Sobel-based orientation irregularity score) and (D) (optimal solution deviation score) do not show a clear visual trend across CRST categories. Overall, these plots suggest that total line length corresponds more closely with CRST than the two more complex image-derived metrics.</figcaption>
+</figure>
+
+<figure id="fig-3">
+<a class="fig-zoom" href="figures/fig-3.webp" aria-label="Open the figure full size"><img src="figures/fig-3.webp" width="687" height="452" alt="FIGURE 3 Heat maps for internal consistency and *post-hoc* reliability sub-sample spiral clinical ratings" loading="lazy" decoding="async"></a>
+<figcaption>FIGURE 3 Heat maps for internal consistency and <em>post-hoc</em> reliability sub-sample spiral clinical ratings. (A) shows a heat map of paired CRST spiral scores assigned by the primary rater to Spiral A and Spiral B. Each cell represents the number of observations with the corresponding combination of Spiral A and Spiral B scores; warmer colors indicate higher counts, and cooler colors indicate lower counts. The concentration of observations along, or near, the diagonal suggests good internal consistency between the two spiral attempts, although perfect agreement is not expected because Spiral A and Spiral B represent separate drawings and may reflect true within-patient performance variability. (B) shows a <em>post-hoc</em> sub-sample analysis comparing CRST spiral scores assigned by the primary rater and an independent <em>post-hoc</em> rater. Numeric values within cells indicate raw counts, with warmer colors indicating higher counts and cooler colors indicating lower counts. The clustering of observations along, or close to, the diagonal suggests good inter-rater reliability.</figcaption>
+</figure>
+
+<h2 id="4-discussion">4 Discussion</h2>
+<p>In this study, we evaluated whether commonly used, explainable image-based spiral metrics align with the clinical “gold standard” clinician-rated spiral drawing scores and whether they capture the expected pre/post treatment dynamics in the treated hand. We found that among the automated predictors evaluated, only total drawn line length was independently associated with worse clinician-rated spiral severity. In contrast, the Sobel-based orientation irregularity score and the optimal-solution deviation score were not independently associated with the clinician spiral score when modeled concurrently with key clinical factors and repeated-measures structure. At the same time, the model strongly detected the hallmark treatment pattern through a significant time-by-treated-hand interaction: substantial improvement in the treated hand after MRgFUS, without significant changes in the non-treated hand and a pronounced between-hand difference post-treatment. This pattern serves as a validation for the clinician-rated spiral drawing scores along with the expectedly high internal consistency between spiral A and spiral B ratings and the strong agreement in our <em>post-hoc</em> sub-sample analysis.</p>
+<p>An additional consideration concerns prior reports of apparent improvement in the non-treated hand after unilateral MRgFUS (7). Although such findings may suggest bilateral tremor benefit, they should be interpreted cautiously in light of the present results. One possible explanation is that different image-derived metrics may vary in their sensitivity to tremor-related features and may also capture non-tremor factors related to drawing quality, task execution, or image preprocessing. In addition, apparent contralateral improvement may not necessarily reflect a direct therapeutic effect on the untreated limb, but rather an indirect downstream effect of reducing tremor in the more severely affected or functionally dominant hand. In clinical practice, some patients describe the less affected limb as trembling secondarily when it is mechanically or behaviorally coupled to the more tremulous hand, for example during bimanual tasks or when the dominant hand “drags” the opposite limb into oscillatory movement. Once the primary tremor is reduced and the more affected hand stabilizes, this transmitted or coupled tremor may diminish, creating the appearance of contralateral benefit. In the present analysis, the absence of a significant pre- to post-MRgFUS change in the non-treated hand supports a more conservative interpretation: the dominant treatment signature was improvement in the treated hand, whereas any apparent past contralateral effects require cautious interpretation.</p>
+<p>These findings have two main implications. First, not all plausible computer-vision spiral features behave as surrogates for clinician impression when evaluated head-to-head on the same observations. The lack of independent association for the Sobel and optimal-solution deviation scores suggests that, as currently operationalized, these metrics may be more sensitive to aspects of drawing quality, scanning artifacts, or template-processing assumptions than to the clinical construct captured by the CRST spiral rating. Alternatively, they may capture tremor characteristics (e.g., high-frequency micro-oscillations, edge-angle dispersion) that are not emphasized by clinicians when assigning CRST scores, which integrate global appearance, smoothness, and functional legibility. Second, the strong performance of a simple line-length feature supports the idea that clinically salient tremor severity in spiral drawings may be dominated by gross path inefficiency, such as extra oscillatory excursion, retracing, and exaggerated curvature, which length aggregates naturally. In this sense, the “common sense” metric may act as a robust proxy for the visual magnitude of deviation that clinicians intuitively rate, while remaining relatively resilient to some preprocessing idiosyncrasies. This interpretation should be considered in light of an important limitation of the validation target. As the CRST itself (and more specifically, the drawing sub-scores) serves as a subjective measurement of tremor with imperfect reliability (9), it remains a widely used clinical reference standard for tremor severity and is currently the most practical comparator available in retrospective scanned-spiral datasets. Therefore, stronger agreement with CRST should be interpreted as better alignment with clinician-rated tremor severity, rather than as definitive proof that one metric captures the full construct of tremor more accurately than another.</p>
+<p>This study is not without limitations. First, the retrospective design and reliance on scanned paper spirals introduce variability from scanning resolution, pen type, and template alignment, all of which may differentially affect image-derived scores. Second, we focused on association with an ordinal clinician impression rather than predicting continuous kinematic tremor features that tablet-based approaches can capture. We could not account for drawing speed, pauses, hesitation, or pressure. Therefore, our results should be interpreted as a practical marker of tremor severity rather than the only measurement needed for assessment. Third, the reliance on a single rater is prone to bias, which we addressed by performing both internal consistency and <em>post-hoc</em> reliability analyses.</p>
+<p>Spiral-based assessment may have practical value across the MRgFUS treatment pathway. Pre-operatively, objective spiral metrics can provide a standardized baseline that complements clinical examination and helps document tremor severity. During treatment, a rapid quantitative measure could support the treating physician during sequential sonications by adding an objective estimate of tremor reduction to bedside clinical judgment. This may help determine whether sufficient benefit has been achieved or whether further sonication is warranted. During follow-up, objective spiral quantification may make pre- to post-treatment differences clearer and more reproducible and may help monitor partial response, waning benefit, or tremor recurrence. Thus, spiral-based metrics should not replace clinical evaluation, but may improve the objectivity and consistency of tremor assessment before, during, and after MRgFUS.</p>
+<h2 id="5-conclusions">5 Conclusions</h2>
+<p>Taken together, these results show that objective spiral features can track clinically relevant tremor change after MRgFUS, with the model capturing the expected improvement specifically in the treated hand. Among the tested automated measures, simple line length aligned best with clinician-rated severity, suggesting that low-complexity, interpretable metrics may be the most practical starting point for routine pre/post quantification and future tool development. Future work should evaluate reliability across raters and centers, incorporate standardized scanning controls, and consider hybrid models that combine robust geometric features (such as length) with targeted frequency-sensitive features such as tablets or wearables, potentially improving sensitivity to subtle changes while preserving alignment with clinically meaningful severity. Validation against multiple scales such as Bain Findley spiral scores (BFS) and The Essential Tremor Rating Assessment Scale (TETRAS) and patient-reported measures would further clarify which automated metrics best reflect real-world benefit after MRgFUS.</p>
+<h2 id="data-availability-statement">Data availability statement</h2>
+<p>The raw data supporting the conclusions of this article will be made available by the authors, without undue reservation.</p>
+<h2 id="ethics-statement">Ethics statement</h2>
+<p>The studies involving humans were approved by Rambam Health Care Campus IRB (4040-17). The studies were conducted in accordance with the local legislation and institutional requirements. The ethics committee/institutional review board waived the requirement of written informed consent for participation from the participants or the participants’ legal guardians/next of kin because it was a retrospective study with anonymized data.</p>
+<h2 id="author-contributions">Author contributions</h2>
+<p>MK: Methodology, Conceptualization, Writing – review &amp; editing, Project administration, Investigation, Formal analysis, Writing – original draft, Software, Visualization. TL: Writing – review &amp; editing, Methodology, Writing – original draft, Software. MH-E: Writing – review &amp; editing. MG: Writing – review &amp; editing. FN: Data curation, Writing – review &amp; editing. AS: Data curation, Writing – review &amp; editing. MN: Data curation, Writing – review &amp; editing. ISe: Writing – review &amp; editing, Data curation. MC: Data curation, Writing – review &amp; editing. LLT: Data curation, Writing – review &amp; editing. VA: Data curation, Writing – review &amp; editing. ISc: Writing – review &amp; editing, Investigation, Data curation, Supervision, Conceptualization.</p>
+<h2 id="funding">Funding</h2>
+<p>The author(s) declared that financial support was not received for this work and/or its publication.</p>
+<h2 id="acknowledgments">Acknowledgments</h2>
+<p>The authors wish to thank Vered Aharonson for sharing her model’s code for this study with us and to Meirav Har-Even for the project administration.</p>
+<h2 id="conflict-of-interest">Conflict of interest</h2>
+<p>The author(s) declared that this work was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</p>
+<h2 id="generative-ai-statement">Generative AI statement</h2>
+<p>The author(s) declared that Generative AI was not used in the creation of this manuscript.</p>
+<p>Any alternative text (alt text) provided alongside figures in this article has been generated by Frontiers with the support of artificial intelligence and reasonable efforts have been made to ensure accuracy, including review by the authors wherever possible. If you identify any issues, please contact us.</p>
+<h2 id="publishers-note">Publisher’s note</h2>
+<p>All claims expressed in this article are solely those of the authors and do not necessarily represent those of their affiliated organizations, or those of the publisher, the editors and the reviewers. Any product that may be evaluated in this article, or claim that may be made by its manufacturer, is not guaranteed or endorsed by the publisher.</p>
+<section id="article-notes" class="paper-notes" data-pagefind-ignore><h2>Article notes</h2><dl><div><dt>Publication history</dt><dd>Received 6 April 2026 · Accepted 10 July 2026 · Published 29 July 2026</dd></div><div><dt>Keywords</dt><dd><ul class="kw-list"><li>clinical computer vision</li><li>essential tremor</li><li>image-based biomarkers</li><li>model evaluation and validation</li><li>MRI guided focused ultrasound</li><li>spiral drawing analysis</li></ul></dd></div></dl></section>
+<h2 id="references">References</h2>
+<ol class="paper-refs" data-pagefind-ignore>
+<li id="ref-1">Haubenberger D, Kalowitz D, Nahab FB, Toro C, Ippolito D, Luckenbaugh DA, et al. Validation of digital spiral analysis as outcome parameter for clinical trials in essential tremor. Movement Disorders. (2011) 26:2073–80. <a href="https://doi.org/10.1002/mds.23808" target="_blank" rel="noopener">doi:10.1002/mds.23808</a></li>
+<li id="ref-2">Tam F, Huang Y, Schwartz ML, Schweizer TA, Hynynen K, Graham SJ. A computerized tablet system for evaluating treatment of essential tremor by magnetic resonance guided focused ultrasound. BMC Neurol. (2017) 17:53. <a href="https://doi.org/10.1186/s12883-017-0856-8" target="_blank" rel="noopener">doi:10.1186/s12883-017-0856-8</a></li>
+<li id="ref-3">Agrawal M, Garg K, Samala R, Rajan R, Naik V, Singh M. Outcome and complications of MR guided focused ultrasound for essential tremor: a systematic review and meta-analysis. Front Neurol. (2021) 12:654711. <a href="https://doi.org/10.3389/fneur.2021.654711" target="_blank" rel="noopener">doi:10.3389/fneur.2021.654711</a></li>
+<li id="ref-4">Sinai A, Nassar M, Shornikov L, Constantinescu M, Zaaroor M, Schlesinger I. Focused Ultrasound Thalamotomy for Tremor Relief in Atypical Parkisnsonism. Parkinsons Dis. (2024) 2024:6643510. <a href="https://doi.org/10.1155/2024/6643510" target="_blank" rel="noopener">doi:10.1155/2024/6643510</a></li>
+<li id="ref-5">Mortezaei A, Essibayi MA, Mirahmadi Eraghi M, Alizadeh M, Taghlabi KM, Eskandar EN, et al. Magnetic resonance–guided focused ultrasound in the treatment of refractory essential tremor: a systematic review and meta-analysis. Neurosurg Focus. (2024) 57:1–13. <a href="https://doi.org/10.3171/2024.6.FOCUS24326" target="_blank" rel="noopener">doi:10.3171/2024.6.FOCUS24326</a></li>
+<li id="ref-6">Elias WJ, Lipsman N, Ondo WG, Ghanouni P, Kim YG, Lee W, et al. A randomized trial of focused ultrasound thalamotomy for essential tremor. N Engl J Med. (2016) 375:730–9. <a href="https://doi.org/10.1056/NEJMoa1600159" target="_blank" rel="noopener">doi:10.1056/NEJMoa1600159</a></li>
+<li id="ref-7">Aharonson V, Lazebnik T, Sinai A, Nassar M, Zaaroor M, Schlesinger I. Novel objective tool to assess tremor reveals unilateral focused ultrasound improves tremor bilaterally. Neurol Ther. (2025) 14:565–74. <a href="https://doi.org/10.1007/s40120-024-00705-7" target="_blank" rel="noopener">doi:10.1007/s40120-024-00705-7</a></li>
+<li id="ref-8">Elble R, Bain P, Forjaz MJ, Haubenberger D, Testa C, Goetz CG, et al. Task force report: Scales for screening and evaluating tremor: Critique and recommendations. Mov Disord. (2013) 28:1793–800. 25648 <a href="https://doi.org/10.1002/mds" target="_blank" rel="noopener">doi:10.1002/mds</a></li>
+<li id="ref-9">Stacy MA, Elble RJ, Ondo WG, Wu S, Hulihan J. Assessment of interrater and intrarater reliability of the Fahn–Tolosa–Marin Tremor Rating Scale in essential tremor. Mov Disord. (2007) 22:833–8. 21412 <a href="https://doi.org/10.1002/mds" target="_blank" rel="noopener">doi:10.1002/mds</a></li>
+<li id="ref-10">Pullman SL. Spiral analysis: a new technique for measuring tremor with a digitizing tablet. Mov Disord. (1998) 13:85-9. <a href="https://doi.org/10.1002/mds.870131315" target="_blank" rel="noopener">doi:10.1002/mds.870131315</a></li>
+<li id="ref-11">Aharonson V, Postema M, Gebbie R, Van Der Merwe J, Schlesinger I. Sobel edge detection for quantifying the effectiveness of focused ultrasound thalamotomy for tremor relief. In: Current Directions in Biomedical Engineering. (2023) 9:17–2. <a href="https://doi.org/10.1515/cdbme-2023-1005" target="_blank" rel="noopener">doi:10.1515/cdbme-2023-1005</a></li>
+<li id="ref-12">Gao W, Yang L, Zhang X, Liu H. An improved Sobel edge detection. In: 2010 3rd IEEE International Conference on Computer Science and Information Technology. (2010) 5:67–71. <a href="https://doi.org/10.1109/ICCSIT.2010.5563693" target="_blank" rel="noopener">doi:10.1109/ICCSIT.2010.5563693</a></li>
+<li id="ref-13">Li B, Lingsma HF, Steyerberg EW, Lesaffre E. Logistic random effects regression models: a comparison of statistical packages for binary and ordinal outcomes. BMC Med Res Methodol. (2011) 11:77. <a href="https://doi.org/10.1186/1471-2288-11-77" target="_blank" rel="noopener">doi:10.1186/1471-2288-11-77</a></li>
+<li id="ref-14">Mann HB, Wald A. On the choice of the number of class intervals in the application of the chi-square test. JSTORHB Mann, A WaldThe Annals of Mathematical Statistics. Available online at: https://www.jstor.org/stable/2235942 (accessed March 12, 2026) <a href="https://www.jstor.org/stable/2235942" target="_blank" rel="noopener">link</a></li>
+</ol>
+</div>
+        
+        <p class="paper-source" data-pagefind-ignore><i class="ri-information-line" aria-hidden="true"></i> This page reproduces the article Katson et al. (2026), <em>Frontiers in Neurology</em>, <a href="https://doi.org/10.3389/fneur.2026.1848802" target="_blank" rel="noopener">doi:10.3389/fneur.2026.1848802</a>, under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY 4.0</a> licence. Text, tables and figures were extracted from the PDF and the layout adapted for the web; the PDF is the version of record.</p>
+      </article>
+    </div>
+
+    <section class="paper-related" aria-labelledby="related-title"><div class="paper-wrap"><h2 id="related-title">Related research</h2><div class="related-grid"><a class="related-card related-project" href="/projects/personalized-medicine-ai/"><img src="/img/projects/project1.webp" alt="" loading="lazy" decoding="async"><span class="related-kind"><i class="ri-flask-line" aria-hidden="true"></i>Research project</span><strong>Data-Driven Precise and Personalized Medicine</strong><span class="related-text">Harnessing AI to tailor treatments to individuals and improve medical resource allocation at the community level.</span></a><a class="related-card" href="/publications/novel-objective-tool-assess-tremor-reveals-unilateral/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2025</span><strong>Novel Objective Tool to Assess Tremor Reveals Unilateral Focused Ultrasound Improves Tremor Bilaterally</strong><span class="related-text">Neurology and Therapy</span></a><a class="related-card" href="/publications/predicting-postoperative-nausea-vomiting-machine-learning-model/"><span class="related-kind"><i class="ri-article-line" aria-hidden="true"></i>Paper · 2025</span><strong>Predicting postoperative nausea and vomiting using machine learning: a model development and validation study</strong><span class="related-text">BMC Anesthesiology</span></a></div><p class="related-more"><a href="/publications.html">All publications</a></p></div></section>
+  </main>
+
+  <dialog id="cite-dialog" class="paper-dialog" aria-labelledby="cite-title">
+    <div class="dialog-head">
+      <h2 id="cite-title">Cite this paper</h2>
+      <button type="button" class="dialog-close" aria-label="Close"><i class="ri-close-line" aria-hidden="true"></i></button>
+    </div>
+    <p class="dialog-label">APA</p>
+    <pre class="cite-box" id="cite-apa">Katson, M., Lazebnik, T., Har-Even, M., Glebov, M., Naamnih, F., Sinai, A., Nassar, M., Senderova, I., Constantinescu, M., Lev Tov, L., Aharonson, V., &amp; Schlesinger, I. (2026). Less is more: comparison of automated spiral-drawing metrics with clinician-rated tremor scores after MRgFUS thalamotomy. Frontiers in Neurology, 17, 1848802. https://doi.org/10.3389/fneur.2026.1848802</pre>
+    <button type="button" class="paper-btn" data-copy="cite-apa"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy APA</span></button>
+    <p class="dialog-label">BibTeX</p>
+    <pre class="cite-box" id="cite-bib">@article{katson2026less,
+  title = {Less is more: comparison of automated spiral-drawing metrics with clinician-rated tremor scores after MRgFUS thalamotomy},
+  author = {Katson, Mark and Lazebnik, Teddy and Har-Even, Meirav and Glebov, Maxim and Naamnih, Fawzia and Sinai, Alon and Nassar, Maria and Senderova, Inna and Constantinescu, Marius and Lev Tov, Lior and Aharonson, Vered and Schlesinger, Ilana},
+  journal = {Frontiers in Neurology},
+  volume = {17},
+  pages = {1848802},
+  year = {2026},
+  doi = {10.3389/fneur.2026.1848802}
+}</pre>
+    <button type="button" class="paper-btn" data-copy="cite-bib"><i class="ri-file-copy-line" aria-hidden="true"></i><span>Copy BibTeX</span></button>
+  </dialog>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Games</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
+                  <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
+                  <li><a href="https://rl.teddylazebnik.com/">Pirate War RL Game</a></li>
+                  <li><a href="https://eh.teddylazebnik.com/">Echo Heist</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      
+      <script src="/js/paper-page.js" defer></script>
+      <script>
+        (function () {
+          // menu and navbar (js/main.js expects to sit at the site root)
+          var btn = document.getElementById('menu-btn'), menu = document.getElementById('mobile-menu'), nav = document.getElementById('navbar');
+          btn.addEventListener('click', function () { menu.classList.toggle('max-h-0'); menu.classList.toggle('max-h-screen'); });
+          var onScroll = function () { nav.classList.toggle('nav-scrolled', window.scrollY > 10); };
+          window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+          // cite dialog + copy buttons
+          var dialog = document.getElementById('cite-dialog');
+          document.querySelectorAll('[data-dialog]').forEach(function (b) {
+            b.addEventListener('click', function () { if (dialog.showModal) dialog.showModal(); else dialog.setAttribute('open', ''); });
+          });
+          dialog.querySelector('.dialog-close').addEventListener('click', function () { dialog.close(); });
+          dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
+          function flash(button, text) {
+            var label = button.querySelector('span'), old = label.textContent;
+            label.textContent = text; setTimeout(function () { label.textContent = old; }, 1600);
+          }
+          document.querySelectorAll('[data-copy]').forEach(function (b) {
+            b.addEventListener('click', function () {
+              var text = document.getElementById(b.getAttribute('data-copy')).textContent;
+              navigator.clipboard.writeText(text).then(function () { flash(b, 'Copied'); });
+            });
+          });
+          document.getElementById('share-btn').addEventListener('click', function () {
+            var b = this, data = { title: document.title, url: location.href.split('#')[0] };
+            if (navigator.share) { navigator.share(data).catch(function () {}); }
+            else { navigator.clipboard.writeText(data.url).then(function () { flash(b, 'Link copied'); }); }
+          });
+
+          // highlight the section being read in "On this page"
+          var links = {};
+          document.querySelectorAll('.paper-toc a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+          var heads = Array.prototype.filter.call(document.querySelectorAll('#full-text h2[id], #full-text h3[id], #full-text section[id]'), function (h) { return links[h.id]; });
+          if ('IntersectionObserver' in window && heads.length) {
+            var current = null;
+            var io = new IntersectionObserver(function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                  if (current) current.classList.remove('is-active');
+                  current = links[e.target.id]; current.classList.add('is-active');
+                }
+              });
+            }, { rootMargin: '-90px 0px -70% 0px' });
+            heads.forEach(function (h) { io.observe(h); });
+          }
+        })();
+      </script>
+   </body>
+</html>
