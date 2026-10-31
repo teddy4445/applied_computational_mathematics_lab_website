@@ -92,7 +92,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -143,7 +143,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/liron_simon.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.1038/s41598-023-28328-2" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -164,6 +164,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#related-work">Related work</a></li>
 <li><a href="#scientistmachine-equation-detector">Scientist‑Machine Equation Detector</a></li>
 <li><a href="#results">Results</a></li>
@@ -184,6 +185,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#related-work">Related work</a></li>
 <li><a href="#scientistmachine-equation-detector">Scientist‑Machine Equation Detector</a></li>
 <li><a href="#results">Results</a></li>
@@ -197,7 +199,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>Discovering a meaningful symbolic expression that explains experimental data is a fundamental challenge in many scientific fields. We present a novel, open-source computational framework called Scientist-Machine Equation Detector (SciMED), which integrates scientific discipline wisdom in a scientist-in-the-loop approach, with state-of-the-art symbolic regression (SR) methods. SciMED combines a wrapper selection method, that is based on a genetic algorithm, with automatic machine learning and two levels of SR methods. We test SciMED on five configurations of a settling sphere, with and without aerodynamic non-linear drag force, and with excessive noise in the measurements. We show that SciMED is sufficiently robust to discover the correct physically meaningful symbolic expressions from the data, and demonstrate how the integration of domain knowledge enhances its performance. Our results indicate better performance on these tasks than the state-of-the-art SR software packages , even in cases where no knowledge is integrated. Moreover, we demonstrate how SciMED can alert the user about possible missing features, unlike the majority of current SR systems.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="Yn07Gj1eHyM" data-yt-title="We pitted our equation-finding AI against AI Feynman"><a class="yt-play" href="https://www.youtube.com/shorts/Yn07Gj1eHyM" aria-label="Play video: We pitted our equation-finding AI against AI Feynman"><img src="https://i.ytimg.com/vi/Yn07Gj1eHyM/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/Yn07Gj1eHyM/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">We pitted our equation-finding AI against AI Feynman</p><p>SciMED is an open-source system that searches for the equation behind noisy data and lets a scientist plug in what they already know. In noisy tests on a sphere settling in a fluid, it found the right equations where AI Feynman or GP-GOMEA did not, and adding knowledge raised its success rate from 65% to 100% in less time. Wrong assumptions can still steer it off course.</p><p class="paper-video-more"><a href="/videos.html#v-Yn07Gj1eHyM">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/Yn07Gj1eHyM" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <p>Modern research is constructed from three main phases: observation, hypothesis generation, and hypothesis validation<sup><a href="#ref-1">1</a>–<a href="#ref-3">3</a></sup>. During the observation phase, researchers collect data about the world, which later, during the hypothesis generation phase, is used to generate a hypothesis that explains this data. A good explanation commonly allows for extrapolation and, thus, the prediction of new data of the same observed system during the hypothesis validation phase<sup><a href="#ref-4">4</a>,<a href="#ref-5">5</a></sup>. A common way of hypothesis generation is Symbolic Regression (SR), where researchers discover a symbolic expression (sometimes noted as an equation or a symbolic function) that accurately matches a given dataset<sup><a href="#ref-6">6</a>–<a href="#ref-8">8</a></sup>. To be exact, researchers assume a set of measurements or features are taking part in some natural phenomena and record samples of these measurements. Intuitively, the SR task is to unveil a symbolic expression for the function connecting the experimental measurements<sup><a href="#ref-9">9</a></sup>.</p>
@@ -534,7 +536,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {

@@ -83,7 +83,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -134,7 +134,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/cells-11-02372.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.3390/cells11152372" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -155,6 +155,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction-and-related-work">1. Introduction and Related Work</a></li>
 <li><a href="#2-model-definition">2. Model Definition</a></li>
 <li><a href="#3-numerical-simulation">3. Numerical Simulation</a></li><li class="toc-sub"><a href="#31-method">3.1. Method</a></li><li class="toc-sub"><a href="#32-results">3.2. Results</a></li>
@@ -176,6 +177,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction-and-related-work">1. Introduction and Related Work</a></li>
 <li><a href="#2-model-definition">2. Model Definition</a></li>
 <li><a href="#3-numerical-simulation">3. Numerical Simulation</a></li><li class="toc-sub"><a href="#31-method">3.1. Method</a></li><li class="toc-sub"><a href="#32-results">3.2. Results</a></li>
@@ -190,7 +192,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>Bladder cancer is one of the most widespread types of cancer. Multiple treatments for non-invasive, superficial bladder cancer have been proposed over the last several decades with a weekly Bacillus Calmette–Guérin immunotherapy-based therapy protocol, which is considered the gold standard today. Nonetheless, due to the complexity of the interactions between the immune system, healthy cells, and cancer cells in the bladder’s microenvironment, clinical outcomes vary significantly among patients. Mathematical models are shown to be effective in predicting the treatment outcome based on the patient’s clinical condition at the beginning of the treatment. Even so, these models still have large errors for long-term treatments and patients that they do not fit. In this work, we utilize modern mathematical tools and propose a novel cell-level spatio-temporal mathematical model that takes into consideration the cell–cell and cell–environment interactions occurring in a realistic bladder’s geometric configuration in order to reduce these errors. We implement the model using the agent-based simulation approach, showing the impacts of different cancer tumor sizes and locations at the beginning of the treatment on the clinical outcomes for today’s gold-standard treatment protocol. In addition, we propose a genetic-algorithm-based approach to finding a successful and time-optimal treatment protocol for a given patient’s initial condition. Our results show that the current standard treatment protocol can be modified to produce cancer-free equilibrium for deeper cancer cells in the urothelium if the cancer cells’ spatial distribution is known, resulting in a greater success rate.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="5PekUauYgOQ" data-yt-title="Fighting bladder cancer with a tuberculosis bacterium, simulated cell by cell"><a class="yt-play" href="https://www.youtube.com/shorts/5PekUauYgOQ" aria-label="Play video: Fighting bladder cancer with a tuberculosis bacterium, simulated cell by cell"><img src="https://i.ytimg.com/vi/5PekUauYgOQ/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/5PekUauYgOQ/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">Fighting bladder cancer with a tuberculosis bacterium, simulated cell by cell</p><p>We simulated BCG immunotherapy cell by cell on a realistic 3D bladder wall. In the model, tumor depth mattered more than size for the standard six-dose schedule, and a genetic algorithm found faster personal schedules, though none for the deepest tumors. A research model of one bladder geometry, not a treatment plan.</p><p class="paper-video-more"><a href="/videos.html#v-5PekUauYgOQ">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/5PekUauYgOQ" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <h2 id="1-introduction-and-related-work">1. Introduction and Related Work</h2>
@@ -427,7 +429,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {

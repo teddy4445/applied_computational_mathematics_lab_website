@@ -97,7 +97,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -148,7 +148,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/aki_paper.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.1186/s12911-022-01877-8" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -169,6 +169,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#background">Background</a></li>
 <li><a href="#methods">Methods</a></li><li class="toc-sub"><a href="#data-acquisition">Data acquisition</a></li><li class="toc-sub"><a href="#operative-technique">Operative technique</a></li><li class="toc-sub"><a href="#renal-function-assessment">Renal function assessment</a></li><li class="toc-sub"><a href="#data-split">Data split</a></li><li class="toc-sub"><a href="#feature-selection">Feature selection</a></li><li class="toc-sub"><a href="#model-pruning">Model pruning</a></li><li class="toc-sub"><a href="#statistical-analysis">Statistical analysis</a></li><li class="toc-sub"><a href="#algorithm">Algorithm</a></li><li class="toc-sub"><a href="#hyperparameter-finetuning">Hyper‑parameter fine‑tuning</a></li>
 <li><a href="#results">Results</a></li><li class="toc-sub"><a href="#decision-features">Decision features</a></li><li class="toc-sub"><a href="#aki-classification-model">AKI classification model</a></li>
@@ -189,6 +190,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#background">Background</a></li>
 <li><a href="#methods">Methods</a></li><li class="toc-sub"><a href="#data-acquisition">Data acquisition</a></li><li class="toc-sub"><a href="#operative-technique">Operative technique</a></li><li class="toc-sub"><a href="#renal-function-assessment">Renal function assessment</a></li><li class="toc-sub"><a href="#data-split">Data split</a></li><li class="toc-sub"><a href="#feature-selection">Feature selection</a></li><li class="toc-sub"><a href="#model-pruning">Model pruning</a></li><li class="toc-sub"><a href="#statistical-analysis">Statistical analysis</a></li><li class="toc-sub"><a href="#algorithm">Algorithm</a></li><li class="toc-sub"><a href="#hyperparameter-finetuning">Hyper‑parameter fine‑tuning</a></li>
 <li><a href="#results">Results</a></li><li class="toc-sub"><a href="#decision-features">Decision features</a></li><li class="toc-sub"><a href="#aki-classification-model">AKI classification model</a></li>
@@ -202,7 +204,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>Background: One of the most prevalent complications of Partial Nephrectomy (PN) is Acute Kidney Injury (AKI), which could have a negative impact on subsequent renal function and occurs in up to 24.3% of patients undergoing PN. The aim of this study was to predict the occurrence of AKI following PN using preoperative parameters by applying machine learning algorithms. Methods We included all adult patients (n = 723) who underwent open PN in our department since 1995 and on whom we have data on the pre-operative renal function. We developed a random forest (RF) model with Boolean satisfaction-based pruned decision trees for binary classification (AKI or non-AKI). Hyper-parameter grid search was performed to optimize the model&#x27;s performance. Fivefold cross-validation was applied to evaluate the model. We implemented a RF model with greedy feature selection to binary classify AKI and non-AKI cases based on pre-operative data. Results The best model obtained a 0.69 precision and 0.69 recall in classifying the AKI and non-AKI groups on average (k = 5). In addition, the model&#x27;s probability to correctly classify a new prediction is 0.75. The proposed model is available as an online calculator. Conclusions Our model predicts the occurrence of AKI following open PN with (75%) accuracy. We plan to externally validate this model and modify it to minimally-invasive PN.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="uh8rR8m7skw" data-yt-title="Can AI warn surgeons about kidney injury before they operate?"><a class="yt-play" href="https://www.youtube.com/shorts/uh8rR8m7skw" aria-label="Play video: Can AI warn surgeons about kidney injury before they operate?"><img src="https://i.ytimg.com/vi/uh8rR8m7skw/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/uh8rR8m7skw/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">Can AI warn surgeons about kidney injury before they operate?</p><p>Trained on 723 patients who had a kidney tumor removed while keeping the rest of the kidney, a random forest predicts acute kidney injury after surgery from pre-surgery data (AUC 0.75). Each of its 107 trees was pruned to its shortest logical form, so every prediction comes with a short reason a surgeon can check. Data from one hospital; not yet validated elsewhere.</p><p class="paper-video-more"><a href="/videos.html#v-uh8rR8m7skw">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/uh8rR8m7skw" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <h2 id="background">Background</h2>
@@ -411,7 +413,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
