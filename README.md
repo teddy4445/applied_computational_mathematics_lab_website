@@ -83,3 +83,13 @@ It writes `projects/<slug>/index.html` and a social image `projects/<slug>/share
 Large images have `.webp` copies next to the originals, and the pages and data files point at the `.webp` versions. Keep the originals: share previews (`og:image`) still use PNG/JPEG. When you add a large photo, add a `.webp` copy as well (for example with https://squoosh.app), roughly 800 px wide for team photos and 1000 to 1200 px for cards and project images.
 
 Team photos come in pairs: `img/lab/name.webp` and its hover photo `img/lab/hover-name.webp`. The Our Team page builds the hover path from the main photo's file name (same extension), so when `image_link` in `data/lab.json` ends in `.webp`, the hover photo must be a `.webp` too. Two people with the same first name need different file names (for example `amit.webp` and `amit-bengiat.webp`).
+
+## Collaboration map on team.html
+
+The "Who We Write With" map is drawn from `data/collab-map.js`. After adding new paper pages, update it with one command (no LLM, standard library only):
+
+```
+python tools/update_collab_map.py
+```
+
+It finds papers that have a `publications/<slug>/paper.json` but are not yet in `data/coauthor-affiliations.json`, looks up their authors' institutions and cities by DOI in OpenAlex (Crossref as a fallback), appends them, and runs `tools/build_statistics.py` to rewrite `data/collab-map.js` and `statistics-demo.html`. Use `--dry-run` to preview, `--redo-auto` to look up again papers that were too new for OpenAlex, and `--prune` to drop papers whose page was removed. Hand edits in `data/coauthor-affiliations.json` are kept; set `"confidence": "high"` on an automatic entry you corrected. Lookups are cached in `tools/.cache/`.
