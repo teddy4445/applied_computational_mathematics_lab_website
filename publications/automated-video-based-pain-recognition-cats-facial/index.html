@@ -152,7 +152,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -203,7 +203,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/cats_pain.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.1038/s41598-024-78406-2" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -224,6 +224,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#methods">Methods</a></li><li class="toc-sub"><a href="#datasets">Datasets</a></li><li class="toc-sub"><a href="#the-ai-pipeline-overview">The AI pipeline overview</a></li><li class="toc-sub"><a href="#experiments">Experiments</a></li>
 <li><a href="#results">Results</a></li><li class="toc-sub"><a href="#dataset-quality-analysis">Dataset quality analysis</a></li><li class="toc-sub"><a href="#ai-pipeline-performance-in-pain-detection">AI pipeline performance in pain detection</a></li>
 <li><a href="#discussion">Discussion</a></li>
@@ -242,6 +243,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#methods">Methods</a></li><li class="toc-sub"><a href="#datasets">Datasets</a></li><li class="toc-sub"><a href="#the-ai-pipeline-overview">The AI pipeline overview</a></li><li class="toc-sub"><a href="#experiments">Experiments</a></li>
 <li><a href="#results">Results</a></li><li class="toc-sub"><a href="#dataset-quality-analysis">Dataset quality analysis</a></li><li class="toc-sub"><a href="#ai-pipeline-performance-in-pain-detection">AI pipeline performance in pain detection</a></li>
 <li><a href="#discussion">Discussion</a></li>
@@ -253,7 +255,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>Affective states are reflected in the facial expressions of all mammals. Facial behaviors linked to pain have attracted most of the attention so far in non-human animals, leading to the development of numerous instruments for evaluating pain through facial expressions for various animal species. Nevertheless, manual facial expression analysis is susceptible to subjectivity and bias, is labor-intensive and often necessitates specialized expertise and training. This challenge has spurred a growing body of research into automated pain recognition, which has been explored for multiple species, including cats. In our previous studies, we have presented and studied artificial intelligence (AI) pipelines for automated pain recognition in cats using 48 facial landmarks grounded in cats’ facial musculature, as well as an automated detector of these landmarks. However, so far automated recognition of pain in cats used solely static information obtained from hand-picked single images of good quality. This study takes a significant step forward in fully automated pain detection applications by presenting an end-to-end AI pipeline that requires no manual efforts in the selection of suitable images or their landmark annotation. By working with video rather than still images, this new pipeline approach also optimises the temporal dimension of visual information capture in a way that is not practical to preform manually. The presented pipeline reaches over 70% and 66% accuracy respectively in two different cat pain datasets, outperforming previous automated landmark-based approaches using single frames under similar conditions, indicating that dynamics matter in cat pain recognition. We further define metrics for measuring different dimensions of deficiencies in datasets with animal pain faces, and investigate their impact on the performance of the presented pain recognition AI pipeline.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="DaXXUTYIE_8" data-yt-title="Can AI tell when a cat is in pain?"><a class="yt-play" href="https://www.youtube.com/shorts/DaXXUTYIE_8" aria-label="Play video: Can AI tell when a cat is in pain?"><img src="https://i.ytimg.com/vi/DaXXUTYIE_8/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/DaXXUTYIE_8/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">Can AI tell when a cat is in pain?</p><p>Our system finds a cat&#x27;s face in ordinary video and tracks 48 facial landmarks placed by the muscles underneath, with no hand-picked photos. Reading six frames a second, it judged pain correctly 70% of the time for cats filmed before and after surgery and 66% for cats in a veterinary clinic, against 65% and 51% for single frames with the same automated landmarks: movement matters. The datasets were small and a model trained on one did poorly on the other, so this is a research step, not a clinical tool.</p><p class="paper-video-more"><a href="/videos.html#v-DaXXUTYIE_8">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/DaXXUTYIE_8" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <p>It is widely recognized that facial expressions play a crucial role in the recognition of emotional states<sup><a href="#ref-1">1</a>,<a href="#ref-2">2</a></sup>. In the context of humans, they serve as a primary nonverbal mechanism for regulating social interactions<sup><a href="#ref-3">3</a></sup>and the connection between facial expressions and emotional states has been widely investigated in psychology<sup><a href="#ref-4">4</a>,<a href="#ref-5">5</a></sup>. In the wider biological context, facial expressions are exhibited by all mammalian species<sup><a href="#ref-6">6</a></sup>, and, akin to humans, they are believed to convey information regarding emotional states<sup><a href="#ref-1">1</a>,<a href="#ref-2">2</a></sup>. Consequently, there is a growing interest in the study of facial expressions in the context of animal emotion and welfare studies<sup><a href="#ref-7">7</a>–<a href="#ref-10">10</a></sup>. Specifically, pain is a subjective experience that poses significant challenges in measurement. In the realm of human studies, self-reporting is considered one of the least intrusive and non-invasive methods for establishing ground truth in both pain<sup><a href="#ref-11">11</a></sup>and emotion research<sup><a href="#ref-12">12</a></sup>. However, these methods are not applicable to animals.</p>
@@ -492,7 +494,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {

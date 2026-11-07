@@ -219,6 +219,210 @@
       "topic": "The Mathematics of Beauty"
     },
     {
+      "id": "tykCN2_GmyE",
+      "format": "short",
+      "title": "Why a bladder's shape matters in BCG cancer therapy",
+      "summary": "Doctors have treated bladder cancer with BCG, a weakened tuberculosis bacterium, for over forty years, but earlier models only counted the cells involved. We built the first model that also tracks where they are, with partial differential equations in a bladder drawn as a hollow ball. Early in treatment the shape-aware and count-only models differed about a hundredfold, and the shape-aware one fit earlier observations better; after about five weeks they agreed again. A model with parameters from published lab, mouse and human data, not a clinical trial.",
+      "topic": "Medicine",
+      "paper": {
+        "title": "Treatment of Bladder Cancer Using BCG Immunotherapy: PDE Modeling",
+        "venue": "Functional Differential Equations, 2019",
+        "url": "/publications/treatment-bladder-cancer-bcg-immunotherapy-pde-modeling/"
+      }
+    },
+    {
+      "id": "1Ge27U5of6g",
+      "format": "short",
+      "title": "Too little or too much? The BCG dose window",
+      "summary": "We simulated BCG therapy for bladder cancer with a model that follows bacteria, immune cells and tumor cells as they spread through the bladder. Too little BCG shrank the tumor slowly, sometimes not all the way; much more made the immune response spike around the end of the first week. In the model, BCG under 60,000 cells barely had any effect, while with cancer at 10% of cells or less, 80,000 cleared it in nine out of ten simulated cases over eight to ten weeks. A model, not a dosing guide; the full text is the 2019 paper.",
+      "topic": "Medicine",
+      "paper": {
+        "title": "PDE Modeling of Bladder Cancer Treatment Using BCG Immunotherapy",
+        "venue": "Functional Differential Equations conference, 2020",
+        "url": "/publications/pde-modeling-bladder-cancer-treatment-bcg-immunotherapy/"
+      }
+    },
+    {
+      "id": "tfsElKINrk8",
+      "format": "short",
+      "title": "Does tumor depth change the right BCG dose?",
+      "summary": "We modeled BCG immunotherapy with the bladder lining split into eight layers and tracked where the cancer starts. Treatment only starts to bite once BCG reaches the deepest layer holding cancer, so deeper tumors needed more BCG in the first week: from about 1.07 million cells for the top layer to about 5 million for the deepest. The model also gives a minimum treatment time (ten weeks for one example patient), and after about ten weeks the starting depth stops mattering. A model of an average patient, not a clinical trial.",
+      "topic": "Medicine",
+      "paper": {
+        "title": "PDE based geometry model for BCG immunotherapy of bladder cancer",
+        "venue": "BioSystems, 2020",
+        "url": "https://doi.org/10.1016/j.biosystems.2020.104319"
+      }
+    },
+    {
+      "id": "mpUM0iGNdig",
+      "format": "short",
+      "title": "A bladder isn't a ball: shape changed the dose",
+      "summary": "Our earlier BCG therapy model drew the bladder as a hollow ball, so we stretched it into an ellipsoid with measured bladder proportions and reran the simulations. For tumors in the shallowest layer, the new shape called for almost twice as much BCG in the first week (1.91 vs 1.07 million cells); in the deepest layer the two shapes nearly agree. Across tumor layouts the average successful treatment came out about 80% higher. There is no public patient data yet to test this, and real bladders change shape as they fill and empty.",
+      "topic": "Medicine",
+      "paper": {
+        "title": "Improved Geometric Configuration for the Bladder Cancer BCG-Based Immunotherapy Treatment Model",
+        "venue": "International Symposium on Mathematical and Computational Oncology, 2021",
+        "url": "https://doi.org/10.1007/978-3-030-91241-3_6"
+      }
+    },
+    {
+      "id": "bT-6BkJDUmQ",
+      "format": "short",
+      "title": "Could masks alone have stopped COVID-19?",
+      "summary": "We simulated a population moving between home, work and school, with children and adults, with and without symptoms. Fitted to September 2020, it followed October's daily reproduction number in the US, UK and Russia with fair accuracy (MSE 0.056, 0.099 and 0.047). Under US conditions, holding the outbreak back with masks alone took more than 60% of adults in N95 masks at work, or more than 89% in disposable ones, which is unlikely in real life. A simulation fitted to one month of data.",
+      "topic": "Epidemiology",
+      "paper": {
+        "title": "Pandemic Management by a Spatio-temporal Mathematical Model",
+        "venue": "International Journal of Nonlinear Sciences and Numerical Simulation, 2021",
+        "url": "https://doi.org/10.1515/ijnsns-2021-0063"
+      }
+    },
+    {
+      "id": "ueZwFAUoWzo",
+      "format": "short",
+      "title": "Every lockdown sends two bills",
+      "summary": "A conference abstract on a COVID-19 model that weighs epidemiology and economics together. Instead of treating everyone alike, it splits people by age, susceptibility, symptom severity, social contacts and work status, and moves them through a network of places, so non-drug measures can be tested along with the economic losses they cause. It was checked against a month of data in three countries and released as open-source software; the full model is in our 2021 IJNSNS paper.",
+      "topic": "Economics",
+      "paper": {
+        "title": "Epidemiological-Economical Pandemic Management By A Spatio-Temporal Mathematical Model",
+        "venue": "Dynamical Systems Applied to Biology and Natural Science (abstract), 2021",
+        "url": "/publications/epidemiological-economical-pandemic-management-spatio-temporal-mathematical/"
+      }
+    },
+    {
+      "id": "VEf-kot3XBY",
+      "format": "short",
+      "title": "Shorter days or lockdowns?",
+      "summary": "We modeled COVID-19 and Israel's economy together, including jobs lost to the crisis rather than to illness. Shorter days (7.5 work hours, 4.5 school hours) prevented an outbreak, kept output highest and held deaths near 0.48%; partial lockdowns of 89% of children and 63% of adults cut deaths to about 0.21%, also with no outbreak. Locking children down was about 30 times cheaper for the economy than locking down adults, and with equal weights both measures were too harsh economically. Numbers fit Israel in 2020; parents staying home aren't modeled.",
+      "topic": "Economics",
+      "paper": {
+        "title": "Spatio-Temporal influence of Non-Pharmaceutical interventions policies on pandemic dynamics and the economy: the case of COVID-19",
+        "venue": "Economic Research, 2021",
+        "url": "https://doi.org/10.1080/1331677X.2021.1925573"
+      }
+    },
+    {
+      "id": "iK0uD8tr9lk",
+      "format": "short",
+      "title": "Nobody is average: why pandemic models fall short",
+      "summary": "A commentary reviewing the models used to plan non-drug measures against COVID-19 before vaccines. The classic SIR model treats everyone alike; better models add age, severity, places and networks, each layer making predictions more accurate but hungrier for data, which is scarce early in a pandemic, when acting fast matters most. Infection-only models also miss how social, economic and political life changes behaviour. The argument: models should follow individuals through space and time. A position piece, not new results.",
+      "topic": "Epidemiology",
+      "paper": {
+        "title": "Optimal Intervention Policies for the COVID-19 Pandemic Emerge from Socioeconomic-Heterogeneous Dynamics",
+        "venue": "Journal of Physical Mathematics (commentary), 2021",
+        "url": "/publications/optimal-intervention-policies-covid-19-pandemic-emerge/"
+      }
+    },
+    {
+      "id": "WbsP27UQNc8",
+      "format": "short",
+      "title": "Could a longer school day have slowed COVID-19?",
+      "summary": "In September 2020 Israel reopened its schools with short school days, and cases rose. Our hybrid model, equations for children and adults plus an hour-by-hour simulation of who meets whom, matched Israel's data over two weeks (MSE 0.205). In the model, closing schools alone didn't stop an outbreak, while locking down half of the adults did, and longer days at school and work lowered the spread up to a point. Nine-hour school days gave a reproduction number of 1.45, against 2.28 for the policy used. A simplified model.",
+      "topic": "Epidemiology",
+      "paper": {
+        "title": "The signature features of COVID-19 pandemic in a hybrid mathematical model - implications for optimal work-school lockdown policy",
+        "venue": "Advanced Theory and Simulations, 2021",
+        "url": "https://doi.org/10.1002/adts.202000298"
+      }
+    },
+    {
+      "id": "3E3WvX0772M",
+      "format": "short",
+      "title": "How does an epidemic end?",
+      "summary": "Our extended SIR model splits children, adults and the elderly into five states: fifteen linked nonlinear equations. The classic way to find its stable end states leads to a fifteenth-degree polynomial and checking each state by hand. Rewriting the epidemic as a Markov chain, and using two facts (the dead stay dead, and the population stays constant), we found every stable ending for any start and any parameters: the survivors and the dead in each age group. A methods paper; spatial movement isn't modeled yet.",
+      "topic": "Epidemiology",
+      "paper": {
+        "title": "Novel Method to Analytically Obtain the Asymptotic Stable Equilibria States of Extended SIR-Type Epidemiological Models",
+        "venue": "Symmetry, 2021",
+        "url": "https://doi.org/10.3390/sym13071120"
+      }
+    },
+    {
+      "id": "AAyTzaGceLE",
+      "format": "short",
+      "title": "What makes viewers side with a climate video?",
+      "summary": "We analysed 129 climate change videos on YouTube, tagging who presents each one and how it frames the problem, and an AI scored whether each comment section sided with the science. Videos presented by scientists had more than four times the odds of a supportive comment section than politicians' videos, and solution-framed videos over seven times the odds of blame-framed ones. Replies inside conversations leaned more supportive than lone comments. One English-language snapshot from 2021, and supportive comments don't show that anyone changed their behaviour.",
+      "topic": "Climate",
+      "paper": {
+        "title": "Audience engagement with climate change content on YouTube: an analysis of video attributes and user interactions",
+        "venue": "Frontiers in Climate, 2026",
+        "url": "https://doi.org/10.3389/fclim.2026.1803829"
+      }
+    },
+    {
+      "id": "DaXXUTYIE_8",
+      "format": "short",
+      "title": "Can AI tell when a cat is in pain?",
+      "summary": "Our system finds a cat's face in ordinary video and tracks 48 facial landmarks placed by the muscles underneath, with no hand-picked photos. Reading six frames a second, it judged pain correctly 70% of the time for cats filmed before and after surgery and 66% for cats in a veterinary clinic, against 65% and 51% for single frames with the same automated landmarks: movement matters. The datasets were small and a model trained on one did poorly on the other, so this is a research step, not a clinical tool.",
+      "topic": "Animal behavior",
+      "paper": {
+        "title": "Automated Video-Based Pain Recognition in Cats using Facial Landmarks",
+        "venue": "Scientific Reports, 2024",
+        "url": "https://doi.org/10.1038/s41598-024-78406-2"
+      }
+    },
+    {
+      "id": "1zKFFud3j1c",
+      "format": "short",
+      "title": "Who reads a sniffer dog's tail better: handlers or AI?",
+      "summary": "Eight trained detection dogs searched a scent wall while a ceiling camera and AI tracked their tails; reading only the tail, the AI judged whether a dog was at the target scent with 77% accuracy. On 32 short clips it had never seen, 190 dog handlers got 46% right, no better than chance, while the AI got 66%, and professional experience didn't help (45% vs 47%). When the scent was faint and the dogs struggled, so did the AI. Only eight dogs, filmed from above, and tail patterns varied a lot between dogs.",
+      "topic": "Animal behavior",
+      "paper": {
+        "title": "Does the tail show when the nose knows? Artificial intelligence outperforms human experts at predicting detection dogs finding their target through tail kinematics",
+        "venue": "Royal Society Open Science, 2025",
+        "url": "https://doi.org/10.1098/rsos.250399"
+      }
+    },
+    {
+      "id": "AydU5fg0U8E",
+      "format": "short",
+      "title": "Can you tell which chatbot wrote this?",
+      "summary": "We gave GPT-3.5, GPT-4 and Bard the same 5,000 questions and compared the 15,000 answers on length, vocabulary, parts of speech and sentence structure. Each model had its own habits: Bard tended to write shorter answers with more personal pronouns, and GPT-3.5 used the most nouns. A simple classifier on these features named the source 88% of the time, against 33% for guessing, but tone gave nothing away: all three were positive in about 53% of answers. English only, single questions with no chat history, and the models have changed since.",
+      "topic": "AI",
+      "paper": {
+        "title": "Whose LLM Is It Anyway? Linguistic Comparison and LLM Attribution for GPT-3.5, GPT-4 and Bard",
+        "venue": "Mathematics, 2026",
+        "url": "https://doi.org/10.3390/math14101683"
+      }
+    },
+    {
+      "id": "tmGJLd8nGN0",
+      "format": "short",
+      "title": "Window, fan or AC: which one stops a virus indoors?",
+      "summary": "We measured air quality and energy use with an open window, a fan and air conditioning in nine hospital rooms, classrooms and meeting rooms, then simulated breathing and airflow to estimate how far an airborne virus would spread. An open window cut the spread at no energy cost and beat a fan on low on both counts, while air conditioning on a low setting used 2.5–4 times the energy of a fan on high, with even more spread. Turned up, air conditioning cut the spread most, but only at a very high energy cost. The spread was simulated, not measured, and thermal comfort wasn't tested.",
+      "topic": "Epidemiology",
+      "paper": {
+        "title": "The Trade-Off between Airborne Pandemic Control and Energy Consumption Using Air Ventilation Solutions",
+        "venue": "Sensors, 2022",
+        "url": "https://doi.org/10.3390/s22228594"
+      }
+    },
+    {
+      "id": "GOoBu3dIJnw",
+      "format": "short",
+      "title": "AI detectors flagged papers written before the AI boom",
+      "summary": "We tested four detectors of AI-generated text on 11 papers that openly credited ChatGPT, each paired with an earlier paper by the same lead author: they were right only 55–64% of the time. On 1,094 papers from 2022 or earlier they still flagged 8.8–17.2% as AI-assisted, up to about 1 in 6. A simple detector of sudden writing-style jumps did better (73% accuracy, 3.1% false alarms), though with only 11 known pairs the accuracy gap wasn't significant.",
+      "topic": "Science of science",
+      "paper": {
+        "title": "Detecting LLM-assisted writing in scientific communication: Are we there yet?",
+        "venue": "Journal of Data and Information Science, 2024",
+        "url": "https://doi.org/10.2478/jdis-2024-0020"
+      }
+    },
+    {
+      "id": "tkEhEC-Fo0k",
+      "format": "short",
+      "title": "Do you still say please to AI?",
+      "summary": "1,684 people each did two tasks with an AI chat assistant. Their politeness slid prompt after prompt, ending 8–10% lower by the last message, and faded faster than in a benchmark of people chatting with people. Younger participants were less polite overall, and an AI shown with a human face kept people more polite, while a robot icon made no difference. Short single-session chats in one cultural setting.",
+      "topic": "Social science",
+      "paper": {
+        "title": "Mind Your Manners: The Dynamics of Politeness in Human-AI vs. Human-Human Interactions",
+        "venue": "Proceedings of the ACM on Human-Computer Interaction, 2025",
+        "url": "https://doi.org/10.1145/3757631"
+      }
+    },
+    {
       "id": "EkinAKB2KaA",
       "format": "short",
       "title": "Can AI score a tremor? The simplest measure won",

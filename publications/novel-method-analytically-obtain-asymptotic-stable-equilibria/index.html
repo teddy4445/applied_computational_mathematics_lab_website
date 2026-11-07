@@ -93,7 +93,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -144,7 +144,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/symmetry_sir_paper.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.3390/sym13071120" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -165,6 +165,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction-and-related-work">1. Introduction and Related Work</a></li>
 <li><a href="#2-model-definition">2. Model Definition</a></li>
 <li><a href="#such-that">such that</a></li>
@@ -186,6 +187,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction-and-related-work">1. Introduction and Related Work</a></li>
 <li><a href="#2-model-definition">2. Model Definition</a></li>
 <li><a href="#such-that">such that</a></li>
@@ -200,7 +202,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>We present a new analytical method to find the asymptotic stable equilibria states based on the Markov chain technique. We reveal this method on the Susceptible-Infectious-Recovered (SIR)-type epidemiological model that we developed for viral diseases with long-term immunity memory. This is a large-scale model containing 15 nonlinear ordinary differential equations (ODEs), and classical methods have failed to analytically obtain its equilibria. The proposed method is used to conduct a comprehensive analysis by a stochastic representation of the dynamics of the model, followed by finding all asymptotic stable equilibrium states of the model for any values of parameters and initial conditions thanks to the symmetry of the population size over time.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="3E3WvX0772M" data-yt-title="How does an epidemic end?"><a class="yt-play" href="https://www.youtube.com/shorts/3E3WvX0772M" aria-label="Play video: How does an epidemic end?"><img src="https://i.ytimg.com/vi/3E3WvX0772M/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/3E3WvX0772M/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">How does an epidemic end?</p><p>Our extended SIR model splits children, adults and the elderly into five states: fifteen linked nonlinear equations. The classic way to find its stable end states leads to a fifteenth-degree polynomial and checking each state by hand. Rewriting the epidemic as a Markov chain, and using two facts (the dead stay dead, and the population stays constant), we found every stable ending for any start and any parameters: the survivors and the dead in each age group. A methods paper; spatial movement isn&#x27;t modeled yet.</p><p class="paper-video-more"><a href="/videos.html#v-3E3WvX0772M">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/3E3WvX0772M" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <h2 id="1-introduction-and-related-work">1. Introduction and Related Work</h2>
@@ -471,7 +473,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {

@@ -91,7 +91,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -142,7 +142,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/pde_biosystem_paper.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.1016/j.biosystems.2020.104319" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -163,6 +163,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction-and-related-work">1. Introduction and related work</a></li>
 <li><a href="#2-mathematical-modeling-extension">2. Mathematical modeling extension</a></li><li class="toc-sub"><a href="#21-model-definition">2.1. Model definition</a></li><li class="toc-sub"><a href="#22-numerical-solution">2.2. Numerical solution</a></li><li class="toc-sub"><a href="#23-solution-stability">2.3. Solution stability</a></li>
 <li><a href="#3-bifurcation-analysis">3. Bifurcation analysis</a></li>
@@ -186,6 +187,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction-and-related-work">1. Introduction and related work</a></li>
 <li><a href="#2-mathematical-modeling-extension">2. Mathematical modeling extension</a></li><li class="toc-sub"><a href="#21-model-definition">2.1. Model definition</a></li><li class="toc-sub"><a href="#22-numerical-solution">2.2. Numerical solution</a></li><li class="toc-sub"><a href="#23-solution-stability">2.3. Solution stability</a></li>
 <li><a href="#3-bifurcation-analysis">3. Bifurcation analysis</a></li>
@@ -202,7 +204,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>BCG immunotherapy has shown significant success for bladder cancer treatment, but due to the complexity of the interaction between immunity and cancer, clinical outcomes vary significantly between patients. A possible approach to overcome this difficulty may be to develop new methodologies for personally predicting the results of therapy by integrating patient data with dynamic mathematical model. We present a model describing a BCG immunotherapy dynamic taking into consideration an approximation of the bladder’s geometry using PDE. We show that the proposed model takes into account the initial distribution of the cancer cells in the geometry of the bladder and as such can provide more customized treatment by providing tumor polyp depth in the urothelium. In addition, time optimal treatment protocol for the average case and recover-rate optimal, personalized treatment protocol based on initial tumor distribution have been analyzed.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="tfsElKINrk8" data-yt-title="Does tumor depth change the right BCG dose?"><a class="yt-play" href="https://www.youtube.com/shorts/tfsElKINrk8" aria-label="Play video: Does tumor depth change the right BCG dose?"><img src="https://i.ytimg.com/vi/tfsElKINrk8/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/tfsElKINrk8/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">Does tumor depth change the right BCG dose?</p><p>We modeled BCG immunotherapy with the bladder lining split into eight layers and tracked where the cancer starts. Treatment only starts to bite once BCG reaches the deepest layer holding cancer, so deeper tumors needed more BCG in the first week: from about 1.07 million cells for the top layer to about 5 million for the deepest. The model also gives a minimum treatment time (ten weeks for one example patient), and after about ten weeks the starting depth stops mattering. A model of an average patient, not a clinical trial.</p><p class="paper-video-more"><a href="/videos.html#v-tfsElKINrk8">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/tfsElKINrk8" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <h2 id="1-introduction-and-related-work">1. Introduction and related work</h2>
@@ -566,7 +568,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {

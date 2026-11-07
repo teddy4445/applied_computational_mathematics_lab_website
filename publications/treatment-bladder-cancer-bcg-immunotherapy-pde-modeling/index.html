@@ -81,7 +81,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -132,7 +132,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/Treatment_of_Bladder_Cancer_Using_BCG_Immunotherapy.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -153,6 +153,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction-and-related-work">1 Introduction and related work</a></li>
 <li><a href="#2-mathematical-modeling-and-numerical-analysis">2 Mathematical modeling and numerical analysis</a></li><li class="toc-sub"><a href="#21-biological-border-and-start-conditions">2.1 Biological border and start conditions</a></li><li class="toc-sub"><a href="#22-numerical-analysis">2.2 Numerical analysis</a></li>
 <li><a href="#3-pde-model-parameters-sensitivity-analysis">3 PDE model parameters sensitivity analysis</a></li>
@@ -173,6 +174,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction-and-related-work">1 Introduction and related work</a></li>
 <li><a href="#2-mathematical-modeling-and-numerical-analysis">2 Mathematical modeling and numerical analysis</a></li><li class="toc-sub"><a href="#21-biological-border-and-start-conditions">2.1 Biological border and start conditions</a></li><li class="toc-sub"><a href="#22-numerical-analysis">2.2 Numerical analysis</a></li>
 <li><a href="#3-pde-model-parameters-sensitivity-analysis">3 PDE model parameters sensitivity analysis</a></li>
@@ -186,7 +188,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>Immunotherapy with Bacillus Calmette-Guérin (BCG) – an attenuated strain of Mycobacterium bovis (M. bovis) used for antituberculosis immunization – is a clinically established procedure for the treatment of superficial bladder cancer. Bunimovich-Mendrazitsky et al. studied the role of BCG immunotherapy in bladder cancer dynamics in a system of nonlinear ODEs. The purpose of this paper is to develop a first mathematical model that uses PDEs to describe tumor-immune interactions in the bladder as a result of BCG therapy considering the geometrical configuration of the human bladder. A mathematical analysis of the BCG as a PDE model identifies multiple equilibrium points, and their stability properties are identified so that treatment that has potential to result in a tumor-free equilibrium can be determined. Estimating parameters and validating the model using published data are taken from in vitro, mouse and human studies. The model makes clear that intensity of immunotherapy must be kept within limited bounds. We use numerical analysis methods to find the solution of the PDE describing the tumor-immune interaction; in particular, analysis of the solution’s stability for a given parameters is presented using Computer Vision methodologies.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="tykCN2_GmyE" data-yt-title="Why a bladder&#x27;s shape matters in BCG cancer therapy"><a class="yt-play" href="https://www.youtube.com/shorts/tykCN2_GmyE" aria-label="Play video: Why a bladder&#x27;s shape matters in BCG cancer therapy"><img src="https://i.ytimg.com/vi/tykCN2_GmyE/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/tykCN2_GmyE/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">Why a bladder&#x27;s shape matters in BCG cancer therapy</p><p>Doctors have treated bladder cancer with BCG, a weakened tuberculosis bacterium, for over forty years, but earlier models only counted the cells involved. We built the first model that also tracks where they are, with partial differential equations in a bladder drawn as a hollow ball. Early in treatment the shape-aware and count-only models differed about a hundredfold, and the shape-aware one fit earlier observations better; after about five weeks they agreed again. A model with parameters from published lab, mouse and human data, not a clinical trial.</p><p class="paper-video-more"><a href="/videos.html#v-tykCN2_GmyE">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/tykCN2_GmyE" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <h2 id="1-introduction-and-related-work">1 Introduction and related work</h2>
@@ -425,7 +427,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {

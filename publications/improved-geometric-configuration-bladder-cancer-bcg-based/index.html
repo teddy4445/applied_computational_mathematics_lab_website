@@ -78,7 +78,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -129,7 +129,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/ISMCO_2021.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.1007/978-3-030-91241-3_6" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -150,6 +150,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction-and-related-work">1 Introduction and Related Work</a></li>
 <li><a href="#2-mathematical-modeling-extension">2 Mathematical Modeling Extension</a></li><li class="toc-sub"><a href="#21-model-definition">2.1 Model definition</a></li><li class="toc-sub"><a href="#22-numerical-solution">2.2 Numerical Solution</a></li><li class="toc-sub"><a href="#23-treatment-protocol-based-on-initial-tumor-distribution">2.3 Treatment Protocol Based On Initial Tumor Distribution</a></li>
 <li><a href="#3-discussion">3 Discussion</a></li>
@@ -168,6 +169,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction-and-related-work">1 Introduction and Related Work</a></li>
 <li><a href="#2-mathematical-modeling-extension">2 Mathematical Modeling Extension</a></li><li class="toc-sub"><a href="#21-model-definition">2.1 Model definition</a></li><li class="toc-sub"><a href="#22-numerical-solution">2.2 Numerical Solution</a></li><li class="toc-sub"><a href="#23-treatment-protocol-based-on-initial-tumor-distribution">2.3 Treatment Protocol Based On Initial Tumor Distribution</a></li>
 <li><a href="#3-discussion">3 Discussion</a></li>
@@ -179,7 +181,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>We present an extension to the model proposed by Lazebnik et al. (2021) by improving the approximation of the bladder’s geometry from sphere-ring to ellipsoid-ring [2]. We show the differences between the models on the clinical results and their influence on the optimal treatment protocol.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="mpUM0iGNdig" data-yt-title="A bladder isn&#x27;t a ball: shape changed the dose"><a class="yt-play" href="https://www.youtube.com/shorts/mpUM0iGNdig" aria-label="Play video: A bladder isn&#x27;t a ball: shape changed the dose"><img src="https://i.ytimg.com/vi/mpUM0iGNdig/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/mpUM0iGNdig/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">A bladder isn&#x27;t a ball: shape changed the dose</p><p>Our earlier BCG therapy model drew the bladder as a hollow ball, so we stretched it into an ellipsoid with measured bladder proportions and reran the simulations. For tumors in the shallowest layer, the new shape called for almost twice as much BCG in the first week (1.91 vs 1.07 million cells); in the deepest layer the two shapes nearly agree. Across tumor layouts the average successful treatment came out about 80% higher. There is no public patient data yet to test this, and real bladders change shape as they fill and empty.</p><p class="paper-video-more"><a href="/videos.html#v-mpUM0iGNdig">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/mpUM0iGNdig" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <h2 id="1-introduction-and-related-work">1 Introduction and Related Work</h2>
@@ -299,7 +301,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
