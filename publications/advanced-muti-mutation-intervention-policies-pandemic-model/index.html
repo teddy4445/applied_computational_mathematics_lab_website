@@ -79,7 +79,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -130,7 +130,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/ieee_paper.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.1109/ACCESS.2022.3149956" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -151,6 +151,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1 Introduction</a></li>
 <li><a href="#2-system-model">2 System Model</a></li><li class="toc-sub"><a href="#21-biomedical-inspiration">2.1 Biomedical inspiration</a></li><li class="toc-sub"><a href="#22-model-formulation">2.2 Model formulation</a></li><li class="toc-sub"><a href="#23-model-fitting">2.3 Model Fitting</a></li>
 <li><a href="#3-model-evaluation">3 Model Evaluation</a></li><li class="toc-sub"><a href="#31-evaluation-model-data">3.1 Evaluation model data</a></li><li class="toc-sub"><a href="#32-model-fitting-quality">3.2 Model fitting quality</a></li><li class="toc-sub"><a href="#33-model-predictions">3.3 Model predictions</a></li><li class="toc-sub"><a href="#34-model-convergence">3.4 Model convergence</a></li><li class="toc-sub"><a href="#35-comparison-with-other-models">3.5 Comparison with other models</a></li>
@@ -173,6 +174,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1 Introduction</a></li>
 <li><a href="#2-system-model">2 System Model</a></li><li class="toc-sub"><a href="#21-biomedical-inspiration">2.1 Biomedical inspiration</a></li><li class="toc-sub"><a href="#22-model-formulation">2.2 Model formulation</a></li><li class="toc-sub"><a href="#23-model-fitting">2.3 Model Fitting</a></li>
 <li><a href="#3-model-evaluation">3 Model Evaluation</a></li><li class="toc-sub"><a href="#31-evaluation-model-data">3.1 Evaluation model data</a></li><li class="toc-sub"><a href="#32-model-fitting-quality">3.2 Model fitting quality</a></li><li class="toc-sub"><a href="#33-model-predictions">3.3 Model predictions</a></li><li class="toc-sub"><a href="#34-model-convergence">3.4 Model convergence</a></li><li class="toc-sub"><a href="#35-comparison-with-other-models">3.5 Comparison with other models</a></li>
@@ -188,7 +190,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>A pandemic is a threat to humanity with potentially millions of deaths worldwide. Epidemiological models can be used to better understand pandemic dynamics and assist policymakers in optimizing their Intervention Policies (IPs). Most existing epidemiological models assume, sometimes incorrectly, that a pandemic is caused by a single pathogen, ignoring pathogen mutations over time that result in different pathogen variants with different characteristics. In addition, the existing models do not incorporate the effect of IPs like vaccinations and lockdowns during the fitting phase. In this work, we introduce a new multi-mutation model called Suspected-Infected-Vaccinated-Recovered-reInfected (SIVRI). This model extends the SIRS model with adaptation to incorporate available knowledge related to the different pathogen mutations together with multiple IPs. In order to find the model parameters we propose a new fitting procedure that supports the complex social, epidemiological, and clinical dynamics that occur during a pandemic. We examine the suggested SIVRI model in comparison to the SIRS and XGboost models on the COVID-19 pandemic in Israel that includes four COVID-19 mutations, and the vaccination and lockdown IPs. We show that the proposed model can fit accurately to the historical data and outperform the existing models in predictions of basic reproduction number, mortality rate, and severely infected individuals rate.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="Ibaw5DTYVRg" data-yt-title="How do you forecast a virus that keeps mutating?"><a class="yt-play" href="https://www.youtube.com/shorts/Ibaw5DTYVRg" aria-label="Play video: How do you forecast a virus that keeps mutating?"><img src="https://i.ytimg.com/vi/Ibaw5DTYVRg/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/Ibaw5DTYVRg/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">How do you forecast a virus that keeps mutating?</p><p>Most pandemic models assume a single virus, so we built SIVRI, which follows infection, vaccination, recovery and reinfection across several variants, with lockdowns built in. Fitted to Israel from March 2020 (four variants, a vaccine rollout and lockdowns), it predicted the reproduction number two months ahead with a correlation of 0.918. It had the lowest average error against a classic SIRS model and an XGBoost model, though XGBoost was slightly better in two of five test periods. One country, and gaps in testing data aren&#x27;t corrected yet.</p><p class="paper-video-more"><a href="/videos.html#v-Ibaw5DTYVRg">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/Ibaw5DTYVRg" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <h2 id="1-introduction">1 Introduction</h2>
@@ -522,7 +524,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
