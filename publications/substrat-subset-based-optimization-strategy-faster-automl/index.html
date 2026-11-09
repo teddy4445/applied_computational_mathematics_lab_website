@@ -93,7 +93,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -144,7 +144,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/substrat.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.14778/3574245.3574261" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -165,6 +165,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1 Introduction</a></li><li class="toc-sub"><a href="#11-problem-solution-overview">1.1 Problem &amp;amp; Solution Overview</a></li>
 <li><a href="#2-related-work">2 Related Work</a></li>
 <li><a href="#3-solution-architecture">3 Solution Architecture</a></li><li class="toc-sub"><a href="#31-measure-preserving-data-subsets">3.1 Measure-Preserving Data Subsets</a></li><li class="toc-sub"><a href="#32-dst-as-an-optimization-problem">3.2 DST as an Optimization Problem</a></li><li class="toc-sub"><a href="#33-a-genetic-based-algorithm-for-finding-dst">3.3 A Genetic-Based Algorithm for Finding DST</a></li><li class="toc-sub"><a href="#34-fine-tuning-the-intermediate-configuration">3.4 Fine-Tuning the Intermediate Configuration</a></li>
@@ -184,6 +185,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1 Introduction</a></li><li class="toc-sub"><a href="#11-problem-solution-overview">1.1 Problem &amp;amp; Solution Overview</a></li>
 <li><a href="#2-related-work">2 Related Work</a></li>
 <li><a href="#3-solution-architecture">3 Solution Architecture</a></li><li class="toc-sub"><a href="#31-measure-preserving-data-subsets">3.1 Measure-Preserving Data Subsets</a></li><li class="toc-sub"><a href="#32-dst-as-an-optimization-problem">3.2 DST as an Optimization Problem</a></li><li class="toc-sub"><a href="#33-a-genetic-based-algorithm-for-finding-dst">3.3 A Genetic-Based Algorithm for Finding DST</a></li><li class="toc-sub"><a href="#34-fine-tuning-the-intermediate-configuration">3.4 Fine-Tuning the Intermediate Configuration</a></li>
@@ -196,7 +198,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>Automated machine learning (AutoML) frameworks have become important tools in the data scientist arsenal, as they dramatically reduce the manual work devoted to the construction of ML pipelines. Such frameworks intelligently search among millions of possible ML pipelines - typically containing feature engineering, model selection, and hyper parameters tuning steps - and finally output an optimal pipeline in terms of predictive accuracy. However, when the dataset is large, each individual configuration takes longer to execute, therefore the overall AutoML running times become increasingly high. To this end, we present SubStrat, an AutoML optimization strategy that tackles the data size, rather than configuration space. It wraps existing AutoML tools, and instead of executing them directly on the entire dataset, SubStrat uses a genetic-based algorithm to find a small yet representative data subset that preserves a particular characteristic of the full data. It then employs the AutoML tool on the small subset, and finally, it refines the resulting pipeline by executing a restricted, much shorter, AutoML process on the large dataset.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="iT5YFQwC1w4" data-yt-title="Make AutoML 76% faster by using less data"><a class="yt-play" href="https://www.youtube.com/shorts/iT5YFQwC1w4" aria-label="Play video: Make AutoML 76% faster by using less data"><img src="https://i.ytimg.com/vi/iT5YFQwC1w4/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/iT5YFQwC1w4/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">Make AutoML 76% faster by using less data</p><p>AutoML tools search among millions of pipelines, and every try is slower on big data. SubStrat shrinks the data instead: a genetic algorithm finds a small subset that keeps the full data&#x27;s entropy, the AutoML tool runs on it, and a short run on the full data fine-tunes the result. Across 18 datasets and three AutoML tools it cut computation time by 76.3% on average while keeping 95.85% of the best model&#x27;s accuracy.</p><p class="paper-video-more"><a href="/videos.html#v-iT5YFQwC1w4">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/iT5YFQwC1w4" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <h2 id="1-introduction">1 Introduction</h2>
@@ -468,7 +470,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {

@@ -98,7 +98,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -149,7 +149,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/liza_2.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.3390/math11051192" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -170,6 +170,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1. Introduction</a></li>
 <li><a href="#2-biological-model">2. Biological Model</a></li>
 <li><a href="#3-personalized-bcg-based-treatment-scheduling">3. Personalized BCG-Based Treatment Scheduling</a></li>
@@ -190,6 +191,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1. Introduction</a></li>
 <li><a href="#2-biological-model">2. Biological Model</a></li>
 <li><a href="#3-personalized-bcg-based-treatment-scheduling">3. Personalized BCG-Based Treatment Scheduling</a></li>
@@ -203,7 +205,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>Cancer is one of the most common families of diseases today with millions of new patients every year around the world. Bladder cancer (BC) is one of the most prevalent types of cancer affecting both genders, and it is not known to be associated with a specific group in the population. The current treatment standard for BC follows a standard weekly Bacillus Calmette–Guérin (BCG) immunotherapy-based therapy protocol which includes BCG and IL-2 injections. Unfortunately, due to the biological and clinical complexity of the interactions between the immune system, treatment, and cancer cells, clinical outcomes vary significantly among patients. Unfortunately, existing models are commonly developed for a non-existing average patient or pose strict, unrealistic, expectations on the treatment process. In this work, we propose the most extensive ordinary differential equation-based biological model of BCG treatment to date and a deep learning-based scheduling approach to obtain a personalized treatment schedule. Our results show that resulting treatment schedules favorably compare with the current standard practices and the current state-of-the-art scheduling approach.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="WMS3a4OjGWA" data-yt-title="Should cancer immunotherapy follow a personal schedule?"><a class="yt-play" href="https://www.youtube.com/shorts/WMS3a4OjGWA" aria-label="Play video: Should cancer immunotherapy follow a personal schedule?"><img src="https://i.ytimg.com/vi/WMS3a4OjGWA/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/WMS3a4OjGWA/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">Should cancer immunotherapy follow a personal schedule?</p><p>Bladder cancer immunotherapy usually gives BCG and IL-2 once a week, the same for every patient. Using the most extensive equation-based model of BCG treatment to date, we trained deep learning to choose the timing and dose of each injection for each patient. The personalised planner left the fewest cancer cells (normalised scores as low as 0.18, against 0.42 for the weekly schedule), with gaps from under a day to over a week and eight or nine injections instead of six.</p><p class="paper-video-more"><a href="/videos.html#v-WMS3a4OjGWA">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/WMS3a4OjGWA" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <h2 id="1-introduction">1. Introduction</h2>
@@ -446,7 +448,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {

@@ -81,7 +81,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -132,7 +132,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/ai_hospitals.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.1016/j.engappai.2023.106783" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -153,6 +153,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1. Introduction</a></li>
 <li><a href="#2-related-work">2. Related work</a></li>
 <li><a href="#3-model-definition">3. Model definition</a></li><li class="toc-sub"><a href="#31-hsra-task-definition">3.1. HSRA task definition</a></li><li class="toc-sub"><a href="#32-agent-based-simulation">3.2. Agent-based simulation</a></li><li class="toc-sub"><a href="#33-deep-reinforcement-learning-agent">3.3. Deep reinforcement learning agent</a></li>
@@ -179,6 +180,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1. Introduction</a></li>
 <li><a href="#2-related-work">2. Related work</a></li>
 <li><a href="#3-model-definition">3. Model definition</a></li><li class="toc-sub"><a href="#31-hsra-task-definition">3.1. HSRA task definition</a></li><li class="toc-sub"><a href="#32-agent-based-simulation">3.2. Agent-based simulation</a></li><li class="toc-sub"><a href="#33-deep-reinforcement-learning-agent">3.3. Deep reinforcement learning agent</a></li>
@@ -198,7 +200,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>Hospital staff and resources allocation (HSRA) is a critical challenge in healthcare systems, as it involves balancing the demands of patients, the availability of resources, and the need to provide high-quality health in resource-bounded settings. Traditional approaches to HSRA have relied on manual planning and ad-hoc adjustments, which can be time-consuming and usually lead to sub-optimal outcomes. Recent studies show that machine learning solutions are able to produce better HSRA results compared to manual planning. However, these outcomes usually focused on a single hospital and objective. In this paper, we solve the HSRA task using a novel agent-based simulation with a deep reinforcement learning agent. We used real-world data to generate a wide range of synthetic instances that were used to train the HSRA agent. Our results show that the proposed model is able to achieve better outcomes in terms of patient treatment success and cost-effectiveness compared to previous resource allocation algorithms. We show that different planning horizons obtain similar performance in handling anomalies. In addition, we show a second-order polynomial connection between the patient treatment success and both the hospital’s initial budget and funding over time. These results suggest that our approach has the potential to improve the efficiency and effectiveness of HSRA in healthcare systems.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="sNtx3LooIC8" data-yt-title="Can AI plan hospital staff and beds better than people?"><a class="yt-play" href="https://www.youtube.com/shorts/sNtx3LooIC8" aria-label="Play video: Can AI plan hospital staff and beds better than people?"><img src="https://i.ytimg.com/vi/sNtx3LooIC8/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/sNtx3LooIC8/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">Can AI plan hospital staff and beds better than people?</p><p>We built a simulated hospital with patients, staff, beds, machines and drugs on a budget, and a deep reinforcement learning agent learned to allocate them over 10,000 simulated cases generated from the real records of four clinics in Israel. Tested on the real records, its plans would have treated patients more successfully at all four clinics, about 4.2% better on average. It is a simulation that ignores sick days, changing prices and most employment laws.</p><p class="paper-video-more"><a href="/videos.html#v-sNtx3LooIC8">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/sNtx3LooIC8" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <h2 id="1-introduction">1. Introduction</h2>
@@ -503,7 +505,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {

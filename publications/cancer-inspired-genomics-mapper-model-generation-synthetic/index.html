@@ -86,7 +86,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -137,7 +137,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/ucl_main.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.1016/j.compbiomed.2023.107221" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -158,6 +158,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1. Introduction</a></li>
 <li><a href="#2-related-work">2. Related work</a></li><li class="toc-sub"><a href="#21-generation-of-in-silico-dna-sequences">2.1. Generation of in silico DNA sequences</a></li><li class="toc-sub"><a href="#22-natural-mutation-process-in-cancer-cells">2.2. Natural mutation process in cancer cells</a></li><li class="toc-sub"><a href="#23-genetic-algorithms-for-bioinformatics">2.3. Genetic algorithms for bioinformatics</a></li>
 <li><a href="#3-model-definition">3. Model definition</a></li>
@@ -185,6 +186,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1. Introduction</a></li>
 <li><a href="#2-related-work">2. Related work</a></li><li class="toc-sub"><a href="#21-generation-of-in-silico-dna-sequences">2.1. Generation of in silico DNA sequences</a></li><li class="toc-sub"><a href="#22-natural-mutation-process-in-cancer-cells">2.2. Natural mutation process in cancer cells</a></li><li class="toc-sub"><a href="#23-genetic-algorithms-for-bioinformatics">2.3. Genetic algorithms for bioinformatics</a></li>
 <li><a href="#3-model-definition">3. Model definition</a></li>
@@ -205,7 +207,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>Genome data are crucial in modern medicine, offering significant potential for diagnosis and treatment. Thanks to technological advancements, many millions of healthy and diseased genomes have already been sequenced; however, obtaining the most suitable data for a specific study, and specifically for validation studies, remains challenging with respect to scale and access. Therefore, in silico genomics sequence generators have been proposed as a possible solution. However, the current generators produce inferior data using mostly shallow (stochastic) connections, detected with limited computational complexity in the training data. This means they do not take the appropriate biological relations and constraints, that originally caused the observed connections, into consideration. To address this issue, we propose cancer-inspired genomics mapper model (CGMM), that combines genetic algorithm (GA) and deep learning (DL) methods to tackle this challenge. CGMM mimics processes that generate genetic variations and mutations to transform readily available control genomes into genomes with the desired phenotypes. We demonstrate that CGMM can generate synthetic genomes of selected phenotypes such as ancestry and cancer that are indistinguishable from real genomes of such phenotypes, based on unsupervised clustering. Our results show that CGMM outperforms four current state-of-the-art genomics generators on two different tasks, suggesting that CGMM will be suitable for a wide range of purposes in genomic medicine, especially for much-needed validation studies.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="932761I437Y" data-yt-title="Synthetic DNA inspired by how cancer mutates"><a class="yt-play" href="https://www.youtube.com/shorts/932761I437Y" aria-label="Play video: Synthetic DNA inspired by how cancer mutates"><img src="https://i.ytimg.com/vi/932761I437Y/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/932761I437Y/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">Synthetic DNA inspired by how cancer mutates</p><p>Our model, CGMM, borrows an idea from cancer: it takes ordinary, easy-to-find genomes and mutates them step by step until they carry a desired trait, combining a genetic algorithm with deep learning. A clustering test checked whether each converted genome grouped with real genomes of the target group: 78% passed in one ancestry test, against 57% for the best other generator, and 47% against 37% for skin melanoma. The datasets held only a few hundred genomes.</p><p class="paper-video-more"><a href="/videos.html#v-932761I437Y">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/932761I437Y" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <h2 id="1-introduction">1. Introduction</h2>
@@ -449,7 +451,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {

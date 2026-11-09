@@ -451,7 +451,8 @@ def build_one(folder, pub, ctx):
 
     # related: video, project, papers
     related = []
-    vid = next((v for v in videos if norm((v.get('paper') or {}).get('title')) == norm(pub['name'])), None)
+    vid = next((v for v in videos if norm((v.get('paper') or {}).get('title')) == norm(pub['name'])
+                and str((v.get('paper') or {}).get('year') or pub.get('year', '')) == str(pub.get('year', ''))), None)
     video_btn = video_html = ''
     if vid:
         short = vid.get('format') == 'short'

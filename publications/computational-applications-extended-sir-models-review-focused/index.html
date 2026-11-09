@@ -81,7 +81,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -132,7 +132,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/sir_review.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.1016/j.ecolmodel.2023.110422" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -153,6 +153,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1. Introduction</a></li>
 <li><a href="#2-extended-sir-models">2. Extended SIR models</a></li><li class="toc-sub"><a href="#21-temporal-extensions">2.1. Temporal extensions</a></li><li class="toc-sub"><a href="#22-spatial-extensions">2.2. Spatial extensions</a></li>
 <li><a href="#3-model-implementation">3. Model implementation</a></li><li class="toc-sub"><a href="#31-simulation-approach">3.1. Simulation approach</a></li><li class="toc-sub"><a href="#32-fitting-historical-data">3.2. Fitting historical data</a></li>
@@ -180,6 +181,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1. Introduction</a></li>
 <li><a href="#2-extended-sir-models">2. Extended SIR models</a></li><li class="toc-sub"><a href="#21-temporal-extensions">2.1. Temporal extensions</a></li><li class="toc-sub"><a href="#22-spatial-extensions">2.2. Spatial extensions</a></li>
 <li><a href="#3-model-implementation">3. Model implementation</a></li><li class="toc-sub"><a href="#31-simulation-approach">3.1. Simulation approach</a></li><li class="toc-sub"><a href="#32-fitting-historical-data">3.2. Fitting historical data</a></li>
@@ -200,7 +202,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>Epidemiological-Mathematical models are powerful tools for estimating the course of a pandemic and exploring different scenarios through pandemic intervention policies (PIPs). These models are commonly developed to provide decision-support tools for policymakers who are forced to make difficult decisions in a timely manner. Done properly, these models are able to provide a safe, quick, and cheap solution for this challenge. There are numerous types of mathematical models for epidemiological disease spread and control. However, in order to become applicative tools for decision-making, the modelers of these models are required to overcome three computational challenges: efficiently define the model, develop it as computer software, and fit it into historical data. Performed efficiently, one can use the obtained tool to explore possible scenarios and PIPs. In this paper, we present a critical review of models that extend the Susceptible-Infected-Recovered (SIR) model and explore the efficiency of these models, their software characteristics, and model performance on real-world data. We further provide a guide for epidemiological-mathematical model development and implementation, exploring several modeling approaches and their respective implementation options. Lastly, we outline the current trends, limitations, and opportunities in this field. In particular, we find that the spatial properties of a model play a critical role in its accuracy and ability to explain historical pandemic spread, especially in the context of airborne diseases. Moreover, we show that agent-based simulations are preferable over partial/ordinary differential solvers when considering a highly-realistic pandemic model or focusing on a relatively small population size.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="AFXEcKCswUk" data-yt-title="Which pandemic models should we trust?"><a class="yt-play" href="https://www.youtube.com/shorts/AFXEcKCswUk" aria-label="Play video: Which pandemic models should we trust?"><img src="https://i.ytimg.com/vi/AFXEcKCswUk/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/AFXEcKCswUk/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">Which pandemic models should we trust?</p><p>Most epidemic models extend SIR. This review maps how they grow, adding biology, clinics, economics, behaviour and space, and the three steps to a real tool: an efficient definition, software, and fitting to past data. Where people are and how they move is critical for airborne diseases. Equation solvers scale to whole countries, agent-based simulations suit highly realistic models or smaller populations, and the two can give very different predictions.</p><p class="paper-video-more"><a href="/videos.html#v-AFXEcKCswUk">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/AFXEcKCswUk" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <h2 id="1-introduction">1. Introduction</h2>
@@ -572,7 +574,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {

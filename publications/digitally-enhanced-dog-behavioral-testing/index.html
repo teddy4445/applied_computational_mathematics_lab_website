@@ -112,7 +112,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -163,7 +163,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/anna_2.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.1038/s41598-023-48423-8" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -184,6 +184,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#methods">Methods</a></li><li class="toc-sub"><a href="#ethical-statement">Ethical statement</a></li><li class="toc-sub"><a href="#testing-arena">Testing arena</a></li><li class="toc-sub"><a href="#test-procedure">Test procedure</a></li><li class="toc-sub"><a href="#computational-approach">Computational approach</a></li><li class="toc-sub"><a href="#clustering-method">Clustering method</a></li><li class="toc-sub"><a href="#statistical-analysis">Statistical analysis</a></li><li class="toc-sub"><a href="#classification-and-regression-machine-learning-models">Classification and regression machine learning models</a></li>
 <li><a href="#results">Results</a></li><li class="toc-sub"><a href="#interrater-reliability-of-expert-scoring">Inter‑rater reliability of expert scoring</a></li><li class="toc-sub"><a href="#clusters-vs-expert-scoring">Clusters vs. expert scoring</a></li><li class="toc-sub"><a href="#clusters-vs-cbarq">Clusters vs. C‑BARQ</a></li><li class="toc-sub"><a href="#automating-expert-score-classification">Automating expert score classification</a></li><li class="toc-sub"><a href="#cbarq-categories-regression-model">C‑BARQ categories regression model</a></li>
 <li><a href="#discussion">Discussion</a></li>
@@ -202,6 +203,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#methods">Methods</a></li><li class="toc-sub"><a href="#ethical-statement">Ethical statement</a></li><li class="toc-sub"><a href="#testing-arena">Testing arena</a></li><li class="toc-sub"><a href="#test-procedure">Test procedure</a></li><li class="toc-sub"><a href="#computational-approach">Computational approach</a></li><li class="toc-sub"><a href="#clustering-method">Clustering method</a></li><li class="toc-sub"><a href="#statistical-analysis">Statistical analysis</a></li><li class="toc-sub"><a href="#classification-and-regression-machine-learning-models">Classification and regression machine learning models</a></li>
 <li><a href="#results">Results</a></li><li class="toc-sub"><a href="#interrater-reliability-of-expert-scoring">Inter‑rater reliability of expert scoring</a></li><li class="toc-sub"><a href="#clusters-vs-expert-scoring">Clusters vs. expert scoring</a></li><li class="toc-sub"><a href="#clusters-vs-cbarq">Clusters vs. C‑BARQ</a></li><li class="toc-sub"><a href="#automating-expert-score-classification">Automating expert score classification</a></li><li class="toc-sub"><a href="#cbarq-categories-regression-model">C‑BARQ categories regression model</a></li>
 <li><a href="#discussion">Discussion</a></li>
@@ -213,7 +215,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>Behavioral traits in dogs are assessed for a wide range of purposes such as determining selection for breeding, chance of being adopted or prediction of working aptitude. Most methods for assessing behavioral traits are questionnaire or observation-based, requiring significant amounts of time, effort and expertise. In addition, these methods might be also susceptible to subjectivity and bias, negatively impacting their reliability. In this study, we proposed an automated computational approach that may provide a more objective, robust and resource-efficient alternative to current solutions. Using part of a ‘Stranger Test’ protocol, we tested n = 53 dogs for their response to the presence and neutral actions of a stranger. Dog coping styles were scored by three dog behavior experts. Moreover, data were collected from their owners/trainers using the Canine Behavioral Assessment and Research Questionnaire (C-BARQ). An unsupervised clustering of the dogs’ trajectories revealed two main clusters showing a significant difference in the stranger-directed fear C-BARQ category, as well as a good separation between (sufficiently) relaxed dogs and dogs with excessive behaviors towards strangers based on expert scoring. Based on the clustering, we obtained a machine learning classifier for expert scoring of coping styles towards strangers, which reached an accuracy of 78%. We also obtained a regression model predicting C-BARQ scores with varying performance, the best being Owner-Directed Aggression (with a mean average error of 0.108) and Excitability (with a mean square error of 0.032). This case study demonstrates a novel paradigm of ‘machine-based’ dog behavioral assessment, highlighting the value and great promise of AI in this context.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="7gnZD4v1raI" data-yt-title="Can a computer judge how a dog reacts to a stranger?"><a class="yt-play" href="https://www.youtube.com/shorts/7gnZD4v1raI" aria-label="Play video: Can a computer judge how a dog reacts to a stranger?"><img src="https://i.ytimg.com/vi/7gnZD4v1raI/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/7gnZD4v1raI/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">Can a computer judge how a dog reacts to a stranger?</p><p>We filmed 53 dogs during part of a stranger test and turned each dog&#x27;s movement into a path. Without being told anything about the dogs, clustering split them into two main groups, relaxed dogs and dogs reacting excessively, and the groups differed in how fearful of strangers their owners rated them. A machine learning model matched the experts&#x27; coping-style scores with 78% accuracy. An exploratory study with few dogs.</p><p class="paper-video-more"><a href="/videos.html#v-7gnZD4v1raI">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/7gnZD4v1raI" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <p>Behavioral traits in animals are consistent patterns of behaviors exhibited across similar situations<sup><a href="#ref-1">1</a>–<a href="#ref-4">4</a></sup>. They are driven by personality<sup><a href="#ref-5">5</a></sup>, which is a complex combination of genetic, cognitive, and environmental factors<sup><a href="#ref-6">6</a></sup>. The assessment of personality traits in dogs is gaining increasing attention due to its many practical applications in applied behavior<sup><a href="#ref-7">7</a>–<a href="#ref-10">10</a></sup>. Some examples of such applications include determining the suitability of dogs for working roles<sup><a href="#ref-11">11</a>–<a href="#ref-13">13</a></sup>, identifying problematic behaviors<sup><a href="#ref-14">14</a></sup>, and adoption-related issues for shelter dogs<sup><a href="#ref-4">4</a>,<a href="#ref-15">15</a>,<a href="#ref-16">16</a></sup>.</p>
@@ -494,7 +496,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {

@@ -89,7 +89,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -140,7 +140,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/AMCS_2023_33_1_9.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.34768/amcs-2023-0009" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -161,6 +161,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1. Introduction</a></li>
 <li><a href="#2-background-and-related-work">2. Background and related work</a></li>
 <li><a href="#4-empirical-evaluations">4. Empirical evaluations</a></li>
@@ -182,6 +183,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1. Introduction</a></li>
 <li><a href="#2-background-and-related-work">2. Background and related work</a></li>
 <li><a href="#4-empirical-evaluations">4. Empirical evaluations</a></li>
@@ -196,7 +198,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>There are two main approaches to tackle the challenge of finding the best filter or embedded feature selection (FS) algorithm: searching for the one best FS algorithm and creating an ensemble of all available FS algorithms. However, in practice, these two processes usually occur as part of a larger machine learning pipeline and not separately. We posit that, due to the influence of the filter FS on the embedded FS, one should aim to optimize both of them as a single FS pipeline rather than separately. We propose a meta-learning approach that automatically finds the best filter and embedded FS pipeline for a given dataset called FSPL. We demonstrate the performance of FSPL on n = 90 datasets, obtaining 0.496 accuracy for the optimal FS pipeline, revealing an improvement of up to 5.98 percent in the model’s accuracy compared to the second-best meta-learning method.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="p9lqWn6CnVI" data-yt-title="Pick feature selection methods together, not one at a time"><a class="yt-play" href="https://www.youtube.com/shorts/p9lqWn6CnVI" aria-label="Play video: Pick feature selection methods together, not one at a time"><img src="https://i.ytimg.com/vi/p9lqWn6CnVI/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/p9lqWn6CnVI/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">Pick feature selection methods together, not one at a time</p><p>Often two feature selection methods run in a row, a filter and then an embedded method, and we argue they should be chosen together. FSPL learns from past datasets which pipeline suits a new one, searching with a genetic algorithm. On 90 classification datasets with 24 possible pipelines, no single pipeline was best everywhere; FSPL picked the best one for about half of the datasets and improved accuracy by up to 5.98% over the next best meta-learning method.</p><p class="paper-video-more"><a href="/videos.html#v-p9lqWn6CnVI">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/p9lqWn6CnVI" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <h2 id="1-introduction">1. Introduction</h2>
@@ -453,7 +455,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {

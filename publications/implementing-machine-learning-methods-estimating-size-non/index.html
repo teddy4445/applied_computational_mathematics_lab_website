@@ -78,7 +78,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -129,7 +129,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/ml_black_economy.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.1007/s10614-023-10369-4" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -150,6 +150,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1 Introduction</a></li>
 <li><a href="#2-related-literature">2 Related Literature</a></li>
 <li><a href="#3-machine-learning-based-model">3 Machine Learning Based Model</a></li><li class="toc-sub"><a href="#31-model-definition">3.1 Model Definition</a></li><li class="toc-sub"><a href="#32-implementation-for-the-case-of-israel">3.2 Implementation for the Case of Israel</a></li>
@@ -170,6 +171,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1 Introduction</a></li>
 <li><a href="#2-related-literature">2 Related Literature</a></li>
 <li><a href="#3-machine-learning-based-model">3 Machine Learning Based Model</a></li><li class="toc-sub"><a href="#31-model-definition">3.1 Model Definition</a></li><li class="toc-sub"><a href="#32-implementation-for-the-case-of-israel">3.2 Implementation for the Case of Israel</a></li>
@@ -183,7 +185,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>Even though the literature on unregistered economic activity is growing at an increasing rate, we commonly encounter simple ordinary least squares methods and panel regressions, largely ignoring the recent rapid developments in machine learning methods. This study provides a new approach to more accurately estimate the size of the non-observed economy using machine learning methods. Compared to two currency demand-based models used to estimate the size of the non-observed economy, we show that a Random Forest algorithm can more accurately estimate the demand for currency, which is known to provide a fair estimation of the unregistered economic activity. The proposed approach shows superior forecasting capabilities compared to the current state-of-the-art linear regression-based methods dedicated to estimating non-observed economic activity.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="31aC1xrUhnI" data-yt-title="Can machine learning measure the hidden economy?"><a class="yt-play" href="https://www.youtube.com/shorts/31aC1xrUhnI" aria-label="Play video: Can machine learning measure the hidden economy?"><img src="https://i.ytimg.com/vi/31aC1xrUhnI/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/31aC1xrUhnI/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">Can machine learning measure the hidden economy?</p><p>One way to estimate the hidden economy looks at cash use beyond what the official economy explains. We replaced the usual linear regression with a random forest and applied it to Israel with yearly data from 1995 to 2019. Trained on earlier years and tested on later ones, it predicted cash demand more accurately than two existing models, spreading its weight across 18 economic indicators instead of 12. Just 25 yearly data points, so the results need confirming.</p><p class="paper-video-more"><a href="/videos.html#v-31aC1xrUhnI">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/31aC1xrUhnI" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <h2 id="1-introduction">1 Introduction</h2>
@@ -423,7 +425,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {

@@ -88,7 +88,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -139,7 +139,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/hagabubim.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.1371/journal.pone.0270318" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -160,6 +160,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1 Introduction</a></li>
 <li><a href="#2-vision-based-collective-motion-with-collision-avoidance">2 Vision-based collective motion with collision avoidance</a></li><li class="toc-sub"><a href="#21-settings-and-vision-based-input">2.1 Settings and vision-based input</a></li><li class="toc-sub"><a href="#22-agents-movement-and-collision-dynamics">2.2 Agent’s movement and collision dynamics</a></li><li class="toc-sub"><a href="#23-collective-motion-and-collision-avoidance">2.3 Collective motion and collision avoidance</a></li>
 <li><a href="#3-collective-evolution-learning-algorithm">3 Collective evolution learning algorithm</a></li><li class="toc-sub"><a href="#31-motivation">3.1 Motivation</a></li><li class="toc-sub"><a href="#32-swarm-dynamics-using-a-q-learner">3.2 Swarm dynamics using a Q-learner</a></li><li class="toc-sub"><a href="#33-agents-decision-making-using-a-genetic-algorithm">3.3 Agent’s decision-making using a genetic algorithm</a></li>
@@ -183,6 +184,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1 Introduction</a></li>
 <li><a href="#2-vision-based-collective-motion-with-collision-avoidance">2 Vision-based collective motion with collision avoidance</a></li><li class="toc-sub"><a href="#21-settings-and-vision-based-input">2.1 Settings and vision-based input</a></li><li class="toc-sub"><a href="#22-agents-movement-and-collision-dynamics">2.2 Agent’s movement and collision dynamics</a></li><li class="toc-sub"><a href="#23-collective-motion-and-collision-avoidance">2.3 Collective motion and collision avoidance</a></li>
 <li><a href="#3-collective-evolution-learning-algorithm">3 Collective evolution learning algorithm</a></li><li class="toc-sub"><a href="#31-motivation">3.1 Motivation</a></li><li class="toc-sub"><a href="#32-swarm-dynamics-using-a-q-learner">3.2 Swarm dynamics using a Q-learner</a></li><li class="toc-sub"><a href="#33-agents-decision-making-using-a-genetic-algorithm">3.3 Agent’s decision-making using a genetic algorithm</a></li>
@@ -199,7 +201,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>Collective motion (CM) takes many forms in nature; schools of fish, flocks of birds, and swarms of locusts to name a few. Commonly, during CM the individuals of the group avoid collisions. These CM and collision avoidance (CA) behaviors are based on input from the environment such as smell, air pressure, and vision, all of which are processed by the individual and defined action. In this work, a novel vision-based CM with CA model (i.e., VCMCA) simulating the collective evolution learning process is proposed. In this setting, a learning agent obtains a visual signal about its environment, and throughout trial-and-error over multiple attempts, the individual learns to perform a local CM with CA which emerges into a global CM with CA dynamics. The proposed algorithm was evaluated in the case of locusts’ swarms, showing the evolution of these behaviors in a swarm from the learning process of the individual in the swarm. Thus, this work proposes a biologically-inspired learning process to obtain multi-agent multi-objective dynamics.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="CBRrhVyZQy4" data-yt-title="How does a locust swarm move without crashing?"><a class="yt-play" href="https://www.youtube.com/shorts/CBRrhVyZQy4" aria-label="Play video: How does a locust swarm move without crashing?"><img src="https://i.ytimg.com/vi/CBRrhVyZQy4/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/CBRrhVyZQy4/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">How does a locust swarm move without crashing?</p><p>In our simulation each agent sees only its surroundings and learns how to move over generations, adding to the group&#x27;s shared knowledge. In a swarm of 30 locusts moving on the ground, the learned swarm moved together almost as well as a model trained only to flock (0.70 vs 0.75) but avoided collisions far better (0.74, against 0.17 for the flock-only model). Even hundreds of simple rules captured only 93% of the behaviour. A flat, two-dimensional simulation.</p><p class="paper-video-more"><a href="/videos.html#v-CBRrhVyZQy4">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/CBRrhVyZQy4" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <h2 id="1-introduction">1 Introduction</h2>
@@ -540,7 +542,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {

@@ -244,14 +244,15 @@
 
     const byPaper = new Map();
     videos.forEach((video) => {
-      if (video.paper && video.paper.title) byPaper.set(normTitle(video.paper.title), video);
+      // a video whose paper names a year only matches the card with that year (two papers can share a title)
+      if (video.paper && video.paper.title) byPaper.set(normTitle(video.paper.title) + (video.paper.year ? `|${video.paper.year}` : ''), video);
     });
     if (!byPaper.size) return;
 
     const apply = () => {
       container.querySelectorAll('[data-title]:not([data-video-checked])').forEach((card) => {
         card.dataset.videoChecked = '1';
-        const video = byPaper.get(normTitle(card.dataset.title));
+        const video = byPaper.get(`${normTitle(card.dataset.title)}|${card.dataset.year || ''}`) || byPaper.get(normTitle(card.dataset.title));
         if (!video) return;
         const row = card.querySelector('.publication-action-button')?.parentElement;
         if (!row) return;
