@@ -86,7 +86,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -137,7 +137,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/autoencoder.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.1016/j.eswa.2024.124108" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -158,6 +158,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1. Introduction</a></li>
 <li><a href="#2-related-work">2. Related work</a></li>
 <li><a href="#3-methods-and-materials">3. Methods and materials</a></li><li class="toc-sub"><a href="#31-model-definition">3.1. Model definition</a></li><li class="toc-sub"><a href="#32-experimental-setup">3.2. Experimental setup</a></li>
@@ -186,6 +187,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1. Introduction</a></li>
 <li><a href="#2-related-work">2. Related work</a></li>
 <li><a href="#3-methods-and-materials">3. Methods and materials</a></li><li class="toc-sub"><a href="#31-model-definition">3.1. Model definition</a></li><li class="toc-sub"><a href="#32-experimental-setup">3.2. Experimental setup</a></li>
@@ -207,7 +209,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>Data encoding is a common and central operation in most data analysis tasks. The performance of other models downstream in the computational process highly depends on the quality of data encoding. One of the most powerful ways to encode data is using the neural network AutoEncoder (AE) architecture. However, the developers of AE cannot easily influence the produced embedding space, as it is usually treated as a black box technique. This means the embedding space is uncontrollable and does not necessarily possess the properties desired for downstream tasks. This paper introduces a novel approach for developing AE models that can integrate external knowledge sources into the learning process, possibly leading to more accurate results. The proposed Knowledge-integrated AutoEncoder (KiAE) model can leverage domain-specific information to make sure the desired distance and neighborhood properties between samples are preservative in the embedding space. The proposed model is evaluated on three large-scale datasets from three scientific fields and is compared to nine existing encoding models. The results demonstrate that the KiAE model effectively captures the underlying structures and relationships between the input data and external knowledge, meaning it generates a more useful representation. This leads to outperforming the rest of the models in terms of reconstruction accuracy.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="PcnuP3vZeF8" data-yt-title="Can you tell a neural network what you already know?"><a class="yt-play" href="https://www.youtube.com/shorts/PcnuP3vZeF8" aria-label="Play video: Can you tell a neural network what you already know?"><img src="https://i.ytimg.com/vi/PcnuP3vZeF8/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/PcnuP3vZeF8/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">Can you tell a neural network what you already know?</p><p>Autoencoders compress data into a code that other models use, but developers can&#x27;t easily shape it, so samples that experts know belong together may end up far apart. Our Knowledge-integrated AutoEncoder, KiAE, brings external knowledge into training and keeps the desired distances and neighborhoods between groups of samples, even when the knowledge is only partly known. On three large datasets from economics, physics and biology, against nine other models, it gave a more useful representation and the best reconstruction accuracy. Wrong knowledge hurts it.</p><p class="paper-video-more"><a href="/videos.html#v-PcnuP3vZeF8">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/PcnuP3vZeF8" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <h2 id="1-introduction">1. Introduction</h2>
@@ -442,7 +444,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {

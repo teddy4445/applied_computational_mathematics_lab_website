@@ -88,7 +88,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -139,7 +139,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/matrix.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.3390/math12081151" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -160,6 +160,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction-and-related-work">1. Introduction and Related Work</a></li>
 <li><a href="#2-the-l-expm-algorithm">2. The L-EXPM Algorithm</a></li><li class="toc-sub"><a href="#21-algorithm">2.1. Algorithm</a></li>
 <li><a href="#3-numerical-algorithm-evaluation">3. Numerical Algorithm Evaluation</a></li><li class="toc-sub"><a href="#31-artificial-stiff-matrices-analysis">3.1. Artificial Stiff Matrices Analysis</a></li><li class="toc-sub"><a href="#32-control-systems-observability-use-case">3.2. Control System’s Observability Use Case</a></li>
@@ -180,6 +181,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction-and-related-work">1. Introduction and Related Work</a></li>
 <li><a href="#2-the-l-expm-algorithm">2. The L-EXPM Algorithm</a></li><li class="toc-sub"><a href="#21-algorithm">2.1. Algorithm</a></li>
 <li><a href="#3-numerical-algorithm-evaluation">3. Numerical Algorithm Evaluation</a></li><li class="toc-sub"><a href="#31-artificial-stiff-matrices-analysis">3.1. Artificial Stiff Matrices Analysis</a></li><li class="toc-sub"><a href="#32-control-systems-observability-use-case">3.2. Control System’s Observability Use Case</a></li>
@@ -193,7 +195,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>In this paper, we propose a novel, highly accurate numerical algorithm for matrix exponentials (MEs). The algorithm is based on approximating Putzer’s algorithm by analytically solving the ordinary differential equation (ODE)-based coefficients and approximating them. We show that the algorithm outperforms other ME algorithms for stiff matrices for several matrix sizes while keeping the computation and memory consumption asymptotically similar to these algorithms. In addition, we propose a numerical-error- and complexity-optimized decision tree model for efficient ME computation based on machine learning and genetic programming methods. We show that, while there is not one ME algorithm that outperforms the others, one can find a good algorithm for any given matrix according to its properties.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="t4MXKw7YGQ0" data-yt-title="A more accurate matrix exponential for stiff problems"><a class="yt-play" href="https://www.youtube.com/shorts/t4MXKw7YGQ0" aria-label="Play video: A more accurate matrix exponential for stiff problems"><img src="https://i.ytimg.com/vi/t4MXKw7YGQ0/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/t4MXKw7YGQ0/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">A more accurate matrix exponential for stiff problems</p><p>The matrix exponential solves systems of linear differential equations, and stiff matrices make it hard to compute accurately. Our algorithm builds on Putzer&#x27;s method, solving its coefficient equations analytically and then approximating them. On seven kinds of stiff matrices from 3×3 to 1000×1000 it was more accurate than other algorithms at several sizes, with costs growing at about the same rate. A decision tree, built with machine learning and genetic programming, picks an efficient algorithm for each matrix, since no single algorithm wins everywhere.</p><p class="paper-video-more"><a href="/videos.html#v-t4MXKw7YGQ0">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/t4MXKw7YGQ0" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <h2 id="1-introduction-and-related-work">1. Introduction and Related Work</h2>
@@ -470,7 +472,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {

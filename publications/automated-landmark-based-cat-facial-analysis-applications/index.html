@@ -118,7 +118,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -169,7 +169,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/cat_landmark.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.3389/fvets.2024.1442634" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -190,6 +190,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1 Introduction</a></li>
 <li><a href="#2-methods">2 Methods</a></li><li class="toc-sub"><a href="#21-datasets">2.1 Datasets</a></li><li class="toc-sub"><a href="#22-the-cat-facial-landmarks-automated-detector">2.2 The cat facial landmarks automated detector</a></li><li class="toc-sub"><a href="#23-machine-learning-models">2.3 Machine learning models</a></li>
 <li><a href="#3-results">3 Results</a></li><li class="toc-sub"><a href="#31-landmark-detection">3.1 Landmark detection</a></li><li class="toc-sub"><a href="#32-breed-and-cephalic-type-recognition">3.2 Breed and cephalic type recognition</a></li><li class="toc-sub"><a href="#33-pain-recognition">3.3 Pain recognition</a></li>
@@ -217,6 +218,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1 Introduction</a></li>
 <li><a href="#2-methods">2 Methods</a></li><li class="toc-sub"><a href="#21-datasets">2.1 Datasets</a></li><li class="toc-sub"><a href="#22-the-cat-facial-landmarks-automated-detector">2.2 The cat facial landmarks automated detector</a></li><li class="toc-sub"><a href="#23-machine-learning-models">2.3 Machine learning models</a></li>
 <li><a href="#3-results">3 Results</a></li><li class="toc-sub"><a href="#31-landmark-detection">3.1 Landmark detection</a></li><li class="toc-sub"><a href="#32-breed-and-cephalic-type-recognition">3.2 Breed and cephalic type recognition</a></li><li class="toc-sub"><a href="#33-pain-recognition">3.3 Pain recognition</a></li>
@@ -237,7 +239,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>Facial landmarks, widely studied in human affective computing, are beginning to gain interest in the animal domain. Specifically, landmark-based geometric morphometric methods have been used to objectively assess facial expressions in cats, focusing on pain recognition and the impact of breed-specific morphology on facial signaling. These methods employed a 48-landmark scheme grounded in cat facial anatomy. Manually annotating these landmarks, however, is a labor-intensive process, deeming it impractical for generating sufficiently large amounts of data for machine learning purposes and for use in applied real-time contexts with cats. Our previous work introduced an AI pipeline for automated landmark detection, which showed good performance in standard machine learning metrics. Nonetheless, the effectiveness of fully automated, end-to-end landmark-based systems for practical cat facial analysis tasks remained underexplored. In this paper we develop AI pipelines for three benchmark tasks using two previously collected datasets of cat faces. The tasks include automated cat breed recognition, cephalic type recognition and pain recognition. Our fully automated end-to-end pipelines reached accuracy of 75% and 66% in cephalic type and pain recognition respectively, suggesting that landmark-based approaches hold promise for automated pain assessment and morphological explorations.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="FLbrFNwSc6k" data-yt-title="Can AI read a cat&#x27;s face from just 48 points?"><a class="yt-play" href="https://www.youtube.com/shorts/FLbrFNwSc6k" aria-label="Play video: Can AI read a cat&#x27;s face from just 48 points?"><img src="https://i.ytimg.com/vi/FLbrFNwSc6k/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/FLbrFNwSc6k/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">Can AI read a cat&#x27;s face from just 48 points?</p><p>Cat faces can be described with 48 landmarks that follow the facial muscles, but placing them by hand takes over five minutes per image. Building on our automatic landmark detector, we made fully automatic pipelines for three tasks. From the landmarks alone, head shape type was recognized with 75% accuracy and pain with 66%, on cats the system had never seen; breed did no better than chance, so deep learning on the whole image suits it better. The pain data came from just 27 cats after balancing.</p><p class="paper-video-more"><a href="/videos.html#v-FLbrFNwSc6k">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/FLbrFNwSc6k" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <h2 id="1-introduction">1 Introduction</h2>
@@ -508,7 +510,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {

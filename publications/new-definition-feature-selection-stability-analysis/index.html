@@ -79,7 +79,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -130,7 +130,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/xai_2.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.1007/s10472-024-09936-8" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -151,6 +151,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1 Introduction</a></li>
 <li><a href="#2-related-work">2 Related work</a></li>
 <li><a href="#3-feature-and-lyapunov-stability-metrics">3 Feature and lyapunov stability metrics</a></li>
@@ -174,6 +175,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1 Introduction</a></li>
 <li><a href="#2-related-work">2 Related work</a></li>
 <li><a href="#3-feature-and-lyapunov-stability-metrics">3 Feature and lyapunov stability metrics</a></li>
@@ -190,7 +192,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>Feature selection (FS) stability is an important topic of recent interest. Finding stable features is important for creating reliable, non-overfitted feature sets, which in turn can be used to generate machine learning models with better accuracy and explanations and are less prone to adversarial attacks. There are currently several definitions of FS stability that are widely used. In this paper, we demonstrate that existing stability metrics fail to quantify certain key elements of many datasets such as resilience to data drift or non-uniformly distributed missing values. To address this shortcoming, we propose a new definition for FS stability inspired by Lyapunov stability in dynamic systems. We show the proposed definition is statistically different from the classical record-stability on (n=90) datasets. We present the advantages and disadvantages of using Lyapunov and other stability definitions and demonstrate three scenarios in which each one of the three proposed stability metrics is best suited.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="nEZZKtJUXaQ" data-yt-title="If your data shifts, will your model pick the same features?"><a class="yt-play" href="https://www.youtube.com/shorts/nEZZKtJUXaQ" aria-label="Play video: If your data shifts, will your model pick the same features?"><img src="https://i.ytimg.com/vi/nEZZKtJUXaQ/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/nEZZKtJUXaQ/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">If your data shifts, will your model pick the same features?</p><p>Stable feature selection means more reliable models, clearer explanations and less exposure to attacks, but common stability definitions miss resilience to data drift and unevenly missing values. We proposed a new definition inspired by Lyapunov stability: small changes to the data should cause only small changes to the selected features. Across 90 datasets it was statistically different from the classic record-stability measure, and we describe three scenarios, each best suited to one of three measures. There&#x27;s no single best measure.</p><p class="paper-video-more"><a href="/videos.html#v-nEZZKtJUXaQ">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/nEZZKtJUXaQ" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <h2 id="1-introduction">1 Introduction</h2>
@@ -461,7 +463,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {

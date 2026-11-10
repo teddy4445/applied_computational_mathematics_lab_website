@@ -107,7 +107,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -158,7 +158,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/cats_mimicry.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.1038/s41598-024-79216-2" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -179,6 +179,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#methods-dataset">Methods Dataset</a></li><li class="toc-sub"><a href="#cat-facial-landmarks">Cat facial landmarks</a></li><li class="toc-sub"><a href="#machine-learning-models-for-affiliativenon-affiliative-interaction-recognition">Machine learning models for affiliative/non-affiliative interaction recognition</a></li><li class="toc-sub"><a href="#facial-mimicry-analysis">Facial mimicry analysis</a></li>
 <li><a href="#results">Results</a></li><li class="toc-sub"><a href="#performance-of-models-for-recognition-of-interaction-context">Performance of models for recognition of interaction context</a></li><li class="toc-sub"><a href="#facial-mimicry-analysis_1">Facial mimicry analysis</a></li>
 <li><a href="#discussion">Discussion</a></li>
@@ -197,6 +198,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#methods-dataset">Methods Dataset</a></li><li class="toc-sub"><a href="#cat-facial-landmarks">Cat facial landmarks</a></li><li class="toc-sub"><a href="#machine-learning-models-for-affiliativenon-affiliative-interaction-recognition">Machine learning models for affiliative/non-affiliative interaction recognition</a></li><li class="toc-sub"><a href="#facial-mimicry-analysis">Facial mimicry analysis</a></li>
 <li><a href="#results">Results</a></li><li class="toc-sub"><a href="#performance-of-models-for-recognition-of-interaction-context">Performance of models for recognition of interaction context</a></li><li class="toc-sub"><a href="#facial-mimicry-analysis_1">Facial mimicry analysis</a></li>
 <li><a href="#discussion">Discussion</a></li>
@@ -208,7 +210,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>There is growing interest in the facial signals of domestic cats. Domestication may have shifted feline social dynamics towards a greater emphasis on facial signals that promote affiliative bonding. Most studies have focused on cat facial signals during human interactions or in response to pain. Research on intraspecific facial communication in cats has predominantly examined non-affiliative social interactions. A recent study by Scott and Florkiewicz1 demonstrated significant differences between cats’ facial signals during affiliative and non-affiliative intraspecific interactions. This follow-up study applies computational approaches to make two main contributions. First, we develop a machine learning classifier for affiliative/non-affiliative interactions based on manual CatFACS codings and automatically detected facial landmarks, reaching above 77% in CatFACS codings and 68% in landmarks by integrating a temporal dimension. Secondly, we introduce novel measures for rapid facial mimicry based on CatFACS coding. Our analysis suggests that domestic cats exhibit more rapid facial mimicry in affiliative contexts than non-affiliative ones, which is consistent with the proposed function of mimicry. Moreover, we found that ear movements (such as EAD103 and EAD104) are highly prone to rapid facial mimicry. Our research introduces new possibilities for analyzing cat facial signals and exploring shared moods with innovative AI-based approaches.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="hPQ-qlpOZbg" data-yt-title="Do friendly cats copy each other&#x27;s faces?"><a class="yt-play" href="https://www.youtube.com/shorts/hPQ-qlpOZbg" aria-label="Play video: Do friendly cats copy each other&#x27;s faces?"><img src="https://i.ytimg.com/vi/hPQ-qlpOZbg/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/hPQ-qlpOZbg/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">Do friendly cats copy each other&#x27;s faces?</p><p>We studied videos of 53 cats at a cat café in Los Angeles, with their facial movements coded by experts using CatFACS. Machine learning told friendly from unfriendly interactions with above 77% accuracy from the expert codes, and 68% from automatically detected landmarks once timing was included. New measures of rapid facial mimicry showed more mimicry in friendly interactions, and ear movements were especially likely to be copied. One cat café, and brand-new measures.</p><p class="paper-video-more"><a href="/videos.html#v-hPQ-qlpOZbg">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/hPQ-qlpOZbg" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <p>Most mammals produce facial signals<sup><a href="#ref-2">2</a>,<a href="#ref-3">3</a></sup>, facilitated by their cranial structure, which consists of unique features<sup><a href="#ref-4">4</a></sup>and complex facial musculature<sup><a href="#ref-5">5</a></sup>. These signals vary in their physical form and social function, playing a crucial role in mammalian social interactions. For instance, mammals use facial mimicry to facilitate complex social activities that are essential for managing long-term social bonds<sup><a href="#ref-6">6</a></sup>. Facial mimicry is the matching of a facial signal of another individual shortly after viewing it<sup><a href="#ref-7">7</a>–<a href="#ref-15">15</a></sup>. Several studies have demonstrated links between facial mimicry, emotion recognition, and emotional contagion<sup><a href="#ref-10">10</a>,<a href="#ref-16">16</a></sup>. As a result, some researchers suggest that facial mimicry may be an evolutionary precursor to empathy in humans<sup><a href="#ref-17">17</a></sup>. Many studies on facial mimicry have further focused on the facial signals that are rapidly produced during bouts of play<sup><a href="#ref-7">7</a>,<a href="#ref-9">9</a>,<a href="#ref-12">12</a>–<a href="#ref-14">14</a>,<a href="#ref-18">18</a>–<a href="#ref-20">20</a></sup>. Previous research has identified two distinct dimensions of facial mimicry. First, facial signals can be mirrored either exactly or based on types (i.e., pre-existing categories of facial signals<sup><a href="#ref-7">7</a>,<a href="#ref-15">15</a></sup>). For example, an individual may mirror all facial movements produced by another (exact mirroring) during play or just key facial movements associated with play faces (type mirroring). Second, facial signals can be mirrored either rapidly (within 1 second or less of viewing) or with a delay (&gt;1 second of viewing<sup><a href="#ref-13">13</a></sup>). Rapid facial mirroring is crucial for social bonding and has been found to extend affiliative interactions<sup><a href="#ref-13">13</a></sup>. Delayed facial mirroring is rare and often occurs during later stages of social interactions<sup><a href="#ref-13">13</a></sup>. Facial mimicry has been observed in multiple primate<sup><a href="#ref-7">7</a>,<a href="#ref-9">9</a>,<a href="#ref-13">13</a>,<a href="#ref-14">14</a>,<a href="#ref-18">18</a>,<a href="#ref-19">19</a></sup>and carnivore<sup><a href="#ref-12">12</a>,<a href="#ref-15">15</a></sup> species.</p>
@@ -520,7 +522,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {

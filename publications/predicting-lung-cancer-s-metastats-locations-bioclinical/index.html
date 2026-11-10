@@ -79,7 +79,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -130,7 +130,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/lung_cancer_location.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.3389/fmed.2024.1388702" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -151,6 +151,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-background">1 Background</a></li>
 <li><a href="#2-methods">2 Methods</a></li><li class="toc-sub"><a href="#21-biophysical-modeling">2.1 Biophysical modeling</a></li><li class="toc-sub"><a href="#22-initial-condition-construction">2.2 Initial condition construction</a></li><li class="toc-sub"><a href="#23-metastasis-heatmap-generation">2.3 Metastasis heatmap generation</a></li>
 <li><a href="#3-results">3 Results</a></li>
@@ -172,6 +173,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-background">1 Background</a></li>
 <li><a href="#2-methods">2 Methods</a></li><li class="toc-sub"><a href="#21-biophysical-modeling">2.1 Biophysical modeling</a></li><li class="toc-sub"><a href="#22-initial-condition-construction">2.2 Initial condition construction</a></li><li class="toc-sub"><a href="#23-metastasis-heatmap-generation">2.3 Metastasis heatmap generation</a></li>
 <li><a href="#3-results">3 Results</a></li>
@@ -186,7 +188,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>Background: Lung cancer is a global leading cause of cancer-related deaths, and metastasis profoundly influences treatment outcomes. The limitations of conventional imaging in detecting small metastases highlight the crucial need for advanced diagnostic approaches. Methods: This study developed a bioclinical model using three-dimensional CT scans to predict the spatial spread of lung cancer metastasis. Utilizing a three-layer biological model, we identified regions with a high probability of metastasis colonization and validated the model on real-world data from 10 patients. Findings: The validated bioclinical model demonstrated a promising 74% accuracy in predicting metastasis locations, showcasing the potential of integrating biophysical and machine learning models. These findings underscore the significance of a more comprehensive approach to lung cancer diagnosis and treatment. Interpretation: This study&#x27;s integration of biophysical and machine learning models contributes to advancing lung cancer diagnosis and treatment, providing nuanced insights for informed decision-making.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="ndXmqtp7dWI" data-yt-title="When lung cancer spreads, where will it go?"><a class="yt-play" href="https://www.youtube.com/shorts/ndXmqtp7dWI" aria-label="Play video: When lung cancer spreads, where will it go?"><img src="https://i.ytimg.com/vi/ndXmqtp7dWI/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/ndXmqtp7dWI/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">When lung cancer spreads, where will it go?</p><p>Small metastases are hard to see with conventional imaging. We built a bioclinical model on a patient&#x27;s own three-dimensional CT scans, combining cancer cells flowing in the bloodstream, settling in tissue and growing there, to mark the regions where metastases are most likely. Validated on real-world data from ten lung cancer patients, it predicted where metastases were located with 74% accuracy. Ten patients is a small group, so the model needs testing on many more.</p><p class="paper-video-more"><a href="/videos.html#v-ndXmqtp7dWI">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/ndXmqtp7dWI" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <h2 id="1-background">1 Background</h2>
@@ -369,7 +371,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {

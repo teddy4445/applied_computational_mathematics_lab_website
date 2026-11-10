@@ -93,7 +93,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -144,7 +144,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/xai_1.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.1007/s10489-023-05069-3" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -165,6 +165,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1 Introduction</a></li><li class="toc-sub"><a href="#11-motivation">1.1 Motivation</a></li><li class="toc-sub"><a href="#12-contribution">1.2 Contribution</a></li>
 <li><a href="#2-related-work">2 Related work</a></li><li class="toc-sub"><a href="#21-definitions-and-reasons-for-xai">2.1 Definitions and reasons for XAI</a></li><li class="toc-sub"><a href="#22-motivations-for-using-fs-and-fs-ensembles">2.2 Motivations for using FS and FS ensembles</a></li>
 <li><a href="#3-the-ofee-algorithm">3 The OFEE algorithm</a></li>
@@ -185,6 +186,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1 Introduction</a></li><li class="toc-sub"><a href="#11-motivation">1.1 Motivation</a></li><li class="toc-sub"><a href="#12-contribution">1.2 Contribution</a></li>
 <li><a href="#2-related-work">2 Related work</a></li><li class="toc-sub"><a href="#21-definitions-and-reasons-for-xai">2.1 Definitions and reasons for XAI</a></li><li class="toc-sub"><a href="#22-motivations-for-using-fs-and-fs-ensembles">2.2 Motivations for using FS and FS ensembles</a></li>
 <li><a href="#3-the-ofee-algorithm">3 The OFEE algorithm</a></li>
@@ -198,7 +200,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>Feature Ensembles are a robust and effective method for finding the feature set that yields the best predictive accuracy for learning agents. However, current feature ensemble algorithms do not consider explainability as a key factor in their construction. To address this limitation, we present an algorithm that optimizes for the explainability and performance of a model – the Optimizing Feature Ensembles for Explainability (OFEE) algorithm. OFEE uses intersections of feature sets to produce a feature ensemble that optimally balances explainability and performance. Furthermore, OFEE is parameter-free and as such optimizes itself to a given dataset and explainability requirements. To evaluated OFEE, we considered two explainability measures, one based on ensemble size and the other based on ensemble stability. We found that OFEE was overall extremely effective within the nine canonical datasets we considered. It outperformed other feature selection algorithms by an average of over 8% and 7% respectively when considering the size and stability explainability measures.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="lqMZcmJLl2k" data-yt-title="Can a model be both accurate and easy to explain?"><a class="yt-play" href="https://www.youtube.com/shorts/lqMZcmJLl2k" aria-label="Play video: Can a model be both accurate and easy to explain?"><img src="https://i.ytimg.com/vi/lqMZcmJLl2k/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/lqMZcmJLl2k/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">Can a model be both accurate and easy to explain?</p><p>Feature ensembles combine many feature selection runs, but existing algorithms don&#x27;t treat explainability as a key factor. OFEE intersects feature sets to balance explainability and performance, with no parameters to tune. Measuring explainability by how small and how stable the feature set is, across nine canonical datasets it beat other feature selection algorithms on average by more than 8% on size and more than 7% on stability. Nine datasets, and two of many possible ways to measure explainability.</p><p class="paper-video-more"><a href="/videos.html#v-lqMZcmJLl2k">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/lqMZcmJLl2k" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <h2 id="1-introduction">1 Introduction</h2>
@@ -466,7 +468,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
