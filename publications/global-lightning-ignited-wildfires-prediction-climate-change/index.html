@@ -102,7 +102,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -153,7 +153,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/s41598-025-92171-w.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.1038/s41598-025-92171-w" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -174,6 +174,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#results">Results</a></li><li class="toc-sub"><a href="#dynamics-analysis">Dynamics analysis</a></li><li class="toc-sub"><a href="#models-performance">Model’s performance</a></li><li class="toc-sub"><a href="#anthropogenic-versus-lightning-ignited-wildfires">Anthropogenic versus lightning-ignited wildfires</a></li><li class="toc-sub"><a href="#climate-change-influence-and-projections">Climate change influence and projections</a></li>
 <li><a href="#discussion">Discussion</a></li>
 <li><a href="#methods-and-materials">Methods and materials</a></li><li class="toc-sub"><a href="#datasets">Datasets</a></li><li class="toc-sub"><a href="#machine-learning-model-development">Machine learning model development</a></li><li class="toc-sub"><a href="#experimental-setup">Experimental setup</a></li>
@@ -192,6 +193,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#results">Results</a></li><li class="toc-sub"><a href="#dynamics-analysis">Dynamics analysis</a></li><li class="toc-sub"><a href="#models-performance">Model’s performance</a></li><li class="toc-sub"><a href="#anthropogenic-versus-lightning-ignited-wildfires">Anthropogenic versus lightning-ignited wildfires</a></li><li class="toc-sub"><a href="#climate-change-influence-and-projections">Climate change influence and projections</a></li>
 <li><a href="#discussion">Discussion</a></li>
 <li><a href="#methods-and-materials">Methods and materials</a></li><li class="toc-sub"><a href="#datasets">Datasets</a></li><li class="toc-sub"><a href="#machine-learning-model-development">Machine learning model development</a></li><li class="toc-sub"><a href="#experimental-setup">Experimental setup</a></li>
@@ -203,7 +205,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>Wildfires pose a significant natural disaster risk to populations and contribute to accelerated climate change. As wildfires are also affected by climate change, extreme wildfires are becoming increasingly frequent. Although they occur less frequently globally than those sparked by human activities, lightning-ignited wildfires play a substantial role in carbon emissions and account for the majority of burned areas in certain regions. While existing computational models, especially those based on machine learning, aim to predict lightning-ignited wildfires, they are typically tailored to specific regions with unique characteristics, limiting their global applicability. In this study, we present machine learning models designed to characterize and predict lightning-ignited wildfires on a global scale. Our approach involves classifying lightning-ignited versus anthropogenic wildfires, and estimating with high accuracy the probability of lightning to ignite a fire based on a wide spectrum of factors such as meteorological conditions and vegetation. Utilizing these models, we analyze seasonal and spatial trends in lightning-ignited wildfires shedding light on the impact of climate change on this phenomenon. We analyze the influence of various features on the models using eXplainable Artificial Intelligence (XAI) frameworks. Our findings highlight significant global differences between anthropogenic and lightning-ignited wildfires. Moreover, we demonstrate that, even over a short time span of less than a decade, climate changes have steadily increased the global risk of lightning-ignited wildfires. This distinction underscores the imperative need for dedicated predictive models and fire weather indices tailored specifically to each type of wildfire.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="FyFyEjaAvGg" data-yt-title="Can we predict which lightning strikes start a wildfire?"><a class="yt-play" href="https://www.youtube.com/shorts/FyFyEjaAvGg" aria-label="Play video: Can we predict which lightning strikes start a wildfire?"><img src="https://i.ytimg.com/vi/FyFyEjaAvGg/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/FyFyEjaAvGg/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">Can we predict which lightning strikes start a wildfire?</p><p>Lightning fires are rarer than human-caused fires but add substantial carbon emissions and account for most of the burned area in some regions. Our global models separate the two and estimate the chance that lightning ignites a fire from weather and vegetation; XGBoost reached 91.6% accuracy and held up on a year it never saw, with rain on the day mattering most. Each fire type needs its own model, and from 2014 to 2021 the global risk of lightning-sparked fires rose by about 1% a year.</p><p class="paper-video-more"><a href="/videos.html#v-FyFyEjaAvGg">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/FyFyEjaAvGg" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <p>Wildfires are among the most hazardous natural disasters on Earth. Although studies have found a decrease in global burned areas due to anthropogenic activity<sup><a href="#ref-1">1</a></sup>, the frequency of extratropical lightning-ignited wildfires appears to be on the rise as the Earth’s climate changes<sup><a href="#ref-2">2</a></sup>. For example, the frequency of extreme lightning-ignited wildfires has drastically increased in California in the last decades<sup><a href="#ref-3">3</a></sup>. Lightning is the main cause for wildfire activity in high latitudes both in terms of wildfire occurrence and in terms of burned areas<sup><a href="#ref-4">4</a></sup>. This trend is of considerable concern, as extratropical forests are responsible for a substantial portion of carbon emissions. Lightning-ignited wildfires differ from anthropogenic wildfires in several aspects; for example, lightning-ignited wildfires tend to ignite in remote locations in which firefighters have difficulty extinguishing them before they evolve into extreme dimensions. These fires also tend to ignite in clusters<sup><a href="#ref-5">5</a></sup> while forest managers are less likely to fight these fires if they are not impacting settlements and infrastructures. While recent studies have developed machine learning (ML) models to predict wildfires on a global scale<sup><a href="#ref-6">6</a></sup>, the different nature of lightning-ignited wildfires requires dedicated models to predict and analyze them separately.</p>
@@ -423,7 +425,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {

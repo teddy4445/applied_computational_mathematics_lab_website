@@ -108,7 +108,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -159,7 +159,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/repeat_test.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.3390/diagnostics15151885" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -180,6 +180,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1. Introduction</a></li>
 <li><a href="#2-materials-and-methods">2. Materials and Methods</a></li>
 <li><a href="#3-results">3. Results</a></li><li class="toc-sub"><a href="#31-study-population">3.1. Study Population</a></li><li class="toc-sub"><a href="#32-repeated-laboratory-testing">3.2. Repeated Laboratory Testing</a></li><li class="toc-sub"><a href="#33-models-for-predicting-the-necessity-of-repeated-laboratory-testing">3.3. Models for Predicting the Necessity of Repeated Laboratory Testing</a></li><li class="toc-sub"><a href="#34-variables-contributing-to-the-decision-tree-models">3.4. Variables Contributing to the Decision Tree Models</a></li>
@@ -201,6 +202,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1. Introduction</a></li>
 <li><a href="#2-materials-and-methods">2. Materials and Methods</a></li>
 <li><a href="#3-results">3. Results</a></li><li class="toc-sub"><a href="#31-study-population">3.1. Study Population</a></li><li class="toc-sub"><a href="#32-repeated-laboratory-testing">3.2. Repeated Laboratory Testing</a></li><li class="toc-sub"><a href="#33-models-for-predicting-the-necessity-of-repeated-laboratory-testing">3.3. Models for Predicting the Necessity of Repeated Laboratory Testing</a></li><li class="toc-sub"><a href="#34-variables-contributing-to-the-decision-tree-models">3.4. Variables Contributing to the Decision Tree Models</a></li>
@@ -215,7 +217,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>Background/Objectives: Laboratory tests conducted in community settings are occasionally repeated within hours of presentation to pediatric emergency departments (PEDs). Reducing unnecessary repetitions can ease child discomfort and alleviate the healthcare burden without compromising the diagnostic process or quality of care. The aim of this study was to develop a decision tree (DT) model to guide physicians in minimizing unnecessary repeat blood tests in PEDs. The minimal decision tree (MDT) algorithm was selected for its interpretability and capacity to generate optimally pruned classification trees. Methods: Children aged 3 months to 18 years with community-based complete blood count (CBC), electrolyte (ELE), and C-reactive protein (CRP) measurements obtained between 2016 and 2023 were included. Repeat tests performed in the pediatric emergency department within 12 h were evaluated by comparing paired measurements, with tests considered justified when values transitioned from normal to abnormal ranges or changed by ≥20%. Additionally, sensitivity analyses were conducted for absolute change thresholds of 10% and 30% and for repeat intervals of 6, 18, and 24 h. Results: Among 7813 children visits in this study, 6044, 1941, and 2771 underwent repeated CBC, ELE, and CRP tests, respectively. The mean ages of patients undergoing CRP, ELE, and CBC testing were 6.33 ± 5.38, 7.91 ± 5.71, and 5.08 ± 5.28 years, respectively. The majority were of middle socio-economic class, with 66.61–71.24% living in urban areas. Pain was the predominant presented complaint (83.69–85.99%), and in most cases (83.69–85.99%), the examination was conducted by a pediatrician. The DT model was developed and evaluated on training and validation cohorts, and it demonstrated high accuracy in predicting the need for repeat CBC and ELE tests but not CRP. Performance of the DT model significantly exceeded that of the logistic regression model. Conclusions: The data-driven guide derived from the DT model provides clinicians with a practical, interpretable tool to minimize unnecessary repeat laboratory testing, thereby enhancing patient care and optimizing healthcare resource utilization.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="4rc5vs4EUrE" data-yt-title="Does a child really need the same blood test twice in one day?"><a class="yt-play" href="https://www.youtube.com/shorts/4rc5vs4EUrE" aria-label="Play video: Does a child really need the same blood test twice in one day?"><img src="https://i.ytimg.com/vi/4rc5vs4EUrE/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/4rc5vs4EUrE/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">Does a child really need the same blood test twice in one day?</p><p>Children often reach the emergency department with recent community test results and are tested again within hours. In 7,813 pediatric emergency visits, only about 7 to 14% of repeats were justified: a move from normal to abnormal, or a change of at least 20%. A simple, readable decision tree predicted when a repeat was needed with 78.7% accuracy for blood counts and 73.2% for electrolytes, beating logistic regression, but barely beat chance for C-reactive protein. Retrospective data from one health organization.</p><p class="paper-video-more"><a href="/videos.html#v-4rc5vs4EUrE">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/4rc5vs4EUrE" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <h2 id="1-introduction">1. Introduction</h2>
@@ -404,7 +406,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {

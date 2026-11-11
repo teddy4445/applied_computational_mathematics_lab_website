@@ -93,7 +93,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -144,7 +144,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/hcad.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.1007/s41060-025-00928-3" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -165,6 +165,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1 Introduction</a></li>
 <li><a href="#2-related-work">2 Related work</a></li><li class="toc-sub"><a href="#21-convex-hull">2.1 Convex hull</a></li><li class="toc-sub"><a href="#22-anomaly-detection">2.2 Anomaly detection</a></li>
 <li><a href="#3-convex-hull-method-for-anomaly-detection">3 Convex hull method for anomaly detection</a></li>
@@ -188,6 +189,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1 Introduction</a></li>
 <li><a href="#2-related-work">2 Related work</a></li><li class="toc-sub"><a href="#21-convex-hull">2.1 Convex hull</a></li><li class="toc-sub"><a href="#22-anomaly-detection">2.2 Anomaly detection</a></li>
 <li><a href="#3-convex-hull-method-for-anomaly-detection">3 Convex hull method for anomaly detection</a></li>
@@ -204,7 +206,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>Detecting out-of-distribution (OOD) data is a critical task for maintaining model reliability and robustness. In this study, we propose a novel anomaly detection algorithm that leverages the convex hull (CH) property of a dataset by exploiting the observation that OOD samples marginally increase the CH’s volume compared to in-distribution samples. Thus, we establish a decision boundary between OOD and in-distribution data by iteratively computing the CH’s volume as samples are removed, stopping when such removal does not significantly alter the CH’s volume. The proposed algorithm is evaluated against seven widely used anomaly detection methods across ten datasets, demonstrating performance comparable to state-of-the-art (SOTA) techniques. Furthermore, we introduce a computationally efficient criterion for identifying datasets where the proposed method outperforms existing SOTA approaches.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="cRhQ5DRBUNY" data-yt-title="Tighten the lasso: finding outliers with a convex hull"><a class="yt-play" href="https://www.youtube.com/shorts/cRhQ5DRBUNY" aria-label="Play video: Tighten the lasso: finding outliers with a convex hull"><img src="https://i.ytimg.com/vi/cRhQ5DRBUNY/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/cRhQ5DRBUNY/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">Tighten the lasso: finding outliers with a convex hull</p><p>Wrap the data in a convex hull, like a rubber band around every point: outliers stretch it, so removing one shrinks the hull&#x27;s volume far more than removing a typical point. Our method peels off points until the volume stops changing much. Against seven widely used anomaly detection methods on ten datasets it performed comparably to the state of the art, and a quick test tells in advance which datasets suit it. It struggles with ring-shaped data and is heavy to compute.</p><p class="paper-video-more"><a href="/videos.html#v-cRhQ5DRBUNY">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/cRhQ5DRBUNY" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <h2 id="1-introduction">1 Introduction</h2>
@@ -504,7 +506,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {

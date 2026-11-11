@@ -86,7 +86,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -137,7 +137,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/teddy_avner_new_math.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.1016/j.cam.2025.117183" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -158,6 +158,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1. Introduction</a></li>
 <li><a href="#2-partial-differential-equation-model-definition">2. Partial differential equation model definition</a></li><li class="toc-sub"><a href="#21-model-equations">2.1. Model equations</a></li><li class="toc-sub"><a href="#22-boundary-conditions">2.2. Boundary conditions</a></li><li class="toc-sub"><a href="#23-initial-conditions-in-units-of-gcm3">2.3. Initial conditions (in units of g∕cm3)</a></li><li class="toc-sub"><a href="#24-parameter-estimates">2.4. Parameter estimates</a></li>
 <li><a href="#3-agent-based-simulation-model-definition">3. Agent based simulation model definition</a></li><li class="toc-sub"><a href="#31-operator-is-spontaneous-dynamics">3.1. Operator 𝐼𝑠 (spontaneous dynamics)</a></li><li class="toc-sub"><a href="#32-operator-iaa-agent-agent">3.2. Operator 𝐼𝑎𝑎 (agent-agent)</a></li><li class="toc-sub"><a href="#33-operator-iae-agent-environment">3.3. Operator 𝐼𝑎𝑒 (agent-environment)</a></li><li class="toc-sub"><a href="#34-shape-boundary-detection">3.4. Shape boundary detection</a></li>
@@ -182,6 +183,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1. Introduction</a></li>
 <li><a href="#2-partial-differential-equation-model-definition">2. Partial differential equation model definition</a></li><li class="toc-sub"><a href="#21-model-equations">2.1. Model equations</a></li><li class="toc-sub"><a href="#22-boundary-conditions">2.2. Boundary conditions</a></li><li class="toc-sub"><a href="#23-initial-conditions-in-units-of-gcm3">2.3. Initial conditions (in units of g∕cm3)</a></li><li class="toc-sub"><a href="#24-parameter-estimates">2.4. Parameter estimates</a></li>
 <li><a href="#3-agent-based-simulation-model-definition">3. Agent based simulation model definition</a></li><li class="toc-sub"><a href="#31-operator-is-spontaneous-dynamics">3.1. Operator 𝐼𝑠 (spontaneous dynamics)</a></li><li class="toc-sub"><a href="#32-operator-iaa-agent-agent">3.2. Operator 𝐼𝑎𝑎 (agent-agent)</a></li><li class="toc-sub"><a href="#33-operator-iae-agent-environment">3.3. Operator 𝐼𝑎𝑒 (agent-environment)</a></li><li class="toc-sub"><a href="#34-shape-boundary-detection">3.4. Shape boundary detection</a></li>
@@ -199,7 +201,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>Spatio-temporal partial differential equations (PDEs) models of cancer make several ad-hoc assumptions about the dynamics on the unknown boundary of the tumor in order to solve the PDE system of equations and, at the same time, determine also the boundary of the tumor. In this paper, we developed a different computation approach using the agent-based simulation (ABS) modeling method. We consider a simple cancer model, and use, in the ABS model, the same parameters that express the rates of interactions among cells and proteins, as in the PDE model, but we make no ad-hoc assumptions on the dynamics of the unknown tumor boundary. However, ABS is a stochastic process, hence, in order to get a good approximation of the tumor boundary, we need to repeat the simulations many times, and then take the average. We show, in the spherical case, that the tumor volume computed by the ABS is in increasingly good agreement with the PDE volume as the number of ABS repetitions is increased. We next use the ABS model to compute several non-symmetric shapes that are commonly seen in non-invasive and invasive cancers.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="Shd_rc5DccM" data-yt-title="What shape will a tumor grow into?"><a class="yt-play" href="https://www.youtube.com/shorts/Shd_rc5DccM" aria-label="Play video: What shape will a tumor grow into?"><img src="https://i.ytimg.com/vi/Shd_rc5DccM/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/Shd_rc5DccM/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">What shape will a tumor grow into?</p><p>Partial differential equation models of cancer need assumptions about the tumor&#x27;s unknown boundary. Our agent-based simulation uses individual cells with the same rates as the equations and no boundary assumptions: the edge emerges from the cells. For a spherical tumor, the simulated volume agreed better and better with the equations as repetitions increased, and the simulation produced shapes that are hard for the equations, such as an ellipsoid like ductal carcinoma and a shape like skin cancer. A simple cancer model.</p><p class="paper-video-more"><a href="/videos.html#v-Shd_rc5DccM">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/Shd_rc5DccM" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <h2 id="1-introduction">1. Introduction</h2>
@@ -522,7 +524,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {

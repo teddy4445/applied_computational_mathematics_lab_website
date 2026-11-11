@@ -106,7 +106,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -157,7 +157,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/larvae.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.1111/jen.70009" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -178,6 +178,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#2-related-work">2 | Related Work</a></li><li class="toc-sub"><a href="#21-fruit-fly-detection">2.1 | Fruit Fly Detection</a></li><li class="toc-sub"><a href="#22-video-based-and-ai-based-detection">2.2 | Video-Based and AI-Based Detection</a></li>
 <li><a href="#3-methods-and-materials">3 | Methods and Materials</a></li><li class="toc-sub"><a href="#31-insects">3.1 | Insects</a></li><li class="toc-sub"><a href="#32-camera-setup">3.2 | Camera Setup</a></li><li class="toc-sub"><a href="#33-dataset-overview">3.3 | Dataset Overview</a></li><li class="toc-sub"><a href="#34-the-ai-pipeline">3.4 | The AI Pipeline</a></li><li class="toc-sub"><a href="#35-the-experiments">3.5 | The Experiments</a></li>
 <li><a href="#4-results">4 | Results</a></li>
@@ -197,6 +198,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#2-related-work">2 | Related Work</a></li><li class="toc-sub"><a href="#21-fruit-fly-detection">2.1 | Fruit Fly Detection</a></li><li class="toc-sub"><a href="#22-video-based-and-ai-based-detection">2.2 | Video-Based and AI-Based Detection</a></li>
 <li><a href="#3-methods-and-materials">3 | Methods and Materials</a></li><li class="toc-sub"><a href="#31-insects">3.1 | Insects</a></li><li class="toc-sub"><a href="#32-camera-setup">3.2 | Camera Setup</a></li><li class="toc-sub"><a href="#33-dataset-overview">3.3 | Dataset Overview</a></li><li class="toc-sub"><a href="#34-the-ai-pipeline">3.4 | The AI Pipeline</a></li><li class="toc-sub"><a href="#35-the-experiments">3.5 | The Experiments</a></li>
 <li><a href="#4-results">4 | Results</a></li>
@@ -209,7 +211,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>The Mediterranean fruit fly (Ceratitis capitata) and the peach fruit fly (Bactrocera zonata) are two of the most economically significant agricultural pests affecting fruit production worldwide. Both are considered quarantine pests in several countries, which oblige the use of restrictive measures to assure safe trade with countries where these flies are present. As the quarantine status of these two pests is not similar in every country, discriminating measures among these two fruit flies&#x27; larvae in the exported fruits is critical for safe trade. Traditional DNA-based detection methods, though accurate, are costly and time-consuming, while manual morphological identification is practically impossible. In this study, we propose a novel non-invasive method utilising computer vision for rapid differentiation between larvae of these two species based on a short video recording of a single larva freely moving on a Petri dish. Our results reveal good separation between the two species with 90% accuracy using videos as short as 15s long.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="-0K1Zsepi2g" data-yt-title="Can a 15-second video tell two fruit fly larvae apart?"><a class="yt-play" href="https://www.youtube.com/shorts/-0K1Zsepi2g" aria-label="Play video: Can a 15-second video tell two fruit fly larvae apart?"><img src="https://i.ytimg.com/vi/-0K1Zsepi2g/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/-0K1Zsepi2g/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">Can a 15-second video tell two fruit fly larvae apart?</p><p>The Mediterranean fruit fly and the peach fruit fly are major fruit pests and quarantine pests in many countries, but their larvae are practically impossible to tell apart by eye, and DNA tests are costly and slow. We filmed single larvae crawling on a Petri dish; computer vision tracked their shape as they moved. Trained on 1,306 videos and tested on 327, the model told the species apart with 90% accuracy from 15-second clips. In the lab, with fixed cameras and steady light.</p><p class="paper-video-more"><a href="/videos.html#v--0K1Zsepi2g">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/-0K1Zsepi2g" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <p>In the Middle East, the Mediterranean fruit fly, <em>Ceratitis capitata</em> (Cc) and the invasive fruit fly species, such as the peach fruit fly, <em>Bactrocera zonata</em> (Bz), pose significant economic and ecological threats (<a class="cite-ay" href="#ref-5">Blaser et al. 2018</a>; <a class="cite-ay" href="#ref-29">White and Elson-Harris 1992</a>). Both species are notorious members of the Tephritidae family. After mating, females oviposit hundreds of eggs within their host fruits during their lifetime. A few days later, the larvae hatch and make their way into the fruit pulp, where they develop. Upon reaching the third and final larval instar, the larvae exit the host fruit and pupate in the soil.</p>
@@ -409,7 +411,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {

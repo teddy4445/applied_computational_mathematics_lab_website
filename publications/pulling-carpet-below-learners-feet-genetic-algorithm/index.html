@@ -81,7 +81,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -132,7 +132,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/ga_cd.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.1016/j.engappai.2025.110772" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -153,6 +153,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1. Introduction</a></li>
 <li><a href="#2-related-work">2. Related work</a></li><li class="toc-sub"><a href="#21-concept-drift">2.1. Concept drift</a></li><li class="toc-sub"><a href="#22-genetic-algorithm">2.2. Genetic algorithm</a></li><li class="toc-sub"><a href="#23-genetic-algorithm-for-concept-drift">2.3. Genetic algorithm for concept drift</a></li><li class="toc-sub"><a href="#24-ensemble-machine-learning-models">2.4. Ensemble machine learning models</a></li>
 <li><a href="#3-technical-background">3. Technical background</a></li><li class="toc-sub"><a href="#31-concept-drift-definition">3.1. Concept drift definition</a></li><li class="toc-sub"><a href="#32-automatic-machine-learning">3.2. Automatic machine learning</a></li>
@@ -178,6 +179,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1. Introduction</a></li>
 <li><a href="#2-related-work">2. Related work</a></li><li class="toc-sub"><a href="#21-concept-drift">2.1. Concept drift</a></li><li class="toc-sub"><a href="#22-genetic-algorithm">2.2. Genetic algorithm</a></li><li class="toc-sub"><a href="#23-genetic-algorithm-for-concept-drift">2.3. Genetic algorithm for concept drift</a></li><li class="toc-sub"><a href="#24-ensemble-machine-learning-models">2.4. Ensemble machine learning models</a></li>
 <li><a href="#3-technical-background">3. Technical background</a></li><li class="toc-sub"><a href="#31-concept-drift-definition">3.1. Concept drift definition</a></li><li class="toc-sub"><a href="#32-automatic-machine-learning">3.2. Automatic machine learning</a></li>
@@ -196,7 +198,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>Data-driven models, in general, and machine learning (ML) models, in particular, have gained popularity over recent years with an increased usage of such models across the scientific and engineering domains. When using ML models in realistic and dynamic environments, users often need to handle the challenge of concept drift (CD). In this study, we explore the application of genetic algorithms (GAs) to address the challenges posed by CD in such settings. Formally, we propose a novel two-level ensemble ML model, which combines a global ML model with a CD detector, operating as an aggregator for a population of ML pipeline models, each one with an adjusted CD detector by itself responsible for re-training its ML model. In addition, we show that one can further improve the proposed model by utilizing off-the-shelf automatic ML (AutoML) methods. Through extensive synthetic dataset analysis, we show that the proposed model statistically significantly outperforms an ML pipeline with a CD algorithm, particularly in scenarios with unknown CD characteristics or a mixture of moving and shifting CDs. Moreover, we show a sub-linear decline in the proposed method’s performance with respect to a higher drifting rate and robustness to the underlying AutoML method utilized.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="RcBLCGgqju8" data-yt-title="What happens when the ground shifts under an AI model?"><a class="yt-play" href="https://www.youtube.com/shorts/RcBLCGgqju8" aria-label="Play video: What happens when the ground shifts under an AI model?"><img src="https://i.ytimg.com/vi/RcBLCGgqju8/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/RcBLCGgqju8/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">What happens when the ground shifts under an AI model?</p><p>When the world changes, the patterns a model learned can drift away. Instead of one model watching for drift, we built a two-level ensemble: a population of models, each with its own drift detector, under a global model, evolved by a genetic algorithm and improved with AutoML. On synthetic datasets it significantly outperformed a single model with drift detection, especially for unknown or mixed drift, and declined only sub-linearly as drift sped up. Real-world drift may differ.</p><p class="paper-video-more"><a href="/videos.html#v-RcBLCGgqju8">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/RcBLCGgqju8" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <h2 id="1-introduction">1. Introduction</h2>
@@ -560,7 +562,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
