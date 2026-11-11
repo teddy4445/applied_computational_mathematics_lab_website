@@ -82,7 +82,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -133,7 +133,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/gbm_to_sr.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.1109/ACCESS.2026.3657793" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -154,6 +154,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#i-introduction">I. Introduction</a></li><li class="toc-sub"><a href="#ii-related-work">Ii. Related Work</a></li><li class="toc-sub"><a href="#iii-methods-and-materials">Iii. Methods and Materials</a></li><li class="toc-sub"><a href="#a-evaluation-methodology">A. Evaluation Methodology</a></li><li class="toc-sub"><a href="#b-datasets">B. Datasets</a></li><li class="toc-sub"><a href="#c-symbolic-regression-and-machine-learning-models">C. Symbolic Regression and Machine Learning Models</a></li><li class="toc-sub"><a href="#iv-results">Iv. Results</a></li><li class="toc-sub"><a href="#a-wildfire-danger-prediction">A. Wildfire Danger Prediction</a></li><li class="toc-sub"><a href="#b-exploring-generalization">B. Exploring Generalization</a></li><li class="toc-sub"><a href="#c-robustness-analysis">C. Robustness Analysis</a></li>
 <li><a href="#v-discussion">V. Discussion</a></li><li class="toc-sub"><a href="#declarations">Declarations</a></li><li class="toc-sub"><a href="#conflicts-of-interestcompeting-interests">Conflicts of Interest/Competing Interests</a></li><li class="toc-sub"><a href="#code-and-data-availability">Code and Data Availability</a></li><li class="toc-sub"><a href="#author-contribution">Author Contribution</a></li><li class="toc-sub"><a href="#appendix">Appendix</a></li><li class="toc-sub"><a href="#additional-experimental-results">Additional Experimental Results</a></li>
 <li><a href="#article-notes">Article notes</a></li>
@@ -171,6 +172,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#i-introduction">I. Introduction</a></li><li class="toc-sub"><a href="#ii-related-work">Ii. Related Work</a></li><li class="toc-sub"><a href="#iii-methods-and-materials">Iii. Methods and Materials</a></li><li class="toc-sub"><a href="#a-evaluation-methodology">A. Evaluation Methodology</a></li><li class="toc-sub"><a href="#b-datasets">B. Datasets</a></li><li class="toc-sub"><a href="#c-symbolic-regression-and-machine-learning-models">C. Symbolic Regression and Machine Learning Models</a></li><li class="toc-sub"><a href="#iv-results">Iv. Results</a></li><li class="toc-sub"><a href="#a-wildfire-danger-prediction">A. Wildfire Danger Prediction</a></li><li class="toc-sub"><a href="#b-exploring-generalization">B. Exploring Generalization</a></li><li class="toc-sub"><a href="#c-robustness-analysis">C. Robustness Analysis</a></li>
 <li><a href="#v-discussion">V. Discussion</a></li><li class="toc-sub"><a href="#declarations">Declarations</a></li><li class="toc-sub"><a href="#conflicts-of-interestcompeting-interests">Conflicts of Interest/Competing Interests</a></li><li class="toc-sub"><a href="#code-and-data-availability">Code and Data Availability</a></li><li class="toc-sub"><a href="#author-contribution">Author Contribution</a></li><li class="toc-sub"><a href="#appendix">Appendix</a></li><li class="toc-sub"><a href="#additional-experimental-results">Additional Experimental Results</a></li>
 <li><a href="#article-notes">Article notes</a></li>
@@ -181,7 +183,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>In recent years, Machine Learning (ML) models have been introduced across diverse scientific fields, due to their strong predictive performance. However, in many applications the demand for interpretable models often surpasses the need for mere accuracy. Symbolic Regression (SR) offers a solution with its concise and explainable formulas, yet it typically falls short in accuracy when compared to other ML models such as Random Forests. This paper proposes a novel two-step ensemble approach, inspired by the student-teacher model in knowledge distillation. Initially, a Gradient Boosting Model (GBM) is trained to harness its high accuracy; this model acts as the ‘teacher.’ Subsequently, an SR ‘student’ model is trained on the output of the gradient boosting model, effectively distilling the knowledge into a form that combines interpretability with enhanced performance. We perform an extensive evaluation of this method across three different SR models and 10 regression datasets. Our findings show that the proposed method exhibits a consistent improvement of 3.3-6.7% in accuracy compared to standard SR models. Furthermore, this process serves as an explainability framework that helps to uncover and interpret the decisions of complex ML models.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="KXQTQzdPBkw" data-yt-title="Can a simple formula learn from a black-box model?"><a class="yt-play" href="https://www.youtube.com/shorts/KXQTQzdPBkw" aria-label="Play video: Can a simple formula learn from a black-box model?"><img src="https://i.ytimg.com/vi/KXQTQzdPBkw/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/KXQTQzdPBkw/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">Can a simple formula learn from a black-box model?</p><p>Symbolic regression finds readable formulas but is usually less accurate than gradient boosting. We first train a gradient boosting model, the teacher, then train symbolic regression, the student, on the teacher&#x27;s predictions. Across three symbolic regression tools and ten datasets, the student improved by 3.3 to 6.7%. On wildfire danger its error dropped by 3.4% over 50 runs, and it followed the teacher&#x27;s logic: rain on the day lowers risk, rain in the month before can raise it. A way to explain what the black box learned; modest gains.</p><p class="paper-video-more"><a href="/videos.html#v-KXQTQzdPBkw">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/KXQTQzdPBkw" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <h2 id="i-introduction">I. Introduction</h2>
@@ -462,7 +464,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {

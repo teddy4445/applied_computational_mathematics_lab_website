@@ -99,7 +99,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -150,7 +150,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/break_a_lag.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.1007/s10994-025-06992-x" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -171,6 +171,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1 Introduction</a></li><li class="toc-sub"><a href="#22-double-exponential-moving-average-dema">2.2 Double Exponential Moving Average (DEMA)</a></li><li class="toc-sub"><a href="#23-triple-exponential-moving-average-tema">2.3 Triple Exponential Moving Average (TEMA)</a></li><li class="toc-sub"><a href="#24-generalized-k-th-order-exponential-moving-average">2.4 Generalized k-th Order Exponential Moving Average</a></li><li class="toc-sub"><a href="#25-fame-intuition">2.5 FAME Intuition</a></li><li class="toc-sub"><a href="#26-formulation-of-fame">2.6 Formulation of FAME</a></li>
 <li><a href="#3-experiments">3 Experiments</a></li><li class="toc-sub"><a href="#31-experimental-data">3.1 Experimental Data</a></li><li class="toc-sub"><a href="#32-implementation-details">3.2 Implementation Details</a></li>
 <li><a href="#4-results">4 Results</a></li><li class="toc-sub"><a href="#41-image-classification">4.1 Image Classification</a></li><li class="toc-sub"><a href="#42-object-detection">4.2 Object Detection</a></li><li class="toc-sub"><a href="#43-semantic-segmentation">4.3 Semantic Segmentation</a></li><li class="toc-sub"><a href="#44-robustness-across-datasets-models-and-weight-initializations">4.4 Robustness across Datasets, models, and Weight Initializations</a></li><li class="toc-sub"><a href="#45-ablation-study">4.5 Ablation Study</a></li><li class="toc-sub"><a href="#46-sensitivity-to-hyper-parameters-tuning">4.6 Sensitivity to Hyper-parameters Tuning</a></li><li class="toc-sub"><a href="#47-memory-cost-and-computational-efficiency">4.7 Memory Cost and Computational Efficiency</a></li><li class="toc-sub"><a href="#48-convergence-analysis">4.8 Convergence Analysis</a></li>
@@ -190,6 +191,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-introduction">1 Introduction</a></li><li class="toc-sub"><a href="#22-double-exponential-moving-average-dema">2.2 Double Exponential Moving Average (DEMA)</a></li><li class="toc-sub"><a href="#23-triple-exponential-moving-average-tema">2.3 Triple Exponential Moving Average (TEMA)</a></li><li class="toc-sub"><a href="#24-generalized-k-th-order-exponential-moving-average">2.4 Generalized k-th Order Exponential Moving Average</a></li><li class="toc-sub"><a href="#25-fame-intuition">2.5 FAME Intuition</a></li><li class="toc-sub"><a href="#26-formulation-of-fame">2.6 Formulation of FAME</a></li>
 <li><a href="#3-experiments">3 Experiments</a></li><li class="toc-sub"><a href="#31-experimental-data">3.1 Experimental Data</a></li><li class="toc-sub"><a href="#32-implementation-details">3.2 Implementation Details</a></li>
 <li><a href="#4-results">4 Results</a></li><li class="toc-sub"><a href="#41-image-classification">4.1 Image Classification</a></li><li class="toc-sub"><a href="#42-object-detection">4.2 Object Detection</a></li><li class="toc-sub"><a href="#43-semantic-segmentation">4.3 Semantic Segmentation</a></li><li class="toc-sub"><a href="#44-robustness-across-datasets-models-and-weight-initializations">4.4 Robustness across Datasets, models, and Weight Initializations</a></li><li class="toc-sub"><a href="#45-ablation-study">4.5 Ablation Study</a></li><li class="toc-sub"><a href="#46-sensitivity-to-hyper-parameters-tuning">4.6 Sensitivity to Hyper-parameters Tuning</a></li><li class="toc-sub"><a href="#47-memory-cost-and-computational-efficiency">4.7 Memory Cost and Computational Efficiency</a></li><li class="toc-sub"><a href="#48-convergence-analysis">4.8 Convergence Analysis</a></li>
@@ -202,7 +204,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>The performance of deep learning models hinges on the effectiveness of their optimization strategies, yet existing methods remain fundamentally constrained. Many optimizers rely on first-order Exponential Moving Average (EMA) techniques, which struggle to accurately track complex gradient trends, resulting in a lag in trend identification and suboptimal convergence. To overcome this critical limitation, we introduce Fast Adaptive Moment Estimation (FAME), a novel optimizer that harnesses the power of Triple Exponential Moving Average (TEMA). By inherently integrating a multi-level tracking mechanism, FAME significantly enhances gradient responsiveness, mitigates trend lag, and maximizes learning efficiency. Our extensive evaluation spans diverse computer vision tasks-including image classification, object detection, and semantic segmentation-incorporating FAME into 22 distinct architectures, from lightweight CNNs to cutting-edge Vision Transformers. Rigorous benchmarking against state-of-the-art optimizers confirms FAME’s superiority in accuracy, stability, and robustness. Notably, FAME excels in scalability, demonstrating consistent and substantial performance gains across architectures, tasks, and datasets, positioning it as a powerful optimizer for computer vision.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="oT5gmaWAfmI" data-yt-title="FAME: a neural network optimizer that breaks the lag"><a class="yt-play" href="https://www.youtube.com/shorts/oT5gmaWAfmI" aria-label="Play video: FAME: a neural network optimizer that breaks the lag"><img src="https://i.ytimg.com/vi/oT5gmaWAfmI/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/oT5gmaWAfmI/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">FAME: a neural network optimizer that breaks the lag</p><p>Popular optimizers smooth the noisy gradient with a moving average, which notices changes in trend late. FAME (Fast Adaptive Moment Estimation) uses a triple exponential moving average, which tracks trends with less lag. Tested on 22 architectures, from small convolutional networks to vision transformers, on classification, detection and segmentation, it gave the best results in 88.46% of the models&#x27; experiments and needed 23.7% fewer training epochs, at about 3% more memory and computation per epoch. Computer vision tasks only.</p><p class="paper-video-more"><a href="/videos.html#v-oT5gmaWAfmI">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/oT5gmaWAfmI" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <h2 id="1-introduction">1 Introduction</h2>
@@ -476,7 +478,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {

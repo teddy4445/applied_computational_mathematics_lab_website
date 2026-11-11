@@ -87,7 +87,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -138,7 +138,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/table_to_graph.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.1038/s41598-026-53882-w" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -159,6 +159,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#related-work">Related work</a></li>
 <li><a href="#data-representation-and-symbolic-regression-fitting-procedure">Data representation and symbolic regression fitting procedure</a></li><li class="toc-sub"><a href="#graph-representation-construction">Graph representation construction</a></li><li class="toc-sub"><a href="#latent-space-learning">Latent space learning</a></li><li class="toc-sub"><a href="#symbolic-regression-fitting-procedure">Symbolic regression fitting procedure</a></li><li class="toc-sub"><a href="#computational-complexity">Computational complexity</a></li>
 <li><a href="#experiments">Experiments</a></li><li class="toc-sub"><a href="#baseline-models">Baseline models</a></li><li class="toc-sub"><a href="#datasets">Datasets</a></li><li class="toc-sub"><a href="#experiments_1">Experiments</a></li><li class="toc-sub"><a href="#graph-embedding-implementation">Graph embedding implementation</a></li>
@@ -180,6 +181,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#related-work">Related work</a></li>
 <li><a href="#data-representation-and-symbolic-regression-fitting-procedure">Data representation and symbolic regression fitting procedure</a></li><li class="toc-sub"><a href="#graph-representation-construction">Graph representation construction</a></li><li class="toc-sub"><a href="#latent-space-learning">Latent space learning</a></li><li class="toc-sub"><a href="#symbolic-regression-fitting-procedure">Symbolic regression fitting procedure</a></li><li class="toc-sub"><a href="#computational-complexity">Computational complexity</a></li>
 <li><a href="#experiments">Experiments</a></li><li class="toc-sub"><a href="#baseline-models">Baseline models</a></li><li class="toc-sub"><a href="#datasets">Datasets</a></li><li class="toc-sub"><a href="#experiments_1">Experiments</a></li><li class="toc-sub"><a href="#graph-embedding-implementation">Graph embedding implementation</a></li>
@@ -194,7 +196,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>Symbolic Regression (SR) is a powerful technique for discovering analytical mathematical expressions that describe observed numerical data. Traditionally, SR models work on data in tabular form, imposing a purely functional mapping without considering the underlying spatio-temporal dependencies or the governing physical laws. Such approaches are ill-suited for physical problems, where data evolves dynamically across time and space and is governed by ordinary/partial differential equations (ODEs/PDEs). Moreover, as SR are commonly measured by their ability to obtain generalized equations from a relatively small amount of data, representing the data efficiently plays a central role in the performance of such models. In this study, we propose a simple yet powerful solver-agnostic approach for SR fitting by using a dual representation — one that preserves explainability, while the other is physically informed. Our main novelty lies in combining the standard tabular representation with a graph-based spatio-temporal representation in a unified SR fitting framework that can enhance existing SR solvers without modifying their internal search mechanism. Namely, the method uses both tabular and graph-based data representation, where nodes in the graph are associated with spatio-temporal coordinates and dynamic state variables, while edges encode spatial or temporal dependencies. This approach allows for the direct generation of differential equations that describe the underlying physical system by implicitly incorporating spatio-temporal patterns and constraints. Benchmarks across multiple synthetic datasets originated from functional, ordinary/partial different equations (O/PDE), integral, and delayed ODE, demonstrate the ability of the proposed method to recover governing equations with high accuracy, even in noisy settings, improving a wide range of SR out-of-the box. These results indicate that enriching SR with graph-based spatio-temporal structure provides a practical pathway toward more robust and physically consistent equation discovery. At the same time, the current framework assumes that a meaningful spatio-temporal neighborhood structure can be constructed and is validated primarily on controlled synthetic benchmark systems.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="CGkjCzMdp0k" data-yt-title="What if equation-finding AI could see the neighbors?"><a class="yt-play" href="https://www.youtube.com/shorts/CGkjCzMdp0k" aria-label="Play video: What if equation-finding AI could see the neighbors?"><img src="https://i.ytimg.com/vi/CGkjCzMdp0k/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/CGkjCzMdp0k/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">What if equation-finding AI could see the neighbors?</p><p>Symbolic regression searches for a formula that explains data, but usually treats every row of a table as independent, while in physics a point depends on its neighbors in space and time. We add a second representation, a graph whose nodes are places and moments, turned into extra features by a graph neural network that any symbolic regression tool can use unchanged. Across ten tools and ten physics equations, results improved or matched for every tool, mostly by 1 to 3%, and errors grew up to 10 to 15% more slowly with noisy data. Tested on synthetic benchmarks.</p><p class="paper-video-more"><a href="/videos.html#v-CGkjCzMdp0k">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/CGkjCzMdp0k" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <p>The pursuit of mathematical models that capture the governing principles of natural and engineered systems is a cornerstone of scientific inquiry<sup><a href="#ref-1">1</a>–<a href="#ref-5">5</a></sup>. Across disciplines such as physics<sup><a href="#ref-6">6</a></sup>, biology<sup><a href="#ref-7">7</a></sup>, and economics<sup><a href="#ref-8">8</a></sup>, researchers aim to identify concise and interpretable formulations that describe observed dynamics. To be exact, scientific inquiry, from as early as Isaac Newton, proceeds through a three-step cycle of observation, hypothesis generation, and hypothesis validation<sup><a href="#ref-9">9</a>,<a href="#ref-10">10</a></sup>. Traditionally, researchers begin by collecting data about the world (observation), which they then use to develop explanatory hypotheses (hypothesis generation). A good hypothesis is required to allow for extrapolation and the prediction of new data within the observed system during the hypothesis validation stage<sup><a href="#ref-11">11</a>–<a href="#ref-13">13</a></sup>. Modern science, in general, and modern exact science, in particular, is based on an equation-based formalization of hypothesis<sup><a href="#ref-14">14</a>,<a href="#ref-15">15</a></sup>. This process, more often than not, requires a comprehensive understanding of a field, deep familiarity with the collected observations, and a decent amount of creativity and mathematical expertise<sup><a href="#ref-16">16</a>,<a href="#ref-17">17</a></sup>.</p>
@@ -568,7 +570,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {

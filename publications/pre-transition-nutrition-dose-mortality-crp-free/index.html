@@ -122,7 +122,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/paper.css" rel="stylesheet">
       
@@ -173,7 +173,7 @@
         <div class="paper-actions">
           <a class="paper-btn paper-btn-primary" href="https://teddylazebnik.com/files/espen.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>Download PDF</a>
           <a class="paper-btn" href="#abstract"><i class="ri-article-line" aria-hidden="true"></i>Read the paper</a>
-          
+          <a class="paper-btn" href="#video"><i class="ri-play-circle-line" aria-hidden="true"></i>Video</a>
           <button type="button" class="paper-btn" data-dialog="cite-dialog"><i class="ri-double-quotes-l" aria-hidden="true"></i>Cite</button>
           <a class="paper-btn" href="https://doi.org/10.1016/j.clnesp.2026.103431" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Journal page</a>
           <button type="button" class="paper-btn paper-btn-quiet" id="share-btn"><i class="ri-share-line" aria-hidden="true"></i><span>Share</span></button>
@@ -194,6 +194,7 @@
           <p class="aside-title">On this page</p>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-background">1. Background</a></li>
 <li><a href="#2-methods">2. Methods</a></li><li class="toc-sub"><a href="#21-study-design-and-data-source">2.1. Study design and data source</a></li><li class="toc-sub"><a href="#22-derivation-bridge-and-transport-ready-specification">2.2. Derivation bridge and transport-ready specification</a></li><li class="toc-sub"><a href="#23-transported-transition-rule">2.3. Transported transition rule</a></li><li class="toc-sub"><a href="#24-nutrition-extraction-and-exposure-definitions">2.4. Nutrition extraction and exposure definitions</a></li><li class="toc-sub"><a href="#25-primary-pooled-sequential-landmark-framework">2.5. Primary pooled sequential landmark framework</a></li><li class="toc-sub"><a href="#26-secondary-descriptive-exact-window-family">2.6. Secondary descriptive exact-window family</a></li>
 <li><a href="#3-results">3. Results</a></li><li class="toc-sub"><a href="#31-cohort-and-analytic-populations">3.1. Cohort and analytic populations</a></li><li class="toc-sub"><a href="#32-performance-of-the-transported-transition-specification-in">3.2. Performance of the transported transition specification in</a></li><li class="toc-sub"><a href="#33-primary-pooled-sequential-landmark-analysis">3.3. Primary pooled sequential landmark analysis</a></li><li class="toc-sub"><a href="#34-sensitivity-analyses-and-weighting-diagnostics">3.4. Sensitivity analyses and weighting diagnostics</a></li><li class="toc-sub"><a href="#35-locked-descriptive-exact-window-family">3.5. Locked descriptive exact-window family</a></li>
@@ -224,6 +225,7 @@
           <summary>On this page</summary>
           <ol>
 <li><a href="#abstract">Abstract</a></li>
+<li><a href="#video">Video</a></li>
 <li><a href="#1-background">1. Background</a></li>
 <li><a href="#2-methods">2. Methods</a></li><li class="toc-sub"><a href="#21-study-design-and-data-source">2.1. Study design and data source</a></li><li class="toc-sub"><a href="#22-derivation-bridge-and-transport-ready-specification">2.2. Derivation bridge and transport-ready specification</a></li><li class="toc-sub"><a href="#23-transported-transition-rule">2.3. Transported transition rule</a></li><li class="toc-sub"><a href="#24-nutrition-extraction-and-exposure-definitions">2.4. Nutrition extraction and exposure definitions</a></li><li class="toc-sub"><a href="#25-primary-pooled-sequential-landmark-framework">2.5. Primary pooled sequential landmark framework</a></li><li class="toc-sub"><a href="#26-secondary-descriptive-exact-window-family">2.6. Secondary descriptive exact-window family</a></li>
 <li><a href="#3-results">3. Results</a></li><li class="toc-sub"><a href="#31-cohort-and-analytic-populations">3.1. Cohort and analytic populations</a></li><li class="toc-sub"><a href="#32-performance-of-the-transported-transition-specification-in">3.2. Performance of the transported transition specification in</a></li><li class="toc-sub"><a href="#33-primary-pooled-sequential-landmark-analysis">3.3. Primary pooled sequential landmark analysis</a></li><li class="toc-sub"><a href="#34-sensitivity-analyses-and-weighting-diagnostics">3.4. Sensitivity analyses and weighting diagnostics</a></li><li class="toc-sub"><a href="#35-locked-descriptive-exact-window-family">3.5. Locked descriptive exact-window family</a></li>
@@ -247,7 +249,7 @@
           <h2 id="abstract-heading">Abstract</h2>
           <p>Background and aims. A physiology-based framework to identify transition from early catabolism toward recovery was previously derived using a steroid-corrected insulin-resistance index (IRI) and concordant recovery criteria. For external testing in MIMIC-IV, we prespecified a C-reactive protein–free operational rule requiring a ≥40% post-peak IRI decline and ≥3 concordant non-CRP criteria, and asked whether the pre-transition feeding pattern seen in derivation could be reproduced. Methods. We performed a retrospective MIMIC-IV re-implementation. After adult/eligible stay filtering, ICU length of stay ≥2 days, candidate intravenous insulin exposure, and exclusion of stays with no analyzable insulin segments, missing weight, or fewer than 3 glucose values, 8732 stays remained. The primary analysis pooled fed stay-day rows from transitioned stays on ICU days 3–7 whose prior 24-h nutrition window lay wholly before the model-derived transition time and compared high dose (≥0.8 kcal/kg/h) with lower fed exposure using parsimonious sequential-landmark models. Overlap weighting was prespecified as an adjusted secondary analysis to improve measured covariate balance; secondary sensitivity analyses tested alternative covariate sets and EN-only restriction. Results. Of 8732 retained stays, the transported 40%/3-of-7 C-reactive protein–free rule detected transition in 4836 (55.4%). Quantified enteral/parenteral nutrition rows were available in 2765 stays overall and in 2066 transitioned stays. The primary pooled risk set comprised 2015 fed pre-transition stay-day rows contributed by 741 transitioned stays, including 303 high-dose rows from 165 stays. High recent dose was associated with higher 90-day mortality in crude analysis (OR 1.52, 95% CI 1.19–1.94), after parsimonious adjustment (1.62, 1.11–2.37), and after overlap weighting (1.54, 1.08–2.21). The 28-day endpoint was directionally similar, although the overlap-weighted estimate did not reach conventional significance (1.45, 0.99–2.11; p = 0.057). High-dose rows had lower APACHE II than lower-dose rows (27 [22–32] vs 29 [23–34]) despite identical day-1 SOFA. In descriptive exact-window analyses, signals remained concentrated in the 0–72 h preceding transition. Conclusions. In this restricted subcohort of transitioned stays with quantified enteral/parenteral nutrition exposure, higher recent dose within windows lying wholly before model-derived metabolic transition was associated with higher subsequent mortality after sequential-landmark adjustment and overlap weighting. These findings provide hypothesis-generating external support for a transition-guided nutrition framework but do not establish that modifying nutrition dose before transition would improve outcomes. Prospective validation and interventional testing are required before this approach can inform bedside feeding decisions.</p>
         </section>
-        
+        <section id="video" class="paper-video" data-pagefind-ignore><h2>Watch the explainer</h2><div class="paper-video-card is-short"><div class="yt-player yt-9x16" data-yt-id="J5I89-WMfBE" data-yt-title="An ICU feeding warning sign holds up in a second country"><a class="yt-play" href="https://www.youtube.com/shorts/J5I89-WMfBE" aria-label="Play video: An ICU feeding warning sign holds up in a second country"><img src="https://i.ytimg.com/vi/J5I89-WMfBE/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/J5I89-WMfBE/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div class="paper-video-text"><p class="paper-video-title">An ICU feeding warning sign holds up in a second country</p><p>A rule built in Israel spots when a critically ill body switches from breaking down to recovery, using insulin resistance and recovery signs including C-reactive protein. In a large US database, CRP was recorded in only 3.7% of stays, so we set a stricter rule without it. Across 8,732 ICU stays it found a switch in 55.4%, and heavy feeding before the switch was linked to about 1.5 times the odds of death within 90 days (1.52 crude, 1.62 adjusted, 1.54 weighted). An association that supports the idea, not proof that feeding less saves lives.</p><p class="paper-video-more"><a href="/videos.html#v-J5I89-WMfBE">More videos from the lab</a> · <a href="https://www.youtube.com/shorts/J5I89-WMfBE" target="_blank" rel="noopener">Watch on YouTube</a></p></div></div></section>
         
 <div class="paper-text">
 <h2 id="1-background">1. Background</h2>
@@ -458,7 +460,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/paper-page.js" defer></script>
       <script>
         (function () {
