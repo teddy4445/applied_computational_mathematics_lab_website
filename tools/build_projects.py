@@ -15,6 +15,7 @@ image (share.jpg) per project. Run it after build_papers.py whenever the data ch
     python tools/build_projects.py
 """
 import collections
+import difflib
 import datetime as dt
 import json
 import re
@@ -236,6 +237,41 @@ def team_lists(p, data):
 def topic_words(text):
     """Lower-case a category for use inside a sentence, keeping acronyms (AI, ML) as they are."""
     return ' '.join(w if len(w) > 1 and w.isupper() else w.lower() for w in str(text).split())
+
+
+def author_count(papers):
+    """How many different people wrote the given papers (every author, lab members included).
+    Two spellings are one person when the first names agree and the surnames match or differ by a typo
+    ("Orr Spiegel" / "Orr Spigel"), or when first and last name are swapped ("Vardi Noa"). An initial alone
+    ("A. Rosenfeld") is folded into a person only when it can mean just one."""
+    full, initials = [], set()
+    for m in papers:
+        for a in m['names']:
+            parts = plain_name(a).replace('.', ' ').split()
+            if not parts:
+                continue
+            first, last = norm(parts[0]), (norm(parts[-1]) if len(parts) > 1 else '')
+            if len(first) <= 2 and last:
+                initials.add((first[:1], last))
+            else:
+                full.append((first, last))
+    def same(a, b):
+        if a == b:
+            return True
+        if a[0] == b[0] and a[1] and b[1]:
+            return a[1][:7] == b[1][:7] or difflib.SequenceMatcher(None, a[1], b[1]).ratio() >= 0.85
+        return bool(a[1]) and a[0] == b[1] and a[1] == b[0]
+    people = []
+    for name in dict.fromkeys(full):
+        if not any(same(name, x) for group in people for x in group):
+            people.append([name])
+        else:
+            next(group for group in people if any(same(name, x) for x in group)).append(name)
+    extra = 0
+    for initial, last in initials:
+        hits = [g for g in people if any(x[0][:1] == initial and x[1][:7] == last[:7] for x in g)]
+        extra += len(hits) != 1
+    return len(people) + extra
 
 
 def coauthors(p, data, exclude):
@@ -558,13 +594,12 @@ def update_project_list(built):
         more = f'<span>+{len(people) - 7}</span>' if len(people) > 7 else ''
         counts = [f'<span><i class="ri-article-line" aria-hidden="true"></i>{plural(len(b["papers"]), "paper")}</span>' if b['papers'] else '',
                   f'<span><i class="ri-team-line" aria-hidden="true"></i>{plural(len(people), "lab member")}</span>',
-                  f'<span><i class="ri-play-circle-line" aria-hidden="true"></i>{plural(len(b["videos"]), "video")}</span>' if b['videos'] else '']
+                  f'<span><i class="ri-group-line" aria-hidden="true"></i>{plural(author_count(b["papers"]), "collaborator")}</span>' if b['papers'] else '']
         tags = ''.join(f'<span class="proj-tag">{esc(t)}</span>' for t in b['tags'][:5])
         href = f'/projects/{b["slug"]}/'
         cards.append(f'''      <article class="pl-card">
         <a class="pl-media" href="{href}" tabindex="-1" aria-hidden="true"><img src="/{esc(b["image"])}" alt="" loading="lazy" decoding="async"></a>
         <div>
-          <p class="pl-meta"><span>{esc(b["category"])}</span></p>
           <h3 class="pl-title"><a href="{href}">{esc(b["title"])}</a></h3>
           <p class="pl-summary">{esc(b["summary"] or b["subtitle"])}</p>
           <p class="pl-counts">{"".join(c for c in counts if c)}</p>
