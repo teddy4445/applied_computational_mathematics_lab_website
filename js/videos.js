@@ -24,7 +24,9 @@
   const isEducational = (video) => video.section === 'educational';
   const isNaturesAlgorithms = (video) => video.section === 'natures-algorithms';
   const isMathematicsOfBeauty = (video) => video.section === 'mathematics-of-beauty';
-  const isSeries = (video) => isNaturesAlgorithms(video) || isMathematicsOfBeauty(video);
+  const isEstimateIt = (video) => video.section === 'estimate-it';
+  const isAcademiaDecoded = (video) => video.section === 'academia-decoded';
+  const isSeries = (video) => isNaturesAlgorithms(video) || isMathematicsOfBeauty(video) || isEstimateIt(video) || isAcademiaDecoded(video);
   const watchUrl = (video) => (isShort(video) ? `https://www.youtube.com/shorts/${video.id}` : `https://www.youtube.com/watch?v=${video.id}`);
   const embedUrl = (id) => `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?autoplay=1&rel=0&playsinline=1`;
 
@@ -191,14 +193,16 @@
     const eduGrid = document.getElementById('videos-educational');
     const natureGrid = document.getElementById('videos-natures-algorithms');
     const beautyGrid = document.getElementById('videos-mathematics-of-beauty');
-    if (!longGrid && !shortGrid && !eduGrid && !natureGrid && !beautyGrid) return;
+    const estimateGrid = document.getElementById('videos-estimate-it');
+    const academiaGrid = document.getElementById('videos-academia-decoded');
+    if (!longGrid && !shortGrid && !eduGrid && !natureGrid && !beautyGrid && !estimateGrid && !academiaGrid) return;
 
     let videos = [];
     try {
       videos = await loadVideos();
     } catch (error) {
       console.error(error);
-      const target = longGrid || shortGrid || eduGrid || natureGrid || beautyGrid;
+      const target = longGrid || shortGrid || eduGrid || natureGrid || beautyGrid || estimateGrid || academiaGrid;
       target.innerHTML = `<div class="video-load-error">Videos could not be loaded. Check that <code>${esc(DATA_URL)}</code> exists and is valid JSON.</div>`;
       return;
     }
@@ -209,7 +213,9 @@
       [shortGrid, videos.filter((video) => isShort(video) && !isEducational(video) && !isSeries(video)), 'videos-shorts-count'],
       [eduGrid, videos.filter(isEducational), 'videos-educational-count'],
       [natureGrid, videos.filter(isNaturesAlgorithms).sort((a, b) => a.episode - b.episode), 'videos-natures-algorithms-count'],
-      [beautyGrid, videos.filter(isMathematicsOfBeauty).sort((a, b) => a.episode - b.episode), 'videos-mathematics-of-beauty-count']
+      [beautyGrid, videos.filter(isMathematicsOfBeauty).sort((a, b) => a.episode - b.episode), 'videos-mathematics-of-beauty-count'],
+      [estimateGrid, videos.filter(isEstimateIt).sort((a, b) => a.episode - b.episode), 'videos-estimate-it-count'],
+      [academiaGrid, videos.filter(isAcademiaDecoded).sort((a, b) => a.episode - b.episode), 'videos-academia-decoded-count']
     ];
 
     groups.forEach(([grid, list, countId]) => {
