@@ -61,7 +61,7 @@ The site has a `.nojekyll` file so that GitHub Pages publishes the files as they
 
 ## Project pages
 
-Every research project has its own page at `projects/<slug>/` (plain HTML, so search engines read it in full). A page has an overview, methods and outcomes, selected findings from the latest papers, all the project's papers by year (with a filter box and a papers-per-year chart, each linked to its paper page), the team (current members, past members, collaborators and frequent co-authors), a timeline, videos, media coverage, tools and related projects. The project list on `projects.html` is made from the same data. `project.html` only forwards old `project.html?pagename=<slug>` links to the new pages.
+Every research project has its own page at `projects/<slug>/` (plain HTML, so search engines read it in full). A page has an overview, methods and outcomes, selected findings from the latest papers, all the project's papers by year (with a filter box and a papers-per-year chart, each linked to its paper page), the team (current members, past members, collaborators and frequent co-authors: researchers outside the lab with three or more of the project's papers, set by `FREQUENT` in `tools/build_projects.py`), a timeline, videos, media coverage, tools and related projects. The project list on `projects.html` is made from the same data; the numbers at its top (projects, papers, lab members) are recounted from the data files each time the page loads (`js/projects-stats.js`), and the built numbers are only a fallback. `project.html` only forwards old `project.html?pagename=<slug>` links to the new pages.
 
 Everything comes from `data/projects-info.json`:
 

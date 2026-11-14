@@ -30,7 +30,7 @@
             "name": "Applied Computational Mathematics Laboratory",
             "url": "https://acml.teddylazebnik.com/"
           },
-          "sameAs": "https://www.youtube.com/@teddylazebnik"
+          "sameAs": "https://www.youtube.com/@acm-lab"
         }
       </script>
       <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -91,7 +91,7 @@
           Our research in motion: short explainers of our papers, four series — The Mathematics of Beauty, Nature's Algorithms, Estimate It and Academia Decoded — and educational shorts.
         </p>
         <div class="mt-8">
-          <a href="https://www.youtube.com/@teddylazebnik" target="_blank" rel="noopener" class="videos-channel-link">
+          <a href="https://www.youtube.com/@acm-lab" target="_blank" rel="noopener" class="videos-channel-link">
             <i class="ri-youtube-fill" aria-hidden="true"></i> Subscribe on YouTube
           </a>
         </div>
@@ -99,23 +99,42 @@
     </div>
   </section>
 
-  <!-- Shorts (9:16) -->
-  <section id="research-shorts" class="pb-16 bg-white" aria-labelledby="videos-shorts-title">
+  <!-- Find a video: search box, topic and section filters (wired up in js/videos.js) -->
+  <section id="video-finder" class="bg-white" aria-label="Find a video">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="videos-section-head">
-        <h2 id="videos-shorts-title" class="text-2xl font-bold text-gray-900">Shorts</h2>
-        <span id="videos-shorts-count" class="videos-count" aria-label="number of shorts"></span>
+      <div class="vf-panel" role="search">
+        <div class="vf-row">
+          <label class="vf-search">
+            <i class="ri-search-line" aria-hidden="true"></i>
+            <input id="vf-q" type="search" placeholder="Search by title, topic, summary or paper" aria-label="Search the videos by title, topic, summary or paper" autocomplete="off" enterkeyhint="search">
+          </label>
+          <label class="vf-select">
+            <span class="vf-label">Topic</span>
+            <select id="vf-topic" aria-label="Filter the videos by topic"><option value="">All topics</option></select>
+          </label>
+          <button type="button" id="vf-clear" class="vf-clear" hidden><i class="ri-close-line" aria-hidden="true"></i>Clear</button>
+        </div>
+        <div class="vf-chips" role="group" aria-label="Show one section">
+          <button type="button" class="vf-chip is-active" data-vf-section="" aria-pressed="true">All</button>
+          <button type="button" class="vf-chip" data-vf-section="explainers" aria-pressed="false">Explainers</button>
+          <button type="button" class="vf-chip" data-vf-section="mathematics-of-beauty" aria-pressed="false">The Mathematics of Beauty</button>
+          <button type="button" class="vf-chip" data-vf-section="natures-algorithms" aria-pressed="false">Nature's Algorithms</button>
+          <button type="button" class="vf-chip" data-vf-section="estimate-it" aria-pressed="false">Estimate It</button>
+          <button type="button" class="vf-chip" data-vf-section="academia-decoded" aria-pressed="false">Academia Decoded</button>
+          <button type="button" class="vf-chip" data-vf-section="educational" aria-pressed="false">Educational</button>
+          <button type="button" class="vf-chip" data-vf-section="research-shorts" aria-pressed="false">Shorts</button>
+        </div>
+        <p id="vf-status" class="vf-status" aria-live="polite"></p>
       </div>
-      <p class="videos-section-note">One-minute explainers of our papers, each linked to the paper behind it.</p>
-      <div id="videos-shorts" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
-      <noscript>
-        <p class="text-gray-600">Enable JavaScript to play the videos here, or watch them on our <a href="https://www.youtube.com/@teddylazebnik">YouTube channel</a>.</p>
-      </noscript>
+      <div id="vf-empty" class="vf-empty" hidden>
+        <i class="ri-search-eye-line" aria-hidden="true"></i>
+        <p>No video matches these filters. Try other words, another topic, or <button type="button" class="vf-reset">show all videos</button>.</p>
+      </div>
     </div>
   </section>
 
   <!-- Explainers (16:9) -->
-  <section class="pb-16 bg-white" aria-labelledby="videos-long-title">
+  <section id="explainers" class="pb-16 bg-white" aria-labelledby="videos-long-title">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="videos-section-head">
         <h2 id="videos-long-title" class="text-2xl font-bold text-gray-900">Explainers</h2>
@@ -174,7 +193,7 @@
   </section>
 
   <!-- Educational (popular-science videos, not tied to a paper) -->
-  <section class="pt-4 pb-20 bg-white" aria-labelledby="videos-educational-title">
+  <section id="educational" class="pb-16 bg-white" aria-labelledby="videos-educational-title">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="videos-section-head">
         <h2 id="videos-educational-title" class="text-2xl font-bold text-gray-900">Educational</h2>
@@ -182,6 +201,20 @@
       </div>
       <p class="videos-section-note">Short popular-science videos on the math behind surprising ideas, from AI that games its reward to roads that make traffic worse.</p>
       <div id="videos-educational" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+    </div>
+  </section>
+  <!-- Shorts (9:16) -->
+  <section id="research-shorts" class="pb-20 bg-white" aria-labelledby="videos-shorts-title">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="videos-section-head">
+        <h2 id="videos-shorts-title" class="text-2xl font-bold text-gray-900">Shorts</h2>
+        <span id="videos-shorts-count" class="videos-count" aria-label="number of shorts"></span>
+      </div>
+      <p class="videos-section-note">One-minute explainers of our papers, each linked to the paper behind it.</p>
+      <div id="videos-shorts" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+      <noscript>
+        <p class="text-gray-600">Enable JavaScript to play the videos here, or watch them on our <a href="https://www.youtube.com/@acm-lab">YouTube channel</a>.</p>
+      </noscript>
     </div>
   </section>
 </main>

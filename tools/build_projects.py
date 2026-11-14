@@ -31,6 +31,7 @@ MARK_START, MARK_END = 'project pages: start (made by tools/build_projects.py)',
 LIST_START, LIST_END = 'project list: start (made by tools/build_projects.py)', 'project list: end'
 STATS_START, STATS_END = 'project stats: start (made by tools/build_projects.py)', 'project stats: end'
 MONTHS = 'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split()
+FREQUENT, FREQUENT_WORD = 3, 'three'   # a 'frequent co-author' wrote at least this many of a project's papers
 TITLE_RE = re.compile(r'^(Prof\.|Dr\.|Mr\.|Ms\.|Mrs\.)\s+')
 RANKS = [('pi', 0), ('post', 1), ('lab manager', 1), ('phd', 2), ('msc', 3), ('master', 3), ('bsc', 4), ('bachelor', 4), ('research assistant', 5)]
 METHOD_RE = re.compile(r'^(We (used|tested|studied|built|collected|analy[sz]ed|developed|applied|compared|ran|surveyed|recorded)|Data (came|were|was)|Using |The (data|dataset|study) )', re.I)
@@ -232,8 +233,13 @@ def team_lists(p, data):
     return current, past, collab
 
 
+def topic_words(text):
+    """Lower-case a category for use inside a sentence, keeping acronyms (AI, ML) as they are."""
+    return ' '.join(w if len(w) > 1 and w.isupper() else w.lower() for w in str(text).split())
+
+
 def coauthors(p, data, exclude):
-    """People outside the lab who co-wrote two or more of the project's papers."""
+    """People outside the lab who co-wrote three or more of the project's papers (frequent co-authors)."""
     counts, names = collections.Counter(), collections.defaultdict(collections.Counter)
     for m in p['_papers']:
         seen = set()
@@ -247,7 +253,7 @@ def coauthors(p, data, exclude):
             seen.add(key)
             counts[key] += 1
             names[key][a] += 1
-    return [(names[k].most_common(1)[0][0], n) for k, n in counts.most_common() if n >= 2][:16]
+    return [(names[k].most_common(1)[0][0], n) for k, n in counts.most_common() if n >= FREQUENT][:16]
 
 
 def member_card(x):
@@ -315,9 +321,10 @@ def build_one(p, data, template):
     papers_label = p.get('papers_label') or 'Publications'
 
     # hero
-    stats = [(len(papers), 'publications' if papers_label == 'Publications' else 'related papers'),
-             (len(lab_people), 'lab members, current and past'),
-             (len(others) + len(collab), 'collaborators and frequent co-authors')]
+    n_papers, n_lab, n_collab = len(papers), len(lab_people), len(others) + len(collab)
+    stats = [(n_papers, ('publication' if n_papers == 1 else 'publications') if papers_label == 'Publications' else ('related paper' if n_papers == 1 else 'related papers')),
+             (n_lab, 'lab member, current or past' if n_lab == 1 else 'lab members, current and past'),
+             (n_collab, 'collaborator or frequent co-author' if n_collab == 1 else 'collaborators and frequent co-authors')]
     if years:
         stats.append((f'{years[0]}–{years[-1]}' if years[0] != years[-1] else str(years[0]), 'years of papers'))
     stats = [(v, t) for v, t in stats if v not in (0, '0', '', '–')]
@@ -451,7 +458,7 @@ def build_one(p, data, template):
         team_parts.append(f'<div class="team-group"><h3 class="proj-h3">Collaborators <small>{len(collab)}</small></h3><div class="team-grid">{"".join(member_card(x) for x in collab)}</div></div>')
     if others:
         chips = ''.join(f'<span class="coauthor">{esc(n)} <small>{plural(c, "paper")}</small></span>' for n, c in others)
-        team_parts.append(f'<div class="team-group"><h3 class="proj-h3">Frequent co-authors</h3><p class="proj-lead">Researchers outside the lab who co-wrote two or more of the papers above.</p><div class="coauthors">{chips}</div></div>')
+        team_parts.append(f'<div class="team-group"><h3 class="proj-h3">Frequent co-authors</h3><p class="proj-lead">Researchers outside the lab who co-wrote {FREQUENT_WORD} or more of the papers above.</p><div class="coauthors">{chips}</div></div>')
     add('team', 'Team', f'''      <h2 id="team-title" class="proj-h2">The team</h2>
       <p class="proj-lead">The lab members who work or worked on this project, with their part in it, and the researchers we work with. See the whole lab on the <a href="/team.html" class="text-primary">team page</a>.</p>
       <div style="margin-top:1.5rem">{"".join(team_parts)}</div>''')
@@ -484,7 +491,7 @@ def build_one(p, data, template):
       <div class="proj-grid is-3">{cards}</div>''')
     subnav = f'    <nav class="proj-subnav" aria-label="Sections of this page"><div class="proj-wrap"><ul>{"".join(menu)}</ul></div></nav>'
     cta = f'''    <div class="proj-cta"><div class="proj-cta-box">
-      <div><h2>Interested in this project?</h2><p>We welcome collaborations, data partnerships and students who want to work on {esc(p.get("category", "this topic").lower())} problems with us.</p></div>
+      <div><h2>Interested in this project?</h2><p>We welcome collaborations, data partnerships and students who want to work on {esc(topic_words(p.get("category", "this topic")))} problems with us.</p></div>
       <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="/#contact"><i class="ri-mail-send-line" aria-hidden="true"></i>Get in touch</a><a class="proj-btn" href="/projects.html"><i class="ri-apps-2-line" aria-hidden="true"></i>All projects</a></div>
     </div></div>'''
 
@@ -567,16 +574,18 @@ def update_project_list(built):
     # the numbers at the top of the page
     papers = {m['slug'] for b in built for m in b['papers']}
     people = {norm(plain_name(x['name'])) for b in built for x in b['current'] + b['past']}
-    nums = [(len(built), 'Research projects'), (len(papers), 'Papers'), (len(people), 'Lab members, current and past')]
+    nums = [(len(built), 'Research projects', 'projects'), (len(papers), 'Papers', 'papers'), (len(people), 'Lab members, current and past', 'members')]
     stats = (f'                <!-- {STATS_START} -->\n                <div class="flex items-center space-x-6 pt-4">\n' +
-             ''.join(f'                    <div class="text-center">\n                        <div class="text-3xl font-bold text-primary">{n}</div>\n'
-                     f'                        <div class="text-sm text-gray-600">{label}</div>\n                    </div>\n' for n, label in nums) +
+             ''.join(f'                    <div class="text-center">\n                        <div class="text-3xl font-bold text-primary" data-project-stat="{key}">{n}</div>\n'
+                     f'                        <div class="text-sm text-gray-600">{label}</div>\n                    </div>\n' for n, label, key in nums) +
              f'                </div>\n                <!-- {STATS_END} -->\n')
     done = replace_block(new, STATS_START, STATS_END, stats)
     if done is None:
         old = re.search(r'[ \t]*<div class="flex items-center space-x-6 pt-4">\s*(?:<div class="text-center">\s*<div[^>]*>[^<]*</div>\s*<div[^>]*>[^<]*</div>\s*</div>\s*)+</div>[ \t]*\n', new)
         done = new[:old.start()] + stats + new[old.end():] if old else new
     new = done
+    if '/js/projects-stats.js' not in new:   # recounts the numbers above from the data files when the page loads
+        new = new.replace('</body>', '    <script src="/js/projects-stats.js" defer></script>\n</body>', 1)
     if '/css/project.css' not in new:
         new = new.replace('<link href="css/tailwind.css" rel="stylesheet">', '<link href="css/tailwind.css" rel="stylesheet">\n      <link href="/css/project.css" rel="stylesheet">', 1)
     # the list in the page's structured data

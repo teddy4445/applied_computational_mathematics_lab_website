@@ -4,6 +4,7 @@
      YouTube cookies are set before that (privacy-enhanced youtube-nocookie.com embed).
    - The Videos page (videos.html), rendered from data/videos.json.
    - A "Video" button on matching papers on the Publications page (opens a pop-up player).
+   - The search and filter panel at the top of the Videos page (#video-finder).
 */
 (() => {
   const DATA_URL = 'data/videos.json';
@@ -187,6 +188,140 @@
       </article>`;
   }
 
+  // ---- Videos page: search and filters (#video-finder) ----
+  // Free text matches the title, topic, summary and paper of a video (every word must match).
+  // The topic list and the section chips narrow it further. Sections with no match are hidden,
+  // and the filters are kept in the address (?q=…&topic=…&section=…) so a filtered view can be shared.
+  const searchText = (value) => String(value ?? '').normalize('NFKD').replace(/[̀-ͯ]/g, '').toLowerCase();
+
+  function setupFinder(groups) {
+    const panel = document.getElementById('video-finder');
+    const qInput = document.getElementById('vf-q');
+    const topicSelect = document.getElementById('vf-topic');
+    if (!panel || !qInput || !topicSelect) return null;
+    const chips = Array.from(panel.querySelectorAll('[data-vf-section]'));
+    const clearButton = document.getElementById('vf-clear');
+    const status = document.getElementById('vf-status');
+    const empty = document.getElementById('vf-empty');
+
+    const sections = [];
+    const items = [];
+    groups.forEach(([grid, list, countId]) => {
+      if (!grid || !list.length) return;
+      const section = grid.closest('section');
+      const entry = { section, id: section ? section.id : '', count: document.getElementById(countId), total: list.length, items: [] };
+      list.forEach((video) => {
+        const el = document.getElementById(`v-${video.id}`);
+        if (!el) return;
+        const paper = video.paper || {};
+        const item = {
+          el,
+          topic: video.topic || '',
+          text: searchText([video.title, video.topic, video.summary, paper.title, paper.venue, video.note].join(' '))
+        };
+        entry.items.push(item);
+        items.push(item);
+      });
+      sections.push(entry);
+    });
+    const total = items.length;
+
+    // Topic list: alphabetical, with the number of videos on each topic.
+    const topicCounts = new Map();
+    items.forEach((item) => { if (item.topic) topicCounts.set(item.topic, (topicCounts.get(item.topic) || 0) + 1); });
+    Array.from(topicCounts.keys()).sort((a, b) => a.localeCompare(b)).forEach((topic) => {
+      const option = document.createElement('option');
+      option.value = topic;
+      option.textContent = `${topic} (${topicCounts.get(topic)})`;
+      topicSelect.appendChild(option);
+    });
+    // Chips for sections that have no videos are not shown.
+    const present = new Set(sections.map((entry) => entry.id));
+    chips.forEach((chip) => { if (chip.dataset.vfSection && !present.has(chip.dataset.vfSection)) chip.hidden = true; });
+
+    const state = { q: '', topic: '', section: '' };
+    const params = new URLSearchParams(location.search);
+    state.q = (params.get('q') || '').slice(0, 200);
+    state.topic = topicCounts.has(params.get('topic')) ? params.get('topic') : '';
+    state.section = present.has(params.get('section')) ? params.get('section') : '';
+    qInput.value = state.q;
+    topicSelect.value = state.topic;
+
+    function syncUrl() {
+      const next = new URLSearchParams(location.search);
+      ['q', 'topic', 'section'].forEach((key) => { if (state[key]) next.set(key, state[key]); else next.delete(key); });
+      const query = next.toString();
+      const url = `${location.pathname}${query ? `?${query}` : ''}${location.hash}`;
+      if (url !== `${location.pathname}${location.search}${location.hash}`) history.replaceState(history.state, '', url);
+    }
+
+    function apply() {
+      const words = searchText(state.q).split(/\s+/).filter(Boolean);
+      const filtered = Boolean(words.length || state.topic || state.section);
+      let shown = 0;
+      sections.forEach((entry) => {
+        let visible = 0;
+        const sectionOn = !state.section || state.section === entry.id;
+        entry.items.forEach((item) => {
+          const match = sectionOn
+            && (!state.topic || item.topic === state.topic)
+            && words.every((word) => item.text.includes(word));
+          item.el.hidden = !match;
+          if (match) {
+            visible += 1;
+            // Results of a search appear at once instead of waiting for the scroll-in animation.
+            if (filtered) item.el.classList.add('reveal-visible');
+          }
+        });
+        shown += visible;
+        if (entry.section) entry.section.hidden = visible === 0;
+        if (entry.count) entry.count.textContent = visible === entry.total ? String(entry.total) : `${visible} of ${entry.total}`;
+      });
+      chips.forEach((chip) => {
+        const on = (chip.dataset.vfSection || '') === state.section;
+        chip.classList.toggle('is-active', on);
+        chip.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+      if (clearButton) clearButton.hidden = !filtered;
+      if (empty) empty.hidden = shown > 0;
+      if (status) {
+        status.textContent = filtered
+          ? `Showing ${shown} of ${total} videos`
+          : `${total} videos. Search, or pick a topic or a section.`;
+      }
+      syncUrl();
+    }
+
+    function reset() {
+      state.q = '';
+      state.topic = '';
+      state.section = '';
+      qInput.value = '';
+      topicSelect.value = '';
+      apply();
+    }
+
+    let timer = 0;
+    qInput.addEventListener('input', () => {
+      clearTimeout(timer);
+      timer = setTimeout(() => { state.q = qInput.value.trim(); apply(); }, 150);
+    });
+    qInput.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && qInput.value) { qInput.value = ''; state.q = ''; apply(); }
+    });
+    topicSelect.addEventListener('change', () => { state.topic = topicSelect.value; apply(); });
+    chips.forEach((chip) => chip.addEventListener('click', () => {
+      const value = chip.dataset.vfSection || '';
+      state.section = state.section === value ? '' : value;
+      apply();
+    }));
+    if (clearButton) clearButton.addEventListener('click', () => { reset(); qInput.focus(); });
+    panel.querySelectorAll('.vf-reset').forEach((button) => button.addEventListener('click', reset));
+
+    apply();
+    return { reset };
+  }
+
   async function renderVideosPage() {
     const longGrid = document.getElementById('videos-long');
     const shortGrid = document.getElementById('videos-shorts');
@@ -229,8 +364,10 @@
       if (animate) window.ACMLAnimations.enhance(grid);
     });
 
+    const finder = setupFinder(groups);
     const target = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
     if (target && target.classList.contains('video-card')) {
+      if (target.hidden && finder) finder.reset();
       target.classList.add('is-target', 'reveal-visible');
       target.scrollIntoView({ block: 'center' });
     }
