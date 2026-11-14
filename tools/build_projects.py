@@ -247,12 +247,21 @@ def coauthors(p, data, exclude):
             parts = plain_name(a).split()
             if len(parts) < 2 or data.is_lab(a) or any(same_person(a, x) for x in exclude):
                 continue
-            key = norm(parts[0])[:1] + '|' + norm(parts[-1])[:7]
+            first = norm(parts[0])
+            # A full first name keeps two people with the same initial and surname apart (Avi vs Ariel Rosenfeld);
+            # an initial alone ("A. Rosenfeld") is merged below when it can only mean one person.
+            key = (first if len(first) > 2 else first[:1] + '.') + '|' + norm(parts[-1])[:7]
             if key in seen:
                 continue
             seen.add(key)
             counts[key] += 1
             names[key][a] += 1
+    for key in [k for k in counts if k.split('|')[0].endswith('.')]:
+        initial, last = key.split('|')[0][:1], key.split('|')[1]
+        full = [k for k in counts if not k.split('|')[0].endswith('.') and k.split('|')[0][:1] == initial and k.split('|')[1] == last]
+        if len(full) == 1:
+            counts[full[0]] += counts.pop(key)
+            names[full[0]].update(names.pop(key))
     return [(names[k].most_common(1)[0][0], n) for k, n in counts.most_common() if n >= FREQUENT][:16]
 
 
