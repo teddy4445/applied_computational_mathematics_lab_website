@@ -1,0 +1,116 @@
+{
+  "title": "Profiling privacy preservation against gradient inversion attacks in tabular federated learning",
+  "pub_type": "Paper",
+  "short_title": "Gradient inversion in tabular federated learning: when do client records leak?",
+  "authors": [
+    {
+      "name": "Ivo Österberg Nilsson",
+      "given": "Ivo Österberg",
+      "family": "Nilsson",
+      "affiliations": [
+        1
+      ]
+    },
+    {
+      "name": "Maximilian Birr Engvall",
+      "given": "Maximilian Birr",
+      "family": "Engvall",
+      "affiliations": [
+        1
+      ]
+    },
+    {
+      "name": "Viktor Valadi",
+      "given": "Viktor",
+      "family": "Valadi",
+      "affiliations": [
+        2
+      ]
+    },
+    {
+      "name": "Teddy Lazebnik",
+      "given": "Teddy",
+      "family": "Lazebnik",
+      "affiliations": [
+        1,
+        3
+      ],
+      "corresponding": true
+    }
+  ],
+  "affiliations": {
+    "1": "Department of Computing, Jönköping University, Jönköping, Sweden",
+    "2": "Scaleout Systems, Uppsala, Sweden",
+    "3": "Department of Information Systems, University of Haifa, Haifa, Israel"
+  },
+  "journal": "International Journal of Information Security",
+  "year": 2026,
+  "volume": "25",
+  "issue": "",
+  "pages": "192",
+  "doi": "10.1007/s10207-026-01360-9",
+  "published": "",
+  "received": "2026-08-26",
+  "accepted": "2026-10-26",
+  "abstract": "Federated learning (FL) enables multiple data holders to train machine learning models collaboratively without centralizing raw data, making it useful in privacy sensitive domains such as healthcare and institutional data sharing. FL keeps data local to clients while communicating only model updates, such as gradients or model deltas. Nevertheless, these updates can expose private client data through gradient inversion attacks (GIAs). We study this risk for tabular FL under an honest-butcurious server threat model across FL protocols, client batch sizes, training stages, attacker assumptions, model architectures, and binary classification, multiclass classification, and regression tasks. We use MIMIC-IV and complementary benchmark datasets. Our evaluation distinguishes numerical and categorical recovery, baseline recoverability, feature level recovery, and exact match rate (EMR). We evaluate FedSGD gradients and FedAvg model deltas with an exposure aligned protocol, comparing attacked models after matched client data exposure rather than matched communication rounds. We compare multilayer perceptron (MLP), ResNet, and FT-Transformer models, and isolate architecture effects through an MLP grid over width, depth, activation, normalization, and dropout. The results show that small client batches and updates representing few distinct records are most vulnerable. Larger local batches and stronger aggregation reduce reconstruction but do not eliminate leakage. FT-Transformer is consistently harder to invert than one-hot baselines, while reconstructability also varies substantially within the MLP family. These findings identify model architecture and input representation as practical privacy variables in tabular FL. We also show that aggregate reconstruction accuracy can overstate complete record recovery in sparse data, making EMR and baseline comparisons essential.",
+  "keywords": [
+    "Gradient inversion attacks",
+    "Federated learning",
+    "Tabular data",
+    "Privacy leakage",
+    "Model architecture",
+    "Tabular neural networks",
+    "Privacy attacks"
+  ],
+  "license": {
+    "url": "https://creativecommons.org/licenses/by/4.0/",
+    "name": "CC BY"
+  },
+  "funding": "Open access funding provided by Jönköping University. This work was supported by Vinnova - Sweden’s Innovation Agency - through the Advanced Digitalization Research and Innovation Programme (grant no. 2025-03066). The funder had no role in the study design, data collection, analysis, interpretation, manuscript preparation, or decision to submit the article for publication.",
+  "competing_interests": "The authors declare that they have no conflict of interest.",
+  "data_availability": "The source code used for this study is publicly available at https://github.com/scaleoutsystems/tabular-GIA/. The Adult and California Housing datasets are publicly available from their sources. The MIMIC-IV v3.1 cohort is governed by the PhysioNet credentialed access process; researchers who have completed the required training and data use agreement can obtain MIMIC-IV from PhysioNet. The private multiclass benchmark used as an intermediate evaluation dataset cannot be shared because it contains sensitive data.",
+  "editor": "",
+  "abbreviations": [],
+  "summary": "Federated learning lets hospitals and other data holders train one shared model without pooling their raw records: each client sends only a model update, such as a gradient. This paper measures how much of a client's private table an honest-but-curious server can rebuild from those updates with a gradient inversion attack. It varies the update type (FedSGD gradients or FedAvg model deltas), client batch size from 1 to 256, the training stage, the attacker's knowledge of the labels, and the model (an MLP, a ResNet and an FT-Transformer), on three benchmark datasets and an in-hospital mortality task built from MIMIC-IV. Updates that represent few records leak the most: on MIMIC-IV, 70% of single-record updates from a trained small MLP were inverted into the exact record. Larger batches reduce leakage but do not remove it, extra FedAvg local epochs are not reliably protective, the FT-Transformer is consistently harder to invert, and ordinary MLP design choices move leakage a lot. Because feature-level accuracy can overstate how many complete records are recovered in sparse clinical data, the authors recommend reporting exact match rates and simple baselines alongside it.",
+  "key_findings": [
+    "Small client batches leak the most. On MIMIC-IV, reconstruction accuracy of a trained small MLP fell from 0.850 at batch size 1 to 0.243 at batch size 256 (ResNet: 0.669 to 0.192): larger batches reduce leakage but do not eliminate it.",
+    "FedAvg local training is not a uniform privacy mechanism. With 16 local examples per client on MIMIC-IV (one local batch per epoch), going from one to four local epochs raised final reconstruction for all three models (FT-Transformer 0.318 to 0.366, ResNet 0.845 to 0.866, small MLP 0.715 to 0.756).",
+    "FT-Transformer was consistently harder to invert than the one-hot models (0.333 vs 0.703 for ResNet and 0.623 for the small MLP on MIMIC-IV at batch size 8). An embedding-MLP control shows that learned categorical embeddings alone do not explain this, and the authors stress it is not a privacy guarantee.",
+    "Ordinary design choices shift leakage substantially: across the MLP architecture grid on MIMIC-IV (batch size 8), trajectory-averaged reconstruction ranged from 0.208 to 0.799, GELU leaked more than ReLU, and at batch size 32 the least leaky module combination (LayerNorm, ReLU, dropout 0.1) also had the best validation ROC-AUC.",
+    "Feature-level accuracy can overstate complete record recovery in sparse data: on MIMIC-IV a simple guess from each client's marginals already scores about 0.94, and at batch size 1 the exact match rate was 0.700 for the small MLP, 0.500 for ResNet and 0.000 for FT-Transformer, so exact matches and baselines must be reported."
+  ],
+  "key_numbers": [
+    {
+      "value": "70%",
+      "label": "of single-record updates from a trained small MLP on MIMIC-IV inverted into the exact record (FT-Transformer: 0%)"
+    },
+    {
+      "value": "0.850 → 0.243",
+      "label": "small-MLP reconstruction accuracy on MIMIC-IV, client batch size 1 → 256"
+    },
+    {
+      "value": "0.208–0.799",
+      "label": "range of reconstruction across ordinary MLP design choices (MIMIC-IV, batch size 8)"
+    }
+  ],
+  "featured_figure": "fig-1",
+  "related_project": "cyber-federated-learning",
+  "pdf_url": "https://teddylazebnik.com/files/fl_cyber.pdf",
+  "slug": "profiling-privacy-preservation-against-gradient-inversion-attacks",
+  "lang": "en",
+  "reviewed": true,
+  "extracted": {
+    "with": "pymupdf4llm 2.1, PyMuPDF 2.1",
+    "on": "2026-11-21",
+    "from": "fl_cyber.pdf",
+    "pages": 62,
+    "figures": 30,
+    "tables": 59,
+    "tables_as_images": 3,
+    "equations": 1,
+    "references": 38,
+    "reference_style": "num",
+    "coverage": 0.9994,
+    "check": []
+  }
+}

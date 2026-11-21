@@ -80,6 +80,15 @@
           "name": "Maximilian Engwall",
           "jobTitle": "MSc (alumni)"
         }
+      ],
+      "subjectOf": [
+        {
+          "@type": "ScholarlyArticle",
+          "headline": "Profiling privacy preservation against gradient inversion attacks in tabular federated learning",
+          "url": "https://acml.teddylazebnik.com/publications/profiling-privacy-preservation-against-gradient-inversion-attacks/",
+          "datePublished": "2026",
+          "sameAs": "https://doi.org/10.1007/s10207-026-01360-9"
+        }
       ]
     },
     {
@@ -113,7 +122,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
       <link href="/css/styles.css" rel="stylesheet">
-      
+      <link href="/css/videos.css" rel="stylesheet">
       <link href="/css/tailwind.css" rel="stylesheet">
       <link href="/css/project.css" rel="stylesheet">
    </head>
@@ -158,13 +167,13 @@
           <p class="proj-kicker"><span><i class="ri-price-tag-3-line" aria-hidden="true"></i>Cybersecurity ML</span></p>
           <h1 class="proj-title">Cybersecurity Federated Learning</h1>
           <p class="proj-subtitle">Privacy-preserving collaborative learning for distributed anomaly detection and cyber defense.</p>
-          <div class="proj-stats"><div class="proj-stat"><strong>5</strong><span>lab members, current and past</span></div></div>
-          <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="#team"><i class="ri-team-line" aria-hidden="true"></i>Meet the team</a><a class="proj-btn proj-btn-quiet" href="/#contact"><i class="ri-mail-line" aria-hidden="true"></i>Contact us</a></div>
+          <div class="proj-stats"><div class="proj-stat"><strong>1</strong><span>publication</span></div><div class="proj-stat"><strong>5</strong><span>lab members, current and past</span></div><div class="proj-stat"><strong>2026</strong><span>years of papers</span></div></div>
+          <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="#publications"><i class="ri-article-line" aria-hidden="true"></i>See the papers</a><a class="proj-btn" href="#team"><i class="ri-team-line" aria-hidden="true"></i>Meet the team</a><a class="proj-btn" href="#videos"><i class="ri-play-circle-line" aria-hidden="true"></i>Watch</a><a class="proj-btn proj-btn-quiet" href="/#contact"><i class="ri-mail-line" aria-hidden="true"></i>Contact us</a></div>
         </div>
         <figure class="proj-hero-img"><img src="/img/projects/project10.webp" alt="Cybersecurity Federated Learning" width="448" height="322" fetchpriority="high" decoding="async"></figure>
       </div>
     </header>
-    <nav class="proj-subnav" aria-label="Sections of this page"><div class="proj-wrap"><ul><li><a href="#overview">Overview</a></li><li><a href="#approach">Approach</a></li><li><a href="#team">Team</a></li></ul></div></nav>
+    <nav class="proj-subnav" aria-label="Sections of this page"><div class="proj-wrap"><ul><li><a href="#overview">Overview</a></li><li><a href="#approach">Approach</a></li><li><a href="#findings">Findings</a></li><li><a href="#publications">Publications</a></li><li><a href="#team">Team</a></li><li><a href="#videos">Videos</a></li></ul></div></nav>
     <section id="overview" class="proj-section" aria-labelledby="overview-title"><div class="proj-wrap">
       <div class="proj-overview">
         <div class="proj-about">
@@ -173,7 +182,7 @@
           <p class=proj-about-lead>Developing and applying federated learning techniques to enhance cybersecurity defenses without sharing sensitive raw data.</p>
           <p>This project explores how federated learning can be adapted to cybersecurity settings where organizations need collective intelligence without centralizing sensitive logs, telemetry, or device-level data. It ran as Master&#x27;s research at the Department of Computing, Jönköping University, where Maximilian Engwall and Ivo Osterberg Nillsson focused on the security of federated learning; since November 2026, Tim Pellikaan and Emil Andero continue it with Master&#x27;s research on the security of federated analytics. The work looked at privacy-preserving anomaly detection, distributed threat modeling, communication-efficient training, and robustness to non-IID or even adversarial participants.</p>
         </div>
-        <aside class="proj-glance"><p class="proj-label"><i class="ri-information-line" aria-hidden="true"></i>At a glance</p><dl><div><dt>Research area</dt><dd>Cybersecurity ML</dd></div><div><dt>Lab members</dt><dd>3 current · 2 past</dd></div><div><dt>Keywords</dt><dd><div class="proj-tags"><span class="proj-tag">Federated Learning</span><span class="proj-tag">Cybersecurity</span><span class="proj-tag">Privacy</span><span class="proj-tag">Anomaly Detection</span><span class="proj-tag">Distributed Systems</span></div></dd></div></dl></aside>
+        <aside class="proj-glance"><p class="proj-label"><i class="ri-information-line" aria-hidden="true"></i>At a glance</p><dl><div><dt>Research area</dt><dd>Cybersecurity ML</dd></div><div><dt>Lab members</dt><dd>3 current · 2 past</dd></div><div><dt>Publications</dt><dd><a href="#publications">1 paper</a></dd></div><div><dt>Keywords</dt><dd><div class="proj-tags"><span class="proj-tag">Federated Learning</span><span class="proj-tag">Cybersecurity</span><span class="proj-tag">Privacy</span><span class="proj-tag">Anomaly Detection</span><span class="proj-tag">Distributed Systems</span></div></dd></div></dl></aside>
       </div>
     </div></section>
     <section id="approach" class="proj-section is-soft" aria-labelledby="approach-title"><div class="proj-wrap">
@@ -184,10 +193,32 @@
         <div class="proj-card"><h3 class="proj-h3">Key outcomes</h3><ul class="proj-checks"><li><i class="ri-flag-2-line" aria-hidden="true"></i>Master&#x27;s theses by Maximilian Engwall and Ivo Osterberg Nillsson on the security of federated learning (Jönköping University, 2026)</li><li><i class="ri-flag-2-line" aria-hidden="true"></i>Ongoing Master&#x27;s research by Tim Pellikaan and Emil Andero on the security of federated analytics (Jönköping University, from 2026)</li><li><i class="ri-flag-2-line" aria-hidden="true"></i>Threat models, deployment assumptions and privacy constraints for federated cyber-defense experiments</li><li><i class="ri-flag-2-line" aria-hidden="true"></i>A comparison plan for centralized, local and federated training under fragmented data and attack assumptions</li></ul></div>
       </div>
     </div></section>
+    <section id="findings" class="proj-section" aria-labelledby="findings-title"><div class="proj-wrap">
+      <p class="proj-label"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i>Recent results</p>
+      <h2 id="findings-title" class="proj-h2" style="margin-top:.5rem">Selected findings</h2>
+      <p class="proj-lead">A key finding from each of the project's latest papers. Every paper page has the full text, figures and a plain-language summary.</p>
+      <div class="proj-highlights"><a class="hl-card" href="/publications/profiling-privacy-preservation-against-gradient-inversion-attacks/"><div class="hl-fig"><img src="/publications/profiling-privacy-preservation-against-gradient-inversion-attacks/figures/fig-1.webp" alt="Figure from: Profiling privacy preservation against gradient inversion attacks in tabular federated learning" loading="lazy" decoding="async" width="1513" height="1093"></div><div class="hl-body"><p class="hl-meta">International Journal of Information Security · 2026</p><p class="hl-title">Profiling privacy preservation against gradient inversion attacks in tabular federated learning</p><p class="hl-text">Small client batches leak the most. On MIMIC-IV, reconstruction accuracy of a trained small MLP fell from 0.850 at batch size 1 to 0.243 at batch size 256 (ResNet: 0.669 to 0.192): larger batches reduce leakage but do not…</p><span class="hl-more">Read the paper <i class="ri-arrow-right-line" aria-hidden="true"></i></span></div></a></div>
+    </div></section>
+    <section id="publications" class="proj-section is-soft" aria-labelledby="publications-title"><div class="proj-wrap">
+      <div class="pub-head">
+        <div><h2 id="publications-title" class="proj-h2">Publications</h2>
+        <p class="proj-lead">Every paper from this project, newest first. Lab members are in bold; each title opens the paper's own page with the abstract, a plain-language summary and, for most papers, the full text.</p></div>
+        
+      </div>
+      
+      <p class="pub-count" id="pub-count" aria-live="polite">1 paper</p>
+      <div class="pub-year"><h3>2026 <small>1 paper</small></h3><ul class="pub-list"><li class="pub-item"><a class="pub-title" href="/publications/profiling-privacy-preservation-against-gradient-inversion-attacks/">Profiling privacy preservation against gradient inversion attacks in tabular federated learning</a><p class="pub-authors">Ivo Österberg Nilsson, Maximilian Birr Engvall, Viktor Valadi, <strong>Teddy Lazebnik</strong></p><p class="pub-venue"><span><em>International Journal of Information Security</em> · 2026</span><span class="pub-badge"><i class="ri-file-text-line" aria-hidden="true"></i>Full text on the site</span></p><p class="pub-summary">Federated learning lets hospitals and other data holders train one shared model without pooling their raw records: each client sends only a model update, such as a gradient. This paper measures how much of a client&#x27;s private table an honest-but-curious server…</p><p class="pub-links"><a href="/publications/profiling-privacy-preservation-against-gradient-inversion-attacks/"><i class="ri-article-line" aria-hidden="true"></i>Paper page</a><a href="https://teddylazebnik.com/files/fl_cyber.pdf" target="_blank" rel="noopener"><i class="ri-file-pdf-2-line" aria-hidden="true"></i>PDF</a><a href="https://doi.org/10.1007/s10207-026-01360-9" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>DOI</a></p></li></ul></div>
+      <p class="pub-empty" id="pub-empty" hidden>No paper matches these words.</p>
+    </div></section>
     <section id="team" class="proj-section" aria-labelledby="team-title"><div class="proj-wrap">
       <h2 id="team-title" class="proj-h2">The team</h2>
       <p class="proj-lead">The lab members who work or worked on this project, with their part in it, and the researchers we work with. See the whole lab on the <a href="/team.html" class="text-primary">team page</a>.</p>
-      <div style="margin-top:1.5rem"><div class="team-group"><h3 class="proj-h3">Current members <small>3</small></h3><div class="team-grid"><article class="member"><img src="/img/lab/teddy.webp" alt="Prof. Teddy Lazebnik" loading="lazy" decoding="async" width="64" height="64"><div><p class="member-name">Prof. Teddy Lazebnik<a href="https://teddylazebnik.com" target="_blank" rel="noopener" aria-label="Prof. Teddy Lazebnik on Website" title="Website"><i class="ri-global-line" aria-hidden="true"></i></a></p><p class="member-role">Since Oct 2023</p></div></article><article class="member"><img src="/img/lab/tim.webp" alt="Tim Pellikaan" loading="lazy" decoding="async" width="64" height="64"><div><p class="member-name">Tim Pellikaan</p><p class="member-role">MSc Student · Since Nov 2026</p><p class="member-focus">Security of federated analytics</p></div></article><article class="member"><img src="/img/lab/userm.webp" alt="Emil Andero" loading="lazy" decoding="async" width="64" height="64"><div><p class="member-name">Emil Andero</p><p class="member-role">MSc Student · Since Nov 2026</p><p class="member-focus">Security of federated analytics</p></div></article></div></div><div class="team-group"><h3 class="proj-h3">Past members <small>2</small></h3><div class="team-grid"><article class="member"><img src="/img/lab/userm.webp" alt="Ivo Osterberg Nillsson" loading="lazy" decoding="async" width="64" height="64"><div><p class="member-name">Ivo Osterberg Nillsson</p><p class="member-role">MSc (alumni) · Dec 2025 – Jun 2026</p><p class="member-focus">Security of federated learning</p></div></article><article class="member"><img src="/img/lab/maximilian.webp" alt="Maximilian Engwall" loading="lazy" decoding="async" width="64" height="64"><div><p class="member-name">Maximilian Engwall</p><p class="member-role">MSc (alumni) · Dec 2025 – Jun 2026</p><p class="member-focus">Security of federated learning</p></div></article></div></div></div>
+      <div style="margin-top:1.5rem"><div class="team-group"><h3 class="proj-h3">Current members <small>3</small></h3><div class="team-grid"><article class="member"><img src="/img/lab/teddy.webp" alt="Prof. Teddy Lazebnik" loading="lazy" decoding="async" width="64" height="64"><div><p class="member-name">Prof. Teddy Lazebnik<a href="https://teddylazebnik.com" target="_blank" rel="noopener" aria-label="Prof. Teddy Lazebnik on Website" title="Website"><i class="ri-global-line" aria-hidden="true"></i></a></p><p class="member-role">Since Oct 2023</p><p class="member-papers">1 paper in this project</p></div></article><article class="member"><img src="/img/lab/tim.webp" alt="Tim Pellikaan" loading="lazy" decoding="async" width="64" height="64"><div><p class="member-name">Tim Pellikaan</p><p class="member-role">MSc Student · Since Nov 2026</p><p class="member-focus">Security of federated analytics</p></div></article><article class="member"><img src="/img/lab/userm.webp" alt="Emil Andero" loading="lazy" decoding="async" width="64" height="64"><div><p class="member-name">Emil Andero</p><p class="member-role">MSc Student · Since Nov 2026</p><p class="member-focus">Security of federated analytics</p></div></article></div></div><div class="team-group"><h3 class="proj-h3">Past members <small>2</small></h3><div class="team-grid"><article class="member"><img src="/img/lab/userm.webp" alt="Ivo Osterberg Nillsson" loading="lazy" decoding="async" width="64" height="64"><div><p class="member-name">Ivo Osterberg Nillsson</p><p class="member-role">MSc (alumni) · Dec 2025 – Jun 2026</p><p class="member-focus">Security of federated learning</p></div></article><article class="member"><img src="/img/lab/maximilian.webp" alt="Maximilian Engwall" loading="lazy" decoding="async" width="64" height="64"><div><p class="member-name">Maximilian Engwall</p><p class="member-role">MSc (alumni) · Dec 2025 – Jun 2026</p><p class="member-focus">Security of federated learning</p></div></article></div></div></div>
+    </div></section>
+    <section id="videos" class="proj-section" aria-labelledby="videos-title"><div class="proj-wrap">
+      <h2 id="videos-title" class="proj-h2">Videos</h2>
+      <p class="proj-lead">Short explainers of the research in this project.</p>
+      <div class="proj-grid"><article class="vid-card is-short"><div class="yt-player yt-9x16" data-yt-id="Ge3tPL-FdQo" data-yt-title="Can a Model Update Leak Patient Records?"><a class="yt-play" href="https://www.youtube.com/shorts/Ge3tPL-FdQo" aria-label="Play video: Can a Model Update Leak Patient Records?"><img src="https://i.ytimg.com/vi/Ge3tPL-FdQo/sddefault.jpg" data-yt-fallbacks="https://i.ytimg.com/vi/Ge3tPL-FdQo/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div><div><p class="vid-title">Can a Model Update Leak Patient Records?</p><p class=vid-text>Federated learning keeps hospital records local, but a curious server can try to rebuild them from model updates. What makes tabular records leak, and what doesn&#x27;t.</p><p class="card-meta">Based on: Profiling privacy preservation against gradient inversion attacks in tabular federated learning</p><p class="vid-links"><a href="/videos.html#v-Ge3tPL-FdQo">All lab videos</a><a href="https://www.youtube.com/shorts/Ge3tPL-FdQo" target="_blank" rel="noopener">Watch on YouTube</a></p></div></article></div>
     </div></section>
     <div class="proj-cta"><div class="proj-cta-box">
       <div><h2>Interested in this project?</h2><p>We welcome collaborations, data partnerships and students who want to work on cybersecurity ML problems with us.</p></div>
@@ -229,7 +260,7 @@
             © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
          </div>
       </footer>
-      
+      <script src="/js/videos.js"></script>
       <script src="/js/project-page.js" defer></script>
    </body>
 </html>

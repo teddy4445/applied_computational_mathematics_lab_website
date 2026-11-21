@@ -1,0 +1,84 @@
+{
+ "title": "A Stochastic Epidemiological Model of Latent Tuberculosis in a Radiation Exposed Mars Colony",
+ "pub_type": "Paper",
+ "short_title": "Latent tuberculosis in a Mars colony: radiation, immunity and outbreak control",
+ "authors": [
+  {
+   "name": "Teddy Lazebnik",
+   "given": "Teddy",
+   "family": "Lazebnik"
+  }
+ ],
+ "affiliations": {
+  "1": "Department of Information Systems, University of Haifa, Haifa, Israel",
+  "2": "Department of Computing, Jönköping University, Jönköping, Sweden"
+ },
+ "journal": "Advanced Theory and Simulations",
+ "year": 2026,
+ "volume": "9",
+ "issue": "11",
+ "pages": "e70592",
+ "doi": "10.1002/adts.70592",
+ "published": "",
+ "received": "2026-07-28",
+ "accepted": "2026-10-22",
+ "abstract": "Plans to establish a sustained human presence on Mars have moved from speculative ambition toward concrete engineering programmes, making the biological consequences of settlement an increasingly practical question. A Mars colony would place a small, closed population in an environment combining chronic radiation, altered immunity, constrained medical autonomy, and engineered indoor air. Latent infections are especially important because clinically silent carriers may become sources of transmissible disease when host control deteriorates. In this study, we develop a stochastic host–radiation–pathogen–habitat model of latent tuberculosis reactivation in a Mars colony. The model links galactic cosmic radiation to immune competence, immune competence to latent-tuberculosis reactivation, and reactivation to airborne transmission in a closed habitat. We also formulate countermeasure allocation as a partially observable sequential decision problem in which isolation and medication are selected by fixed baselines or by a proximal policy optimization policy trained on an agent-based simulator. Our simulations show that active tuberculosis can emerge endogenously despite no initial infectious cases, and that risk is most sensitive to latent reservoir size, radiation–immune coupling and reactivation sensitivity. Adaptive control reduced infectious burden and mortality while limiting unnecessary intervention. This framework supports mission-specific stress testing of screening, monitoring, shielding and treatment strategies before launch.",
+ "keywords": [
+  "astroimmunology",
+  "digital epidemiology",
+  "epidemic control policy",
+  "epidemiological modeling",
+  "latent tuberculosis"
+ ],
+ "license": {
+  "url": "https://creativecommons.org/licenses/by/4.0/",
+  "name": "CC BY"
+ },
+ "funding": "This study received no funding.",
+ "competing_interests": "The authors declare no conflicts of interest.",
+ "data_availability": "The code and data is provided as a supplementary material to this study.",
+ "editor": "",
+ "abbreviations": [],
+ "summary": "A colony on Mars would be a small, closed population living under constant cosmic radiation, with shared indoor air and limited medical care. This paper asks what happens if some colonists carry latent tuberculosis: an infection that is not contagious while the immune system keeps it in check. A stochastic model links radiation to immune competence, immune competence to reactivation of latent tuberculosis, and reactivation to airborne spread in the habitat. In a stress-test scenario of 100 colonists with 10 latent carriers and no active case, active tuberculosis emerged on its own, at a highly unpredictable time. Isolation and medication policies were then compared, including one learned with reinforcement learning (PPO) under imperfect monitoring. All numbers are scenario results with several assumed parameters, not forecasts.",
+ "key_findings": [
+  "Without any active case at the start, active tuberculosis emerged from the latent reservoir: in the uncontrolled baseline, colony immune competence fell from 1 to about 0.77 over three years while the reactivation rate rose.",
+  "The timing of the first active case was highly variable: median 98.5 days, with a 95% interval of 7.95 to 403.9 days, so mission planning should cover early-reactivation scenarios, not only average trajectories.",
+  "Outbreak risk was most sensitive to the size of the latent reservoir, the coupling between radiation and immunity, and the sensitivity of reactivation to immune suppression; stronger shielding and faster immune recovery reduced the burden.",
+  "Fixed isolation plus medication gave the strongest suppression (81.73% fewer deaths than no intervention) but the highest countermeasure burden; medication alone cut deaths by 78.85%, under assumed medication parameters.",
+  "The PPO policy, trained under partial observability, cut deaths by 48.08% and infectious burden by 31.87% with the lowest countermeasure burden of the active policies, relying on medication and almost no isolation."
+ ],
+ "key_numbers": [
+  {
+   "value": "98.5 days",
+   "label": "median time to the first active case (95% interval 8 to 404 days)"
+  },
+  {
+   "value": "1 → 0.77",
+   "label": "colony immune competence over three years, uncontrolled baseline"
+  },
+  {
+   "value": "48%",
+   "label": "fewer deaths with the learned (PPO) policy, using the least countermeasure burden"
+  }
+ ],
+ "featured_figure": "fig-3",
+ "related_project": "pandemic-modeling-and-allocation",
+ "pdf_url": "https://teddylazebnik.com/files/mars_pandemic.pdf",
+ "slug": "stochastic-epidemiological-model-latent-tuberculosis-radiation-exposed",
+ "lang": "en",
+ "reviewed": true,
+ "extracted": {
+  "with": "pymupdf4llm 2.1, PyMuPDF 2.1",
+  "on": "2026-11-21",
+  "from": "mars_pandemic.pdf",
+  "pages": 19,
+  "figures": 6,
+  "tables": 3,
+  "tables_as_images": 0,
+  "equations": 29,
+  "references": 87,
+  "reference_style": "num",
+  "coverage": 0.9988,
+  "check": []
+ }
+}
