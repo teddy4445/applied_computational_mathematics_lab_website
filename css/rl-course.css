@@ -1,0 +1,157 @@
+/* RL course pages (rl-course/ and rl-course/lecture-NN/), made by tools/build_rl_course.py. Builds on css/project.css. */
+.rl-page { --violet: #7c3aed; --amber: #b45309; --green: #047857; }
+.rl-page section[id], .rl-page [id^="ep-"] { scroll-margin-top: 9rem; }
+.rl-muted { color: var(--muted); }
+
+/* ---- hero ---- */
+.rl-hero .proj-title small { display: block; font-size: .5em; font-weight: 600; letter-spacing: .02em; color: var(--blue); margin-bottom: .35rem; }
+.rl-art { margin: 0; border-radius: 24px; overflow: hidden; background: #fff; border: 1px solid var(--line); box-shadow: 0 18px 40px -22px rgba(15, 23, 42, .4); }
+.rl-art img { display: block; width: 100%; height: auto; }
+@media (min-width: 768px) { .proj-subnav.is-mobile-only { display: none; } }
+
+/* ---- small pieces ---- */
+.rl-chips { display: flex; flex-wrap: wrap; gap: .4rem; }
+.rl-chip { display: inline-flex; align-items: center; gap: .3rem; padding: .22rem .65rem; border-radius: 9999px; background: var(--blue-soft); color: var(--blue-dark); font-size: .78rem; font-weight: 600; line-height: 1.35; }
+.rl-chip.is-lab { background: #ecfdf5; color: var(--green); }
+.rl-chip.is-game { background: #f5f3ff; color: var(--violet); }
+.rl-chip.is-plain { background: #f3f4f6; color: #4b5563; }
+.rl-note { margin-top: 1rem; font-size: .88rem; line-height: 1.55; color: var(--muted); }
+.rl-note a, .rl-link { color: var(--blue); }
+
+/* ---- how to study ---- */
+.rl-steps { margin-top: 1.75rem; display: grid; gap: 1rem; counter-reset: rlstep; }
+@media (min-width: 700px) { .rl-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1100px) { .rl-steps.is-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.rl-step { position: relative; background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 1.15rem 1.2rem 1.2rem 1.2rem; }
+.rl-step-icon { width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; background: var(--blue-soft); color: var(--blue); }
+.rl-step:nth-child(3) .rl-step-icon { background: #ecfdf5; color: var(--green); }
+.rl-step:nth-child(4) .rl-step-icon { background: #f5f3ff; color: var(--violet); }
+.rl-step h3 { margin-top: .8rem; font-weight: 700; color: var(--ink); }
+.rl-step h3::before { counter-increment: rlstep; content: counter(rlstep) ". "; color: var(--muted); font-weight: 600; }
+.rl-step p { margin-top: .35rem; font-size: .92rem; line-height: 1.55; }
+.rl-step a { color: var(--blue); }
+
+/* ---- lecture list (hub) ---- */
+.rl-part + .rl-part { margin-top: 2.75rem; }
+.rl-part-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: .4rem 1rem; padding-bottom: .6rem; border-bottom: 1px solid var(--line); }
+.rl-part-head h3 { font-size: 1.2rem; font-weight: 700; color: var(--ink); }
+.rl-part-head h3 span { color: var(--blue); margin-right: .4rem; }
+.rl-part-head p { font-size: .92rem; color: var(--muted); }
+.rl-lec-grid { margin-top: 1.25rem; display: grid; gap: 1.25rem; }
+@media (min-width: 700px) { .rl-lec-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1100px) { .rl-lec-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .rl-lec-grid.is-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.rl-lec-card { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line); border-radius: 20px; overflow: hidden; color: inherit; transition: box-shadow .2s, border-color .2s, transform .2s; }
+.rl-lec-card:hover { border-color: #bfdbfe; box-shadow: 0 10px 28px -14px rgba(15, 23, 42, .3); transform: translateY(-2px); }
+.rl-lec-card img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-bottom: 1px solid var(--line); background: var(--soft); }
+.rl-lec-body { padding: 1rem 1.15rem 1.15rem; display: flex; flex-direction: column; gap: .45rem; flex: 1; }
+.rl-lec-num { font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--blue); }
+.rl-lec-title { font-size: 1.12rem; font-weight: 700; line-height: 1.3; color: var(--ink); }
+.rl-lec-card:hover .rl-lec-title { color: var(--blue); }
+.rl-lec-text { font-size: .9rem; line-height: 1.5; }
+.rl-lec-meta { margin-top: auto; padding-top: .5rem; display: flex; flex-wrap: wrap; gap: .3rem .9rem; font-size: .8rem; color: var(--muted); }
+.rl-lec-meta i { margin-right: .2rem; }
+
+/* ---- labs and games ---- */
+.rl-lab-card .card-body { padding: 1.3rem 1.35rem 1.4rem; }
+.rl-lab-card .tool-icon { background: #ecfdf5; color: var(--green); }
+.rl-games { margin-top: 1.75rem; display: grid; gap: 1.25rem; }
+@media (min-width: 900px) { .rl-games { grid-template-columns: repeat(3, minmax(0, 1fr)); } .rl-games.is-1 { grid-template-columns: minmax(0, 1fr); max-width: 40rem; } .rl-games.is-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.rl-game { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line); border-radius: 20px; overflow: hidden; }
+.rl-game > a img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; background: #0b1220; border-bottom: 1px solid var(--line); transition: transform .3s; }
+.rl-game > a { display: block; overflow: hidden; }
+.rl-game > a:hover img { transform: scale(1.03); }
+.rl-game-body { padding: 1.1rem 1.2rem 1.25rem; display: flex; flex-direction: column; gap: .5rem; flex: 1; }
+.rl-game-title { font-size: 1.15rem; font-weight: 700; color: var(--ink); }
+.rl-game-tag { font-size: .92rem; font-weight: 600; color: var(--violet); }
+.rl-game-text { font-size: .92rem; line-height: 1.55; }
+.rl-game-why { font-size: .92rem; line-height: 1.55; background: #f5f3ff; border-radius: 12px; padding: .7rem .85rem; color: #3b0764; }
+.rl-game-foot { margin-top: auto; padding-top: .6rem; display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1rem; }
+.rl-game-foot .rl-chips a { text-decoration: none; }
+@media (min-width: 900px) {
+  .rl-games.is-1 { max-width: none; }
+  .rl-games.is-1 .rl-game { flex-direction: row; }
+  .rl-games.is-1 .rl-game > a { flex: 0 0 46%; }
+  .rl-games.is-1 .rl-game > a img { height: 100%; border-bottom: 0; border-right: 1px solid var(--line); }
+}
+
+/* ---- watch: player + episode list ---- */
+.rl-watch { margin-top: 1.75rem; display: grid; gap: 1.5rem; align-items: start; }
+@media (min-width: 1024px) { .rl-watch { grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr); } }
+.rl-player-wrap .yt-player { border-radius: 18px; overflow: hidden; box-shadow: 0 14px 36px -18px rgba(15, 23, 42, .45); }
+.rl-now { margin-top: 1rem; }
+.rl-now-num { font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--blue); }
+.rl-now-title { margin-top: .2rem; font-size: 1.3rem; font-weight: 700; line-height: 1.3; color: var(--ink); }
+.rl-now-hook { margin-top: .45rem; line-height: 1.6; }
+.rl-now-take { margin-top: .6rem; display: flex; gap: .5rem; align-items: flex-start; font-size: .95rem; color: var(--ink); }
+.rl-now-take i { color: var(--green); font-size: 1.1rem; margin-top: .05rem; }
+/* transcript under the player */
+.rl-tx { margin-top: 1.1rem; border: 1px solid var(--line); border-radius: 16px; background: #fff; }
+.rl-tx summary { cursor: pointer; list-style: none; display: flex; align-items: center; gap: .55rem; padding: .75rem 1rem; font-weight: 700; color: var(--ink); }
+.rl-tx summary::-webkit-details-marker { display: none; }
+.rl-tx summary > i:first-child { color: var(--blue); font-size: 1.1rem; }
+.rl-tx summary span { margin-left: auto; font-weight: 500; font-size: .85rem; color: var(--muted); }
+.rl-tx-caret { color: var(--muted); transition: transform .2s; }
+.rl-tx[open] .rl-tx-caret { transform: rotate(180deg); }
+.rl-tx-body { border-top: 1px solid var(--line); max-height: 26rem; overflow-y: auto; padding: .4rem 1rem .9rem; }
+.rl-tx-chap { display: grid; grid-template-columns: 3.4rem minmax(0, 1fr); gap: .75rem; padding: .75rem 0; border-bottom: 1px dashed var(--line); }
+.rl-tx-chap:last-child { border-bottom: 0; }
+.rl-tx-t { align-self: start; padding: .15rem .45rem; border-radius: 8px; background: var(--blue-soft); color: var(--blue-dark); font-size: .8rem; font-weight: 700; font-variant-numeric: tabular-nums; cursor: pointer; transition: background-color .15s, color .15s; }
+.rl-tx-t:hover, .rl-tx-t:focus-visible { background: var(--blue); color: #fff; }
+.rl-tx-chap h4 { font-size: .92rem; font-weight: 700; color: var(--ink); }
+.rl-tx-chap p { margin-top: .25rem; font-size: .92rem; line-height: 1.65; }
+.rl-eps { border: 1px solid var(--line); border-radius: 18px; background: #fff; overflow: hidden; }
+.rl-eps-head { padding: .8rem 1rem; border-bottom: 1px solid var(--line); font-size: .85rem; color: var(--muted); display: flex; justify-content: space-between; gap: 1rem; }
+.rl-eps-head b { color: var(--ink); }
+.rl-eps ol { max-height: 34rem; overflow-y: auto; }
+.rl-ep { display: grid; grid-template-columns: 116px minmax(0, 1fr); gap: .8rem; padding: .7rem .8rem; color: inherit; border-bottom: 1px solid var(--line); transition: background-color .15s; }
+.rl-eps li:last-child .rl-ep { border-bottom: 0; }
+.rl-ep:hover { background: var(--soft); }
+.rl-ep.is-active { background: var(--blue-soft); }
+.rl-ep-thumb { position: relative; }
+.rl-ep-thumb img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 10px; display: block; background: #0b1220; }
+.rl-ep-thumb span { position: absolute; right: .3rem; bottom: .3rem; background: rgba(17, 24, 39, .85); color: #fff; font-size: .7rem; font-weight: 600; padding: .05rem .35rem; border-radius: 6px; font-variant-numeric: tabular-nums; }
+.rl-ep-num { font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--blue); }
+.rl-ep-title { font-weight: 700; color: var(--ink); line-height: 1.3; font-size: .95rem; }
+.rl-ep-take { margin-top: .15rem; font-size: .82rem; line-height: 1.4; color: var(--muted); }
+.rl-ep.is-active .rl-ep-title { color: var(--blue-dark); }
+
+/* ---- lecture summary, in the hero ---- */
+.rl-hero .proj-hero-grid { align-items: start; }
+.rl-hero .rl-first { margin-top: .4rem; }
+.rl-summary { margin-top: 1rem; }
+.rl-ideas-title { margin-top: 1.6rem; }
+.rl-goal { margin-top: 1.25rem; display: flex; gap: .75rem; align-items: flex-start; background: var(--blue-soft); border-radius: 16px; padding: 1rem 1.1rem; color: var(--ink); line-height: 1.55; }
+.rl-goal i { font-size: 1.35rem; color: var(--blue); margin-top: .05rem; }
+.rl-ideas { margin-top: 1.1rem; display: grid; gap: .55rem; }
+.rl-ideas li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .65rem; align-items: baseline; line-height: 1.5; }
+.rl-ideas a { font-size: .78rem; font-weight: 700; color: var(--blue); white-space: nowrap; }
+.rl-source { margin-top: 1.25rem; font-size: .85rem; line-height: 1.55; color: var(--muted); }
+
+/* ---- the first slide, in the lecture hero ---- */
+.rl-first-img { display: block; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 10px 28px -16px rgba(15, 23, 42, .35); transition: box-shadow .2s, transform .2s; }
+.rl-first-img:hover { box-shadow: 0 14px 32px -14px rgba(15, 23, 42, .4); transform: translateY(-2px); }
+.rl-first-img img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #fff; }
+.rl-first-text { margin-top: .85rem; font-size: .92rem; line-height: 1.6; }
+.rl-first .proj-actions { margin-top: 1rem; }
+
+/* ---- labs on lecture pages ---- */
+.rl-lab-head { padding-top: 3.25rem; }
+.rl-lab-head + section { padding-top: 1.5rem !important; }
+#lab .bridge-panel { margin-top: 0; }
+.rl-lab .max-w-7xl { padding-left: 1.5rem; padding-right: 1.5rem; }
+.rl-lab > section { padding-bottom: 2rem; }
+.rl-lab > section + section { padding-top: 1rem; }
+
+/* ---- previous / next ---- */
+.rl-pn { margin-top: 1.5rem; display: grid; gap: 1rem; }
+@media (min-width: 700px) { .rl-pn { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.rl-pn a { display: flex; align-items: center; gap: .9rem; background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 1rem 1.1rem; color: inherit; transition: border-color .2s, box-shadow .2s; }
+.rl-pn a:hover { border-color: #bfdbfe; box-shadow: 0 8px 22px -14px rgba(15, 23, 42, .3); }
+.rl-pn a.is-next { justify-content: flex-end; text-align: right; }
+.rl-pn i { font-size: 1.4rem; color: var(--blue); }
+.rl-pn small { display: block; font-size: .78rem; color: var(--muted); font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+.rl-pn strong { display: block; color: var(--ink); line-height: 1.3; }
+
+@media (max-width: 480px) {
+  .rl-ep { grid-template-columns: 96px minmax(0, 1fr); }
+}

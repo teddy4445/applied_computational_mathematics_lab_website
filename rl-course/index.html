@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_rl_course.py from data/rl-course.json. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Introduction to Reinforcement Learning | Course | Applied Computational Mathematics Laboratory</title>
+      <meta name="description" content="12 lectures with slides, 51 short animated episodes, interactive labs and games: an introduction to reinforcement learning by Teddy Lazebnik (ACML).">
+      <meta name="author" content="Teddy Lazebnik">
+      <meta name="keywords" content="reinforcement learning course, RL lectures, multi-armed bandit, Markov decision process, Q-learning, deep reinforcement learning, policy gradient, RLHF, ACML">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/rl-course/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Introduction to Reinforcement Learning: a free online course by ACML">
+      <meta property="og:description" content="12 lectures with slides, 51 short animated episodes, interactive labs and games: an introduction to reinforcement learning by Teddy Lazebnik (ACML).">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/rl-course/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/rl-course/share.jpg">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Introduction to Reinforcement Learning: a free online course by ACML">
+      <meta name="twitter:description" content="12 lectures with slides, 51 short animated episodes, interactive labs and games: an introduction to reinforcement learning by Teddy Lazebnik (ACML).">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/rl-course/share.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Introduction to Reinforcement Learning",
+        "description": "A twelve-lecture introduction to reinforcement learning, from bandits and Markov decision processes to deep RL, planning, policy gradients and RLHF. Each lecture has slides with worked examples and check-yourself questions, short animated episodes, and links to interactive labs and games.",
+        "url": "https://acml.teddylazebnik.com/rl-course/",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "provider": {
+          "@type": "Organization",
+          "name": "Applied Computational Mathematics Laboratory",
+          "url": "https://acml.teddylazebnik.com/"
+        },
+        "instructor": {
+          "@type": "Person",
+          "name": "Teddy Lazebnik",
+          "url": "https://teddylazebnik.com/"
+        },
+        "hasPart": [
+          {
+            "@type": "LearningResource",
+            "name": "Lecture 1: Introduction",
+            "url": "https://acml.teddylazebnik.com/rl-course/lecture-01/"
+          },
+          {
+            "@type": "LearningResource",
+            "name": "Lecture 2: Exploration and exploitation",
+            "url": "https://acml.teddylazebnik.com/rl-course/lecture-02/"
+          },
+          {
+            "@type": "LearningResource",
+            "name": "Lecture 3: MDPs and dynamic programming",
+            "url": "https://acml.teddylazebnik.com/rl-course/lecture-03/"
+          },
+          {
+            "@type": "LearningResource",
+            "name": "Lecture 4: Theory of dynamic programming",
+            "url": "https://acml.teddylazebnik.com/rl-course/lecture-04/"
+          },
+          {
+            "@type": "LearningResource",
+            "name": "Lecture 5: Model-free prediction",
+            "url": "https://acml.teddylazebnik.com/rl-course/lecture-05/"
+          },
+          {
+            "@type": "LearningResource",
+            "name": "Lecture 6: Model-free control",
+            "url": "https://acml.teddylazebnik.com/rl-course/lecture-06/"
+          },
+          {
+            "@type": "LearningResource",
+            "name": "Lecture 7: Function approximation",
+            "url": "https://acml.teddylazebnik.com/rl-course/lecture-07/"
+          },
+          {
+            "@type": "LearningResource",
+            "name": "Lecture 8: Deep reinforcement learning",
+            "url": "https://acml.teddylazebnik.com/rl-course/lecture-08/"
+          },
+          {
+            "@type": "LearningResource",
+            "name": "Lecture 9: Planning and models",
+            "url": "https://acml.teddylazebnik.com/rl-course/lecture-09/"
+          },
+          {
+            "@type": "LearningResource",
+            "name": "Lecture 10: Policy gradients and actor-critics",
+            "url": "https://acml.teddylazebnik.com/rl-course/lecture-10/"
+          },
+          {
+            "@type": "LearningResource",
+            "name": "Lecture 11: Learning about many things",
+            "url": "https://acml.teddylazebnik.com/rl-course/lecture-11/"
+          },
+          {
+            "@type": "LearningResource",
+            "name": "Lecture 12: Learning from people",
+            "url": "https://acml.teddylazebnik.com/rl-course/lecture-12/"
+          }
+        ]
+      }
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      <link href="/css/videos.css" rel="stylesheet">
+      
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/project.css" rel="stylesheet">
+      <link href="/css/rl-course.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Tools</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="proj-page rl-page bg-white">
+    <header class="proj-hero rl-hero">
+      <div class="proj-wrap proj-hero-grid">
+        <div>
+          <nav class="proj-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/tools.html">Tools</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Reinforcement learning course</span></nav>
+          <p class="proj-kicker"><span><i class="ri-graduation-cap-line" aria-hidden="true"></i>Open course materials</span><span><i class="ri-user-3-line" aria-hidden="true"></i>Prof. Teddy Lazebnik</span></p>
+          <h1 class="proj-title">Introduction to Reinforcement Learning</h1>
+          <p class="proj-subtitle">A twelve-lecture introduction to reinforcement learning, from bandits and Markov decision processes to deep RL, planning, policy gradients and RLHF. Each lecture has slides with worked examples and check-yourself questions, short animated episodes, and links to interactive labs and games.</p>
+          <div class="proj-stats"><div class="proj-stat"><strong>12</strong><span>lectures</span></div><div class="proj-stat"><strong>51</strong><span>short episodes, about 4.3 hours</span></div><div class="proj-stat"><strong>570</strong><span>slides</span></div><div class="proj-stat"><strong class=is-long>9 + 3</strong><span>labs and games</span></div></div>
+          <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="/rl-course/lecture-01/"><i class="ri-play-circle-line" aria-hidden="true"></i>Start with Lecture 1</a><a class="proj-btn" href="#lectures"><i class="ri-list-check-2" aria-hidden="true"></i>All lectures</a><a class="proj-btn" href="#practice"><i class="ri-gamepad-line" aria-hidden="true"></i>Labs and games</a><a class="proj-btn" href="https://www.youtube.com/playlist?list=PLLTavI7DAgbE" target="_blank" rel="noopener"><i class="ri-youtube-line" aria-hidden="true"></i>Playlist on YouTube</a></div>
+        </div>
+        <figure class="rl-art"><img src="/rl-course/img/teddy-bit-chess.svg" alt="Illustration: Teddy and Bit, the course’s little robot, playing chess" width="640" height="470" fetchpriority="high" decoding="async"></figure>
+      </div>
+    </header>
+    <nav class="proj-subnav" aria-label="Sections of this page"><div class="proj-wrap"><ul><li><a href="#how">How to study</a></li><li><a href="#lectures">Lectures</a></li><li><a href="#practice">Labs and games</a></li></ul></div></nav>
+    <section id="how" class="proj-section" aria-labelledby="how-title"><div class="proj-wrap">
+      <h2 id="how-title" class="proj-h2">How to study each lecture</h2>
+      <p class="proj-lead">Every lecture page brings the same four things together. Use them in any order; this one works well.</p>
+      <div class="rl-steps is-4">
+        <div class="rl-step"><span class="rl-step-icon"><i class="ri-play-circle-line" aria-hidden="true"></i></span><h3>Watch</h3><p>Start with the lecture's short animated episodes (ACML Explains), about five minutes each, with a transcript to read along. They give the intuition first.</p></div>
+        <div class="rl-step"><span class="rl-step-icon"><i class="ri-slideshow-line" aria-hidden="true"></i></span><h3>Read the slides</h3><p>Each deck is written to be read without a lecturer: worked examples, “try it” boxes, small simulations, and check-yourself questions with answers at the end.</p></div>
+        <div class="rl-step"><span class="rl-step-icon"><i class="ri-flask-line" aria-hidden="true"></i></span><h3>Try it</h3><p>Run the algorithms yourself in the browser: 9 labs, from a <a href="/rl-course/lecture-02/#bandit-lab">bandit lab</a> in Lecture 2 to a <a href="/rl-course/lecture-12/#bt-lab">Bradley–Terry lab</a> in Lecture 12.</p></div>
+        <div class="rl-step"><span class="rl-step-icon"><i class="ri-gamepad-line" aria-hidden="true"></i></span><h3>Play</h3><p>Three games turn the ideas into play: Markov’s Maze, Echo Heist and Pirates War RL. Each lecture page says which one fits and what to look for.</p></div>
+      </div>
+    </div></section>
+    <section id="lectures" class="proj-section is-soft" aria-labelledby="lectures-title"><div class="proj-wrap">
+      <h2 id="lectures-title" class="proj-h2">Twelve lectures</h2>
+      <p class="proj-lead">From an agent chasing a single number to learning from people. Each card opens the lecture page with its episodes, slides, lab and games.</p>
+      <div style="margin-top:1.75rem">
+      <div class="rl-part">
+        <div class="rl-part-head"><h3><span>Part 1</span>Foundations</h3><p>Agents, rewards and exploration; Markov decision processes and why dynamic programming works.</p></div>
+        <div class="rl-lec-grid is-4">
+          <a class="rl-lec-card" href="/rl-course/lecture-01/"><img src="/rl-course/img/slides/l01-s34.webp" alt="A slide from Lecture 1" width="960" height="540" loading="lazy" decoding="async"><div class="rl-lec-body">
+            <span class="rl-lec-num">Lecture 1</span><span class="rl-lec-title">Introduction</span><span class="rl-lec-text">What RL is, the agent–environment loop, and what is inside an agent</span>
+            <span class="rl-lec-meta"><span><i class="ri-slideshow-line" aria-hidden="true"></i>62 slides</span><span><i class="ri-play-circle-line" aria-hidden="true"></i>5 episodes · 22 min</span><span><i class="ri-gamepad-line" aria-hidden="true"></i>3 games</span></span></div></a><a class="rl-lec-card" href="/rl-course/lecture-02/"><img src="/rl-course/img/slides/l02-s13.webp" alt="A slide from Lecture 2" width="960" height="540" loading="lazy" decoding="async"><div class="rl-lec-body">
+            <span class="rl-lec-num">Lecture 2</span><span class="rl-lec-title">Exploration and exploitation</span><span class="rl-lec-text">The multi-armed bandit, regret, ε-greedy, UCB, Thompson sampling and gradient bandits</span>
+            <span class="rl-lec-meta"><span><i class="ri-slideshow-line" aria-hidden="true"></i>47 slides</span><span><i class="ri-play-circle-line" aria-hidden="true"></i>4 episodes · 16 min</span><span><i class="ri-flask-line" aria-hidden="true"></i>Lab</span></span></div></a><a class="rl-lec-card" href="/rl-course/lecture-03/"><img src="/rl-course/img/slides/l03-s44.webp" alt="A slide from Lecture 3" width="960" height="540" loading="lazy" decoding="async"><div class="rl-lec-body">
+            <span class="rl-lec-num">Lecture 3</span><span class="rl-lec-title">MDPs and dynamic programming</span><span class="rl-lec-text">Markov decision processes, returns, value functions, Bellman equations, policy iteration and value iteration</span>
+            <span class="rl-lec-meta"><span><i class="ri-slideshow-line" aria-hidden="true"></i>57 slides</span><span><i class="ri-play-circle-line" aria-hidden="true"></i>5 episodes · 26 min</span><span><i class="ri-flask-line" aria-hidden="true"></i>Lab</span><span><i class="ri-gamepad-line" aria-hidden="true"></i>1 game</span></span></div></a><a class="rl-lec-card" href="/rl-course/lecture-04/"><img src="/rl-course/img/slides/l04-s28.webp" alt="A slide from Lecture 4" width="960" height="540" loading="lazy" decoding="async"><div class="rl-lec-body">
+            <span class="rl-lec-num">Lecture 4</span><span class="rl-lec-title">Theory of dynamic programming</span><span class="rl-lec-text">Norms, contractions and fixed points, Bellman operators, why DP converges, and approximate DP</span>
+            <span class="rl-lec-meta"><span><i class="ri-slideshow-line" aria-hidden="true"></i>39 slides</span><span><i class="ri-play-circle-line" aria-hidden="true"></i>2 episodes · 10 min</span><span><i class="ri-flask-line" aria-hidden="true"></i>Lab</span></span></div></a>
+        </div>
+      </div>
+      <div class="rl-part">
+        <div class="rl-part-head"><h3><span>Part 2</span>Learning from experience</h3><p>Prediction and control without a model, and what changes when tables give way to functions.</p></div>
+        <div class="rl-lec-grid is-3">
+          <a class="rl-lec-card" href="/rl-course/lecture-05/"><img src="/rl-course/img/slides/l05-s17.webp" alt="A slide from Lecture 5" width="960" height="540" loading="lazy" decoding="async"><div class="rl-lec-body">
+            <span class="rl-lec-num">Lecture 5</span><span class="rl-lec-title">Model-free prediction</span><span class="rl-lec-text">Monte Carlo, temporal-difference learning, multi-step returns and eligibility traces</span>
+            <span class="rl-lec-meta"><span><i class="ri-slideshow-line" aria-hidden="true"></i>51 slides</span><span><i class="ri-play-circle-line" aria-hidden="true"></i>4 episodes · 20 min</span><span><i class="ri-flask-line" aria-hidden="true"></i>Lab</span></span></div></a><a class="rl-lec-card" href="/rl-course/lecture-06/"><img src="/rl-course/img/slides/l06-s24.webp" alt="A slide from Lecture 6" width="960" height="540" loading="lazy" decoding="async"><div class="rl-lec-body">
+            <span class="rl-lec-num">Lecture 6</span><span class="rl-lec-title">Model-free control</span><span class="rl-lec-text">Monte Carlo control, SARSA, Q-learning, off-policy learning, double Q-learning and importance sampling</span>
+            <span class="rl-lec-meta"><span><i class="ri-slideshow-line" aria-hidden="true"></i>44 slides</span><span><i class="ri-play-circle-line" aria-hidden="true"></i>3 episodes · 16 min</span><span><i class="ri-flask-line" aria-hidden="true"></i>Lab</span><span><i class="ri-gamepad-line" aria-hidden="true"></i>1 game</span></span></div></a><a class="rl-lec-card" href="/rl-course/lecture-07/"><img src="/rl-course/img/slides/l07-s27.webp" alt="A slide from Lecture 7" width="960" height="540" loading="lazy" decoding="async"><div class="rl-lec-body">
+            <span class="rl-lec-num">Lecture 7</span><span class="rl-lec-title">Function approximation</span><span class="rl-lec-text">Features and gradient descent, linear and non-linear values, the deadly triad, batch methods and a first look at DQN</span>
+            <span class="rl-lec-meta"><span><i class="ri-slideshow-line" aria-hidden="true"></i>50 slides</span><span><i class="ri-play-circle-line" aria-hidden="true"></i>3 episodes · 16 min</span><span><i class="ri-flask-line" aria-hidden="true"></i>Lab</span></span></div></a>
+        </div>
+      </div>
+      <div class="rl-part">
+        <div class="rl-part-head"><h3><span>Part 3</span>Deep RL and planning</h3><p>Neural networks as value functions, and agents that learn a model and plan with it.</p></div>
+        <div class="rl-lec-grid is-2">
+          <a class="rl-lec-card" href="/rl-course/lecture-08/"><img src="/rl-course/img/slides/l08-s12.webp" alt="A slide from Lecture 8" width="960" height="540" loading="lazy" decoding="async"><div class="rl-lec-body">
+            <span class="rl-lec-num">Lecture 8</span><span class="rl-lec-title">Deep reinforcement learning</span><span class="rl-lec-text">Neural networks as value functions, automatic differentiation, DQN and the tricks that make it work</span>
+            <span class="rl-lec-meta"><span><i class="ri-slideshow-line" aria-hidden="true"></i>36 slides</span><span><i class="ri-play-circle-line" aria-hidden="true"></i>4 episodes · 21 min</span><span><i class="ri-gamepad-line" aria-hidden="true"></i>2 games</span></span></div></a><a class="rl-lec-card" href="/rl-course/lecture-09/"><img src="/rl-course/img/slides/l09-s21.webp" alt="A slide from Lecture 9" width="960" height="540" loading="lazy" decoding="async"><div class="rl-lec-body">
+            <span class="rl-lec-num">Lecture 9</span><span class="rl-lec-title">Planning and models</span><span class="rl-lec-text">Learning models of the world, Dyna, replay as a model, Monte Carlo tree search and AlphaZero</span>
+            <span class="rl-lec-meta"><span><i class="ri-slideshow-line" aria-hidden="true"></i>50 slides</span><span><i class="ri-play-circle-line" aria-hidden="true"></i>7 episodes · 36 min</span><span><i class="ri-flask-line" aria-hidden="true"></i>Lab</span><span><i class="ri-gamepad-line" aria-hidden="true"></i>1 game</span></span></div></a>
+        </div>
+      </div>
+      <div class="rl-part">
+        <div class="rl-part-head"><h3><span>Part 4</span>Beyond value functions</h3><p>Learning the policy directly, learning about many things at once, and learning from people.</p></div>
+        <div class="rl-lec-grid is-3">
+          <a class="rl-lec-card" href="/rl-course/lecture-10/"><img src="/rl-course/img/slides/l10-s09.webp" alt="A slide from Lecture 10" width="960" height="540" loading="lazy" decoding="async"><div class="rl-lec-body">
+            <span class="rl-lec-num">Lecture 10</span><span class="rl-lec-title">Policy gradients and actor-critics</span><span class="rl-lec-text">Stochastic policies, the score-function trick, the policy gradient theorem, actor-critics, trust regions and continuous actions</span>
+            <span class="rl-lec-meta"><span><i class="ri-slideshow-line" aria-hidden="true"></i>43 slides</span><span><i class="ri-play-circle-line" aria-hidden="true"></i>5 episodes · 26 min</span><span><i class="ri-flask-line" aria-hidden="true"></i>Lab</span><span><i class="ri-gamepad-line" aria-hidden="true"></i>1 game</span></span></div></a><a class="rl-lec-card" href="/rl-course/lecture-11/"><img src="/rl-course/img/slides/l11-s29.webp" alt="A slide from Lecture 11" width="960" height="540" loading="lazy" decoding="async"><div class="rl-lec-body">
+            <span class="rl-lec-num">Lecture 11</span><span class="rl-lec-title">Learning about many things</span><span class="rl-lec-text">General value functions, auxiliary tasks, PopArt, universal value functions and distributional RL</span>
+            <span class="rl-lec-meta"><span><i class="ri-slideshow-line" aria-hidden="true"></i>35 slides</span><span><i class="ri-play-circle-line" aria-hidden="true"></i>4 episodes · 21 min</span></span></div></a><a class="rl-lec-card" href="/rl-course/lecture-12/"><img src="/rl-course/img/slides/l12-s23.webp" alt="A slide from Lecture 12" width="960" height="540" loading="lazy" decoding="async"><div class="rl-lec-body">
+            <span class="rl-lec-num">Lecture 12</span><span class="rl-lec-title">Learning from people</span><span class="rl-lec-text">Imitation learning, behaviour cloning and DAgger, inverse RL, learning from comparisons, RLHF and its limits</span>
+            <span class="rl-lec-meta"><span><i class="ri-slideshow-line" aria-hidden="true"></i>56 slides</span><span><i class="ri-play-circle-line" aria-hidden="true"></i>5 episodes · 27 min</span><span><i class="ri-flask-line" aria-hidden="true"></i>Lab</span><span><i class="ri-gamepad-line" aria-hidden="true"></i>1 game</span></span></div></a>
+        </div>
+      </div>
+      </div>
+      <p class="rl-note">The order of topics follows the DeepMind × UCL Reinforcement Learning Lecture Series (2021) and, for parts of Lectures 9 and 12, Stanford CS234 (2024). The slides, figures, examples and simulations are ACML’s own, not official DeepMind, UCL or Stanford material; each lecture page names its source.</p>
+    </div></section>
+    <section id="practice" class="proj-section" aria-labelledby="practice-title"><div class="proj-wrap">
+      <h2 id="practice-title" class="proj-h2">Labs and games</h2>
+      <p class="proj-lead">Learn by doing. The labs run the algorithms from the lectures in your browser; the games put you, or an agent you build, inside a reinforcement-learning problem.</p>
+      <h3 class="proj-h3" style="margin-top:2rem">Interactive labs</h3>
+      <div class="proj-grid"><a class="tool-card rl-lab-card" href="/rl-course/lecture-02/#bandit-lab"><div class="card-body"><span class="tool-icon"><i class="ri-scales-3-line" aria-hidden="true"></i></span><p class="card-title">Bandit lab</p><p class="card-text">Pull the arms of a multi-armed bandit with ε-greedy, UCB or Thompson sampling. Change the number of arms, let the hidden reward chances drift, and watch estimates, regret and the gap to an oracle evolve.</p><span class="card-more">Open it in Lecture 2 <i class="ri-arrow-right-line" aria-hidden="true"></i></span></div></a><a class="tool-card rl-lab-card" href="/rl-course/lecture-03/#dp-lab"><div class="card-body"><span class="tool-icon"><i class="ri-grid-line" aria-hidden="true"></i></span><p class="card-title">Dynamic programming lab</p><p class="card-text">Watch policy evaluation, value iteration and policy iteration sweep a small gridworld. Change the discount, make moves slippery, add walls, and see the values settle and the greedy arrows lock in.</p><span class="card-more">Open it in Lecture 3 <i class="ri-arrow-right-line" aria-hidden="true"></i></span></div></a><a class="tool-card rl-lab-card" href="/rl-course/lecture-04/#contraction-lab"><div class="card-body"><span class="tool-icon"><i class="ri-focus-2-line" aria-hidden="true"></i></span><p class="card-title">Contraction lab</p><p class="card-text">Start two different value functions on a small random MDP and apply the Bellman operator to both, again and again. The distance between them shrinks by at least a factor γ each time, so both end at the same fixed point.</p><span class="card-more">Open it in Lecture 4 <i class="ri-arrow-right-line" aria-hidden="true"></i></span></div></a><a class="tool-card rl-lab-card" href="/rl-course/lecture-05/#td-mc-lab"><div class="card-body"><span class="tool-icon"><i class="ri-footprint-line" aria-hidden="true"></i></span><p class="card-title">TD vs Monte Carlo lab</p><p class="card-text">A random walk over five states, A to E. Monte Carlo and TD(0) learn from the very same episodes. Compare their estimates with the true values, and their error curves averaged over a hundred runs.</p><span class="card-more">Open it in Lecture 5 <i class="ri-arrow-right-line" aria-hidden="true"></i></span></div></a><a class="tool-card rl-lab-card" href="/rl-course/lecture-06/#gridworld-lab"><div class="card-body"><span class="tool-icon"><i class="ri-route-line" aria-hidden="true"></i></span><p class="card-title">Gridworld lab</p><p class="card-text">Train Q-learning or SARSA on a small gridworld with hazards and walls. Tune ε, the step size and the discount, add slippery actions, and watch the value map and the greedy policy sharpen episode by episode.</p><span class="card-more">Open it in Lecture 6 <i class="ri-arrow-right-line" aria-hidden="true"></i></span></div></a><a class="tool-card rl-lab-card" href="/rl-course/lecture-07/#mountain-car-lab"><div class="card-body"><span class="tool-icon"><i class="ri-car-line" aria-hidden="true"></i></span><p class="card-title">Mountain Car lab</p><p class="card-text">An underpowered car must rock back and forth to climb a hill. Train linear SARSA on tile-coded features, watch the steps per episode drop, look at the learned cost-to-go, and replay the greedy policy.</p><span class="card-more">Open it in Lecture 7 <i class="ri-arrow-right-line" aria-hidden="true"></i></span></div></a><a class="tool-card rl-lab-card" href="/rl-course/lecture-09/#mcts-lab"><div class="card-body"><span class="tool-icon"><i class="ri-node-tree" aria-hidden="true"></i></span><p class="card-title">MCTS lab</p><p class="card-text">Play tic-tac-toe against Bit, who plans with Monte Carlo tree search: random play-outs, and UCB to choose which branch to try next. Change how many simulations it gets and look inside its last search.</p><span class="card-more">Open it in Lecture 9 <i class="ri-arrow-right-line" aria-hidden="true"></i></span></div></a><a class="tool-card rl-lab-card" href="/rl-course/lecture-10/#pg-bandit-lab"><div class="card-body"><span class="tool-icon"><i class="ri-equalizer-line" aria-hidden="true"></i></span><p class="card-title">Policy-gradient bandit lab</p><p class="card-text">Learn a softmax policy directly with the gradient-bandit (REINFORCE) update, with or without a baseline. Shift every reward up by a constant and see why the baseline matters.</p><span class="card-more">Open it in Lecture 10 <i class="ri-arrow-right-line" aria-hidden="true"></i></span></div></a><a class="tool-card rl-lab-card" href="/rl-course/lecture-12/#bt-lab"><div class="card-body"><span class="tool-icon"><i class="ri-thumb-up-line" aria-hidden="true"></i></span><p class="card-title">Bradley–Terry lab</p><p class="card-text">Compare answers two at a time, the way people label data for RLHF, and watch a Bradley–Terry model turn your choices into a score for each answer. Add simulated comparisons and see how many it needs.</p><span class="card-more">Open it in Lecture 12 <i class="ri-arrow-right-line" aria-hidden="true"></i></span></div></a></div>
+      <h3 class="proj-h3" style="margin-top:2.5rem">Games</h3>
+      <div class="rl-games"><article class="rl-game"><a href="https://mm.teddylazebnik.com/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/rl-course/img/games/markovs-maze.webp" alt="" width="800" height="450" loading="lazy" decoding="async"></a><div class="rl-game-body"><p class="rl-game-title">Markov’s Maze</p><p class="rl-game-tag">A maze where every step is a roll of the dice.</p><p class="rl-game-text">Each rune tile resolves your move with its own five probabilities: where you meant to go, the opposite way, left, right, or stay. Reach the goal seal without falling into traps or lava, while cursed knights patrol.</p><div class="rl-chips"><span class="rl-chip is-game">Stochastic transitions</span><span class="rl-chip is-game">Planning under uncertainty</span><span class="rl-chip is-game">Markov decision processes</span></div><div class="rl-game-foot"><a class="proj-btn proj-btn-primary" href="https://mm.teddylazebnik.com/" target="_blank" rel="noopener"><i class="ri-gamepad-line" aria-hidden="true"></i>Play</a><div class="rl-chips" aria-label="Lectures it goes with"><a class="rl-chip is-plain" href="/rl-course/lecture-01/">Lecture 1</a><a class="rl-chip is-plain" href="/rl-course/lecture-03/">Lecture 3</a></div></div></div></article><article class="rl-game"><a href="https://eh.teddylazebnik.com/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/rl-course/img/games/echo-heist.webp" alt="" width="800" height="450" loading="lazy" decoding="async"></a><div class="rl-game-body"><p class="rl-game-title">Echo Heist</p><p class="rl-game-tag">Teach a little robot. Steal back a city.</p><p class="rl-game-text">Choose what your partner Echo senses, which actions it can take and what success means, then let a real learner train in your browser: tabular, planning, policy-gradient, deep-RL or imitation. When the door opens, the policy is frozen and Echo runs with what it learned.</p><div class="rl-chips"><span class="rl-chip is-game">State, actions and reward design</span><span class="rl-chip is-game">Training a learner</span><span class="rl-chip is-game">Many families of RL methods</span></div><div class="rl-game-foot"><a class="proj-btn proj-btn-primary" href="https://eh.teddylazebnik.com/" target="_blank" rel="noopener"><i class="ri-gamepad-line" aria-hidden="true"></i>Play</a><div class="rl-chips" aria-label="Lectures it goes with"><a class="rl-chip is-plain" href="/rl-course/lecture-01/">Lecture 1</a><a class="rl-chip is-plain" href="/rl-course/lecture-06/">Lecture 6</a><a class="rl-chip is-plain" href="/rl-course/lecture-08/">Lecture 8</a><a class="rl-chip is-plain" href="/rl-course/lecture-09/">Lecture 9</a><a class="rl-chip is-plain" href="/rl-course/lecture-10/">Lecture 10</a><a class="rl-chip is-plain" href="/rl-course/lecture-12/">Lecture 12</a></div></div></div></article><article class="rl-game"><a href="https://rl.teddylazebnik.com/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/rl-course/img/games/pirates-war.webp" alt="" width="800" height="450" loading="lazy" decoding="async"></a><div class="rl-game-body"><p class="rl-game-title">Pirates War RL</p><p class="rl-game-tag">Code your captain. Read the sea.</p><p class="rl-game-text">A naval strategy game where every decision belongs to an agent. Write your own captain in sandboxed JavaScript, Dense JSON or a restricted TensorFlow.js package, then raid, defend and capture flags against rival agents, with or without fog of war.</p><div class="rl-chips"><span class="rl-chip is-game">Writing your own agent</span><span class="rl-chip is-game">Partial observability</span><span class="rl-chip is-game">Multi-agent play</span></div><div class="rl-game-foot"><a class="proj-btn proj-btn-primary" href="https://rl.teddylazebnik.com/" target="_blank" rel="noopener"><i class="ri-gamepad-line" aria-hidden="true"></i>Play</a><div class="rl-chips" aria-label="Lectures it goes with"><a class="rl-chip is-plain" href="/rl-course/lecture-01/">Lecture 1</a><a class="rl-chip is-plain" href="/rl-course/lecture-08/">Lecture 8</a></div></div></div></article></div>
+    </div></section>
+  </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Games</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
+                  <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
+                  <li><a href="https://rl.teddylazebnik.com/" class="hover:text-white">Pirate War RL Game</a></li>
+                  <li><a href="https://eh.teddylazebnik.com/" class="hover:text-white">Echo Heist</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/rl-course/" class="hover:text-white">RL course</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <script src="/js/videos.js"></script>
+      
+      <script src="/js/rl-course.js" defer></script>
+   </body>
+</html>

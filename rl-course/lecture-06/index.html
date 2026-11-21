@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_rl_course.py from data/rl-course.json. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Lecture 6: Model-free control | Reinforcement Learning Course | ACML</title>
+      <meta name="description" content="Lecture 6 of 12 of ACML’s introduction to reinforcement learning. Monte Carlo control, SARSA, Q-learning, off-policy learning, double Q-learning and importance sampling: slides, 3 short episodes, an interactive lab and a game.">
+      <meta name="author" content="Teddy Lazebnik">
+      <meta name="keywords" content="reinforcement learning, model-free control, RL course, lecture slides, ACML Explains">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/rl-course/lecture-06/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Lecture 6: Model-free control · Introduction to Reinforcement Learning">
+      <meta property="og:description" content="Lecture 6 of 12 of ACML’s introduction to reinforcement learning. Monte Carlo control, SARSA, Q-learning, off-policy learning, double Q-learning and importance sampling: slides, 3 short episodes, an interactive lab and a game.">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/rl-course/lecture-06/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/rl-course/lecture-06/share.jpg">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Lecture 6: Model-free control · Introduction to Reinforcement Learning">
+      <meta name="twitter:description" content="Lecture 6 of 12 of ACML’s introduction to reinforcement learning. Monte Carlo control, SARSA, Q-learning, off-policy learning, double Q-learning and importance sampling: slides, 3 short episodes, an interactive lab and a game.">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/rl-course/lecture-06/share.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "Lecture 6: Model-free control",
+        "description": "From predicting to improving, still without a model: Monte Carlo control and GLIE, SARSA, Q-learning and off-policy learning, the overestimation that double Q-learning fixes, importance sampling and expected SARSA.",
+        "url": "https://acml.teddylazebnik.com/rl-course/lecture-06/",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "learningResourceType": [
+          "Lecture slides",
+          "Video"
+        ],
+        "teaches": "Monte Carlo control, SARSA, Q-learning, off-policy learning, double Q-learning and importance sampling",
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Introduction to Reinforcement Learning",
+          "url": "https://acml.teddylazebnik.com/rl-course/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Teddy Lazebnik",
+          "url": "https://teddylazebnik.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Applied Computational Mathematics Laboratory",
+          "url": "https://acml.teddylazebnik.com/"
+        },
+        "hasPart": [
+          {
+            "@type": "VideoObject",
+            "name": "Learning to act",
+            "description": "Bit can tell you how good a policy is. Today he learns to find a better one, with no model at all.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/rl-course/img/episodes/ep21.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/rzBL13TLd14",
+            "duration": "PT5M12S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Walking the cliff",
+            "description": "Two learners, one cliff. One finds the best path. The other earns more while learning. Which one is right?",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/rl-course/img/episodes/ep22.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/kaSB4RoOYfM",
+            "duration": "PT5M27S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Too optimistic",
+            "description": "Ten actions, all worth zero. The max says one and a half. Then we take Q-learning to the casino.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/rl-course/img/episodes/ep23.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/9ZWFeqDEfwg",
+            "duration": "PT5M15S"
+          },
+          {
+            "@type": "DigitalDocument",
+            "name": "Lecture 6 slides",
+            "encodingFormat": "application/pdf",
+            "url": "https://acml.teddylazebnik.com/rl-course/slides/ACML_RL_Lecture06_Model-Free_Control.pdf"
+          }
+        ]
+      }
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      <link href="/css/videos.css" rel="stylesheet">
+      <link href="/css/exploration-lab.css" rel="stylesheet">
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/project.css" rel="stylesheet">
+      <link href="/css/rl-course.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Tools</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="proj-page rl-page bg-white">
+    <header class="proj-hero rl-hero">
+      <div class="proj-wrap proj-hero-grid">
+        <div>
+          <nav class="proj-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/tools.html">Tools</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/rl-course/">RL course</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Lecture 6</span></nav>
+          <p class="proj-kicker"><span><i class="ri-graduation-cap-line" aria-hidden="true"></i>Introduction to Reinforcement Learning</span><span>Part 2 · Learning from experience</span></p>
+          <h1 class="proj-title"><small>Lecture 6</small>Model-free control</h1>
+          <p class="proj-about-lead rl-summary">From predicting to improving, still without a model: Monte Carlo control and GLIE, SARSA, Q-learning and off-policy learning, the overestimation that double Q-learning fixes, importance sampling and expected SARSA.</p>
+          <div class="rl-goal"><i class="ri-focus-3-line" aria-hidden="true"></i><span>By the end you should be able to run SARSA and Q-learning by hand, explain why they find different paths, and say what double learning and importance sampling fix.</span></div>
+          <h2 class="proj-h3 rl-ideas-title">Key ideas, one per episode</h2>
+          <ul class="rl-ideas"><li><a href="#ep-21">Ep. 21</a><span>Learn q, explore, then shrink the exploration.</span></li><li><a href="#ep-22">Ep. 22</a><span>Learn the greedy policy while you explore.</span></li><li><a href="#ep-23">Ep. 23</a><span>Don&#x27;t let the same numbers pick and score.</span></li></ul>
+          <p class="rl-source"><b>Based on:</b> Lecture 6: Model-Free Control, DeepMind × UCL Reinforcement Learning Lecture Series (2021), by Hado van Hasselt. The slides follow that order of topics, in our own words, figures and examples; they are not official material of the original course.</p>
+        </div>
+        <div class="rl-first">
+          <a class="rl-first-img" href="/rl-course/slides/ACML_RL_Lecture06_Model-Free_Control.pdf" target="_blank" rel="noopener"><img src="/rl-course/img/slides/l06-s01.webp" alt="The title slide of Lecture 6: Model-free control" width="960" height="540" fetchpriority="high" decoding="async"></a>
+          <p class="rl-first-text">44 slides, written to be read on your own, with worked examples, “try it” boxes, small simulations and check-yourself questions (answers at the end). PDF, 1.3 MB.</p>
+          <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="/rl-course/slides/ACML_RL_Lecture06_Model-Free_Control.pdf" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Open the PDF</a><a class="proj-btn" href="/rl-course/slides/ACML_RL_Lecture06_Model-Free_Control.pdf" download><i class="ri-download-2-line" aria-hidden="true"></i>Download</a></div>
+        </div>
+      </div>
+    </header>
+    <nav class="proj-subnav is-mobile-only" aria-label="Sections of this page"><div class="proj-wrap"><ul><li><a href="#watch">Watch</a></li><li><a href="#lab">Lab</a></li><li><a href="#play">Play</a></li><li><a href="#next">Next</a></li></ul></div></nav>
+    <section id="watch" class="proj-section is-soft" aria-labelledby="watch-title"><div class="proj-wrap">
+      <h2 id="watch-title" class="proj-h2">Watch</h2>
+      <p class="proj-lead">3 short episodes of ACML Explains for this lecture. Pick one from the list, and open the transcript to read along: each timestamp plays the episode from there. The narration is generated with a voice clone of Teddy, used with his permission.</p>
+      <div class="rl-watch">
+        <div class="rl-player-wrap">
+          <div id="rl-player" class="yt-player yt-16x9" data-yt-id="rzBL13TLd14" data-yt-title="Learning to act"><a class="yt-play" href="https://www.youtube.com/watch?v=rzBL13TLd14&amp;list=PLLTavI7DAgbE" aria-label="Play episode 21: Learning to act"><img src="/rl-course/img/episodes/ep21.webp" alt="" width="640" height="360" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div>
+          <div class="rl-now">
+            <p id="rl-now-num" class="rl-now-num">Episode 21 · 5:12</p>
+            <p id="rl-now-title" class="rl-now-title">Learning to act</p>
+            <p id="rl-now-hook" class="rl-now-hook">Bit can tell you how good a policy is. Today he learns to find a better one, with no model at all.</p>
+            <p id="rl-now-take" class="rl-now-take"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i><span>Learn q, explore, then shrink the exploration.</span></p>
+          </div>
+            <details id="rl-tx" class="rl-tx">
+              <summary><i class="ri-file-text-line" aria-hidden="true"></i>Transcript<span id="rl-tx-which">Episode 21</span><i class="ri-arrow-down-s-line rl-tx-caret" aria-hidden="true"></i></summary>
+              <div class="rl-tx-body"><div class="rl-tx-ep" data-ep="21"><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="0" aria-label="Play from 0:00">0:00</button><div><h4>From predicting to acting</h4><p>Five modules in, Bit can predict. Give him a policy, and he&#x27;ll tell you how good it is. But nobody wants a critic. We want Bit to act, and to get better at it. Today he learns to act. No model, no map. Just experience. Remember the recipe from dynamic programming? Evaluate the policy. Improve it. Repeat. That loop is called generalised policy iteration. Today we run it without a model.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="31" aria-label="Play from 0:31">0:31</button><div><h4>Why q, not v</h4><p>Here&#x27;s the snag. To improve greedily with v, you need to know where each action leads. Which states come next, and how likely each one is. That&#x27;s a model, and we don&#x27;t have one. So learn q instead. q of s and a: how good is this action, right here. With q, improving is easy. Look at the row for your state, and take the biggest number. Like choosing a dish from reviews. You don&#x27;t need to know what happens in the kitchen. Monte Carlo and TD can learn q from experience. Same methods as before, one letter different. So for control, we learn q, not v. That&#x27;s the whole trick of this module.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="71" aria-label="Play from 1:11">1:11</button><div><h4>Greedy is a trap</h4><p>But pure greedy is a trap. Say the first action you tried paid off a little. Greedy will pick it forever. The other actions never get a chance to show what they&#x27;re worth. So we explore. ε-greedy: most of the time, take the best action. Once in a while, a random one. And the theory backs it up. An ε-greedy policy built on your q is never worse than the policy you had. Small detail: the random move can land on the best action too. Exploring includes the obvious.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="100" aria-label="Play from 1:40">1:40</button><div><h4>The cleaning robot</h4><p>Now, how big should ε be? In class, I used a cleaning robot. Fix ε at point one, and ten percent of the time it does random things in your living room. That&#x27;s not why you bought it. You want ε to shrink. One over k works well, where k counts the episodes. Day one, it explores a lot. By the two hundredth run, it should know the house. And one over k never quite reaches zero. A sliver of curiosity stays, and keeps shrinking. Nobody wants a robot that&#x27;s still curious about the couch after a year.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="134" aria-label="Play from 2:14">2:14</button><div><h4>GLIE</h4><p>That gives us a condition with a funny name: GLIE. Greedy in the limit, with infinite exploration. Two promises. Every state and action gets tried infinitely often. And in the end, the policy becomes greedy. Keep both, and Monte Carlo control finds the optimal action values. A strong guarantee. But notice the second half. I do ask you to stop exploring eventually. At the optimum, every random move is a wrong move.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="164" aria-label="Play from 2:44">2:44</button><div><h4>SARSA</h4><p>Monte Carlo waits for the end of an episode. We already know the fix: TD. TD on q has a name you can pronounce: SARSA. The name is the data it needs: a state and an action, the reward, then the next state and the next action. Nudge q of S and A toward the reward, plus γ times q of the next pair. Start the table at zeros. The start state is given, like in chess, or random, like the cards you&#x27;re dealt. Then act ε-greedily on q, and update after every single step. Update the policy after every step, or after every few episodes? Every step is smoother, but noisier. Which is better? There&#x27;s no way to know in advance. Solve that in general, and that&#x27;s great. If not, I won&#x27;t be mad.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="207" aria-label="Play from 3:27">3:27</button><div><h4>Step sizes that behave</h4><p>Does SARSA find the optimum? Yes, with GLIE, and with step sizes that behave. Two conditions on the step sizes. Their sum must be infinite. The sum of their squares must be finite. α equal to one over t passes both. The harmonic series grows forever. After a million steps it&#x27;s only about fourteen point four, but it never stops. The squares add up to π squared over six. About one point six four. Big enough to get anywhere. Small enough to settle</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="237" aria-label="Play from 3:57">3:57</button><div><h4>Ten lines and a windy gridworld</h4><p>down. All those slides of maths. And in code, it&#x27;s about ten lines of Python. Borderline funny how simple it is. That&#x27;s how good ideas usually look. We ran it on a windy gridworld. In the middle columns, the wind pushes Bit upwards. The first episode takes about seven hundred steps. Bit gets blown around a lot. After a hundred and seventy episodes, about eight thousand steps in all, an episode takes about twenty two steps. The shortest possible path is fifteen. Our own runs: fifty of them, ε at point one, step size one half. The curve gets steeper as Bit learns. Why not fifteen? Because ε still throws in a random move now and then, and the wind punishes every one.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="279" aria-label="Play from 4:39">4:39</button><div><h4>On-policy</h4><p>SARSA is on-policy. It learns the value of the policy it actually follows, random moves included. That sounds like a detail. It isn&#x27;t. It changes which path Bit thinks is best. Learn q, explore, shrink the exploration slowly, and update with SARSA. That&#x27;s model-free control. Next time: learning about one policy while following another. Q-learning, and a walk along a cliff.</p></div></div></div><div class="rl-tx-ep" data-ep="22" hidden><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="0" aria-label="Play from 0:00">0:00</button><div><h4>Behaviour vs target</h4><p>SARSA learns about the policy it follows. Today, Bit learns about one policy while following another. The one you follow is the behaviour policy. Call it μ. The one you want to learn about is the target policy, π. When they&#x27;re the same, that&#x27;s on-policy. When they differ, off-policy. Why would anyone want that? In class, I gave three reasons. SARSA can&#x27;t do that. It learns about whatever it does, mistakes included.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="29" aria-label="Play from 0:29">0:29</button><div><h4>Why off-policy?</h4><p>One. A robot vacuum explores the house with a random walk. But what you want to know is the best route. Two. You want to become a good chess player. But all you do is solve two-move chess puzzles. Three. Learn from someone else: another agent, a human, an oracle. Their experience, your policy. In all three, the behaviour gathers the data, and the target is what we actually want. And one pile of exploration can serve many goals. The same walk teaches the way to the kitchen, and to the living room. The price: when μ and π are very different, learning is slower. Off-policy learning lets one stream of experience teach many lessons.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="71" aria-label="Play from 1:11">1:11</button><div><h4>Q-learning</h4><p>The most famous off-policy method is Q-learning. SARSA uses the next action Bit actually takes. Q-learning uses the best next action: the max. So the target is greedy, whatever Bit really does next. Exploration doesn&#x27;t leak into the values. Written out: q of S and A moves toward the reward, plus γ times the biggest q in the next state. It converges to the optimal q, as long as every pair keeps getting visited and the step sizes behave. The behaviour can be anything that keeps exploring. ε-greedy is the usual choice. One word changed. Next action became best action. Let&#x27;s see what that does.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="111" aria-label="Play from 1:51">1:51</button><div><h4>The cliff</h4><p>A grid, four rows by twelve. Start bottom left, goal bottom right. Between them, along the bottom edge, a cliff. Step off, and you lose a hundred and go back to the start. Every other step costs one. So the shortest path, hugging the edge, scores minus thirteen. A hundred points of penalty for a single slip. That&#x27;s a steep price. Both learners explore with ε at point one. One random move in ten. Bit doesn&#x27;t know any of this. He just walks, falls, and learns. Watch the two paths closely. This is where the two methods part ways.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="145" aria-label="Play from 2:25">2:25</button><div><h4>Our run</h4><p>Our own run: five hundred episodes, a hundred runs each. Q-learning finds the edge path. Thirteen steps. Optimal. SARSA picks a path away from the edge. Longer, but safe. Now look at the reward while they learn. SARSA earns about minus twenty six per episode. Q-learning earns about minus fifty. Walking the edge, with one random step in ten, it falls about once every three episodes. That&#x27;s a hundred runs averaged, so the gap is real, not luck. Q-learning learned the better policy. SARSA earns more while exploring. Why the gap? Q-learning&#x27;s values assume a perfect, greedy walker. But the real walker still makes random moves, right next to the edge. SARSA&#x27;s values include its own random moves. So it learns that the edge is dangerous, for someone like itself.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="195" aria-label="Play from 3:15">3:15</button><div><h4>Which one?</h4><p>So which one is better? It depends on whether the falling is real. A real robot next to a real staircase? SARSA&#x27;s caution is worth a lot. Training in a simulator, then switching exploration off? Q-learning&#x27;s path is the one you want. And for your own problem, there&#x27;s no way to know in advance. Many people start with SARSA and switch to Q-learning later. There&#x27;s no promise that&#x27;s better either. Methods that choose for you do exist: meta-learning, AutoML. They don&#x27;t work that well. Yet. Pick one and pray. This course runs on a lot of faith. Faith, and a lot of experiments.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="231" aria-label="Play from 3:51">3:51</button><div><h4>The flip</h4><p>One more thing about Q-learning. It&#x27;s very loyal to its first guesses. It keeps exploiting whatever looks best, until the estimates of two actions cross. I call that a flip. Starting from scratch, Q-learning is very abusive to its first guesses. It stays put, until a flip. On the reward curve, it looks like noise for a long time. And then, suddenly, a wave. It doesn&#x27;t converge, doesn&#x27;t converge, and after three hours it suddenly works. So much fun. Especially when your bonus depends on it.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="265" aria-label="Play from 4:25">4:25</button><div><h4>How many episodes?</h4><p>How many episodes is a lot? Fewer than you think. A hundred thousand episodes is reasonable. For a tiny game, that&#x27;s a few minutes. Chess, at fifty milliseconds a game: about seventy two thousand games an hour on one core. Four cores: close to three hundred thousand. One hospital resource-allocation project ran fifty million episodes over a weekend. And every one of those episodes is free data. Nobody had to label anything. So don&#x27;t be shy with episodes. Let it run.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="297" aria-label="Play from 4:57">4:57</button><div><h4>Recap</h4><p>SARSA: on-policy, and careful. Q-learning: off-policy, with a greedy target, and bold. Both are about ten lines of code. Both converge, under the right conditions. And notice: neither one needed a model. Just a table, a step size, and a lot of walking. But Q-learning has a dirty secret. It&#x27;s too optimistic. Next time, we take it to the casino.</p></div></div></div><div class="rl-tx-ep" data-ep="23" hidden><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="0" aria-label="Play from 0:00">0:00</button><div><h4>The max of noisy zeros</h4><p>Q-learning takes the max of its estimates. That sounds harmless. It isn&#x27;t. Take ten actions, all worth exactly zero. Your estimates are noisy: some a bit high, some a bit low. Now pick the biggest. On average, the biggest of ten noisy zeros is about one point five. Ten noisy zeros, and the winner always looks like a genius. Every action is worth zero, and the max says one and a half. That&#x27;s maximisation bias. The max picks the luckiest error, every single time. And Q-learning doesn&#x27;t take the max just once. It takes it at every step, and bootstraps on it. The error compounds.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="41" aria-label="Play from 0:41">0:41</button><div><h4>Two actions</h4><p>In class, I told it as a story with two actions. Try each one once. The good action has an unlucky draw. The bad one has a lucky draw. Now Q-learning keeps picking the bad one. The good one barely gets tried, so its low estimate never gets fixed. Until, one day, a flip, and the estimates trade places. The root of it: the same numbers choose the action and score it. That&#x27;s the trap of using your own estimates for everything. You can&#x27;t be your own referee.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="71" aria-label="Play from 1:11">1:11</button><div><h4>The casino</h4><p>Now, the casino. Roulette. Bit can bet one dollar on one of a hundred and seventy bets. Or he can stop, and walk away. Every bet loses about five cents on average. Some win big, rarely. Some win small, often. Some bets pay thirty five to one. That&#x27;s the jackpot Bit remembers. The right answer is to stop. The house always wins. On average. Standard disclaimer: the presenter is not an investment adviser. Q-learning does learn this eventually. It just takes millions of episodes.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="102" aria-label="Play from 1:42">1:42</button><div><h4>Our roulette run</h4><p>We ran our own version: one state, a hundred and seventy bets, γ at point nine five. Q-learning remembers the wins. After a million bets, it thinks a typical bet is worth about a hundred and six dollars. Not minus five cents. Plus a hundred dollars. It would play forever. Every bet looks like a winner, and stopping is worth exactly zero. So it never stops. Double Q-learning, on the very same bets: about minus twenty five cents. A bit gloomy, but it stops betting. Same data. One learner wants to stay all night. The other one goes home.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="139" aria-label="Play from 2:19">2:19</button><div><h4>Double Q-learning</h4><p>So how does double Q-learning work? Keep two tables. One table picks the best action. The other one scores it. Each step, flip a coin and update one of them. To act, use their average. If one table overestimates an action, the other has no reason to agree. So the bias washes out. And acting on their average means you never act on one table&#x27;s lucky guess alone. The same idea scaled up to Atari games, as double DQN. On a scale where a hundred is a typical human, it improved many games. Atari, by the way, is what we played at the arcade. A big wooden cabinet, a joystick, and another coin every time you lost.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="179" aria-label="Play from 2:59">2:59</button><div><h4>Importance sampling</h4><p>Back to off-policy learning. The data comes from μ, but we want averages under π. A small example. Two actions: left pays one, right pays ten. μ goes left eighty percent of the time. π goes right eighty percent of the time. The plain average of μ&#x27;s rewards is two point eight. But π&#x27;s true average is eight point two. The fix: weigh each sample by π over μ. A left counts a quarter. A right counts four times. Now the weighted average is eight point two. A rare action you want more of? Multiply it back up. Formally, you multiply and divide by μ. Multiplying by one never hurt anybody. That&#x27;s importance sampling. It turns averages under one policy into averages under another. And on average, under μ, the ratio is exactly one. So nothing gets biased.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="229" aria-label="Play from 3:49">3:49</button><div><h4>Monte Carlo vs TD ratios</h4><p>For Monte Carlo, the correction is a product: one ratio for every step of the episode. Ten steps, with a ratio of four each: that&#x27;s about a million. One unlikely episode gets a weight of a million. The variance explodes. The ratios multiply, so a few rare episodes can dominate everything. TD needs just one ratio, for one step. Much lower variance. That&#x27;s one reason off-policy methods built on TD are far more common.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="256" aria-label="Play from 4:16">4:16</button><div><h4>One family</h4><p>And for q, there&#x27;s a cleaner trick. Don&#x27;t sample the next action at all. Average over all the next actions, weighted by π. That&#x27;s expected SARSA. If π is greedy, that average is just the max. Expected SARSA becomes Q-learning. Expected SARSA costs a little more per step, but it removes the noise of sampling the next action. So it&#x27;s really one family. SARSA samples, expected SARSA averages, and Q-learning takes the</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="281" aria-label="Play from 4:41">4:41</button><div><h4>Module six, done</h4><p>max. And that&#x27;s module six, done. Bit can now act without a model. On-policy, off-policy, and without fooling himself. But every method so far keeps a table. One number for every state and action. Three ideas carry over to everything that comes next: exploring, off-policy targets, and double learning. Next module: what to do when the table won&#x27;t fit. Not in memory. Not in the universe.</p></div></div></div></div>
+            </details>
+        </div>
+        <div class="rl-eps">
+          <div class="rl-eps-head"><b>Lecture 6 episodes</b><span>3 episodes · 16 min</span></div>
+          <ol><li id="ep-21"><a class="rl-ep is-active" data-ep="21" href="https://www.youtube.com/watch?v=rzBL13TLd14&amp;list=PLLTavI7DAgbE" aria-current=true><span class="rl-ep-thumb"><img src="/rl-course/img/episodes/ep21.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>5:12</span></span><span><span class="rl-ep-num">Episode 21</span><span class="rl-ep-title" style="display:block">Learning to act</span><span class="rl-ep-take" style="display:block">Learn q, explore, then shrink the exploration.</span></span></a></li><li id="ep-22"><a class="rl-ep" data-ep="22" href="https://www.youtube.com/watch?v=kaSB4RoOYfM&amp;list=PLLTavI7DAgbE"><span class="rl-ep-thumb"><img src="/rl-course/img/episodes/ep22.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>5:28</span></span><span><span class="rl-ep-num">Episode 22</span><span class="rl-ep-title" style="display:block">Walking the cliff</span><span class="rl-ep-take" style="display:block">Learn the greedy policy while you explore.</span></span></a></li><li id="ep-23"><a class="rl-ep" data-ep="23" href="https://www.youtube.com/watch?v=9ZWFeqDEfwg&amp;list=PLLTavI7DAgbE"><span class="rl-ep-thumb"><img src="/rl-course/img/episodes/ep23.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>5:16</span></span><span><span class="rl-ep-num">Episode 23</span><span class="rl-ep-title" style="display:block">Too optimistic</span><span class="rl-ep-take" style="display:block">Don&#x27;t let the same numbers pick and score.</span></span></a></li></ol>
+        </div>
+      </div>
+      <script type="application/json" id="rl-episodes">[{"ep": 21, "youtube": "rzBL13TLd14", "title": "Learning to act", "duration": "5:12", "hook": "Bit can tell you how good a policy is. Today he learns to find a better one, with no model at all.", "takeaway": "Learn q, explore, then shrink the exploration.", "thumbAbs": "/rl-course/img/episodes/ep21.webp"}, {"ep": 22, "youtube": "kaSB4RoOYfM", "title": "Walking the cliff", "duration": "5:28", "hook": "Two learners, one cliff. One finds the best path. The other earns more while learning. Which one is right?", "takeaway": "Learn the greedy policy while you explore.", "thumbAbs": "/rl-course/img/episodes/ep22.webp"}, {"ep": 23, "youtube": "9ZWFeqDEfwg", "title": "Too optimistic", "duration": "5:16", "hook": "Ten actions, all worth zero. The max says one and a half. Then we take Q-learning to the casino.", "takeaway": "Don't let the same numbers pick and score.", "thumbAbs": "/rl-course/img/episodes/ep23.webp"}]</script>
+    </div></section>
+    <section id="lab" class="rl-lab" aria-labelledby="lab-title">
+      <div class="proj-wrap rl-lab-head">
+        <p class="proj-label"><i class="ri-route-line" aria-hidden="true"></i>Interactive lab</p>
+        <h2 id="lab-title" class="proj-h2" style="margin-top:.5rem">Gridworld lab</h2>
+        <p class="proj-lead">Train Q-learning or SARSA on a small gridworld with hazards and walls. Tune ε, the step size and the discount, add slippery actions, and watch the value map and the greedy policy sharpen episode by episode.</p>
+        <p class="proj-lead" style="margin-top:.6rem">The gridworld keeps the idea compact but brings in state, path dependence and delayed rewards. Watch the agent trade immediate moves against long-run return while the learned policy map gradually sharpens. It starts by connecting the bandit of Lecture 2 to sequential decisions.</p>
+      </div>
+      <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-12 lg:px-12">
+          <div class="bridge-panel">
+            <div class="max-w-3xl">
+              <h2 class="text-3xl font-bold text-gray-900 mt-2">From isolated action choice to sequential decision making</h2>
+              <p class="text-lg text-gray-600 mt-3 leading-relaxed">
+                A bandit can be read as reinforcement learning with only one state: there are multiple actions, but every pull returns you to the same decision point. A gridworld adds many states, delayed consequences, and transitions, so the cost of a choice can propagate several steps into the future.
+              </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-4 mt-8">
+              <div class="bridge-card">
+                <div class="bridge-card-icon">
+                  <i class="ri-focus-2-line"></i>
+                </div>
+                <h3 class="bridge-card-title">Bandit = one state, many actions</h3>
+                <p class="bridge-card-copy">Exploration asks: which option seems best when feedback is immediate and the decision context never changes?</p>
+              </div>
+
+              <div class="bridge-card">
+                <div class="bridge-card-icon">
+                  <i class="ri-map-pin-line"></i>
+                </div>
+                <h3 class="bridge-card-title">Gridworld = many states, delayed consequences</h3>
+                <p class="bridge-card-copy">Now each move changes the next state. A poor exploratory step can lead toward a trap or away from the goal.</p>
+              </div>
+
+              <div class="bridge-card">
+                <div class="bridge-card-icon">
+                  <i class="ri-git-branch-line"></i>
+                </div>
+                <h3 class="bridge-card-title">Exploration still matters</h3>
+                <p class="bridge-card-copy">The same tension remains, but decisions now shape future opportunities. Learning a policy means learning where each action leads.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-16 bg-white" id="gridworld-lab">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          <div class="math-panel mb-8">
+            <div class="max-w-3xl mb-6">
+              <div class="section-kicker">Simple Math</div>
+              <h3 class="text-2xl font-bold text-gray-900 mt-2">How the gridworld learner updates its action values</h3>
+              <p class="text-sm text-gray-600 mt-2 leading-relaxed">
+                In reinforcement learning the estimate is attached to a state-action pair. After each move, the learner nudges that estimate toward a target built from the immediate reward and the next state's value.
+              </p>
+            </div>
+            <div class="math-grid math-grid-wide">
+              <article class="math-card">
+                <div class="math-card-title">Q-learning</div>
+                <div class="formula-line"><span class="formula-chip">Q(s,a) <- Q(s,a) + alpha [r + gamma max_a' Q(s',a') - Q(s,a)]</span></div>
+                <p class="math-card-copy">Q-learning looks ahead to the best possible next action, even if the behavior policy is still exploring.</p>
+              </article>
+              <article class="math-card">
+                <div class="math-card-title">SARSA</div>
+                <div class="formula-line"><span class="formula-chip">Q(s,a) <- Q(s,a) + alpha [r + gamma Q(s',a') - Q(s,a)]</span></div>
+                <p class="math-card-copy">SARSA updates toward the action the agent actually expects to take next, so it learns under its own exploratory behavior.</p>
+              </article>
+              <article class="math-card">
+                <div class="math-card-title">Exploration policy</div>
+                <div class="formula-line">Choose the greedy action most of the time, but explore with <span class="formula-chip">epsilon</span>.</div>
+                <p class="math-card-copy">Optional epsilon decay makes the learner search broadly at first and then become more stable once it has mapped the environment.</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="grid xl:grid-cols-[340px,1fr] gap-8">
+            <aside class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm space-y-6">
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900">Gridworld controls</h3>
+                <p class="text-sm text-gray-600 mt-2">Choose the learner, tune exploration, and decide whether training happens in a deterministic or noisy environment.</p>
+              </div>
+
+              <div class="space-y-2">
+                <label for="gridAlgorithm" class="text-sm font-medium text-gray-700">Learning algorithm</label>
+                <select id="gridAlgorithm" class="control-select">
+                  <option value="qlearning">Q-learning</option>
+                  <option value="sarsa">SARSA</option>
+                </select>
+              </div>
+
+              <div class="space-y-3">
+                <div class="flex items-center justify-between gap-4">
+                  <div>
+                    <div class="text-sm font-medium text-gray-700">Action noise</div>
+                    <p class="text-xs text-gray-500 mt-1">Allow occasional slips to a side direction.</p>
+                  </div>
+                  <label class="toggle">
+                    <input id="gridNoise" type="checkbox" />
+                    <span class="toggle-track"></span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="space-y-2">
+                <div class="flex items-center justify-between gap-3">
+                  <label for="gridEpsilon" class="text-sm font-medium text-gray-700">Exploration rate (epsilon)</label>
+                  <span id="gridEpsilonValue" class="control-value">0.18</span>
+                </div>
+                <input id="gridEpsilon" type="range" min="0.02" max="0.40" step="0.01" value="0.18" class="w-full">
+              </div>
+
+              <div class="space-y-2">
+                <div class="flex items-center justify-between gap-3">
+                  <label for="gridAlpha" class="text-sm font-medium text-gray-700">Learning rate</label>
+                  <span id="gridAlphaValue" class="control-value">0.30</span>
+                </div>
+                <input id="gridAlpha" type="range" min="0.05" max="0.80" step="0.01" value="0.30" class="w-full">
+              </div>
+
+              <div class="space-y-2">
+                <div class="flex items-center justify-between gap-3">
+                  <label for="gridGamma" class="text-sm font-medium text-gray-700">Discount factor</label>
+                  <span id="gridGammaValue" class="control-value">0.92</span>
+                </div>
+                <input id="gridGamma" type="range" min="0.50" max="0.99" step="0.01" value="0.92" class="w-full">
+              </div>
+
+              <div class="space-y-3">
+                <label class="option-chip">
+                  <input id="gridOptimistic" type="checkbox" />
+                  <span class="option-chip-box"></span>
+                  <span>
+                    <span class="text-sm font-medium text-gray-700 block">Optimistic initialization</span>
+                    <span class="text-xs text-gray-500">Start Q-values above zero to encourage early exploration.</span>
+                  </span>
+                </label>
+
+                <label class="option-chip">
+                  <input id="gridDecay" type="checkbox" checked />
+                  <span class="option-chip-box"></span>
+                  <span>
+                    <span class="text-sm font-medium text-gray-700 block">Epsilon decay</span>
+                    <span class="text-xs text-gray-500">Reduce exploration gradually as training proceeds.</span>
+                  </span>
+                </label>
+              </div>
+
+              <div class="space-y-2">
+                <div class="flex items-center justify-between gap-3">
+                  <label for="gridTrainEpisodes" class="text-sm font-medium text-gray-700">Train batch size</label>
+                  <span class="control-value">episodes</span>
+                </div>
+                <input id="gridTrainEpisodes" type="number" min="5" max="300" step="5" value="60" class="control-select">
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-1 gap-3">
+                <button id="gridStepBtn" type="button" class="control-button control-button-primary">
+                  <i class="ri-walk-line"></i>
+                  Step Episode
+                </button>
+                <button id="gridTrainBtn" type="button" class="control-button control-button-secondary">
+                  <i class="ri-rocket-line"></i>
+                  Train N Episodes
+                </button>
+                <button id="gridResetBtn" type="button" class="control-button control-button-ghost">
+                  <i class="ri-restart-line"></i>
+                  Reset
+                </button>
+              </div>
+
+              <div class="rounded-2xl bg-gray-50 border border-gray-100 p-4">
+                <div class="text-sm font-semibold text-gray-900">Environment legend</div>
+                <div class="mt-3 grid grid-cols-2 gap-3 text-sm text-gray-600">
+                  <div class="legend-detail"><span class="legend-dot legend-start"></span>Start</div>
+                  <div class="legend-detail"><span class="legend-dot legend-goal"></span>Goal</div>
+                  <div class="legend-detail"><span class="legend-dot legend-hazard"></span>Hazard</div>
+                  <div class="legend-detail"><span class="legend-dot legend-wall"></span>Wall</div>
+                </div>
+              </div>
+            </aside>
+
+            <div class="space-y-6">
+              <div class="grid sm:grid-cols-2 xl:grid-cols-5 gap-4">
+                <div class="metric-tile">
+                  <div class="metric-label">Episodes trained</div>
+                  <div id="gridEpisodes" class="metric-value">0</div>
+                </div>
+                <div class="metric-tile">
+                  <div class="metric-label">Current epsilon</div>
+                  <div id="gridCurrentEpsilon" class="metric-value">0.18</div>
+                </div>
+                <div class="metric-tile">
+                  <div class="metric-label">Last reward</div>
+                  <div id="gridLastReward" class="metric-value">0.00</div>
+                </div>
+                <div class="metric-tile">
+                  <div class="metric-label">Last episode length</div>
+                  <div id="gridLastLength" class="metric-value">0</div>
+                </div>
+                <div class="metric-tile">
+                  <div class="metric-label">Goal rate (last 20)</div>
+                  <div id="gridGoalRate" class="metric-value">0%</div>
+                </div>
+              </div>
+
+              <div class="grid lg:grid-cols-[1.05fr,0.95fr] gap-6">
+                <div class="bg-gray-50 rounded-2xl border border-gray-100 p-6 shadow-sm">
+                  <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
+                    <div>
+                      <h3 class="text-xl font-semibold text-gray-900">Policy and value map</h3>
+                      <p class="text-sm text-gray-600 mt-1">Cell shading reflects the current value estimate. Icons show the greedy action, and numbered badges mark the latest trajectory.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-3 text-xs text-gray-500">
+                      <span class="legend-chip"><i class="ri-compass-3-line"></i> Greedy action</span>
+                      <span class="legend-chip"><i class="ri-fire-line"></i> Path marker</span>
+                    </div>
+                  </div>
+                  <div id="gridBoard" class="gridworld-board" aria-live="polite"></div>
+                </div>
+
+                <div class="space-y-6">
+                  <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+                    <div class="flex items-center justify-between gap-4 mb-4">
+                      <div>
+                        <h3 class="text-xl font-semibold text-gray-900">Episode reward history</h3>
+                        <p class="text-sm text-gray-600 mt-1">Returns should rise as the policy discovers a safer, shorter route to the goal.</p>
+                      </div>
+                      <div class="text-right">
+                        <div class="text-xs text-gray-500">History shown</div>
+                        <div id="gridHistoryCount" class="text-lg font-semibold text-gray-900">0 episodes</div>
+                      </div>
+                    </div>
+                    <div class="chart-shell">
+                      <svg id="gridRewardChart" class="mini-chart" viewBox="0 0 560 220" preserveAspectRatio="none" role="img" aria-label="Gridworld episode reward chart"></svg>
+                    </div>
+                  </div>
+
+                  <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+                    <div class="flex items-center justify-between gap-4 mb-4">
+                      <div>
+                        <h3 class="text-xl font-semibold text-gray-900">Most recent trajectory</h3>
+                        <p class="text-sm text-gray-600 mt-1">This makes the last episode legible as a path rather than only as a scalar reward.</p>
+                      </div>
+                      <span id="gridStatusTag" class="status-pill" data-state="ready">Ready</span>
+                    </div>
+                    <div id="gridTrajectorySummary" class="trajectory-summary"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+    <section id="play" class="proj-section is-soft" aria-labelledby="play-title"><div class="proj-wrap">
+      <h2 id="play-title" class="proj-h2">Play</h2>
+      <p class="proj-lead">A game that goes with this lecture, and what to look for while you play.</p>
+      <div class="rl-games is-1"><article class="rl-game"><a href="https://eh.teddylazebnik.com/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/rl-course/img/games/echo-heist.webp" alt="" width="800" height="450" loading="lazy" decoding="async"></a><div class="rl-game-body"><p class="rl-game-title">Echo Heist</p><p class="rl-game-tag">Teach a little robot. Steal back a city.</p><p class="rl-game-why"><b>In this lecture:</b> One of the learners Echo Heist trains in your browser is a tabular one. Change what Echo can sense or what it is rewarded for, train, and watch the route it learns change.</p><p class="rl-game-text">Choose what your partner Echo senses, which actions it can take and what success means, then let a real learner train in your browser: tabular, planning, policy-gradient, deep-RL or imitation. When the door opens, the policy is frozen and Echo runs with what it learned.</p><div class="rl-game-foot"><a class="proj-btn proj-btn-primary" href="https://eh.teddylazebnik.com/" target="_blank" rel="noopener"><i class="ri-gamepad-line" aria-hidden="true"></i>Play</a></div></div></article></div>
+    </div></section>
+    <section id="next" class="proj-section" aria-labelledby="next-title"><div class="proj-wrap">
+      <h2 id="next-title" class="proj-h2">Keep going</h2>
+      <div class="rl-pn"><a href="/rl-course/lecture-05/"><i class="ri-arrow-left-line" aria-hidden="true"></i><span><small>Previous · Lecture 5</small><strong>Model-free prediction</strong></span></a><a class="is-next" href="/rl-course/lecture-07/"><span><small>Next · Lecture 7</small><strong>Function approximation</strong></span><i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+    </div></section>
+  </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Games</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
+                  <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
+                  <li><a href="https://rl.teddylazebnik.com/" class="hover:text-white">Pirate War RL Game</a></li>
+                  <li><a href="https://eh.teddylazebnik.com/" class="hover:text-white">Echo Heist</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/rl-course/" class="hover:text-white">RL course</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <script src="/js/videos.js"></script>
+      <script src="/js/exploration-lab.js"></script>
+      <script src="/js/rl-course.js" defer></script>
+   </body>
+</html>

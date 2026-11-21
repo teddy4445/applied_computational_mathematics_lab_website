@@ -78,6 +78,22 @@ python tools/build_projects.py
 
 It writes `projects/<slug>/index.html` and a social image `projects/<slug>/share.jpg`, and updates the project list on `projects.html`, `sitemap.xml` and `llms.txt`. Run it after `python tools/build_papers.py` when both changed.
 
+## Reinforcement learning course (rl-course/)
+
+Teddy's RL course has its own pages: `rl-course/` (the course page: how to study, all lectures, labs and games) and one page per lecture, `rl-course/lecture-01/` … `rl-course/lecture-12/`. A lecture page opens with its title, summary, learning goal, one key idea per episode and the source lecture, next to the first slide of the deck (with Open/Download buttons for the PDF); then a player with the lecture's ACML Explains episodes (pick one from the list; a transcript under the player follows the episode, and its timestamps play from that point), the interactive lab and the games that fit (Markov's Maze, Echo Heist, Pirates War RL). Its section menu shows only on phones (below 768 px). The Tools page links to the course; the old `exploration-lab.html` now forwards there (its `#bandit-lab` / `#gridworld-lab` links go straight to the lab).
+
+The nine labs, one per lecture: bandits (L2), dynamic programming (L3), contraction (L4), TD vs Monte Carlo (L5), Q-learning/SARSA gridworld (L6), Mountain Car with tile coding (L7), MCTS on tic-tac-toe (L9), policy-gradient bandit (L10) and Bradley–Terry from comparisons (L12). The bandit and gridworld labs run on `js/exploration-lab.js`; the other seven on `js/rl-labs.js` (with `css/rl-labs.css`). Everything runs in the visitor's browser.
+
+Everything comes from `data/rl-course.json`: lectures (title, topics, summary, goal, source lecture, slide PDF, cover and first-slide images, episode numbers, labs, games with a "what to look for" line), episodes (YouTube id, title, duration, hook, takeaway, chapters, thumbnail), labs, games and the playlist id. The transcripts are in `data/rl-course-transcripts.json` (each episode's captions, grouped by chapter). After changing either, or a template in `tools/templates/rl-course*.html`, run:
+
+```
+python tools/build_rl_course.py
+```
+
+It writes the 13 pages, a share image (`share.jpg`) for each, and the course pages in `sitemap.xml` and `llms.txt`. Files the pages use: `rl-course/slides/*.pdf`, `rl-course/img/` (slide images, episode thumbnails, game screenshots, and the course-page drawing `teddy-bit-chess.svg`, with a `.png` copy for the share image), `css/rl-course.css` (on top of `css/project.css` and `css/videos.css`), `js/rl-course.js` (with `js/videos.js`), and for the labs `css/exploration-lab.css`, `css/rl-labs.css`, `js/exploration-lab.js` and `js/rl-labs.js`. The lab markup lives in `tools/templates/rl-course-lab-*.html`, which the Tailwind build scans, so the classes of the two older labs stay in `css/tailwind.css` (the newer labs use their own CSS).
+
+The episodes are embedded with YouTube's privacy-enhanced player; until a video is public on YouTube, its player shows YouTube's own "private video" message.
+
 ## Images
 
 Large images have `.webp` copies next to the originals, and the pages and data files point at the `.webp` versions. Keep the originals: share previews (`og:image`) still use PNG/JPEG. When you add a large photo, add a `.webp` copy as well (for example with https://squoosh.app), roughly 800 px wide for team photos and 1000 to 1200 px for cards and project images.

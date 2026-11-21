@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_rl_course.py from data/rl-course.json. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Lecture 5: Model-free prediction | Reinforcement Learning Course | ACML</title>
+      <meta name="description" content="Lecture 5 of 12 of ACML’s introduction to reinforcement learning. Monte Carlo, temporal-difference learning, multi-step returns and eligibility traces: slides, 4 short episodes and an interactive lab.">
+      <meta name="author" content="Teddy Lazebnik">
+      <meta name="keywords" content="reinforcement learning, model-free prediction, RL course, lecture slides, ACML Explains">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/rl-course/lecture-05/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Lecture 5: Model-free prediction · Introduction to Reinforcement Learning">
+      <meta property="og:description" content="Lecture 5 of 12 of ACML’s introduction to reinforcement learning. Monte Carlo, temporal-difference learning, multi-step returns and eligibility traces: slides, 4 short episodes and an interactive lab.">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/rl-course/lecture-05/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/rl-course/lecture-05/share.jpg">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Lecture 5: Model-free prediction · Introduction to Reinforcement Learning">
+      <meta name="twitter:description" content="Lecture 5 of 12 of ACML’s introduction to reinforcement learning. Monte Carlo, temporal-difference learning, multi-step returns and eligibility traces: slides, 4 short episodes and an interactive lab.">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/rl-course/lecture-05/share.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "Lecture 5: Model-free prediction",
+        "description": "Learning the value of a policy from experience, with no model: Monte Carlo, temporal-difference learning, how the two differ on the same data, multi-step returns, and eligibility traces. With a first look at function approximation.",
+        "url": "https://acml.teddylazebnik.com/rl-course/lecture-05/",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "learningResourceType": [
+          "Lecture slides",
+          "Video"
+        ],
+        "teaches": "Monte Carlo, temporal-difference learning, multi-step returns and eligibility traces",
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Introduction to Reinforcement Learning",
+          "url": "https://acml.teddylazebnik.com/rl-course/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Teddy Lazebnik",
+          "url": "https://teddylazebnik.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Applied Computational Mathematics Laboratory",
+          "url": "https://acml.teddylazebnik.com/"
+        },
+        "hasPart": [
+          {
+            "@type": "VideoObject",
+            "name": "Monte Carlo learning",
+            "description": "No rules, no model. Just play, see what happened, and average. It's enough to learn Blackjack.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/rl-course/img/episodes/ep17.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/kfWDXJ8lcKc",
+            "duration": "PT5M7S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Temporal-difference learning",
+            "description": "Why wait for the end of the story? Update after every single step, from a guess.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/rl-course/img/episodes/ep18.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/bRbxXbfa2Q4",
+            "duration": "PT5M11S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Same data, different answers",
+            "description": "Eight episodes. Monte Carlo says zero. TD says three quarters. Both are right.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/rl-course/img/episodes/ep19.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/gStAwEcoXCs",
+            "duration": "PT5M2S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Between TD and Monte Carlo",
+            "description": "One step, or all the way to the end? Neither. Look a few steps ahead, or let credit flow backwards.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/rl-course/img/episodes/ep20.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/t56FOv6prl0",
+            "duration": "PT5M9S"
+          },
+          {
+            "@type": "DigitalDocument",
+            "name": "Lecture 5 slides",
+            "encodingFormat": "application/pdf",
+            "url": "https://acml.teddylazebnik.com/rl-course/slides/ACML_RL_Lecture05_Model-Free_Prediction.pdf"
+          }
+        ]
+      }
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      <link href="/css/videos.css" rel="stylesheet">
+      <link href="/css/exploration-lab.css" rel="stylesheet">
+      <link href="/css/rl-labs.css" rel="stylesheet">
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/project.css" rel="stylesheet">
+      <link href="/css/rl-course.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Tools</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="proj-page rl-page bg-white">
+    <header class="proj-hero rl-hero">
+      <div class="proj-wrap proj-hero-grid">
+        <div>
+          <nav class="proj-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/tools.html">Tools</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/rl-course/">RL course</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Lecture 5</span></nav>
+          <p class="proj-kicker"><span><i class="ri-graduation-cap-line" aria-hidden="true"></i>Introduction to Reinforcement Learning</span><span>Part 2 · Learning from experience</span></p>
+          <h1 class="proj-title"><small>Lecture 5</small>Model-free prediction</h1>
+          <p class="proj-about-lead rl-summary">Learning the value of a policy from experience, with no model: Monte Carlo, temporal-difference learning, how the two differ on the same data, multi-step returns, and eligibility traces. With a first look at function approximation.</p>
+          <div class="rl-goal"><i class="ri-focus-3-line" aria-hidden="true"></i><span>By the end you should be able to compute Monte Carlo and TD updates by hand, explain when each is better, and say what λ and eligibility traces do.</span></div>
+          <h2 class="proj-h3 rl-ideas-title">Key ideas, one per episode</h2>
+          <ul class="rl-ideas"><li><a href="#ep-17">Ep. 17</a><span>Play, see what happened, average. No model needed.</span></li><li><a href="#ep-18">Ep. 18</a><span>Learn online, from one step: reward now plus your best guess.</span></li><li><a href="#ep-19">Ep. 19</a><span>Trust your state? TD. Don&#x27;t? Monte Carlo.</span></li><li><a href="#ep-20">Ep. 20</a><span>Look a few steps ahead, or look back with traces.</span></li></ul>
+          <p class="rl-source"><b>Based on:</b> Lecture 5: Model-Free Prediction, DeepMind × UCL Reinforcement Learning Lecture Series (2021), by Hado van Hasselt. The slides follow that order of topics, in our own words, figures and examples; they are not official material of the original course.</p>
+        </div>
+        <div class="rl-first">
+          <a class="rl-first-img" href="/rl-course/slides/ACML_RL_Lecture05_Model-Free_Prediction.pdf" target="_blank" rel="noopener"><img src="/rl-course/img/slides/l05-s01.webp" alt="The title slide of Lecture 5: Model-free prediction" width="960" height="540" fetchpriority="high" decoding="async"></a>
+          <p class="rl-first-text">51 slides, written to be read on your own, with worked examples, “try it” boxes, small simulations and check-yourself questions (answers at the end). PDF, 1.6 MB.</p>
+          <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="/rl-course/slides/ACML_RL_Lecture05_Model-Free_Prediction.pdf" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Open the PDF</a><a class="proj-btn" href="/rl-course/slides/ACML_RL_Lecture05_Model-Free_Prediction.pdf" download><i class="ri-download-2-line" aria-hidden="true"></i>Download</a></div>
+        </div>
+      </div>
+    </header>
+    <nav class="proj-subnav is-mobile-only" aria-label="Sections of this page"><div class="proj-wrap"><ul><li><a href="#watch">Watch</a></li><li><a href="#lab">Lab</a></li><li><a href="#next">Next</a></li></ul></div></nav>
+    <section id="watch" class="proj-section is-soft" aria-labelledby="watch-title"><div class="proj-wrap">
+      <h2 id="watch-title" class="proj-h2">Watch</h2>
+      <p class="proj-lead">4 short episodes of ACML Explains for this lecture. Pick one from the list, and open the transcript to read along: each timestamp plays the episode from there. The narration is generated with a voice clone of Teddy, used with his permission.</p>
+      <div class="rl-watch">
+        <div class="rl-player-wrap">
+          <div id="rl-player" class="yt-player yt-16x9" data-yt-id="kfWDXJ8lcKc" data-yt-title="Monte Carlo learning"><a class="yt-play" href="https://www.youtube.com/watch?v=kfWDXJ8lcKc&amp;list=PLLTavI7DAgbE" aria-label="Play episode 17: Monte Carlo learning"><img src="/rl-course/img/episodes/ep17.webp" alt="" width="640" height="360" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div>
+          <div class="rl-now">
+            <p id="rl-now-num" class="rl-now-num">Episode 17 · 5:08</p>
+            <p id="rl-now-title" class="rl-now-title">Monte Carlo learning</p>
+            <p id="rl-now-hook" class="rl-now-hook">No rules, no model. Just play, see what happened, and average. It&#x27;s enough to learn Blackjack.</p>
+            <p id="rl-now-take" class="rl-now-take"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i><span>Play, see what happened, average. No model needed.</span></p>
+          </div>
+            <details id="rl-tx" class="rl-tx">
+              <summary><i class="ri-file-text-line" aria-hidden="true"></i>Transcript<span id="rl-tx-which">Episode 17</span><i class="ri-arrow-down-s-line rl-tx-caret" aria-hidden="true"></i></summary>
+              <div class="rl-tx-body"><div class="rl-tx-ep" data-ep="17"><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="0" aria-label="Play from 0:00">0:00</button><div><h4>No model</h4><p>For two whole modules, Bit knew the rules of the world: p, every probability, every reward. Today we take that away. No model. Bit doesn&#x27;t know how the world works. He only gets to play. There&#x27;s a theorem: sample the world forever, and you&#x27;ll know it exactly. Very nice. Good luck sampling even a small game perfectly. So we need methods that learn well from a finite pile of experience. First goal: prediction. Given a policy, learn its values, from samples only. Two methods, this episode and the next: Monte Carlo, and temporal differences. Today, Monte Carlo.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="37" aria-label="Play from 0:37">0:37</button><div><h4>Monte Carlo</h4><p>Method one is named after a casino: Monte Carlo. The idea is almost embarrassingly simple. Play. See what happened. Average. The name? The casino in Monaco. Rolling dice, many, many times. That&#x27;s the whole method. You already did this, in module two. A bandit: for each handle, average the rewards you got. That&#x27;s Monte Carlo. Now add states. Each state is its own little bandit. The episodes still last one step, and actions don&#x27;t change the next state. Like showing an ad to a user: the user is the state, the ad is the action, a click is the reward. Average the clicks for each kind of user and each ad, and you have a value for every pair.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="78" aria-label="Play from 1:18">1:18</button><div><h4>Features</h4><p>But with millions of users, you can&#x27;t keep a table with one number per user. So describe each state with a few features: numbers like age, time of day, past clicks. Call that vector x of s. And make the value a weighted sum of the features: v of s is w times x of s. A linear value function. And here&#x27;s a nice surprise: a table is a special case. Give each state its own feature, one for that state, zero for everything else. One-hot features, and the weights are exactly the table entries. A linear model sounds weak. With good features, it goes surprisingly far.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="119" aria-label="Play from 1:59">1:59</button><div><h4>Learning the weights</h4><p>How do we learn w? Minimise the squared error between what happened and what we predicted. Take a gradient step: move w by α, times the error, times the features. Error times feature. Features that were on get the blame, or the credit. Same idea as supervised learning, with the return as the label. And with one-hot features, this is exactly the incremental average from module two. Same formula, new clothes.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="146" aria-label="Play from 2:26">2:26</button><div><h4>Whole episodes</h4><p>Now, real sequences. Bit plays a whole episode with his policy: state, action, reward, state, and so on, until it ends. For every state he visited, compute the return from there: everything that came after. Then nudge that state&#x27;s value toward the return. Or just average all the returns you ever saw from it. Count a state once per episode, or every time it appears. First visit, or every visit. Both converge. And the step size: one over the number of visits gives the exact average. A constant α slowly forgets old games, which helps if the world changes. By the law of large numbers, from module two, the average converges to the true value. No p anywhere.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="189" aria-label="Play from 3:09">3:09</button><div><h4>Blackjack</h4><p>Let&#x27;s try it on Blackjack. This is the example we played with in class. It&#x27;s a nice fit: every game is an episode, it always ends, and the rules are a pain to write down as probabilities. You want your cards to sum closer to twenty-one than the dealer&#x27;s, without going over. The state: your sum, from twelve to twenty-one. The dealer&#x27;s visible card, ace to ten. And whether you hold a usable ace. Ten times ten times two: two hundred states. Below twelve, you always take a card; you can&#x27;t go bust. Three numbers describe the whole situation. Near enough, that&#x27;s the Markov state of Blackjack. Actions: stick, or take another card. The reward comes only at the end: plus one for a win, zero for a draw, minus one for a loss. The policy we&#x27;ll evaluate: stick on twenty or twenty-one, otherwise always take a card. Bold. Maybe too bold.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="240" aria-label="Play from 4:00">4:00</button><div><h4>What it learned</h4><p>We ran it. After ten thousand games, the values are bumpy. Especially with a usable ace: those states are rare, so there&#x27;s little data. After half a million games, the surface is smooth. Half a million games, in seconds, on a laptop. Try that at a real casino. And look: it&#x27;s only high at twenty and twenty-one. Everywhere else, this policy loses money. Hitting on nineteen is not a great plan. And when the dealer shows an ace, everything drops. Monte Carlo found all of that without knowing a single rule of the game. Two hundred states, and ten thousand games still leave holes. Now imagine chess.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="276" aria-label="Play from 4:36">4:36</button><div><h4>The catch</h4><p>So what&#x27;s the catch? Monte Carlo has to wait until the episode ends. Only then is the return known. Long episodes: slow learning. Episodes that never end: no learning at all. And because each return adds up many random steps, it&#x27;s noisy. Can we learn before we know how the story ends? Yes. Next time: temporal differences. With me so far?</p></div></div></div><div class="rl-tx-ep" data-ep="18" hidden><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="0" aria-label="Play from 0:00">0:00</button><div><h4>Sample the Bellman equation</h4><p>Remember the Bellman equation: the value of a state is the expected reward, plus γ times the value of the next state. Dynamic programming computes that expectation, using p. Temporal-difference learning says: I don&#x27;t have p. But I just took one step. Let me use that one step as a sample. That&#x27;s the whole idea. The rest is details. It&#x27;s Bellman&#x27;s equation again, with one sample instead of the full average.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="30" aria-label="Play from 0:30">0:30</button><div><h4>The TD update</h4><p>So: Bit is in a state. He acts, gets a reward, and lands in the next state. His target: the reward, plus γ times his current guess for the next state. Nudge the old value toward that target, by a step size α. The gap between the target and the old value has a name: the TD error, δ. In Monte Carlo, we had the return in our hands. In TD, we don&#x27;t. We hold the reward we just got, plus our previous best guess. That&#x27;s TD&#x27;s return. If the next state turned out better than expected, δ is positive, and the value goes up. Worse than expected, it goes down. And notice: no p anywhere. The world just handed Bit the next state. Learning a guess from a guess. It sounds like cheating. It works. The reward is real. Only the rest is a guess. Each step, a little more truth gets in.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="83" aria-label="Play from 1:23">1:23</button><div><h4>Online, and the square</h4><p>And it&#x27;s online. You act, and you learn. Right away, after every step. Monte Carlo waits for the end of the episode. Like tasting the soup every minute while you cook, instead of waiting until the guests have left. Now, my favourite figure: the square. Every method lives in a two-dimensional space. How deep you look down the tree, and how wide. One step, one branch: that&#x27;s TD. The whole branch, to the end: Monte Carlo. One step, but every child: dynamic programming. And the whole tree, everything: exhaustive search. TD and dynamic programming both look one step ahead. The difference: DP averages over every next state. TD uses the one that actually happened. So in the square, TD is the cheap corner. One step, one sample. Four corners, four algorithms. Everything else lives somewhere in between.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="133" aria-label="Play from 2:13">2:13</button><div><h4>Bootstrapping and sampling</h4><p>Two words to keep them apart. Bootstrapping: the update uses an estimate. Dynamic programming and TD bootstrap. Monte Carlo doesn&#x27;t. Sampling: the update uses one sample instead of an expectation. Monte Carlo and TD sample. Dynamic programming doesn&#x27;t. TD is the one that does both: it samples, and it bootstraps. And the same trick works for action values. TD on q has its own name, SARSA. We&#x27;ll meet it next module.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="160" aria-label="Play from 2:40">2:40</button><div><h4>A trick question</h4><p>A trick question. Is a dynamic-programming update bigger than a TD update? Than a Monte Carlo one? Bigger than TD: TD looks at one action, DP at all of them. Than Monte Carlo? It depends. Ten children below you, but a branch a hundred steps long? Monte Carlo looks at more. So the size of an update isn&#x27;t about the method&#x27;s name. It&#x27;s about the shape of the tree. Good exam question, by the way. You didn&#x27;t hear it from me.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="185" aria-label="Play from 3:05">3:05</button><div><h4>Driving home</h4><p>A classic example: driving home. Leaving the office, I predict thirty minutes. Reaching the car, it&#x27;s raining: forty in total. The highway goes well: thirty-five. Then I get stuck behind a truck: forty again. Entering my street: forty-three. And I arrive after forty-three minutes. Elapsed time, plus predicted time to go: that&#x27;s the predicted total. Watch it move. Monte Carlo waits until I&#x27;m home, then pulls every prediction toward forty-three. TD adjusts each prediction toward the next one, as I drive. Stuck behind the truck? I already know I was too optimistic on the highway. By the time I&#x27;m home, TD has already done most of the learning.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="225" aria-label="Play from 3:45">3:45</button><div><h4>Bias and variance</h4><p>So TD can learn before knowing the final outcome. From incomplete episodes. Even in tasks that never end. A robot that runs for weeks never reaches an end. TD learns anyway. There&#x27;s a price, though. The Monte Carlo return is an unbiased estimate of the value. It&#x27;s what really happened. The TD target uses a guess, so it&#x27;s biased. Until the guesses are right. But the Monte Carlo return depends on many random actions, rewards and transitions. Lots of noise. The TD target depends on only one step. Monte Carlo: no bias, high variance. TD: some bias, low variance. The classic trade-off. Lower variance means smoother learning: fewer wild jumps, and usually a bigger step size you can afford. In practice, TD often learns faster. But Monte Carlo is more robust when the state isn&#x27;t really Markov. More on that next time.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="280" aria-label="Play from 4:40">4:40</button><div><h4>Do they agree?</h4><p>So which one wins? Same data, same world: do they even agree? With enough data and a step size that shrinks properly, both converge to the true values. The question is what happens before that. Spoiler: on finite data, they can disagree. And both are right. Next time: random walks, and a case where they give different answers. Both, kind of, right. With me so far?</p></div></div></div><div class="rl-tx-ep" data-ep="19" hidden><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="0" aria-label="Play from 0:00">0:00</button><div><h4>A random walk</h4><p>Last time: Monte Carlo and TD, two ways to learn values from experience. Today, let&#x27;s race them. The track: a random walk. Five squares in a row, A to E. Bit starts in the middle, on C. Each step, he moves left or right, fifty-fifty. Fall off the right end: one point. Fall off the left: nothing. So the only reward in the whole world sits at the far right edge. So a square&#x27;s value is the chance of finishing on the right. From the middle: one half. The true values are easy to work out. A is worth one sixth. Each square to the right adds one more sixth, up to five sixths for E. Why such a toy? Because we know the right answer, so we can measure the error exactly.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="44" aria-label="Play from 0:44">0:44</button><div><h4>TD learns it</h4><p>Start every guess at one half, and run TD with a step size of point one. After the first episode, only one value moved. Bit fell off the left end, and only A felt it. Every other step compared one half with one half. No surprise, no update. After ten episodes, a slope appears. After a hundred, it&#x27;s close to the truth. Notice the edges learn first. That&#x27;s where things actually happen. E sits next to the reward, so it learns fast. A sits next to nothing, so it learns from its neighbour. Information flows backwards, one step at a time, from where the rewards are. With a step size of point one, the guesses never fully settle. They jiggle around the truth. A smaller step: smoother, but slower.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="89" aria-label="Play from 1:29">1:29</button><div><h4>The race</h4><p>Now the race. A hundred runs, a hundred episodes each, and we measure the average error. Monte Carlo, with a few step sizes. Then TD. On this problem, TD learns faster, for every step size we tried. And look at the TD curves. The biggest step size is fastest at first, then stalls higher. The smallest is slow, but ends lowest. Not a theorem, by the way. But a pattern you&#x27;ll see a lot. Monte Carlo pays for its noise. Every return depends on the whole random path. TD pays for its bias. Early on, it leans on guesses that are still wrong.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="125" aria-label="Play from 2:05">2:05</button><div><h4>Batch learning</h4><p>Now a different question. Suppose the data is fixed. Just a handful of episodes, and no more. Replay them again and again, until the values stop moving. That&#x27;s called batch learning. That&#x27;s the situation in many real projects: you have a log of data, and that&#x27;s all you&#x27;ll get. A log of driving data, a hospital&#x27;s records, a history of games. Fixed. Squeeze everything out of it. With infinite data, both methods find the true values. With finite data, do they agree?</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="152" aria-label="Play from 2:32">2:32</button><div><h4>A and B</h4><p>Two states, A and B. No discounting. Eight episodes. Once: A, reward zero, then B, reward zero, the end. Six times: B, reward one, the end. And once: B, reward zero, the end. What&#x27;s the value of B? Six good endings out of eight: three quarters. Everyone agrees. What&#x27;s the value of A? Think about it for a second. Pause the video if you like. I&#x27;ll wait. Who would you bet on? Monte Carlo says zero. The only time we saw A, the return was zero. TD says three quarters. A always went to B, with reward zero, and B is worth three quarters. Same data. Two answers. Zero, and three quarters.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="197" aria-label="Play from 3:17">3:17</button><div><h4>Who&#x27;s right?</h4><p>So who&#x27;s right? Both. They&#x27;re answering different questions. Monte Carlo finds the values that best fit the returns it actually saw. Minimum squared error. TD finds the values of the most likely Markov model behind the data. In that model, A always leads to B. And B pays one, three times out of four. TD assumes the world is Markov: what happens after B doesn&#x27;t care how you got there. It builds the model in its head, without ever writing it down, and answers as if that model were true. It&#x27;s called the certainty-equivalence estimate: assume your estimated model is the truth, and solve it. With more and more data, both would agree. It&#x27;s only the finite data that splits them.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="237" aria-label="Play from 3:57">3:57</button><div><h4>The Markov difference</h4><p>That&#x27;s the deep difference. TD exploits the Markov property. Monte Carlo doesn&#x27;t. When the world is Markov, that&#x27;s a big advantage: TD squeezes more out of the same data. When it isn&#x27;t? Say Bit only sees part of the state. Then Monte Carlo is safer: it never assumes anything about what comes next. And partial observability is everywhere in robotics. A camera only sees what&#x27;s in front of it. Remember module one: is the weather Markov? Not really. Then trust the returns. In practice, people mix the two. That&#x27;s exactly where we go next.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="270" aria-label="Play from 4:30">4:30</button><div><h4>Which to trust</h4><p>So: TD usually learns faster, and uses the Markov structure. Monte Carlo makes fewer assumptions. Neither is always better. Know what each one assumes. One looks one step ahead. The other looks all the way to the end. Trust your state? TD. Don&#x27;t trust it? Monte Carlo. Do we have to choose? What about looking three steps ahead? Or ten? Next time. With me so far?</p></div></div></div><div class="rl-tx-ep" data-ep="20" hidden><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="0" aria-label="Play from 0:00">0:00</button><div><h4>Two extremes</h4><p>TD looks one step ahead, and leans on a guess. If the guess is bad, the update is biased. And news travels back slowly, one step per episode. Monte Carlo looks all the way to the end. News travels fast, but the updates are noisy. Each has exactly the strength the other one lacks. TD trusts its guesses too early. Monte Carlo trusts nothing but the end. So why not something in between?</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="29" aria-label="Play from 0:29">0:29</button><div><h4>n-step returns</h4><p>The n-step return: add up the next n real rewards, then lean on the guess n steps ahead. n equals one: that&#x27;s TD. n equals two: two rewards, then a guess. And n equals infinity, all the way to the end: Monte Carlo. Two steps, written out: the next reward, plus γ times the one after, plus γ squared times the guess two steps ahead. It&#x27;s a dial. TD on one end, Monte Carlo on the other. Same update rule as before. Only the target changes.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="60" aria-label="Play from 1:00">1:00</button><div><h4>Which n?</h4><p>Does the middle help? We tried it on a longer random walk: nineteen squares. Minus one on the left, plus one on the right. Ten episodes, a hundred runs, every step size from zero to one, and n from one up to five hundred twelve. The winner: n equals four. Not one, not infinity. Somewhere in the middle. That&#x27;s our own run, by the way. A hundred runs per setting, ten episodes each. And a large n with a large step size? Worse than not learning at all. Too much noise. Why the middle? Short steps lean on bad early guesses. Long ones drown in noise. On another problem, the best n will be different.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="100" aria-label="Play from 1:40">1:40</button><div><h4>The λ-return</h4><p>But which n? Why choose at all? Mix them. The λ-return: a weighted average of all the n-step returns. One step gets weight one minus λ. Two steps get a bit less. Each further step, multiply by λ again. λ equals zero: only one step. That&#x27;s TD. λ equals one: everything goes to the end. That&#x27;s Monte Carlo. And the weights add up to one. A proper average. Same trick as γ: one over one minus λ is roughly the horizon. λ at point nine is like looking about ten steps ahead. So λ is a dial too, but a smooth one. No need to pick a whole number of steps.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="139" aria-label="Play from 2:19">2:19</button><div><h4>The forward view</h4><p>There&#x27;s a catch. To compute the λ-return, you need the whole future. You&#x27;re back to waiting for the end, like Monte Carlo. And for tasks that never end, there is no end to wait for. That&#x27;s the forward view: stand in a state, and look ahead. Now flip it. Stand in the present, and look back. Instead of asking what comes next, each new error asks: who deserves the credit?</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="162" aria-label="Play from 2:42">2:42</button><div><h4>Eligibility traces</h4><p>Every state Bit visits leaves a trace behind, like a footprint in wet sand. Visit a state: its trace jumps up. Then, every step, all traces fade, by γ times λ. Visit a state twice in a row, and its trace stacks up. Leave it alone, and it fades. With λ at zero, traces vanish at once: plain TD. With λ at one, they fade only by γ. When something surprising happens, a TD error, it&#x27;s sent backwards to every state, in proportion to its trace. Recent states get more credit. Frequent states get more credit. That&#x27;s an eligibility trace. Each state keeps its own trace. With features, it&#x27;s one trace per weight.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="203" aria-label="Play from 3:23">3:23</button><div><h4>Beep, beep, beep, flash</h4><p>A little story. Bit hears a beep, a beep, a beep, then sees a flash, and gets a star. What earned the star? Recency says: the flash, it came last. Frequency says: the beep, it happened three times. The trace blends both. The beep&#x27;s footprint built up, three times. The flash&#x27;s is fresh. The trace doesn&#x27;t decide who&#x27;s right. It spreads the credit, and many episodes sort it out. Animal psychologists asked this exact question long before computers did.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="232" aria-label="Play from 3:52">3:52</button><div><h4>Monte Carlo = sum of TD errors</h4><p>And here&#x27;s the beautiful part. If the values stay fixed during an episode, the Monte Carlo error is exactly the sum of the discounted TD errors. So with λ equal to one, traces add up to the Monte Carlo update. But they do it one step at a time, as you go. No waiting. No storing the future. Constant work per step, whatever the horizon. That&#x27;s why traces are everywhere: they turn a look-ahead method into a look-back one. And with λ in between, you get the λ-return&#x27;s update, approximately, online. The backward view gives you the forward view&#x27;s answer, without the waiting.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="269" aria-label="Play from 4:29">4:29</button><div><h4>Module five, done</h4><p>And that&#x27;s module five, done. Without a model, Bit can now predict: Monte Carlo, TD, n-step returns, and λ with traces. He can tell how good a policy is. But he still can&#x27;t find a better one. And the same ideas come right back for control, with q instead of v. Five modules in. The next one is where Bit finally learns to act. Next module: control without a model. Q-learning, SARSA, and a trip to the casino. With me so far? See you there.</p></div></div></div></div>
+            </details>
+        </div>
+        <div class="rl-eps">
+          <div class="rl-eps-head"><b>Lecture 5 episodes</b><span>4 episodes · 20 min</span></div>
+          <ol><li id="ep-17"><a class="rl-ep is-active" data-ep="17" href="https://www.youtube.com/watch?v=kfWDXJ8lcKc&amp;list=PLLTavI7DAgbE" aria-current=true><span class="rl-ep-thumb"><img src="/rl-course/img/episodes/ep17.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>5:08</span></span><span><span class="rl-ep-num">Episode 17</span><span class="rl-ep-title" style="display:block">Monte Carlo learning</span><span class="rl-ep-take" style="display:block">Play, see what happened, average. No model needed.</span></span></a></li><li id="ep-18"><a class="rl-ep" data-ep="18" href="https://www.youtube.com/watch?v=bRbxXbfa2Q4&amp;list=PLLTavI7DAgbE"><span class="rl-ep-thumb"><img src="/rl-course/img/episodes/ep18.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>5:11</span></span><span><span class="rl-ep-num">Episode 18</span><span class="rl-ep-title" style="display:block">Temporal-difference learning</span><span class="rl-ep-take" style="display:block">Learn online, from one step: reward now plus your best guess.</span></span></a></li><li id="ep-19"><a class="rl-ep" data-ep="19" href="https://www.youtube.com/watch?v=gStAwEcoXCs&amp;list=PLLTavI7DAgbE"><span class="rl-ep-thumb"><img src="/rl-course/img/episodes/ep19.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>5:03</span></span><span><span class="rl-ep-num">Episode 19</span><span class="rl-ep-title" style="display:block">Same data, different answers</span><span class="rl-ep-take" style="display:block">Trust your state? TD. Don&#x27;t? Monte Carlo.</span></span></a></li><li id="ep-20"><a class="rl-ep" data-ep="20" href="https://www.youtube.com/watch?v=t56FOv6prl0&amp;list=PLLTavI7DAgbE"><span class="rl-ep-thumb"><img src="/rl-course/img/episodes/ep20.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>5:09</span></span><span><span class="rl-ep-num">Episode 20</span><span class="rl-ep-title" style="display:block">Between TD and Monte Carlo</span><span class="rl-ep-take" style="display:block">Look a few steps ahead, or look back with traces.</span></span></a></li></ol>
+        </div>
+      </div>
+      <script type="application/json" id="rl-episodes">[{"ep": 17, "youtube": "kfWDXJ8lcKc", "title": "Monte Carlo learning", "duration": "5:08", "hook": "No rules, no model. Just play, see what happened, and average. It's enough to learn Blackjack.", "takeaway": "Play, see what happened, average. No model needed.", "thumbAbs": "/rl-course/img/episodes/ep17.webp"}, {"ep": 18, "youtube": "bRbxXbfa2Q4", "title": "Temporal-difference learning", "duration": "5:11", "hook": "Why wait for the end of the story? Update after every single step, from a guess.", "takeaway": "Learn online, from one step: reward now plus your best guess.", "thumbAbs": "/rl-course/img/episodes/ep18.webp"}, {"ep": 19, "youtube": "gStAwEcoXCs", "title": "Same data, different answers", "duration": "5:03", "hook": "Eight episodes. Monte Carlo says zero. TD says three quarters. Both are right.", "takeaway": "Trust your state? TD. Don't? Monte Carlo.", "thumbAbs": "/rl-course/img/episodes/ep19.webp"}, {"ep": 20, "youtube": "t56FOv6prl0", "title": "Between TD and Monte Carlo", "duration": "5:09", "hook": "One step, or all the way to the end? Neither. Look a few steps ahead, or let credit flow backwards.", "takeaway": "Look a few steps ahead, or look back with traces.", "thumbAbs": "/rl-course/img/episodes/ep20.webp"}]</script>
+    </div></section>
+    <section id="lab" class="rl-lab" aria-labelledby="lab-title">
+      <div class="proj-wrap rl-lab-head">
+        <p class="proj-label"><i class="ri-footprint-line" aria-hidden="true"></i>Interactive lab</p>
+        <h2 id="lab-title" class="proj-h2" style="margin-top:.5rem">TD vs Monte Carlo lab</h2>
+        <p class="proj-lead">A random walk over five states, A to E. Monte Carlo and TD(0) learn from the very same episodes. Compare their estimates with the true values, and their error curves averaged over a hundred runs.</p>
+        <p class="proj-lead" style="margin-top:.6rem">The random walk of Sutton and Barto (Example 6.2): every episode starts in the middle, at C, and steps left or right with equal chance. Leaving on the right pays 1, on the left 0, so the true values are 1/6, 2/6, …, 5/6.</p>
+      </div>
+      <div class="rlx" id="td-mc-lab" data-rlx="tdmc">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">Same episodes, two ways to learn from them</h3>
+          <p class="rlx-sub">All rewards are 0 except leaving on the right, which pays 1. No discounting (γ = 1). Both estimates start at 0.5 in every state.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">Monte Carlo</div>
+              <div class="formula-line"><span class="formula-chip">V(s) ← V(s) + α (G − V(s))</span></div>
+              <p class="math-card-copy">Wait until the episode ends, then move every visited state towards the return G it actually got (every visit counts).</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">TD(0)</div>
+              <div class="formula-line"><span class="formula-chip">V(s) ← V(s) + α (r + V(s′) − V(s))</span></div>
+              <p class="math-card-copy">Update after every step, towards the reward plus the current estimate of the next state: learning a guess from a guess.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">The error</div>
+              <div class="formula-line"><span class="formula-chip">RMS = √( mean over A–E of (V(s) − v(s))² )</span></div>
+              <p class="math-card-copy">The true values v are 1/6 … 5/6. Constant step sizes never settle exactly, so the error levels off instead of reaching 0.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Controls">
+            <div><h4 class="rlx-h">Controls</h4><p class="rlx-sub">Both learners always see the same episodes.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="tmAlphaTD">TD step size α</label><span class="control-value" data-k="atd-out">0.10</span></div><input id="tmAlphaTD" data-k="atd" type="range" min="0.01" max="0.3" step="0.01" value="0.1"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="tmAlphaMC">Monte Carlo step size α</label><span class="control-value" data-k="amc-out">0.02</span></div><input id="tmAlphaMC" data-k="amc" type="range" min="0.01" max="0.3" step="0.01" value="0.02"></div>
+            <div class="rlx-btns"><button type="button" data-k="ep1" class="control-button control-button-secondary"><i class="ri-skip-forward-line" aria-hidden="true"></i>1 episode</button><button type="button" data-k="ep10" class="control-button control-button-secondary"><i class="ri-play-line" aria-hidden="true"></i>10 episodes</button><button type="button" data-k="ep100" class="control-button control-button-primary"><i class="ri-speed-line" aria-hidden="true"></i>100 episodes</button><button type="button" data-k="reset" class="control-button control-button-ghost"><i class="ri-restart-line" aria-hidden="true"></i>Reset</button><button type="button" data-k="avg" class="control-button control-button-secondary is-wide"><i class="ri-bar-chart-2-line" aria-hidden="true"></i>Average 100 runs of 100 episodes</button></div>
+            <p class="rlx-hint">The average uses the step sizes above and fresh random episodes, separately from your run.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Episodes</div><div class="metric-value" data-k="eps">0</div></div><div class="metric-tile"><div class="metric-label">RMS error, TD</div><div class="metric-value" data-k="rmstd">–</div></div><div class="metric-tile"><div class="metric-label">RMS error, MC</div><div class="metric-value" data-k="rmsmc">–</div></div><div class="metric-tile"><div class="metric-label">Last episode</div><div class="metric-value" data-k="last">–</div></div></div>
+              <div class="rlx-card"><div class="rlx-walk" data-k="walk" aria-hidden="true"><span class="is-end">0</span><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span class="is-end">1</span></div><p class="rlx-path" data-k="path">Press <b>1 episode</b> to watch a walk.</p></div>
+            <div class="rlx-two">
+              <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Estimates and true values</h4><p class="rlx-sub">Value of each state after the episodes so far.</p></div></div>
+                <div class="chart-shell"><svg data-k="est" role="img" aria-label="Estimated values per state"></svg></div>
+                <div class="rlx-legend" data-k="est-legend"><span class="line-swatch is-dash" style="--swatch:#94a3b8">true value</span><span class="line-swatch" style="--swatch:#2563eb">TD(0)</span><span class="line-swatch" style="--swatch:#e11d48">Monte Carlo</span></div>
+              </div>
+              <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Error over episodes</h4><p class="rlx-sub"><span data-k="errsub">Your run, one episode at a time.</span></p></div></div>
+                <div class="chart-shell"><svg data-k="err" role="img" aria-label="RMS error per episode"></svg></div>
+                <div class="rlx-legend" data-k="err-legend"><span class="line-swatch" style="--swatch:#2563eb">TD(0)</span><span class="line-swatch" style="--swatch:#e11d48">Monte Carlo</span></div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="next" class="proj-section" aria-labelledby="next-title"><div class="proj-wrap">
+      <h2 id="next-title" class="proj-h2">Keep going</h2>
+      <div class="rl-pn"><a href="/rl-course/lecture-04/"><i class="ri-arrow-left-line" aria-hidden="true"></i><span><small>Previous · Lecture 4</small><strong>Theory of dynamic programming</strong></span></a><a class="is-next" href="/rl-course/lecture-06/"><span><small>Next · Lecture 6</small><strong>Model-free control</strong></span><i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+    </div></section>
+  </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Games</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
+                  <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
+                  <li><a href="https://rl.teddylazebnik.com/" class="hover:text-white">Pirate War RL Game</a></li>
+                  <li><a href="https://eh.teddylazebnik.com/" class="hover:text-white">Echo Heist</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/rl-course/" class="hover:text-white">RL course</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <script src="/js/videos.js"></script>
+      <script src="/js/rl-labs.js"></script>
+      <script src="/js/rl-course.js" defer></script>
+   </body>
+</html>

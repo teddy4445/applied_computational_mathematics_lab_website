@@ -1,0 +1,52 @@
+<!-- Used by tools/build_rl_course.py: the Bradley–Terry lab (Lecture 12) of the RL course. Script: js/rl-labs.js (data-rlx="bt"), styles: css/rl-labs.css + css/exploration-lab.css. -->
+      <div class="rlx" id="bt-lab" data-rlx="bt">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">From “this one is better” to a score</h3>
+          <p class="rlx-sub">People find it easier to compare two answers than to grade one. A Bradley–Terry model turns many comparisons into one score per answer.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">The model</div>
+              <div class="formula-line"><span class="formula-chip">P(i ≻ j) = σ(rᵢ − rⱼ) = 1 / (1 + e^−(rᵢ − rⱼ))</span></div>
+              <p class="math-card-copy">Only differences of scores matter, so the scores are shown centred at 0.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">The fit</div>
+              <div class="formula-line">maximise <span class="formula-chip">Σ log P(winner ≻ loser)</span> − a small penalty on r²</div>
+              <p class="math-card-copy">A tie counts as half a win for each side. The small penalty keeps scores finite when one answer wins every time.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">In RLHF</div>
+              <div class="formula-line">The fitted r is the reward model.</div>
+              <p class="math-card-copy">A policy is then trained to produce answers the reward model scores highly, usually with a KL term that keeps it close to where it started.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Controls">
+            <div><h4 class="rlx-h">Controls</h4><p class="rlx-sub">Compare the answers yourself, or let a simulated labeller help.</p></div>
+            <div class="rlx-btns"><button type="button" data-k="sim" class="control-button control-button-primary is-wide"><i class="ri-robot-2-line" aria-hidden="true"></i>Add 50 simulated comparisons</button><button type="button" data-k="reset" class="control-button control-button-ghost is-wide"><i class="ri-restart-line" aria-hidden="true"></i>Reset</button></div>
+            <div class="rlx-row"><div><label class="rlx-label" for="btHidden">Show the hidden scores</label><p class="rlx-hint" style="margin-top:.2rem">The simulated labeller compares with made-up hidden scores (green ticks). Can the fit find them?</p></div><label class="toggle"><input id="btHidden" data-k="hidden" type="checkbox"><span class="toggle-track"></span></label></div>
+            <p class="rlx-hint">The simulated labeller picks i over j with probability σ(hᵢ − hⱼ), where h are its hidden scores.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Your comparisons</div><div class="metric-value" data-k="you">0</div></div><div class="metric-tile"><div class="metric-label">Simulated</div><div class="metric-value" data-k="simn">0</div></div><div class="metric-tile"><div class="metric-label">Top answer</div><div class="metric-value" data-k="top">–</div></div><div class="metric-tile"><div class="metric-label">Agreement</div><div class="metric-value" data-k="agree">–</div></div></div>
+              <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Which answer is more helpful?</h4></div></div>
+                <p class="rlx-question">“My robot keeps bumping into the same wall. Why?”</p>
+                <div class="rlx-pairs" data-k="pair" style="margin-top:.9rem"></div>
+                <div class="rlx-btns" style="margin-top:.8rem"><button type="button" data-k="tie" class="control-button control-button-ghost"><i class="ri-equal-line" aria-hidden="true"></i>About the same</button><button type="button" data-k="skip" class="control-button control-button-ghost"><i class="ri-skip-forward-line" aria-hidden="true"></i>Skip</button></div>
+              </div>
+            <div class="rlx-two">
+              <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Fitted scores</h4><p class="rlx-sub">One bar per answer, centred at 0.</p></div></div>
+                <div class="rlx-scorelist" data-k="scores"></div>
+                <p class="rlx-note">Agreement: the share of comparisons (ties left out) in which the fitted model gives the chosen answer more than a 50% chance.</p>
+              </div>
+              <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">P(row beats column)</h4><p class="rlx-sub">What the fitted model predicts for every pair.</p></div></div>
+                <div style="overflow-x:auto"><table class="rlx-matrix" data-k="matrix"></table></div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>

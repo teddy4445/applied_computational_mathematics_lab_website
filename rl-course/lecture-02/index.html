@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_rl_course.py from data/rl-course.json. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Lecture 2: Exploration and exploitation | Reinforcement Learning Course | ACML</title>
+      <meta name="description" content="Lecture 2 of 12 of ACML’s introduction to reinforcement learning. The multi-armed bandit, regret, ε-greedy, UCB, Thompson sampling and gradient bandits: slides, 4 short episodes and an interactive lab.">
+      <meta name="author" content="Teddy Lazebnik">
+      <meta name="keywords" content="reinforcement learning, exploration and exploitation, RL course, lecture slides, ACML Explains">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/rl-course/lecture-02/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Lecture 2: Exploration and exploitation · Introduction to Reinforcement Learning">
+      <meta property="og:description" content="Lecture 2 of 12 of ACML’s introduction to reinforcement learning. The multi-armed bandit, regret, ε-greedy, UCB, Thompson sampling and gradient bandits: slides, 4 short episodes and an interactive lab.">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/rl-course/lecture-02/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/rl-course/lecture-02/share.jpg">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Lecture 2: Exploration and exploitation · Introduction to Reinforcement Learning">
+      <meta name="twitter:description" content="Lecture 2 of 12 of ACML’s introduction to reinforcement learning. The multi-armed bandit, regret, ε-greedy, UCB, Thompson sampling and gradient bandits: slides, 4 short episodes and an interactive lab.">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/rl-course/lecture-02/share.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "Lecture 2: Exploration and exploitation",
+        "description": "The simplest place to study the trade-off between trying something new and using what you already know: the multi-armed bandit. Regret, greedy and ε-greedy, optimism and UCB, Thompson sampling, and gradient bandits with softmax preferences.",
+        "url": "https://acml.teddylazebnik.com/rl-course/lecture-02/",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "learningResourceType": [
+          "Lecture slides",
+          "Video"
+        ],
+        "teaches": "The multi-armed bandit, regret, ε-greedy, UCB, Thompson sampling and gradient bandits",
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Introduction to Reinforcement Learning",
+          "url": "https://acml.teddylazebnik.com/rl-course/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Teddy Lazebnik",
+          "url": "https://teddylazebnik.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Applied Computational Mathematics Laboratory",
+          "url": "https://acml.teddylazebnik.com/"
+        },
+        "hasPart": [
+          {
+            "@type": "VideoObject",
+            "name": "Explore or exploit",
+            "description": "Keep pulling the slot machine that paid best, or try another one? Welcome to the multi-armed bandit.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/rl-course/img/episodes/ep06.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/0wVzHk0wZSo",
+            "duration": "PT4M23S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Greedy, ε-greedy, gradient bandits",
+            "description": "If you remember one algorithm from this course, make it this one.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/rl-course/img/episodes/ep07.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/ILGbW7Ex9hg",
+            "duration": "PT3M56S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Optimism: UCB",
+            "description": "Don't pick what looks great. Pick what could be great.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/rl-course/img/episodes/ep08.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/CbvfKUdpzUc",
+            "duration": "PT3M50S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Thompson sampling",
+            "description": "Keep a belief, not a number. Then let the uncertainty do the exploring.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/rl-course/img/episodes/ep09.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/pScaIWDOP1U",
+            "duration": "PT4M1S"
+          },
+          {
+            "@type": "DigitalDocument",
+            "name": "Lecture 2 slides",
+            "encodingFormat": "application/pdf",
+            "url": "https://acml.teddylazebnik.com/rl-course/slides/ACML_RL_Lecture02_Exploration_and_Exploitation.pdf"
+          }
+        ]
+      }
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      <link href="/css/videos.css" rel="stylesheet">
+      <link href="/css/exploration-lab.css" rel="stylesheet">
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/project.css" rel="stylesheet">
+      <link href="/css/rl-course.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Tools</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="proj-page rl-page bg-white">
+    <header class="proj-hero rl-hero">
+      <div class="proj-wrap proj-hero-grid">
+        <div>
+          <nav class="proj-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/tools.html">Tools</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/rl-course/">RL course</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Lecture 2</span></nav>
+          <p class="proj-kicker"><span><i class="ri-graduation-cap-line" aria-hidden="true"></i>Introduction to Reinforcement Learning</span><span>Part 1 · Foundations</span></p>
+          <h1 class="proj-title"><small>Lecture 2</small>Exploration and exploitation</h1>
+          <p class="proj-about-lead rl-summary">The simplest place to study the trade-off between trying something new and using what you already know: the multi-armed bandit. Regret, greedy and ε-greedy, optimism and UCB, Thompson sampling, and gradient bandits with softmax preferences.</p>
+          <div class="rl-goal"><i class="ri-focus-3-line" aria-hidden="true"></i><span>By the end you should be able to explain why exploration is needed, compute regret, and run greedy, ε-greedy, UCB and Thompson sampling by hand.</span></div>
+          <h2 class="proj-h3 rl-ideas-title">Key ideas, one per episode</h2>
+          <ul class="rl-ideas"><li><a href="#ep-6">Ep. 6</a><span>Every pull earns or teaches.</span></li><li><a href="#ep-7">Ep. 7</a><span>Explore a little, on purpose.</span></li><li><a href="#ep-8">Ep. 8</a><span>Try what might be great.</span></li><li><a href="#ep-9">Ep. 9</a><span>Explore where you&#x27;re unsure, exploit where you&#x27;re sure.</span></li></ul>
+          <p class="rl-source"><b>Based on:</b> Lecture 2: Exploration and Exploitation, DeepMind × UCL Reinforcement Learning Lecture Series (2021), by Hado van Hasselt. The slides follow that order of topics, in our own words, figures and examples; they are not official material of the original course.</p>
+        </div>
+        <div class="rl-first">
+          <a class="rl-first-img" href="/rl-course/slides/ACML_RL_Lecture02_Exploration_and_Exploitation.pdf" target="_blank" rel="noopener"><img src="/rl-course/img/slides/l02-s01.webp" alt="The title slide of Lecture 2: Exploration and exploitation" width="960" height="540" fetchpriority="high" decoding="async"></a>
+          <p class="rl-first-text">47 slides, written to be read on your own, with worked examples, “try it” boxes, small simulations and check-yourself questions (answers at the end). PDF, 1.6 MB.</p>
+          <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="/rl-course/slides/ACML_RL_Lecture02_Exploration_and_Exploitation.pdf" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Open the PDF</a><a class="proj-btn" href="/rl-course/slides/ACML_RL_Lecture02_Exploration_and_Exploitation.pdf" download><i class="ri-download-2-line" aria-hidden="true"></i>Download</a></div>
+        </div>
+      </div>
+    </header>
+    <nav class="proj-subnav is-mobile-only" aria-label="Sections of this page"><div class="proj-wrap"><ul><li><a href="#watch">Watch</a></li><li><a href="#lab">Lab</a></li><li><a href="#next">Next</a></li></ul></div></nav>
+    <section id="watch" class="proj-section is-soft" aria-labelledby="watch-title"><div class="proj-wrap">
+      <h2 id="watch-title" class="proj-h2">Watch</h2>
+      <p class="proj-lead">4 short episodes of ACML Explains for this lecture. Pick one from the list, and open the transcript to read along: each timestamp plays the episode from there. The narration is generated with a voice clone of Teddy, used with his permission.</p>
+      <div class="rl-watch">
+        <div class="rl-player-wrap">
+          <div id="rl-player" class="yt-player yt-16x9" data-yt-id="0wVzHk0wZSo" data-yt-title="Explore or exploit"><a class="yt-play" href="https://www.youtube.com/watch?v=0wVzHk0wZSo&amp;list=PLLTavI7DAgbE" aria-label="Play episode 6: Explore or exploit"><img src="/rl-course/img/episodes/ep06.webp" alt="" width="640" height="360" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div>
+          <div class="rl-now">
+            <p id="rl-now-num" class="rl-now-num">Episode 6 · 4:24</p>
+            <p id="rl-now-title" class="rl-now-title">Explore or exploit</p>
+            <p id="rl-now-hook" class="rl-now-hook">Keep pulling the slot machine that paid best, or try another one? Welcome to the multi-armed bandit.</p>
+            <p id="rl-now-take" class="rl-now-take"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i><span>Every pull earns or teaches.</span></p>
+          </div>
+            <details id="rl-tx" class="rl-tx">
+              <summary><i class="ri-file-text-line" aria-hidden="true"></i>Transcript<span id="rl-tx-which">Episode 6</span><i class="ri-arrow-down-s-line rl-tx-caret" aria-hidden="true"></i></summary>
+              <div class="rl-tx-body"><div class="rl-tx-ep" data-ep="6"><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="0" aria-label="Play from 0:00">0:00</button><div><h4>Explore, then exploit</h4><p>Module two! And we start with something you already do every day. You want to learn a new field. So you google, read the first site, then the third, a bit here, a bit there. Slowly you learn the right words, and who to read. That&#x27;s exploration: gathering knowledge. Then you use what you learned to write your paper. That&#x27;s exploitation: using knowledge to decide well. Usually you explore first, then exploit. But it&#x27;s not that linear: you go back and forth. Or ants. I know watching ants is something you do a lot in your day. They leave the nest and wander, more or less at random, until one finds food. She goes back, tells her friends, and you get the line. That line is exploitation of new knowledge.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="45" aria-label="Play from 0:45">0:45</button><div><h4>A world with one state</h4><p>To study this, we simplify the world to a single state. With one state, does order matter? No. Nothing I did yesterday changes today. Actions still give rewards. They just don&#x27;t move us anywhere. I know, I said RL is for sequences of decisions. One state removes that, on purpose. We&#x27;ll fill the gap later.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="64" aria-label="Play from 1:04">1:04</button><div><h4>The bandit</h4><p>Long, long ago, in a land far away, there was a machine with many handles. At fairs and theatres, you&#x27;d pull a handle and get a prize, or a punishment. It was dressed up as a bandit. Many arms, one bandit: the multi-armed bandit. Pull a handle, let it go. The machine doesn&#x27;t change. One state. Perfect for us. Fun fact: the bandit problem is older than RL itself.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="89" aria-label="Play from 1:29">1:29</button><div><h4>A circus thought experiment</h4><p>Thought experiment. I run a circus, which isn&#x27;t far from my reality right now. Bit comes to win lots of money. My bandit has ten handles. Bit starts by pulling each handle once. Smart: he knows nothing, so he explores. Then he keeps pulling the one that paid the most. Is he sure it&#x27;s the best? No! One pull is noise. Maybe a quiet handle pays a fortune once every hundred pulls. And notice: the goal isn&#x27;t just to find the best handle. It&#x27;s to win the most money along the way.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="121" aria-label="Play from 2:01">2:01</button><div><h4>Expected reward</h4><p>So what are we really after? The expected reward of each handle. We call it q of a. Why expected? Pull the same handle again and again, and the average settles on it. That&#x27;s the law of large numbers. Bit can&#x27;t know q. But he can estimate it: the average reward he got from that handle. A capital Q. And we count how many times Bit pulled each handle: N of a. Pulled a handle a hundred times? N is a hundred. The best Bit could ever do? Pull the best handle every single time. That&#x27;s the optimal value, v star. With one state, the value is just one number per handle. We can drop the s.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="158" aria-label="Play from 2:38">2:38</button><div><h4>Learning one pull at a time</h4><p>And he can update it one pull at a time: new estimate equals old estimate, plus a step times the surprise. Look familiar? It&#x27;s gradient descent. With a step of one over the number of pulls, the first pull moves you a lot, and the thousandth barely at all. Slower, but stable: at pull one thousand, one crazy value doesn&#x27;t throw you around. That&#x27;s the trade-off in the step size: big steps learn fast and shake, small steps learn slowly and stay calm.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="186" aria-label="Play from 3:06">3:06</button><div><h4>Regret</h4><p>Now we need a score for the learner itself. It&#x27;s called regret. Regret is the gap between the best handle and the handle you actually pulled. Pull the best one: zero regret. Pull a worse one: you pay the difference. Add it up over all your pulls and you get the total regret. Maximising total reward and minimising total regret are the same thing. If you like loss functions: in our world, the loss is called regret. Regret uses something Bit doesn&#x27;t know: the best handle. So it&#x27;s a score for us, the designers, not a signal for Bit.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="220" aria-label="Play from 3:40">3:40</button><div><h4>The tension</h4><p>And here&#x27;s the tension. Exploring raises your regret. We explore because we must, not because it&#x27;s fun. Exploiting should raise it less. Ideally, not at all. Watch the curve: steep while Bit explores, flatter once he knows. A good learner keeps the steep part short.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="237" aria-label="Play from 3:57">3:57</button><div><h4>A problem, not an algorithm</h4><p>One last thing: the multi-armed bandit is not an algorithm. It&#x27;s a problem, the simplest RL problem there is. And because it&#x27;s so simple, it&#x27;s where nearly every exploration idea gets tried first. Next time, the algorithms, starting with the greediest one. With me so far?</p></div></div></div><div class="rl-tx-ep" data-ep="7" hidden><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="0" aria-label="Play from 0:00">0:00</button><div><h4>Greedy</h4><p>The simplest algorithm: greedy. Always pull the handle whose estimate is highest. What could go wrong? The best handle pays little on its first pull. Just bad luck. Its estimate drops below an average handle. Greedy never pulls it again. Never. So it never finds out. Stuck forever on the wrong handle, regret grows in a straight line. In the real world, nobody hands you the true expectations. It would be nice. It doesn&#x27;t happen. Greedy isn&#x27;t stupid. It&#x27;s just confident, too early.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="36" aria-label="Play from 0:36">0:36</button><div><h4>ε-greedy</h4><p>So, a small fix. And if you remember one thing from this course, remember this one. Epsilon-greedy. Seriously: the most important algorithm in the course. Most of the time, with probability one minus epsilon, pull the best-looking handle. With probability epsilon, pull any handle at random. That random pull is what saves you from getting stuck. And the random pull can land on the best handle too. With epsilon at 0.1 and ten handles, the best-looking one gets picked 91% of the time. Epsilon is the knob: zero is plain greedy, one is pure chaos.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="75" aria-label="Play from 1:15">1:15</button><div><h4>Is it perfect?</h4><p>Is it perfect? With a constant epsilon, Bit keeps exploring forever, so regret still grows in a straight line. Just a gentler one. Linear sounds bad. But who remembers running times? Linear is really fine. What you&#x27;d really like is a big epsilon at the start, that shrinks over time. That&#x27;s what people do in practice. Can you know the best schedule in advance? Practically, no. You try. And if epsilon shrinks at the right speed, regret can grow much slower than a straight line.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="104" aria-label="Play from 1:44">1:44</button><div><h4>It&#x27;s everywhere</h4><p>And it&#x27;s everywhere. Most RL algorithms today have epsilon-greedy somewhere inside. I recently published a paper with epsilon-greedy right inside. Works great. Not because it&#x27;s clever. Because it&#x27;s simple, and it works.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="118" aria-label="Play from 1:58">1:58</button><div><h4>A simulation</h4><p>Here&#x27;s a real simulation: ten handles, two thousand runs, averaged. Greedy settles early, on whatever it found first. Epsilon-greedy keeps learning, and pulls ahead. The exact numbers depend on the problem. The shape is the point.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="132" aria-label="Play from 2:12">2:12</button><div><h4>Learn the policy directly</h4><p>Now a different idea. Instead of estimating values, learn the policy directly. Each handle gets a preference: just a number. A softmax turns the preferences into probabilities. Why? Rewards live on an arbitrary scale. Double them, halve them, I don&#x27;t care, as long as the order stays. Arbitrary scales are hard to work with. Probabilities, between zero and one, I understand. If you did deep learning: it&#x27;s the same softmax as in classification. So the policy is the softmax of the preferences. Big preference, big probability.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="163" aria-label="Play from 2:43">2:43</button><div><h4>Climb the gradient</h4><p>Then we climb. Gradient ascent, not descent. Plus, not minus: we&#x27;re maximising reward, so we walk up the hill. Pull a handle and get a reward. Push that handle&#x27;s preference up in proportion to the reward, and the others down. Why does this climb the right hill? Picture two handles at fifty-fifty. Shift a little probability to the first: the expected reward changes by how much better the first one is. Handles that pay more climb faster. And the math has a neat trick: this gradient is something you can sample, one pull at a time. It&#x27;s called the log-likelihood trick, or the REINFORCE trick, from 1992. The price: the steps are noisy. Stochastic gradient ascent.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="206" aria-label="Play from 3:26">3:26</button><div><h4>Three ways to explore</h4><p>So: greedy gets stuck. Epsilon-greedy explores on purpose. Gradient bandits learn the policy itself. Three ways to explore: none at all, at random, or by following the gradient of your own policy. And all three share one loop: pull, observe, update. Only the update changes. Next time: can we explore smarter than a coin flip? Cool?</p></div></div></div><div class="rl-tx-ep" data-ep="8" hidden><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="0" aria-label="Play from 0:00">0:00</button><div><h4>Luck or uncertainty?</h4><p>Three handles, and Bit&#x27;s beliefs about each one. Red looks best on average. Green is lower, but very uncertain. If you want the highest expected reward right now, you pick red. That&#x27;s the theory so far. Now suppose Bit is famously lucky. Wakes up, wins the lottery, walks into the bakery right as the croissants come out of the oven. Now which one? The wide green one: it might be amazing. We can&#x27;t build on luck. But we can build on uncertainty. Why do we keep talking about expectations? Sample enough, and you get close to them. And luck is not a strategy.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="41" aria-label="Play from 0:41">0:41</button><div><h4>Optimism</h4><p>The idea is called optimism in the face of uncertainty. Don&#x27;t pick what looks great. Pick what could be great. For each handle, take the estimate, plus a bonus for how unsure you are. An upper confidence bound. Pulled a lot: small bonus. Barely pulled: big bonus. So a handle wins either because it&#x27;s good, or because we don&#x27;t know it well yet. Does the bonus ever reach zero? Not necessarily. The world&#x27;s own randomness never goes away. Notice what changed: we&#x27;re not maximising the estimate anymore. We&#x27;re maximising an upper bound on</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="72" aria-label="Play from 1:12">1:12</button><div><h4>Hoeffding&#x27;s inequality</h4><p>it. Just saying be optimistic is nice. Let&#x27;s do better than nice. Hoeffding&#x27;s inequality: the chance that your average plus the bonus is still below the truth shrinks exponentially, in the number of pulls, and in the bonus squared. Choose how small that chance should be, solve for the bonus, and you get a formula: the square root of the log of time, over twice the number of pulls. Time ticks on its own, and the number of pulls you control. So you can ask: how many pulls until I&#x27;m this sure? Say you want to be within 0.1, after a thousand steps. You need about 350 pulls of that handle. Within 0.01? About 35,000. Precision is expensive. And as time goes on, we keep shrinking the chance of being wrong: one over t.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="116" aria-label="Play from 1:56">1:56</button><div><h4>The UCB algorithm</h4><p>Put it together: the UCB algorithm. Pull the handle with the highest estimate plus bonus, scaled by a constant, c. With c equal to the square root of two, the regret grows only logarithmically. Logarithmic! Steep while you explore, almost flat once you know. Why does it work? Regret is the gap of each handle, times how often you pulled it. UCB makes sure that for every handle, either the gap is small, or the count is small. Big gap, few pulls. That&#x27;s the whole trick. So UCB explores a lot at first, then less and less, without anyone setting a</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="152" aria-label="Play from 2:32">2:32</button><div><h4>Can anyone do better?</h4><p>schedule. Can anyone do better? Lai and Robbins proved that, in the long run, no algorithm beats logarithmic regret. Nice, and not nice. You&#x27;re guaranteed never to be perfect. But you know your boundaries. The bound depends on how close the handles are. Similar handles are hard to tell apart, and cost more regret.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="171" aria-label="Play from 2:51">2:51</button><div><h4>A simulation</h4><p>Same simulation as last time. Epsilon-greedy: a straight line. UCB: it bends, and flattens. Same ten handles, same two thousand runs. Only the algorithm changed.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="185" aria-label="Play from 3:05">3:05</button><div><h4>In practice</h4><p>By the way, plain greedy isn&#x27;t a real method. Nobody uses it. And should you add UCB to your agent? You can&#x27;t know in advance. Try it with and without. One more variant: if Bit keeps a belief for each handle, he can use the belief&#x27;s spread as the bonus. Mean plus c times the spread. Greedy, epsilon-greedy, UCB: each is a different answer to the same question. How much do I explore?</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="210" aria-label="Play from 3:30">3:30</button><div><h4>Try what might be great</h4><p>So: try what might be great, not just what looks great. Optimism isn&#x27;t wishful thinking. It&#x27;s a bonus with a proof. Next time: what if Bit keeps a whole belief instead of one number? With me so far?</p></div></div></div><div class="rl-tx-ep" data-ep="9" hidden><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="0" aria-label="Play from 0:00">0:00</button><div><h4>A belief, not a number</h4><p>So far, Bit kept one number per handle: his best guess. Today he keeps a belief. Not what the value is, but how much he believes in each possible value. If Bit believes it&#x27;s 8 with 99% confidence, then practically, it&#x27;s 8. A distribution over distributions. I know, it&#x27;s confusing. Stay with me. Why bother? Because one number throws away how sure you are. A belief keeps it.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="26" aria-label="Play from 0:26">0:26</button><div><h4>Win or lose: the Beta belief</h4><p>Simplest case: each handle either pays one, or nothing. Win or lose. Before any pull, Bit knows nothing, so his belief is flat: every win rate from zero to one is equally likely. Win: the belief leans right. Win again: further right. Then lose, lose. If he just counted, two and two, it would look like he&#x27;s back at the start. But the belief remembers. It&#x27;s now a hump around one half. He knows more than when he began. This curve is called a Beta distribution. Count the wins, count the losses, and that&#x27;s all you need to keep. Flat at the start is Beta one, one. Two wins and two losses later: Beta three, three. And if you&#x27;re so smart that you know the right belief from the start? Start there. Everything converges much faster. Four pulls, two wins: a wide hump. Four hundred pulls, two hundred wins: a narrow spike. Same average, very different certainty.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="79" aria-label="Play from 1:19">1:19</button><div><h4>A confession about the real world</h4><p>And a confession about the real world. Outside of math, in engineering, in physics, nobody ever hands you the true distribution. We estimate it from what we observe. A belief is honest about that. And Beta is the natural belief for win-or-lose: a rate between zero and one.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="96" aria-label="Play from 1:36">1:36</button><div><h4>Thompson sampling</h4><p>Now the algorithm: Thompson sampling. It&#x27;s old: 1933, older than most of computer science. Each round, every handle draws one random guess from its own belief. Bit pulls the handle with the highest guess, sees the result, and updates that belief. So a handle gets pulled about as often as Bit believes it&#x27;s the best one. That&#x27;s called probability matching. Unsure handles draw wild guesses, so they get tried. Handles known to be bad almost never win the draw. And for win-or-lose bandits, it matches the Lai and Robbins bound. It&#x27;s optimal. No bonus to tune, no epsilon to schedule. The uncertainty does the exploring.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="133" aria-label="Play from 2:13">2:13</button><div><h4>Watch it learn</h4><p>Watch the beliefs. The best handle&#x27;s curve gets narrow and tall, and wins almost every draw. Same kind of simulation: a win-or-lose bandit, two thousand runs. UCB bends. Thompson sampling bends even lower. Different paths, same lesson: explore where you&#x27;re unsure, exploit where you&#x27;re sure. And beliefs only narrow where Bit pulls. The bad handles stay a bit uncertain, and that&#x27;s fine. They&#x27;re bad.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="163" aria-label="Play from 2:43">2:43</button><div><h4>The information state</h4><p>One more idea, to close the module. We said a bandit has one state. But what Bit knows keeps changing. So treat his knowledge as part of the state: the wins and losses of every handle. Each pull moves him to a new information state. Even in a bandit, actions affect the future, through learning. Now it&#x27;s a full decision problem, and you can plan to explore. It&#x27;s called Bayes-adaptive RL. Optimal, in theory. Unwieldy, in practice. Every pull is worth what it pays, plus what it teaches. Planning to explore puts a price on the teaching. That&#x27;s why it&#x27;s rarely used directly. But it tells you what exploration is worth.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="202" aria-label="Play from 3:22">3:22</button><div><h4>Module two, done</h4><p>Two lectures in, and you already have algorithms that provably find the best handle, with only logarithmic regret along the way. That some of them would finish after the universe collapses into itself? That&#x27;s another conversation. Because a bandit has one state, and real problems have many. In chess, I take your queen, and on the next move, you checkmate me. Next module: states, and consequences. So, module two in one line: explore where you&#x27;re unsure, exploit where you&#x27;re sure. With me so far? See you in module three.</p></div></div></div></div>
+            </details>
+        </div>
+        <div class="rl-eps">
+          <div class="rl-eps-head"><b>Lecture 2 episodes</b><span>4 episodes · 16 min</span></div>
+          <ol><li id="ep-6"><a class="rl-ep is-active" data-ep="6" href="https://www.youtube.com/watch?v=0wVzHk0wZSo&amp;list=PLLTavI7DAgbE" aria-current=true><span class="rl-ep-thumb"><img src="/rl-course/img/episodes/ep06.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>4:24</span></span><span><span class="rl-ep-num">Episode 6</span><span class="rl-ep-title" style="display:block">Explore or exploit</span><span class="rl-ep-take" style="display:block">Every pull earns or teaches.</span></span></a></li><li id="ep-7"><a class="rl-ep" data-ep="7" href="https://www.youtube.com/watch?v=ILGbW7Ex9hg&amp;list=PLLTavI7DAgbE"><span class="rl-ep-thumb"><img src="/rl-course/img/episodes/ep07.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>3:56</span></span><span><span class="rl-ep-num">Episode 7</span><span class="rl-ep-title" style="display:block">Greedy, ε-greedy, gradient bandits</span><span class="rl-ep-take" style="display:block">Explore a little, on purpose.</span></span></a></li><li id="ep-8"><a class="rl-ep" data-ep="8" href="https://www.youtube.com/watch?v=CbvfKUdpzUc&amp;list=PLLTavI7DAgbE"><span class="rl-ep-thumb"><img src="/rl-course/img/episodes/ep08.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>3:51</span></span><span><span class="rl-ep-num">Episode 8</span><span class="rl-ep-title" style="display:block">Optimism: UCB</span><span class="rl-ep-take" style="display:block">Try what might be great.</span></span></a></li><li id="ep-9"><a class="rl-ep" data-ep="9" href="https://www.youtube.com/watch?v=pScaIWDOP1U&amp;list=PLLTavI7DAgbE"><span class="rl-ep-thumb"><img src="/rl-course/img/episodes/ep09.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>4:01</span></span><span><span class="rl-ep-num">Episode 9</span><span class="rl-ep-title" style="display:block">Thompson sampling</span><span class="rl-ep-take" style="display:block">Explore where you&#x27;re unsure, exploit where you&#x27;re sure.</span></span></a></li></ol>
+        </div>
+      </div>
+      <script type="application/json" id="rl-episodes">[{"ep": 6, "youtube": "0wVzHk0wZSo", "title": "Explore or exploit", "duration": "4:24", "hook": "Keep pulling the slot machine that paid best, or try another one? Welcome to the multi-armed bandit.", "takeaway": "Every pull earns or teaches.", "thumbAbs": "/rl-course/img/episodes/ep06.webp"}, {"ep": 7, "youtube": "ILGbW7Ex9hg", "title": "Greedy, ε-greedy, gradient bandits", "duration": "3:56", "hook": "If you remember one algorithm from this course, make it this one.", "takeaway": "Explore a little, on purpose.", "thumbAbs": "/rl-course/img/episodes/ep07.webp"}, {"ep": 8, "youtube": "CbvfKUdpzUc", "title": "Optimism: UCB", "duration": "3:51", "hook": "Don't pick what looks great. Pick what could be great.", "takeaway": "Try what might be great.", "thumbAbs": "/rl-course/img/episodes/ep08.webp"}, {"ep": 9, "youtube": "pScaIWDOP1U", "title": "Thompson sampling", "duration": "4:01", "hook": "Keep a belief, not a number. Then let the uncertainty do the exploring.", "takeaway": "Explore where you're unsure, exploit where you're sure.", "thumbAbs": "/rl-course/img/episodes/ep09.webp"}]</script>
+    </div></section>
+    <section id="lab" class="rl-lab" aria-labelledby="lab-title">
+      <div class="proj-wrap rl-lab-head">
+        <p class="proj-label"><i class="ri-scales-3-line" aria-hidden="true"></i>Interactive lab</p>
+        <h2 id="lab-title" class="proj-h2" style="margin-top:.5rem">Bandit lab</h2>
+        <p class="proj-lead">Pull the arms of a multi-armed bandit with ε-greedy, UCB or Thompson sampling. Change the number of arms, let the hidden reward chances drift, and watch estimates, regret and the gap to an oracle evolve.</p>
+        <p class="proj-lead" style="margin-top:.6rem">The bandit setting isolates the exploration problem: there is no map, no future state and no path planning. Each pull simply asks whether your current estimates are good enough to exploit, or whether you should keep probing the alternatives.</p>
+      </div>
+      <section class="py-16" id="bandit-lab">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          <div class="math-panel mb-8">
+            <div class="max-w-3xl mb-6">
+              <div class="section-kicker">Simple Math</div>
+              <h3 class="text-2xl font-bold text-gray-900 mt-2">How the bandit strategies decide which arm to pull</h3>
+              <p class="text-sm text-gray-600 mt-2 leading-relaxed">
+                Each method keeps a running estimate for every arm, then balances value and uncertainty in a different way when it picks the next action.
+              </p>
+            </div>
+            <div class="math-grid">
+              <article class="math-card">
+                <div class="math-card-title">epsilon-greedy</div>
+                <div class="formula-line">Explore with probability <span class="formula-chip">epsilon</span>.</div>
+                <div class="formula-line">Otherwise choose <span class="formula-chip">arg max_a q_hat(a)</span>.</div>
+                <p class="math-card-copy">Most steps exploit the best estimate so far, while a fixed random-exploration rate prevents early lock-in.</p>
+              </article>
+              <article class="math-card">
+                <div class="math-card-title">UCB</div>
+                <div class="formula-line"><span class="formula-chip">q_hat(a) + c * sqrt(log t / n(a))</span></div>
+                <p class="math-card-copy">Arms with less data receive a larger confidence bonus, so uncertainty itself becomes a reason to sample them.</p>
+              </article>
+              <article class="math-card">
+                <div class="math-card-title">Thompson sampling</div>
+                <div class="formula-line">Sample <span class="formula-chip">theta_a ~ Beta(alpha_a, beta_a)</span></div>
+                <div class="formula-line">Choose <span class="formula-chip">arg max_a theta_a</span></div>
+                <p class="math-card-copy">This strategy explores by acting on a plausible reward-rate sample from each arm's posterior rather than by adding an explicit bonus.</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="grid xl:grid-cols-[340px,1fr] gap-8">
+            <aside class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm space-y-6">
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900">Bandit controls</h3>
+                <p class="text-sm text-gray-600 mt-2">Change the number of arms, switch strategies, and decide whether the hidden reward chances stay fixed or drift.</p>
+              </div>
+
+              <div class="space-y-2">
+                <div class="flex items-center justify-between gap-3">
+                  <label for="banditArms" class="text-sm font-medium text-gray-700">Number of arms</label>
+                  <span id="banditArmsValue" class="control-value">5</span>
+                </div>
+                <input id="banditArms" type="range" min="3" max="10" step="1" value="5" class="w-full">
+              </div>
+
+              <div class="space-y-2">
+                <label for="banditStrategy" class="text-sm font-medium text-gray-700">Strategy</label>
+                <select id="banditStrategy" class="control-select">
+                  <option value="epsilon">epsilon-greedy</option>
+                  <option value="ucb">UCB</option>
+                  <option value="thompson">Thompson sampling</option>
+                </select>
+              </div>
+
+              <div class="space-y-3">
+                <div class="flex items-center justify-between gap-4">
+                  <div>
+                    <div class="text-sm font-medium text-gray-700">Drifting rewards</div>
+                    <p class="text-xs text-gray-500 mt-1">Let each arm's hidden mean wander over time.</p>
+                  </div>
+                  <label class="toggle">
+                    <input id="banditDrift" type="checkbox" />
+                    <span class="toggle-track"></span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="space-y-2">
+                <div class="flex items-center justify-between gap-3">
+                  <label id="banditParamLabel" for="banditParam" class="text-sm font-medium text-gray-700">Exploration rate (epsilon)</label>
+                  <span id="banditParamValue" class="control-value">0.12</span>
+                </div>
+                <input id="banditParam" type="range" min="0.02" max="0.40" step="0.01" value="0.12" class="w-full">
+                <p id="banditParamHint" class="text-xs text-gray-500">Higher epsilon forces more random exploration instead of greedy choice.</p>
+              </div>
+
+              <div class="grid grid-cols-2 gap-3">
+                <button id="banditStepBtn" type="button" class="control-button control-button-secondary">
+                  <i class="ri-skip-forward-line"></i>
+                  Step
+                </button>
+                <button id="banditEpisodeBtn" type="button" class="control-button control-button-primary">
+                  <i class="ri-play-circle-line"></i>
+                  Run Episode
+                </button>
+                <button id="banditBatchBtn" type="button" class="control-button control-button-secondary">
+                  <i class="ri-flashlight-line"></i>
+                  Run Batch
+                </button>
+                <button id="banditResetBtn" type="button" class="control-button control-button-ghost">
+                  <i class="ri-restart-line"></i>
+                  Reset
+                </button>
+              </div>
+
+              <div class="rounded-2xl bg-gray-50 border border-gray-100 p-4">
+                <div class="flex items-center justify-between gap-3">
+                  <div class="text-sm font-semibold text-gray-900">Strategy lens</div>
+                  <i id="banditStrategyIcon" class="ri-scales-3-line text-primary text-xl"></i>
+                </div>
+                <p id="banditStrategyBlurb" class="text-sm text-gray-600 mt-2 leading-relaxed">
+                  Epsilon-greedy mostly exploits the best estimate so far, but reserves a fixed random-exploration budget.
+                </p>
+              </div>
+            </aside>
+
+            <div class="space-y-6">
+              <div class="grid sm:grid-cols-2 xl:grid-cols-5 gap-4">
+                <div class="metric-tile">
+                  <div class="metric-label">Pulls</div>
+                  <div id="banditPulls" class="metric-value">0</div>
+                </div>
+                <div class="metric-tile">
+                  <div class="metric-label">Cumulative reward</div>
+                  <div id="banditReward" class="metric-value">0.00</div>
+                </div>
+                <div class="metric-tile">
+                  <div class="metric-label">Regret</div>
+                  <div id="banditRegret" class="metric-value">0.00</div>
+                </div>
+                <div class="metric-tile">
+                  <div class="metric-label">Average reward</div>
+                  <div id="banditAverage" class="metric-value">0.00</div>
+                </div>
+                <div class="metric-tile">
+                  <div class="metric-label">Best arm now</div>
+                  <div id="banditBestArm" class="metric-value">Arm 1</div>
+                </div>
+              </div>
+
+              <div class="grid lg:grid-cols-[1.2fr,0.8fr] gap-6">
+                <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+                  <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
+                    <div>
+                      <h3 class="text-xl font-semibold text-gray-900">Arm estimates and pull counts</h3>
+                      <p class="text-sm text-gray-600 mt-1">Each row compares the learned estimate with the current hidden reward chance used by the simulator.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-3 text-xs text-gray-500">
+                      <span class="line-swatch" style="--swatch: rgba(37, 99, 235, 0.85);">Estimated value</span>
+                      <span class="line-swatch" style="--swatch: rgba(244, 63, 94, 0.85);">Latent mean</span>
+                    </div>
+                  </div>
+                  <div id="banditArmRows" class="space-y-4"></div>
+                </div>
+
+                <div class="space-y-6">
+                  <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+                    <div class="flex items-center justify-between gap-4 mb-4">
+                      <div>
+                        <h3 class="text-xl font-semibold text-gray-900">Reward trail</h3>
+                        <p class="text-sm text-gray-600 mt-1">Compare realized reward with an oracle baseline that always picks the current best arm.</p>
+                      </div>
+                      <div class="text-right">
+                        <div class="text-xs text-gray-500">History shown</div>
+                        <div id="banditHistoryCount" class="text-lg font-semibold text-gray-900">0 pulls</div>
+                      </div>
+                    </div>
+                    <div class="chart-shell">
+                      <svg id="banditTrendChart" class="mini-chart" viewBox="0 0 560 220" preserveAspectRatio="none" role="img" aria-label="Bandit reward trail chart"></svg>
+                    </div>
+                    <div class="flex flex-wrap gap-4 text-xs text-gray-500 pt-3">
+                      <span class="line-swatch" style="--swatch: rgba(37, 99, 235, 0.9);">Cumulative reward</span>
+                      <span class="line-swatch" style="--swatch: rgba(16, 185, 129, 0.9);">Oracle reward</span>
+                    </div>
+                    <div class="mt-6">
+                      <div class="flex items-center justify-between gap-4 mb-3">
+                        <div>
+                          <h4 class="text-base font-semibold text-gray-900">Oracle gap summary</h4>
+                          <p class="text-xs text-gray-500 mt-1">This compares oracle minus learner over the whole run and over the most recent 50 pulls.</p>
+                        </div>
+                      </div>
+                      <div class="chart-shell chart-shell-compact">
+                        <svg id="banditDeltaChart" class="mini-chart" viewBox="0 0 560 220" preserveAspectRatio="none" role="img" aria-label="Oracle gap comparison chart"></svg>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+                    <div class="flex items-center justify-between gap-4 mb-4">
+                      <div>
+                        <h3 class="text-xl font-semibold text-gray-900">Recent decisions</h3>
+                        <p class="text-sm text-gray-600 mt-1">Use the log to spot when the policy commits or deliberately re-explores.</p>
+                      </div>
+                      <span id="banditStatusTag" class="status-pill" data-state="ready">Ready</span>
+                    </div>
+                    <div id="banditDecisionLog" class="decision-log"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+    <section id="next" class="proj-section" aria-labelledby="next-title"><div class="proj-wrap">
+      <h2 id="next-title" class="proj-h2">Keep going</h2>
+      <div class="rl-pn"><a href="/rl-course/lecture-01/"><i class="ri-arrow-left-line" aria-hidden="true"></i><span><small>Previous · Lecture 1</small><strong>Introduction</strong></span></a><a class="is-next" href="/rl-course/lecture-03/"><span><small>Next · Lecture 3</small><strong>MDPs and dynamic programming</strong></span><i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+    </div></section>
+  </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Games</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
+                  <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
+                  <li><a href="https://rl.teddylazebnik.com/" class="hover:text-white">Pirate War RL Game</a></li>
+                  <li><a href="https://eh.teddylazebnik.com/" class="hover:text-white">Echo Heist</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/rl-course/" class="hover:text-white">RL course</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <script src="/js/videos.js"></script>
+      <script src="/js/exploration-lab.js"></script>
+      <script src="/js/rl-course.js" defer></script>
+   </body>
+</html>

@@ -1,0 +1,52 @@
+<!-- Used by tools/build_rl_course.py: the dynamic programming lab (Lecture 3) of the RL course. Script: js/rl-labs.js (data-rlx="dp"), styles: css/rl-labs.css + css/exploration-lab.css. -->
+      <div class="rlx" id="dp-lab" data-rlx="dp">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">One Bellman update per cell, every sweep</h3>
+          <p class="rlx-sub">q(s, a) = Σ p(s′ | s, a) [ r + γ v(s′) ] is what action a is worth in cell s, given the current values. The three algorithms differ only in what they do with it.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">Policy evaluation</div>
+              <div class="formula-line">v(s) ← <span class="formula-chip">Σₐ π(a | s) q(s, a)</span></div>
+              <p class="math-card-copy">Average over what the policy does. Here the policy is random: each of the four moves with probability ¼.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Value iteration</div>
+              <div class="formula-line">v(s) ← <span class="formula-chip">maxₐ q(s, a)</span></div>
+              <p class="math-card-copy">Take the best action instead of the average. The values converge to v*, and the greedy arrows to an optimal policy.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Policy iteration</div>
+              <div class="formula-line">Evaluate π, then <span class="formula-chip">π(s) ← argmaxₐ q(s, a)</span></div>
+              <p class="math-card-copy">Evaluate the current policy until its values settle, make it greedy, and repeat until the policy stops changing.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Controls">
+            <div><h4 class="rlx-h">Controls</h4><p class="rlx-sub">Pick an algorithm, then sweep one step at a time or run it to the end.</p></div>
+            <div class="rlx-field"><label class="rlx-label" for="dpMode">Algorithm</label><select id="dpMode" data-k="mode" class="control-select"><option value="eval" selected>Policy evaluation (random policy)</option><option value="vi">Value iteration</option><option value="pi">Policy iteration</option></select></div>
+            <div class="rlx-field"><label class="rlx-label" for="dpSize">Grid</label><select id="dpSize" data-k="size" class="control-select"><option value="4" selected>4 × 4</option><option value="5">5 × 5</option><option value="6">6 × 6</option></select></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="dpGamma">Discount γ</label><span class="control-value" data-k="gamma-out">1.00</span></div><input id="dpGamma" data-k="gamma" type="range" min="0.5" max="1" step="0.01" value="1"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="dpSlip">Slip chance</label><span class="control-value" data-k="slip-out">0.00</span></div><input id="dpSlip" data-k="slip" type="range" min="0" max="0.4" step="0.05" value="0"></div>
+            <p class="rlx-hint">With a slip chance p, a move goes sideways with probability p (half each way). Bumping into the edge or a wall leaves you where you are.</p>
+            <div class="rlx-btns"><button type="button" data-k="step" class="control-button control-button-secondary"><i class="ri-skip-forward-line" aria-hidden="true"></i>One sweep</button><button type="button" data-k="run" class="control-button control-button-primary"><i class="ri-play-circle-line" aria-hidden="true"></i>Run</button><button type="button" data-k="reset" class="control-button control-button-ghost"><i class="ri-restart-line" aria-hidden="true"></i>Reset values</button><button type="button" data-k="clear" class="control-button control-button-ghost"><i class="ri-eraser-line" aria-hidden="true"></i>Clear walls</button></div>
+            <p class="rlx-hint"><b>Click a cell</b> to add or remove a wall.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Sweeps</div><div class="metric-value" data-k="sweeps">0</div></div><div class="metric-tile"><div class="metric-label">Largest change Δ</div><div class="metric-value" data-k="delta">–</div></div><div class="metric-tile"><div class="metric-label">Arrows last changed</div><div class="metric-value" data-k="changed">–</div></div><div class="metric-tile"><div class="metric-label">Improvements</div><div class="metric-value" data-k="improve">–</div></div></div>
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">Values start at 0. Press <b>One sweep</b>.</p>
+            <div class="rlx-two">
+              <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Values and greedy arrows</h4><p class="rlx-sub">Darker cells are worse (further from an exit). The arrows are the greedy actions; ties show more than one.</p></div></div>
+                <div class="rlx-board" data-k="board" role="grid" aria-label="Gridworld values"></div>
+              </div>
+              <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">How much the values still change</h4><p class="rlx-sub">The largest change in any cell, per sweep, on a log scale. Dotted lines mark policy improvements.</p></div></div>
+                <div class="chart-shell"><svg data-k="chart" role="img" aria-label="Largest change per sweep"></svg></div>
+                <div class="rlx-legend" data-k="chart-legend"><span class="line-swatch" style="--swatch:#2563eb">Δ per sweep</span></div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>

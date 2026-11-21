@@ -1,0 +1,113 @@
+/* Interactive labs of the RL course (js/rl-labs.js; markup in tools/templates/rl-course-lab-*.html).
+   Builds on css/exploration-lab.css (math-panel, metric-tile, chart-shell, control-*, toggle, status-pill). */
+.rlx { padding: 1.5rem 0 3rem; }
+.rlx[id] { scroll-margin-top: 9rem; }
+.rlx-math { margin-bottom: 1.5rem; }
+.rlx-math .math-grid { margin-top: 1rem; }
+.rlx-math .formula-chip { white-space: normal; line-height: 1.5; }
+.rlx-grid { display: grid; gap: 1.5rem; align-items: start; }
+@media (min-width: 1100px) { .rlx-grid { grid-template-columns: 320px minmax(0, 1fr); } }
+.rlx-card { background: #fff; border: 1px solid rgba(17, 24, 39, .08); border-radius: 20px; padding: 1.35rem; box-shadow: 0 14px 40px rgba(15, 23, 42, .04); min-width: 0; }
+.rlx-controls { display: flex; flex-direction: column; gap: 1.1rem; }
+.rlx-h { font-size: 1.12rem; font-weight: 700; color: #111827; line-height: 1.35; }
+.rlx-sub { margin-top: .3rem; font-size: .88rem; line-height: 1.55; color: #4b5563; }
+.rlx-field { display: flex; flex-direction: column; gap: .45rem; }
+.rlx-label { display: flex; align-items: center; justify-content: space-between; gap: .75rem; font-size: .88rem; font-weight: 600; color: #374151; }
+.rlx-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.rlx-btns { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; }
+.rlx-btns .control-button { padding: .7rem .75rem; font-size: .88rem; border-radius: 14px; }
+.rlx-btns .is-wide { grid-column: 1 / -1; }
+.rlx-hint { font-size: .8rem; line-height: 1.5; color: #6b7280; }
+.rlx-main { display: flex; flex-direction: column; gap: 1.25rem; min-width: 0; }
+.rlx-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(135px, 1fr)); gap: .85rem; }
+.rlx-metrics .metric-tile { padding: 14px 16px; border-radius: 18px; min-width: 0; }
+.rlx-metrics .metric-label { font-size: 12px; text-transform: none; letter-spacing: .01em; }
+.rlx-metrics .metric-value { font-size: 22px; overflow-wrap: anywhere; }
+.rlx-two { display: grid; gap: 1.25rem; }
+@media (min-width: 900px) { .rlx-two { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+.rlx-head { display: flex; align-items: flex-start; justify-content: space-between; gap: .75rem 1rem; flex-wrap: wrap; margin-bottom: .9rem; }
+.rlx-legend { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: .75rem; }
+.rlx-legend .line-swatch { padding: 6px 10px; }
+.rlx-legend .is-dash::before { background: repeating-linear-gradient(90deg, var(--swatch) 0 5px, transparent 5px 8px); }
+.rlx .chart-shell { height: 240px; }
+.rlx .chart-shell.is-tall { height: 300px; }
+.rlx .chart-shell svg { width: 100%; height: 100%; display: block; }
+.rlx-note { margin-top: .6rem; font-size: .8rem; line-height: 1.5; color: #6b7280; }
+.rlx-status { font-size: .9rem; line-height: 1.5; color: #374151; background: #f8fafc; border: 1px solid rgba(17, 24, 39, .08); border-radius: 14px; padding: .7rem .9rem; }
+.rlx-status b { color: #111827; }
+
+/* gridworld boards (DP lab) */
+.rlx-board { display: grid; gap: 6px; max-width: 460px; margin: 0 auto; }
+.rlx-cell { position: relative; aspect-ratio: 1; border-radius: 12px; border: 1px solid rgba(17, 24, 39, .08); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-variant-numeric: tabular-nums; cursor: pointer; transition: background-color .25s, color .25s; user-select: none; padding: 2px; }
+.rlx-cell:focus-visible { outline: 3px solid rgba(37, 99, 235, .45); outline-offset: 1px; }
+.rlx-cell .v { font-size: clamp(.7rem, 2.6vw, 1rem); font-weight: 700; }
+.rlx-cell .a { font-size: clamp(.7rem, 2.6vw, 1.05rem); line-height: 1; letter-spacing: 1px; opacity: .85; }
+.rlx-cell.is-term { background: #e5e7eb !important; color: #374151 !important; cursor: default; }
+.rlx-cell.is-term .v { font-size: .78rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+.rlx-cell.is-wall { background: #334155 !important; color: #cbd5e1 !important; }
+.rlx-cell.is-wall .v { font-size: .75rem; }
+
+/* contraction lab and others: colour keys */
+.rlx-key { display: inline-flex; align-items: center; gap: .4rem; font-size: .8rem; color: #4b5563; }
+.rlx-key i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+
+/* random walk (TD vs MC) */
+.rlx-walk { display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: nowrap; margin: .25rem 0 .5rem; }
+.rlx-walk span { flex: 0 0 auto; width: 40px; height: 40px; border-radius: 999px; display: grid; place-items: center; font-weight: 700; font-size: .9rem; background: #eff6ff; color: #1d4ed8; border: 1px solid #dbeafe; transition: background-color .2s, color .2s, transform .2s; }
+.rlx-walk span.is-end { border-radius: 10px; width: 34px; background: #f3f4f6; color: #6b7280; border-color: #e5e7eb; font-size: .78rem; }
+.rlx-walk span.is-on { background: #2563eb; color: #fff; transform: scale(1.08); }
+.rlx-path { font-size: .85rem; line-height: 1.6; color: #4b5563; text-align: center; min-height: 1.6em; overflow-wrap: anywhere; }
+
+/* canvases (Mountain Car) */
+.rlx-canvas { width: 100%; display: block; border-radius: 16px; border: 1px solid rgba(17, 24, 39, .08); background: #f8fafc; }
+.rlx-canvas.is-hill { aspect-ratio: 16 / 8; }
+.rlx-canvas.is-map { aspect-ratio: 1 / 1; max-height: 340px; }
+
+/* tic-tac-toe (MCTS lab) */
+.rlx-ttt { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; max-width: 300px; margin: 0 auto; }
+.rlx-ttt button, .rlx-ttt div { aspect-ratio: 1; border-radius: 14px; border: 1px solid rgba(17, 24, 39, .1); background: #fff; font-size: clamp(1.8rem, 8vw, 2.6rem); font-weight: 800; display: flex; align-items: center; justify-content: center; flex-direction: column; line-height: 1; transition: background-color .2s, transform .15s; }
+.rlx-ttt button:not(:disabled):hover { background: #eff6ff; transform: translateY(-1px); }
+.rlx-ttt button:disabled { cursor: default; }
+.rlx-ttt .is-x { color: #2563eb; }
+.rlx-ttt .is-o { color: #e11d48; }
+.rlx-ttt .is-win { background: #fef3c7 !important; }
+.rlx-ttt .is-last { box-shadow: inset 0 0 0 3px rgba(37, 99, 235, .25); }
+.rlx-ttt.is-stats div { font-size: .78rem; font-weight: 600; color: #374151; gap: 2px; }
+.rlx-ttt.is-stats div b { font-size: 1.05rem; color: #111827; }
+.rlx-ttt.is-stats div.is-x, .rlx-ttt.is-stats div.is-o { font-size: clamp(1.4rem, 6vw, 2rem); font-weight: 800; }
+.rlx-ttt.is-stats div.is-x { color: #93c5fd; }
+.rlx-ttt.is-stats div.is-o { color: #fda4af; }
+.rlx-ttt.is-stats div.is-pick { box-shadow: inset 0 0 0 3px #f59e0b; }
+
+/* bars (policy-gradient bandit, Bradley-Terry) */
+.rlx-pairs { display: grid; gap: .8rem; }
+@media (min-width: 640px) { .rlx-pairs { grid-template-columns: 1fr 1fr; } }
+.rlx-answer { text-align: left; border: 1.5px solid rgba(17, 24, 39, .1); border-radius: 16px; padding: 1rem 1.05rem; background: #fff; line-height: 1.55; font-size: .95rem; color: #1f2937; transition: border-color .2s, box-shadow .2s, transform .15s; display: flex; flex-direction: column; gap: .5rem; }
+.rlx-answer:hover { border-color: #2563eb; box-shadow: 0 10px 24px -14px rgba(37, 99, 235, .55); transform: translateY(-1px); }
+.rlx-answer small { font-size: .72rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: #2563eb; }
+.rlx-answer em { font-style: normal; font-size: .8rem; font-weight: 700; color: #2563eb; margin-top: auto; }
+.rlx-question { font-size: 1.05rem; font-weight: 700; color: #111827; line-height: 1.45; }
+.rlx-matrix { width: 100%; border-collapse: separate; border-spacing: 3px; font-variant-numeric: tabular-nums; font-size: .8rem; }
+.rlx-matrix th { font-weight: 700; color: #4b5563; padding: .2rem; }
+.rlx-matrix td { text-align: center; border-radius: 6px; padding: .4rem .1rem; font-weight: 600; }
+.rlx-scorelist { display: grid; gap: .55rem; }
+.rlx-score { display: grid; grid-template-columns: 1.6rem minmax(0, 1fr) 3.2rem; gap: .6rem; align-items: center; font-size: .85rem; }
+.rlx-score b { font-weight: 800; color: #2563eb; text-align: center; }
+.rlx-score em { font-style: normal; text-align: right; font-variant-numeric: tabular-nums; font-weight: 700; color: #111827; }
+.rlx-score-track { position: relative; height: 26px; border-radius: 8px; background: #f1f5f9; overflow: visible; }
+.rlx-score-track span.t { position: absolute; left: .5rem; top: 50%; transform: translateY(-50%); font-size: .78rem; color: #1f2937; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: calc(100% - 1rem); z-index: 1; }
+.rlx-score-fill { position: absolute; top: 0; bottom: 0; border-radius: 8px; background: rgba(37, 99, 235, .25); transition: left .3s, width .3s; }
+.rlx-score-fill.is-neg { background: rgba(225, 29, 72, .2); }
+.rlx-score-zero { position: absolute; top: -3px; bottom: -3px; left: 50%; width: 1px; background: #94a3b8; }
+.rlx-score-hidden { position: absolute; top: -4px; bottom: -4px; width: 3px; border-radius: 2px; background: #059669; transform: translateX(-50%); }
+
+@media (max-width: 640px) {
+  .rlx-card { padding: 1.05rem; border-radius: 16px; }
+  .rlx-metrics { gap: .6rem; }
+  .rlx-metrics .metric-tile { padding: 10px 12px; border-radius: 14px; }
+  .rlx-metrics .metric-value { font-size: 18px; margin-top: 4px; }
+  .rlx-board { gap: 4px; }
+  .rlx-cell { border-radius: 8px; }
+  .rlx-walk span { width: 34px; height: 34px; font-size: .82rem; }
+  .rlx-walk span.is-end { width: 28px; }
+}

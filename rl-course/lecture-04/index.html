@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_rl_course.py from data/rl-course.json. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Lecture 4: Theory of dynamic programming | Reinforcement Learning Course | ACML</title>
+      <meta name="description" content="Lecture 4 of 12 of ACML’s introduction to reinforcement learning. Norms, contractions and fixed points, Bellman operators, why DP converges, and approximate DP: slides, 2 short episodes and an interactive lab.">
+      <meta name="author" content="Teddy Lazebnik">
+      <meta name="keywords" content="reinforcement learning, theory of dynamic programming, RL course, lecture slides, ACML Explains">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/rl-course/lecture-04/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Lecture 4: Theory of dynamic programming · Introduction to Reinforcement Learning">
+      <meta property="og:description" content="Lecture 4 of 12 of ACML’s introduction to reinforcement learning. Norms, contractions and fixed points, Bellman operators, why DP converges, and approximate DP: slides, 2 short episodes and an interactive lab.">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/rl-course/lecture-04/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/rl-course/lecture-04/share.jpg">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Lecture 4: Theory of dynamic programming · Introduction to Reinforcement Learning">
+      <meta name="twitter:description" content="Lecture 4 of 12 of ACML’s introduction to reinforcement learning. Norms, contractions and fixed points, Bellman operators, why DP converges, and approximate DP: slides, 2 short episodes and an interactive lab.">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/rl-course/lecture-04/share.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "Lecture 4: Theory of dynamic programming",
+        "description": "Why dynamic programming works: norms, contraction mappings and fixed points, the Bellman operators, how fast value iteration converges, and what a small error in the values can cost a greedy policy when dynamic programming is only approximate.",
+        "url": "https://acml.teddylazebnik.com/rl-course/lecture-04/",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "learningResourceType": [
+          "Lecture slides",
+          "Video"
+        ],
+        "teaches": "Norms, contractions and fixed points, Bellman operators, why DP converges, and approximate DP",
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Introduction to Reinforcement Learning",
+          "url": "https://acml.teddylazebnik.com/rl-course/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Teddy Lazebnik",
+          "url": "https://teddylazebnik.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Applied Computational Mathematics Laboratory",
+          "url": "https://acml.teddylazebnik.com/"
+        },
+        "hasPart": [
+          {
+            "@type": "VideoObject",
+            "name": "Why dynamic programming works",
+            "description": "Drop a map of this room on the floor of this room. Exactly one point lands on itself. That's why value iteration converges.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/rl-course/img/episodes/ep15.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/tX3Ic5ChT3c",
+            "duration": "PT5M5S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "When DP is approximate",
+            "description": "All the true values are zero. Fit them with one parameter, and the estimate runs off to infinity.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/rl-course/img/episodes/ep16.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/KkPvFf5dbfE",
+            "duration": "PT5M14S"
+          },
+          {
+            "@type": "DigitalDocument",
+            "name": "Lecture 4 slides",
+            "encodingFormat": "application/pdf",
+            "url": "https://acml.teddylazebnik.com/rl-course/slides/ACML_RL_Lecture04_Theory_of_Dynamic_Programming.pdf"
+          }
+        ]
+      }
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      <link href="/css/videos.css" rel="stylesheet">
+      <link href="/css/exploration-lab.css" rel="stylesheet">
+      <link href="/css/rl-labs.css" rel="stylesheet">
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/project.css" rel="stylesheet">
+      <link href="/css/rl-course.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Tools</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="proj-page rl-page bg-white">
+    <header class="proj-hero rl-hero">
+      <div class="proj-wrap proj-hero-grid">
+        <div>
+          <nav class="proj-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/tools.html">Tools</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/rl-course/">RL course</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Lecture 4</span></nav>
+          <p class="proj-kicker"><span><i class="ri-graduation-cap-line" aria-hidden="true"></i>Introduction to Reinforcement Learning</span><span>Part 1 · Foundations</span></p>
+          <h1 class="proj-title"><small>Lecture 4</small>Theory of dynamic programming</h1>
+          <p class="proj-about-lead rl-summary">Why dynamic programming works: norms, contraction mappings and fixed points, the Bellman operators, how fast value iteration converges, and what a small error in the values can cost a greedy policy when dynamic programming is only approximate.</p>
+          <div class="rl-goal"><i class="ri-focus-3-line" aria-hidden="true"></i><span>By the end you should be able to explain why value iteration converges, how fast, and how much a small error in the values can cost a greedy policy.</span></div>
+          <h2 class="proj-h3 rl-ideas-title">Key ideas, one per episode</h2>
+          <ul class="rl-ideas"><li><a href="#ep-15">Ep. 15</a><span>Apply a contraction until it stops moving.</span></li><li><a href="#ep-16">Ep. 16</a><span>Exact DP converges. Approximate DP can break, but greedy degrades gracefully.</span></li></ul>
+          <p class="rl-source"><b>Based on:</b> Lecture 4: Theoretical Fundamentals of Dynamic Programming, DeepMind × UCL Reinforcement Learning Lecture Series (2021), by Diana Borsa. The slides follow that order of topics, in our own words, figures and examples; they are not official material of the original course.</p>
+        </div>
+        <div class="rl-first">
+          <a class="rl-first-img" href="/rl-course/slides/ACML_RL_Lecture04_Theory_of_Dynamic_Programming.pdf" target="_blank" rel="noopener"><img src="/rl-course/img/slides/l04-s01.webp" alt="The title slide of Lecture 4: Theory of dynamic programming" width="960" height="540" fetchpriority="high" decoding="async"></a>
+          <p class="rl-first-text">39 slides, written to be read on your own, with worked examples, “try it” boxes, small simulations and check-yourself questions (answers at the end). PDF, 1.1 MB.</p>
+          <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="/rl-course/slides/ACML_RL_Lecture04_Theory_of_Dynamic_Programming.pdf" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Open the PDF</a><a class="proj-btn" href="/rl-course/slides/ACML_RL_Lecture04_Theory_of_Dynamic_Programming.pdf" download><i class="ri-download-2-line" aria-hidden="true"></i>Download</a></div>
+        </div>
+      </div>
+    </header>
+    <nav class="proj-subnav is-mobile-only" aria-label="Sections of this page"><div class="proj-wrap"><ul><li><a href="#watch">Watch</a></li><li><a href="#lab">Lab</a></li><li><a href="#next">Next</a></li></ul></div></nav>
+    <section id="watch" class="proj-section is-soft" aria-labelledby="watch-title"><div class="proj-wrap">
+      <h2 id="watch-title" class="proj-h2">Watch</h2>
+      <p class="proj-lead">2 short episodes of ACML Explains for this lecture. Pick one from the list, and open the transcript to read along: each timestamp plays the episode from there. The narration is generated with a voice clone of Teddy, used with his permission.</p>
+      <div class="rl-watch">
+        <div class="rl-player-wrap">
+          <div id="rl-player" class="yt-player yt-16x9" data-yt-id="tX3Ic5ChT3c" data-yt-title="Why dynamic programming works"><a class="yt-play" href="https://www.youtube.com/watch?v=tX3Ic5ChT3c&amp;list=PLLTavI7DAgbE" aria-label="Play episode 15: Why dynamic programming works"><img src="/rl-course/img/episodes/ep15.webp" alt="" width="640" height="360" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div>
+          <div class="rl-now">
+            <p id="rl-now-num" class="rl-now-num">Episode 15 · 5:05</p>
+            <p id="rl-now-title" class="rl-now-title">Why dynamic programming works</p>
+            <p id="rl-now-hook" class="rl-now-hook">Drop a map of this room on the floor of this room. Exactly one point lands on itself. That&#x27;s why value iteration converges.</p>
+            <p id="rl-now-take" class="rl-now-take"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i><span>Apply a contraction until it stops moving.</span></p>
+          </div>
+            <details id="rl-tx" class="rl-tx">
+              <summary><i class="ri-file-text-line" aria-hidden="true"></i>Transcript<span id="rl-tx-which">Episode 15</span><i class="ri-arrow-down-s-line rl-tx-caret" aria-hidden="true"></i></summary>
+              <div class="rl-tx-body"><div class="rl-tx-ep" data-ep="15"><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="0" aria-label="Play from 0:00">0:00</button><div><h4>The map on the floor</h4><p>Here&#x27;s a trick. Take a map of this room, and drop it on the floor of this room. Somewhere on that map, there&#x27;s exactly one point lying right on top of the spot it shows. Exactly one. Always. Wherever the map lands, however it&#x27;s turned. As long as the whole map lies inside the room. Rotated, crumpled a bit, it doesn&#x27;t matter. Today&#x27;s question is why value iteration and policy evaluation always converge. And it&#x27;s the same reason that map works.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="32" aria-label="Play from 0:32">0:32</button><div><h4>The worst state</h4><p>First, we need a way to say how far apart two value functions are. Take two guesses for the values, u and v. Compare them state by state, and keep the biggest gap. That&#x27;s the max norm. The distance between two value functions is the worst state. Two guesses that agree everywhere, except one state where they differ by ten? The distance is ten. Not the average state. The worst. Bit is only as right as his most wrong state. Why not the average? Because a disaster in one state can hide behind a good average.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="63" aria-label="Play from 1:03">1:03</button><div><h4>Contractions</h4><p>Now, an operator: a machine that takes a whole value function in, and gives a whole value function out. It&#x27;s a contraction if it pulls any two inputs closer together, by a fixed factor smaller than one. Distance before: d. Distance after: at most α times d, with α below one. And a fixed point is an input that comes out unchanged. T of x equals x. Like a thermostat set to twenty-one degrees. It pushes the room there, and once it&#x27;s there, it stays. The map on the floor is a contraction of the room. And the point that lies on its own spot? The fixed point.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="99" aria-label="Play from 1:39">1:39</button><div><h4>Banach&#x27;s theorem</h4><p>Now the beautiful theorem, from Stefan Banach, nineteen twenty-two. If T is a contraction on a complete space, then first: it has exactly one fixed point. Not two. Not zero. One. Second: start anywhere, apply T, apply it again, and again. You always land on that point. And third, it&#x27;s fast: after n steps, the error is at most α to the n, times the error you started with. Geometric convergence. Every step chops off the same fraction of what&#x27;s left. Banach proved this in his doctoral thesis. Not bad, for a thesis.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="131" aria-label="Play from 2:11">2:11</button><div><h4>The Bellman operator</h4><p>Now look at value iteration again. One sweep takes a value function, and returns a new one. For every state: the max over actions, of the reward plus γ times the expected value of where you land. Call that machine T star, the Bellman optimality operator. Value iteration is just: apply T star, again and again. Picture it: every possible value function is a point in a huge space. T star moves points around in that space. And T star is a contraction, with factor γ. So Banach does the rest.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="165" aria-label="Play from 2:45">2:45</button><div><h4>The proof in one picture</h4><p>Why is it a contraction? One picture. Take two guesses, u and v, that differ by at most d, anywhere. Average them over the next states: the averages differ by at most d. Averaging never stretches a gap. Multiply by γ: now at most γ times d. Add the same reward to both: the gap doesn&#x27;t change. And taking the max over actions can&#x27;t stretch it either. So every sweep shrinks the worst gap by at least γ. That&#x27;s the whole proof. No calculus. Just three facts. Averages don&#x27;t stretch gaps. Maxes don&#x27;t stretch gaps. And γ shrinks them. Three facts come out: there&#x27;s one fixed point, v star. Value iteration reaches it from any start. And T star is monotone: bigger input, bigger output. Monotone matters too. Start below v star, and you stay below it, creeping up on every sweep.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="215" aria-label="Play from 3:35">3:35</button><div><h4>Our numbers</h4><p>We tried it on a small random MDP we made up: ten states, two actions, γ at point nine. The error starts at about four point six. After forty sweeps: about point zero six. That&#x27;s about seventy-five times smaller. And the bound, γ to the k, sits right on top of it the whole way. With γ at point nine, every twenty-two sweeps cut the error at least ten times. With γ at point nine nine, you need about two hundred thirty sweeps for the same cut. Looking far ahead costs computation.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="247" aria-label="Play from 4:07">4:07</button><div><h4>One idea behind DP</h4><p>Same story for policy evaluation. Drop the max, average over what π picks instead. Call it T π. Also a γ-contraction. Also monotone. Its one fixed point is v π. So iterative policy evaluation converges too, from any starting guess. And the same holds for q functions. So every algorithm from module three is secretly the same thing: apply a contraction until it stops moving. This is why I keep saying this course makes good promises. Here&#x27;s the proof. Value iteration: apply T star. Policy evaluation: apply T π. Policy iteration: alternate evaluating with T π and improving greedily. But all of this assumed we know p and can store every value exactly. Next time: what breaks when we can&#x27;t. With me so far?</p></div></div></div><div class="rl-tx-ep" data-ep="16" hidden><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="0" aria-label="Play from 0:00">0:00</button><div><h4>Two luxuries</h4><p>Everything so far assumed two luxuries. We know the MDP perfectly, and we can store every value exactly. In real life? We usually get neither. We don&#x27;t know p, so we estimate the Bellman update from samples. That adds sampling error. And we can&#x27;t keep a table with a value for every chess board. So we fit a function: a linear model, or a neural network. That adds approximation error. Two errors, from two directions. Sometimes they cancel. Usually, they don&#x27;t. The goal stays the same: a policy that&#x27;s optimal, or at least close. This is where deep RL lives: big networks, and samples instead of the true model.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="42" aria-label="Play from 0:42">0:42</button><div><h4>Approximate value iteration</h4><p>Approximate value iteration: apply T star, then squeeze the result back into our function class. For example, choose the parameters that minimise the squared distance to the Bellman target, over the states. It sounds harmless. Fit a little, update a little, repeat. Does it still converge to v star? In general… no. The fitting step isn&#x27;t a contraction in the max norm. Banach&#x27;s promise is gone. Each fit on its own is fine. It&#x27;s the repetition that hurts.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="72" aria-label="Play from 1:12">1:12</button><div><h4>A divergence example</h4><p>Here&#x27;s a famous example, from Tsitsiklis and Van Roy. Two states, one parameter, θ. The first state&#x27;s value is θ. The second&#x27;s is two θ. All rewards are zero, and there are no decisions. The first state always moves to the second. The second stays put, except with a small chance, ε, the episode ends. All rewards are zero, so the true values are zero. Easy, right? Fit θ by least squares to the targets. Work through the algebra, and each step multiplies θ by six minus four ε, times γ, over five. With ε one eighth and γ equal to one, that&#x27;s one point one. Start at one. Ten steps: two point six. Thirty steps: seventeen. The truth is zero, and the estimate runs away. Why? The fit cares about both states at once. To fix the second state, it pushes θ up, and drags the first state with it. Notice: with γ at point nine, the factor is point nine nine, and it slowly converges. Divergence needs γ above about point nine one. So the danger is real. But it needs the right conditions. Or the wrong ones.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="139" aria-label="Play from 2:19">2:19</button><div><h4>Hopeless? Not quite</h4><p>Hopeless? Not quite. Sampled, online versions of these algorithms do converge, under mild conditions. Even with function approximation, the danger of divergence rarely shows up in practice. And in this very example, there&#x27;s a fix: weight each state by how often you actually visit it. Then it converges. And remember: we don&#x27;t need the values to be right. We need them to be in the right order. Many value functions give the same optimal policy.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="165" aria-label="Play from 2:45">2:45</button><div><h4>How good is a greedy policy?</h4><p>Which raises the real question. If my values are a bit wrong, and I act greedily on them, how bad is my policy? There&#x27;s a theorem for that. Take any q, and its greedy policy π. How much worse π is than optimal, is at most two γ over one minus γ, times how far q is from q star. Read it as an exchange rate. Value error goes in, performance loss comes out. Small errors in values, small loss in performance. Graceful. If your q is off by at most some small amount everywhere, your greedy policy loses at most that factor times that amount.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="199" aria-label="Play from 3:19">3:19</button><div><h4>Reading the factor</h4><p>Let&#x27;s read the factor. γ at point nine: eighteen. γ at point nine nine: about two hundred. So the longer you look ahead, the more a small value error can cost you. Errors compound along the way. So with long horizons, invest in accurate values. They&#x27;re worth it. γ equals zero: the factor is zero. Why? With no future, every policy has the same q: just the immediate reward. Nothing to get wrong. And if q equals q star, the bound is zero: being greedy on q star is optimal. Matches what we said in module three.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="236" aria-label="Play from 3:56">3:56</button><div><h4>The proof</h4><p>The proof is five lines. Add and subtract T π of q, then use the triangle inequality. Because π is greedy on q, T π of q equals T star of q. Then use the contraction, twice. Collect the terms, and divide by one minus γ. That&#x27;s where the factor comes from. Not deep. Just the same contraction trick, used twice.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="257" aria-label="Play from 4:17">4:17</button><div><h4>Module four, done</h4><p>And approximate policy iteration? Evaluate approximately, improve greedily. Do the values converge to q star? In general, no. Does the policy converge to the optimal one? In general, also no. It depends on the approximation. We&#x27;ll come back to that when we meet function approximation properly. Deep RL papers spend a lot of effort fighting exactly this instability. So, module four. Exact dynamic programming converges, because Bellman operators are contractions. Approximate dynamic programming can break that promise. But greedy policies degrade gracefully, and we know by how much. Being greedy is safe, as long as your values are good. Next module: we drop the model completely, and learn from experience. With me so far? See you in module five.</p></div></div></div></div>
+            </details>
+        </div>
+        <div class="rl-eps">
+          <div class="rl-eps-head"><b>Lecture 4 episodes</b><span>2 episodes · 10 min</span></div>
+          <ol><li id="ep-15"><a class="rl-ep is-active" data-ep="15" href="https://www.youtube.com/watch?v=tX3Ic5ChT3c&amp;list=PLLTavI7DAgbE" aria-current=true><span class="rl-ep-thumb"><img src="/rl-course/img/episodes/ep15.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>5:05</span></span><span><span class="rl-ep-num">Episode 15</span><span class="rl-ep-title" style="display:block">Why dynamic programming works</span><span class="rl-ep-take" style="display:block">Apply a contraction until it stops moving.</span></span></a></li><li id="ep-16"><a class="rl-ep" data-ep="16" href="https://www.youtube.com/watch?v=KkPvFf5dbfE&amp;list=PLLTavI7DAgbE"><span class="rl-ep-thumb"><img src="/rl-course/img/episodes/ep16.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>5:15</span></span><span><span class="rl-ep-num">Episode 16</span><span class="rl-ep-title" style="display:block">When DP is approximate</span><span class="rl-ep-take" style="display:block">Exact DP converges. Approximate DP can break, but greedy degrades gracefully.</span></span></a></li></ol>
+        </div>
+      </div>
+      <script type="application/json" id="rl-episodes">[{"ep": 15, "youtube": "tX3Ic5ChT3c", "title": "Why dynamic programming works", "duration": "5:05", "hook": "Drop a map of this room on the floor of this room. Exactly one point lands on itself. That's why value iteration converges.", "takeaway": "Apply a contraction until it stops moving.", "thumbAbs": "/rl-course/img/episodes/ep15.webp"}, {"ep": 16, "youtube": "KkPvFf5dbfE", "title": "When DP is approximate", "duration": "5:15", "hook": "All the true values are zero. Fit them with one parameter, and the estimate runs off to infinity.", "takeaway": "Exact DP converges. Approximate DP can break, but greedy degrades gracefully.", "thumbAbs": "/rl-course/img/episodes/ep16.webp"}]</script>
+    </div></section>
+    <section id="lab" class="rl-lab" aria-labelledby="lab-title">
+      <div class="proj-wrap rl-lab-head">
+        <p class="proj-label"><i class="ri-focus-2-line" aria-hidden="true"></i>Interactive lab</p>
+        <h2 id="lab-title" class="proj-h2" style="margin-top:.5rem">Contraction lab</h2>
+        <p class="proj-lead">Start two different value functions on a small random MDP and apply the Bellman operator to both, again and again. The distance between them shrinks by at least a factor γ each time, so both end at the same fixed point.</p>
+        <p class="proj-lead" style="margin-top:.6rem">This is the contraction argument of Lecture 4, run instead of proved: ‖T u − T w‖∞ ≤ γ ‖u − w‖∞. The dashed line is the bound γᵏ ‖u₀ − w₀‖∞; the measured distance never goes above it.</p>
+      </div>
+      <div class="rlx" id="contraction-lab" data-rlx="contraction">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">Two starting points, one fixed point</h3>
+          <p class="rlx-sub">A small random MDP with six states and two actions. Both value functions, u and w, get the same operator again and again.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">The Bellman operators</div>
+              <div class="formula-line"><span class="formula-chip">(T* v)(s) = maxₐ [ r(s, a) + γ Σ p(s′ | s, a) v(s′) ]</span></div>
+              <div class="formula-line">T^π averages over π instead of taking the max.</div>
+              <p class="math-card-copy">Both are maps from one value function to another; v* and v^π are their fixed points.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">A γ-contraction</div>
+              <div class="formula-line"><span class="formula-chip">‖T u − T w‖∞ ≤ γ ‖u − w‖∞</span></div>
+              <p class="math-card-copy">Each application shrinks the largest gap between two value functions by at least a factor γ.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">So, after k steps</div>
+              <div class="formula-line"><span class="formula-chip">‖Tᵏ u − Tᵏ w‖∞ ≤ γᵏ ‖u − w‖∞</span></div>
+              <p class="math-card-copy">The gap falls at least geometrically, whatever the start: there is one fixed point and every start reaches it (Banach).</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Controls">
+            <div><h4 class="rlx-h">Controls</h4><p class="rlx-sub">Apply the operator and watch the gap between u and w.</p></div>
+            <div class="rlx-field"><label class="rlx-label" for="ctOp">Operator</label><select id="ctOp" data-k="op" class="control-select"><option value="opt" selected>T* (Bellman optimality)</option><option value="pi">T^π (a fixed random policy)</option></select></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="ctGamma">Discount γ</label><span class="control-value" data-k="gamma-out">0.90</span></div><input id="ctGamma" data-k="gamma" type="range" min="0.5" max="0.99" step="0.01" value="0.9"></div>
+            <div class="rlx-btns"><button type="button" data-k="step" class="control-button control-button-secondary"><i class="ri-skip-forward-line" aria-hidden="true"></i>Apply once</button><button type="button" data-k="step10" class="control-button control-button-primary"><i class="ri-speed-line" aria-hidden="true"></i>Apply 10 times</button><button type="button" data-k="starts" class="control-button control-button-ghost"><i class="ri-shuffle-line" aria-hidden="true"></i>New starts</button><button type="button" data-k="mdp" class="control-button control-button-ghost"><i class="ri-refresh-line" aria-hidden="true"></i>New MDP</button></div>
+            <p class="rlx-hint">Changing γ or the operator starts again from the same u₀ and w₀.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Steps k</div><div class="metric-value" data-k="k">0</div></div><div class="metric-tile"><div class="metric-label">‖u − w‖∞</div><div class="metric-value" data-k="dist">–</div></div><div class="metric-tile"><div class="metric-label">Last ratio</div><div class="metric-value" data-k="ratio">–</div></div><div class="metric-tile"><div class="metric-label">Largest ratio so far</div><div class="metric-value" data-k="worst">–</div></div></div>
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">u₀ and w₀ are random. Press <b>Apply once</b>.</p>
+            <div class="rlx-two">
+              <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">The gap, on a log scale</h4><p class="rlx-sub">Measured ‖uₖ − wₖ‖∞ against the bound γᵏ ‖u₀ − w₀‖∞, and how far u still is from the fixed point.</p></div></div>
+                <div class="chart-shell"><svg data-k="chart" role="img" aria-label="Distance between u and w per step"></svg></div>
+                <div class="rlx-legend" data-k="chart-legend"><span class="line-swatch" style="--swatch:#2563eb">‖uₖ − wₖ‖∞</span><span class="line-swatch is-dash" style="--swatch:#94a3b8">bound γᵏ ‖u₀ − w₀‖∞</span><span class="line-swatch" style="--swatch:#059669">‖uₖ − v‖∞ (v: fixed point)</span></div>
+              </div>
+              <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">The two value functions</h4><p class="rlx-sub">One pair of bars per state. The green tick is the fixed point both are heading to.</p></div></div>
+                <div class="chart-shell"><svg data-k="bars" role="img" aria-label="Values of u and w per state"></svg></div>
+                <div class="rlx-legend" data-k="bars-legend"><span class="line-swatch" style="--swatch:#2563eb">u</span><span class="line-swatch" style="--swatch:#e11d48">w</span><span class="line-swatch" style="--swatch:#059669">fixed point</span></div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="next" class="proj-section" aria-labelledby="next-title"><div class="proj-wrap">
+      <h2 id="next-title" class="proj-h2">Keep going</h2>
+      <div class="rl-pn"><a href="/rl-course/lecture-03/"><i class="ri-arrow-left-line" aria-hidden="true"></i><span><small>Previous · Lecture 3</small><strong>MDPs and dynamic programming</strong></span></a><a class="is-next" href="/rl-course/lecture-05/"><span><small>Next · Lecture 5</small><strong>Model-free prediction</strong></span><i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+    </div></section>
+  </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Games</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
+                  <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
+                  <li><a href="https://rl.teddylazebnik.com/" class="hover:text-white">Pirate War RL Game</a></li>
+                  <li><a href="https://eh.teddylazebnik.com/" class="hover:text-white">Echo Heist</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/rl-course/" class="hover:text-white">RL course</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <script src="/js/videos.js"></script>
+      <script src="/js/rl-labs.js"></script>
+      <script src="/js/rl-course.js" defer></script>
+   </body>
+</html>

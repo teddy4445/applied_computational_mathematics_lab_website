@@ -1,0 +1,51 @@
+<!-- Used by tools/build_rl_course.py: the contraction lab (Lecture 4) of the RL course. Script: js/rl-labs.js (data-rlx="contraction"), styles: css/rl-labs.css + css/exploration-lab.css. -->
+      <div class="rlx" id="contraction-lab" data-rlx="contraction">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">Two starting points, one fixed point</h3>
+          <p class="rlx-sub">A small random MDP with six states and two actions. Both value functions, u and w, get the same operator again and again.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">The Bellman operators</div>
+              <div class="formula-line"><span class="formula-chip">(T* v)(s) = maxₐ [ r(s, a) + γ Σ p(s′ | s, a) v(s′) ]</span></div>
+              <div class="formula-line">T^π averages over π instead of taking the max.</div>
+              <p class="math-card-copy">Both are maps from one value function to another; v* and v^π are their fixed points.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">A γ-contraction</div>
+              <div class="formula-line"><span class="formula-chip">‖T u − T w‖∞ ≤ γ ‖u − w‖∞</span></div>
+              <p class="math-card-copy">Each application shrinks the largest gap between two value functions by at least a factor γ.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">So, after k steps</div>
+              <div class="formula-line"><span class="formula-chip">‖Tᵏ u − Tᵏ w‖∞ ≤ γᵏ ‖u − w‖∞</span></div>
+              <p class="math-card-copy">The gap falls at least geometrically, whatever the start: there is one fixed point and every start reaches it (Banach).</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Controls">
+            <div><h4 class="rlx-h">Controls</h4><p class="rlx-sub">Apply the operator and watch the gap between u and w.</p></div>
+            <div class="rlx-field"><label class="rlx-label" for="ctOp">Operator</label><select id="ctOp" data-k="op" class="control-select"><option value="opt" selected>T* (Bellman optimality)</option><option value="pi">T^π (a fixed random policy)</option></select></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="ctGamma">Discount γ</label><span class="control-value" data-k="gamma-out">0.90</span></div><input id="ctGamma" data-k="gamma" type="range" min="0.5" max="0.99" step="0.01" value="0.9"></div>
+            <div class="rlx-btns"><button type="button" data-k="step" class="control-button control-button-secondary"><i class="ri-skip-forward-line" aria-hidden="true"></i>Apply once</button><button type="button" data-k="step10" class="control-button control-button-primary"><i class="ri-speed-line" aria-hidden="true"></i>Apply 10 times</button><button type="button" data-k="starts" class="control-button control-button-ghost"><i class="ri-shuffle-line" aria-hidden="true"></i>New starts</button><button type="button" data-k="mdp" class="control-button control-button-ghost"><i class="ri-refresh-line" aria-hidden="true"></i>New MDP</button></div>
+            <p class="rlx-hint">Changing γ or the operator starts again from the same u₀ and w₀.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Steps k</div><div class="metric-value" data-k="k">0</div></div><div class="metric-tile"><div class="metric-label">‖u − w‖∞</div><div class="metric-value" data-k="dist">–</div></div><div class="metric-tile"><div class="metric-label">Last ratio</div><div class="metric-value" data-k="ratio">–</div></div><div class="metric-tile"><div class="metric-label">Largest ratio so far</div><div class="metric-value" data-k="worst">–</div></div></div>
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">u₀ and w₀ are random. Press <b>Apply once</b>.</p>
+            <div class="rlx-two">
+              <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">The gap, on a log scale</h4><p class="rlx-sub">Measured ‖uₖ − wₖ‖∞ against the bound γᵏ ‖u₀ − w₀‖∞, and how far u still is from the fixed point.</p></div></div>
+                <div class="chart-shell"><svg data-k="chart" role="img" aria-label="Distance between u and w per step"></svg></div>
+                <div class="rlx-legend" data-k="chart-legend"><span class="line-swatch" style="--swatch:#2563eb">‖uₖ − wₖ‖∞</span><span class="line-swatch is-dash" style="--swatch:#94a3b8">bound γᵏ ‖u₀ − w₀‖∞</span><span class="line-swatch" style="--swatch:#059669">‖uₖ − v‖∞ (v: fixed point)</span></div>
+              </div>
+              <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">The two value functions</h4><p class="rlx-sub">One pair of bars per state. The green tick is the fixed point both are heading to.</p></div></div>
+                <div class="chart-shell"><svg data-k="bars" role="img" aria-label="Values of u and w per state"></svg></div>
+                <div class="rlx-legend" data-k="bars-legend"><span class="line-swatch" style="--swatch:#2563eb">u</span><span class="line-swatch" style="--swatch:#e11d48">w</span><span class="line-swatch" style="--swatch:#059669">fixed point</span></div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>

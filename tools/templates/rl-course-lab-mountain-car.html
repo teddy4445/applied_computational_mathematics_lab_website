@@ -1,0 +1,52 @@
+<!-- Used by tools/build_rl_course.py: the Mountain Car lab (Lecture 7) of the RL course. Script: js/rl-labs.js (data-rlx="car"), styles: css/rl-labs.css + css/exploration-lab.css. -->
+      <div class="rlx" id="mountain-car-lab" data-rlx="car">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">A car, two numbers, and thousands of tiles</h3>
+          <p class="rlx-sub">The engine is too weak to drive straight up the right-hand hill, so the agent must learn to swing back first. The state is the position x and the velocity v.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">Dynamics</div>
+              <div class="formula-line"><span class="formula-chip">v ← v + 0.001 a − 0.0025 cos(3x)</span></div>
+              <div class="formula-line"><span class="formula-chip">x ← x + v</span>, with a ∈ {−1, 0, +1}</div>
+              <p class="math-card-copy">Bounded to x ∈ [−1.2, 0.5] and |v| ≤ 0.07. The episode ends at x = 0.5; every step costs −1.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Tile coding</div>
+              <div class="formula-line"><span class="formula-chip">q(s, a) = Σ over active tiles of wᵢ</span></div>
+              <p class="math-card-copy">Each tiling cuts the (x, v) square into 8 × 8 tiles, shifted a little; exactly one tile per tiling is active, so the features are sparse.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Semi-gradient SARSA</div>
+              <div class="formula-line"><span class="formula-chip">w ← w + α (r + q(s′, a′) − q(s, a)) ∇q(s, a)</span></div>
+              <p class="math-card-copy">The gradient is 1 on the active tiles and 0 elsewhere, so each step changes only a few weights. Here α = (step-size numerator) / tilings.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Controls">
+            <div><h4 class="rlx-h">Controls</h4><p class="rlx-sub">Train for a few episodes, then replay what the car has learned.</p></div>
+            <div class="rlx-field"><label class="rlx-label" for="mcTilings">Tilings</label><select id="mcTilings" data-k="tilings" class="control-select"><option value="4">4 tilings of 8 × 8</option><option value="8" selected>8 tilings of 8 × 8</option><option value="16">16 tilings of 8 × 8</option></select></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="mcAlpha">Step size α × tilings</label><span class="control-value" data-k="alpha-out">0.50</span></div><input id="mcAlpha" data-k="alpha" type="range" min="0.1" max="1" step="0.05" value="0.5"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="mcEps">Exploration ε</label><span class="control-value" data-k="eps-out">0.00</span></div><input id="mcEps" data-k="eps" type="range" min="0" max="0.2" step="0.01" value="0"></div>
+            <div class="rlx-btns"><button type="button" data-k="ep1" class="control-button control-button-secondary"><i class="ri-skip-forward-line" aria-hidden="true"></i>1 episode</button><button type="button" data-k="ep10" class="control-button control-button-secondary"><i class="ri-play-line" aria-hidden="true"></i>10 episodes</button><button type="button" data-k="ep100" class="control-button control-button-primary"><i class="ri-speed-line" aria-hidden="true"></i>100 episodes</button><button type="button" data-k="reset" class="control-button control-button-ghost"><i class="ri-restart-line" aria-hidden="true"></i>Reset</button><button type="button" data-k="replay" class="control-button control-button-secondary is-wide"><i class="ri-movie-line" aria-hidden="true"></i>Replay the greedy policy</button></div>
+            <p class="rlx-hint">Changing the tilings starts over. An episode stops at 5,000 steps if the car has not made it.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Episodes</div><div class="metric-value" data-k="eps">0</div></div><div class="metric-tile"><div class="metric-label">Steps, last episode</div><div class="metric-value" data-k="steps">–</div></div><div class="metric-tile"><div class="metric-label">Fewest steps</div><div class="metric-value" data-k="best">–</div></div><div class="metric-tile"><div class="metric-label">Active features</div><div class="metric-value" data-k="feat">–</div></div></div>
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">The weights start at 0, which is optimistic: every step costs −1, so untried actions look better than tried ones.</p>
+            <div class="rlx-two">
+              <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">The hill</h4><p class="rlx-sub">The car starts in the valley. Replay shows the greedy policy from x = −0.5 at rest.</p></div></div>
+                <canvas class="rlx-canvas is-hill" data-k="hill" role="img" aria-label="Mountain car on the hill"></canvas>
+                <h5 class="rlx-h" style="font-size:1rem;margin-top:1.1rem">Steps per episode</h5><p class="rlx-sub" style="margin-bottom:.6rem">On a log scale; lower is better.</p>
+                <div class="chart-shell"><svg data-k="chart" role="img" aria-label="Steps per episode"></svg></div>
+              </div>
+              <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Learned cost-to-go</h4><p class="rlx-sub">Steps to the goal, as the agent estimates them: −maxₐ q(x, v). Darker is further. The line is the last replay.</p></div></div>
+                <canvas class="rlx-canvas is-map" data-k="map" role="img" aria-label="Cost-to-go over position and velocity"></canvas>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>

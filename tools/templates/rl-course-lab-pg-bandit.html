@@ -1,0 +1,50 @@
+<!-- Used by tools/build_rl_course.py: the policy-gradient bandit lab (Lecture 10) of the RL course. Script: js/rl-labs.js (data-rlx="pg"), styles: css/rl-labs.css + css/exploration-lab.css. -->
+      <div class="rlx" id="pg-bandit-lab" data-rlx="pg">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">Learn the policy, not the values</h3>
+          <p class="rlx-sub">Ten arms. Arm a pays a reward drawn around its hidden mean q*(a), with spread 1; the means are drawn around the reward offset.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">Softmax policy</div>
+              <div class="formula-line"><span class="formula-chip">π(a) = e^H(a) / Σ_b e^H(b)</span></div>
+              <p class="math-card-copy">Preferences H start at 0, so every arm starts with probability 1/10.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Score-function update</div>
+              <div class="formula-line"><span class="formula-chip">H(a) ← H(a) + α (R − b)(1[a = A] − π(a))</span></div>
+              <p class="math-card-copy">Raise the arm you pulled if its reward beat the baseline b, lower the others, and the reverse if it did worse.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Why a baseline</div>
+              <div class="formula-line"><span class="formula-chip">b = R̄, the average reward so far</span></div>
+              <p class="math-card-copy">Any b leaves the expected gradient unchanged, but a good b cuts its variance. With b = 0 and rewards around +4, every pulled arm gets pushed up.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Controls">
+            <div><h4 class="rlx-h">Controls</h4><p class="rlx-sub">Pull arms with the current policy and watch it sharpen.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="pgAlpha">Step size α</label><span class="control-value" data-k="alpha-out">0.10</span></div><input id="pgAlpha" data-k="alpha" type="range" min="0.01" max="0.5" step="0.01" value="0.1"></div>
+            <div class="rlx-row"><div><label class="rlx-label" for="pgBase">Baseline</label><p class="rlx-hint" style="margin-top:.2rem">Use the average reward as b. Off: b = 0.</p></div><label class="toggle"><input id="pgBase" data-k="base" type="checkbox" checked><span class="toggle-track"></span></label></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="pgOffset">Reward offset</label><span class="control-value" data-k="offset-out">4.0</span></div><input id="pgOffset" data-k="offset" type="range" min="0" max="8" step="0.5" value="4"></div>
+            <div class="rlx-btns"><button type="button" data-k="s1" class="control-button control-button-secondary"><i class="ri-skip-forward-line" aria-hidden="true"></i>1 pull</button><button type="button" data-k="s100" class="control-button control-button-secondary"><i class="ri-play-line" aria-hidden="true"></i>100 pulls</button><button type="button" data-k="s1000" class="control-button control-button-primary"><i class="ri-speed-line" aria-hidden="true"></i>1,000 pulls</button><button type="button" data-k="reset" class="control-button control-button-ghost"><i class="ri-refresh-line" aria-hidden="true"></i>New bandit</button><button type="button" data-k="compare" class="control-button control-button-secondary is-wide"><i class="ri-bar-chart-2-line" aria-hidden="true"></i>Compare with and without baseline</button></div>
+            <p class="rlx-hint">A new reward offset takes effect with a new bandit. The comparison averages 100 fresh bandits per setting.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Pulls</div><div class="metric-value" data-k="t">0</div></div><div class="metric-tile"><div class="metric-label">Average reward</div><div class="metric-value" data-k="avg">–</div></div><div class="metric-tile"><div class="metric-label">Baseline b</div><div class="metric-value" data-k="b">–</div></div><div class="metric-tile"><div class="metric-label">Best arm, last 100</div><div class="metric-value" data-k="opt">–</div></div></div>
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">A fresh bandit: every arm has probability 0.10.</p>
+            <div class="rlx-two">
+              <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Policy over the arms</h4><p class="rlx-sub">Bar height: π(a). Under each bar, the hidden mean q*(a); the best arm is green.</p></div></div>
+                <div class="chart-shell"><svg data-k="bars" role="img" aria-label="Policy probability per arm"></svg></div>
+              </div>
+              <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">How often it picks the best arm</h4><p class="rlx-sub"><span data-k="optsub">Your run: share of the last 50 pulls that went to the best arm.</span></p></div></div>
+                <div class="chart-shell"><svg data-k="chart" role="img" aria-label="Best-arm rate over pulls"></svg></div>
+                <div class="rlx-legend" data-k="chart-legend"><span class="line-swatch" style="--swatch:#2563eb">your run</span></div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>

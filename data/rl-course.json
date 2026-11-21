@@ -1,0 +1,3439 @@
+{
+  "title": "Introduction to Reinforcement Learning",
+  "teacher": "Prof. Teddy Lazebnik",
+  "description": "A twelve-lecture introduction to reinforcement learning, from bandits and Markov decision processes to deep RL, planning, policy gradients and RLHF. Each lecture has slides with worked examples and check-yourself questions, short animated episodes, and links to interactive labs and games.",
+  "playlist": "PLLTavI7DAgbE",
+  "channel": "https://www.youtube.com/@acm-lab",
+  "parts": [
+    {
+      "title": "Foundations",
+      "text": "Agents, rewards and exploration; Markov decision processes and why dynamic programming works.",
+      "lectures": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "title": "Learning from experience",
+      "text": "Prediction and control without a model, and what changes when tables give way to functions.",
+      "lectures": [
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "title": "Deep RL and planning",
+      "text": "Neural networks as value functions, and agents that learn a model and plan with it.",
+      "lectures": [
+        8,
+        9
+      ]
+    },
+    {
+      "title": "Beyond value functions",
+      "text": "Learning the policy directly, learning about many things at once, and learning from people.",
+      "lectures": [
+        10,
+        11,
+        12
+      ]
+    }
+  ],
+  "lectures": [
+    {
+      "num": 1,
+      "slug": "lecture-01",
+      "title": "Introduction",
+      "topics": "What RL is, the agent–environment loop, and what is inside an agent",
+      "summary": "What reinforcement learning is and why it matters, the agent–environment loop, rewards, returns and values, what an agent can know about its world, and the three parts an agent can have: a policy, a value function and a model. Meet Bit, the little robot who learns by trying.",
+      "goal": "say what an RL agent is trying to do, write down the return and the value, and name the parts an agent can have.",
+      "source": "Lecture 1: Introduction, DeepMind × UCL Reinforcement Learning Lecture Series (2021), by Hado van Hasselt",
+      "slides": {
+        "pdf": "rl-course/slides/ACML_RL_Lecture01_Introduction.pdf",
+        "pages": 62,
+        "mb": 2.6,
+        "cover": "rl-course/img/slides/l01-s34.webp",
+        "first": "rl-course/img/slides/l01-s01.webp"
+      },
+      "episodes": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "labs": [],
+      "games": [
+        {
+          "id": "markovs-maze",
+          "why": "Play a few levels before the lecture: you choose a move, the maze answers, and the outcome is not always the one you chose. That is the agent–environment loop from the inside."
+        },
+        {
+          "id": "echo-heist",
+          "why": "Echo Heist asks you to decide what your robot partner observes, which actions it has and what counts as success: the state, actions and reward of this lecture."
+        },
+        {
+          "id": "pirates-war",
+          "why": "Fog battles give each fleet only a partial view of the sea, so a good captain must build its own agent state from what it has seen."
+        }
+      ]
+    },
+    {
+      "num": 2,
+      "slug": "lecture-02",
+      "title": "Exploration and exploitation",
+      "topics": "The multi-armed bandit, regret, ε-greedy, UCB, Thompson sampling and gradient bandits",
+      "summary": "The simplest place to study the trade-off between trying something new and using what you already know: the multi-armed bandit. Regret, greedy and ε-greedy, optimism and UCB, Thompson sampling, and gradient bandits with softmax preferences.",
+      "goal": "explain why exploration is needed, compute regret, and run greedy, ε-greedy, UCB and Thompson sampling by hand.",
+      "source": "Lecture 2: Exploration and Exploitation, DeepMind × UCL Reinforcement Learning Lecture Series (2021), by Hado van Hasselt",
+      "slides": {
+        "pdf": "rl-course/slides/ACML_RL_Lecture02_Exploration_and_Exploitation.pdf",
+        "pages": 47,
+        "mb": 1.6,
+        "cover": "rl-course/img/slides/l02-s13.webp",
+        "first": "rl-course/img/slides/l02-s01.webp"
+      },
+      "episodes": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "labs": [
+        "bandit-lab"
+      ],
+      "games": []
+    },
+    {
+      "num": 3,
+      "slug": "lecture-03",
+      "title": "MDPs and dynamic programming",
+      "topics": "Markov decision processes, returns, value functions, Bellman equations, policy iteration and value iteration",
+      "summary": "States and consequences come back: Markov decision processes, returns and discounting, value functions and the Bellman equations, and the dynamic-programming algorithms that solve an MDP when the model is known: policy evaluation, policy iteration and value iteration.",
+      "goal": "write down an MDP, its Bellman equations, and run policy evaluation, policy iteration and value iteration by hand on a small example.",
+      "source": "Lecture 3: Markov Decision Processes and Dynamic Programming, DeepMind × UCL Reinforcement Learning Lecture Series (2021), by Diana Borsa",
+      "slides": {
+        "pdf": "rl-course/slides/ACML_RL_Lecture03_MDPs_and_Dynamic_Programming.pdf",
+        "pages": 57,
+        "mb": 1.7,
+        "cover": "rl-course/img/slides/l03-s44.webp",
+        "first": "rl-course/img/slides/l03-s01.webp"
+      },
+      "episodes": [
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "labs": [
+        "dp-lab"
+      ],
+      "games": [
+        {
+          "id": "markovs-maze",
+          "why": "Every rune tile has its own transition probabilities: where you meant to go, the opposite way, left, right, or stay. Hover over a tile to read them. You are playing inside an MDP; plan for where you are likely to land, not only where you aim."
+        }
+      ]
+    },
+    {
+      "num": 4,
+      "slug": "lecture-04",
+      "title": "Theory of dynamic programming",
+      "topics": "Norms, contractions and fixed points, Bellman operators, why DP converges, and approximate DP",
+      "summary": "Why dynamic programming works: norms, contraction mappings and fixed points, the Bellman operators, how fast value iteration converges, and what a small error in the values can cost a greedy policy when dynamic programming is only approximate.",
+      "goal": "explain why value iteration converges, how fast, and how much a small error in the values can cost a greedy policy.",
+      "source": "Lecture 4: Theoretical Fundamentals of Dynamic Programming, DeepMind × UCL Reinforcement Learning Lecture Series (2021), by Diana Borsa",
+      "slides": {
+        "pdf": "rl-course/slides/ACML_RL_Lecture04_Theory_of_Dynamic_Programming.pdf",
+        "pages": 39,
+        "mb": 1.1,
+        "cover": "rl-course/img/slides/l04-s28.webp",
+        "first": "rl-course/img/slides/l04-s01.webp"
+      },
+      "episodes": [
+        15,
+        16
+      ],
+      "labs": [
+        "contraction-lab"
+      ],
+      "games": []
+    },
+    {
+      "num": 5,
+      "slug": "lecture-05",
+      "title": "Model-free prediction",
+      "topics": "Monte Carlo, temporal-difference learning, multi-step returns and eligibility traces",
+      "summary": "Learning the value of a policy from experience, with no model: Monte Carlo, temporal-difference learning, how the two differ on the same data, multi-step returns, and eligibility traces. With a first look at function approximation.",
+      "goal": "compute Monte Carlo and TD updates by hand, explain when each is better, and say what λ and eligibility traces do.",
+      "source": "Lecture 5: Model-Free Prediction, DeepMind × UCL Reinforcement Learning Lecture Series (2021), by Hado van Hasselt",
+      "slides": {
+        "pdf": "rl-course/slides/ACML_RL_Lecture05_Model-Free_Prediction.pdf",
+        "pages": 51,
+        "mb": 1.6,
+        "cover": "rl-course/img/slides/l05-s17.webp",
+        "first": "rl-course/img/slides/l05-s01.webp"
+      },
+      "episodes": [
+        17,
+        18,
+        19,
+        20
+      ],
+      "labs": [
+        "td-mc-lab"
+      ],
+      "games": []
+    },
+    {
+      "num": 6,
+      "slug": "lecture-06",
+      "title": "Model-free control",
+      "topics": "Monte Carlo control, SARSA, Q-learning, off-policy learning, double Q-learning and importance sampling",
+      "summary": "From predicting to improving, still without a model: Monte Carlo control and GLIE, SARSA, Q-learning and off-policy learning, the overestimation that double Q-learning fixes, importance sampling and expected SARSA.",
+      "goal": "run SARSA and Q-learning by hand, explain why they find different paths, and say what double learning and importance sampling fix.",
+      "source": "Lecture 6: Model-Free Control, DeepMind × UCL Reinforcement Learning Lecture Series (2021), by Hado van Hasselt",
+      "slides": {
+        "pdf": "rl-course/slides/ACML_RL_Lecture06_Model-Free_Control.pdf",
+        "pages": 44,
+        "mb": 1.3,
+        "cover": "rl-course/img/slides/l06-s24.webp",
+        "first": "rl-course/img/slides/l06-s01.webp"
+      },
+      "episodes": [
+        21,
+        22,
+        23
+      ],
+      "labs": [
+        "gridworld-lab"
+      ],
+      "games": [
+        {
+          "id": "echo-heist",
+          "why": "One of the learners Echo Heist trains in your browser is a tabular one. Change what Echo can sense or what it is rewarded for, train, and watch the route it learns change."
+        }
+      ]
+    },
+    {
+      "num": 7,
+      "slug": "lecture-07",
+      "title": "Function approximation",
+      "topics": "Features and gradient descent, linear and non-linear values, the deadly triad, batch methods and a first look at DQN",
+      "summary": "When there are too many states for a table: features and gradient descent, linear value functions and tile coding, control with approximation, convergence and the deadly triad, batch methods such as LSTD, and a first look at deep Q-networks.",
+      "goal": "write MC and TD updates with features, explain why TD can diverge, and name the parts of DQN.",
+      "source": "Lecture 7: Function Approximation in Reinforcement Learning, DeepMind × UCL Reinforcement Learning Lecture Series (2021), by Hado van Hasselt",
+      "slides": {
+        "pdf": "rl-course/slides/ACML_RL_Lecture07_Function_Approximation.pdf",
+        "pages": 50,
+        "mb": 1.4,
+        "cover": "rl-course/img/slides/l07-s27.webp",
+        "first": "rl-course/img/slides/l07-s01.webp"
+      },
+      "episodes": [
+        24,
+        25,
+        26
+      ],
+      "labs": [
+        "mountain-car-lab"
+      ],
+      "games": []
+    },
+    {
+      "num": 8,
+      "slug": "lecture-08",
+      "title": "Deep reinforcement learning",
+      "topics": "Neural networks as value functions, automatic differentiation, DQN and the tricks that make it work",
+      "summary": "Neural networks as value functions: automatic differentiation, deep Q-learning in detail, why online deep RL is hard, and the tricks that make deep learning and RL work together, such as target networks, experience replay, double DQN, prioritised replay and dueling networks.",
+      "goal": "compute a gradient through a small network by hand, explain each part of DQN, and say why each trick helps.",
+      "source": "Deep Reinforcement Learning (deep value functions, deep-learning-aware RL and RL-aware deep learning), DeepMind × UCL Reinforcement Learning Lecture Series (2021), by Matteo Hessel",
+      "slides": {
+        "pdf": "rl-course/slides/ACML_RL_Lecture08_Deep_Reinforcement_Learning.pdf",
+        "pages": 36,
+        "mb": 1.1,
+        "cover": "rl-course/img/slides/l08-s12.webp",
+        "first": "rl-course/img/slides/l08-s01.webp"
+      },
+      "episodes": [
+        27,
+        28,
+        29,
+        30
+      ],
+      "labs": [],
+      "games": [
+        {
+          "id": "pirates-war",
+          "why": "Bring your own captain: Pirates War RL accepts sandboxed JavaScript, a declarative Dense JSON network or a restricted TensorFlow.js package. Train a network offline and send it to sea."
+        },
+        {
+          "id": "echo-heist",
+          "why": "Echo Heist can also train a deep-RL learner in the browser, with no server. Compare what it learns with the tabular learner of Lecture 6."
+        }
+      ]
+    },
+    {
+      "num": 9,
+      "slug": "lecture-09",
+      "title": "Planning and models",
+      "topics": "Learning models of the world, Dyna, replay as a model, Monte Carlo tree search and AlphaZero",
+      "summary": "Letting the agent learn how the world works and plan with it: models and their errors, Dyna, whether experience replay is a model, forward search and Monte Carlo tree search, and the road from AlphaGo to AlphaZero.",
+      "goal": "run Dyna-Q and one round of MCTS by hand.",
+      "source": "Planning and Models, DeepMind × UCL Reinforcement Learning Lecture Series (2021), by Matteo Hessel; and, for MCTS and AlphaZero, Lecture 14: Monte Carlo Tree Search, Stanford CS234 (Spring 2024), by Emma Brunskill",
+      "slides": {
+        "pdf": "rl-course/slides/ACML_RL_Lecture09_Planning_and_Models.pdf",
+        "pages": 50,
+        "mb": 1.4,
+        "cover": "rl-course/img/slides/l09-s21.webp",
+        "first": "rl-course/img/slides/l09-s01.webp"
+      },
+      "episodes": [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37
+      ],
+      "labs": [
+        "mcts-lab"
+      ],
+      "games": [
+        {
+          "id": "echo-heist",
+          "why": "Among Echo Heist’s learners is a planning one. Try it on a mission and compare it with learning purely from trial and error."
+        }
+      ]
+    },
+    {
+      "num": 10,
+      "slug": "lecture-10",
+      "title": "Policy gradients and actor-critics",
+      "topics": "Stochastic policies, the score-function trick, the policy gradient theorem, actor-critics, trust regions and continuous actions",
+      "summary": "Forget values for a while and learn the policy directly: why stochastic policies help, the score-function trick, the policy gradient theorem, REINFORCE and baselines, actor-critics, trust regions, and continuous actions.",
+      "goal": "derive the score-function gradient, run REINFORCE and one-step actor-critic by hand, and explain what a baseline and a trust region do.",
+      "source": "Lecture 9: Policy Gradients and Actor Critics, DeepMind × UCL Reinforcement Learning Lecture Series (2021), by Hado van Hasselt",
+      "slides": {
+        "pdf": "rl-course/slides/ACML_RL_Lecture10_Policy_Gradients_and_Actor-Critics.pdf",
+        "pages": 43,
+        "mb": 1.2,
+        "cover": "rl-course/img/slides/l10-s09.webp",
+        "first": "rl-course/img/slides/l10-s01.webp"
+      },
+      "episodes": [
+        38,
+        39,
+        40,
+        41,
+        42
+      ],
+      "labs": [
+        "pg-bandit-lab"
+      ],
+      "games": [
+        {
+          "id": "echo-heist",
+          "why": "Echo Heist can train a policy-gradient learner too: a policy that is learned directly, with no value table behind it."
+        }
+      ]
+    },
+    {
+      "num": 11,
+      "slug": "lecture-11",
+      "title": "Learning about many things",
+      "topics": "General value functions, auxiliary tasks, PopArt, universal value functions and distributional RL",
+      "summary": "Learning more from the same stream of experience: general value functions, auxiliary tasks that shape a shared representation, trade-offs between tasks and PopArt, universal value functions, and distributional reinforcement learning.",
+      "goal": "define a GVF by its three knobs, explain what PopArt preserves, and run one step of categorical TD by hand.",
+      "source": "Deep Reinforcement Learning, Part 2, DeepMind × UCL Reinforcement Learning Lecture Series (2021), by Matteo Hessel",
+      "slides": {
+        "pdf": "rl-course/slides/ACML_RL_Lecture11_Learning_About_Many_Things.pdf",
+        "pages": 35,
+        "mb": 1.2,
+        "cover": "rl-course/img/slides/l11-s29.webp",
+        "first": "rl-course/img/slides/l11-s01.webp"
+      },
+      "episodes": [
+        43,
+        44,
+        45,
+        46
+      ],
+      "labs": [],
+      "games": []
+    },
+    {
+      "num": 12,
+      "slug": "lecture-12",
+      "title": "Learning from people",
+      "topics": "Imitation learning, behaviour cloning and DAgger, inverse RL, learning from comparisons, RLHF and its limits",
+      "summary": "When people provide the signal: imitation learning, behaviour cloning and DAgger, inverse RL and maximum entropy, learning from comparisons with the Bradley–Terry model, reinforcement learning from human feedback, and its limits.",
+      "goal": "explain why behaviour cloning drifts, derive the max-entropy IRL gradient, fit a Bradley–Terry model, and say what the KL term in RLHF protects against.",
+      "source": "Lecture 8: Imitation Learning and RLHF, Stanford CS234 (Spring 2024), by Emma Brunskill, with material from Tatsu Hashimoto’s CS224N lecture and Katerina Fragkiadaki’s lecture on maximum-entropy inverse RL",
+      "slides": {
+        "pdf": "rl-course/slides/ACML_RL_Lecture12_Learning_from_People.pdf",
+        "pages": 56,
+        "mb": 1.7,
+        "cover": "rl-course/img/slides/l12-s23.webp",
+        "first": "rl-course/img/slides/l12-s01.webp"
+      },
+      "episodes": [
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "labs": [
+        "bt-lab"
+      ],
+      "games": [
+        {
+          "id": "echo-heist",
+          "why": "Echo Heist’s learners include an imitation one: a policy learned from examples rather than from reward. Compare it with the learners that train on reward."
+        }
+      ]
+    }
+  ],
+  "episodes": [
+    {
+      "ep": 1,
+      "youtube": "9h3j-ooewfM",
+      "title": "Bit learns to get the star",
+      "duration": "3:14",
+      "seconds": 193,
+      "hook": "How do you learn when nobody hands you the answers? Meet Bit, a tiny robot who learns the way kids do: by trying.",
+      "takeaway": "Learn on the way. Your choices shape your data.",
+      "covers": "what makes reinforcement learning different from supervised and unsupervised learning: the data arrives on the way, and your own choices shape the data you get.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "Recorded forever"
+        },
+        {
+          "t": "0:17",
+          "s": 17,
+          "title": "What you already know"
+        },
+        {
+          "t": "0:41",
+          "s": 41,
+          "title": "How does a kid learn?"
+        },
+        {
+          "t": "1:03",
+          "s": 63,
+          "title": "Why learn on the way?"
+        },
+        {
+          "t": "1:22",
+          "s": 82,
+          "title": "Two differences"
+        },
+        {
+          "t": "1:52",
+          "s": 112,
+          "title": "Isn't that just a loss function?"
+        },
+        {
+          "t": "2:04",
+          "s": 124,
+          "title": "Chase the total"
+        },
+        {
+          "t": "2:18",
+          "s": 138,
+          "title": "Learn, decide, reach goals"
+        },
+        {
+          "t": "2:29",
+          "s": 149,
+          "title": "A bit of history"
+        },
+        {
+          "t": "2:50",
+          "s": 170,
+          "title": "The big question"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep01.webp"
+    },
+    {
+      "ep": 2,
+      "youtube": "c9_MJI79YOE",
+      "title": "The reward hypothesis",
+      "duration": "4:53",
+      "seconds": 293,
+      "hook": "Can every goal really be written as one number? That bold assumption sits under all of reinforcement learning.",
+      "takeaway": "Pick the reward well; chase the expected total.",
+      "covers": "the reward hypothesis, why writing the reward is an art (and where the funny bugs live), the return G, and value: the return you expect.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "Is every goal just stars?"
+        },
+        {
+          "t": "0:13",
+          "s": 13,
+          "title": "The reward hypothesis"
+        },
+        {
+          "t": "0:42",
+          "s": 42,
+          "title": "Rewards in the wild"
+        },
+        {
+          "t": "1:11",
+          "s": 71,
+          "title": "Writing the reward is an art"
+        },
+        {
+          "t": "1:57",
+          "s": 117,
+          "title": "Reward vs. loss"
+        },
+        {
+          "t": "2:25",
+          "s": 145,
+          "title": "The return"
+        },
+        {
+          "t": "2:47",
+          "s": 167,
+          "title": "Value: the return you expect"
+        },
+        {
+          "t": "3:20",
+          "s": 200,
+          "title": "Now or later?"
+        },
+        {
+          "t": "3:46",
+          "s": 226,
+          "title": "Value of an action: q"
+        },
+        {
+          "t": "4:18",
+          "s": 258,
+          "title": "Look around the corner: Bellman"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep02.webp"
+    },
+    {
+      "ep": 3,
+      "youtube": "0tNrXGFaExE",
+      "title": "What does Bit actually know?",
+      "duration": "4:15",
+      "seconds": 255,
+      "hook": "A robot vacuum sees a slice of the room, not the room. So what does an agent actually know?",
+      "takeaway": "Bit acts on the state he builds.",
+      "covers": "environment state vs. observation, the history, full vs. partial observability, the Markov property (and when it breaks), and the agent's own state.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "Does the robot see the room?"
+        },
+        {
+          "t": "0:22",
+          "s": 22,
+          "title": "State vs. observation"
+        },
+        {
+          "t": "0:43",
+          "s": 43,
+          "title": "History"
+        },
+        {
+          "t": "1:02",
+          "s": 62,
+          "title": "Fully observable worlds"
+        },
+        {
+          "t": "1:26",
+          "s": 86,
+          "title": "Markov"
+        },
+        {
+          "t": "2:10",
+          "s": 130,
+          "title": "When Markov breaks"
+        },
+        {
+          "t": "2:40",
+          "s": 160,
+          "title": "The fix: remember"
+        },
+        {
+          "t": "3:10",
+          "s": 190,
+          "title": "Why not just observations?"
+        },
+        {
+          "t": "3:25",
+          "s": 205,
+          "title": "Partially observable"
+        },
+        {
+          "t": "3:45",
+          "s": 225,
+          "title": "Two things to remember"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep03.webp"
+    },
+    {
+      "ep": 4,
+      "youtube": "FgMYPEVd0c0",
+      "title": "Inside Bit's head",
+      "duration": "4:49",
+      "seconds": 288,
+      "hook": "Open the hatch: inside every agent there are up to three gadgets.",
+      "takeaway": "Policy picks. Value judges. Model imagines.",
+      "covers": "the policy (π), the value function, the discount γ, the Bellman equation with γ, the model, and how value-based, policy-based and model-based agents switch these gadgets on.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "Opening the hatch"
+        },
+        {
+          "t": "0:15",
+          "s": 15,
+          "title": "The policy"
+        },
+        {
+          "t": "0:45",
+          "s": 45,
+          "title": "The value function"
+        },
+        {
+          "t": "1:04",
+          "s": 64,
+          "title": "The discount, γ"
+        },
+        {
+          "t": "1:41",
+          "s": 101,
+          "title": "Bellman, with γ"
+        },
+        {
+          "t": "2:07",
+          "s": 127,
+          "title": "The model"
+        },
+        {
+          "t": "2:54",
+          "s": 174,
+          "title": "All three on one maze"
+        },
+        {
+          "t": "3:56",
+          "s": 236,
+          "title": "Kinds of agents"
+        },
+        {
+          "t": "4:24",
+          "s": 264,
+          "title": "Three gadgets"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep04.webp"
+    },
+    {
+      "ep": 5,
+      "youtube": "ZPupSB5q0JE",
+      "title": "Predict, control, learn, plan",
+      "duration": "4:22",
+      "seconds": 262,
+      "hook": "Every reinforcement-learning problem hides two splits: predict or control, learn or plan.",
+      "takeaway": "Predict to judge, control to act.",
+      "covers": "prediction vs. control on a classic gridworld, learning vs. planning, the two-by-two map, the four functions, and when RL is the right tool at all.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "Zooming out"
+        },
+        {
+          "t": "0:17",
+          "s": 17,
+          "title": "Prediction vs. control"
+        },
+        {
+          "t": "0:49",
+          "s": 49,
+          "title": "A classic gridworld"
+        },
+        {
+          "t": "1:39",
+          "s": 99,
+          "title": "Learning vs. planning"
+        },
+        {
+          "t": "2:15",
+          "s": 135,
+          "title": "The two-by-two map"
+        },
+        {
+          "t": "2:36",
+          "s": 156,
+          "title": "Four functions"
+        },
+        {
+          "t": "3:18",
+          "s": 198,
+          "title": "When to pick RL"
+        },
+        {
+          "t": "3:56",
+          "s": 236,
+          "title": "Module one, done"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep05.webp"
+    },
+    {
+      "ep": 6,
+      "youtube": "0wVzHk0wZSo",
+      "title": "Explore or exploit",
+      "duration": "4:24",
+      "seconds": 263,
+      "hook": "Keep pulling the slot machine that paid best, or try another one? Welcome to the multi-armed bandit.",
+      "takeaway": "Every pull earns or teaches.",
+      "covers": "explore vs. exploit, a world with one state, the multi-armed bandit, expected reward and the law of large numbers, the incremental average, and regret.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "Explore, then exploit"
+        },
+        {
+          "t": "0:45",
+          "s": 45,
+          "title": "A world with one state"
+        },
+        {
+          "t": "1:04",
+          "s": 64,
+          "title": "The bandit"
+        },
+        {
+          "t": "1:29",
+          "s": 89,
+          "title": "A circus thought experiment"
+        },
+        {
+          "t": "2:01",
+          "s": 121,
+          "title": "Expected reward"
+        },
+        {
+          "t": "2:38",
+          "s": 158,
+          "title": "Learning one pull at a time"
+        },
+        {
+          "t": "3:06",
+          "s": 186,
+          "title": "Regret"
+        },
+        {
+          "t": "3:40",
+          "s": 220,
+          "title": "The tension"
+        },
+        {
+          "t": "3:57",
+          "s": 237,
+          "title": "A problem, not an algorithm"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep06.webp"
+    },
+    {
+      "ep": 7,
+      "youtube": "ILGbW7Ex9hg",
+      "title": "Greedy, ε-greedy, gradient bandits",
+      "duration": "3:56",
+      "seconds": 236,
+      "hook": "If you remember one algorithm from this course, make it this one.",
+      "takeaway": "Explore a little, on purpose.",
+      "covers": "why greedy gets stuck, ε-greedy and its linear regret, where ε-greedy hides in today's algorithms, a simulation, and gradient bandits with softmax preferences.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "Greedy"
+        },
+        {
+          "t": "0:36",
+          "s": 36,
+          "title": "ε-greedy"
+        },
+        {
+          "t": "1:15",
+          "s": 75,
+          "title": "Is it perfect?"
+        },
+        {
+          "t": "1:44",
+          "s": 104,
+          "title": "It's everywhere"
+        },
+        {
+          "t": "1:58",
+          "s": 118,
+          "title": "A simulation"
+        },
+        {
+          "t": "2:12",
+          "s": 132,
+          "title": "Learn the policy directly"
+        },
+        {
+          "t": "2:43",
+          "s": 163,
+          "title": "Climb the gradient"
+        },
+        {
+          "t": "3:26",
+          "s": 206,
+          "title": "Three ways to explore"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep07.webp"
+    },
+    {
+      "ep": 8,
+      "youtube": "CbvfKUdpzUc",
+      "title": "Optimism: UCB",
+      "duration": "3:51",
+      "seconds": 230,
+      "hook": "Don't pick what looks great. Pick what could be great.",
+      "takeaway": "Try what might be great.",
+      "covers": "optimism in the face of uncertainty, Hoeffding's inequality, the UCB algorithm and why it works, the Lai & Robbins bound, a simulation, and UCB in practice.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "Luck or uncertainty?"
+        },
+        {
+          "t": "0:41",
+          "s": 41,
+          "title": "Optimism"
+        },
+        {
+          "t": "1:12",
+          "s": 72,
+          "title": "Hoeffding's inequality"
+        },
+        {
+          "t": "1:56",
+          "s": 116,
+          "title": "The UCB algorithm"
+        },
+        {
+          "t": "2:32",
+          "s": 152,
+          "title": "Can anyone do better?"
+        },
+        {
+          "t": "2:51",
+          "s": 171,
+          "title": "A simulation"
+        },
+        {
+          "t": "3:05",
+          "s": 185,
+          "title": "In practice"
+        },
+        {
+          "t": "3:30",
+          "s": 210,
+          "title": "Try what might be great"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep08.webp"
+    },
+    {
+      "ep": 9,
+      "youtube": "pScaIWDOP1U",
+      "title": "Thompson sampling",
+      "duration": "4:01",
+      "seconds": 241,
+      "hook": "Keep a belief, not a number. Then let the uncertainty do the exploring.",
+      "takeaway": "Explore where you're unsure, exploit where you're sure.",
+      "covers": "beliefs, Bernoulli bandits and the Beta distribution, Thompson sampling and probability matching, a simulation against UCB, and the information state (Bayes-adaptive RL).",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "A belief, not a number"
+        },
+        {
+          "t": "0:26",
+          "s": 26,
+          "title": "Win or lose: the Beta belief"
+        },
+        {
+          "t": "1:19",
+          "s": 79,
+          "title": "A confession about the real world"
+        },
+        {
+          "t": "1:36",
+          "s": 96,
+          "title": "Thompson sampling"
+        },
+        {
+          "t": "2:13",
+          "s": 133,
+          "title": "Watch it learn"
+        },
+        {
+          "t": "2:43",
+          "s": 163,
+          "title": "The information state"
+        },
+        {
+          "t": "3:22",
+          "s": 202,
+          "title": "Module two, done"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep09.webp"
+    },
+    {
+      "ep": 10,
+      "youtube": "GujKD3TFmNM",
+      "title": "From one state to many",
+      "duration": "5:02",
+      "seconds": 302,
+      "hook": "A bandit has one state. Chess has more boards than you can count, and every move changes the next one. Welcome to Markov decision processes.",
+      "takeaway": "States, actions, dynamics, rewards, and a discount.",
+      "covers": "the Markov property (and when it breaks), Markov chains vs. decision processes, the tuple (S, A, p, γ), why the dynamics are probabilities, a can-collecting robot, the return, and why we discount.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "From one state to many"
+        },
+        {
+          "t": "0:28",
+          "s": 28,
+          "title": "Markov"
+        },
+        {
+          "t": "1:14",
+          "s": 74,
+          "title": "The MDP"
+        },
+        {
+          "t": "1:45",
+          "s": 105,
+          "title": "Why probabilities?"
+        },
+        {
+          "t": "2:26",
+          "s": 146,
+          "title": "The can-collecting robot"
+        },
+        {
+          "t": "3:10",
+          "s": 190,
+          "title": "The return and the discount"
+        },
+        {
+          "t": "3:59",
+          "s": 239,
+          "title": "Why discount?"
+        },
+        {
+          "t": "4:31",
+          "s": 271,
+          "title": "What Bit will collect"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep10.webp"
+    },
+    {
+      "ep": 11,
+      "youtube": "n9DxZwfcWRI",
+      "title": "What does “best” mean?",
+      "duration": "5:04",
+      "seconds": 304,
+      "hook": "What makes one policy better than another? It has to be better everywhere. And then something wonderful happens.",
+      "takeaway": "Expected. Cumulative. Reward.",
+      "covers": "policies, state and action values, an order on policies, why an optimal policy always exists, acting greedily on q*, the Bellman expectation equation, the Bellman optimality equation, and a tiny example where γ flips the answer.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "The policy"
+        },
+        {
+          "t": "0:30",
+          "s": 30,
+          "title": "Values"
+        },
+        {
+          "t": "1:07",
+          "s": 67,
+          "title": "Which policy is better?"
+        },
+        {
+          "t": "1:43",
+          "s": 103,
+          "title": "The promise"
+        },
+        {
+          "t": "2:22",
+          "s": 142,
+          "title": "Greedy on q*"
+        },
+        {
+          "t": "2:44",
+          "s": 164,
+          "title": "The Bellman equation"
+        },
+        {
+          "t": "3:29",
+          "s": 209,
+          "title": "Bellman optimality"
+        },
+        {
+          "t": "3:57",
+          "s": 237,
+          "title": "A tiny example"
+        },
+        {
+          "t": "4:29",
+          "s": 269,
+          "title": "Three words"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep11.webp"
+    },
+    {
+      "ep": 12,
+      "youtube": "QK7i6I9yCDA",
+      "title": "Solving Bellman",
+      "duration": "5:06",
+      "seconds": 305,
+      "hook": "The Bellman equation, solved in one line. Then the bill arrives: n cubed.",
+      "takeaway": "Turn the equals sign into an update, and sweep.",
+      "covers": "prediction vs. control, the Bellman equation in matrix form and its cost, where the name dynamic programming comes from, iterative policy evaluation, a gridworld sweep by sweep, and why greedy arrows can be right long before the numbers are.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "Prediction and control"
+        },
+        {
+          "t": "0:29",
+          "s": 29,
+          "title": "The matrix form"
+        },
+        {
+          "t": "0:58",
+          "s": 58,
+          "title": "What it costs"
+        },
+        {
+          "t": "1:29",
+          "s": 89,
+          "title": "Dynamic programming"
+        },
+        {
+          "t": "2:19",
+          "s": 139,
+          "title": "Turn = into ←"
+        },
+        {
+          "t": "2:59",
+          "s": 179,
+          "title": "Watching it sweep"
+        },
+        {
+          "t": "3:43",
+          "s": 223,
+          "title": "The arrows"
+        },
+        {
+          "t": "4:28",
+          "s": 268,
+          "title": "Matrix or sweeps"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep12.webp"
+    },
+    {
+      "ep": 13,
+      "youtube": "9_X580o0IR4",
+      "title": "Policy iteration",
+      "duration": "5:20",
+      "seconds": 319,
+      "hook": "Check, improve, check, improve. The loop behind your car's ABS brakes, and behind half of reinforcement learning.",
+      "takeaway": "RL is an iteration of two problems: evaluation and control.",
+      "covers": "greedy policy improvement and why it never makes things worse, policy iteration, Jack's car rental solved step by step, how much evaluation you really need, and why RL is an iteration of two problems.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "Check, improve"
+        },
+        {
+          "t": "0:26",
+          "s": 26,
+          "title": "Greedy improvement"
+        },
+        {
+          "t": "1:06",
+          "s": 66,
+          "title": "Why it can't get worse"
+        },
+        {
+          "t": "1:46",
+          "s": 106,
+          "title": "Policy iteration"
+        },
+        {
+          "t": "2:14",
+          "s": 134,
+          "title": "Jack's car rental"
+        },
+        {
+          "t": "3:05",
+          "s": 185,
+          "title": "Our run"
+        },
+        {
+          "t": "3:56",
+          "s": 236,
+          "title": "How much evaluation?"
+        },
+        {
+          "t": "4:44",
+          "s": 284,
+          "title": "An iteration of two problems"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep13.webp"
+    },
+    {
+      "ep": 14,
+      "youtube": "kzcuoojb234",
+      "title": "Value iteration",
+      "duration": "5:24",
+      "seconds": 324,
+      "hook": "Why evaluate all the way? One sweep, then improve. And while we're at it: sweep smarter.",
+      "takeaway": "One sweep, then improve. And sweep where it matters.",
+      "covers": "value iteration, a shortest-path example, the three synchronous DP algorithms, asynchronous and in-place DP, prioritised sweeping, real-time DP, and full-width vs. sample backups: the bridge to model-free learning.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "Back up the max"
+        },
+        {
+          "t": "0:51",
+          "s": 51,
+          "title": "The shortest path"
+        },
+        {
+          "t": "1:47",
+          "s": 107,
+          "title": "Three algorithms"
+        },
+        {
+          "t": "2:29",
+          "s": 149,
+          "title": "Asynchronous, in place"
+        },
+        {
+          "t": "3:07",
+          "s": 187,
+          "title": "Prioritised sweeping"
+        },
+        {
+          "t": "3:38",
+          "s": 218,
+          "title": "Real-time DP"
+        },
+        {
+          "t": "4:05",
+          "s": 245,
+          "title": "Sample backups"
+        },
+        {
+          "t": "4:46",
+          "s": 286,
+          "title": "Module three, done"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep14.webp"
+    },
+    {
+      "ep": 15,
+      "youtube": "tX3Ic5ChT3c",
+      "title": "Why dynamic programming works",
+      "duration": "5:05",
+      "seconds": 305,
+      "hook": "Drop a map of this room on the floor of this room. Exactly one point lands on itself. That's why value iteration converges.",
+      "takeaway": "Apply a contraction until it stops moving.",
+      "covers": "the max norm, contraction mappings and fixed points, Banach's fixed-point theorem, the Bellman optimality operator, a one-picture proof that it is a γ-contraction, our own convergence run, and the same story for policy evaluation.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "The map on the floor"
+        },
+        {
+          "t": "0:32",
+          "s": 32,
+          "title": "The worst state"
+        },
+        {
+          "t": "1:03",
+          "s": 63,
+          "title": "Contractions"
+        },
+        {
+          "t": "1:39",
+          "s": 99,
+          "title": "Banach's theorem"
+        },
+        {
+          "t": "2:11",
+          "s": 131,
+          "title": "The Bellman operator"
+        },
+        {
+          "t": "2:45",
+          "s": 165,
+          "title": "The proof in one picture"
+        },
+        {
+          "t": "3:35",
+          "s": 215,
+          "title": "Our numbers"
+        },
+        {
+          "t": "4:07",
+          "s": 247,
+          "title": "One idea behind DP"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep15.webp"
+    },
+    {
+      "ep": 16,
+      "youtube": "KkPvFf5dbfE",
+      "title": "When DP is approximate",
+      "duration": "5:15",
+      "seconds": 314,
+      "hook": "All the true values are zero. Fit them with one parameter, and the estimate runs off to infinity.",
+      "takeaway": "Exact DP converges. Approximate DP can break, but greedy degrades gracefully.",
+      "covers": "sampling and approximation errors, approximate value iteration, a two-state example that diverges, why it's not hopeless, the greedy-policy bound 2γ/(1−γ), its five-line proof, and approximate policy iteration.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "Two luxuries"
+        },
+        {
+          "t": "0:42",
+          "s": 42,
+          "title": "Approximate value iteration"
+        },
+        {
+          "t": "1:12",
+          "s": 72,
+          "title": "A divergence example"
+        },
+        {
+          "t": "2:19",
+          "s": 139,
+          "title": "Hopeless? Not quite"
+        },
+        {
+          "t": "2:45",
+          "s": 165,
+          "title": "How good is a greedy policy?"
+        },
+        {
+          "t": "3:19",
+          "s": 199,
+          "title": "Reading the factor"
+        },
+        {
+          "t": "3:56",
+          "s": 236,
+          "title": "The proof"
+        },
+        {
+          "t": "4:17",
+          "s": 257,
+          "title": "Module four, done"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep16.webp"
+    },
+    {
+      "ep": 17,
+      "youtube": "kfWDXJ8lcKc",
+      "title": "Monte Carlo learning",
+      "duration": "5:08",
+      "seconds": 307,
+      "hook": "No rules, no model. Just play, see what happened, and average. It's enough to learn Blackjack.",
+      "takeaway": "Play, see what happened, average. No model needed.",
+      "covers": "model-free prediction, Monte Carlo from bandits to states, linear value functions with features (and why a table is a special case), gradient updates, Monte Carlo policy evaluation, and Blackjack learned from games alone.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "No model"
+        },
+        {
+          "t": "0:37",
+          "s": 37,
+          "title": "Monte Carlo"
+        },
+        {
+          "t": "1:18",
+          "s": 78,
+          "title": "Features"
+        },
+        {
+          "t": "1:59",
+          "s": 119,
+          "title": "Learning the weights"
+        },
+        {
+          "t": "2:26",
+          "s": 146,
+          "title": "Whole episodes"
+        },
+        {
+          "t": "3:09",
+          "s": 189,
+          "title": "Blackjack"
+        },
+        {
+          "t": "4:00",
+          "s": 240,
+          "title": "What it learned"
+        },
+        {
+          "t": "4:36",
+          "s": 276,
+          "title": "The catch"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep17.webp"
+    },
+    {
+      "ep": 18,
+      "youtube": "bRbxXbfa2Q4",
+      "title": "Temporal-difference learning",
+      "duration": "5:11",
+      "seconds": 311,
+      "hook": "Why wait for the end of the story? Update after every single step, from a guess.",
+      "takeaway": "Learn online, from one step: reward now plus your best guess.",
+      "covers": "TD(0) as a sampled Bellman update, the TD error, online learning, the depth-and-width square of RL methods, bootstrapping vs. sampling, the driving-home example, and the bias-variance trade-off between TD and Monte Carlo.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "Sample the Bellman equation"
+        },
+        {
+          "t": "0:30",
+          "s": 30,
+          "title": "The TD update"
+        },
+        {
+          "t": "1:23",
+          "s": 83,
+          "title": "Online, and the square"
+        },
+        {
+          "t": "2:13",
+          "s": 133,
+          "title": "Bootstrapping and sampling"
+        },
+        {
+          "t": "2:40",
+          "s": 160,
+          "title": "A trick question"
+        },
+        {
+          "t": "3:05",
+          "s": 185,
+          "title": "Driving home"
+        },
+        {
+          "t": "3:45",
+          "s": 225,
+          "title": "Bias and variance"
+        },
+        {
+          "t": "4:40",
+          "s": 280,
+          "title": "Do they agree?"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep18.webp"
+    },
+    {
+      "ep": 19,
+      "youtube": "gStAwEcoXCs",
+      "title": "Same data, different answers",
+      "duration": "5:03",
+      "seconds": 302,
+      "hook": "Eight episodes. Monte Carlo says zero. TD says three quarters. Both are right.",
+      "takeaway": "Trust your state? TD. Don't? Monte Carlo.",
+      "covers": "the random-walk race between TD and Monte Carlo, batch learning, the A-B example where they disagree, best fit vs. the most likely Markov model (certainty equivalence), and when to trust which.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "A random walk"
+        },
+        {
+          "t": "0:44",
+          "s": 44,
+          "title": "TD learns it"
+        },
+        {
+          "t": "1:29",
+          "s": 89,
+          "title": "The race"
+        },
+        {
+          "t": "2:05",
+          "s": 125,
+          "title": "Batch learning"
+        },
+        {
+          "t": "2:32",
+          "s": 152,
+          "title": "A and B"
+        },
+        {
+          "t": "3:17",
+          "s": 197,
+          "title": "Who's right?"
+        },
+        {
+          "t": "3:57",
+          "s": 237,
+          "title": "The Markov difference"
+        },
+        {
+          "t": "4:30",
+          "s": 270,
+          "title": "Which to trust"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep19.webp"
+    },
+    {
+      "ep": 20,
+      "youtube": "t56FOv6prl0",
+      "title": "Between TD and Monte Carlo",
+      "duration": "5:09",
+      "seconds": 309,
+      "hook": "One step, or all the way to the end? Neither. Look a few steps ahead, or let credit flow backwards.",
+      "takeaway": "Look a few steps ahead, or look back with traces.",
+      "covers": "n-step returns, a 19-square random walk where n = 4 wins, the λ-return, the forward and backward views, eligibility traces, recency vs. frequency, and why Monte Carlo is a sum of TD errors.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "Two extremes"
+        },
+        {
+          "t": "0:29",
+          "s": 29,
+          "title": "n-step returns"
+        },
+        {
+          "t": "1:00",
+          "s": 60,
+          "title": "Which n?"
+        },
+        {
+          "t": "1:40",
+          "s": 100,
+          "title": "The λ-return"
+        },
+        {
+          "t": "2:19",
+          "s": 139,
+          "title": "The forward view"
+        },
+        {
+          "t": "2:42",
+          "s": 162,
+          "title": "Eligibility traces"
+        },
+        {
+          "t": "3:23",
+          "s": 203,
+          "title": "Beep, beep, beep, flash"
+        },
+        {
+          "t": "3:52",
+          "s": 232,
+          "title": "Monte Carlo = sum of TD errors"
+        },
+        {
+          "t": "4:29",
+          "s": 269,
+          "title": "Module five, done"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep20.webp"
+    },
+    {
+      "ep": 21,
+      "youtube": "rzBL13TLd14",
+      "title": "Learning to act",
+      "duration": "5:12",
+      "seconds": 312,
+      "hook": "Bit can tell you how good a policy is. Today he learns to find a better one, with no model at all.",
+      "takeaway": "Learn q, explore, then shrink the exploration.",
+      "covers": "generalised policy iteration without a model, why we learn q instead of v, ε-greedy exploration, the cleaning robot and ε = 1/k, GLIE, SARSA, the step-size conditions, and SARSA on a windy gridworld.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "From predicting to acting"
+        },
+        {
+          "t": "0:31",
+          "s": 31,
+          "title": "Why q, not v"
+        },
+        {
+          "t": "1:11",
+          "s": 71,
+          "title": "Greedy is a trap"
+        },
+        {
+          "t": "1:40",
+          "s": 100,
+          "title": "The cleaning robot"
+        },
+        {
+          "t": "2:14",
+          "s": 134,
+          "title": "GLIE"
+        },
+        {
+          "t": "2:44",
+          "s": 164,
+          "title": "SARSA"
+        },
+        {
+          "t": "3:27",
+          "s": 207,
+          "title": "Step sizes that behave"
+        },
+        {
+          "t": "3:57",
+          "s": 237,
+          "title": "Ten lines and a windy gridworld"
+        },
+        {
+          "t": "4:39",
+          "s": 279,
+          "title": "On-policy"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep21.webp"
+    },
+    {
+      "ep": 22,
+      "youtube": "kaSB4RoOYfM",
+      "title": "Walking the cliff",
+      "duration": "5:28",
+      "seconds": 327,
+      "hook": "Two learners, one cliff. One finds the best path. The other earns more while learning. Which one is right?",
+      "takeaway": "Learn the greedy policy while you explore.",
+      "covers": "behaviour vs. target policies, three reasons to learn off-policy, Q-learning, cliff walking with SARSA vs. Q-learning (our own runs), which one to pick, the 'flip', and how many episodes is a lot.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "Behaviour vs target"
+        },
+        {
+          "t": "0:29",
+          "s": 29,
+          "title": "Why off-policy?"
+        },
+        {
+          "t": "1:11",
+          "s": 71,
+          "title": "Q-learning"
+        },
+        {
+          "t": "1:51",
+          "s": 111,
+          "title": "The cliff"
+        },
+        {
+          "t": "2:25",
+          "s": 145,
+          "title": "Our run"
+        },
+        {
+          "t": "3:15",
+          "s": 195,
+          "title": "Which one?"
+        },
+        {
+          "t": "3:51",
+          "s": 231,
+          "title": "The flip"
+        },
+        {
+          "t": "4:25",
+          "s": 265,
+          "title": "How many episodes?"
+        },
+        {
+          "t": "4:57",
+          "s": 297,
+          "title": "Recap"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep22.webp"
+    },
+    {
+      "ep": 23,
+      "youtube": "9ZWFeqDEfwg",
+      "title": "Too optimistic",
+      "duration": "5:16",
+      "seconds": 315,
+      "hook": "Ten actions, all worth zero. The max says one and a half. Then we take Q-learning to the casino.",
+      "takeaway": "Don't let the same numbers pick and score.",
+      "covers": "maximisation bias, the two-action story, a roulette table where Q-learning wants to play forever and double Q-learning goes home (our own runs), double DQN, importance sampling, why off-policy Monte Carlo explodes, and expected SARSA.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "The max of noisy zeros"
+        },
+        {
+          "t": "0:41",
+          "s": 41,
+          "title": "Two actions"
+        },
+        {
+          "t": "1:11",
+          "s": 71,
+          "title": "The casino"
+        },
+        {
+          "t": "1:42",
+          "s": 102,
+          "title": "Our roulette run"
+        },
+        {
+          "t": "2:19",
+          "s": 139,
+          "title": "Double Q-learning"
+        },
+        {
+          "t": "2:59",
+          "s": 179,
+          "title": "Importance sampling"
+        },
+        {
+          "t": "3:49",
+          "s": 229,
+          "title": "Monte Carlo vs TD ratios"
+        },
+        {
+          "t": "4:16",
+          "s": 256,
+          "title": "One family"
+        },
+        {
+          "t": "4:41",
+          "s": 281,
+          "title": "Module six, done"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep23.webp"
+    },
+    {
+      "ep": 24,
+      "youtube": "1tt28VaP95o",
+      "title": "Too many states",
+      "duration": "5:15",
+      "seconds": 314,
+      "hook": "Ten to the hundred and seventy states. One per atom, and you run out of atoms. Time to stop using tables.",
+      "takeaway": "Generalise: let similar states share what they learn.",
+      "covers": "why Q-tables don't scale, the gold-bag example, neighbourhoods and function approximation, state aggregation, the rubber-band room (our own simulation), why RL data is correlated and non-stationary, and gradient descent for values.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "The Q-table"
+        },
+        {
+          "t": "0:29",
+          "s": 29,
+          "title": "Too many states"
+        },
+        {
+          "t": "1:02",
+          "s": 62,
+          "title": "The gold bag"
+        },
+        {
+          "t": "1:41",
+          "s": 101,
+          "title": "Neighbourhoods"
+        },
+        {
+          "t": "2:13",
+          "s": 133,
+          "title": "Aggregation and the ladder"
+        },
+        {
+          "t": "2:44",
+          "s": 164,
+          "title": "The rubber band"
+        },
+        {
+          "t": "3:40",
+          "s": 220,
+          "title": "Moving data"
+        },
+        {
+          "t": "4:12",
+          "s": 252,
+          "title": "Gradient descent"
+        },
+        {
+          "t": "4:50",
+          "s": 290,
+          "title": "Recap"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep24.webp"
+    },
+    {
+      "ep": 25,
+      "youtube": "j5mHHrUVsQ4",
+      "title": "Circles, tiles and a car",
+      "duration": "5:13",
+      "seconds": 312,
+      "hook": "Life is not linear. But with the right features, a straight line goes a very long way.",
+      "takeaway": "Good features take a line a long way.",
+      "covers": "feature vectors, the linear update (step × error × features), why life is not linear, coarse coding, tile coding, the danger of fitting one point, and linear SARSA with tile coding on Mountain Car (our own runs).",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "Feature vectors"
+        },
+        {
+          "t": "0:34",
+          "s": 34,
+          "title": "The update"
+        },
+        {
+          "t": "1:07",
+          "s": 67,
+          "title": "Life is not linear"
+        },
+        {
+          "t": "1:41",
+          "s": 101,
+          "title": "x(s) in code"
+        },
+        {
+          "t": "1:56",
+          "s": 116,
+          "title": "Coarse coding"
+        },
+        {
+          "t": "2:34",
+          "s": 154,
+          "title": "Tile coding"
+        },
+        {
+          "t": "3:05",
+          "s": 185,
+          "title": "One point, infinitely many lines"
+        },
+        {
+          "t": "3:38",
+          "s": 218,
+          "title": "Mountain Car"
+        },
+        {
+          "t": "4:39",
+          "s": 279,
+          "title": "The best you can do"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep25.webp"
+    },
+    {
+      "ep": 26,
+      "youtube": "xj-OUXnqQPI",
+      "title": "When learning blows up",
+      "duration": "5:38",
+      "seconds": 338,
+      "hook": "Two states, one weight, every reward zero. And the value grows twenty two hundred times in a hundred updates.",
+      "takeaway": "Approximation, bootstrapping, off-policy: handle with care.",
+      "covers": "the ladder of guarantees, why Monte Carlo converges and TD chases its own tail, the two-state divergence example worked out, what saves it, the deadly triad, the convergence table, and defining episodes for tasks that never end.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "The ladder of promises"
+        },
+        {
+          "t": "0:54",
+          "s": 54,
+          "title": "Monte Carlo converges"
+        },
+        {
+          "t": "1:16",
+          "s": 76,
+          "title": "TD chases its tail"
+        },
+        {
+          "t": "1:55",
+          "s": 115,
+          "title": "w and 2w"
+        },
+        {
+          "t": "2:55",
+          "s": 175,
+          "title": "What saves it"
+        },
+        {
+          "t": "3:32",
+          "s": 212,
+          "title": "The deadly triad"
+        },
+        {
+          "t": "4:03",
+          "s": 243,
+          "title": "The one table"
+        },
+        {
+          "t": "4:29",
+          "s": 269,
+          "title": "Over the hill"
+        },
+        {
+          "t": "5:08",
+          "s": 308,
+          "title": "Tracking"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep26.webp"
+    },
+    {
+      "ep": 27,
+      "youtube": "mHO76x1pYTk",
+      "title": "From a Q-table to DQN",
+      "duration": "5:25",
+      "seconds": 325,
+      "hook": "Tic-tac-toe in about ten lines of Python. Then we swap the table for a network.",
+      "takeaway": "Swap the table for a network, keep the idea.",
+      "covers": "Q-learning for tic-tac-toe (our own run against a random opponent), least squares TD, experience replay, neural Q-learning and its pseudo-loss, the ingredients of DQN, and a cloud-servers example from class.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "Tic-tac-toe"
+        },
+        {
+          "t": "0:31",
+          "s": 31,
+          "title": "The weights are the table"
+        },
+        {
+          "t": "1:03",
+          "s": 63,
+          "title": "Our run"
+        },
+        {
+          "t": "1:47",
+          "s": 107,
+          "title": "Least squares TD"
+        },
+        {
+          "t": "2:31",
+          "s": 151,
+          "title": "Experience replay"
+        },
+        {
+          "t": "3:05",
+          "s": 185,
+          "title": "A network instead"
+        },
+        {
+          "t": "3:42",
+          "s": 222,
+          "title": "DQN"
+        },
+        {
+          "t": "4:22",
+          "s": 262,
+          "title": "Cloud servers"
+        },
+        {
+          "t": "4:56",
+          "s": 296,
+          "title": "Module seven, done"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep27.webp"
+    },
+    {
+      "ep": 28,
+      "youtube": "hQ3NQeieQlY",
+      "title": "Everything is a vector",
+      "duration": "5:13",
+      "seconds": 313,
+      "hook": "Deep learning has exactly two advantages. And everything is a vector. Proof included.",
+      "takeaway": "Let the network learn the representation.",
+      "covers": "what deep learning is (and isn't), breaking linearity, universal approximation (our own fits), the two advantages, three ways to write a chess position, why everything is a vector, automatic differentiation by hand, and network inputs and outputs for RL.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "Minus two"
+        },
+        {
+          "t": "0:35",
+          "s": 35,
+          "title": "Good features?"
+        },
+        {
+          "t": "0:57",
+          "s": 57,
+          "title": "Deep is not neural"
+        },
+        {
+          "t": "1:26",
+          "s": 86,
+          "title": "Universal approximation"
+        },
+        {
+          "t": "1:59",
+          "s": 119,
+          "title": "Two advantages"
+        },
+        {
+          "t": "2:27",
+          "s": 147,
+          "title": "Chess, three ways"
+        },
+        {
+          "t": "3:00",
+          "s": 180,
+          "title": "Everything is a vector"
+        },
+        {
+          "t": "3:28",
+          "s": 208,
+          "title": "Autodiff"
+        },
+        {
+          "t": "4:20",
+          "s": 260,
+          "title": "What goes in and out"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep28.webp"
+    },
+    {
+      "ep": 29,
+      "youtube": "s_3OB4eE6qc",
+      "title": "Why online deep RL is hard",
+      "duration": "5:18",
+      "seconds": 317,
+      "hook": "Same data, same model, different order. One line settles, the other never does.",
+      "takeaway": "Shuffle the data, freeze the target.",
+      "covers": "why correlated data breaks stochastic gradient descent (our own toy), replay and parallel simulations, the deadly triad in DQN and soft divergence, good-enough local optima, imitation as a starting point, target networks and double DQN.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "Not i.i.d."
+        },
+        {
+          "t": "0:34",
+          "s": 34,
+          "title": "Order matters"
+        },
+        {
+          "t": "1:18",
+          "s": 78,
+          "title": "The fixes"
+        },
+        {
+          "t": "1:53",
+          "s": 113,
+          "title": "The triad, again"
+        },
+        {
+          "t": "2:29",
+          "s": 149,
+          "title": "Good-enough optima"
+        },
+        {
+          "t": "3:00",
+          "s": 180,
+          "title": "A good start"
+        },
+        {
+          "t": "3:31",
+          "s": 211,
+          "title": "Target networks"
+        },
+        {
+          "t": "4:17",
+          "s": 257,
+          "title": "Double DQN"
+        },
+        {
+          "t": "4:49",
+          "s": 289,
+          "title": "Recap"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep29.webp"
+    },
+    {
+      "ep": 30,
+      "youtube": "npI3KutoDC8",
+      "title": "Not all samples are born equal",
+      "duration": "5:24",
+      "seconds": 323,
+      "hook": "Dogs, cats and a few wolves. Where should a learner spend its energy?",
+      "takeaway": "Spend your updates where you're wrong.",
+      "covers": "prioritised replay with the dogs, cats and wolves example, multi-step targets, inductive bias and choosing layers, dueling networks, network capacity and the triad, value leakage through a wall, and learning about many things at once.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "Dogs, cats and wolves"
+        },
+        {
+          "t": "0:45",
+          "s": 45,
+          "title": "The numbers"
+        },
+        {
+          "t": "1:21",
+          "s": 81,
+          "title": "Multi-step targets"
+        },
+        {
+          "t": "1:57",
+          "s": 117,
+          "title": "Inductive bias"
+        },
+        {
+          "t": "2:39",
+          "s": 159,
+          "title": "Dueling networks"
+        },
+        {
+          "t": "3:18",
+          "s": 198,
+          "title": "Capacity"
+        },
+        {
+          "t": "3:38",
+          "s": 218,
+          "title": "The wall"
+        },
+        {
+          "t": "4:21",
+          "s": 261,
+          "title": "Learning about many things"
+        },
+        {
+          "t": "4:47",
+          "s": 287,
+          "title": "Module eight, done"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep30.webp"
+    },
+    {
+      "ep": 31,
+      "youtube": "KbsEpmQoz2c",
+      "title": "Learn the world first",
+      "duration": "5:13",
+      "seconds": 313,
+      "hook": "Learn how the world moves once, and plan with it for any goal you like.",
+      "takeaway": "Learn the dynamics once; plan with them for any goal.",
+      "covers": "what a model of the world is, the best of dynamic programming and model-free learning, why an extra stage means extra failure points, learning a model as supervised learning, dynamics versus desires, how expectations can put you inside a wall, stochastic models, and the humblest model of all: a table of counts.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "Recorded forever"
+        },
+        {
+          "t": "0:40",
+          "s": 40,
+          "title": "Best of both"
+        },
+        {
+          "t": "1:15",
+          "s": 75,
+          "title": "Why bother"
+        },
+        {
+          "t": "1:59",
+          "s": 119,
+          "title": "What's a model"
+        },
+        {
+          "t": "2:34",
+          "s": 154,
+          "title": "Dynamics, not policy"
+        },
+        {
+          "t": "3:04",
+          "s": 184,
+          "title": "Dynamics vs desires"
+        },
+        {
+          "t": "3:32",
+          "s": 212,
+          "title": "Into the wall"
+        },
+        {
+          "t": "4:00",
+          "s": 240,
+          "title": "Expectations lie"
+        },
+        {
+          "t": "4:33",
+          "s": 273,
+          "title": "The A-B table"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep31.webp"
+    },
+    {
+      "ep": 32,
+      "youtube": "RvDkt9WiA5E",
+      "title": "Planning in your head",
+      "duration": "5:09",
+      "seconds": 309,
+      "hook": "A model that's exactly right about the data can still give you wrong values. Here's why.",
+      "takeaway": "A model turns a little real data into a lot of imagined data.",
+      "covers": "what planning means, dynamic programming on a learned model, sample-based planning, the A-B example imagined (our own runs), why an imperfect model caps you, three ways to live with a wrong model, the always-wrong trader, and getting over the hill.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "What planning means"
+        },
+        {
+          "t": "0:33",
+          "s": 33,
+          "title": "Option one: DP"
+        },
+        {
+          "t": "1:01",
+          "s": 61,
+          "title": "Option two: sample"
+        },
+        {
+          "t": "1:30",
+          "s": 90,
+          "title": "A and B, imagined"
+        },
+        {
+          "t": "2:21",
+          "s": 141,
+          "title": "The limits"
+        },
+        {
+          "t": "3:00",
+          "s": 180,
+          "title": "Three ways out"
+        },
+        {
+          "t": "3:25",
+          "s": 205,
+          "title": "The always-wrong trader"
+        },
+        {
+          "t": "3:55",
+          "s": 235,
+          "title": "Over the hill"
+        },
+        {
+          "t": "4:35",
+          "s": 275,
+          "title": "Science → art"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep32.webp"
+    },
+    {
+      "ep": 33,
+      "youtube": "vol7sjVaSws",
+      "title": "Learn and dream",
+      "duration": "5:11",
+      "seconds": 311,
+      "hook": "Same real experience, ten times the learning. Bit learns and dreams at the same time.",
+      "takeaway": "Real steps teach the model; imagined steps teach the values.",
+      "covers": "why bother with a model, the Dyna loop, Dyna-Q in about twenty lines, planning only from seen states, our maze runs with 0, 5 and 50 planning steps, growing the planning budget, a shortcut that opens (Dyna-Q vs Dyna-Q+), and an autonomous boat that's cheaper to simulate than to sail.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "Why a model"
+        },
+        {
+          "t": "0:36",
+          "s": 36,
+          "title": "The Dyna loop"
+        },
+        {
+          "t": "1:03",
+          "s": 63,
+          "title": "Dyna-Q in code"
+        },
+        {
+          "t": "1:33",
+          "s": 93,
+          "title": "Only seen states"
+        },
+        {
+          "t": "1:56",
+          "s": 116,
+          "title": "The maze, our runs"
+        },
+        {
+          "t": "2:40",
+          "s": 160,
+          "title": "Growing the planning"
+        },
+        {
+          "t": "3:13",
+          "s": 193,
+          "title": "A shortcut opens"
+        },
+        {
+          "t": "3:58",
+          "s": 238,
+          "title": "The boat"
+        },
+        {
+          "t": "4:44",
+          "s": 284,
+          "title": "Learn and dream"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep33.webp"
+    },
+    {
+      "ep": 34,
+      "youtube": "xBJeAp4hI30",
+      "title": "Is replay a model?",
+      "duration": "5:07",
+      "seconds": 306,
+      "hook": "DQN was Dyna in disguise. So why would anyone build a fancier model?",
+      "takeaway": "A buffer remembers; a model imagines.",
+      "covers": "the blurry line between model-free and model-based, the replay buffer as a non-parametric model, replay vs Dyna on our maze, Markov and poker, fill-use-empty, memory vs compute, what only a model can do, and why it's all about ratios.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "Two boxes"
+        },
+        {
+          "t": "0:28",
+          "s": 28,
+          "title": "The buffer is a model"
+        },
+        {
+          "t": "0:58",
+          "s": 58,
+          "title": "Replay vs Dyna"
+        },
+        {
+          "t": "1:47",
+          "s": 107,
+          "title": "Markov, and poker"
+        },
+        {
+          "t": "2:18",
+          "s": 138,
+          "title": "Fill, use, empty"
+        },
+        {
+          "t": "2:50",
+          "s": 170,
+          "title": "Memory vs compute"
+        },
+        {
+          "t": "3:28",
+          "s": 208,
+          "title": "What only a model can do"
+        },
+        {
+          "t": "3:59",
+          "s": 239,
+          "title": "It's all ratios"
+        },
+        {
+          "t": "4:35",
+          "s": 275,
+          "title": "Remember vs imagine"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep34.webp"
+    },
+    {
+      "ep": 35,
+      "youtube": "54ORL-xKi7w",
+      "title": "Look before you leap",
+      "duration": "5:15",
+      "seconds": 314,
+      "hook": "Most of the tree dies. Only the branch you took survives.",
+      "takeaway": "Plan for the state you're in, not the whole world.",
+      "covers": "planning for the state you're in, forward search, why expectimax explodes (tic-tac-toe and Go, counted), simulation-based search, Monte Carlo tree search in four steps, Monte Carlo in two layers, one dense cloud of samples, and the weaknesses: half the world lost, and a tree that dies with every move.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "Plan for now"
+        },
+        {
+          "t": "0:30",
+          "s": 30,
+          "title": "Forward search"
+        },
+        {
+          "t": "0:55",
+          "s": 55,
+          "title": "Expectimax explodes"
+        },
+        {
+          "t": "1:33",
+          "s": 93,
+          "title": "Simulate whole episodes"
+        },
+        {
+          "t": "2:11",
+          "s": 131,
+          "title": "MCTS in four steps"
+        },
+        {
+          "t": "2:55",
+          "s": 175,
+          "title": "Monte Carlo in two layers"
+        },
+        {
+          "t": "3:32",
+          "s": 212,
+          "title": "One dense cloud"
+        },
+        {
+          "t": "4:06",
+          "s": 246,
+          "title": "Half the world"
+        },
+        {
+          "t": "4:36",
+          "s": 276,
+          "title": "Pros and cons"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep35.webp"
+    },
+    {
+      "ep": 36,
+      "youtube": "Gehv4HBzZo8",
+      "title": "Bandits in the tree",
+      "duration": "5:06",
+      "seconds": 305,
+      "hook": "Nobody told it about the centre. It found it from random games and counting.",
+      "takeaway": "Every node is a bandit; the visits are the answer.",
+      "covers": "choosing branches as a bandit problem, UCT and the upper-confidence score, tree and rollout policies, UCT against a random tic-tac-toe player (our own runs), finding a winning move, where the search spends its time, UCT vs UCT, why regret is a strange goal inside a simulation, and flat Monte Carlo vs UCT.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "Which branch?"
+        },
+        {
+          "t": "0:27",
+          "s": 27,
+          "title": "A bandit per node"
+        },
+        {
+          "t": "1:11",
+          "s": 71,
+          "title": "Two policies"
+        },
+        {
+          "t": "1:41",
+          "s": 101,
+          "title": "UCT vs random"
+        },
+        {
+          "t": "2:18",
+          "s": 138,
+          "title": "Find the win"
+        },
+        {
+          "t": "2:51",
+          "s": 171,
+          "title": "Where the time goes"
+        },
+        {
+          "t": "3:17",
+          "s": 197,
+          "title": "UCT vs UCT"
+        },
+        {
+          "t": "3:41",
+          "s": 221,
+          "title": "Regret in a dream"
+        },
+        {
+          "t": "4:20",
+          "s": 260,
+          "title": "Flat vs UCT"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep36.webp"
+    },
+    {
+      "ep": 37,
+      "youtube": "li6F_FKRSOc",
+      "title": "From AlphaGo to AlphaZero",
+      "duration": "5:11",
+      "seconds": 311,
+      "hook": "Same network. Searching at play time was worth more than two thousand Elo points.",
+      "takeaway": "A policy is good; a policy plus search is better.",
+      "covers": "why Go defeated classic search, AlphaGo in 2016, self-play, one network with policy and value heads, search as policy improvement, the training loop, AlphaGo Zero's results, what made it strong (search, architecture, no human data), AlphaZero for chess and shogi, and a footnote on MuZero.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "Why Go is hard"
+        },
+        {
+          "t": "0:37",
+          "s": 37,
+          "title": "AlphaGo, 2016"
+        },
+        {
+          "t": "1:05",
+          "s": 65,
+          "title": "Self-play"
+        },
+        {
+          "t": "1:38",
+          "s": 98,
+          "title": "One network, two heads"
+        },
+        {
+          "t": "2:22",
+          "s": 142,
+          "title": "The training loop"
+        },
+        {
+          "t": "3:00",
+          "s": 180,
+          "title": "Results"
+        },
+        {
+          "t": "3:28",
+          "s": 208,
+          "title": "The search"
+        },
+        {
+          "t": "3:55",
+          "s": 235,
+          "title": "No humans, AlphaZero"
+        },
+        {
+          "t": "4:26",
+          "s": 266,
+          "title": "Module nine, done"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep37.webp"
+    },
+    {
+      "ep": 38,
+      "youtube": "d2WV7M15F5Q",
+      "title": "Why learn the policy?",
+      "duration": "5:12",
+      "seconds": 312,
+      "hook": "What's the best way to beat a casino? Don't play. Sometimes the best policy is simpler than the world.",
+      "takeaway": "Sometimes the best policy is simpler than the world.",
+      "covers": "the long way around through values and models, three roads to the optimal policy, the casino joke, pros and cons of policy-based RL, policies as probabilities, the aliased corridor where every deterministic policy can loop forever (our own runs), the episodic and average-reward objectives, and the pawn nobody meets.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "The long way around"
+        },
+        {
+          "t": "0:36",
+          "s": 36,
+          "title": "Three roads"
+        },
+        {
+          "t": "1:02",
+          "s": 62,
+          "title": "Beat the casino"
+        },
+        {
+          "t": "1:29",
+          "s": 89,
+          "title": "Pros and cons"
+        },
+        {
+          "t": "2:05",
+          "s": 125,
+          "title": "A policy, directly"
+        },
+        {
+          "t": "2:44",
+          "s": 164,
+          "title": "The aliased corridor"
+        },
+        {
+          "t": "3:24",
+          "s": 204,
+          "title": "Flip a coin"
+        },
+        {
+          "t": "3:53",
+          "s": 233,
+          "title": "What we maximise"
+        },
+        {
+          "t": "4:36",
+          "s": 276,
+          "title": "The pawn nobody meets"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep38.webp"
+    },
+    {
+      "ep": 39,
+      "youtube": "PrxUaq522Hg",
+      "title": "The score-function trick",
+      "duration": "5:19",
+      "seconds": 319,
+      "hook": "You can't differentiate a reward. You can differentiate a probability. That's the whole trick.",
+      "takeaway": "Weigh ∇log π by the reward, minus a baseline.",
+      "covers": "policy gradients as optimisation, smooth functions and 'almost everywhere', why you can't differentiate a sampled reward, the score-function (log-derivative) trick step by step, a numerical check on a softmax bandit, softmax policies, and baselines: same gradient, far less noise (our own runs).",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "Climbing J"
+        },
+        {
+          "t": "0:38",
+          "s": 38,
+          "title": "Smooth"
+        },
+        {
+          "t": "1:23",
+          "s": 83,
+          "title": "The problem"
+        },
+        {
+          "t": "1:49",
+          "s": 109,
+          "title": "The trick"
+        },
+        {
+          "t": "2:24",
+          "s": 144,
+          "title": "Why log π is easy"
+        },
+        {
+          "t": "2:55",
+          "s": 175,
+          "title": "Our check"
+        },
+        {
+          "t": "3:22",
+          "s": 202,
+          "title": "Softmax"
+        },
+        {
+          "t": "3:51",
+          "s": 231,
+          "title": "Baselines"
+        },
+        {
+          "t": "4:42",
+          "s": 282,
+          "title": "REINFORCE"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep39.webp"
+    },
+    {
+      "ep": 40,
+      "youtube": "UikviS2yIl8",
+      "title": "The policy gradient theorem",
+      "duration": "5:12",
+      "seconds": 311,
+      "hook": "Policy gradients never need to know how the world moves. Here's why.",
+      "takeaway": "Policy gradients never need the dynamics.",
+      "covers": "from bandits to whole episodes, the probability of a trajectory, why the dynamics drop out of the gradient, using the return from each step onward, sampling whole episodes (and a bag of candies), dropping the discount factor, the short corridor where the best policy is stochastic, and REINFORCE learning it (our own runs).",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "From bandits to episodes"
+        },
+        {
+          "t": "0:38",
+          "s": 38,
+          "title": "A trajectory"
+        },
+        {
+          "t": "1:17",
+          "s": 77,
+          "title": "The dynamics drop out"
+        },
+        {
+          "t": "1:53",
+          "s": 113,
+          "title": "From t onwards"
+        },
+        {
+          "t": "2:19",
+          "s": 139,
+          "title": "100 candies"
+        },
+        {
+          "t": "2:56",
+          "s": 176,
+          "title": "Dropping γᵗ"
+        },
+        {
+          "t": "3:20",
+          "s": 200,
+          "title": "The short corridor"
+        },
+        {
+          "t": "3:54",
+          "s": 234,
+          "title": "REINFORCE learns it"
+        },
+        {
+          "t": "4:33",
+          "s": 273,
+          "title": "Average reward"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep40.webp"
+    },
+    {
+      "ep": 41,
+      "youtube": "hTVg8CIwMBU",
+      "title": "Actor and critic",
+      "duration": "5:07",
+      "seconds": 307,
+      "hook": "One learns what's good. The other learns what to do. The TD error connects them.",
+      "takeaway": "The critic judges; the actor follows the TD error.",
+      "covers": "the noise in policy gradients, a state-value baseline and the advantage, when low variance is what you want, the critic, one-step actor-critic, why everything moves at once, REINFORCE vs baseline vs actor-critic on the short corridor (our own runs), bad policies make bad data, and trust regions (KL penalties, TRPO, PPO).",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "The noise"
+        },
+        {
+          "t": "0:30",
+          "s": 30,
+          "title": "A baseline: q − v"
+        },
+        {
+          "t": "1:12",
+          "s": 72,
+          "title": "Is low variance good?"
+        },
+        {
+          "t": "1:38",
+          "s": 98,
+          "title": "The critic"
+        },
+        {
+          "t": "2:13",
+          "s": 133,
+          "title": "Actor critic"
+        },
+        {
+          "t": "2:50",
+          "s": 170,
+          "title": "Everything moves"
+        },
+        {
+          "t": "3:16",
+          "s": 196,
+          "title": "Our corridor runs"
+        },
+        {
+          "t": "3:51",
+          "s": 231,
+          "title": "Trust regions"
+        },
+        {
+          "t": "4:39",
+          "s": 279,
+          "title": "Recap"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep41.webp"
+    },
+    {
+      "ep": 42,
+      "youtube": "7DZxOIGDFQI",
+      "title": "Infinitely many actions",
+      "duration": "5:08",
+      "seconds": 307,
+      "hook": "Sacrifice the queen, then checkmate. Cacla learns the second part.",
+      "takeaway": "Let a distribution do the exploring.",
+      "covers": "continuous actions (a car picking a speed), Gaussian policies and the 'cheat' of learning two numbers, the Gaussian policy gradient, a speed toy (our own runs), why approximately right is fine, the deterministic policy gradient, Cacla, and what happens when every reward is multiplied by a hundred.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "A car picks a speed"
+        },
+        {
+          "t": "0:42",
+          "s": 42,
+          "title": "A distribution over speeds"
+        },
+        {
+          "t": "1:23",
+          "s": 83,
+          "title": "The Gaussian gradient"
+        },
+        {
+          "t": "1:49",
+          "s": 109,
+          "title": "Our speed toy"
+        },
+        {
+          "t": "2:09",
+          "s": 129,
+          "title": "Approximately right"
+        },
+        {
+          "t": "2:54",
+          "s": 174,
+          "title": "Climb q"
+        },
+        {
+          "t": "3:19",
+          "s": 199,
+          "title": "Cacla"
+        },
+        {
+          "t": "4:01",
+          "s": 241,
+          "title": "The queen, ×100"
+        },
+        {
+          "t": "4:37",
+          "s": 277,
+          "title": "Module ten, done"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep42.webp"
+    },
+    {
+      "ep": 43,
+      "youtube": "qZASA1rHQX0",
+      "title": "General value functions",
+      "duration": "5:14",
+      "seconds": 314,
+      "hook": "Your state isn't what you see. It's what you expect to happen.",
+      "takeaway": "Any useful knowledge can be a prediction.",
+      "covers": "why one reward gives a narrow picture (and a ship that only sails straight), knowledge as predictions, cumulants, state-dependent discounts and hypothetical policies, reward prediction and dynamics as special cases, three questions learned at once in a corridor (our own run), sub-goals and a boxing story, training vs evaluation rewards, and predictive state representations.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "One number, a narrow picture"
+        },
+        {
+          "t": "0:37",
+          "s": 37,
+          "title": "Knowledge as predictions"
+        },
+        {
+          "t": "1:15",
+          "s": 75,
+          "title": "Turning the knobs"
+        },
+        {
+          "t": "1:57",
+          "s": 117,
+          "title": "A discount per state"
+        },
+        {
+          "t": "2:27",
+          "s": 147,
+          "title": "Our corridor, three questions"
+        },
+        {
+          "t": "3:05",
+          "s": 185,
+          "title": "Sub-goals, and a boxing story"
+        },
+        {
+          "t": "3:45",
+          "s": 225,
+          "title": "Train on one, judge on another"
+        },
+        {
+          "t": "4:08",
+          "s": 248,
+          "title": "Predictions as the state"
+        },
+        {
+          "t": "4:45",
+          "s": 285,
+          "title": "Recap"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep43.webp"
+    },
+    {
+      "ep": 44,
+      "youtube": "MtcbzVmDeU0",
+      "title": "Auxiliary tasks",
+      "duration": "5:12",
+      "seconds": 312,
+      "hook": "Pseudo-rewards. Pseudo, not sudo.",
+      "takeaway": "Extra questions build a better shared representation.",
+      "covers": "one network body with many heads, auxiliary tasks as extra general value functions, capture the flag and pseudo-rewards, pixel control, feature control and reward prediction, what they did on Labyrinth (numbers from the paper), why more tasks can also mean more ways to fail, clockwork networks, the value improvement path, and tasks that build on each other.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "One body, many heads"
+        },
+        {
+          "t": "0:41",
+          "s": 41,
+          "title": "Auxiliary tasks"
+        },
+        {
+          "t": "1:08",
+          "s": 68,
+          "title": "Capture the flag"
+        },
+        {
+          "t": "1:45",
+          "s": 105,
+          "title": "Pixels, features, rewards"
+        },
+        {
+          "t": "2:27",
+          "s": 147,
+          "title": "Does it work?"
+        },
+        {
+          "t": "2:56",
+          "s": 176,
+          "title": "The honest part"
+        },
+        {
+          "t": "3:50",
+          "s": 230,
+          "title": "The value improvement path"
+        },
+        {
+          "t": "4:29",
+          "s": 269,
+          "title": "Toolbox or staircase"
+        },
+        {
+          "t": "4:49",
+          "s": 289,
+          "title": "Recap"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep44.webp"
+    },
+    {
+      "ep": 45,
+      "youtube": "QdB9MHb_58E",
+      "title": "When tasks compete",
+      "duration": "5:21",
+      "seconds": 320,
+      "hook": "Clip every reward to one, and the task quietly changes.",
+      "takeaway": "Normalise the targets, and preserve the outputs.",
+      "covers": "why tasks compete for one network, reward clipping and what it changes, normalising targets while you learn (running mean, variance and z-scores), preserving outputs (PopArt), a two-task toy where one task drowns the other (our own runs), one agent on 57 Atari games, and three open problems: off-policy learning (Unicorn), universal value functions and discovering questions with meta-learning.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "Tasks compete"
+        },
+        {
+          "t": "0:56",
+          "s": 56,
+          "title": "No full dataset"
+        },
+        {
+          "t": "1:18",
+          "s": 78,
+          "title": "Normalise while you learn"
+        },
+        {
+          "t": "2:07",
+          "s": 127,
+          "title": "Preserve the outputs"
+        },
+        {
+          "t": "2:34",
+          "s": 154,
+          "title": "Our toy run"
+        },
+        {
+          "t": "3:16",
+          "s": 196,
+          "title": "Open: off-policy"
+        },
+        {
+          "t": "3:55",
+          "s": 235,
+          "title": "Open: universal value functions"
+        },
+        {
+          "t": "4:30",
+          "s": 270,
+          "title": "Open: discovery"
+        },
+        {
+          "t": "4:52",
+          "s": 292,
+          "title": "Recap"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep45.webp"
+    },
+    {
+      "ep": 46,
+      "youtube": "njTkHcn2ADY",
+      "title": "Distributional RL",
+      "duration": "5:22",
+      "seconds": 322,
+      "hook": "You will never roll a three and a half.",
+      "takeaway": "One number hides the shape of the future.",
+      "covers": "why one number hides the shape of the future, learning the whole distribution of returns, the distributional Bellman equation, Categorical DQN (C51) with its comb, shift-shrink-project, a die and a coin learned by our own categorical and quantile learners, quantile regression, two routes to work, and dopamine neurons that look distributional.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "One number hides the shape"
+        },
+        {
+          "t": "0:42",
+          "s": 42,
+          "title": "The whole distribution"
+        },
+        {
+          "t": "1:13",
+          "s": 73,
+          "title": "The catch"
+        },
+        {
+          "t": "1:36",
+          "s": 96,
+          "title": "C51: a comb"
+        },
+        {
+          "t": "2:03",
+          "s": 123,
+          "title": "Shift, shrink, project"
+        },
+        {
+          "t": "2:42",
+          "s": 162,
+          "title": "Our die and coin"
+        },
+        {
+          "t": "3:13",
+          "s": 193,
+          "title": "Quantiles"
+        },
+        {
+          "t": "4:01",
+          "s": 241,
+          "title": "Why bother"
+        },
+        {
+          "t": "4:54",
+          "s": 294,
+          "title": "Module eleven, done"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep46.webp"
+    },
+    {
+      "ep": 47,
+      "youtube": "WO0R3aFB9HI",
+      "title": "Learning from demonstrations",
+      "duration": "5:18",
+      "seconds": 317,
+      "hook": "Write a reward for driving well. Go on, I'll wait.",
+      "takeaway": "Showing can be easier than explaining.",
+      "covers": "why demonstrating can be easier than writing a reward, the imitation-learning setup, behaviour cloning, compounding errors and distribution shift, a lane-keeping toy where the copy drives off the road (our own runs), DAgger, and inverse RL with feature matching and its ambiguity.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "Write a reward for driving"
+        },
+        {
+          "t": "0:28",
+          "s": 28,
+          "title": "Imitation learning"
+        },
+        {
+          "t": "0:58",
+          "s": 58,
+          "title": "Three questions"
+        },
+        {
+          "t": "1:17",
+          "s": 77,
+          "title": "Behaviour cloning"
+        },
+        {
+          "t": "1:52",
+          "s": 112,
+          "title": "Compounding errors"
+        },
+        {
+          "t": "2:38",
+          "s": 158,
+          "title": "Our lane toy"
+        },
+        {
+          "t": "3:16",
+          "s": 196,
+          "title": "DAgger"
+        },
+        {
+          "t": "3:57",
+          "s": 237,
+          "title": "Inverse RL"
+        },
+        {
+          "t": "4:49",
+          "s": 289,
+          "title": "Recap"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep47.webp"
+    },
+    {
+      "ep": 48,
+      "youtube": "ueLyV5EF6iM",
+      "title": "Maximum-entropy inverse RL",
+      "duration": "5:14",
+      "seconds": 313,
+      "hook": "Of all the rewards that explain the expert, pick the least committed one.",
+      "takeaway": "Match the expert, and commit to nothing else.",
+      "covers": "the principle of maximum entropy, entropy of dice and coins, a loaded die with a known average (our numbers), trajectories exponentially likely in their reward, maximum likelihood and the visit-count gradient, the algorithm and where it needs the dynamics, a 5×5 grid with lava learned from 30 demonstrations (our own run), guided cost learning and GAIL.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "Many rewards, one principle"
+        },
+        {
+          "t": "0:28",
+          "s": 28,
+          "title": "Entropy"
+        },
+        {
+          "t": "1:00",
+          "s": 60,
+          "title": "A loaded die"
+        },
+        {
+          "t": "1:34",
+          "s": 94,
+          "title": "Trajectories"
+        },
+        {
+          "t": "2:15",
+          "s": 135,
+          "title": "The gradient"
+        },
+        {
+          "t": "2:51",
+          "s": 171,
+          "title": "The algorithm"
+        },
+        {
+          "t": "3:21",
+          "s": 201,
+          "title": "Our grid"
+        },
+        {
+          "t": "4:06",
+          "s": 246,
+          "title": "Beyond"
+        },
+        {
+          "t": "4:43",
+          "s": 283,
+          "title": "Recap"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep48.webp"
+    },
+    {
+      "ep": 49,
+      "youtube": "EiRZ50NsEcU",
+      "title": "From preferences to rewards",
+      "duration": "5:08",
+      "seconds": 307,
+      "hook": "Every pizza is a seven. Until there are two.",
+      "takeaway": "Comparisons are cheap; Bradley–Terry turns them into scores.",
+      "covers": "the ways humans can teach agents and what each costs, why pairwise comparisons beat ratings, the Bradley–Terry model, Condorcet, Copeland and Borda winners, fitting scores by maximum likelihood, five options recovered from noisy comparisons (our own runs), a rock-paper-scissors cycle no score can hold, and rewards for whole trajectories.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "Kinds of feedback"
+        },
+        {
+          "t": "0:46",
+          "s": 46,
+          "title": "The effort line"
+        },
+        {
+          "t": "1:12",
+          "s": 72,
+          "title": "Why pairs"
+        },
+        {
+          "t": "1:40",
+          "s": 100,
+          "title": "Bradley–Terry"
+        },
+        {
+          "t": "2:24",
+          "s": 144,
+          "title": "Who wins?"
+        },
+        {
+          "t": "2:55",
+          "s": 175,
+          "title": "Fitting the scores"
+        },
+        {
+          "t": "3:29",
+          "s": 209,
+          "title": "Our five options"
+        },
+        {
+          "t": "3:57",
+          "s": 237,
+          "title": "A cycle"
+        },
+        {
+          "t": "4:28",
+          "s": 268,
+          "title": "Recap"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep49.webp"
+    },
+    {
+      "ep": 50,
+      "youtube": "dR-fbVpup1g",
+      "title": "RLHF: from backflips to chatbots",
+      "duration": "5:30",
+      "seconds": 329,
+      "hook": "About 900 clicks taught a robot to backflip.",
+      "takeaway": "Learn a reward from people, then optimise it on a leash.",
+      "covers": "reward models from trajectory comparisons, the backflip, the three-stage recipe for language models, training and checking the reward model, the KL leash, InstructGPT and ChatGPT, and a 40-answer toy where pushing too hard finds confident, wrong answers (our own runs).",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "A reward model"
+        },
+        {
+          "t": "0:37",
+          "s": 37,
+          "title": "The backflip"
+        },
+        {
+          "t": "1:11",
+          "s": 71,
+          "title": "Three stages"
+        },
+        {
+          "t": "1:51",
+          "s": 111,
+          "title": "The reward model"
+        },
+        {
+          "t": "2:31",
+          "s": 151,
+          "title": "On a leash"
+        },
+        {
+          "t": "3:02",
+          "s": 182,
+          "title": "InstructGPT and ChatGPT"
+        },
+        {
+          "t": "3:36",
+          "s": 216,
+          "title": "Our toy"
+        },
+        {
+          "t": "4:19",
+          "s": 259,
+          "title": "Pulling the leash"
+        },
+        {
+          "t": "5:02",
+          "s": 302,
+          "title": "Recap"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep50.webp"
+    },
+    {
+      "ep": 51,
+      "youtube": "YyvUUI3Ym8k",
+      "title": "The limits of RLHF",
+      "duration": "5:26",
+      "seconds": 326,
+      "hook": "When a measure becomes a target, it ceases to be a good measure.",
+      "takeaway": "Learning from humans is hard, which makes it interesting.",
+      "covers": "reward hacking and Goodhart's law, unreliable and stylistic preferences, where labels come from and whose opinions models reflect, Condorcet's paradox, best-of-n and its own over-optimisation (our own runs), direct preference optimisation, three quick checks, and a look back at the whole season.",
+      "chapters": [
+        {
+          "t": "0:00",
+          "s": 0,
+          "title": "Goodhart"
+        },
+        {
+          "t": "0:44",
+          "s": 44,
+          "title": "Unreliable preferences"
+        },
+        {
+          "t": "1:20",
+          "s": 80,
+          "title": "Where labels come from"
+        },
+        {
+          "t": "1:52",
+          "s": 112,
+          "title": "Condorcet's paradox"
+        },
+        {
+          "t": "2:36",
+          "s": 156,
+          "title": "Best-of-n"
+        },
+        {
+          "t": "3:11",
+          "s": 191,
+          "title": "DPO"
+        },
+        {
+          "t": "3:38",
+          "s": 218,
+          "title": "Three checks"
+        },
+        {
+          "t": "4:11",
+          "s": 251,
+          "title": "The season"
+        },
+        {
+          "t": "4:49",
+          "s": 289,
+          "title": "Goodbye"
+        }
+      ],
+      "thumb": "rl-course/img/episodes/ep51.webp"
+    }
+  ],
+  "labs": [
+    {
+      "id": "bandit-lab",
+      "lecture": 2,
+      "title": "Bandit lab",
+      "icon": "ri-scales-3-line",
+      "text": "Pull the arms of a multi-armed bandit with ε-greedy, UCB or Thompson sampling. Change the number of arms, let the hidden reward chances drift, and watch estimates, regret and the gap to an oracle evolve.",
+      "intro": "The bandit setting isolates the exploration problem: there is no map, no future state and no path planning. Each pull simply asks whether your current estimates are good enough to exploit, or whether you should keep probing the alternatives."
+    },
+    {
+      "id": "dp-lab",
+      "lecture": 3,
+      "title": "Dynamic programming lab",
+      "icon": "ri-grid-line",
+      "text": "Watch policy evaluation, value iteration and policy iteration sweep a small gridworld. Change the discount, make moves slippery, add walls, and see the values settle and the greedy arrows lock in.",
+      "intro": "Here the model is known: every move costs −1 and the two shaded corners end the episode, as in the 4×4 gridworld of Sutton and Barto (Example 4.1). Each sweep applies a Bellman equation once to every cell."
+    },
+    {
+      "id": "contraction-lab",
+      "lecture": 4,
+      "title": "Contraction lab",
+      "icon": "ri-focus-2-line",
+      "text": "Start two different value functions on a small random MDP and apply the Bellman operator to both, again and again. The distance between them shrinks by at least a factor γ each time, so both end at the same fixed point.",
+      "intro": "This is the contraction argument of Lecture 4, run instead of proved: ‖T u − T w‖∞ ≤ γ ‖u − w‖∞. The dashed line is the bound γᵏ ‖u₀ − w₀‖∞; the measured distance never goes above it."
+    },
+    {
+      "id": "td-mc-lab",
+      "lecture": 5,
+      "title": "TD vs Monte Carlo lab",
+      "icon": "ri-footprint-line",
+      "text": "A random walk over five states, A to E. Monte Carlo and TD(0) learn from the very same episodes. Compare their estimates with the true values, and their error curves averaged over a hundred runs.",
+      "intro": "The random walk of Sutton and Barto (Example 6.2): every episode starts in the middle, at C, and steps left or right with equal chance. Leaving on the right pays 1, on the left 0, so the true values are 1/6, 2/6, …, 5/6."
+    },
+    {
+      "id": "gridworld-lab",
+      "lecture": 6,
+      "title": "Gridworld lab",
+      "icon": "ri-route-line",
+      "text": "Train Q-learning or SARSA on a small gridworld with hazards and walls. Tune ε, the step size and the discount, add slippery actions, and watch the value map and the greedy policy sharpen episode by episode.",
+      "intro": "The gridworld keeps the idea compact but brings in state, path dependence and delayed rewards. Watch the agent trade immediate moves against long-run return while the learned policy map gradually sharpens. It starts by connecting the bandit of Lecture 2 to sequential decisions."
+    },
+    {
+      "id": "mountain-car-lab",
+      "lecture": 7,
+      "title": "Mountain Car lab",
+      "icon": "ri-car-line",
+      "text": "An underpowered car must rock back and forth to climb a hill. Train linear SARSA on tile-coded features, watch the steps per episode drop, look at the learned cost-to-go, and replay the greedy policy.",
+      "intro": "Tile coding turns the two numbers of the state, position and velocity, into a handful of active features out of thousands, and the value is a weighted sum of them. The setup follows Sutton and Barto (Example 10.1): −1 per step, weights start at zero (which is optimistic), and the agent acts greedily."
+    },
+    {
+      "id": "mcts-lab",
+      "lecture": 9,
+      "title": "MCTS lab",
+      "icon": "ri-node-tree",
+      "text": "Play tic-tac-toe against Bit, who plans with Monte Carlo tree search: random play-outs, and UCB to choose which branch to try next. Change how many simulations it gets and look inside its last search.",
+      "intro": "Before each move Bit runs a number of simulations from the current board. Each one walks down the tree by UCB, adds a node, plays randomly to the end and backs the result up. Then Bit plays the move it visited most."
+    },
+    {
+      "id": "pg-bandit-lab",
+      "lecture": 10,
+      "title": "Policy-gradient bandit lab",
+      "icon": "ri-equalizer-line",
+      "text": "Learn a softmax policy directly with the gradient-bandit (REINFORCE) update, with or without a baseline. Shift every reward up by a constant and see why the baseline matters.",
+      "intro": "Ten arms, each paying a noisy reward around its own hidden mean. The policy is a softmax over preferences H, and each pull moves H along the score-function gradient: H(a) += α (R − b)(1[a = A] − π(a)). The setup follows Sutton and Barto (Section 2.8)."
+    },
+    {
+      "id": "bt-lab",
+      "lecture": 12,
+      "title": "Bradley–Terry lab",
+      "icon": "ri-thumb-up-line",
+      "text": "Compare answers two at a time, the way people label data for RLHF, and watch a Bradley–Terry model turn your choices into a score for each answer. Add simulated comparisons and see how many it needs.",
+      "intro": "The Bradley–Terry model says P(i beats j) = σ(rᵢ − rⱼ). Fitting the scores r to comparisons is the reward-model step of RLHF. The six answers are made up for this lab."
+    }
+  ],
+  "games": [
+    {
+      "id": "markovs-maze",
+      "title": "Markov’s Maze",
+      "url": "https://mm.teddylazebnik.com/",
+      "img": "rl-course/img/games/markovs-maze.webp",
+      "tagline": "A maze where every step is a roll of the dice.",
+      "text": "Each rune tile resolves your move with its own five probabilities: where you meant to go, the opposite way, left, right, or stay. Reach the goal seal without falling into traps or lava, while cursed knights patrol.",
+      "learn": [
+        "Stochastic transitions",
+        "Planning under uncertainty",
+        "Markov decision processes"
+      ],
+      "lectures": [
+        1,
+        3
+      ]
+    },
+    {
+      "id": "echo-heist",
+      "title": "Echo Heist",
+      "url": "https://eh.teddylazebnik.com/",
+      "img": "rl-course/img/games/echo-heist.webp",
+      "tagline": "Teach a little robot. Steal back a city.",
+      "text": "Choose what your partner Echo senses, which actions it can take and what success means, then let a real learner train in your browser: tabular, planning, policy-gradient, deep-RL or imitation. When the door opens, the policy is frozen and Echo runs with what it learned.",
+      "learn": [
+        "State, actions and reward design",
+        "Training a learner",
+        "Many families of RL methods"
+      ],
+      "lectures": [
+        1,
+        6,
+        8,
+        9,
+        10,
+        12
+      ]
+    },
+    {
+      "id": "pirates-war",
+      "title": "Pirates War RL",
+      "url": "https://rl.teddylazebnik.com/",
+      "img": "rl-course/img/games/pirates-war.webp",
+      "tagline": "Code your captain. Read the sea.",
+      "text": "A naval strategy game where every decision belongs to an agent. Write your own captain in sandboxed JavaScript, Dense JSON or a restricted TensorFlow.js package, then raid, defend and capture flags against rival agents, with or without fog of war.",
+      "learn": [
+        "Writing your own agent",
+        "Partial observability",
+        "Multi-agent play"
+      ],
+      "lectures": [
+        1,
+        8
+      ]
+    }
+  ]
+}

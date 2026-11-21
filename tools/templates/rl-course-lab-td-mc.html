@@ -1,0 +1,50 @@
+<!-- Used by tools/build_rl_course.py: the TD vs Monte Carlo lab (Lecture 5) of the RL course. Script: js/rl-labs.js (data-rlx="tdmc"), styles: css/rl-labs.css + css/exploration-lab.css. -->
+      <div class="rlx" id="td-mc-lab" data-rlx="tdmc">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">Same episodes, two ways to learn from them</h3>
+          <p class="rlx-sub">All rewards are 0 except leaving on the right, which pays 1. No discounting (γ = 1). Both estimates start at 0.5 in every state.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">Monte Carlo</div>
+              <div class="formula-line"><span class="formula-chip">V(s) ← V(s) + α (G − V(s))</span></div>
+              <p class="math-card-copy">Wait until the episode ends, then move every visited state towards the return G it actually got (every visit counts).</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">TD(0)</div>
+              <div class="formula-line"><span class="formula-chip">V(s) ← V(s) + α (r + V(s′) − V(s))</span></div>
+              <p class="math-card-copy">Update after every step, towards the reward plus the current estimate of the next state: learning a guess from a guess.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">The error</div>
+              <div class="formula-line"><span class="formula-chip">RMS = √( mean over A–E of (V(s) − v(s))² )</span></div>
+              <p class="math-card-copy">The true values v are 1/6 … 5/6. Constant step sizes never settle exactly, so the error levels off instead of reaching 0.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Controls">
+            <div><h4 class="rlx-h">Controls</h4><p class="rlx-sub">Both learners always see the same episodes.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="tmAlphaTD">TD step size α</label><span class="control-value" data-k="atd-out">0.10</span></div><input id="tmAlphaTD" data-k="atd" type="range" min="0.01" max="0.3" step="0.01" value="0.1"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="tmAlphaMC">Monte Carlo step size α</label><span class="control-value" data-k="amc-out">0.02</span></div><input id="tmAlphaMC" data-k="amc" type="range" min="0.01" max="0.3" step="0.01" value="0.02"></div>
+            <div class="rlx-btns"><button type="button" data-k="ep1" class="control-button control-button-secondary"><i class="ri-skip-forward-line" aria-hidden="true"></i>1 episode</button><button type="button" data-k="ep10" class="control-button control-button-secondary"><i class="ri-play-line" aria-hidden="true"></i>10 episodes</button><button type="button" data-k="ep100" class="control-button control-button-primary"><i class="ri-speed-line" aria-hidden="true"></i>100 episodes</button><button type="button" data-k="reset" class="control-button control-button-ghost"><i class="ri-restart-line" aria-hidden="true"></i>Reset</button><button type="button" data-k="avg" class="control-button control-button-secondary is-wide"><i class="ri-bar-chart-2-line" aria-hidden="true"></i>Average 100 runs of 100 episodes</button></div>
+            <p class="rlx-hint">The average uses the step sizes above and fresh random episodes, separately from your run.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Episodes</div><div class="metric-value" data-k="eps">0</div></div><div class="metric-tile"><div class="metric-label">RMS error, TD</div><div class="metric-value" data-k="rmstd">–</div></div><div class="metric-tile"><div class="metric-label">RMS error, MC</div><div class="metric-value" data-k="rmsmc">–</div></div><div class="metric-tile"><div class="metric-label">Last episode</div><div class="metric-value" data-k="last">–</div></div></div>
+              <div class="rlx-card"><div class="rlx-walk" data-k="walk" aria-hidden="true"><span class="is-end">0</span><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span class="is-end">1</span></div><p class="rlx-path" data-k="path">Press <b>1 episode</b> to watch a walk.</p></div>
+            <div class="rlx-two">
+              <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Estimates and true values</h4><p class="rlx-sub">Value of each state after the episodes so far.</p></div></div>
+                <div class="chart-shell"><svg data-k="est" role="img" aria-label="Estimated values per state"></svg></div>
+                <div class="rlx-legend" data-k="est-legend"><span class="line-swatch is-dash" style="--swatch:#94a3b8">true value</span><span class="line-swatch" style="--swatch:#2563eb">TD(0)</span><span class="line-swatch" style="--swatch:#e11d48">Monte Carlo</span></div>
+              </div>
+              <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Error over episodes</h4><p class="rlx-sub"><span data-k="errsub">Your run, one episode at a time.</span></p></div></div>
+                <div class="chart-shell"><svg data-k="err" role="img" aria-label="RMS error per episode"></svg></div>
+                <div class="rlx-legend" data-k="err-legend"><span class="line-swatch" style="--swatch:#2563eb">TD(0)</span><span class="line-swatch" style="--swatch:#e11d48">Monte Carlo</span></div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>

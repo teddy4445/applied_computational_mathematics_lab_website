@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_rl_course.py from data/rl-course.json. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Lecture 7: Function approximation | Reinforcement Learning Course | ACML</title>
+      <meta name="description" content="Lecture 7 of 12 of ACML’s introduction to reinforcement learning. Features and gradient descent, linear and non-linear values, the deadly triad, batch methods and a first look at DQN: slides, 3 short episodes and an interactive lab.">
+      <meta name="author" content="Teddy Lazebnik">
+      <meta name="keywords" content="reinforcement learning, function approximation, RL course, lecture slides, ACML Explains">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/rl-course/lecture-07/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Lecture 7: Function approximation · Introduction to Reinforcement Learning">
+      <meta property="og:description" content="Lecture 7 of 12 of ACML’s introduction to reinforcement learning. Features and gradient descent, linear and non-linear values, the deadly triad, batch methods and a first look at DQN: slides, 3 short episodes and an interactive lab.">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/rl-course/lecture-07/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/rl-course/lecture-07/share.jpg">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Lecture 7: Function approximation · Introduction to Reinforcement Learning">
+      <meta name="twitter:description" content="Lecture 7 of 12 of ACML’s introduction to reinforcement learning. Features and gradient descent, linear and non-linear values, the deadly triad, batch methods and a first look at DQN: slides, 3 short episodes and an interactive lab.">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/rl-course/lecture-07/share.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "Lecture 7: Function approximation",
+        "description": "When there are too many states for a table: features and gradient descent, linear value functions and tile coding, control with approximation, convergence and the deadly triad, batch methods such as LSTD, and a first look at deep Q-networks.",
+        "url": "https://acml.teddylazebnik.com/rl-course/lecture-07/",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "learningResourceType": [
+          "Lecture slides",
+          "Video"
+        ],
+        "teaches": "Features and gradient descent, linear and non-linear values, the deadly triad, batch methods and a first look at DQN",
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Introduction to Reinforcement Learning",
+          "url": "https://acml.teddylazebnik.com/rl-course/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Teddy Lazebnik",
+          "url": "https://teddylazebnik.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Applied Computational Mathematics Laboratory",
+          "url": "https://acml.teddylazebnik.com/"
+        },
+        "hasPart": [
+          {
+            "@type": "VideoObject",
+            "name": "Too many states",
+            "description": "Ten to the hundred and seventy states. One per atom, and you run out of atoms. Time to stop using tables.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/rl-course/img/episodes/ep24.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/1tt28VaP95o",
+            "duration": "PT5M14S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Circles, tiles and a car",
+            "description": "Life is not linear. But with the right features, a straight line goes a very long way.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/rl-course/img/episodes/ep25.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/j5mHHrUVsQ4",
+            "duration": "PT5M12S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "When learning blows up",
+            "description": "Two states, one weight, every reward zero. And the value grows twenty two hundred times in a hundred updates.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/rl-course/img/episodes/ep26.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/xj-OUXnqQPI",
+            "duration": "PT5M38S"
+          },
+          {
+            "@type": "DigitalDocument",
+            "name": "Lecture 7 slides",
+            "encodingFormat": "application/pdf",
+            "url": "https://acml.teddylazebnik.com/rl-course/slides/ACML_RL_Lecture07_Function_Approximation.pdf"
+          }
+        ]
+      }
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      <link href="/css/videos.css" rel="stylesheet">
+      <link href="/css/exploration-lab.css" rel="stylesheet">
+      <link href="/css/rl-labs.css" rel="stylesheet">
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/project.css" rel="stylesheet">
+      <link href="/css/rl-course.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Tools</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="proj-page rl-page bg-white">
+    <header class="proj-hero rl-hero">
+      <div class="proj-wrap proj-hero-grid">
+        <div>
+          <nav class="proj-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/tools.html">Tools</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/rl-course/">RL course</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Lecture 7</span></nav>
+          <p class="proj-kicker"><span><i class="ri-graduation-cap-line" aria-hidden="true"></i>Introduction to Reinforcement Learning</span><span>Part 2 · Learning from experience</span></p>
+          <h1 class="proj-title"><small>Lecture 7</small>Function approximation</h1>
+          <p class="proj-about-lead rl-summary">When there are too many states for a table: features and gradient descent, linear value functions and tile coding, control with approximation, convergence and the deadly triad, batch methods such as LSTD, and a first look at deep Q-networks.</p>
+          <div class="rl-goal"><i class="ri-focus-3-line" aria-hidden="true"></i><span>By the end you should be able to write MC and TD updates with features, explain why TD can diverge, and name the parts of DQN.</span></div>
+          <h2 class="proj-h3 rl-ideas-title">Key ideas, one per episode</h2>
+          <ul class="rl-ideas"><li><a href="#ep-24">Ep. 24</a><span>Generalise: let similar states share what they learn.</span></li><li><a href="#ep-25">Ep. 25</a><span>Good features take a line a long way.</span></li><li><a href="#ep-26">Ep. 26</a><span>Approximation, bootstrapping, off-policy: handle with care.</span></li></ul>
+          <p class="rl-source"><b>Based on:</b> Lecture 7: Function Approximation in Reinforcement Learning, DeepMind × UCL Reinforcement Learning Lecture Series (2021), by Hado van Hasselt. The slides follow that order of topics, in our own words, figures and examples; they are not official material of the original course.</p>
+        </div>
+        <div class="rl-first">
+          <a class="rl-first-img" href="/rl-course/slides/ACML_RL_Lecture07_Function_Approximation.pdf" target="_blank" rel="noopener"><img src="/rl-course/img/slides/l07-s01.webp" alt="The title slide of Lecture 7: Function approximation" width="960" height="540" fetchpriority="high" decoding="async"></a>
+          <p class="rl-first-text">50 slides, written to be read on your own, with worked examples, “try it” boxes, small simulations and check-yourself questions (answers at the end). PDF, 1.4 MB.</p>
+          <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="/rl-course/slides/ACML_RL_Lecture07_Function_Approximation.pdf" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Open the PDF</a><a class="proj-btn" href="/rl-course/slides/ACML_RL_Lecture07_Function_Approximation.pdf" download><i class="ri-download-2-line" aria-hidden="true"></i>Download</a></div>
+        </div>
+      </div>
+    </header>
+    <nav class="proj-subnav is-mobile-only" aria-label="Sections of this page"><div class="proj-wrap"><ul><li><a href="#watch">Watch</a></li><li><a href="#lab">Lab</a></li><li><a href="#next">Next</a></li></ul></div></nav>
+    <section id="watch" class="proj-section is-soft" aria-labelledby="watch-title"><div class="proj-wrap">
+      <h2 id="watch-title" class="proj-h2">Watch</h2>
+      <p class="proj-lead">3 short episodes of ACML Explains for this lecture. Pick one from the list, and open the transcript to read along: each timestamp plays the episode from there. The narration is generated with a voice clone of Teddy, used with his permission.</p>
+      <div class="rl-watch">
+        <div class="rl-player-wrap">
+          <div id="rl-player" class="yt-player yt-16x9" data-yt-id="1tt28VaP95o" data-yt-title="Too many states"><a class="yt-play" href="https://www.youtube.com/watch?v=1tt28VaP95o&amp;list=PLLTavI7DAgbE" aria-label="Play episode 24: Too many states"><img src="/rl-course/img/episodes/ep24.webp" alt="" width="640" height="360" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div>
+          <div class="rl-now">
+            <p id="rl-now-num" class="rl-now-num">Episode 24 · 5:15</p>
+            <p id="rl-now-title" class="rl-now-title">Too many states</p>
+            <p id="rl-now-hook" class="rl-now-hook">Ten to the hundred and seventy states. One per atom, and you run out of atoms. Time to stop using tables.</p>
+            <p id="rl-now-take" class="rl-now-take"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i><span>Generalise: let similar states share what they learn.</span></p>
+          </div>
+            <details id="rl-tx" class="rl-tx">
+              <summary><i class="ri-file-text-line" aria-hidden="true"></i>Transcript<span id="rl-tx-which">Episode 24</span><i class="ri-arrow-down-s-line rl-tx-caret" aria-hidden="true"></i></summary>
+              <div class="rl-tx-body"><div class="rl-tx-ep" data-ep="24"><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="0" aria-label="Play from 0:00">0:00</button><div><h4>The Q-table</h4><p>Module seven. We&#x27;re past halfway now. So far, every value lived in a table. Rows are states, columns are actions, and each cell holds a q value. The upside: it&#x27;s child&#x27;s play. The downsides: it&#x27;s sparse, because most actions make no sense in most states. It&#x27;s huge. And it may not fit in memory. And worst of all: the table has no idea that two neighbouring states are related.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="29" aria-label="Play from 0:29">0:29</button><div><h4>Too many states</h4><p>The sentence to remember from this module: too many states to visit them all. Backgammon, a fairly simple game, has about ten to the twenty states. The observable universe has about ten to the eighty atoms. Go has about ten to the hundred and seventy states. Give each state its own atom, and you run out of atoms. And a robot&#x27;s sensors are continuous: infinitely many states. Chop them into bins, and the count explodes anyway. So we can&#x27;t visit every state. Not even close. We&#x27;ll only ever see a sliver of them.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="62" aria-label="Play from 1:02">1:02</button><div><h4>The gold bag</h4><p>Here&#x27;s the example I use in class. A computer game. You keep finding a bag with ninety nine gold coins. You found it many times, and the reward averaged ninety nine. Now you find a bag with a hundred coins. What&#x27;s the reward? Everyone says a hundred. Everyone. You just made two hidden assumptions. One: more gold is better. Who told you that? Two: the relation is roughly linear, at least nearby. Ask about a thousand coins, and a room of economists will say less than a thousand. Diminishing returns. Mathematically, it&#x27;s not true. Practically, it&#x27;s excellent. Notice what you did: you generalised from states you saw, to a state you never saw.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="101" aria-label="Play from 1:41">1:41</button><div><h4>Neighbourhoods</h4><p>A table can&#x27;t do that. State ninety nine, visited a hundred times, tells it nothing about state one hundred. They&#x27;re just two rows. I never defined any relation between them. Functions have neighbourhoods. Anyone remember calculus one? Any calculus one traumas? A neighbourhood is exactly what a table doesn&#x27;t have. So we write v of s as a function with weights w, and we learn the weights. Nothing changes except the representation. Monte Carlo and TD still work. Pick the weights well, and one learned number covers a whole neighbourhood of states.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="133" aria-label="Play from 2:13">2:13</button><div><h4>Aggregation and the ladder</h4><p>The simplest function is state aggregation. Ninety to a hundred coins? Call it one state. Groups of ten make the problem ten times smaller. But good groups are hard to find in practice. In the gold game, a bag of ninety one and a bag of ninety nine become the same thing. Close enough. Then linear functions: a weight for every feature. Then anything differentiable, like a neural network. Tables and aggregation are special cases of linear. Each step up generalises more, and promises less.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="164" aria-label="Play from 2:44">2:44</button><div><h4>The rubber band</h4><p>And reinforcement learning data is weird. Here&#x27;s a game from class. Map a room in an hour, by taking random steps. Walk long enough, and you cover every corner. Now play again, tied to one corner with a rubber band. The farther you go, the harder it pulls. We simulated both: twenty thousand steps, in a room of twenty one by twenty one squares. Free, Bit visits every square. Tied, he reaches about a third of the room, and never the far corner. The bias is in the sampling, not in the room. Chess is the same. One game is shaped by its opening. You can&#x27;t jump to a random board. And Bit chooses his own data. If he exploits, he samples around his current policy, and nowhere else. In supervised learning, someone hands you the data. Here, the learner and the data collector are the same agent. How to sample well, when you&#x27;re tied to your own experience, is still an open research problem.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="220" aria-label="Play from 3:40">3:40</button><div><h4>Moving data</h4><p>And the data keeps moving. Supervised learning assumes the data doesn&#x27;t care what you predict. In reinforcement learning, the policy changes as you learn, so the data changes too. Bootstrapping makes the targets move. And sometimes the world itself moves. Warehouse robots in the holiday rush live in a different world than in the quiet season. A student once suggested putting time into the state. Great idea. Doesn&#x27;t work. So: not independent, and not stationary. Two assumptions of supervised learning, both gone.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="252" aria-label="Play from 4:12">4:12</button><div><h4>Gradient descent</h4><p>So how do we learn the weights? Gradient descent. You know the picture: hills, valleys, and a ball rolling down. Not every course has to reinvent the wheel. The hill is the squared error between the true value and ours. We step downhill, a little at a time. We don&#x27;t know the true value, so we sample. The update is the step size, times the error, times the gradient. That&#x27;s stochastic gradient descent. One sample, one small step. And small steps matter. Big ones overshoot the valley. With Monte Carlo, the target is the real return. With TD, it&#x27;s a reward plus our own guess. Remember that. It&#x27;ll bite us later.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="290" aria-label="Play from 4:50">4:50</button><div><h4>Recap</h4><p>Too many states, so we generalise. A table remembers. A function guesses, and guessing well is the whole game. Next time: features. Circles, tiles, a car stuck in a valley, and the most dangerous line in statistics.</p></div></div></div><div class="rl-tx-ep" data-ep="25" hidden><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="0" aria-label="Play from 0:00">0:00</button><div><h4>Feature vectors</h4><p>A linear value function needs features. A feature vector, x of s, describes the state with numbers. The distance of a robot from some landmarks. Trends in the stock market. Which pieces stand where on a chessboard. Then the value is a weighted sum: each feature, times its weight. In the gold game, one feature is enough: the number of coins. Learn a weight of one, and a hundred coins means a hundred. Choose the features, and you choose what the learner can and can&#x27;t notice.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="34" aria-label="Play from 0:34">0:34</button><div><h4>The update</h4><p>The update is beautifully simple: the step size, times the prediction error, times the feature vector. A classic. Features that were active get the blame, or the credit. The error says how far the prediction missed. The features say which weights were involved. For linear functions, the error surface is a bowl. Monte Carlo slides to the bottom: the best fit there is. You could also log states and returns, and fit a regression afterwards. People do. But the returns are noisy. It converges, but it&#x27;s noisy. High variance, as always with Monte Carlo.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="67" aria-label="Play from 1:07">1:07</button><div><h4>Life is not linear</h4><p>But life is not linear. Anyone who tells you it&#x27;s linear is lying. Hooke&#x27;s law: pull a spring, and the force grows linearly. Up to a point. Pull harder, and the spring deforms, then breaks. Heat it, and the constant changes. Then you meet the second order differential equation, and find out you&#x27;ve been lied to your whole life. So linear only works with good features. And choosing them is the hard part. Physics teachers start with the linear version for a reason. It&#x27;s a great first approximation. Just not the last one.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="101" aria-label="Play from 1:41">1:41</button><div><h4>x(s) in code</h4><p>A practical note: x of s doesn&#x27;t really exist in code. There&#x27;s no function called map to vector. You write the state in your chosen representation from the start. In the gold game, the state already is a number of coins. The feature vector is just that number.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="116" aria-label="Play from 1:56">1:56</button><div><h4>Coarse coding</h4><p>One classic way to build features is coarse coding. Scatter circles over the state space. Each circle is one feature: one if the state is inside it, zero if not. A state lights up a few overlapping circles. Learn from it, and nearby states that share those circles learn too. It&#x27;s a bit like a mixture of Gaussians, laid over the states. Small circles: narrow, precise generalisation. Big circles: broad and rough, with fewer features to learn. Stretch the circles, and they generalise more in one direction than the other. And the size of the circles is a design choice, made before learning starts.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="154" aria-label="Play from 2:34">2:34</button><div><h4>Tile coding</h4><p>Tile coding is the tidy version. Lay a grid over the space. Then another one, shifted a little. Then another. A state falls into exactly one tile per grid. Eight grids, eight active features. Always. Each grid on its own is coarse. Together, they pin the state down much more finely. And the number of active features never changes, so every update costs the same. Cheap, fast, and surprisingly good. That&#x27;s why tile coding was a favourite for years, before deep networks took over.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="185" aria-label="Play from 3:05">3:05</button><div><h4>One point, infinitely many lines</h4><p>Now, a warning. Fit a line through one point. How many lines are there? Infinitely many. Your solver hands you one of them: a random line. The most dangerous kind of thing: technically possible, practically terrible. When the variance blows up, the code crashes, and you notice. This one runs fine and returns garbage. And then you debug it forever. With features, the lesson is that each weight needs data from enough different states. A feature that fires in only one state has nothing to generalise from. So when your results look too clean, check how many states each feature has actually seen.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="218" aria-label="Play from 3:38">3:38</button><div><h4>Mountain Car</h4><p>Let&#x27;s try it on a classic: Mountain Car. A weak car, stuck in a valley. The engine can&#x27;t climb the hill directly. The car has to rock back and forth to build up speed. The state is position and velocity: two continuous numbers. A table can&#x27;t hold that. The car starts near the bottom of the valley, with zero speed. Every step costs one, until it reaches the top on the right. Our run: linear SARSA, with eight tilings of eight by eight, averaged over ten runs. All the weights start at zero. Since every step costs one, zero looks optimistic. So the car explores on its own, without ε. The first episode takes about sixteen hundred steps. After three hundred episodes: about a hundred and twenty five. The learned cost to go peaks at the bottom of the valley, standing still. It drops steeply wherever the car already has enough swing. One global line would be terrible here. Many small tiles, each with its own weight, do the job.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="279" aria-label="Play from 4:39">4:39</button><div><h4>The best you can do</h4><p>With function approximation, control reaches the best your approximator can do. A perfect approximator gets you the optimum. Anything less, and it doesn&#x27;t. That&#x27;s why, from linear on, I stop promising you the optimum. But the best your approximator can do is often very, very good. And the better the features, the closer that gets to the real thing. Next time: what happens when learning doesn&#x27;t just miss the optimum, but blows up.</p></div></div></div><div class="rl-tx-ep" data-ep="26" hidden><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="0" aria-label="Play from 0:00">0:00</button><div><h4>The ladder of promises</h4><p>Every step up the ladder buys power and costs promises. Today, let&#x27;s be precise about the cost. Tables: a global optimum, guaranteed. The only place in your academic life where anyone ever promised you a global optimum. Linear sits in the middle: reasonable theory, as long as your features are good. Linear: decent answers, especially when states are sampled densely. Any smooth function looks linear up close. Neural networks: the cool kid on the block. Great in practice. No promises at all. Why none? Formally, you could be approximating a function that&#x27;s continuous everywhere and differentiable nowhere. The Weierstrass function. In class, I first called it Dirichlet. Even the lecturer makes mistakes. So the further up the ladder, the more we lean on practice, and the less on proofs.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="54" aria-label="Play from 0:54">0:54</button><div><h4>Monte Carlo converges</h4><p>Prediction first. Linear Monte Carlo always converges, to the weights with the smallest value error. Unless nothing happens at all. No dynamics, nothing to learn. Monte Carlo sees whole episodes. It has the global picture. Its answer depends only on the data and the features. The state doesn&#x27;t even have to be Markov. That makes Monte Carlo the safe default, when you can afford to wait.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="76" aria-label="Play from 1:16">1:16</button><div><h4>TD chases its tail</h4><p>TD is different. Its target, a reward plus our own guess, depends on the very weights we&#x27;re updating. So TD isn&#x27;t really rolling downhill. It&#x27;s chasing its own tail. Remember the ball rolling downhill? For TD, the hill moves every time the ball does. Mostly, that&#x27;s fine. TD belongs to a broader family of stochastic approximation methods, and those usually converge. Usually. Plain gradient descent always converges, with small enough steps and a fixed target. TD&#x27;s target isn&#x27;t fixed. When linear TD does converge, it lands near the Monte Carlo answer, not on it. Often faster,</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="115" aria-label="Play from 1:55">1:55</button><div><h4>w and 2w</h4><p>though. Here&#x27;s the classic counterexample. Two states. The first has feature one, the second has feature two. There&#x27;s one weight, w, so their values are w and two w. The reward between them is zero, so the true values are zero. Now update only the first state, again and again. Its target is γ times two w. If γ is above one half, the target is bigger than w. So w grows. Which makes the target grow. With γ at point nine and a step size of point one, w grows eight percent per update. After a hundred updates, it&#x27;s twenty two hundred times bigger. The truth is zero. Watch it compound. Every update multiplies w by one point zero eight. After ten updates, w has more than doubled. Nothing in the data is wrong. The rewards are all zero. The explosion comes entirely from the update. And this isn&#x27;t a rare corner case. Two states, one weight, and it already breaks.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="175" aria-label="Play from 2:55">2:55</button><div><h4>What saves it</h4><p>What saves it? Update both states, on-policy, along the episode. The second state&#x27;s update pulls w back down, harder. Now w shrinks, by about a third every episode. At γ point nine, that&#x27;s a multiplier of about point seven per episode. Almost nothing left after twenty episodes. Or use tabular features: one weight per state. Then it&#x27;s just regression. No explosion. Or look further ahead. With a λ-return, it&#x27;s safe once λ is above four ninths. Same features, same rewards: converge or explode. It depends on which states you update, and how often.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="212" aria-label="Play from 3:32">3:32</button><div><h4>The deadly triad</h4><p>What went wrong is a combination of three things. Function approximation: states share weights. Bootstrapping: targets use our own guesses. Off-policy: the updates don&#x27;t follow the episode. Together, they&#x27;re called the deadly triad. Any two of them are fine. All three, and learning may diverge. Think of a fire triangle: heat, fuel and oxygen. Take one away, and nothing burns. Off-policy shows up even when you don&#x27;t plan it. Replay old data, and you&#x27;re off-policy.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="243" aria-label="Play from 4:03">4:03</button><div><h4>The one table</h4><p>If you remember one thing from this module, let it be this table. Monte Carlo converges everywhere: table, linear, nonlinear, on-policy or off. TD on-policy: fine with tables and linear features. Not guaranteed with neural networks. TD off-policy: only the table is safe. For control, the picture is similar. Tabular Q-learning is safe. With function approximation, all bets are off.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="269" aria-label="Play from 4:29">4:29</button><div><h4>Over the hill</h4><p>Why does Monte Carlo do better? Picture a knight galloping up a hill, in thick fog. At the top, is there a higher hill, or a valley? TD is that knight. It only sees one step ahead. Monte Carlo already rode the whole way. It knows what came after the hill. But Monte Carlo needs episodes. If your task never ends, define one anyway: a day, or a week. Or use TD, carefully, and keep an eye on the triad. I once worked on a traffic light project. One junction. An episode was one day. Complaints about that junction: not to me. The day ends, the traffic resets, and you get a return. Imperfect, but usable.</p></div></div><div class="rl-tx-chap"><button type="button" class="rl-tx-t" data-s="308" aria-label="Play from 5:08">5:08</button><div><h4>Tracking</h4><p>For control with approximation, the theory is even thinner. And often we don&#x27;t even want convergence. We want tracking: a policy that keeps adapting as the world changes. That makes sense: the world drifts, and a policy that stopped learning would slowly get worse. Next time: squeeze more out of every sample with batches and replay. And meet DQN.</p></div></div></div></div>
+            </details>
+        </div>
+        <div class="rl-eps">
+          <div class="rl-eps-head"><b>Lecture 7 episodes</b><span>3 episodes · 16 min</span></div>
+          <ol><li id="ep-24"><a class="rl-ep is-active" data-ep="24" href="https://www.youtube.com/watch?v=1tt28VaP95o&amp;list=PLLTavI7DAgbE" aria-current=true><span class="rl-ep-thumb"><img src="/rl-course/img/episodes/ep24.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>5:15</span></span><span><span class="rl-ep-num">Episode 24</span><span class="rl-ep-title" style="display:block">Too many states</span><span class="rl-ep-take" style="display:block">Generalise: let similar states share what they learn.</span></span></a></li><li id="ep-25"><a class="rl-ep" data-ep="25" href="https://www.youtube.com/watch?v=j5mHHrUVsQ4&amp;list=PLLTavI7DAgbE"><span class="rl-ep-thumb"><img src="/rl-course/img/episodes/ep25.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>5:13</span></span><span><span class="rl-ep-num">Episode 25</span><span class="rl-ep-title" style="display:block">Circles, tiles and a car</span><span class="rl-ep-take" style="display:block">Good features take a line a long way.</span></span></a></li><li id="ep-26"><a class="rl-ep" data-ep="26" href="https://www.youtube.com/watch?v=xj-OUXnqQPI&amp;list=PLLTavI7DAgbE"><span class="rl-ep-thumb"><img src="/rl-course/img/episodes/ep26.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>5:38</span></span><span><span class="rl-ep-num">Episode 26</span><span class="rl-ep-title" style="display:block">When learning blows up</span><span class="rl-ep-take" style="display:block">Approximation, bootstrapping, off-policy: handle with care.</span></span></a></li></ol>
+        </div>
+      </div>
+      <script type="application/json" id="rl-episodes">[{"ep": 24, "youtube": "1tt28VaP95o", "title": "Too many states", "duration": "5:15", "hook": "Ten to the hundred and seventy states. One per atom, and you run out of atoms. Time to stop using tables.", "takeaway": "Generalise: let similar states share what they learn.", "thumbAbs": "/rl-course/img/episodes/ep24.webp"}, {"ep": 25, "youtube": "j5mHHrUVsQ4", "title": "Circles, tiles and a car", "duration": "5:13", "hook": "Life is not linear. But with the right features, a straight line goes a very long way.", "takeaway": "Good features take a line a long way.", "thumbAbs": "/rl-course/img/episodes/ep25.webp"}, {"ep": 26, "youtube": "xj-OUXnqQPI", "title": "When learning blows up", "duration": "5:38", "hook": "Two states, one weight, every reward zero. And the value grows twenty two hundred times in a hundred updates.", "takeaway": "Approximation, bootstrapping, off-policy: handle with care.", "thumbAbs": "/rl-course/img/episodes/ep26.webp"}]</script>
+    </div></section>
+    <section id="lab" class="rl-lab" aria-labelledby="lab-title">
+      <div class="proj-wrap rl-lab-head">
+        <p class="proj-label"><i class="ri-car-line" aria-hidden="true"></i>Interactive lab</p>
+        <h2 id="lab-title" class="proj-h2" style="margin-top:.5rem">Mountain Car lab</h2>
+        <p class="proj-lead">An underpowered car must rock back and forth to climb a hill. Train linear SARSA on tile-coded features, watch the steps per episode drop, look at the learned cost-to-go, and replay the greedy policy.</p>
+        <p class="proj-lead" style="margin-top:.6rem">Tile coding turns the two numbers of the state, position and velocity, into a handful of active features out of thousands, and the value is a weighted sum of them. The setup follows Sutton and Barto (Example 10.1): −1 per step, weights start at zero (which is optimistic), and the agent acts greedily.</p>
+      </div>
+      <div class="rlx" id="mountain-car-lab" data-rlx="car">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">A car, two numbers, and thousands of tiles</h3>
+          <p class="rlx-sub">The engine is too weak to drive straight up the right-hand hill, so the agent must learn to swing back first. The state is the position x and the velocity v.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">Dynamics</div>
+              <div class="formula-line"><span class="formula-chip">v ← v + 0.001 a − 0.0025 cos(3x)</span></div>
+              <div class="formula-line"><span class="formula-chip">x ← x + v</span>, with a ∈ {−1, 0, +1}</div>
+              <p class="math-card-copy">Bounded to x ∈ [−1.2, 0.5] and |v| ≤ 0.07. The episode ends at x = 0.5; every step costs −1.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Tile coding</div>
+              <div class="formula-line"><span class="formula-chip">q(s, a) = Σ over active tiles of wᵢ</span></div>
+              <p class="math-card-copy">Each tiling cuts the (x, v) square into 8 × 8 tiles, shifted a little; exactly one tile per tiling is active, so the features are sparse.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Semi-gradient SARSA</div>
+              <div class="formula-line"><span class="formula-chip">w ← w + α (r + q(s′, a′) − q(s, a)) ∇q(s, a)</span></div>
+              <p class="math-card-copy">The gradient is 1 on the active tiles and 0 elsewhere, so each step changes only a few weights. Here α = (step-size numerator) / tilings.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Controls">
+            <div><h4 class="rlx-h">Controls</h4><p class="rlx-sub">Train for a few episodes, then replay what the car has learned.</p></div>
+            <div class="rlx-field"><label class="rlx-label" for="mcTilings">Tilings</label><select id="mcTilings" data-k="tilings" class="control-select"><option value="4">4 tilings of 8 × 8</option><option value="8" selected>8 tilings of 8 × 8</option><option value="16">16 tilings of 8 × 8</option></select></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="mcAlpha">Step size α × tilings</label><span class="control-value" data-k="alpha-out">0.50</span></div><input id="mcAlpha" data-k="alpha" type="range" min="0.1" max="1" step="0.05" value="0.5"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="mcEps">Exploration ε</label><span class="control-value" data-k="eps-out">0.00</span></div><input id="mcEps" data-k="eps" type="range" min="0" max="0.2" step="0.01" value="0"></div>
+            <div class="rlx-btns"><button type="button" data-k="ep1" class="control-button control-button-secondary"><i class="ri-skip-forward-line" aria-hidden="true"></i>1 episode</button><button type="button" data-k="ep10" class="control-button control-button-secondary"><i class="ri-play-line" aria-hidden="true"></i>10 episodes</button><button type="button" data-k="ep100" class="control-button control-button-primary"><i class="ri-speed-line" aria-hidden="true"></i>100 episodes</button><button type="button" data-k="reset" class="control-button control-button-ghost"><i class="ri-restart-line" aria-hidden="true"></i>Reset</button><button type="button" data-k="replay" class="control-button control-button-secondary is-wide"><i class="ri-movie-line" aria-hidden="true"></i>Replay the greedy policy</button></div>
+            <p class="rlx-hint">Changing the tilings starts over. An episode stops at 5,000 steps if the car has not made it.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Episodes</div><div class="metric-value" data-k="eps">0</div></div><div class="metric-tile"><div class="metric-label">Steps, last episode</div><div class="metric-value" data-k="steps">–</div></div><div class="metric-tile"><div class="metric-label">Fewest steps</div><div class="metric-value" data-k="best">–</div></div><div class="metric-tile"><div class="metric-label">Active features</div><div class="metric-value" data-k="feat">–</div></div></div>
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">The weights start at 0, which is optimistic: every step costs −1, so untried actions look better than tried ones.</p>
+            <div class="rlx-two">
+              <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">The hill</h4><p class="rlx-sub">The car starts in the valley. Replay shows the greedy policy from x = −0.5 at rest.</p></div></div>
+                <canvas class="rlx-canvas is-hill" data-k="hill" role="img" aria-label="Mountain car on the hill"></canvas>
+                <h5 class="rlx-h" style="font-size:1rem;margin-top:1.1rem">Steps per episode</h5><p class="rlx-sub" style="margin-bottom:.6rem">On a log scale; lower is better.</p>
+                <div class="chart-shell"><svg data-k="chart" role="img" aria-label="Steps per episode"></svg></div>
+              </div>
+              <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Learned cost-to-go</h4><p class="rlx-sub">Steps to the goal, as the agent estimates them: −maxₐ q(x, v). Darker is further. The line is the last replay.</p></div></div>
+                <canvas class="rlx-canvas is-map" data-k="map" role="img" aria-label="Cost-to-go over position and velocity"></canvas>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="next" class="proj-section" aria-labelledby="next-title"><div class="proj-wrap">
+      <h2 id="next-title" class="proj-h2">Keep going</h2>
+      <div class="rl-pn"><a href="/rl-course/lecture-06/"><i class="ri-arrow-left-line" aria-hidden="true"></i><span><small>Previous · Lecture 6</small><strong>Model-free control</strong></span></a><a class="is-next" href="/rl-course/lecture-08/"><span><small>Next · Lecture 8</small><strong>Deep reinforcement learning</strong></span><i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+    </div></section>
+  </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Games</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/mayor-outbreak.html" class="hover:text-white">Mayor's outbreak game</a></li>
+                  <li><a href="https://mm.teddylazebnik.com/" class="hover:text-white">Markov Maze Game</a></li>
+                  <li><a href="https://rl.teddylazebnik.com/" class="hover:text-white">Pirate War RL Game</a></li>
+                  <li><a href="https://eh.teddylazebnik.com/" class="hover:text-white">Echo Heist</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/rl-course/" class="hover:text-white">RL course</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <script src="/js/videos.js"></script>
+      <script src="/js/rl-labs.js"></script>
+      <script src="/js/rl-course.js" defer></script>
+   </body>
+</html>

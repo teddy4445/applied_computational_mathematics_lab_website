@@ -1,0 +1,49 @@
+<!-- Used by tools/build_rl_course.py: the MCTS lab (Lecture 9) of the RL course. Script: js/rl-labs.js (data-rlx="mcts"), styles: css/rl-labs.css + css/exploration-lab.css. -->
+      <div class="rlx" id="mcts-lab" data-rlx="mcts">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">Search a little, with random play-outs</h3>
+          <p class="rlx-sub">Each simulation has four steps. More simulations mean better estimates near the top of the tree.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">1. Select</div>
+              <div class="formula-line"><span class="formula-chip">Q/N + c √( ln N(parent) / N )</span></div>
+              <p class="math-card-copy">From the root, go down to the child with the highest UCB score: good so far (Q/N), or tried too little.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">2. Expand, 3. Play out</div>
+              <div class="formula-line">Add one new child, then play random moves to the end of the game.</div>
+              <p class="math-card-copy">No knowledge of tic-tac-toe is used beyond its rules: the play-out is completely random.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">4. Back up</div>
+              <div class="formula-line">Win <span class="formula-chip">1</span> draw <span class="formula-chip">½</span> loss <span class="formula-chip">0</span></div>
+              <p class="math-card-copy">Add the result to N and Q of every node on the path, each from the view of the player who made that move. Then play the most visited move.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Controls">
+            <div><h4 class="rlx-h">Controls</h4><p class="rlx-sub">You play <b data-k="mark">X</b>. Click a square on the board.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="mtSims">Simulations per move</label><span class="control-value" data-k="sims-out">250</span></div><input id="mtSims" data-k="sims" type="range" min="0" max="8" step="1" value="4"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="mtC">Exploration constant c</label><span class="control-value" data-k="c-out">1.4</span></div><input id="mtC" data-k="c" type="range" min="0.2" max="3" step="0.1" value="1.4"></div>
+            <div class="rlx-btns"><button type="button" data-k="newyou" class="control-button control-button-primary is-wide"><i class="ri-user-line" aria-hidden="true"></i>New game, you start</button><button type="button" data-k="newbit" class="control-button control-button-secondary is-wide"><i class="ri-robot-2-line" aria-hidden="true"></i>New game, Bit starts</button><button type="button" data-k="hint" class="control-button control-button-ghost is-wide"><i class="ri-lightbulb-line" aria-hidden="true"></i>Ask Bit for a hint</button></div>
+            <p class="rlx-hint">Try 10 simulations, then 2,500: with few play-outs Bit misses obvious threats.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">You</div><div class="metric-value" data-k="you">0</div></div><div class="metric-tile"><div class="metric-label">Bit</div><div class="metric-value" data-k="bit">0</div></div><div class="metric-tile"><div class="metric-label">Draws</div><div class="metric-value" data-k="draw">0</div></div><div class="metric-tile"><div class="metric-label">Last search</div><div class="metric-value" data-k="lastsims">–</div></div></div>
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">Your move: you are X.</p>
+            <div class="rlx-two">
+              <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">The game</h4></div></div>
+                <div class="rlx-ttt" data-k="board" role="grid" aria-label="Tic-tac-toe board"></div>
+              </div>
+              <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Inside the last search</h4><p class="rlx-sub"><span data-k="statsub">For each possible move: how often it was visited (N) and its value for the player to move (Q/N).</span></p></div></div>
+                <div class="rlx-ttt is-stats" data-k="stats" aria-live="polite"></div>
+                <p class="rlx-note">Yellow: the move chosen (the most visited). Darker blue: more visits.</p>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>

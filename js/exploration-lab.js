@@ -1121,8 +1121,9 @@
     resetGridworld();
   }
 
+  // The labs now live on the RL course pages: the bandit lab on Lecture 2, the gridworld lab on Lecture 6.
   document.addEventListener("DOMContentLoaded", () => {
-    initBandit();
-    initGridworld();
+    if (document.getElementById("banditArms")) initBandit();
+    if (document.getElementById("gridBoard")) initGridworld();
   });
 })();
