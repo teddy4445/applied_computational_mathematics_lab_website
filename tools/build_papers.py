@@ -25,6 +25,8 @@ from pathlib import Path
 
 import markdown
 from PIL import Image
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import share_cards  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 SITE = 'https://acml.teddylazebnik.com'
@@ -269,21 +271,24 @@ def lab_index():
     return out
 
 
-def share_image(folder, fig):
-    src = folder / 'figures' / f'{fig}.webp'
-    if not fig or not src.exists():
-        return ''
-    dst = folder / 'figures' / f'share-{fig}.jpg'
-    for old in (folder / 'figures').glob('share-*.jpg'):     # a social image of another (earlier) figure
-        if old != dst:
-            old.unlink()
-    if not dst.exists() or dst.stat().st_mtime < src.stat().st_mtime:
-        im = Image.open(src).convert('RGB')
-        canvas = Image.new('RGB', (1200, 630), 'white')         # the size social sites expect
-        im.thumbnail((1140, 590))
-        canvas.paste(im, ((1200 - im.width) // 2, (630 - im.height) // 2))
-        canvas.save(dst, 'JPEG', quality=85, optimize=True)
-    return f'figures/{dst.name}'
+def share_image(folder, fig, meta=None):
+    """The page's link preview (1200x630, tools/share_cards.py): title, journal and year, with the featured figure."""
+    meta = meta or {}
+    title = meta.get('title') or folder.name
+    kicker = ' · '.join(str(x) for x in ('Paper', meta.get('journal'), meta.get('year')) if x)
+    src = folder / 'figures' / f'{fig}.webp' if fig else None
+    if src is not None and src.exists():
+        dst = folder / 'figures' / f'share-{fig}.jpg'
+        for old in (folder / 'figures').glob('share-*.jpg'):     # a social image of another (earlier) figure
+            if old != dst:
+                old.unlink()
+        if share_cards.stale(dst, src):
+            share_cards.make_card(dst, title, kicker, 'figure', src)
+        return f'figures/{dst.name}'
+    dst = folder / 'share.jpg'
+    if share_cards.stale(dst, folder / 'paper.json'):
+        share_cards.make_card(dst, title, kicker, 'page')
+    return 'share.jpg'
 
 
 def citation_texts(meta, year):
@@ -497,7 +502,7 @@ def build_one(folder, pub, ctx):
                     f'<div class="related-grid">{"".join(related)}</div><p class="related-more"><a href="/publications.html">All publications</a></p></div></section>') if related else ''
 
     # search-engine data
-    share = share_image(folder, fig)
+    share = share_image(folder, fig, meta)
     share_url = f'{url}{share}' if share else f'{SITE}/img/logo.png'
     pdf_url = meta.get('pdf_url') or ''
     desc = clip(meta.get('summary') or meta.get('abstract') or '')

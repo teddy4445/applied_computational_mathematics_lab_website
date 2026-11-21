@@ -78,6 +78,26 @@ python tools/build_projects.py
 
 It writes `projects/<slug>/index.html` and a social image `projects/<slug>/share.jpg`, and updates the project list on `projects.html`, `sitemap.xml` and `llms.txt`. Run it after `python tools/build_papers.py` when both changed.
 
+## Video pages (watch/) and Google video results
+
+Every video in `data/videos.json` has its own page at `watch/<slug>/`: the player at the top, the summary, the paper it is based on, episode links for the series, and related videos. Google shows a page in its video results only when the video is the main content of that page, so these pages (not the Videos page or the paper pages) carry the VideoObject structured data. Each entry in `data/videos.json` needs two extra fields for this: `published` (when the video went public on YouTube, as an ISO time in UTC, or the `YYYY-MM-DD` date it is scheduled for) and `duration` (`m:ss`). After adding or changing videos, run:
+
+```
+python tools/build_watch_pages.py
+```
+
+It writes the pages, `data/watch-pages.json` (read by `js/videos.js` to link every card on the Videos page to its page), `sitemap-videos.xml` (listed in `robots.txt`), and a link preview per page. A video that is still scheduled gets its page with a "coming on <date>" card; from its release day on, `js/watch.js` shows the player and adds the structured data in the browser, so nothing has to be rebuilt on the day (running the script again after release makes it static). Page addresses are kept in `data/watch-pages.json`, so they don't change when a title does. Submit `sitemap-videos.xml` in Google Search Console and watch its "Videos" report.
+
+## Link previews (share images)
+
+When a page is shared on LinkedIn, X, WhatsApp or Slack, the preview shows a 1200x630 card with the ACML logo, what the page is, its title and a picture: the featured figure for a paper, the project image for a project, a play button for a video, and the lab's mark for other pages. The cards are drawn by `tools/share_cards.py` (fonts in `tools/fonts`, Inter, SIL Open Font License). `build_papers.py`, `build_projects.py` and `build_watch_pages.py` draw the cards of their pages; for the hand-made pages (home, team, projects list, publications, videos, tools, media, statistics, the tools and games, and the RL course) run:
+
+```
+python tools/build_share_cards.py
+```
+
+It draws `img/share/*.jpg` (and the RL course's `share.jpg` files) from each page's own title and description, and points the page's `og:image` and `twitter:image` at them. Add a new hand-made page to `PAGES` in that script. Change `VERSION` in `share_cards.py` (or edit the file) to have the builders redraw every card.
+
 ## Reinforcement learning course (rl-course/)
 
 Teddy's RL course has its own pages: `rl-course/` (the course page: how to study, all lectures, labs and games) and one page per lecture, `rl-course/lecture-01/` … `rl-course/lecture-12/`. A lecture page opens with its title, summary, learning goal, one key idea per episode and the source lecture, next to the first slide of the deck (with Open/Download buttons for the PDF); then a player with the lecture's ACML Explains episodes (pick one from the list; a transcript under the player follows the episode, and its timestamps play from that point), the interactive lab and the games that fit (Markov's Maze, Echo Heist, Pirates War RL). Its section menu shows only on phones (below 768 px). The Tools page links to the course; the old `exploration-lab.html` now forwards there (its `#bandit-lab` / `#gridworld-lab` links go straight to the lab).

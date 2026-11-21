@@ -26,6 +26,7 @@ from string import Template
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_papers import ROOT, SITE, IMAGE_NS, read_json, norm, esc, clip, replace_block  # noqa: E402
 from PIL import Image  # noqa: E402
+import share_cards  # noqa: E402
 
 TEMPLATE = ROOT / 'tools' / 'templates' / 'project.html'
 MARK_START, MARK_END = 'project pages: start (made by tools/build_projects.py)', 'project pages: end'
@@ -104,23 +105,12 @@ def sized(path):
 
 
 def share_image(project, out_dir):
-    """A 1200x630 JPEG (the size social sites expect) cut from the project image."""
+    """The page's link preview (1200x630, tools/share_cards.py): the project title on the left, its image on the right."""
     src = ROOT / (project.get('heroImage') or project.get('image') or 'img/logo.png')
     dst = out_dir / 'share.jpg'
-    if dst.exists() and dst.stat().st_mtime >= src.stat().st_mtime:
-        return 'share.jpg'
-    im = Image.open(src).convert('RGB')
-    w, h = im.size
-    if w / h >= 1200 / 630:                     # wide enough: crop the sides
-        nw = int(h * 1200 / 630)
-        im = im.crop(((w - nw) // 2, 0, (w - nw) // 2 + nw, h))
-        im = im.resize((1200, 630), Image.LANCZOS)
-    else:                                       # tall or small: fit it on a white canvas
-        canvas = Image.new('RGB', (1200, 630), 'white')
-        im.thumbnail((1200, 630), Image.LANCZOS)
-        canvas.paste(im, ((1200 - im.width) // 2, (630 - im.height) // 2))
-        im = canvas
-    im.save(dst, 'JPEG', quality=85, optimize=True)
+    if share_cards.stale(dst, src):
+        kicker = ' · '.join(x for x in ('Research project', project.get('category')) if x)
+        share_cards.make_card(dst, project.get('title', ''), kicker, 'cover', src)
     return 'share.jpg'
 
 

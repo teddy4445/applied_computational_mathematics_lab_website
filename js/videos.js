@@ -5,13 +5,17 @@
    - The Videos page (videos.html), rendered from data/videos.json.
    - A "Video" button on matching papers on the Publications page (opens a pop-up player).
    - The search and filter panel at the top of the Videos page (#video-finder).
+   - Each card on the Videos page links to the video's own page (watch/<slug>/, listed in data/watch-pages.json,
+     made by tools/build_watch_pages.py).
 */
 (() => {
   const DATA_URL = 'data/videos.json';
+  const PAGES_URL = 'data/watch-pages.json';
 
   let dataPromise = null;
   let modal = null;
   let lastFocus = null;
+  let watchPages = {};
 
   function esc(value) {
     return String(value ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -170,6 +174,7 @@
       const external = /^https?:\/\//i.test(paper.url);
       links.push(`<a class="video-link video-link--paper" href="${esc(paper.url)}"${external ? ' target="_blank" rel="noopener"' : ''}><i class="ri-article-line" aria-hidden="true"></i>${esc(paper.label || 'Read the paper')}</a>`);
     }
+    if (watchPages[video.id]) links.push(`<a class="video-link" href="${esc(watchPages[video.id])}"><i class="ri-film-line" aria-hidden="true"></i>Video page</a>`);
     links.push(`<a class="video-link" href="${esc(watchUrl(video))}" target="_blank" rel="noopener"><i class="ri-youtube-line" aria-hidden="true"></i>YouTube</a>`);
     return links.join('');
   }
@@ -180,7 +185,7 @@
         ${playerHtml(video, { badge: true })}
         <div class="video-card-body">
           ${video.topic ? `<span class="video-topic">${esc(video.topic)}</span>` : ''}
-          <h3 class="video-title">${esc(video.title)}</h3>
+          <h3 class="video-title">${watchPages[video.id] ? `<a href="${esc(watchPages[video.id])}">${esc(video.title)}</a>` : esc(video.title)}</h3>
           ${video.summary ? `<p class="video-summary">${esc(video.summary)}</p>` : ''}
           ${paperHtml(video)}
           <div class="video-card-links">${linksHtml(video)}</div>
@@ -340,6 +345,16 @@
       const target = longGrid || shortGrid || eduGrid || natureGrid || beautyGrid || estimateGrid || academiaGrid;
       target.innerHTML = `<div class="video-load-error">Videos could not be loaded. Check that <code>${esc(DATA_URL)}</code> exists and is valid JSON.</div>`;
       return;
+    }
+
+    try {
+      const response = await fetch(PAGES_URL, { cache: 'no-cache' });
+      if (response.ok) {
+        const data = await response.json();
+        (data.pages || []).forEach((page) => { if (page.id && page.url) watchPages[page.id] = `/${page.url}`; });
+      }
+    } catch (error) {
+      watchPages = {}; // the cards still work without their page links
     }
 
     const animate = Boolean(window.ACMLAnimations && window.ACMLAnimations.enhance);
