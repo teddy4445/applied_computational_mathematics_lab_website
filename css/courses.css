@@ -1,0 +1,107 @@
+/* Courses page hero: a learner walks a winding learning path; milestones light up as it passes. Same palette as the Tools conveyor. */
+.course-path-scene {
+  position: relative;
+  height: clamp(280px, 36vw, 360px);
+  overflow: hidden;
+  background: #ffffff;
+}
+.course-path-scene svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.course-road-base { fill: none; stroke: #e0ecff; stroke-width: 30; stroke-linecap: round; }
+.course-road { fill: none; stroke: url(#course-road-grad); stroke-width: 22; stroke-linecap: round; opacity: .28; }
+.course-road-done { fill: none; stroke: url(#course-road-grad); stroke-width: 22; stroke-linecap: round; filter: drop-shadow(0 8px 14px rgba(37, 99, 235, .22)); }
+.course-road-dash { fill: none; stroke: rgba(255, 255, 255, .85); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 2 14; animation: course-dash 1.2s linear infinite; }
+.course-path-scene[data-motion="paused"] .course-road-dash { animation-play-state: paused; }
+@keyframes course-dash { to { stroke-dashoffset: -16; } }
+
+.course-stop {
+  position: absolute;
+  width: 58px;
+  height: 58px;
+  margin: -29px 0 0 -29px;
+  border-radius: 18px;
+  border: 1px solid rgba(59, 130, 246, .22);
+  background: linear-gradient(180deg, #ffffff, rgba(239, 246, 255, .98));
+  color: rgb(29 78 216);
+  box-shadow: 0 14px 26px rgba(14, 165, 233, .16), inset 0 1px 0 rgba(255, 255, 255, .9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.55rem;
+  transition: transform .35s cubic-bezier(.34, 1.56, .64, 1), background .35s, color .35s, box-shadow .35s;
+}
+.course-stop::after {
+  content: "\2713";
+  position: absolute;
+  right: -7px;
+  top: -7px;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: #10b981;
+  color: #fff;
+  font-size: .75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1);
+  box-shadow: 0 4px 10px rgba(16, 185, 129, .35);
+}
+.course-stop .course-stop-label {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: .72rem;
+  font-weight: 600;
+  color: #64748b;
+  letter-spacing: .02em;
+}
+.course-stop.is-done { transform: scale(1.08); background: linear-gradient(180deg, rgb(37 99 235), rgb(14 165 233)); color: #fff; box-shadow: 0 16px 30px rgba(37, 99, 235, .3); }
+.course-stop.is-done::after { transform: scale(1); }
+.course-stop.is-done .course-stop-label { color: rgb(29 78 216); }
+.course-stop.is-goal { width: 74px; height: 74px; margin: -37px 0 0 -37px; border-radius: 999px; font-size: 2rem; }
+.course-stop.is-goal::after { display: none; }
+.course-stop.is-cheer { animation: course-cheer .9s ease-out 1; }
+@keyframes course-cheer { 0% { transform: scale(1); } 35% { transform: scale(1.22) rotate(-8deg); } 70% { transform: scale(1.05) rotate(4deg); } 100% { transform: scale(1.08); } }
+
+.course-learner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 26px;
+  height: 26px;
+  margin: -13px 0 0 -13px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 35% 35%, #ffffff, #93c5fd 45%, #2563eb 100%);
+  box-shadow: 0 0 0 6px rgba(37, 99, 235, .16), 0 0 22px rgba(14, 165, 233, .55);
+  transition: opacity .3s;
+  z-index: 2;
+}
+.course-sparks { position: absolute; inset: 0; pointer-events: none; }
+.course-spark {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  border-radius: 2px;
+  animation: course-spark 1.1s ease-out forwards;
+}
+@keyframes course-spark { from { transform: translate(0, 0) rotate(0); opacity: 1; } to { transform: translate(var(--dx), var(--dy)) rotate(220deg); opacity: 0; } }
+.course-float { position: absolute; border-radius: 999px; background: rgba(147, 197, 253, .35); animation: course-float 7s ease-in-out infinite; }
+@keyframes course-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+@media (max-width: 767px) { .course-stop { width: 48px; height: 48px; margin: -24px 0 0 -24px; font-size: 1.3rem; border-radius: 15px; } .course-stop.is-goal { width: 60px; height: 60px; margin: -30px 0 0 -30px; } .course-stop .course-stop-label { display: none; } }
+@media (prefers-reduced-motion: reduce) { .course-road-dash, .course-float { animation: none; } }
+
+/* Course cards: an illustration on top, then the title, a longer description and one button. */
+.course-card-art { margin: 0; aspect-ratio: 800 / 340; background: #f5f9ff; border-bottom: 1px solid #eef2f7; overflow: hidden; }
+.course-card-art img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.course-card:hover .course-card-art img { transform: scale(1.03); }
+.course-card-body { padding: 1.5rem; }
+@media (min-width: 1024px) { .course-card-body { padding: 2rem; } }
+.course-card-title { color: inherit; }
+.course-card-title:hover { color: rgb(37 99 235); }
+.course-card-btn { display: inline-block; }
+@media (prefers-reduced-motion: reduce) { .course-card-art img { transition: none; } .course-card:hover .course-card-art img { transform: none; } }

@@ -1,0 +1,64 @@
+<!-- Used by tools/build_epi_course.py: the behaviour-feedback lab (Module 2) of the Epidemic Modeling course. Script: js/epi-labs.js (data-epx="behave"), styles: css/exploration-lab.css + css/rl-labs.css + css/epi-course.css. -->
+      <div class="rlx" id="behave-lab" data-epx="behave">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">An SIR town that reacts</h3>
+          <p class="rlx-sub">A town of S, I and R. Each infected person meets others at rate β₀ = 0.3 per day and recovers after 10 days on average (γ = 0.1), so R₀ = 3. One person in 10,000 is infected on day 0.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">Protection</div>
+              <div class="formula-line"><span class="formula-chip">β(t) = β₀ (1 − e · p(t))</span></div>
+              <p class="math-card-copy">p is the share of meetings that people protect (staying home, masks, distance); e is how much protection cuts transmission.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Fear</div>
+              <div class="formula-line"><span class="formula-chip">p = P / (P + h) · (1 − F)</span></div>
+              <p class="math-card-copy">P is perceived risk: infections reported d days late, remembered for about m days. When P equals h, half of people protect.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Fatigue</div>
+              <div class="formula-line"><span class="formula-chip">dF/dt = φ p (1 − F) − ρ F</span></div>
+              <p class="math-card-copy">Fatigue F builds while people protect (rate φ) and fades when they stop (rate ρ). It limits how much fear can do.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Controls">
+            <div><h4 class="rlx-h">Controls</h4><p class="rlx-sub">Every change re-runs 540 days at once.</p></div>
+            <div class="rlx-btns"><button type="button" data-k="p-none" class="control-button control-button-ghost">No reaction</button><button type="button" data-k="p-fear" class="control-button control-button-secondary">Fear only</button><button type="button" data-k="p-fat" class="control-button control-button-primary">Fear + fatigue</button></div>
+            <div class="rlx-row"><div><label class="rlx-label" for="bhFear">People react (fear)</label></div><label class="toggle"><input id="bhFear" data-k="fear" type="checkbox" checked><span class="toggle-track"></span></label></div>
+            <div class="rlx-row"><div><label class="rlx-label" for="bhFat">Fatigue</label></div><label class="toggle"><input id="bhFat" data-k="fatigue" type="checkbox" checked><span class="toggle-track"></span></label></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="bhHalf">Fear threshold h</label><span class="control-value" data-k="half-out">0.05%</span></div><input id="bhHalf" data-k="half" type="range" min="0.0001" max="0.005" step="0.0001" value="0.0005"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="bhLag">Reporting delay d</label><span class="control-value" data-k="lag-out">7 days</span></div><input id="bhLag" data-k="lag" type="range" min="0" max="21" step="1" value="7"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="bhMem">Memory m</label><span class="control-value" data-k="mem-out">35 days</span></div><input id="bhMem" data-k="mem" type="range" min="7" max="70" step="7" value="35"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="bhEff">Protection effect e</label><span class="control-value" data-k="eff-out">90%</span></div><input id="bhEff" data-k="eff" type="range" min="0.3" max="1" step="0.05" value="0.9"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="bhPhi">Fatigue builds φ</label><span class="control-value" data-k="phi-out">0.005</span></div><input id="bhPhi" data-k="phi" type="range" min="0" max="0.03" step="0.001" value="0.005"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="bhRho">Fatigue fades ρ</label><span class="control-value" data-k="rho-out">0.005</span></div><input id="bhRho" data-k="rho" type="range" min="0.001" max="0.03" step="0.001" value="0.005"></div>
+            <div class="rlx-row"><div><label class="rlx-label" for="bhRef">Show the no-reaction run</label><p class="rlx-hint" style="margin-top:.2rem">Grey dashed line; it peaks at about 30%, so the chart zooms out.</p></div><label class="toggle"><input id="bhRef" data-k="ref" type="checkbox"><span class="toggle-track"></span></label></div>
+            <p class="rlx-hint">“Fear + fatigue” loads the settings used in Episode 5 and in the slides. All values are made up to show the mechanism; they are not estimates for a real disease.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Peak infected at once</div><div class="metric-value" data-k="peak">–</div></div><div class="metric-tile"><div class="metric-label">Peak day</div><div class="metric-value" data-k="peakday">–</div></div><div class="metric-tile"><div class="metric-label">Waves</div><div class="metric-value" data-k="waves">–</div></div><div class="metric-tile"><div class="metric-label">Infected by day 540</div><div class="metric-value" data-k="final">–</div></div></div>
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Infected right now</h4><p class="rlx-sub">Share of the town infected on each day. A wave is a peak above 0.03%, at least 30 days after the previous one.</p></div></div>
+              <div class="chart-shell"><svg data-k="chart" role="img" aria-label="Share of the town infected over 540 days"></svg></div>
+            </div>
+            <div class="rlx-two">
+              <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Protection and fatigue</h4><p class="rlx-sub">Protection p (green) and fatigue F (navy, dashed), from 0 to 100%.</p></div></div>
+                <div class="chart-shell chart-shell-compact"><svg data-k="pchart" role="img" aria-label="Protection and fatigue over 540 days"></svg></div>
+                <div class="rlx-legend"><span class="line-swatch" style="--swatch:#009e73">protection p</span><span class="line-swatch is-dash" style="--swatch:#1e3a8a">fatigue F</span></div>
+              </div>
+              <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current run.</p></div></div>
+                <ol class="epx-challenges">
+                  <li data-ch="0"><span class="epx-mark"></span><span>With fear on, keep the peak below 1% of the town.</span></li>
+                  <li data-ch="1"><span class="epx-mark"></span><span>With fatigue on, get three or more waves.</span></li>
+                  <li data-ch="2"><span class="epx-mark"></span><span>With fatigue on, keep total infections under 25%.</span></li>
+                </ol>
+                <p class="rlx-hint">Hints: what happens when the news comes later, or people forget faster? Does a quicker recovery from fatigue help or hurt?</p>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>

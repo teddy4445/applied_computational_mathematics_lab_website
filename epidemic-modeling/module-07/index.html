@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_epi_course.py from data/epi-course.json. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Module 7: Data-driven models | Epidemic Modeling Course | ACML</title>
+      <meta name="description" content="Module 7 of 13 of ACML’s Epidemic Modeling course. From observation models to machine-learning forecasts: slides, 6 short episodes and an interactive lab.">
+      <meta name="author" content="Teddy Lazebnik">
+      <meta name="keywords" content="epidemic modeling, epidemiology, data-driven models, course, ACML">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/epidemic-modeling/module-07/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Module 7: Data-driven models · Epidemic Modeling">
+      <meta property="og:description" content="Module 7 of 13 of ACML’s Epidemic Modeling course. From observation models to machine-learning forecasts: slides, 6 short episodes and an interactive lab.">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/epidemic-modeling/module-07/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/epidemic-modeling/module-07/share.jpg">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Module 7: Data-driven models · Epidemic Modeling">
+      <meta name="twitter:description" content="Module 7 of 13 of ACML’s Epidemic Modeling course. From observation models to machine-learning forecasts: slides, 6 short episodes and an interactive lab.">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/epidemic-modeling/module-07/share.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "Module 7: Data-driven models",
+        "description": "Models built from data. On a simulated surveillance system with a known truth, we separate infections from reported cases with an observation model (overdispersion, zeros, the log scale), take weekday and holiday reporting patterns apart, forecast with seasonal ARIMA and state-space models in an honest rolling-origin backtest, correct the latest days for reporting delay with a nowcast, compare machine-learning and deep-learning forecasters with simple baselines, and use large language models carefully, as readers with fixed forms and checks.",
+        "url": "https://acml.teddylazebnik.com/epidemic-modeling/module-07/",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "learningResourceType": [
+          "Lecture slides",
+          "Video",
+          "Interactive resource"
+        ],
+        "teaches": "From observation models to machine-learning forecasts",
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Epidemic Modeling",
+          "url": "https://acml.teddylazebnik.com/epidemic-modeling/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Teddy Lazebnik",
+          "url": "https://teddylazebnik.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Applied Computational Mathematics Laboratory",
+          "url": "https://acml.teddylazebnik.com/"
+        },
+        "hasPart": [
+          {
+            "@type": "VideoObject",
+            "name": "Counts are not cases",
+            "description": "Cases are not infections.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep26.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/U9BGGXWkjY0",
+            "duration": "PT2M59S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Seasonality and reporting artefacts",
+            "description": "Why dashboards jump on Mondays: weekday and holiday reporting patterns, measured from the counts and recovered by a regression, why day-to-day growth is noise, and two ways to keep the calendar out of the epidemic.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep27.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/zV9NzGh5tqI",
+            "duration": "PT3M5S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "ARIMA, SARIMA and state-space models",
+            "description": "Forecasting case counts with ARIMA, seasonal ARIMA and state-space models: a rolling-origin backtest against simple baselines, honest prediction intervals, missing days, and the weak spot of every linear model, the turning point.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep28.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/z7UijLb6JMc",
+            "duration": "PT2M41S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Nowcasting under reporting delay",
+            "description": "Why the latest days always look low: reporting delay, the reporting triangle and right truncation, a simple nowcast that cuts the error from 37% to 12%, what happens when labs slow down, and Bayesian nowcasting.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep29.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/G0sfYGj0wfY",
+            "duration": "PT2M34S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Machine learning and deep learning forecasts",
+            "description": "Machine learning against seasonal ARIMA on the same simulated data: turning a time series into a table, four learners in a rolling-origin backtest, errors by horizon and phase, and where deep learning fits.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep30.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/RtUJJ_nxkD8",
+            "duration": "PT2M45S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Large language models in epidemiology",
+            "description": "How large language models can join an epidemic pipeline: as readers that fill a fixed form, with their weaknesses, a toy check showing how one plain rule catches most extraction slips, and the safeguards that keep people accountable.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep31.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/yd-jNKWELTM",
+            "duration": "PT2M39S"
+          },
+          {
+            "@type": "DigitalDocument",
+            "name": "Module 7 slides",
+            "encodingFormat": "application/pdf",
+            "url": "https://acml.teddylazebnik.com/epidemic-modeling/slides/Epidemic_Modeling_Module07_Data-driven_models.pdf"
+          }
+        ]
+      }
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      <link href="/css/videos.css" rel="stylesheet">
+      
+      <link href="/css/exploration-lab.css" rel="stylesheet">
+      <link href="/css/rl-labs.css" rel="stylesheet">
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/project.css" rel="stylesheet">
+      <link href="/css/rl-course.css" rel="stylesheet">
+      <link href="/css/epi-course.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+          <a href="/courses.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Courses</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/courses.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Courses</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="proj-page rl-page bg-white">
+    <header class="proj-hero rl-hero">
+      <div class="proj-wrap proj-hero-grid">
+        <div>
+          <nav class="proj-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/courses.html">Courses</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/epidemic-modeling/">Epidemic Modeling</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Module 7</span></nav>
+          <p class="proj-kicker"><span><i class="ri-graduation-cap-line" aria-hidden="true"></i>Epidemic Modeling</span><span>Data and inference</span></p>
+          <h1 class="proj-title"><small>Module 7</small>Data-driven models</h1>
+          <p class="proj-about-lead rl-summary">Models built from data. On a simulated surveillance system with a known truth, we separate infections from reported cases with an observation model (overdispersion, zeros, the log scale), take weekday and holiday reporting patterns apart, forecast with seasonal ARIMA and state-space models in an honest rolling-origin backtest, correct the latest days for reporting delay with a nowcast, compare machine-learning and deep-learning forecasters with simple baselines, and use large language models carefully, as readers with fixed forms and checks.</p>
+          <div class="rl-goal"><i class="ri-focus-3-line" aria-hidden="true"></i><span>By the end you should be able to choose an observation model for case counts, remove calendar effects, run a rolling-origin backtest against simple baselines, nowcast recent days from a reporting triangle, and judge when machine learning or language models add value.</span></div>
+          <h2 class="proj-h3 rl-ideas-title">Key ideas, one per episode</h2>
+          <ul class="rl-ideas"><li><a href="#ep-26">Ep. 26</a><span>Cases are a filtered, delayed, noisy view of infections; counts scatter like a negative binomial, not a Poisson.</span></li><li><a href="#ep-27">Ep. 27</a><span>Weekday and holiday patterns come from reporting offices: compare like with like, or model the calendar.</span></li><li><a href="#ep-28">Ep. 28</a><span>Seasonal ARIMA beat simple baselines with honest intervals, but every linear model struggles at turning points.</span></li><li><a href="#ep-29">Ep. 29</a><span>The latest days always look low because reports are late; a nowcast corrects them, if the delays stay the same.</span></li><li><a href="#ep-30">Ep. 30</a><span>On one year of data the simplest learner did best; test every learner with rolling origins against simple baselines.</span></li><li><a href="#ep-31">Ep. 31</a><span>Use language models as readers with fixed forms, simple checks and a person for the hard cases.</span></li></ul>
+          <p class="rl-source"><b>Textbook:</b> Chapter 7 of <a href="https://shop.elsevier.com/books/epidemic-modeling/lazebnik/978-0-443-55525-1" target="_blank" rel="noopener">T. Lazebnik, Epidemic Modeling: Principles, Algorithms, and Applications (Academic Press, 2026)</a>. The episodes and slides follow the chapter’s topics in our own words, figures and simulations; nothing is copied from the book.</p>
+        </div>
+        <div class="rl-first">
+          <a class="rl-first-img" href="/epidemic-modeling/slides/Epidemic_Modeling_Module07_Data-driven_models.pdf" target="_blank" rel="noopener"><img src="/epidemic-modeling/img/slides/m07-s01.webp" alt="The title slide of Module 7: Data-driven models" width="960" height="540" fetchpriority="high" decoding="async"></a>
+          <p class="rl-first-text">36 slides, written to be read on your own, with worked examples, “try it” boxes, our own small simulations and check-yourself questions (answers at the end). PDF, 1.1 MB.</p>
+          <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="/epidemic-modeling/slides/Epidemic_Modeling_Module07_Data-driven_models.pdf" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Open the PDF</a><a class="proj-btn" href="/epidemic-modeling/slides/Epidemic_Modeling_Module07_Data-driven_models.pdf" download><i class="ri-download-2-line" aria-hidden="true"></i>Download</a></div>
+        </div>
+      </div>
+    </header>
+    <nav class="proj-subnav is-mobile-only" aria-label="Sections of this page"><div class="proj-wrap"><ul><li><a href="#watch">Watch</a></li><li><a href="#lab">Lab</a></li><li><a href="#next">Next</a></li></ul></div></nav>
+    <section id="watch" class="proj-section is-soft" aria-labelledby="watch-title"><div class="proj-wrap">
+      <h2 id="watch-title" class="proj-h2">Watch</h2>
+      <p class="proj-lead">6 short episodes for this module. Pick one from the list, and open the transcript to read along: each timestamp plays the episode from there. The narration is generated with a voice clone of Teddy, used with his permission.</p>
+      <div class="rl-watch">
+        <div class="rl-player-wrap">
+          <div id="rl-player" class="yt-player yt-16x9" data-yt-id="U9BGGXWkjY0" data-yt-title="Counts are not cases"><a class="yt-play" href="https://www.youtube.com/watch?v=U9BGGXWkjY0" aria-label="Play episode 26: Counts are not cases"><img src="/epidemic-modeling/img/eps/ep26.webp" alt="" width="640" height="360" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div>
+          <div class="rl-now">
+            <p id="rl-now-num" class="rl-now-num">Episode 26 · 2:59</p>
+            <p id="rl-now-title" class="rl-now-title">Counts are not cases</p>
+            <p id="rl-now-hook" class="rl-now-hook">Cases are not infections.</p>
+            <p id="rl-now-take" class="rl-now-take"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i><span>Cases are a filtered, delayed, noisy view of infections; counts scatter like a negative binomial, not a Poisson.</span></p>
+          </div>
+            <details id="rl-tx" class="rl-tx">
+              <summary><i class="ri-file-text-line" aria-hidden="true"></i>Transcript<span id="rl-tx-which">Episode 26</span><i class="ri-arrow-down-s-line rl-tx-caret" aria-hidden="true"></i></summary>
+              <div class="rl-tx-body"><div class="rl-tx-ep" data-ep="26"><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=U9BGGXWkjY0" data-ep="26" data-t="0">0:00</a><p><b>Counts are not cases.</b> A dashboard says two thousand cases today. That&#x27;s not the number of infections, and it isn&#x27;t even an exact count of cases. Welcome to Module seven: models built from data, starting with the bridge between the epidemic and the numbers.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=U9BGGXWkjY0&amp;t=20s" data-ep="26" data-t="20">0:20</a><p><b>A simulated system with a known truth.</b> To keep things honest, this module uses a simulated surveillance system, so we know the truth. A town of five million, two waves. One in four infections becomes a reported case, about six days after infection, once a test comes back. Over the year: about one and a half million infections, and three hundred sixty thousand cases. Cases are a filtered, delayed and noisy view of infections. The observation model describes that filter.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=U9BGGXWkjY0&amp;t=50s" data-ep="26" data-t="50">0:50</a><p><b>How noisy counts are.</b> Start with the noise. Say we expect two thousand cases on a day. If counts were Poisson, almost every day would land between one thousand nine hundred twenty seven and two thousand seventy four. Real counts scatter far more: clusters, testing campaigns, batches of results. In our system the spread follows a negative binomial: the variance is the mean plus the mean squared over k, with k of thirty. Then the same day&#x27;s ninety percent range is one thousand four hundred thirty five to two thousand six hundred forty one. Check it against the truth. Poisson ranges held the count on only forty one percent of days. Negative binomial ranges, on ninety one percent, as they should. So a jump of two hundred cases can be pure noise. Choose the observation model before you read meaning into the data.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=U9BGGXWkjY0&amp;t=98s" data-ep="26" data-t="98">1:38</a><p><b>Finding the dispersion.</b> How do you find k? Plot the spread against the mean. Poisson is a straight line: variance equals mean. Our counts curve upward, and a fit gives k of about thirty five; the true value is thirty. Noise that grows with the mean is also why many models work on the log scale. There, a ten percent wobble looks the same at a hundred cases as at ten thousand.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=U9BGGXWkjY0&amp;t=123s" data-ep="26" data-t="123">2:03</a><p><b>Zeros.</b> Zeros need care too. A zero can mean no cases, a closed lab, or a missing report. In our quiet weeks, with less than one expected case a day, half of the days had zero cases: just what both models predict. So before reaching for a special zero-inflated model, check whether small means already explain the zeros.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=U9BGGXWkjY0&amp;t=143s" data-ep="26" data-t="143">2:23</a><p><b>The layers of an observation model.</b> The full observation model has more layers: what share of infections are found, how long they take to be reported, and how reporting depends on the calendar. Next: the calendar. Weekday patterns and holidays, and how to keep them from fooling you.</p></div></div><div class="rl-tx-ep" data-ep="27" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=zV9NzGh5tqI" data-ep="27" data-t="0">0:00</a><p><b>Mondays and Sundays.</b> Every Monday our dashboard jumps, and every Sunday it dips. The virus doesn&#x27;t keep a calendar. The reporting offices do.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=zV9NzGh5tqI&amp;t=16s" data-ep="27" data-t="16">0:16</a><p><b>The weekly reporting pattern.</b> In our simulated system, the offices report only seventy five percent of what arrives on Saturdays and fifty five percent on Sundays. The rest waits until Monday. Divide each day by its centered seven day average. Mondays come out at 1.69 times the weekly level. Saturdays drop to 0.74, and Sundays to 0.55. Monday alone carries about a quarter of the week&#x27;s reports. A regression with a smooth trend and a factor for each weekday finds the same numbers, from the counts alone. And here is the giveaway: count the same cases by test date instead of report date, and the weekly pattern almost vanishes. Every weekday lands within seven percent of the weekly level. The pattern is made by reporting, not by transmission.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=zV9NzGh5tqI&amp;t=61s" data-ep="27" data-t="61">1:01</a><p><b>Growth from day to day.</b> Why it matters: growth measured from one day to the next swings wildly. On the log scale its noise is about 0.5, enough to make a slow decline look like a sixty percent jump. Compare the same weekday a week apart instead, and the error in the daily growth rate drops to about 0.03. The same trap waits for anything built on daily counts. A reproduction number estimated from raw reports rises every Monday and falls every weekend, unless the weekday effect is removed first. Compare like with like: the same weekday, or a seven day average.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=zV9NzGh5tqI&amp;t=96s" data-ep="27" data-t="96">1:36</a><p><b>Holidays.</b> Holidays are the same problem, once in a while. On our holiday, day one hundred twenty two, reports fell from six hundred nine to one hundred eighty nine, and the next day jumped to one thousand eighty nine. A seven day average absorbs most of it: the dip and the catch-up cancel inside the window. But comparing the same weekday a week apart is fooled twice. The holiday looks like a seventy percent drop. And one week later, an ordinary day compared with the holiday looks like growth of more than double.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=zV9NzGh5tqI&amp;t=125s" data-ep="27" data-t="125">2:05</a><p><b>Decomposition and calendar terms.</b> Two tools handle all this. The first: decompose the series into a trend, a weekly pattern and a remainder, for example with a smoother fitted in windows, and model the trend. On the log scale the weekly pattern becomes a set of additive weekday effects. The second: keep calendar terms, weekday and holiday indicators, inside the forecasting model itself, so it learns them together with the trend and carries them into its forecasts. Either way, model the reporting process, so you don&#x27;t mistake it for the epidemic. Next: models that learn the dependence over time from the data. ARIMA, seasonal ARIMA, and state space models.</p></div></div><div class="rl-tx-ep" data-ep="28" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=z7UijLb6JMc" data-ep="28" data-t="0">0:00</a><p><b>Forecasting.</b> So far we described the data. Now we forecast it. The classic tool learns how today&#x27;s count depends on the last few days: ARIMA.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=z7UijLb6JMc&amp;t=16s" data-ep="28" data-t="16">0:16</a><p><b>ARIMA and seasonal ARIMA.</b> Three ingredients. Differencing: work with changes instead of levels, which removes a trend. Auto-regression: today&#x27;s change depends on the last few changes. Moving average: today&#x27;s surprise echoes for a few days. Seasonal ARIMA adds the same pieces at a lag of seven days, for the weekly pattern. We fit it to log counts, and pick the orders with an information criterion.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=z7UijLb6JMc&amp;t=38s" data-ep="28" data-t="38">0:38</a><p><b>The rolling-origin backtest.</b> Then the honest test, a rolling-origin backtest. Pretend it&#x27;s day one hundred, fit only on the past, forecast two weeks, and compare with what happened. Move forward two weeks and repeat, seventeen times. Seasonal ARIMA missed by two hundred forty eight cases a day on average. Repeating the last value missed by three hundred thirty six. Repeating last week, by three hundred forty six. The weekly mean, by four hundred fifteen. Its eighty percent intervals caught the truth eighty five percent of the time. The wider intervals, meant to catch it ninety five percent of the time, did exactly that. The intervals also widen with the horizon. One day ahead the average miss was eighty five cases; two weeks ahead, four hundred forty eight. A forecast without honest intervals is half a forecast. And a model has to beat simple baselines before it earns any trust.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=z7UijLb6JMc&amp;t=88s" data-ep="28" data-t="88">1:28</a><p><b>State space and missing days.</b> State space models write the same idea as a hidden state, here the level and trend of log cases, plus noisy observations of it. The Kalman filter updates the state day by day. A bonus: missing days are no problem. We deleted fifteen random days and one whole week, and the model kept estimating through the gaps. On the missing days its error was about fifteen percent, no worse than on the days it saw.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=z7UijLb6JMc&amp;t=111s" data-ep="28" data-t="111">1:51</a><p><b>Turning points.</b> These linear models are strong baselines. Their weak spot is turning points: they extend the recent trend until the data prove them wrong. Forecasting from day two hundred fifty four, just after the second peak, the model expected about two thousand five hundred seventy cases two weeks later. The truth was one thousand one hundred eighty five: the wave had turned, and the past could not say so. Next: when late reports hide the present. Nowcasting under reporting delay.</p></div></div><div class="rl-tx-ep" data-ep="29" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=G0sfYGj0wfY" data-ep="29" data-t="0">0:00</a><p><b>The latest days always seem to fall.</b> Look at the latest days on a dashboard, and cases often seem to be falling. Often they aren&#x27;t. The reports just haven&#x27;t arrived yet.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=G0sfYGj0wfY&amp;t=15s" data-ep="29" data-t="15">0:15</a><p><b>Delays and the reporting triangle.</b> In our system, only eight percent of a day&#x27;s cases are reported by the next morning, and fifty six percent within three days. Seeing them all takes two weeks. Write it as a reporting triangle: one row per test date, one column per delay. The most recent rows are still incomplete. Statisticians call it right truncation: the newest data are cut off before they are complete. On day one hundred fifty, the last test day showed twenty six cases. Two weeks later it had three hundred fifty two.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=G0sfYGj0wfY&amp;t=47s" data-ep="29" data-t="47">0:47</a><p><b>A simple nowcast.</b> Counting only what has arrived, the last seven days look thirty seven percent lower than they finally turn out. On average, every time. Nowcasting fills in the triangle. Estimate the delay distribution from rows that are complete, then scale up each recent day by the share of its cases you expect to have seen so far. Our simple version cut the error for the last seven days from thirty seven percent to twelve. The nowcast is still a guess: the remaining cases arrive by chance, so the newest days carry the widest uncertainty. A good nowcast reports that uncertainty with the number.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=G0sfYGj0wfY&amp;t=81s" data-ep="29" data-t="81">1:21</a><p><b>When delays change.</b> But it assumes the delays stay the same. Between days two hundred and two hundred forty, our labs slowed down: the average delay rose from 2.8 to 4.5 days. The nowcast, still using the old delays, fell short by thirty four percent. Better than the raw counts, at sixty one, but badly wrong just as the second wave was growing. And when the labs sped up again, the nowcast was still using the slow delays, and overshot by up to seventy percent. So watch the delays themselves, and estimate them from recent data.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=G0sfYGj0wfY&amp;t=111s" data-ep="29" data-t="111">1:51</a><p><b>Bayesian nowcasting.</b> Bayesian nowcasting, such as the NobBS method, treats the whole triangle as data, lets the delays change over time, and gives an interval instead of one number. Either way, a nowcast is a layer before the forecast: correct the recent data first, then forecast from the corrected curve. Next: machine learning and deep learning forecasts, and when they help.</p></div></div><div class="rl-tx-ep" data-ep="30" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=RtUJJ_nxkD8" data-ep="30" data-t="0">0:00</a><p><b>Learners against ARIMA.</b> Machine learning wins competitions. Does it win at forecasting epidemics? Today four learners take on seasonal ARIMA, on the same simulated data.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=RtUJJ_nxkD8&amp;t=16s" data-ep="30" data-t="16">0:16</a><p><b>From a series to a table.</b> First, turn the time series into a table. Each row holds the last fourteen days of log cases, their weekly average, the weekday we&#x27;re predicting, and how far ahead it is. The target is the count on that day. Then any learner can fit it: a ridge regression, a random forest, gradient boosted trees, and a small neural network. One model learns all horizons at once, because the horizon is one of the features. Another option is to forecast one day, feed it back in, and repeat; errors then pile up from day to day.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=RtUJJ_nxkD8&amp;t=47s" data-ep="30" data-t="47">0:47</a><p><b>The backtest.</b> Same honest test as before, with rolling origins: every week from day one hundred fifty to day three hundred twenty five. Twenty six forecasts, two weeks each. Average error, as a share of the cases: ridge regression twenty four percent, seasonal ARIMA twenty six, the neural network twenty seven, the random forest thirty, boosted trees thirty two. Repeating last week: thirty three. On one year of data, the simplest learner did best, and the fancier ones barely beat repeating last week. Machine learning needs data: longer histories, more places, more signals.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=RtUJJ_nxkD8&amp;t=78s" data-ep="30" data-t="78">1:18</a><p><b>Horizon and phase.</b> Errors grow with the horizon, and the ranking changes with it. One day ahead, seasonal ARIMA was best, missing by ten percent. Two weeks ahead it missed by forty seven, while the neural network missed by thirty three and ridge regression by thirty five. And they depend on the phase. When cases were falling toward small numbers, relative errors jumped: for seasonal ARIMA, from twenty three percent in growing weeks to thirty five in falling ones.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=RtUJJ_nxkD8&amp;t=103s" data-ep="30" data-t="103">1:43</a><p><b>Deep learning.</b> Deep learning goes further. Recurrent networks carry a hidden state through time, and gated versions like LSTMs choose what to remember. Temporal convolutions look back through fixed windows. Transformers use attention to weigh every past day. They shine when there are many series and many signals at once: regions, mobility, searches. On one short series they have little to learn from, and they overfit easily without careful regularization and early stopping. Whatever the learner, test it like a forecaster: only the past in training, rolling origins, and simple baselines to beat. Next: large language models, and how they can read the text around an epidemic.</p></div></div><div class="rl-tx-ep" data-ep="31" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=yd-jNKWELTM" data-ep="31" data-t="0">0:00</a><p><b>Outbreaks as text.</b> Much of what we learn about an outbreak first appears as text: bulletins, news, situation reports. Large language models read text. How should they join an epidemic pipeline?</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=yd-jNKWELTM&amp;t=20s" data-ep="31" data-t="20">0:20</a><p><b>A reader with a fixed form.</b> A language model predicts the next word from the words before it. That lets it turn messy text into summaries, labels or structured records. The cautious way to use one: not as the forecaster, but as a reader. Give it a bulletin and a fixed form to fill in: disease, place, date, new cases, deaths, hospital pressure, source. Ask for nothing else.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=yd-jNKWELTM&amp;t=43s" data-ep="31" data-t="43">0:43</a><p><b>Weaknesses.</b> Its weaknesses are real. Answers change with the wording of the prompt, it can state facts that aren&#x27;t in the text, and it drifts when reporting language changes. So never let its output flow straight into a model. Check it.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=yd-jNKWELTM&amp;t=57s" data-ep="31" data-t="57">0:57</a><p><b>A toy check.</b> A toy test, with our simulated counts as the bulletins. Suppose the reader slips on two percent of days: it drops a digit, adds a digit, or copies the cumulative total instead of the day&#x27;s cases. Unchecked, the seven day average is off by more than twenty percent on about nine percent of days. Now add one plain rule: flag any value more than four times, or less than a quarter of, the median of the last two weeks, and send it to a person. The rule caught ninety two percent of the slips with no false alarms, and the average was badly off on fewer than one day in two hundred. Fixed forms, simple checks, trusted sources, and a person for the hard cases: that&#x27;s how a language model earns its place.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=yd-jNKWELTM&amp;t=96s" data-ep="31" data-t="96">1:36</a><p><b>Safeguards and other uses.</b> Other safeguards work the same way. Answer only from trusted sources fed to the model, not from its memory. Process the output with fixed code, not more prompting. Log every input and output so a mistake can be traced. Language models can also summarize papers and help draft analysis code. They can sketch scenarios, too. And they can be asked for forecasts directly, but then they must pass the same rolling-origin test as any other model. The rule holds every time: they assist, and people stay accountable.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=yd-jNKWELTM&amp;t=126s" data-ep="31" data-t="126">2:06</a><p><b>Module recap.</b> That closes Module seven: observation models, calendars, linear models, nowcasting, machine learning, and language models. Next, in Module eight, we fit mechanistic models to data.</p></div></div></div>
+            </details>
+        </div>
+        <div class="rl-eps">
+          <div class="rl-eps-head"><b>Module 7 episodes</b><span>6 episodes · 17 min</span></div>
+          <ol><li id="ep-26"><a class="rl-ep is-active" data-ep="26" href="https://www.youtube.com/watch?v=U9BGGXWkjY0" aria-current=true><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep26.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>2:59</span></span><span><span class="rl-ep-num">Episode 26 · 7.1</span><span class="rl-ep-title" style="display:block">Counts are not cases</span><span class="rl-ep-take" style="display:block">Cases are a filtered, delayed, noisy view of infections; counts scatter like a negative binomial, not a Poisson.</span></span></a></li><li id="ep-27"><a class="rl-ep" data-ep="27" href="https://www.youtube.com/watch?v=zV9NzGh5tqI"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep27.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>3:05</span></span><span><span class="rl-ep-num">Episode 27 · 7.2</span><span class="rl-ep-title" style="display:block">Seasonality and reporting artefacts</span><span class="rl-ep-take" style="display:block">Weekday and holiday patterns come from reporting offices: compare like with like, or model the calendar.</span></span></a></li><li id="ep-28"><a class="rl-ep" data-ep="28" href="https://www.youtube.com/watch?v=z7UijLb6JMc"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep28.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>2:41</span></span><span><span class="rl-ep-num">Episode 28 · 7.3</span><span class="rl-ep-title" style="display:block">ARIMA, SARIMA and state-space models</span><span class="rl-ep-take" style="display:block">Seasonal ARIMA beat simple baselines with honest intervals, but every linear model struggles at turning points.</span></span></a></li><li id="ep-29"><a class="rl-ep" data-ep="29" href="https://www.youtube.com/watch?v=G0sfYGj0wfY"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep29.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>2:34</span></span><span><span class="rl-ep-num">Episode 29 · 7.4</span><span class="rl-ep-title" style="display:block">Nowcasting under reporting delay</span><span class="rl-ep-take" style="display:block">The latest days always look low because reports are late; a nowcast corrects them, if the delays stay the same.</span></span></a></li><li id="ep-30"><a class="rl-ep" data-ep="30" href="https://www.youtube.com/watch?v=RtUJJ_nxkD8"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep30.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>2:45</span></span><span><span class="rl-ep-num">Episode 30 · 7.5</span><span class="rl-ep-title" style="display:block">Machine learning and deep learning forecasts</span><span class="rl-ep-take" style="display:block">On one year of data the simplest learner did best; test every learner with rolling origins against simple baselines.</span></span></a></li><li id="ep-31"><a class="rl-ep" data-ep="31" href="https://www.youtube.com/watch?v=yd-jNKWELTM"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep31.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>2:39</span></span><span><span class="rl-ep-num">Episode 31 · 7.6</span><span class="rl-ep-title" style="display:block">Large language models in epidemiology</span><span class="rl-ep-take" style="display:block">Use language models as readers with fixed forms, simple checks and a person for the hard cases.</span></span></a></li></ol>
+        </div>
+      </div>
+      <script type="application/json" id="rl-episodes">[{"ep": 26, "youtube": "U9BGGXWkjY0", "title": "Counts are not cases", "duration": "2:59", "hook": "Cases are not infections.", "takeaway": "Cases are a filtered, delayed, noisy view of infections; counts scatter like a negative binomial, not a Poisson.", "thumbAbs": "/epidemic-modeling/img/eps/ep26.webp"}, {"ep": 27, "youtube": "zV9NzGh5tqI", "title": "Seasonality and reporting artefacts", "duration": "3:05", "hook": "Why dashboards jump on Mondays: weekday and holiday reporting patterns, measured from the counts and recovered by a regression, why day-to-day growth is noise, and two ways to keep the calendar out of the epidemic.", "takeaway": "Weekday and holiday patterns come from reporting offices: compare like with like, or model the calendar.", "thumbAbs": "/epidemic-modeling/img/eps/ep27.webp"}, {"ep": 28, "youtube": "z7UijLb6JMc", "title": "ARIMA, SARIMA and state-space models", "duration": "2:41", "hook": "Forecasting case counts with ARIMA, seasonal ARIMA and state-space models: a rolling-origin backtest against simple baselines, honest prediction intervals, missing days, and the weak spot of every linear model, the turning point.", "takeaway": "Seasonal ARIMA beat simple baselines with honest intervals, but every linear model struggles at turning points.", "thumbAbs": "/epidemic-modeling/img/eps/ep28.webp"}, {"ep": 29, "youtube": "G0sfYGj0wfY", "title": "Nowcasting under reporting delay", "duration": "2:34", "hook": "Why the latest days always look low: reporting delay, the reporting triangle and right truncation, a simple nowcast that cuts the error from 37% to 12%, what happens when labs slow down, and Bayesian nowcasting.", "takeaway": "The latest days always look low because reports are late; a nowcast corrects them, if the delays stay the same.", "thumbAbs": "/epidemic-modeling/img/eps/ep29.webp"}, {"ep": 30, "youtube": "RtUJJ_nxkD8", "title": "Machine learning and deep learning forecasts", "duration": "2:45", "hook": "Machine learning against seasonal ARIMA on the same simulated data: turning a time series into a table, four learners in a rolling-origin backtest, errors by horizon and phase, and where deep learning fits.", "takeaway": "On one year of data the simplest learner did best; test every learner with rolling origins against simple baselines.", "thumbAbs": "/epidemic-modeling/img/eps/ep30.webp"}, {"ep": 31, "youtube": "yd-jNKWELTM", "title": "Large language models in epidemiology", "duration": "2:39", "hook": "How large language models can join an epidemic pipeline: as readers that fill a fixed form, with their weaknesses, a toy check showing how one plain rule catches most extraction slips, and the safeguards that keep people accountable.", "takeaway": "Use language models as readers with fixed forms, simple checks and a person for the hard cases.", "thumbAbs": "/epidemic-modeling/img/eps/ep31.webp"}]</script>
+    </div></section>
+    <section id="lab" class="rl-lab" aria-labelledby="lab-title">
+      <div class="proj-wrap rl-lab-head">
+        <p class="proj-label"><i class="ri-line-chart-line" aria-hidden="true"></i>Interactive lab</p>
+        <h2 id="lab-title" class="proj-h2" style="margin-top:.5rem">Nowcasting and backtests</h2>
+        <p class="proj-lead">Nowcast the latest test dates of the course&#x27;s simulated surveillance system from its reporting triangle, and compare simple forecasters in a rolling-origin backtest.</p>
+        <p class="proj-lead" style="margin-top:.6rem">The course&#x27;s simulated year runs in your browser: a reporting triangle, a nowcast with a delay distribution estimated from recent complete days, and a rolling-origin backtest of four simple forecasters.</p>
+      </div>
+      <div class="rlx" id="nowcast-lab" data-epx="nowcast">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">A surveillance system with a known truth</h3>
+          <p class="rlx-sub">The course's simulated year: two waves in a town of 5 million; 1 in 4 infections becomes a case about 6 days later; reports arrive over two weeks. Everything runs in your browser.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">Reporting triangle</div>
+              <div class="formula-line"><span class="formula-chip">N(t, d) = cases tested on day t, reported d days later</span></div>
+              <p class="math-card-copy">On day T you only see the cells with t + d &lt; T: the newest test dates are incomplete.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Nowcast</div>
+              <div class="formula-line"><span class="formula-chip">nowcast(t) = arrived(t) ÷ F(T − t)</span></div>
+              <p class="math-card-copy">F(n): share of a day's cases reported within n days, estimated from complete test dates in a recent window.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Backtest</div>
+              <div class="formula-line"><span class="formula-chip">error = average |forecast − reported|</span></div>
+              <p class="math-card-copy">Rolling origins every 7 days: each forecast sees only reports up to its origin.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Nowcast controls">
+            <div><h4 class="rlx-h">Nowcast</h4><p class="rlx-sub">Pick today; the chart shows the last 28 test dates.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="ncToday">Today</label><span class="control-value" data-k="today-out">day 230</span></div><input id="ncToday" data-k="today" type="range" min="60" max="390" step="1" value="230"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="ncWin">Window for estimating delays</label><span class="control-value" data-k="win-out">63 days</span></div><input id="ncWin" data-k="win" type="range" min="14" max="91" step="7" value="63"></div>
+            <div class="rlx-row"><div><label class="rlx-label" for="ncSlow">Labs slow down on test dates 200–239</label></div><label class="toggle"><input id="ncSlow" data-k="slow" type="checkbox"><span class="toggle-track"></span></label></div>
+            <div class="rlx-row"><div><label class="rlx-label" for="ncTruth">Show the final counts</label></div><label class="toggle"><input id="ncTruth" data-k="truth" type="checkbox"><span class="toggle-track"></span></label></div>
+            <p class="rlx-hint">The final counts are what the data will show two weeks later; a real nowcaster never sees them in time. Values are made up to show mechanisms.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Last 7 days, arrived</div><div class="metric-value" data-k="arr7">–</div></div><div class="metric-tile"><div class="metric-label">Last 7 days, nowcast</div><div class="metric-value" data-k="now7">–</div></div><div class="metric-tile"><div class="metric-label">Last 7 days, final</div><div class="metric-value" data-k="fin7">–</div></div><div class="metric-tile"><div class="metric-label">Nowcast error</div><div class="metric-value" data-k="err7">–</div></div></div>
+            <p class="rlx-status" data-k="nstatus" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Cases by test date</h4><p class="rlx-sub">Orange: what has arrived; blue: the nowcast; dashed: the final count (if shown).</p></div></div>
+              <div class="chart-shell"><svg data-k="nchart" role="img" aria-label="Cases by test date: arrived, nowcast and final"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current settings, here or in the backtest panel below.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>With the slow labs on, find a day where the nowcast is off by more than 30%.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Still with slow labs, get the nowcast within 15% on a day between 225 and 235, changing only the delay window.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>In the backtest, find a horizon where repeating the last day beats the weekly mean.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>Get the trend × weekday forecast error below 100 cases.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+          <div class="rlx-grid" style="margin-top:1.5rem">
+            <aside class="rlx-card rlx-controls" aria-label="Backtest controls">
+            <div><h4 class="rlx-h">Backtest</h4><p class="rlx-sub">Four simple forecasters on the reported series (with weekends and holidays).</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="ncH">Days ahead</label><span class="control-value" data-k="h-out">3 days</span></div><input id="ncH" data-k="h" type="range" min="1" max="14" step="1" value="3"></div>
+            <p class="rlx-hint">Trend × weekday: last week's average, grown at last week's rate, times this weekday's usual share.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Repeat the last day</div><div class="metric-value" data-k="m-last">–</div></div><div class="metric-tile"><div class="metric-label">Repeat last week</div><div class="metric-value" data-k="m-week">–</div></div><div class="metric-tile"><div class="metric-label">Weekly mean</div><div class="metric-value" data-k="m-mean">–</div></div><div class="metric-tile"><div class="metric-label">Trend × weekday</div><div class="metric-value" data-k="m-trend">–</div></div></div>
+            <p class="rlx-status" data-k="bstatus" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Average miss</h4><p class="rlx-sub">Reported cases per forecast day, over origins every 7 days from day 120.</p></div></div>
+              <div class="chart-shell" style="height:180px"><svg data-k="bchart" role="img" aria-label="Average forecast error of four methods"></svg></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="next" class="proj-section is-soft" aria-labelledby="next-title"><div class="proj-wrap">
+      <h2 id="next-title" class="proj-h2">Keep going</h2>
+      <div class="rl-pn"><a href="/epidemic-modeling/module-06/"><i class="ri-arrow-left-line" aria-hidden="true"></i><span><small>Previous · Module 6</small><strong>Multi-agent simulation</strong></span></a><a class="is-next" href="/epidemic-modeling/module-08/"><span><small>Next · Module 8</small><strong>Parameter estimation and calibration</strong></span><i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+    </div></section>
+  </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Courses</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/rl-course/" class="hover:text-white">Reinforcement Learning</a></li>
+                  <li><a href="/epidemic-modeling/" class="hover:text-white">Epidemic Modeling</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/rl-course/" class="hover:text-white">RL course</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <script src="/js/videos.js"></script>
+      
+      <script src="/js/epi-labs.js" defer></script>
+      <script src="/js/epi-course.js" defer></script>
+   </body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_epi_course.py from data/epi-course.json. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Module 2: Beyond the virus | Epidemic Modeling Course | ACML</title>
+      <meta name="description" content="Module 2 of 13 of ACML’s Epidemic Modeling course. Biology, psychology, economics and governance: slides, 3 short episodes and an interactive lab.">
+      <meta name="author" content="Teddy Lazebnik">
+      <meta name="keywords" content="epidemic modeling, epidemiology, beyond the virus, course, ACML">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/epidemic-modeling/module-02/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Module 2: Beyond the virus · Epidemic Modeling">
+      <meta property="og:description" content="Module 2 of 13 of ACML’s Epidemic Modeling course. Biology, psychology, economics and governance: slides, 3 short episodes and an interactive lab.">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/epidemic-modeling/module-02/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/epidemic-modeling/module-02/share.jpg">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Module 2: Beyond the virus · Epidemic Modeling">
+      <meta name="twitter:description" content="Module 2 of 13 of ACML’s Epidemic Modeling course. Biology, psychology, economics and governance: slides, 3 short episodes and an interactive lab.">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/epidemic-modeling/module-02/share.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "Module 2: Beyond the virus",
+        "description": "An epidemic is more than a virus. We treat spread as a tug of war between transmission and interruption, see why the reproduction number depends on the setting, why uneven spread makes outbreaks rarer but more explosive, and why data lags behind reality; then the biology underneath (pathogens, the three clocks of infection, routes, immunity, spillover), the psychology and economics of how people react, and the role of governments in one coupled system with feedback loops and late data.",
+        "url": "https://acml.teddylazebnik.com/epidemic-modeling/module-02/",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "learningResourceType": [
+          "Lecture slides",
+          "Video",
+          "Interactive resource"
+        ],
+        "teaches": "Biology, psychology, economics and governance",
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Epidemic Modeling",
+          "url": "https://acml.teddylazebnik.com/epidemic-modeling/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Teddy Lazebnik",
+          "url": "https://teddylazebnik.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Applied Computational Mathematics Laboratory",
+          "url": "https://acml.teddylazebnik.com/"
+        },
+        "hasPart": [
+          {
+            "@type": "VideoObject",
+            "name": "How infections spread, and the biology behind it",
+            "description": "Two viruses can look almost the same and still write very different epidemics.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep04.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/4YCsgbe7Djc",
+            "duration": "PT5M9S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Fear, trust and money",
+            "description": "Same virus, same city, and yet an epidemic can rise, plateau or come back in waves.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep05.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/T3DU1sPs9qM",
+            "duration": "PT5M3S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Governments and feedback loops",
+            "description": "No government can stop a virus by decree, but governments shape what it needs.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep06.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/qc9Hp_oj4BA",
+            "duration": "PT5M8S"
+          },
+          {
+            "@type": "DigitalDocument",
+            "name": "Module 2 slides",
+            "encodingFormat": "application/pdf",
+            "url": "https://acml.teddylazebnik.com/epidemic-modeling/slides/Epidemic_Modeling_Module02_Beyond_the_virus.pdf"
+          }
+        ]
+      }
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      <link href="/css/videos.css" rel="stylesheet">
+      
+      <link href="/css/exploration-lab.css" rel="stylesheet">
+      <link href="/css/rl-labs.css" rel="stylesheet">
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/project.css" rel="stylesheet">
+      <link href="/css/rl-course.css" rel="stylesheet">
+      <link href="/css/epi-course.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+          <a href="/courses.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Courses</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/courses.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Courses</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="proj-page rl-page bg-white">
+    <header class="proj-hero rl-hero">
+      <div class="proj-wrap proj-hero-grid">
+        <div>
+          <nav class="proj-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/courses.html">Courses</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/epidemic-modeling/">Epidemic Modeling</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Module 2</span></nav>
+          <p class="proj-kicker"><span><i class="ri-graduation-cap-line" aria-hidden="true"></i>Epidemic Modeling</span><span>Foundations</span></p>
+          <h1 class="proj-title"><small>Module 2</small>Beyond the virus</h1>
+          <p class="proj-about-lead rl-summary">An epidemic is more than a virus. We treat spread as a tug of war between transmission and interruption, see why the reproduction number depends on the setting, why uneven spread makes outbreaks rarer but more explosive, and why data lags behind reality; then the biology underneath (pathogens, the three clocks of infection, routes, immunity, spillover), the psychology and economics of how people react, and the role of governments in one coupled system with feedback loops and late data.</p>
+          <div class="rl-goal"><i class="ri-focus-3-line" aria-hidden="true"></i><span>By the end you should be able to explain why R depends on the setting, show how timing in the body and in policy changes outcomes, and describe the feedback loop between disease, behavior, money and policy.</span></div>
+          <h2 class="proj-h3 rl-ideas-title">Key ideas, one per episode</h2>
+          <ul class="rl-ideas"><li><a href="#ep-4">Ep. 4</a><span>R depends on the setting: who meets whom, uneven spread, delays, and the order of the body’s clocks.</span></li><li><a href="#ep-5">Ep. 5</a><span>Behavior is part of the epidemic: fear flattens the curve, fatigue brings it back, and money decides who can protect.</span></li><li><a href="#ep-6">Ep. 6</a><span>Timing, packages and late data: governments shape what the virus needs, and models map futures, not one forecast.</span></li></ul>
+          <p class="rl-source"><b>Textbook:</b> Chapter 2 of <a href="https://shop.elsevier.com/books/epidemic-modeling/lazebnik/978-0-443-55525-1" target="_blank" rel="noopener">T. Lazebnik, Epidemic Modeling: Principles, Algorithms, and Applications (Academic Press, 2026)</a>. The episodes and slides follow the chapter’s topics in our own words, figures and simulations; nothing is copied from the book.</p>
+        </div>
+        <div class="rl-first">
+          <a class="rl-first-img" href="/epidemic-modeling/slides/Epidemic_Modeling_Module02_Beyond_the_virus.pdf" target="_blank" rel="noopener"><img src="/epidemic-modeling/img/slides/m02-s01.webp" alt="The title slide of Module 2: Beyond the virus" width="960" height="540" fetchpriority="high" decoding="async"></a>
+          <p class="rl-first-text">43 slides, written to be read on your own, with worked examples, “try it” boxes, our own small simulations and check-yourself questions (answers at the end). PDF, 0.9 MB.</p>
+          <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="/epidemic-modeling/slides/Epidemic_Modeling_Module02_Beyond_the_virus.pdf" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Open the PDF</a><a class="proj-btn" href="/epidemic-modeling/slides/Epidemic_Modeling_Module02_Beyond_the_virus.pdf" download><i class="ri-download-2-line" aria-hidden="true"></i>Download</a></div>
+        </div>
+      </div>
+    </header>
+    <nav class="proj-subnav is-mobile-only" aria-label="Sections of this page"><div class="proj-wrap"><ul><li><a href="#watch">Watch</a></li><li><a href="#lab">Lab</a></li><li><a href="#next">Next</a></li></ul></div></nav>
+    <section id="watch" class="proj-section is-soft" aria-labelledby="watch-title"><div class="proj-wrap">
+      <h2 id="watch-title" class="proj-h2">Watch</h2>
+      <p class="proj-lead">3 short episodes for this module. Pick one from the list, and open the transcript to read along: each timestamp plays the episode from there. The narration is generated with a voice clone of Teddy, used with his permission.</p>
+      <div class="rl-watch">
+        <div class="rl-player-wrap">
+          <div id="rl-player" class="yt-player yt-16x9" data-yt-id="4YCsgbe7Djc" data-yt-title="How infections spread, and the biology behind it"><a class="yt-play" href="https://www.youtube.com/watch?v=4YCsgbe7Djc" aria-label="Play episode 4: How infections spread, and the biology behind it"><img src="/epidemic-modeling/img/eps/ep04.webp" alt="" width="640" height="360" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div>
+          <div class="rl-now">
+            <p id="rl-now-num" class="rl-now-num">Episode 4 · 5:09</p>
+            <p id="rl-now-title" class="rl-now-title">How infections spread, and the biology behind it</p>
+            <p id="rl-now-hook" class="rl-now-hook">Two viruses can look almost the same and still write very different epidemics.</p>
+            <p id="rl-now-take" class="rl-now-take"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i><span>R depends on the setting: who meets whom, uneven spread, delays, and the order of the body’s clocks.</span></p>
+          </div>
+            <details id="rl-tx" class="rl-tx">
+              <summary><i class="ri-file-text-line" aria-hidden="true"></i>Transcript<span id="rl-tx-which">Episode 4</span><i class="ri-arrow-down-s-line rl-tx-caret" aria-hidden="true"></i></summary>
+              <div class="rl-tx-body"><div class="rl-tx-ep" data-ep="4"><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=4YCsgbe7Djc" data-ep="4" data-t="0">0:00</a><p><b>Same virus, different epidemics.</b> Two viruses can look almost the same in a clinic, and still write completely different epidemics. This module is about why. Module two is everything beyond the virus itself. Today: how infections spread through a population, and the biology underneath.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=4YCsgbe7Djc&amp;t=22s" data-ep="4" data-t="22">0:22</a><p><b>Transmission vs interruption.</b> Think of an epidemic as a tug of war. On one side, transmission: an infectious person meets a susceptible one, and the germ gets across. On the other side, interruption: people become immune, cases are isolated sooner, or contacts change. We sum up the balance with one number, the reproduction number: how many people one typical case goes on to infect. At 1.5, one case grows to about eleven in six generations. At 0.7, the same chain shrinks to almost nothing. And that number is not a property of the virus alone. It depends on how people mix, how fast cases are found, and what is in place to stop them.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=4YCsgbe7Djc&amp;t=58s" data-ep="4" data-t="58">0:58</a><p><b>Who meets whom.</b> So how do people mix? Not evenly. The same few people at home every day, groups at school and work, strangers now and then. Contact surveys show strong patterns by age. Children mostly meet children, working adults meet each other, and homes mix everyone. That&#x27;s why closing schools and closing offices are different levers. They cut different parts of the contact network.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=4YCsgbe7Djc&amp;t=80s" data-ep="4" data-t="80">1:20</a><p><b>Uneven spread.</b> People are uneven in another way, too. Some places, like a crowded indoor party, let one person infect many. We simulated two outbreaks with the same average, two new infections per case. In one, cases are all alike. In the other, very uneven. In the uneven one, three in four cases infect nobody, and just nine percent of cases cause eighty percent of all infections. And a single imported case dies out on its own eighty nine percent of the time, against twenty percent when cases are alike. So uneven spread makes outbreaks rarer, but more explosive when they take off. The average hides that.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=4YCsgbe7Djc&amp;t=116s" data-ep="4" data-t="116">1:56</a><p><b>Space, and what we see.</b> Epidemics move through space as well. Commuters tie nearby towns together, and long trips seed outbreaks far away. In our two-town run, if two people in a thousand commute, the second town peaks twenty days after the first. At twenty in a thousand, nine days after. Then there&#x27;s the gap between what happens and what we see. First infection, then symptoms, then a test, then a report. Every step adds delay. In our run, the reported curve peaks eight days after the real one, and shows only the thirty percent of infections that ever get tested. So the data is always a bit late and a bit partial. Remember that whenever someone shows you a case chart.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=4YCsgbe7Djc&amp;t=155s" data-ep="4" data-t="155">2:35</a><p><b>Kinds of germs.</b> Now, one level deeper: biology. Germs come in several kinds: viruses, bacteria, fungi, single-celled parasites, worms, and misfolded proteins called prions. And being infected is not the same as being sick. Infection means the germ is in you, multiplying. Disease means symptoms. You can have the first without the second, and still pass it on.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=4YCsgbe7Djc&amp;t=178s" data-ep="4" data-t="178">2:58</a><p><b>Three clocks.</b> Three clocks start at infection. The latent period ends when you become infectious. The incubation period ends when symptoms start. The infectious period is the window for spreading. Each clock varies from person to person, so think of them as distributions, not single numbers. What matters most is their order. In our toy numbers, R₀ is 2.5, and eight in ten sick people isolate. If almost all spread comes after symptoms, R drops to about 0.8. But if forty percent of spread happens before symptoms, the very same isolation only gets R down to about 1.4. Same effort, opposite outcomes. Timing inside the body becomes timing in policy.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=4YCsgbe7Djc&amp;t=221s" data-ep="4" data-t="221">3:41</a><p><b>Routes and defenses.</b> To spread, a germ has to leave one body, survive the trip, and reach another in a big enough dose. The main routes are the air, touch, shared objects, water and food, blood or sex, and insects like mosquitoes. Each route points to its own defense. Air means ventilation and less crowding. Water means sanitation. Mosquitoes mean bed nets.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=4YCsgbe7Djc&amp;t=245s" data-ep="4" data-t="245">4:05</a><p><b>Immunity and spillover.</b> Immunity is why epidemics slow down, and why they come back. It is not an on-off switch. It can block infection, cut spread, or soften the illness. And it can fade. In our run, when protection fades after about half a year, a second wave arrives around day two hundred forty. Smaller, but it comes back. And many pandemics begin with spillover, a germ jumping from animals to people. Human activity can lower each barrier along the way.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=4YCsgbe7Djc&amp;t=273s" data-ep="4" data-t="273">4:33</a><p><b>Recap.</b> So: spread is a tug of war, shaped by who meets whom, where, and how fast we notice. Biology sets the clocks, the routes and the immunity. Next time, the people: fear, trust and money. Because what people do moves an epidemic as much as the virus does.</p></div></div><div class="rl-tx-ep" data-ep="5" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=T3DU1sPs9qM" data-ep="5" data-t="0">0:00</a><p><b>The difference is us.</b> Same virus, same city, same season. And yet the epidemic can rise, plateau, or come back in waves. The difference is us. Today, the psychology and the economics of pandemics. Fear, trust and money.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=T3DU1sPs9qM&amp;t=23s" data-ep="5" data-t="23">0:23</a><p><b>The behavior loop.</b> The core idea is a loop. Disease changes behavior, and behavior changes disease. When people see cases rising, many stay home, avoid crowds, wear masks, get tested. Transmission drops. Then cases fall, and people relax.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=T3DU1sPs9qM&amp;t=38s" data-ep="5" data-t="38">0:38</a><p><b>Perceived risk.</b> But people don&#x27;t react to the true risk. They react to the risk they perceive, and our minds take shortcuts. Vivid, recent, heavily covered events feel more likely than they are. Slow, quiet risks feel smaller, until they hit close to home. So two towns facing the same epidemic can behave very differently, depending on what they believe is happening.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=T3DU1sPs9qM&amp;t=61s" data-ep="5" data-t="61">1:01</a><p><b>From belief to action.</b> Belief alone isn&#x27;t enough, either. A classic model of behavior says intention comes from three things: your attitude, what you think others expect, and whether you feel able to do it. If masks feel useless, or staying home means losing your job, intention never turns into action. And we copy each other. A visible, normal habit spreads through offices and schools. When it becomes rare, or a badge of one side, people drop it.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=T3DU1sPs9qM&amp;t=89s" data-ep="5" data-t="89">1:29</a><p><b>Trust and misinformation.</b> Trust sits in the middle. When people trust health authorities and local messengers, they follow advice, and accept it when advice changes. Being open about uncertainty is how that trust is built. And misinformation spreads like a pathogen of its own. A large study of Twitter found that false stories spread farther and faster than true ones, mostly because people share what feels new. So in a pandemic two things spread at once: the virus, and beliefs about the virus.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=T3DU1sPs9qM&amp;t=116s" data-ep="5" data-t="116">1:56</a><p><b>Fatigue: our behavior model.</b> Then there&#x27;s fatigue. The World Health Organization calls pandemic fatigue an expected response to long restrictions. Motivation wears down. We built a small model of all this. Protection cuts transmission, people react to cases reported a week late, and they remember them for about five weeks. With no reaction at all, thirty percent of the town is infected at once at the peak, and ninety four percent get infected overall. Add fear, and the peak drops below one percent. After a year and a half, only about nine percent have been infected. Now add fatigue, so protection slowly wears off. The first wave falls, then the curve climbs back into a second, bigger wave around month nine. Forty percent infected. Fear flattens the curve. Fatigue brings the wave back. You&#x27;ll play with this exact model in the lab.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=T3DU1sPs9qM&amp;t=163s" data-ep="5" data-t="163">2:43</a><p><b>Work, externalities, sick pay.</b> Now, money. Most infections happen during ordinary economic life: working, shopping, commuting, caring for others. Someone who can work from home cuts contacts and keeps their pay. Someone whose job is on site faces a hard choice between health and rent. Economists call the core problem an externality. If I go to work sick, I keep my pay, but my coworkers carry the risk. Sick pay changes the math. In our toy numbers, with R₀ of 2.5, if four in ten sick workers can afford to stay home, R is about two. If eight in ten can, it drops to about 1.4. And a study of the 2020 emergency sick leave law in the United States linked it to slower case growth.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=T3DU1sPs9qM&amp;t=204s" data-ep="5" data-t="204">3:24</a><p><b>Pulling back, shocks, inequality.</b> People also pull back on their own. Early in COVID-19, visits to shops fell sharply, and studies found that official orders explained only part of the drop. So a pandemic hits supply and demand at once. Workers get sick or stay home with kids. Restaurants and travel collapse, while delivery and video calls boom. And one closed factory can stall many others down the supply chain. The costs aren&#x27;t shared equally. Jobs that can&#x27;t be done from home, little savings, crowded housing. Those groups carry more risk, and more loss.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=T3DU1sPs9qM&amp;t=235s" data-ep="5" data-t="235">3:55</a><p><b>Targeting and what counts.</b> That unevenness can also be a tool. In our toy town, a fifth of people work in busy settings, with four times the contacts. Remove a quarter of all contacts across the board, and R goes from 2.5 to about 1.9. Remove the same quarter only in the busy settings, and R drops to about 1.3. Targeting isn&#x27;t always easy or fair. But ignoring differences gives policies that cost more and work less. And deaths are only one outcome. Long illness, mental health, lost schooling and delayed care all count.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=T3DU1sPs9qM&amp;t=267s" data-ep="5" data-t="267">4:27</a><p><b>Recap.</b> So behavior is part of the epidemic. Perception, norms, trust and fatigue move contacts up and down, and money decides who can actually protect themselves. Next time: governments, and the big loop that ties biology, people, money and policy together.</p></div></div><div class="rl-tx-ep" data-ep="6" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=qc9Hp_oj4BA" data-ep="6" data-t="0">0:00</a><p><b>What governments shape.</b> No government can stop a virus by decree. But governments shape almost everything a virus needs: how often we meet, where, and how fast cases are found. Today, the last part of Module two: the role of government, and the loop that ties everything together.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=qc9Hp_oj4BA&amp;t=23s" data-ep="6" data-t="23">0:23</a><p><b>A collective action problem.</b> A pandemic is a collective action problem. Even when everyone knows what helps, it&#x27;s hard to keep up without coordination, good information and practical support. So governments provide what individuals and markets can&#x27;t: surveillance, lab networks, emergency logistics, clear rules, and shared resources like hospitals.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=qc9Hp_oj4BA&amp;t=41s" data-ep="6" data-t="41">0:41</a><p><b>Built before the crisis.</b> Much of it has to exist before the crisis. Legal authority to act, trained public health staff, labs that can test and sequence, data systems that share, and agencies that already know each other. Internationally, under the International Health Regulations, countries have agreed to build these capacities and to report unusual outbreaks quickly. And legitimacy matters. When people see the system as competent and fair, the same effect needs much less force. Trust is a variable that changes transmission.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=qc9Hp_oj4BA&amp;t=73s" data-ep="6" data-t="73">1:13</a><p><b>During the crisis.</b> Early in an outbreak, the first job is to reduce uncertainty fast: testing, case definitions, reporting pipelines, and data people can actually read. Once spread is sustained, the job becomes interruption: support for isolation, contact tracing, testing, cleaner indoor air, masks, limits on crowding, and protecting hospitals. And here&#x27;s the catch. The effect depends on timing and adherence, not on the announcement.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=qc9Hp_oj4BA&amp;t=98s" data-ep="6" data-t="98">1:38</a><p><b>Timing decides.</b> We tested timing in our model. The same measure, halving transmission for sixty days, started on different days. Start on day twenty, and the wave just waits. When the measure lifts, it comes back, with about twenty three percent of the town infected at once. Start on day sixty, and the peak has already passed. Start on day forty, and the same sixty days cut the peak from thirty percent to about eighteen, and total infections from ninety four percent to seventy seven. Same measure, same length. The calendar decided the outcome.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=qc9Hp_oj4BA&amp;t=130s" data-ep="6" data-t="130">2:10</a><p><b>Policies interact.</b> Policies also interact. Testing only helps if people can isolate, and isolation needs support, like paid leave and food delivery. In our toy numbers, R₀ is 2.5. More testing alone brings R to about 2.1. Isolation support alone, about the same. Both together, about 1.5. So good governance is less about one perfect measure, and more about a package that fits together, and can actually be delivered.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=qc9Hp_oj4BA&amp;t=156s" data-ep="6" data-t="156">2:36</a><p><b>Delivery, equity, supplies.</b> Delivery is the hard part. Tests that people can&#x27;t reach. Isolation advice without pay. Tracers overwhelmed. Beds without staff. The virus finds every gap. Equity is part of this. If the most exposed groups can&#x27;t protect themselves, transmission stays high for everyone. And strong measures must be justified, proportionate and safeguarded. Then supplies: tests, protective gear, vaccines, cold chains, and fast but careful approvals. When cases double every three and a half days, one week of delay means four times as many cases. And pandemics cross borders, while governments answer first to their own people. That makes global sharing hardest exactly when it&#x27;s needed most.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=qc9Hp_oj4BA&amp;t=198s" data-ep="6" data-t="198">3:18</a><p><b>The loop, and late data.</b> Now let&#x27;s tie Module two together. Biology sets the clocks. Contacts turn biology into spread. Psychology changes contacts. Money decides who can change. Government coordinates, and sends signals. And government reacts to data that arrives late, after incubation, testing and reporting. Decisions always look a little into the past. In our model, restrictions switch on when infections pass one percent, and off below 0.3 percent. Acting on true numbers, the peak stays near two percent. Acting on data ten days late, the peak is about three times higher.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=qc9Hp_oj4BA&amp;t=234s" data-ep="6" data-t="234">3:54</a><p><b>What models can honestly do.</b> This coupling makes epidemics sensitive. Early on, exponential growth turns small timing gaps into big differences, and chance, like one superspreading event, can decide what happens next. It also makes modeling hard. Key quantities aren&#x27;t observed directly, like true infections, or how many people really isolate. And different assumptions can fit the same data. Here are two of our runs, one with R₀ two, one with R₀ three. For the first month they&#x27;re almost identical. Then one peaks at fifteen percent, the other at thirty. So the honest job of a model is not to predict one future. It&#x27;s to map plausible futures, say what must be true for a policy to work, and show which unknowns matter.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=qc9Hp_oj4BA&amp;t=275s" data-ep="6" data-t="275">4:35</a><p><b>Recap.</b> That&#x27;s Module two. The virus is one part of a coupled system of biology, people, money and government. Next, in Module three, we start writing that system in mathematics, with compartmental models. See you there.</p></div></div></div>
+            </details>
+        </div>
+        <div class="rl-eps">
+          <div class="rl-eps-head"><b>Module 2 episodes</b><span>3 episodes · 15 min</span></div>
+          <ol><li id="ep-4"><a class="rl-ep is-active" data-ep="4" href="https://www.youtube.com/watch?v=4YCsgbe7Djc" aria-current=true><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep04.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>5:09</span></span><span><span class="rl-ep-num">Episode 4 · 2.1</span><span class="rl-ep-title" style="display:block">How infections spread, and the biology behind it</span><span class="rl-ep-take" style="display:block">R depends on the setting: who meets whom, uneven spread, delays, and the order of the body’s clocks.</span></span></a></li><li id="ep-5"><a class="rl-ep" data-ep="5" href="https://www.youtube.com/watch?v=T3DU1sPs9qM"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep05.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>5:03</span></span><span><span class="rl-ep-num">Episode 5 · 2.2</span><span class="rl-ep-title" style="display:block">Fear, trust and money</span><span class="rl-ep-take" style="display:block">Behavior is part of the epidemic: fear flattens the curve, fatigue brings it back, and money decides who can protect.</span></span></a></li><li id="ep-6"><a class="rl-ep" data-ep="6" href="https://www.youtube.com/watch?v=qc9Hp_oj4BA"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep06.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>5:08</span></span><span><span class="rl-ep-num">Episode 6 · 2.3</span><span class="rl-ep-title" style="display:block">Governments and feedback loops</span><span class="rl-ep-take" style="display:block">Timing, packages and late data: governments shape what the virus needs, and models map futures, not one forecast.</span></span></a></li></ol>
+        </div>
+      </div>
+      <script type="application/json" id="rl-episodes">[{"ep": 4, "youtube": "4YCsgbe7Djc", "title": "How infections spread, and the biology behind it", "duration": "5:09", "hook": "Two viruses can look almost the same and still write very different epidemics.", "takeaway": "R depends on the setting: who meets whom, uneven spread, delays, and the order of the body’s clocks.", "thumbAbs": "/epidemic-modeling/img/eps/ep04.webp"}, {"ep": 5, "youtube": "T3DU1sPs9qM", "title": "Fear, trust and money", "duration": "5:03", "hook": "Same virus, same city, and yet an epidemic can rise, plateau or come back in waves.", "takeaway": "Behavior is part of the epidemic: fear flattens the curve, fatigue brings it back, and money decides who can protect.", "thumbAbs": "/epidemic-modeling/img/eps/ep05.webp"}, {"ep": 6, "youtube": "qc9Hp_oj4BA", "title": "Governments and feedback loops", "duration": "5:08", "hook": "No government can stop a virus by decree, but governments shape what it needs.", "takeaway": "Timing, packages and late data: governments shape what the virus needs, and models map futures, not one forecast.", "thumbAbs": "/epidemic-modeling/img/eps/ep06.webp"}]</script>
+    </div></section>
+    <section id="lab" class="rl-lab" aria-labelledby="lab-title">
+      <div class="proj-wrap rl-lab-head">
+        <p class="proj-label"><i class="ri-emotion-line" aria-hidden="true"></i>Interactive lab</p>
+        <h2 id="lab-title" class="proj-h2" style="margin-top:.5rem">Fear, fatigue and waves</h2>
+        <p class="proj-lead">Run the behavior model from Episode 5 and the Module 2 slides: an SIR town where people protect themselves when they see infections, and slowly tire of it.</p>
+        <p class="proj-lead" style="margin-top:.6rem">Change how fast news arrives, how long people remember, and how quickly fatigue builds and fades. Watch the peak, the number of waves and the total. Three challenges check your run as you go.</p>
+      </div>
+      <div class="rlx" id="behave-lab" data-epx="behave">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">An SIR town that reacts</h3>
+          <p class="rlx-sub">A town of S, I and R. Each infected person meets others at rate β₀ = 0.3 per day and recovers after 10 days on average (γ = 0.1), so R₀ = 3. One person in 10,000 is infected on day 0.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">Protection</div>
+              <div class="formula-line"><span class="formula-chip">β(t) = β₀ (1 − e · p(t))</span></div>
+              <p class="math-card-copy">p is the share of meetings that people protect (staying home, masks, distance); e is how much protection cuts transmission.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Fear</div>
+              <div class="formula-line"><span class="formula-chip">p = P / (P + h) · (1 − F)</span></div>
+              <p class="math-card-copy">P is perceived risk: infections reported d days late, remembered for about m days. When P equals h, half of people protect.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Fatigue</div>
+              <div class="formula-line"><span class="formula-chip">dF/dt = φ p (1 − F) − ρ F</span></div>
+              <p class="math-card-copy">Fatigue F builds while people protect (rate φ) and fades when they stop (rate ρ). It limits how much fear can do.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Controls">
+            <div><h4 class="rlx-h">Controls</h4><p class="rlx-sub">Every change re-runs 540 days at once.</p></div>
+            <div class="rlx-btns"><button type="button" data-k="p-none" class="control-button control-button-ghost">No reaction</button><button type="button" data-k="p-fear" class="control-button control-button-secondary">Fear only</button><button type="button" data-k="p-fat" class="control-button control-button-primary">Fear + fatigue</button></div>
+            <div class="rlx-row"><div><label class="rlx-label" for="bhFear">People react (fear)</label></div><label class="toggle"><input id="bhFear" data-k="fear" type="checkbox" checked><span class="toggle-track"></span></label></div>
+            <div class="rlx-row"><div><label class="rlx-label" for="bhFat">Fatigue</label></div><label class="toggle"><input id="bhFat" data-k="fatigue" type="checkbox" checked><span class="toggle-track"></span></label></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="bhHalf">Fear threshold h</label><span class="control-value" data-k="half-out">0.05%</span></div><input id="bhHalf" data-k="half" type="range" min="0.0001" max="0.005" step="0.0001" value="0.0005"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="bhLag">Reporting delay d</label><span class="control-value" data-k="lag-out">7 days</span></div><input id="bhLag" data-k="lag" type="range" min="0" max="21" step="1" value="7"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="bhMem">Memory m</label><span class="control-value" data-k="mem-out">35 days</span></div><input id="bhMem" data-k="mem" type="range" min="7" max="70" step="7" value="35"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="bhEff">Protection effect e</label><span class="control-value" data-k="eff-out">90%</span></div><input id="bhEff" data-k="eff" type="range" min="0.3" max="1" step="0.05" value="0.9"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="bhPhi">Fatigue builds φ</label><span class="control-value" data-k="phi-out">0.005</span></div><input id="bhPhi" data-k="phi" type="range" min="0" max="0.03" step="0.001" value="0.005"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="bhRho">Fatigue fades ρ</label><span class="control-value" data-k="rho-out">0.005</span></div><input id="bhRho" data-k="rho" type="range" min="0.001" max="0.03" step="0.001" value="0.005"></div>
+            <div class="rlx-row"><div><label class="rlx-label" for="bhRef">Show the no-reaction run</label><p class="rlx-hint" style="margin-top:.2rem">Grey dashed line; it peaks at about 30%, so the chart zooms out.</p></div><label class="toggle"><input id="bhRef" data-k="ref" type="checkbox"><span class="toggle-track"></span></label></div>
+            <p class="rlx-hint">“Fear + fatigue” loads the settings used in Episode 5 and in the slides. All values are made up to show the mechanism; they are not estimates for a real disease.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Peak infected at once</div><div class="metric-value" data-k="peak">–</div></div><div class="metric-tile"><div class="metric-label">Peak day</div><div class="metric-value" data-k="peakday">–</div></div><div class="metric-tile"><div class="metric-label">Waves</div><div class="metric-value" data-k="waves">–</div></div><div class="metric-tile"><div class="metric-label">Infected by day 540</div><div class="metric-value" data-k="final">–</div></div></div>
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Infected right now</h4><p class="rlx-sub">Share of the town infected on each day. A wave is a peak above 0.03%, at least 30 days after the previous one.</p></div></div>
+              <div class="chart-shell"><svg data-k="chart" role="img" aria-label="Share of the town infected over 540 days"></svg></div>
+            </div>
+            <div class="rlx-two">
+              <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Protection and fatigue</h4><p class="rlx-sub">Protection p (green) and fatigue F (navy, dashed), from 0 to 100%.</p></div></div>
+                <div class="chart-shell chart-shell-compact"><svg data-k="pchart" role="img" aria-label="Protection and fatigue over 540 days"></svg></div>
+                <div class="rlx-legend"><span class="line-swatch" style="--swatch:#009e73">protection p</span><span class="line-swatch is-dash" style="--swatch:#1e3a8a">fatigue F</span></div>
+              </div>
+              <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current run.</p></div></div>
+                <ol class="epx-challenges">
+                  <li data-ch="0"><span class="epx-mark"></span><span>With fear on, keep the peak below 1% of the town.</span></li>
+                  <li data-ch="1"><span class="epx-mark"></span><span>With fatigue on, get three or more waves.</span></li>
+                  <li data-ch="2"><span class="epx-mark"></span><span>With fatigue on, keep total infections under 25%.</span></li>
+                </ol>
+                <p class="rlx-hint">Hints: what happens when the news comes later, or people forget faster? Does a quicker recovery from fatigue help or hurt?</p>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="next" class="proj-section is-soft" aria-labelledby="next-title"><div class="proj-wrap">
+      <h2 id="next-title" class="proj-h2">Keep going</h2>
+      <div class="rl-pn"><a href="/epidemic-modeling/module-01/"><i class="ri-arrow-left-line" aria-hidden="true"></i><span><small>Previous · Module 1</small><strong>History of pandemics and modeling</strong></span></a><a class="is-next" href="/epidemic-modeling/module-03/"><span><small>Next · Module 3</small><strong>Compartmental models</strong></span><i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+    </div></section>
+  </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Courses</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/rl-course/" class="hover:text-white">Reinforcement Learning</a></li>
+                  <li><a href="/epidemic-modeling/" class="hover:text-white">Epidemic Modeling</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/rl-course/" class="hover:text-white">RL course</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <script src="/js/videos.js"></script>
+      
+      <script src="/js/epi-labs.js" defer></script>
+      <script src="/js/epi-course.js" defer></script>
+   </body>
+</html>

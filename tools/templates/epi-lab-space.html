@@ -1,0 +1,68 @@
+<!-- Used by tools/build_epi_course.py: the space lab (Module 4) of the Epidemic Modeling course: cities linked by travel, and contact networks. Script: js/epi-labs.js (data-epx="space"), styles: css/exploration-lab.css + css/rl-labs.css + css/epi-course.css. -->
+      <div class="rlx" id="space-lab" data-epx="space">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">Space in two ways</h3>
+          <p class="rlx-sub">Five cities on a line, linked by travel; then 400 people on a contact network. Both run in your browser.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">Cities</div>
+              <div class="formula-line"><span class="formula-chip">dIₚ/dt = β SₚIₚ/Nₚ − γ Iₚ + m Σ (neighbour I − Iₚ)</span></div>
+              <p class="math-card-copy">Each city runs SIR (γ = 1/10 per day); a share m of people moves to each neighbouring city per day, carrying their state.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Networks</div>
+              <div class="formula-line"><span class="formula-chip">T = τ / (τ + γ)</span></div>
+              <p class="math-card-copy">T is the chance an edge transmits before the infected end recovers. A large outbreak needs T × mean excess degree above 1.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Closure</div>
+              <div class="formula-line"><span class="formula-chip">m → m / 20 from the closure day</span></div>
+              <p class="math-card-copy">Cutting travel delays the wave in the far cities; it does not change how many get infected in the end.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Cities controls">
+            <div><h4 class="rlx-h">Cities</h4><p class="rlx-sub">City 1 starts the outbreak.</p></div>
+            <div class="rlx-btns"><button type="button" data-k="p-weak" class="control-button control-button-secondary">Little travel</button><button type="button" data-k="p-mid" class="control-button control-button-primary">Some travel</button><button type="button" data-k="p-strong" class="control-button control-button-secondary">Lots of travel</button></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="spM">Travel to each neighbour, per day</label><span class="control-value" data-k="m-out">32 in 10,000</span></div><input id="spM" data-k="m" type="range" min="-4" max="-1" step="0.1" value="-2.5"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="spR0">R₀ in every city</label><span class="control-value" data-k="R0-out">3.0</span></div><input id="spR0" data-k="R0" type="range" min="1.2" max="5" step="0.1" value="3"></div>
+            <div class="rlx-row"><div><label class="rlx-label" for="spClose">Border closure (travel ÷ 20)</label></div><label class="toggle"><input id="spClose" data-k="closeOn" type="checkbox"><span class="toggle-track"></span></label></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="spDay">Closure day</label><span class="control-value" data-k="close-out">day 7</span></div><input id="spDay" data-k="close" type="range" min="0" max="80" step="1" value="7"></div>
+            <p class="rlx-hint">“Little travel” and “Lots of travel” are close to the two runs in Episode 13 (3 in 10,000 and 1 in 10 per day). Values are made up to show mechanisms.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">City 5 reached</div><div class="metric-value" data-k="arrive">–</div></div><div class="metric-tile"><div class="metric-label">First to last peak</div><div class="metric-value" data-k="delay">–</div></div><div class="metric-tile"><div class="metric-label">City 5 infected in the end</div><div class="metric-value" data-k="final">–</div></div><div class="metric-tile"><div class="metric-label">Peak moved by closure</div><div class="metric-value" data-k="shift">–</div></div></div>
+            <p class="rlx-status" data-k="cstatus" role="status" aria-live="polite">Solving…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Infected now, city by city</h4><p class="rlx-sub">City 1 orange, then amber, green, blue and grey along the line.</p></div></div>
+              <div class="chart-shell"><svg data-k="cchart" role="img" aria-label="Infected share in five cities over time"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current settings, here or in the network panel below.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Make the last city peak at least 80 days after the first.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>With travel at 1 in 100 per day, use a closure to push city 5’s peak at least 15 days later.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>With T = 0.30, pick a network where fewer than 10% of runs take off.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+          <div class="rlx-grid" style="margin-top:1.5rem">
+            <aside class="rlx-card rlx-controls" aria-label="Network controls">
+            <div><h4 class="rlx-h">Networks</h4><p class="rlx-sub">400 people, about 4 contacts each; exact random-event SIR, recovery after 10 days on average.</p></div>
+            <div class="rlx-btns"><button type="button" data-k="net-random" class="control-button control-button-primary">Random</button><button type="button" data-k="net-clustered" class="control-button control-button-secondary">Clustered</button><button type="button" data-k="net-hubs" class="control-button control-button-secondary">Hubs</button></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="spT">Transmissibility T</label><span class="control-value" data-k="T-out">0.35</span></div><input id="spT" data-k="T" type="range" min="0.05" max="0.8" step="0.01" value="0.35"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="spRuns">Runs</label><span class="control-value" data-k="runs-out">200</span></div><input id="spRuns" data-k="runs" type="range" min="50" max="1000" step="50" value="200"></div>
+            <div class="rlx-btns"><button type="button" data-k="nseed" class="control-button control-button-secondary">New network and new runs</button></div>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Runs that take off (≥ 5%)</div><div class="metric-value" data-k="take">–</div></div><div class="metric-tile"><div class="metric-label">Their average size</div><div class="metric-value" data-k="size">–</div></div><div class="metric-tile"><div class="metric-label">Threshold 1 / excess degree</div><div class="metric-value" data-k="Tc">–</div></div><div class="metric-tile"><div class="metric-label">Clustering</div><div class="metric-value" data-k="clust">–</div></div></div>
+            <p class="rlx-status" data-k="nstatus" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Final sizes</h4><p class="rlx-sub">How many runs ended at each share infected (5% bins); green: runs that fizzled.</p></div></div>
+              <div class="chart-shell"><svg data-k="nhist" role="img" aria-label="Histogram of final outbreak sizes on the network"></svg></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>

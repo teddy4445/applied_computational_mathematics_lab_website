@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_epi_course.py from data/epi-course.json. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Module 5: Multi-strain and evolving pandemics | Epidemic Modeling Course | ACML</title>
+      <meta name="description" content="Module 5 of 13 of ACML’s Epidemic Modeling course. Strains, reinfection and mutation: slides, 3 short episodes and an interactive lab.">
+      <meta name="author" content="Teddy Lazebnik">
+      <meta name="keywords" content="epidemic modeling, epidemiology, multi-strain and evolving pandemics, course, ACML">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/epidemic-modeling/module-05/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Module 5: Multi-strain and evolving pandemics · Epidemic Modeling">
+      <meta property="og:description" content="Module 5 of 13 of ACML’s Epidemic Modeling course. Strains, reinfection and mutation: slides, 3 short episodes and an interactive lab.">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/epidemic-modeling/module-05/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/epidemic-modeling/module-05/share.jpg">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Module 5: Multi-strain and evolving pandemics · Epidemic Modeling">
+      <meta name="twitter:description" content="Module 5 of 13 of ACML’s Epidemic Modeling course. Strains, reinfection and mutation: slides, 3 short episodes and an interactive lab.">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/epidemic-modeling/module-05/share.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "Module 5: Multi-strain and evolving pandemics",
+        "description": "Most diseases come in several strains. We give each strain its own infected box in one shared pool of people, show that identical strains are just labels, see why a fitter strain must also arrive in time, and read its advantage from the log odds of its share. Then we track immune history, see the number of boxes explode, add cross-immunity and the invasion threshold, and follow strains arriving one after another into repeat waves. Finally, mutation makes new strains during the epidemic: in the equations a new strain grows smoothly from day one, in reality it starts as one case and often fizzles, and controlling spread slows evolution.",
+        "url": "https://acml.teddylazebnik.com/epidemic-modeling/module-05/",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "learningResourceType": [
+          "Lecture slides",
+          "Video",
+          "Interactive resource"
+        ],
+        "teaches": "Strains, reinfection and mutation",
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Epidemic Modeling",
+          "url": "https://acml.teddylazebnik.com/epidemic-modeling/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Teddy Lazebnik",
+          "url": "https://teddylazebnik.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Applied Computational Mathematics Laboratory",
+          "url": "https://acml.teddylazebnik.com/"
+        },
+        "hasPart": [
+          {
+            "@type": "VideoObject",
+            "name": "Strains side by side",
+            "description": "Two strains, one pool of people.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep17.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/CdbA0mcyP_M",
+            "duration": "PT3M48S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Reinfection and immune history",
+            "description": "Who has had which strain? We track immune history, see how fast the number of boxes explodes, add cross-immunity, find the level above which a new strain can't take off, and follow four strains arriving every 150 days into wave after wave and repeat infections.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep18.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/ugBJMYA3Pyw",
+            "duration": "PT4M11S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Mutation and new strains",
+            "description": "New strains made during the epidemic.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep19.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/cJaprs64e6o",
+            "duration": "PT4M1S"
+          },
+          {
+            "@type": "DigitalDocument",
+            "name": "Module 5 slides",
+            "encodingFormat": "application/pdf",
+            "url": "https://acml.teddylazebnik.com/epidemic-modeling/slides/Epidemic_Modeling_Module05_Multi-strain_and_evolving_pandemics.pdf"
+          }
+        ]
+      }
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      <link href="/css/videos.css" rel="stylesheet">
+      
+      <link href="/css/exploration-lab.css" rel="stylesheet">
+      <link href="/css/rl-labs.css" rel="stylesheet">
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/project.css" rel="stylesheet">
+      <link href="/css/rl-course.css" rel="stylesheet">
+      <link href="/css/epi-course.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+          <a href="/courses.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Courses</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/courses.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Courses</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="proj-page rl-page bg-white">
+    <header class="proj-hero rl-hero">
+      <div class="proj-wrap proj-hero-grid">
+        <div>
+          <nav class="proj-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/courses.html">Courses</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/epidemic-modeling/">Epidemic Modeling</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Module 5</span></nav>
+          <p class="proj-kicker"><span><i class="ri-graduation-cap-line" aria-hidden="true"></i>Epidemic Modeling</span><span>Core models</span></p>
+          <h1 class="proj-title"><small>Module 5</small>Multi-strain and evolving pandemics</h1>
+          <p class="proj-about-lead rl-summary">Most diseases come in several strains. We give each strain its own infected box in one shared pool of people, show that identical strains are just labels, see why a fitter strain must also arrive in time, and read its advantage from the log odds of its share. Then we track immune history, see the number of boxes explode, add cross-immunity and the invasion threshold, and follow strains arriving one after another into repeat waves. Finally, mutation makes new strains during the epidemic: in the equations a new strain grows smoothly from day one, in reality it starts as one case and often fizzles, and controlling spread slows evolution.</p>
+          <div class="rl-goal"><i class="ri-focus-3-line" aria-hidden="true"></i><span>By the end you should be able to build a multi-strain model with immune histories, compute a new strain&#x27;s effective reproduction number in the immunity landscape it meets, add mutation with a mutation matrix, and explain why chance and the number of infections decide how often new strains emerge.</span></div>
+          <h2 class="proj-h3 rl-ideas-title">Key ideas, one per episode</h2>
+          <ul class="rl-ideas"><li><a href="#ep-17">Ep. 17</a><span>Strains compete for people: identical strains are labels, a fitter strain must arrive in time, and log odds reveal the advantage.</span></li><li><a href="#ep-18">Ep. 18</a><span>Immune history decides who a new strain can reach: above a cross-immunity threshold it can&#x27;t take off.</span></li><li><a href="#ep-19">Ep. 19</a><span>Mutation makes new strains; most new mutants fizzle, and fewer infections mean fewer chances to evolve.</span></li></ul>
+          <p class="rl-source"><b>Textbook:</b> Chapter 5 of <a href="https://shop.elsevier.com/books/epidemic-modeling/lazebnik/978-0-443-55525-1" target="_blank" rel="noopener">T. Lazebnik, Epidemic Modeling: Principles, Algorithms, and Applications (Academic Press, 2026)</a>. The episodes and slides follow the chapter’s topics in our own words, figures and simulations; nothing is copied from the book.</p>
+        </div>
+        <div class="rl-first">
+          <a class="rl-first-img" href="/epidemic-modeling/slides/Epidemic_Modeling_Module05_Multi-strain_and_evolving_pandemics.pdf" target="_blank" rel="noopener"><img src="/epidemic-modeling/img/slides/m05-s01.webp" alt="The title slide of Module 5: Multi-strain and evolving pandemics" width="960" height="540" fetchpriority="high" decoding="async"></a>
+          <p class="rl-first-text">32 slides, written to be read on your own, with worked examples, “try it” boxes, our own small simulations and check-yourself questions (answers at the end). PDF, 0.7 MB.</p>
+          <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="/epidemic-modeling/slides/Epidemic_Modeling_Module05_Multi-strain_and_evolving_pandemics.pdf" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Open the PDF</a><a class="proj-btn" href="/epidemic-modeling/slides/Epidemic_Modeling_Module05_Multi-strain_and_evolving_pandemics.pdf" download><i class="ri-download-2-line" aria-hidden="true"></i>Download</a></div>
+        </div>
+      </div>
+    </header>
+    <nav class="proj-subnav is-mobile-only" aria-label="Sections of this page"><div class="proj-wrap"><ul><li><a href="#watch">Watch</a></li><li><a href="#lab">Lab</a></li><li><a href="#next">Next</a></li></ul></div></nav>
+    <section id="watch" class="proj-section is-soft" aria-labelledby="watch-title"><div class="proj-wrap">
+      <h2 id="watch-title" class="proj-h2">Watch</h2>
+      <p class="proj-lead">3 short episodes for this module. Pick one from the list, and open the transcript to read along: each timestamp plays the episode from there. The narration is generated with a voice clone of Teddy, used with his permission.</p>
+      <div class="rl-watch">
+        <div class="rl-player-wrap">
+          <div id="rl-player" class="yt-player yt-16x9" data-yt-id="CdbA0mcyP_M" data-yt-title="Strains side by side"><a class="yt-play" href="https://www.youtube.com/watch?v=CdbA0mcyP_M" aria-label="Play episode 17: Strains side by side"><img src="/epidemic-modeling/img/eps/ep17.webp" alt="" width="640" height="360" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div>
+          <div class="rl-now">
+            <p id="rl-now-num" class="rl-now-num">Episode 17 · 3:48</p>
+            <p id="rl-now-title" class="rl-now-title">Strains side by side</p>
+            <p id="rl-now-hook" class="rl-now-hook">Two strains, one pool of people.</p>
+            <p id="rl-now-take" class="rl-now-take"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i><span>Strains compete for people: identical strains are labels, a fitter strain must arrive in time, and log odds reveal the advantage.</span></p>
+          </div>
+            <details id="rl-tx" class="rl-tx">
+              <summary><i class="ri-file-text-line" aria-hidden="true"></i>Transcript<span id="rl-tx-which">Episode 17</span><i class="ri-arrow-down-s-line rl-tx-caret" aria-hidden="true"></i></summary>
+              <div class="rl-tx-body"><div class="rl-tx-ep" data-ep="17"><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=CdbA0mcyP_M" data-ep="17" data-t="0">0:00</a><p><b>One virus, several strains.</b> Flu comes in several strains every winter. COVID came in variant after variant. Today our model gets more than one strain, and we ask: when does one strain push out another?</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=CdbA0mcyP_M&amp;t=18s" data-ep="17" data-t="18">0:18</a><p><b>A shared pool of susceptibles.</b> Start with the simplest version. Each strain gets its own infected box and its own rates. But all strains draw from the same pool of susceptible people. And we make a strong assumption: recover from any strain, and you&#x27;re immune to all of them. One shared recovered box. So strains never meet directly. They compete for people. Every person one strain infects is a person the other strain can no longer reach. Each strain&#x27;s effective reproduction number is its own R₀ times the share still susceptible. When one strain uses up susceptibles, it pulls down the other strain&#x27;s number too.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=CdbA0mcyP_M&amp;t=54s" data-ep="17" data-t="54">0:54</a><p><b>Identical strains.</b> In the model, a strain is just a label we attach to infections. So here&#x27;s a first test: several identical strains, each with R₀ of two, starting together from the same total number of cases. One strain, two, three or four: the epidemic is exactly the same every time. Eighty percent infected, with the peak on day sixty eight. Splitting an epidemic into labels doesn&#x27;t make it bigger. The strains share it.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=CdbA0mcyP_M&amp;t=78s" data-ep="17" data-t="78">1:18</a><p><b>Timing beats fitness.</b> Now make them different. Strain A has R₀ of 1.8. Strain B is fitter, with 2.6. If both start on day zero, B wins. It causes about sixty percent of all infections, and the epidemic reaches eighty six percent of the town, against seventy three percent with A alone. But let B arrive twenty days late, as a handful of cases, and it causes only fifteen percent of infections. Forty days late: one percent. Later than that: almost nothing. B is just as fit as before. Its R₀ never changed. It simply arrived after A had used up the people it needed. In a race for susceptibles, timing can beat fitness. Even on day sixty, B&#x27;s effective reproduction number is still above two. But it starts from so few cases that A&#x27;s wave is over before B can grow.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=CdbA0mcyP_M&amp;t=126s" data-ep="17" data-t="126">2:06</a><p><b>Reading a variant&#x27;s advantage.</b> There&#x27;s a neat way to spot a fitter strain early: follow its share among new cases. While both strains are growing and B is still rare, the log odds of B&#x27;s share rise in a straight line. The slope is the difference between the two transmission rates. Here, 0.08 per day, and that&#x27;s exactly the slope in our run. That&#x27;s how a variant&#x27;s advantage is often read from data: plot the log odds of its share, and read the slope. In our run, B passed half of all cases on day fifty eight. Case counts alone can&#x27;t show this. You need to know which strain each case has, and that means sequencing a sample of cases, which we&#x27;ll meet in Module nine.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=CdbA0mcyP_M&amp;t=169s" data-ep="17" data-t="169">2:49</a><p><b>Beyond full protection.</b> Real multi-strain models relax the strong assumption. Recovering from one strain rarely protects fully against another. Strains can also differ in latent period and severity, so each one may get its own exposed box. But the shared pool stays the core idea. Strains interact through the people they infect.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=CdbA0mcyP_M&amp;t=187s" data-ep="17" data-t="187">3:07</a><p><b>Recap.</b> So: parallel strains drawing from one pool of susceptibles. Identical strains don&#x27;t add up to a bigger epidemic. A fitter strain wins only if it arrives in time. And the slope of the log odds of its share reveals its advantage. Next time: immunity that depends on your history. Who has had which strain, and what that does to the next wave.</p></div></div><div class="rl-tx-ep" data-ep="18" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=ugBJMYA3Pyw" data-ep="18" data-t="0">0:00</a><p><b>Protected against a new strain?.</b> You had flu last winter. This winter, a different strain arrives. Are you protected? Partly. Today: immunity that depends on your history.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=ugBJMYA3Pyw&amp;t=17s" data-ep="18" data-t="17">0:17</a><p><b>Immune histories.</b> To model reinfection, we keep track of history: which strains each person has already had. With two strains, A and B, there are four histories: none, A only, B only, and both. People who had A can still catch B, and the other way round. Each strain gets an infected box for every history that hasn&#x27;t had that strain yet. With two strains, that&#x27;s four infected boxes. And it explodes. Four strains: sixteen histories and thirty two infected boxes. Ten strains: over a thousand histories, and five thousand one hundred twenty infected boxes. Compare a parallel model with ten strains and no history: just twelve boxes. Tracking history is more honest, and much more expensive.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=ugBJMYA3Pyw&amp;t=64s" data-ep="18" data-t="64">1:04</a><p><b>Cross-immunity.</b> History can change three things: how likely you are to be infected again, how sick you get, and how infectious you are. We&#x27;ll focus on the first: cross-immunity. Say an earlier infection lowers your chance of catching a different strain by a share, sigma. Sigma of zero means no protection. Sigma of one means full protection, as in the last episode.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=ugBJMYA3Pyw&amp;t=86s" data-ep="18" data-t="86">1:26</a><p><b>A second strain arrives.</b> Our test: strain A, with R₀ of two and a half, sweeps through the town. By day one hundred fifty, eighty nine percent have had it. Then strain B arrives, just as transmissible. With no cross-immunity, B infects eighty nine percent all over again, in a second wave as high as the first. With sigma of one half, B still infects forty seven percent, in a lower and slower wave. With sixty percent protection, B creeps along for more than a year and infects twenty three percent. Above about two thirds, B can&#x27;t take off at all. The tipping point is where B&#x27;s effective reproduction number crosses one.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=ugBJMYA3Pyw&amp;t=125s" data-ep="18" data-t="125">2:05</a><p><b>The invasion threshold.</b> That number is B&#x27;s R₀, times B&#x27;s effective susceptible pool: everyone who never had B, weighted by how well protected they are. Here, that&#x27;s the eleven percent never infected, plus the eighty nine percent who had A, counted at one minus sigma. Multiply by two and a half, set it equal to one, and sigma comes out at 0.67. So a strain&#x27;s real potential depends on the immunity landscape it lands in, not just on its own R₀.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=ugBJMYA3Pyw&amp;t=154s" data-ep="18" data-t="154">2:34</a><p><b>Waves of strains.</b> Now four strains, arriving every hundred fifty days, each with R₀ of 2.4 and forty percent cross-immunity. We get wave after wave: twenty two percent infected at the first peak, then seven, six and five percent. Each new strain finds people its predecessors left only partly protected. By day eight hundred, more than half the town has been infected three or four times. Only one person in five hundred has never been infected. Immune history turns one epidemic into a sequence of waves. It&#x27;s one of the ingredients behind repeated flu seasons and variant waves.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=ugBJMYA3Pyw&amp;t=190s" data-ep="18" data-t="190">3:10</a><p><b>Shortcuts.</b> Because full histories explode, modelers use shortcuts. They group histories into a few immune statuses, or place strains on a map of antigenic distance, where nearby strains protect more against each other. And one number per strain often summarizes it all: the effective susceptible share. Who could still catch this particular strain, and how easily.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=ugBJMYA3Pyw&amp;t=211s" data-ep="18" data-t="211">3:31</a><p><b>Recap.</b> So: track immune history. Cross-immunity decides whether a new strain can invade. The threshold is its effective reproduction number in the landscape it lands in. And a sequence of strains makes a sequence of waves. Next time: where new strains come from. Mutation, during the epidemic itself.</p></div></div><div class="rl-tx-ep" data-ep="19" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=cJaprs64e6o" data-ep="19" data-t="0">0:00</a><p><b>Strains made during spread.</b> So far, every strain was there from the start, or arrived from somewhere else. But new strains are also made during an epidemic, by mutation. Today, evolution enters the model.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=cJaprs64e6o&amp;t=17s" data-ep="19" data-t="17">0:17</a><p><b>The mutation matrix.</b> Every transmission copies the pathogen, and copies can carry mistakes. Most changes do nothing. A few produce a new strain. In the model, a mutation matrix Q answers one question: when strain i transmits, what&#x27;s the chance the new infection is strain j? Usually it&#x27;s i again. With a small probability, mu, it&#x27;s the next strain on a ladder. Mutation doesn&#x27;t change how many new infections happen. It only changes which strain they are.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=cJaprs64e6o&amp;t=46s" data-ep="19" data-t="46">0:46</a><p><b>A ladder of strains.</b> Our ladder: four strains, each escaping immunity to the ones before it, and each a bit more transmissible, with R₀ of two, 2.2, 2.4 and 2.6. Only strain one is there at the start. With no mutation: one wave, and it&#x27;s over. Eighty percent infected. With one mutation in a million transmissions, each new strain takes off in turn: four waves, around days ninety one, one ninety, two sixty five and three twenty seven. With more mutation, the strains arrive sooner and the waves merge. At one in a thousand, all four strains together make one long wave. And each tenfold increase in mutation brings the next strain only about twenty four days sooner. In these equations, the wait depends on the logarithm of the mutation rate.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=cJaprs64e6o&amp;t=97s" data-ep="19" data-t="97">1:37</a><p><b>Chance decides emergence.</b> But there&#x27;s a catch. In the equations, a new strain exists from day one, as a tiny fraction of a person, and it grows smoothly. Real emergence is a matter of chance. A brand new mutant starts as a single case. And like any first case, it often fizzles. From Module three: it survives with a chance of about one minus one over its reproduction number. We checked this with four thousand simulated chains of cases. With a reproduction number of two, fifty one percent survived, against fifty percent in theory. With 1.2, seventeen percent.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=cJaprs64e6o&amp;t=130s" data-ep="19" data-t="130">2:10</a><p><b>Fewer infections, fewer variants.</b> So successful new strains appear at a rate of: the mutation rate, times the number of transmissions, times the chance each mutant survives. Take a town of a million, and a variant that&#x27;s made once in a million transmissions and would survive half the time. If the epidemic runs with R₀ of three, about nine hundred forty thousand people get infected, and there&#x27;s a thirty eight percent chance a new variant takes hold. Hold R₀ to 1.3, and it&#x27;s about four hundred twenty thousand infections and a nineteen percent chance. Fewer infections mean fewer chances to mutate. Controlling spread also slows evolution.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=cJaprs64e6o&amp;t=169s" data-ep="19" data-t="169">2:49</a><p><b>Measuring diversity.</b> To follow diversity, count strains in a smarter way: take the Shannon diversity of the strain mix, and turn it into an effective number of strains. One strain dominating gives one. Two equally common strains give two. In our run with one mutation in a hundred thousand, the effective number rises to about two at each handover, and falls back as the new strain takes over.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=cJaprs64e6o&amp;t=193s" data-ep="19" data-t="193">3:13</a><p><b>Messier evolution.</b> Real evolution is messier. Gains in transmission and immune escape come together, strains can recombine, and selection depends on the immunity left by earlier waves. Genomic surveillance, in Module nine, is how we watch it happen.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=cJaprs64e6o&amp;t=207s" data-ep="19" data-t="207">3:27</a><p><b>Module 5 recap.</b> That&#x27;s Module five: strains side by side, immune history and cross-immunity, and mutation that makes new strains, with chance deciding which ones survive. Next, Module six: agent-based models, where we simulate every person.</p></div></div></div>
+            </details>
+        </div>
+        <div class="rl-eps">
+          <div class="rl-eps-head"><b>Module 5 episodes</b><span>3 episodes · 12 min</span></div>
+          <ol><li id="ep-17"><a class="rl-ep is-active" data-ep="17" href="https://www.youtube.com/watch?v=CdbA0mcyP_M" aria-current=true><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep17.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>3:48</span></span><span><span class="rl-ep-num">Episode 17 · 5.1</span><span class="rl-ep-title" style="display:block">Strains side by side</span><span class="rl-ep-take" style="display:block">Strains compete for people: identical strains are labels, a fitter strain must arrive in time, and log odds reveal the advantage.</span></span></a></li><li id="ep-18"><a class="rl-ep" data-ep="18" href="https://www.youtube.com/watch?v=ugBJMYA3Pyw"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep18.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>4:11</span></span><span><span class="rl-ep-num">Episode 18 · 5.2</span><span class="rl-ep-title" style="display:block">Reinfection and immune history</span><span class="rl-ep-take" style="display:block">Immune history decides who a new strain can reach: above a cross-immunity threshold it can&#x27;t take off.</span></span></a></li><li id="ep-19"><a class="rl-ep" data-ep="19" href="https://www.youtube.com/watch?v=cJaprs64e6o"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep19.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>4:01</span></span><span><span class="rl-ep-num">Episode 19 · 5.3</span><span class="rl-ep-title" style="display:block">Mutation and new strains</span><span class="rl-ep-take" style="display:block">Mutation makes new strains; most new mutants fizzle, and fewer infections mean fewer chances to evolve.</span></span></a></li></ol>
+        </div>
+      </div>
+      <script type="application/json" id="rl-episodes">[{"ep": 17, "youtube": "CdbA0mcyP_M", "title": "Strains side by side", "duration": "3:48", "hook": "Two strains, one pool of people.", "takeaway": "Strains compete for people: identical strains are labels, a fitter strain must arrive in time, and log odds reveal the advantage.", "thumbAbs": "/epidemic-modeling/img/eps/ep17.webp"}, {"ep": 18, "youtube": "ugBJMYA3Pyw", "title": "Reinfection and immune history", "duration": "4:11", "hook": "Who has had which strain? We track immune history, see how fast the number of boxes explodes, add cross-immunity, find the level above which a new strain can't take off, and follow four strains arriving every 150 days into wave after wave and repeat infections.", "takeaway": "Immune history decides who a new strain can reach: above a cross-immunity threshold it can't take off.", "thumbAbs": "/epidemic-modeling/img/eps/ep18.webp"}, {"ep": 19, "youtube": "cJaprs64e6o", "title": "Mutation and new strains", "duration": "4:01", "hook": "New strains made during the epidemic.", "takeaway": "Mutation makes new strains; most new mutants fizzle, and fewer infections mean fewer chances to evolve.", "thumbAbs": "/epidemic-modeling/img/eps/ep19.webp"}]</script>
+    </div></section>
+    <section id="lab" class="rl-lab" aria-labelledby="lab-title">
+      <div class="proj-wrap rl-lab-head">
+        <p class="proj-label"><i class="ri-git-branch-line" aria-hidden="true"></i>Interactive lab</p>
+        <h2 id="lab-title" class="proj-h2" style="margin-top:.5rem">Strains, immunity and mutation</h2>
+        <p class="proj-lead">Change cross-immunity, timing and R0 for two strains, then run a ladder of four strains made by mutation and follow the waves and the strain diversity.</p>
+        <p class="proj-lead" style="margin-top:.6rem">Both panels solve the course&#x27;s immune-history model in your browser: everyone is tracked by which strains they have had, and the mutation panel adds a mutation matrix. Four challenges check your runs as you go.</p>
+      </div>
+      <div class="rlx" id="strains-lab" data-epx="strains">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">Strains that share one town</h3>
+          <p class="rlx-sub">Everyone is tracked by their immune history: which strains they have had. Both panels solve the same model in your browser.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">Histories</div>
+              <div class="formula-line"><span class="formula-chip">new infections of strain j in history J = λⱼ × sⱼ,J × (share with history J)</span></div>
+              <p class="math-card-copy">Nobody catches a strain twice. After any other strain, susceptibility is 1 − σ (σ is the cross-immunity). Recovery adds the strain to the history; 10 days infectious.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Invasion</div>
+              <div class="formula-line"><span class="formula-chip">Rₑ(B) = R₀(B) × [never infected + (1 − σ) × had A]</span></div>
+              <p class="math-card-copy">A strain that lands with Rₑ below 1 cannot take off, however high its R₀.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Mutation and diversity</div>
+              <div class="formula-line"><span class="formula-chip">λⱼ = Σᵢ βᵢ Iᵢ Qᵢⱼ   ·   N = exp(−Σ pₖ ln pₖ)</span></div>
+              <p class="math-card-copy">Qᵢⱼ is the chance a transmission by strain i founds strain j. N is the effective number of strains in the current mix.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Two-strain controls">
+            <div><h4 class="rlx-h">Two strains</h4><p class="rlx-sub">Strain A starts the epidemic; strain B arrives later.</p></div>
+            <div class="rlx-btns"><button type="button" data-k="p-full" class="control-button control-button-secondary">Full protection</button><button type="button" data-k="p-half" class="control-button control-button-primary">Half</button><button type="button" data-k="p-none" class="control-button control-button-secondary">None</button></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="stRA">R₀ of strain A</label><span class="control-value" data-k="RA-out">2.5</span></div><input id="stRA" data-k="RA" type="range" min="1.2" max="3.5" step="0.1" value="2.5"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="stRB">R₀ of strain B</label><span class="control-value" data-k="RB-out">2.5</span></div><input id="stRB" data-k="RB" type="range" min="1.2" max="3.5" step="0.1" value="2.5"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="stTB">B arrives on</label><span class="control-value" data-k="tB-out">day 150</span></div><input id="stTB" data-k="tB" type="range" min="0" max="300" step="5" value="150"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="stSg">Cross-immunity σ</label><span class="control-value" data-k="sg-out">0.50</span></div><input id="stSg" data-k="sg" type="range" min="0" max="1" step="0.01" value="0.5"></div>
+            <p class="rlx-hint">The three buttons set both R₀ to 2.5 and B’s arrival to day 150, as in Episode 18. Values are made up to show mechanisms.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Infected by A</div><div class="metric-value" data-k="attA">–</div></div><div class="metric-tile"><div class="metric-label">Infected by B</div><div class="metric-value" data-k="attB">–</div></div><div class="metric-tile"><div class="metric-label">B’s Rₑ on arrival</div><div class="metric-value" data-k="ReB">–</div></div><div class="metric-tile"><div class="metric-label">Infected at least once</div><div class="metric-value" data-k="ever">–</div></div></div>
+            <p class="rlx-status" data-k="tstatus" role="status" aria-live="polite">Solving…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Infected now, by strain</h4><p class="rlx-sub">Strain A orange, strain B purple; 600 days.</p></div></div>
+              <div class="chart-shell"><svg data-k="tchart" role="img" aria-label="Share infected with strain A and strain B over time"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current settings, here or in the mutation panel below.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>With full cross-immunity (σ = 1) and B arriving on day 60 or later, make B infect more people than A.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>With both R₀ at 2.5 and B arriving on day 150, set σ so that B lands with Rₑ between 0.95 and 1.05.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>In the mutation panel, get four separate waves.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>In the mutation panel, get more than 3 strains circulating at once (effective number).</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+          <div class="rlx-grid" style="margin-top:1.5rem">
+            <aside class="rlx-card rlx-controls" aria-label="Mutation controls">
+            <div><h4 class="rlx-h">Mutation ladder</h4><p class="rlx-sub">Four strains; only strain 1 is there at the start. Each transmission can found the next strain on the ladder.</p></div>
+            <div class="rlx-btns"><button type="button" data-k="p-m6" class="control-button control-button-secondary">1 in a million</button><button type="button" data-k="p-m3" class="control-button control-button-primary">1 in 1,000</button><button type="button" data-k="p-m2" class="control-button control-button-secondary">1 in 100</button></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="stMu">Mutation rate</label><span class="control-value" data-k="mu-out">1 in 1,000</span></div><input id="stMu" data-k="mu" type="range" min="-9" max="-2" step="0.5" value="-3"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="stR1">R₀ of strain 1</label><span class="control-value" data-k="R1-out">2.0</span></div><input id="stR1" data-k="R1" type="range" min="1.5" max="3" step="0.1" value="2"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="stStep">R₀ added by each new strain</label><span class="control-value" data-k="step-out">+0.20</span></div><input id="stStep" data-k="step" type="range" min="0" max="0.4" step="0.05" value="0.2"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="stMsg">Cross-immunity σ</label><span class="control-value" data-k="msg-out">0.00</span></div><input id="stMsg" data-k="msg" type="range" min="0" max="0.8" step="0.05" value="0"></div>
+            <p class="rlx-hint">The buttons reset to Episode 19’s ladder (R₀ 2, 2.2, 2.4 and 2.6, full immune escape). Mutation rate: the chance that a transmission founds the next strain. Waves are peaks of all infections at least 60 days apart; the strain count uses days with at least 0.1% infected.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Waves</div><div class="metric-value" data-k="waves">–</div></div><div class="metric-tile"><div class="metric-label">Strain 2 reaches 1 in 10,000</div><div class="metric-value" data-k="first2">–</div></div><div class="metric-tile"><div class="metric-label">Most strains at once</div><div class="metric-value" data-k="nmax">–</div></div><div class="metric-tile"><div class="metric-label">Infections per person</div><div class="metric-value" data-k="perp">–</div></div></div>
+            <p class="rlx-status" data-k="mstatus" role="status" aria-live="polite">Solving…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Infected now, by strain</h4><p class="rlx-sub">Strains 1 to 4 in orange, purple, amber and teal; dashed: all strains together.</p></div></div>
+              <div class="chart-shell"><svg data-k="mchart" role="img" aria-label="Share infected with each of four strains over time"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Effective number of strains</h4><p class="rlx-sub">1 when one strain dominates, 2 when two are equally common.</p></div></div>
+              <div class="chart-shell"><svg data-k="nchart" role="img" aria-label="Effective number of circulating strains over time"></svg></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="next" class="proj-section is-soft" aria-labelledby="next-title"><div class="proj-wrap">
+      <h2 id="next-title" class="proj-h2">Keep going</h2>
+      <div class="rl-pn"><a href="/epidemic-modeling/module-04/"><i class="ri-arrow-left-line" aria-hidden="true"></i><span><small>Previous · Module 4</small><strong>Spatio-temporal models</strong></span></a><a class="is-next" href="/epidemic-modeling/module-06/"><span><small>Next · Module 6</small><strong>Multi-agent simulation</strong></span><i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+    </div></section>
+  </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Courses</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/rl-course/" class="hover:text-white">Reinforcement Learning</a></li>
+                  <li><a href="/epidemic-modeling/" class="hover:text-white">Epidemic Modeling</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/rl-course/" class="hover:text-white">RL course</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <script src="/js/videos.js"></script>
+      
+      <script src="/js/epi-labs.js" defer></script>
+      <script src="/js/epi-course.js" defer></script>
+   </body>
+</html>

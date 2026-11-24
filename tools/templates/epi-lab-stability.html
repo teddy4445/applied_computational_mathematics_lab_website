@@ -1,0 +1,73 @@
+<!-- Used by tools/build_epi_course.py: the computing lab (Module 12) of the Epidemic Modeling course: Euler and Runge-Kutta on the SIR model with a step-size slider (negative compartments included), and exact (Gillespie) against tau-leaping stochastic runs in towns of different sizes. Script: js/epi-labs.js (data-epx="stability"), styles: css/exploration-lab.css + css/rl-labs.css + css/epi-course.css. -->
+      <div class="rlx" id="stability-lab" data-epx="stability">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">Step sizes and chance</h3>
+          <p class="rlx-sub">The module's SIR town solved with two classic methods, and the same town simulated person by person. Everything runs in your browser.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">Euler</div>
+              <div class="formula-line"><span class="formula-chip">next = now + step × slope now</span></div>
+              <p class="math-card-copy">One slope per step. Simple, but its error grows with the step, and large steps can push a compartment below zero.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Runge–Kutta (RK4)</div>
+              <div class="formula-line"><span class="formula-chip">next = now + step × average of 4 slopes</span></div>
+              <p class="math-card-copy">Four slopes per step, weighted 1, 2, 2, 1. Its error shrinks with the fourth power of the step.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Exact or fast chance</div>
+              <div class="formula-line"><span class="formula-chip">Gillespie: one event at a time</span></div>
+              <p class="math-card-copy">Tau-leaping draws many events per fixed step instead: much faster, but big steps distort the epidemic.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Solver controls">
+            <div><h4 class="rlx-h">Solve the equations</h4><p class="rlx-sub">Green: tiny steps (the reference).</p></div>
+            <div class="rlx-field"><div class="rlx-label">Method</div>
+              <div class="rlx-btns"><button type="button" class="control-button control-button-primary" data-k="m-euler">Euler</button><button type="button" class="control-button control-button-secondary" data-k="m-rk4">Runge–Kutta</button></div></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="stH">Step</label><span class="control-value" data-k="sh-out">1 day</span></div><input id="stH" data-k="sh" type="range" min="0" max="11" step="1" value="4"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="stR">R₀</label><span class="control-value" data-k="sr-out">2.5</span></div><input id="stR" data-k="sr" type="range" min="1.2" max="5" step="0.1" value="2.5"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="stD">Days infectious</label><span class="control-value" data-k="sd-out">5 days</span></div><input id="stD" data-k="sd" type="range" min="2" max="10" step="0.5" value="5"></div>
+            <p class="rlx-hint">One in 10,000 people infectious on day 0. Steps: 0.05, 0.1, 0.25, 0.5, 1, 2 … 8 days. Values are made up to show mechanisms.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Peak</div><div class="metric-value" data-k="spk">–</div></div><div class="metric-tile"><div class="metric-label">Peak error</div><div class="metric-value" data-k="serr">–</div></div><div class="metric-tile"><div class="metric-label">Lowest value</div><div class="metric-value" data-k="smin">–</div></div><div class="metric-tile"><div class="metric-label">Slope evaluations</div><div class="metric-value" data-k="sev">–</div></div></div>
+            <p class="rlx-status" data-k="sstatus" role="status" aria-live="polite">Solving…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Share of the town infectious</h4><p class="rlx-sub">Green: tiny steps. Orange: Euler. Blue: Runge–Kutta. Dots mark the steps.</p></div></div>
+              <div class="chart-shell"><svg data-k="schart" role="img" aria-label="Share infectious over time for the chosen method and the reference"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current settings, in its own panel.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Make Euler push the number of infectious people below zero.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Find a step of at least 2 days where Runge–Kutta's peak is within 1% while Euler's is off by more than 10%.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Chance: with one first infection and R₀ = 2, run the exact method in a town of at least 1,000. About half the runs should fizzle out (between 40% and 60%).</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>Chance: use tau-leaping with steps of at least 2 days and find settings where more than half the runs try to remove more people than there are.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+          <div class="rlx-grid" style="margin-top:1.5rem">
+            <aside class="rlx-card rlx-controls" aria-label="Stochastic simulation controls">
+            <div><h4 class="rlx-h">Simulate person by person</h4><p class="rlx-sub">200 runs, 5 days infectious on average.</p></div>
+            <div class="rlx-field"><div class="rlx-label">Method</div>
+              <div class="rlx-btns"><button type="button" class="control-button control-button-primary" data-k="c-exact">Exact</button><button type="button" class="control-button control-button-secondary" data-k="c-tau">Tau-leaping</button></div></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="stN">Town size</label><span class="control-value" data-k="cn-out">1,000 people</span></div><input id="stN" data-k="cn" type="range" min="0" max="7" step="1" value="3"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="stI">First infections</label><span class="control-value" data-k="ci-out">10</span></div><input id="stI" data-k="ci" type="range" min="1" max="20" step="1" value="10"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="stC">R₀</label><span class="control-value" data-k="cr-out">2.5</span></div><input id="stC" data-k="cr" type="range" min="1.2" max="4" step="0.1" value="2.5"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="stT">Tau-leaping step</label><span class="control-value" data-k="ct-out">1 day</span></div><input id="stT" data-k="ct" type="range" min="0" max="6" step="1" value="3"></div>
+            <div class="rlx-btns"><button type="button" class="control-button control-button-secondary is-wide" data-k="crun">Run again</button></div>
+            <p class="rlx-hint">A run "fizzles out" when fewer than 1% of the town are ever infected. Tau-leaping counts are capped at zero, and the lab counts the runs that needed the cap.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Fizzled out</div><div class="metric-value" data-k="cfz">–</div></div><div class="metric-tile"><div class="metric-label">Infected (outbreaks)</div><div class="metric-value" data-k="cfm">–</div></div><div class="metric-tile"><div class="metric-label">Went below zero</div><div class="metric-value" data-k="cng">–</div></div><div class="metric-tile"><div class="metric-label">Events or steps per run</div><div class="metric-value" data-k="cwk">–</div></div></div>
+            <p class="rlx-status" data-k="cstatus" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">25 runs and the equations</h4><p class="rlx-sub">Thin lines: share infectious in single runs. Dark line: the equations.</p></div></div>
+              <div class="chart-shell"><svg data-k="cchart" role="img" aria-label="Share infectious in 25 stochastic runs and in the equations"></svg></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>

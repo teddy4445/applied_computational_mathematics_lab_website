@@ -1,0 +1,76 @@
+<!-- Used by tools/build_epi_course.py: the uncertainty lab (Module 11) of the Epidemic Modeling course: local, Morris and Sobol sensitivity analysis of an SEIR town with seven uncertain inputs, and a backtest of simple forecasters scored by error, coverage and the weighted interval score. Script: js/epi-labs.js (data-epx="sens"), styles: css/exploration-lab.css + css/rl-labs.css + css/epi-course.css. -->
+      <div class="rlx" id="sens-lab" data-epx="sens">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">Sensitivity and forecast scores</h3>
+          <p class="rlx-sub">The module's SEIR town with a 60-day contact cut and seven uncertain inputs, and a simulated epidemic with two waves for backtesting forecasters. Everything runs in your browser.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">Local</div>
+              <div class="formula-line"><span class="formula-chip">elasticity = % change in output ÷ % change in input</span></div>
+              <p class="math-card-copy">Cheap and clear, but it only describes the neighborhood of the baseline you pick.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Morris and Sobol</div>
+              <div class="formula-line"><span class="formula-chip">S1 = alone · ST = with all its interactions</span></div>
+              <p class="math-card-copy">Morris walks random paths to rank inputs; Sobol splits the output's variance among them.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Scoring forecasts</div>
+              <div class="formula-line"><span class="formula-chip">weighted interval score: width + penalties for misses</span></div>
+              <p class="math-card-copy">A proper score rewards intervals that are both sharp and right; coverage checks they mean what they say.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Sensitivity controls">
+            <div><h4 class="rlx-h">Which inputs matter?</h4><p class="rlx-sub">Pick an output and a method.</p></div>
+            <div class="rlx-field"><div class="rlx-label">Output</div>
+              <div class="rlx-btns"><button type="button" class="control-button control-button-secondary" data-k="q-0">Share ever infected</button><button type="button" class="control-button control-button-primary" data-k="q-1">Reported peak</button><button type="button" class="control-button control-button-secondary" data-k="q-2">Peak day</button></div></div>
+            <div class="rlx-field"><div class="rlx-label">Method</div>
+              <div class="rlx-btns"><button type="button" class="control-button control-button-primary" data-k="m-local">Local</button><button type="button" class="control-button control-button-secondary" data-k="m-morris">Morris</button><button type="button" class="control-button control-button-secondary" data-k="m-sobol">Sobol</button></div></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="saBr">Baseline R₀ (local)</label><span class="control-value" data-k="br-out">2.5</span></div><input id="saBr" data-k="br" type="range" min="1.5" max="3.5" step="0.1" value="2.5"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="saBs">Baseline cut start (local)</label><span class="control-value" data-k="bs-out">day 50</span></div><input id="saBs" data-k="bs" type="range" min="20" max="80" step="5" value="50"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="saMr">Morris paths</label><span class="control-value" data-k="mr-out">100 paths</span></div><input id="saMr" data-k="mr" type="range" min="20" max="200" step="10" value="100"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="saSn">Sobol base samples</label><span class="control-value" data-k="sn-out">1,024 samples</span></div><input id="saSn" data-k="sn" type="range" min="1" max="4" step="1" value="3"></div>
+            <div class="rlx-btns"><button type="button" class="control-button control-button-secondary is-wide" data-k="srun">Run</button></div>
+            <p class="rlx-hint">Inputs: R₀ 1.5–3.5, latent 2–5 days, infectious 3–8 days, reporting 10–50%, first infections 1–50, contact cut 0–60% for 60 days, starting on day 20–80. Values are made up to show mechanisms.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Model runs</div><div class="metric-value" data-k="sruns">–</div></div><div class="metric-tile"><div class="metric-label">Largest</div><div class="metric-value" data-k="stop">–</div></div><div class="metric-tile"><div class="metric-label">Baseline output</div><div class="metric-value" data-k="sbase">–</div></div></div>
+            <p class="rlx-status" data-k="sstatus" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Sensitivity of the chosen output</h4><p class="rlx-sub">Local: elasticity size; Morris: mean effect and spread (scaled); Sobol: first-order (solid) and total (pale) indices.</p></div></div>
+              <div class="chart-shell"><svg data-k="schart" role="img" aria-label="Sensitivity indices for seven inputs"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current settings, in its own panel.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Move the baseline cut start until its local effect on the reported peak drops below 0.5.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Run Sobol with at least 1,024 samples and find an input that matters for the share ever infected almost only through interactions (first-order index under 0.05, total index at least 0.1 higher).</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Forecasts: stretch the trend's intervals until its 90% intervals cover 85–95% of the truths 14 days ahead.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>Forecasts: shrink the trend's intervals until they cover fewer than half the truths 7 days ahead, and see its score get worse with the same median.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+          <div class="rlx-grid" style="margin-top:1.5rem">
+            <aside class="rlx-card rlx-controls" aria-label="Forecast scoring controls">
+            <div><h4 class="rlx-h">Scoring forecasts</h4><p class="rlx-sub">26 forecast dates, one a week, using only the data known on each date.</p></div>
+            <div class="rlx-field"><div class="rlx-label">Days ahead</div>
+              <div class="rlx-btns"><button type="button" class="control-button control-button-secondary" data-k="h-1">1</button><button type="button" class="control-button control-button-primary" data-k="h-7">7</button><button type="button" class="control-button control-button-secondary" data-k="h-14">14</button></div></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="scFw">Trend interval width</label><span class="control-value" data-k="fw-out">×1.00</span></div><input id="scFw" data-k="fw" type="range" min="0.25" max="3" step="0.05" value="1"></div>
+            <p class="rlx-hint">Last week: its mean, flat. Trend: a log-linear fit to the last 14 days. Overconfident: the trend with intervals 4 times narrower. Very wide: flat and very uncertain. Blend: the average of last week and the trend.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Trend error</div><div class="metric-value" data-k="fmae">–</div></div><div class="metric-tile"><div class="metric-label">Trend score</div><div class="metric-value" data-k="fwis">–</div></div><div class="metric-tile"><div class="metric-label">Trend 90% coverage</div><div class="metric-value" data-k="fcov">–</div></div><div class="metric-tile"><div class="metric-label">Blend score</div><div class="metric-value" data-k="fens">–</div></div></div>
+            <p class="rlx-status" data-k="fstatus" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Weighted interval score</h4><p class="rlx-sub">Lower is better.</p></div></div>
+              <div class="chart-shell"><svg data-k="fchart" role="img" aria-label="Weighted interval score of five forecasters"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Coverage of 90% intervals</h4><p class="rlx-sub">Dashed: the nominal 90%.</p></div></div>
+              <div class="chart-shell"><svg data-k="cchart" role="img" aria-label="Coverage of 90 percent intervals for five forecasters"></svg></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>

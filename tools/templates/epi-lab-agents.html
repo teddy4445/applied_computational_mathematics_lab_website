@@ -1,0 +1,71 @@
+<!-- Used by tools/build_epi_course.py: the agents lab (Module 6) of the Epidemic Modeling course: household and town agents with stage shapes, and comparing two policies with common random numbers. Script: js/epi-labs.js (data-epx="agents"), styles: css/exploration-lab.css + css/rl-labs.css + css/epi-course.css. -->
+      <div class="rlx" id="agents-lab" data-epx="agents">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">A town of households, one agent per person</h3>
+          <p class="rlx-sub">About 1,800 agents in 700 households, simulated one day at a time in your browser.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">Infection</div>
+              <div class="formula-line"><span class="formula-chip">chance = 1 − (1 − pₕ)^(infectious at home) × e^(−k p × infectious in town ÷ N)</span></div>
+              <p class="math-card-copy">pₕ: chance per day per infectious household member. k: town meetings a day, p: chance per meeting.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Stages</div>
+              <div class="formula-line"><span class="formula-chip">latent 2 days, infectious 4 days, in k stages</span></div>
+              <p class="math-card-copy">One stage is exponential (memoryless); more stages make durations more regular; fixed means always 2 and 4 days.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Common random numbers</div>
+              <div class="formula-line"><span class="formula-chip">Var(A − B) = Var A + Var B − 2 Cov(A, B)</span></div>
+              <p class="math-card-copy">Every random number is tied to a seed, a day and an agent. Runs that share a seed share their luck, so their difference is sharp.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Town controls">
+            <div><h4 class="rlx-h">One town, one run</h4><p class="rlx-sub">Five first cases; each change runs the town again.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="agH">Household chance per day</label><span class="control-value" data-k="pH-out">12%</span></div><input id="agH" data-k="pH" type="range" min="0.02" max="0.3" step="0.01" value="0.12"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="agK">Town meetings per day</label><span class="control-value" data-k="k-out">8</span></div><input id="agK" data-k="k" type="range" min="0" max="20" step="1" value="8"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="agP">Chance per town meeting</label><span class="control-value" data-k="pC-out">3.0%</span></div><input id="agP" data-k="pC" type="range" min="0.005" max="0.06" step="0.005" value="0.03"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="agS">Stages per period</label><span class="control-value" data-k="stg-out">4</span></div><input id="agS" data-k="stg" type="range" min="0" max="4" step="1" value="2"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="agSeed">Seed</label><span class="control-value" data-k="seed-out">1</span></div><input id="agSeed" data-k="seed" type="range" min="1" max="999" step="1" value="1"></div>
+            <div class="rlx-btns"><button type="button" data-k="nseed" class="control-button control-button-secondary">Next seed</button><button type="button" data-k="p-reset" class="control-button control-button-secondary">Reset</button></div>
+            <p class="rlx-hint">The same seed always gives the same run. Values are made up to show mechanisms.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Infected in the end</div><div class="metric-value" data-k="att">–</div></div><div class="metric-tile"><div class="metric-label">Peak</div><div class="metric-value" data-k="pk">–</div></div><div class="metric-tile"><div class="metric-label">Infectious at the peak</div><div class="metric-value" data-k="pkv">–</div></div><div class="metric-tile"><div class="metric-label">Infections at home</div><div class="metric-value" data-k="home">–</div></div></div>
+            <p class="rlx-status" data-k="astatus" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Infectious now</h4><p class="rlx-sub">Share of the town infectious, day by day (first 200 days).</p></div></div>
+              <div class="chart-shell"><svg data-k="achart" role="img" aria-label="Share of agents infectious over time"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current settings, here or in the comparison panel below.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Without changing the three transmission sliders, find a run that peaks after day 70. Hint: stages and seeds.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Make home the place of more than half of all infections.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Compare a 5% cut in town meetings so that no pair of runs points the wrong way.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>Get the spread of the difference below 2 points.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+          <div class="rlx-grid" style="margin-top:1.5rem">
+            <aside class="rlx-card rlx-controls" aria-label="Comparison controls">
+            <div><h4 class="rlx-h">Compare two policies</h4><p class="rlx-sub">Baseline against a cut in town meetings, run in pairs with the town settings above.</p></div>
+            <div class="rlx-btns"><button type="button" data-k="m-ind" class="control-button control-button-primary">Independent runs</button><button type="button" data-k="m-crn" class="control-button control-button-secondary">Common random numbers</button></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="agCut">Cut in town meetings</label><span class="control-value" data-k="cut-out">5%</span></div><input id="agCut" data-k="cut" type="range" min="0.01" max="0.3" step="0.01" value="0.05"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="agPairs">Pairs of runs</label><span class="control-value" data-k="pairs-out">60</span></div><input id="agPairs" data-k="pairs" type="range" min="20" max="200" step="20" value="60"></div>
+            <div class="rlx-btns"><button type="button" data-k="crun" class="control-button control-button-secondary">New pairs of runs</button></div>
+            <p class="rlx-hint">Each pair: one run without and one with the policy. Pairs where a run fizzled out are left out.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Average saving</div><div class="metric-value" data-k="dmean">–</div></div><div class="metric-tile"><div class="metric-label">Spread of the difference</div><div class="metric-value" data-k="dsd">–</div></div><div class="metric-tile"><div class="metric-label">Pairs pointing the wrong way</div><div class="metric-value" data-k="wrong">–</div></div><div class="metric-tile"><div class="metric-label">Pairs needed for ±0.5 points</div><div class="metric-value" data-k="need">–</div></div></div>
+            <p class="rlx-status" data-k="cstatus" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Differences, pair by pair</h4><p class="rlx-sub">Orange bars: pairs where the policy seemed to make things worse.</p></div></div>
+              <div class="chart-shell"><svg data-k="cchart" role="img" aria-label="Histogram of differences between paired runs"></svg></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Link previews (tools/share_cards.py) for the site's hand-made pages: the home page, team, projects list,
-publications, tools, videos, media, the tools and games, and the reinforcement-learning course.
+publications, tools, courses, videos, media, the tools and games, and the reinforcement-learning course.
 
 For each page in PAGES it draws the card and points the page's og:image and twitter:image at it (adding the tags
 when a page has none). The title and the line under it come from the page's own og:title / <title> and
@@ -31,6 +31,7 @@ PAGES = [
     ('publications.html', 'img/share/publications.jpg', 'ACML · Research', 'page', None, None),
     ('videos.html', 'img/share/videos.jpg', 'ACML · Videos', 'video', None, None),
     ('tools.html', 'img/share/tools.jpg', 'ACML · Tools', 'page', None, None),
+    ('courses.html', 'img/share/courses.jpg', 'ACML · Courses', 'page', None, None),
     ('media.html', 'img/share/media.jpg', 'ACML · In the news', 'page', None, None),
     ('statistics-demo.html', 'img/share/statistics.jpg', 'ACML · In numbers', 'page', None, None),
     ('author-analyzer.html', 'img/share/author-analyzer.jpg', 'ACML · Free tool', 'page', None, None),

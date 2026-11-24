@@ -1,0 +1,74 @@
+<!-- Used by tools/build_epi_course.py: the strains lab (Module 5) of the Epidemic Modeling course: two strains with cross-immunity, and a mutation ladder of four strains. Script: js/epi-labs.js (data-epx="strains"), styles: css/exploration-lab.css + css/rl-labs.css + css/epi-course.css. -->
+      <div class="rlx" id="strains-lab" data-epx="strains">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">Strains that share one town</h3>
+          <p class="rlx-sub">Everyone is tracked by their immune history: which strains they have had. Both panels solve the same model in your browser.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">Histories</div>
+              <div class="formula-line"><span class="formula-chip">new infections of strain j in history J = λⱼ × sⱼ,J × (share with history J)</span></div>
+              <p class="math-card-copy">Nobody catches a strain twice. After any other strain, susceptibility is 1 − σ (σ is the cross-immunity). Recovery adds the strain to the history; 10 days infectious.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Invasion</div>
+              <div class="formula-line"><span class="formula-chip">Rₑ(B) = R₀(B) × [never infected + (1 − σ) × had A]</span></div>
+              <p class="math-card-copy">A strain that lands with Rₑ below 1 cannot take off, however high its R₀.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Mutation and diversity</div>
+              <div class="formula-line"><span class="formula-chip">λⱼ = Σᵢ βᵢ Iᵢ Qᵢⱼ   ·   N = exp(−Σ pₖ ln pₖ)</span></div>
+              <p class="math-card-copy">Qᵢⱼ is the chance a transmission by strain i founds strain j. N is the effective number of strains in the current mix.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Two-strain controls">
+            <div><h4 class="rlx-h">Two strains</h4><p class="rlx-sub">Strain A starts the epidemic; strain B arrives later.</p></div>
+            <div class="rlx-btns"><button type="button" data-k="p-full" class="control-button control-button-secondary">Full protection</button><button type="button" data-k="p-half" class="control-button control-button-primary">Half</button><button type="button" data-k="p-none" class="control-button control-button-secondary">None</button></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="stRA">R₀ of strain A</label><span class="control-value" data-k="RA-out">2.5</span></div><input id="stRA" data-k="RA" type="range" min="1.2" max="3.5" step="0.1" value="2.5"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="stRB">R₀ of strain B</label><span class="control-value" data-k="RB-out">2.5</span></div><input id="stRB" data-k="RB" type="range" min="1.2" max="3.5" step="0.1" value="2.5"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="stTB">B arrives on</label><span class="control-value" data-k="tB-out">day 150</span></div><input id="stTB" data-k="tB" type="range" min="0" max="300" step="5" value="150"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="stSg">Cross-immunity σ</label><span class="control-value" data-k="sg-out">0.50</span></div><input id="stSg" data-k="sg" type="range" min="0" max="1" step="0.01" value="0.5"></div>
+            <p class="rlx-hint">The three buttons set both R₀ to 2.5 and B’s arrival to day 150, as in Episode 18. Values are made up to show mechanisms.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Infected by A</div><div class="metric-value" data-k="attA">–</div></div><div class="metric-tile"><div class="metric-label">Infected by B</div><div class="metric-value" data-k="attB">–</div></div><div class="metric-tile"><div class="metric-label">B’s Rₑ on arrival</div><div class="metric-value" data-k="ReB">–</div></div><div class="metric-tile"><div class="metric-label">Infected at least once</div><div class="metric-value" data-k="ever">–</div></div></div>
+            <p class="rlx-status" data-k="tstatus" role="status" aria-live="polite">Solving…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Infected now, by strain</h4><p class="rlx-sub">Strain A orange, strain B purple; 600 days.</p></div></div>
+              <div class="chart-shell"><svg data-k="tchart" role="img" aria-label="Share infected with strain A and strain B over time"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current settings, here or in the mutation panel below.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>With full cross-immunity (σ = 1) and B arriving on day 60 or later, make B infect more people than A.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>With both R₀ at 2.5 and B arriving on day 150, set σ so that B lands with Rₑ between 0.95 and 1.05.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>In the mutation panel, get four separate waves.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>In the mutation panel, get more than 3 strains circulating at once (effective number).</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+          <div class="rlx-grid" style="margin-top:1.5rem">
+            <aside class="rlx-card rlx-controls" aria-label="Mutation controls">
+            <div><h4 class="rlx-h">Mutation ladder</h4><p class="rlx-sub">Four strains; only strain 1 is there at the start. Each transmission can found the next strain on the ladder.</p></div>
+            <div class="rlx-btns"><button type="button" data-k="p-m6" class="control-button control-button-secondary">1 in a million</button><button type="button" data-k="p-m3" class="control-button control-button-primary">1 in 1,000</button><button type="button" data-k="p-m2" class="control-button control-button-secondary">1 in 100</button></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="stMu">Mutation rate</label><span class="control-value" data-k="mu-out">1 in 1,000</span></div><input id="stMu" data-k="mu" type="range" min="-9" max="-2" step="0.5" value="-3"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="stR1">R₀ of strain 1</label><span class="control-value" data-k="R1-out">2.0</span></div><input id="stR1" data-k="R1" type="range" min="1.5" max="3" step="0.1" value="2"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="stStep">R₀ added by each new strain</label><span class="control-value" data-k="step-out">+0.20</span></div><input id="stStep" data-k="step" type="range" min="0" max="0.4" step="0.05" value="0.2"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="stMsg">Cross-immunity σ</label><span class="control-value" data-k="msg-out">0.00</span></div><input id="stMsg" data-k="msg" type="range" min="0" max="0.8" step="0.05" value="0"></div>
+            <p class="rlx-hint">The buttons reset to Episode 19’s ladder (R₀ 2, 2.2, 2.4 and 2.6, full immune escape). Mutation rate: the chance that a transmission founds the next strain. Waves are peaks of all infections at least 60 days apart; the strain count uses days with at least 0.1% infected.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Waves</div><div class="metric-value" data-k="waves">–</div></div><div class="metric-tile"><div class="metric-label">Strain 2 reaches 1 in 10,000</div><div class="metric-value" data-k="first2">–</div></div><div class="metric-tile"><div class="metric-label">Most strains at once</div><div class="metric-value" data-k="nmax">–</div></div><div class="metric-tile"><div class="metric-label">Infections per person</div><div class="metric-value" data-k="perp">–</div></div></div>
+            <p class="rlx-status" data-k="mstatus" role="status" aria-live="polite">Solving…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Infected now, by strain</h4><p class="rlx-sub">Strains 1 to 4 in orange, purple, amber and teal; dashed: all strains together.</p></div></div>
+              <div class="chart-shell"><svg data-k="mchart" role="img" aria-label="Share infected with each of four strains over time"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Effective number of strains</h4><p class="rlx-sub">1 when one strain dominates, 2 when two are equally common.</p></div></div>
+              <div class="chart-shell"><svg data-k="nchart" role="img" aria-label="Effective number of circulating strains over time"></svg></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>

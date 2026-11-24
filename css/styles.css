@@ -993,3 +993,15 @@ a[class*="!rounded-button"]:active {
 /* Footer: a lighter grey for the copyright line so it has enough contrast on the dark footer (WCAG AA). */
 footer .text-gray-500,
 footer .text-gray-500 a { color: #9ca3af; }
+
+/* Header nav: seven items since the Courses page (Nov 2026). Keep every link on one line, and tighten the pills on narrow desktops. */
+#navbar .nav-link, #navbar a[href="/#contact"] { white-space: nowrap; }
+@media (min-width: 768px) and (max-width: 1199px) {
+  #navbar .nav-link { padding-left: .75rem; padding-right: .75rem; }
+  #navbar .mr-6 { margin-right: .75rem; }
+  #navbar a[href="/#contact"] { padding-left: 1rem; padding-right: 1rem; }
+}
+@media (min-width: 768px) and (max-width: 899px) {
+  #navbar .nav-link { padding-left: .5rem; padding-right: .5rem; font-size: .8rem; }
+  #navbar img[alt$="logo"] { width: 76px; height: auto; }
+}

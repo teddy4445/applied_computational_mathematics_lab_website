@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_epi_course.py from data/epi-course.json. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Module 13: Closing remarks and future directions | Epidemic Modeling Course | ACML</title>
+      <meta name="description" content="Module 13 of 13 of ACML’s Epidemic Modeling course. Where epidemic modeling goes next: 1 short episode and a game.">
+      <meta name="author" content="Teddy Lazebnik">
+      <meta name="keywords" content="epidemic modeling, epidemiology, closing remarks and future directions, course, ACML">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/epidemic-modeling/module-13/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Module 13: Closing remarks and future directions · Epidemic Modeling">
+      <meta property="og:description" content="Module 13 of 13 of ACML’s Epidemic Modeling course. Where epidemic modeling goes next: 1 short episode and a game.">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/epidemic-modeling/module-13/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/epidemic-modeling/module-13/share.jpg">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Module 13: Closing remarks and future directions · Epidemic Modeling">
+      <meta name="twitter:description" content="Module 13 of 13 of ACML’s Epidemic Modeling course. Where epidemic modeling goes next: 1 short episode and a game.">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/epidemic-modeling/module-13/share.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "Module 13: Closing remarks and future directions",
+        "description": "Where epidemic modeling goes next. We look back at what each family of models taught us, name the problems that come back whatever the model (epidemics that change as they go, data that are measurements, models that travel badly, forecasts tested the wrong way), and sketch where the field is heading: adaptive forecasts, many data streams read together, language models under strict checks, AI that helps epidemiologists, shared benchmarks and models built around decisions.",
+        "url": "https://acml.teddylazebnik.com/epidemic-modeling/module-13/",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "learningResourceType": [
+          "Video"
+        ],
+        "teaches": "Where epidemic modeling goes next",
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Epidemic Modeling",
+          "url": "https://acml.teddylazebnik.com/epidemic-modeling/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Teddy Lazebnik",
+          "url": "https://teddylazebnik.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Applied Computational Mathematics Laboratory",
+          "url": "https://acml.teddylazebnik.com/"
+        },
+        "hasPart": [
+          {
+            "@type": "VideoObject",
+            "name": "What comes next",
+            "description": "The closing episode: what each family of models taught us, the problems that come back whatever the model, and where epidemic modeling is heading: adaptive forecasts, many data streams together, checked language models, AI that helps, shared benchmarks and decision-focused models.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep53.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/Z2TXGNF8YPg",
+            "duration": "PT2M47S"
+          }
+        ]
+      }
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      <link href="/css/videos.css" rel="stylesheet">
+      
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/project.css" rel="stylesheet">
+      <link href="/css/rl-course.css" rel="stylesheet">
+      <link href="/css/epi-course.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+          <a href="/courses.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Courses</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/courses.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Courses</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="proj-page rl-page bg-white">
+    <header class="proj-hero rl-hero">
+      <div class="proj-wrap proj-hero-grid">
+        <div>
+          <nav class="proj-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/courses.html">Courses</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/epidemic-modeling/">Epidemic Modeling</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Module 13</span></nav>
+          <p class="proj-kicker"><span><i class="ri-graduation-cap-line" aria-hidden="true"></i>Epidemic Modeling</span><span>Policy and practice</span></p>
+          <h1 class="proj-title"><small>Module 13</small>Closing remarks and future directions</h1>
+          <p class="proj-about-lead rl-summary">Where epidemic modeling goes next. We look back at what each family of models taught us, name the problems that come back whatever the model (epidemics that change as they go, data that are measurements, models that travel badly, forecasts tested the wrong way), and sketch where the field is heading: adaptive forecasts, many data streams read together, language models under strict checks, AI that helps epidemiologists, shared benchmarks and models built around decisions.</p>
+          <div class="rl-goal"><i class="ri-focus-3-line" aria-hidden="true"></i><span>By the end you should be able to explain what each modeling family is good for, recognize the recurring pitfalls in any epidemic model, and judge new methods by the decisions they serve.</span></div>
+          <h2 class="proj-h3 rl-ideas-title">Key ideas, one per episode</h2>
+          <ul class="rl-ideas"><li><a href="#ep-53">Ep. 53</a><span>No single model wins: mechanistic, statistical, machine-learning and simulation models answer different questions, and the future lies in combining them around real decisions.</span></li></ul>
+          <p class="rl-source"><b>Textbook:</b> Chapter 13 of <a href="https://shop.elsevier.com/books/epidemic-modeling/lazebnik/978-0-443-55525-1" target="_blank" rel="noopener">T. Lazebnik, Epidemic Modeling: Principles, Algorithms, and Applications (Academic Press, 2026)</a>. The episode follows the chapter’s topics in our own words, figures and simulations; nothing is copied from the book.</p>
+        </div>
+        <div class="rl-first"><a class="rl-first-img" href="#watch"><img src="/epidemic-modeling/img/eps/ep53.webp" alt="" width="960" height="540" decoding="async"></a>
+          <p class="rl-first-text">This module is one short episode, with no slide deck.</p></div>
+      </div>
+    </header>
+    <nav class="proj-subnav is-mobile-only" aria-label="Sections of this page"><div class="proj-wrap"><ul><li><a href="#watch">Watch</a></li><li><a href="#play">Play</a></li><li><a href="#next">Next</a></li></ul></div></nav>
+    <section id="watch" class="proj-section is-soft" aria-labelledby="watch-title"><div class="proj-wrap">
+      <h2 id="watch-title" class="proj-h2">Watch</h2>
+      <p class="proj-lead">1 short episode for this module. Pick one from the list, and open the transcript to read along: each timestamp plays the episode from there. The narration is generated with a voice clone of Teddy, used with his permission.</p>
+      <div class="rl-watch">
+        <div class="rl-player-wrap">
+          <div id="rl-player" class="yt-player yt-16x9" data-yt-id="Z2TXGNF8YPg" data-yt-title="What comes next"><a class="yt-play" href="https://www.youtube.com/watch?v=Z2TXGNF8YPg" aria-label="Play episode 53: What comes next"><img src="/epidemic-modeling/img/eps/ep53.webp" alt="" width="640" height="360" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div>
+          <div class="rl-now">
+            <p id="rl-now-num" class="rl-now-num">Episode 53 · 2:47</p>
+            <p id="rl-now-title" class="rl-now-title">What comes next</p>
+            <p id="rl-now-hook" class="rl-now-hook">The closing episode: what each family of models taught us, the problems that come back whatever the model, and where epidemic modeling is heading: adaptive forecasts, many data streams together, checked language models, AI that helps, shared benchmarks and decision-focused models.</p>
+            <p id="rl-now-take" class="rl-now-take"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i><span>No single model wins: mechanistic, statistical, machine-learning and simulation models answer different questions, and the future lies in combining them around real decisions.</span></p>
+          </div>
+            <details id="rl-tx" class="rl-tx">
+              <summary><i class="ri-file-text-line" aria-hidden="true"></i>Transcript<span id="rl-tx-which">Episode 53</span><i class="ri-arrow-down-s-line rl-tx-caret" aria-hidden="true"></i></summary>
+              <div class="rl-tx-body"><div class="rl-tx-ep" data-ep="53"><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Z2TXGNF8YPg" data-ep="53" data-t="0">0:00</a><p><b>The question.</b> This course began with a plague in Athens. It ends with one question: where does epidemic modeling go from here?</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Z2TXGNF8YPg&amp;t=14s" data-ep="53" data-t="14">0:14</a><p><b>What we built.</b> First, look back at what we built. Compartmental models taught us to think in flows between states. Space, networks and strains showed that epidemics move, branch and evolve. Agents showed how a town&#x27;s outcome grows out of many small choices. Data driven models showed that prediction can come from patterns, not only from mechanisms. Then fitting, surveillance, policy, uncertainty and computation turned all of these into tools you can trust, and taught you when not to. No single model wins. Mechanistic models explain. Statistical models keep us honest about the data. Machine learning finds patterns. Simulations show what can emerge. The skill is knowing which question each one answers, and letting them check each other.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Z2TXGNF8YPg&amp;t=58s" data-ep="53" data-t="58">0:58</a><p><b>Problems that come back.</b> Some problems come back whatever the model. Epidemics change as they go: behavior, immunity, variants and reporting all shift, so yesterday&#x27;s fit can mislead tomorrow. The data are measurements, not the epidemic: late, incomplete, and biased. A model calibrated in one place often travels badly to another. And a forecast is only honest if it was tested the way it will be used, with only the data available at the time.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Z2TXGNF8YPg&amp;t=85s" data-ep="53" data-t="85">1:25</a><p><b>Where the field is heading.</b> Here&#x27;s where I think the field is heading. Forecasts that adapt as conditions change: they notice when the regime shifts, and update only the parts that broke. Models that read many streams together, cases, wastewater, genomes and mobility, as views of one hidden epidemic, each with its own delays and biases. Language models that turn reports and bulletins into data, under strict checks, so that fluency is never mistaken for truth. And AI that helps epidemiologists, rather than trying to replace them. Shared benchmarks with archived data and their revisions, so that methods are compared fairly. And above all, models built around decisions, about beds, vaccines, testing and schools, rather than prediction for its own sake.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Z2TXGNF8YPg&amp;t=128s" data-ep="53" data-t="128">2:08</a><p><b>Thank you.</b> If you&#x27;ve followed along, you can now build a model, fit it, question it, speed it up, and say how sure you are. That combination is rare, and the next epidemic will need it. Thank you for learning with me. Keep your models humble, your code tested, and your intervals honest. I&#x27;m Teddy, and this was Epidemic Modeling.</p></div></div></div>
+            </details>
+        </div>
+        <div class="rl-eps">
+          <div class="rl-eps-head"><b>Module 13 episodes</b><span>1 episode · 3 min</span></div>
+          <ol><li id="ep-53"><a class="rl-ep is-active" data-ep="53" href="https://www.youtube.com/watch?v=Z2TXGNF8YPg" aria-current=true><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep53.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>2:47</span></span><span><span class="rl-ep-num">Episode 53 · 13.1</span><span class="rl-ep-title" style="display:block">What comes next</span><span class="rl-ep-take" style="display:block">No single model wins: mechanistic, statistical, machine-learning and simulation models answer different questions, and the future lies in combining them around real decisions.</span></span></a></li></ol>
+        </div>
+      </div>
+      <script type="application/json" id="rl-episodes">[{"ep": 53, "youtube": "Z2TXGNF8YPg", "title": "What comes next", "duration": "2:47", "hook": "The closing episode: what each family of models taught us, the problems that come back whatever the model, and where epidemic modeling is heading: adaptive forecasts, many data streams together, checked language models, AI that helps, shared benchmarks and decision-focused models.", "takeaway": "No single model wins: mechanistic, statistical, machine-learning and simulation models answer different questions, and the future lies in combining them around real decisions.", "thumbAbs": "/epidemic-modeling/img/eps/ep53.webp"}]</script>
+    </div></section>
+    <section id="play" class="proj-section is-soft" aria-labelledby="play-title"><div class="proj-wrap">
+      <h2 id="play-title" class="proj-h2">Play</h2>
+      <p class="proj-lead">A game that goes with this module, and what to look for while you play.</p>
+      <div class="rl-games is-1"><article class="rl-game"><a href="/mayor-outbreak.html" tabindex="-1" aria-hidden="true"><img src="/img/share/mayor-outbreak.jpg" alt="" width="800" height="450" loading="lazy" decoding="async"></a><div class="rl-game-body"><p class="rl-game-title">Mayor&#x27;s Outbreak</p><p class="rl-game-tag">An SIR strategy game in your browser</p><p class="rl-game-why"><b>In this module:</b> one last round as mayor: steer the city with everything the course has covered.</p><p class="rl-game-text">Mayor&#x27;s Outbreak is a browser-based SIR strategy simulation where you steer a city through an epidemic by balancing mobility, testing, and public protection.</p><div class="rl-game-foot"><a class="proj-btn proj-btn-primary" href="/mayor-outbreak.html"><i class="ri-gamepad-line" aria-hidden="true"></i>Play</a></div></div></article></div>
+    </div></section>
+    <section id="next" class="proj-section" aria-labelledby="next-title"><div class="proj-wrap">
+      <h2 id="next-title" class="proj-h2">Keep going</h2>
+      <div class="rl-pn"><a href="/epidemic-modeling/module-12/"><i class="ri-arrow-left-line" aria-hidden="true"></i><span><small>Previous · Module 12</small><strong>Computational considerations</strong></span></a><a class="is-next" href="/epidemic-modeling/"><span><small>That’s the course</small><strong>Back to the course page</strong></span><i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+    </div></section>
+  </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Courses</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/rl-course/" class="hover:text-white">Reinforcement Learning</a></li>
+                  <li><a href="/epidemic-modeling/" class="hover:text-white">Epidemic Modeling</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/rl-course/" class="hover:text-white">RL course</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <script src="/js/videos.js"></script>
+      
+      <script src="/js/epi-course.js" defer></script>
+   </body>
+</html>

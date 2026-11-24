@@ -114,6 +114,18 @@ It writes the 13 pages, a share image (`share.jpg`) for each, and the course pag
 
 The episodes are embedded with YouTube's privacy-enhanced player; until a video is public on YouTube, its player shows YouTube's own "private video" message.
 
+## Epidemic Modeling course (epidemic-modeling/)
+
+Teddy's epidemic-modeling course, one module per chapter of his textbook (T. Lazebnik, *Epidemic Modeling: Principles, Algorithms, and Applications*, Academic Press, 2026). Pages: `epidemic-modeling/` (the course page: how to study, the 13 modules in four parts, the game) and one page per finished module, `epidemic-modeling/module-01/` and on. Modules go online one at a time; the course page shows the others as "in production". A module page has the module's summary, goal and key ideas, the first slide with the PDF, the episodes with transcripts, and the game or lab that goes with it. Until the episodes are on YouTube their `youtube` field is empty and the player shows "Video coming soon"; add the ids to `data/epi-course.json` and rebuild.
+
+Everything comes from `data/epi-course.json` (modules, episodes with transcripts, games). Styles: `css/rl-course.css` plus `css/epi-course.css`; script: `js/epi-course.js` (the RL course player, plus the "coming soon" state). The builder reuses the helpers of `tools/build_rl_course.py` and updates its own blocks in `sitemap.xml` and `llms.txt`:
+
+```
+python tools/build_epi_course.py
+```
+
+Labs: `js/epi-labs.js` holds every lab of the course in one file; a lab starts only when its root element (`data-epx="..."`) is on the page, and its markup lives in `tools/templates/epi-lab-*.html` (the builder adds it to the module page). The labs reuse `css/exploration-lab.css` and `css/rl-labs.css`. All numbers a lab shows come from the visitor's own runs in the browser.
+
 ## Images
 
 Large images have `.webp` copies next to the originals, and the pages and data files point at the `.webp` versions. Keep the originals: share previews (`og:image`) still use PNG/JPEG. When you add a large photo, add a `.webp` copy as well (for example with https://squoosh.app), roughly 800 px wide for team photos and 1000 to 1200 px for cards and project images.

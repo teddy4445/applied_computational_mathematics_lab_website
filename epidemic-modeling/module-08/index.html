@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_epi_course.py from data/epi-course.json. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Module 8: Parameter estimation and calibration | Epidemic Modeling Course | ACML</title>
+      <meta name="description" content="Module 8 of 13 of ACML’s Epidemic Modeling course. Fitting models to data, and knowing when you can&#x27;t: slides, 6 short episodes and an interactive lab.">
+      <meta name="author" content="Teddy Lazebnik">
+      <meta name="keywords" content="epidemic modeling, epidemiology, parameter estimation and calibration, course, ACML">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/epidemic-modeling/module-08/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Module 8: Parameter estimation and calibration · Epidemic Modeling">
+      <meta property="og:description" content="Module 8 of 13 of ACML’s Epidemic Modeling course. Fitting models to data, and knowing when you can&#x27;t: slides, 6 short episodes and an interactive lab.">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/epidemic-modeling/module-08/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/epidemic-modeling/module-08/share.jpg">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Module 8: Parameter estimation and calibration · Epidemic Modeling">
+      <meta name="twitter:description" content="Module 8 of 13 of ACML’s Epidemic Modeling course. Fitting models to data, and knowing when you can&#x27;t: slides, 6 short episodes and an interactive lab.">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/epidemic-modeling/module-08/share.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "Module 8: Parameter estimation and calibration",
+        "description": "Fitting models to data, and knowing when you can't. On one simulated outbreak with a known truth, we fit by least squares (and see why cumulative fits give false confidence), compare grid, Bayesian, genetic and swarm searches, refine with gradients, curvature and Nelder-Mead, fit models without a likelihood with approximate Bayesian computation and a particle filter, calibrate for a purpose with targets, observation mappings and losses, and diagnose identifiability and misspecification.",
+        "url": "https://acml.teddylazebnik.com/epidemic-modeling/module-08/",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "learningResourceType": [
+          "Lecture slides",
+          "Video",
+          "Interactive resource"
+        ],
+        "teaches": "Fitting models to data, and knowing when you can't",
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Epidemic Modeling",
+          "url": "https://acml.teddylazebnik.com/epidemic-modeling/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Teddy Lazebnik",
+          "url": "https://teddylazebnik.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Applied Computational Mathematics Laboratory",
+          "url": "https://acml.teddylazebnik.com/"
+        },
+        "hasPart": [
+          {
+            "@type": "VideoObject",
+            "name": "Fitting by least squares",
+            "description": "Fitting an epidemic model by least squares on a simulated outbreak with a known truth: the loss, weights and the log scale, and why fitting cumulative counts makes error bars far too small.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep32.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/43T-qKrTw-c",
+            "duration": "PT2M53S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Search strategies",
+            "description": "Searching for the best parameters: grid search and coarse-to-fine sweeps, the curse of dimensionality, Bayesian optimization, genetic algorithms and particle swarms, raced on one outbreak.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep33.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/eehnFjO2dUM",
+            "duration": "PT2M31S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Gradients and derivative-free refinement",
+            "description": "Local refinement: getting gradients, choosing a finite-difference step, why plain gradient descent crawls in a curved valley, Levenberg-Marquardt, BFGS and Nelder-Mead, and what noise does to a search.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep34.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/Y8o1jEYdxns",
+            "duration": "PT2M32S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Simulation-based and state-space inference",
+            "description": "Fitting models without a likelihood: approximate Bayesian computation on a stochastic town, tolerance and summaries, and a particle filter that tracks the reproduction number through a lockdown.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep35.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/12x7NR_mpfU",
+            "duration": "PT2M51S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Targets, observations and loss design",
+            "description": "Calibration for a purpose: how the choice of target, the observation mapping and the loss change a model's answer about hospital beds, on a simulated outbreak.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep36.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/ZxFTdC96Cb0",
+            "duration": "PT2M36S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Identifiability and diagnostics",
+            "description": "Can you trust a fit? Identifiability valleys and profiles, outside information, parameters that never separate, misspecification, stress tests and multi-objective trade-offs.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep37.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/70LfCekfO5c",
+            "duration": "PT2M48S"
+          },
+          {
+            "@type": "DigitalDocument",
+            "name": "Module 8 slides",
+            "encodingFormat": "application/pdf",
+            "url": "https://acml.teddylazebnik.com/epidemic-modeling/slides/Epidemic_Modeling_Module08_Parameter_estimation_and_calibration.pdf"
+          }
+        ]
+      }
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      <link href="/css/videos.css" rel="stylesheet">
+      
+      <link href="/css/exploration-lab.css" rel="stylesheet">
+      <link href="/css/rl-labs.css" rel="stylesheet">
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/project.css" rel="stylesheet">
+      <link href="/css/rl-course.css" rel="stylesheet">
+      <link href="/css/epi-course.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+          <a href="/courses.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Courses</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/courses.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Courses</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="proj-page rl-page bg-white">
+    <header class="proj-hero rl-hero">
+      <div class="proj-wrap proj-hero-grid">
+        <div>
+          <nav class="proj-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/courses.html">Courses</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/epidemic-modeling/">Epidemic Modeling</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Module 8</span></nav>
+          <p class="proj-kicker"><span><i class="ri-graduation-cap-line" aria-hidden="true"></i>Epidemic Modeling</span><span>Data and inference</span></p>
+          <h1 class="proj-title"><small>Module 8</small>Parameter estimation and calibration</h1>
+          <p class="proj-about-lead rl-summary">Fitting models to data, and knowing when you can&#x27;t. On one simulated outbreak with a known truth, we fit by least squares (and see why cumulative fits give false confidence), compare grid, Bayesian, genetic and swarm searches, refine with gradients, curvature and Nelder-Mead, fit models without a likelihood with approximate Bayesian computation and a particle filter, calibrate for a purpose with targets, observation mappings and losses, and diagnose identifiability and misspecification.</p>
+          <div class="rl-goal"><i class="ri-focus-3-line" aria-hidden="true"></i><span>By the end you should be able to fit a model by weighted least squares, choose a search method for the problem at hand, use simulation-based inference when no likelihood exists, design a calibration around its purpose, and check identifiability with profiles and stress tests.</span></div>
+          <h2 class="proj-h3 rl-ideas-title">Key ideas, one per episode</h2>
+          <ul class="rl-ideas"><li><a href="#ep-32">Ep. 32</a><span>Least squares recovers R0 2.5, but a fit on cumulative counts claimed ±0.004 when the real spread was ±0.15.</span></li><li><a href="#ep-33">Ep. 33</a><span>Global searches find the valley fast; none reliably polishes the last percent: hand over to a local method.</span></li><li><a href="#ep-34">Ep. 34</a><span>Curvature-aware methods reached the best fit in about 20 model runs; plain gradient descent was still 48% off after 1,500.</span></li><li><a href="#ep-35">Ep. 35</a><span>ABC recovered R0 from simulations alone; a particle filter saw R fall below 1 six days after a lockdown.</span></li><li><a href="#ep-36">Ep. 36</a><span>Same model, same data: four calibration targets gave 476 to 800 peak beds; the truth was 681.</span></li><li><a href="#ep-37">Ep. 37</a><span>Early data measure growth, not R0; a good fit is not proof: check parameters, profiles and unseen data.</span></li></ul>
+          <p class="rl-source"><b>Textbook:</b> Chapter 8 of <a href="https://shop.elsevier.com/books/epidemic-modeling/lazebnik/978-0-443-55525-1" target="_blank" rel="noopener">T. Lazebnik, Epidemic Modeling: Principles, Algorithms, and Applications (Academic Press, 2026)</a>. The episodes and slides follow the chapter’s topics in our own words, figures and simulations; nothing is copied from the book.</p>
+        </div>
+        <div class="rl-first">
+          <a class="rl-first-img" href="/epidemic-modeling/slides/Epidemic_Modeling_Module08_Parameter_estimation_and_calibration.pdf" target="_blank" rel="noopener"><img src="/epidemic-modeling/img/slides/m08-s01.webp" alt="The title slide of Module 8: Parameter estimation and calibration" width="960" height="540" fetchpriority="high" decoding="async"></a>
+          <p class="rl-first-text">33 slides, written to be read on your own, with worked examples, “try it” boxes, our own small simulations and check-yourself questions (answers at the end). PDF, 1.3 MB.</p>
+          <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="/epidemic-modeling/slides/Epidemic_Modeling_Module08_Parameter_estimation_and_calibration.pdf" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Open the PDF</a><a class="proj-btn" href="/epidemic-modeling/slides/Epidemic_Modeling_Module08_Parameter_estimation_and_calibration.pdf" download><i class="ri-download-2-line" aria-hidden="true"></i>Download</a></div>
+        </div>
+      </div>
+    </header>
+    <nav class="proj-subnav is-mobile-only" aria-label="Sections of this page"><div class="proj-wrap"><ul><li><a href="#watch">Watch</a></li><li><a href="#lab">Lab</a></li><li><a href="#next">Next</a></li></ul></div></nav>
+    <section id="watch" class="proj-section is-soft" aria-labelledby="watch-title"><div class="proj-wrap">
+      <h2 id="watch-title" class="proj-h2">Watch</h2>
+      <p class="proj-lead">6 short episodes for this module. Pick one from the list, and open the transcript to read along: each timestamp plays the episode from there. The narration is generated with a voice clone of Teddy, used with his permission.</p>
+      <div class="rl-watch">
+        <div class="rl-player-wrap">
+          <div id="rl-player" class="yt-player yt-16x9" data-yt-id="43T-qKrTw-c" data-yt-title="Fitting by least squares"><a class="yt-play" href="https://www.youtube.com/watch?v=43T-qKrTw-c" aria-label="Play episode 32: Fitting by least squares"><img src="/epidemic-modeling/img/eps/ep32.webp" alt="" width="640" height="360" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div>
+          <div class="rl-now">
+            <p id="rl-now-num" class="rl-now-num">Episode 32 · 2:53</p>
+            <p id="rl-now-title" class="rl-now-title">Fitting by least squares</p>
+            <p id="rl-now-hook" class="rl-now-hook">Fitting an epidemic model by least squares on a simulated outbreak with a known truth: the loss, weights and the log scale, and why fitting cumulative counts makes error bars far too small.</p>
+            <p id="rl-now-take" class="rl-now-take"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i><span>Least squares recovers R0 2.5, but a fit on cumulative counts claimed ±0.004 when the real spread was ±0.15.</span></p>
+          </div>
+            <details id="rl-tx" class="rl-tx">
+              <summary><i class="ri-file-text-line" aria-hidden="true"></i>Transcript<span id="rl-tx-which">Episode 32</span><i class="ri-arrow-down-s-line rl-tx-caret" aria-hidden="true"></i></summary>
+              <div class="rl-tx-body"><div class="rl-tx-ep" data-ep="32"><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=43T-qKrTw-c" data-ep="32" data-t="0">0:00</a><p><b>Model meets data.</b> We have a model, and we have data. Which parameter values make the model match the data? Welcome to Module eight: parameter estimation and calibration.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=43T-qKrTw-c&amp;t=17s" data-ep="32" data-t="17">0:17</a><p><b>One outbreak, known truth.</b> All module long we use one simulated outbreak with a known truth. A town of one hundred thousand, R naught 2.5: a transmission rate beta of 0.25 per day, and ten infectious days on average. Forty percent of infections are reported, with extra noise. Over a hundred days, thirty four thousand eight hundred fifty one cases were reported. Now we pretend we don&#x27;t know beta or gamma.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=43T-qKrTw-c&amp;t=44s" data-ep="32" data-t="44">0:44</a><p><b>Least squares.</b> Least squares: for any beta and gamma, run the model, subtract its curve from the data, square each difference, and add them up. The best parameters make that sum as small as possible. Squaring punishes big misses and keeps the sum smooth, so a solver can slide downhill. And when the noise is normal with a known size, least squares is exactly maximum likelihood. Our fit gives beta 0.249. Gamma comes out at 0.099, so R naught is 2.51, against a true 2.5. A least squares solver finds this in a fraction of a second.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=43T-qKrTw-c&amp;t=80s" data-ep="32" data-t="80">1:20</a><p><b>Weights and the log scale.</b> But counts are noisier when they are big. A day with a thousand cases wobbles far more than a day with ten, so plain least squares lets the peak dominate. Weights fix that: divide each difference by the size of noise you expect on that day. Or fit on the log scale, where a ten percent miss counts the same at any size.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=43T-qKrTw-c&amp;t=100s" data-ep="32" data-t="100">1:40</a><p><b>The cumulative trap.</b> Now a trap. Fitting the cumulative curve looks beautiful: smooth, with tiny residuals. But each day&#x27;s total carries all the earlier days&#x27; errors, so the errors are not independent. We repeated the fit on two hundred new noisy datasets from the same truth. The cumulative fit claimed its R naught was good to plus or minus 0.005. The estimates actually spread by 0.15, and its ninety five percent intervals held the truth only five percent of the time. Fitting daily counts was more honest, but still too confident: its intervals held the truth seventy four percent of the time, because the noise model behind the error bars was too simple.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=43T-qKrTw-c&amp;t=141s" data-ep="32" data-t="141">2:21</a><p><b>Next.</b> Least squares is the baseline: simple, fast, and often enough. Next: how to search when the landscape is rough. Grids, Bayesian optimization, genetic algorithms and swarms.</p></div></div><div class="rl-tx-ep" data-ep="33" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=eehnFjO2dUM" data-ep="33" data-t="0">0:00</a><p><b>Searching a landscape.</b> Least squares tells you what to minimize. It doesn&#x27;t tell you how to search. When the landscape is rough, or each model run is expensive, the search strategy matters.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=eehnFjO2dUM&amp;t=16s" data-ep="33" data-t="16">0:16</a><p><b>Grid search.</b> The simplest search is a grid: try every combination. With forty one values for each parameter, that is one thousand six hundred eighty one model runs. The best grid point was still seven percent worse than the best fit, because the optimum fell between grid lines. Zooming in three times, coarse to fine, got within one percent with three hundred sixty three runs. A grid is also a map. It shows the valley, the flat directions and any second minimum at a glance. That makes it a great diagnostic, even when it isn&#x27;t the final method.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=eehnFjO2dUM&amp;t=49s" data-ep="33" data-t="49">0:49</a><p><b>The curse of dimensionality.</b> But grids explode. One of our model runs takes 8.7 milliseconds. Ten values for each of two parameters is a hundred runs. With six parameters it&#x27;s a million runs: two and a half hours. With eight, a hundred million runs: ten days.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=eehnFjO2dUM&amp;t=64s" data-ep="33" data-t="64">1:04</a><p><b>Bayesian, genetic, swarm.</b> Bayesian optimization spends runs carefully. It fits a statistical stand-in for the loss to the runs so far, with its uncertainty, and runs the model next where an improvement looks most likely. Genetic algorithms keep a population: the better candidates are selected, crossed and mutated. Particle swarms move a flock of candidates, each pulled toward its own best spot and toward the flock&#x27;s best.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=eehnFjO2dUM&amp;t=90s" data-ep="33" data-t="90">1:30</a><p><b>A race on one outbreak.</b> We gave each method twenty independent tries on our outbreak. Getting within ten percent of the best fit took Bayesian optimization a median of forty seven runs, the genetic algorithm one hundred eighty two, and the swarm two hundred nine. Random guessing didn&#x27;t get there in six hundred. Polishing the last percent was slow for all of them: only a third to a half of the tries got within one percent of the best fit inside their budgets. So global searches are best at finding the right valley. To reach the bottom, hand over to a local method.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=eehnFjO2dUM&amp;t=124s" data-ep="33" data-t="124">2:04</a><p><b>Next.</b> Next: gradients and derivative-free refinement, the methods that finish the job.</p></div></div><div class="rl-tx-ep" data-ep="34" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Y8o1jEYdxns" data-ep="34" data-t="0">0:00</a><p><b>Into the valley.</b> Global search finds the valley. Local refinement walks to the bottom of it. There are two families: methods that use gradients, and methods that don&#x27;t.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Y8o1jEYdxns&amp;t=15s" data-ep="34" data-t="15">0:15</a><p><b>Getting a gradient.</b> A gradient says which way is downhill. You can get one by nudging each parameter and re-running the model, from sensitivity equations solved alongside the model, or by automatic differentiation. Nudging needs care. Too big a step, and you measure the slope of a whole stretch of curve: with a step of 0.01 in beta, the error was ten percent. Too small, and rounding takes over. Here the best step was about ten to the minus eight.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Y8o1jEYdxns&amp;t=43s" data-ep="34" data-t="43">0:43</a><p><b>Descent and curvature.</b> Plain gradient descent steps straight downhill. In a long, curved valley that&#x27;s slow: it keeps crossing the valley instead of following it. From our starting point, after three hundred steps and one thousand five hundred model runs, it was still forty eight percent above the best fit. Methods that use curvature do far better. Gauss Newton, in its Levenberg Marquardt form, uses the structure of least squares, and reached the best fit in twenty one model runs. BFGS, which learns the curvature as it goes, got within one percent in twenty two.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Y8o1jEYdxns&amp;t=77s" data-ep="34" data-t="77">1:17</a><p><b>Nelder–Mead.</b> When gradients are unreliable, use a derivative-free method. Nelder Mead moves a triangle of three points: reflect the worst point through the others, expand if that helped, contract or shrink if it didn&#x27;t. It got within one percent in fifty runs.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Y8o1jEYdxns&amp;t=92s" data-ep="34" data-t="92">1:32</a><p><b>Noisy objectives.</b> Stochastic models make every method&#x27;s life harder. We ran the same parameters twenty times with new random numbers: the loss swung with a standard deviation of about four thousand eight hundred. Raising beta by five percent changed its average by only about three hundred. Along a slice of beta, the noisy loss had ten local minima. With the same random numbers at every run, it had two, and a local method could follow it. So average over repeated runs, reuse the same random numbers, or use a method built for noise.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Y8o1jEYdxns&amp;t=123s" data-ep="34" data-t="123">2:03</a><p><b>Next.</b> Next: when there&#x27;s no likelihood at all. Simulation-based inference, and state-space models that track hidden states.</p></div></div><div class="rl-tx-ep" data-ep="35" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=12x7NR_mpfU" data-ep="35" data-t="0">0:00</a><p><b>No likelihood.</b> Some models are easy to simulate, but impossible to write a likelihood for: agent-based towns, network epidemics, branching processes. You can still fit them.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=12x7NR_mpfU&amp;t=16s" data-ep="35" data-t="16">0:16</a><p><b>Approximate Bayesian computation.</b> Approximate Bayesian computation: draw parameters from a prior, simulate an outbreak, compare it with the real one, and keep the draws whose outbreaks look close enough. Our test: a random outbreak in a town of two thousand, with five first cases and R naught three. It produced one thousand eight hundred eighty six cases, with a peak of eighty three on day thirty.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=12x7NR_mpfU&amp;t=40s" data-ep="35" data-t="40">0:40</a><p><b>What ABC learned.</b> We drew fifty thousand random parameter pairs. Beta could be as low as 0.1, or as high as 0.6. Gamma could be as low as 0.05, or as high as 0.3. Seventeen percent of the simulated outbreaks fizzled out. We compared total cases, peak day and peak height, and kept the closest one percent: five hundred draws. Their R naught had a median of 2.7. Ninety percent of them sat between 2.2 and 3.9. The truth was three. Beta and gamma on their own stayed wide, and moved together, with a correlation of 0.93. The data pinned down their ratio, not each one.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=12x7NR_mpfU&amp;t=81s" data-ep="35" data-t="81">1:21</a><p><b>Tolerance and summaries.</b> The tolerance is a trade-off. Keep ten percent of the draws, and the interval is wide: it spans 1.7 up to 4. Keep only the closest fifty, and it shrinks to between 2.6 and 3.6. But then you need far more simulations to get enough draws. And the summaries decide what can be learned. A summary that ignores timing can&#x27;t tell a fast epidemic from a slow one.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=12x7NR_mpfU&amp;t=104s" data-ep="35" data-t="104">1:44</a><p><b>A particle filter.</b> State-space models take another route. The epidemic is a hidden state that moves day by day, and the data are noisy readings of it. Unknown parameters can join the hidden state. A particle filter tracks it with thousands of guesses, called particles. Each day it moves every particle forward with the model, weights it by how well it explains today&#x27;s count, and resamples. Our test: the reproduction number drops from 2.5 to 0.8 on day thirty five. With three thousand particles, the filter&#x27;s ninety percent band fell entirely below one on day forty one, six days later. Its bands held the truth on eighty eight percent of days.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=12x7NR_mpfU&amp;t=143s" data-ep="35" data-t="143">2:23</a><p><b>Next.</b> Next: calibration. Choosing targets, linking the model to the data, and designing the loss.</p></div></div><div class="rl-tx-ep" data-ep="36" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=ZxFTdC96Cb0" data-ep="36" data-t="0">0:00</a><p><b>Fit for a purpose.</b> Estimation asks which parameters the data support. Calibration asks a more practical question: how do we tune this model so it&#x27;s fit for a purpose?</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=ZxFTdC96Cb0&amp;t=15s" data-ep="36" data-t="15">0:15</a><p><b>A richer truth.</b> This time the truth is richer than the model. The outbreak follows an SEIR model with four latent days and R naught 2.5. Testing ramps up from twenty to fifty percent of infections over forty days, and three percent of infections need a hospital bed for eight days. The analyst uses a simple SIR model and the first sixty days of data. The question: how many hospital beds will be needed at the peak?</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=ZxFTdC96Cb0&amp;t=41s" data-ep="36" data-t="41">0:41</a><p><b>Calibration targets.</b> Choose the calibration target, and the answer moves. Fitting the whole case curve gave seven hundred twenty six beds. Only the first thirty days: eight hundred. Peak timing, peak height and the total: four hundred seventy six. Bed occupancy itself: five hundred eighty four. The truth was six hundred eighty one. Same model, same data, four answers. Choose targets that match the purpose, and check the result on the quantity that matters.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=ZxFTdC96Cb0&amp;t=67s" data-ep="36" data-t="67">1:07</a><p><b>The observation mapping.</b> The observation mapping links model states to what is measured. Here testing ramped up, so part of the early growth in cases was just more testing. Assuming a constant reporting share, the fitted growth rate was 0.149 per day. With the ramp in the mapping, 0.130. The truth was 0.126.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=ZxFTdC96Cb0&amp;t=86s" data-ep="36" data-t="86">1:26</a><p><b>Loss design.</b> The loss decides which errors you accept. With plain squared errors the peak dominates, and the early days were off by a hundred and seven percent on average. Weighting by the expected noise brought that to seventy five percent, and the log scale to fifty eight, at the cost of a worse peak. And because the model is wrong, each loss gave a different R naught. Plain squares said 2.35. The weighted loss said 3.5, and the log scale 7.4. None of them is the truth, which was 2.5. Constraints and penalties help: keep rates in plausible ranges, and treat a parameter that runs into its bound as a warning. Some of our fits pushed the infectious period to the fifty day limit we allowed.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=ZxFTdC96Cb0&amp;t=127s" data-ep="36" data-t="127">2:07</a><p><b>Next.</b> Next: identifiability, misspecification, and the diagnostics that tell you whether to trust a calibration.</p></div></div><div class="rl-tx-ep" data-ep="37" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=70LfCekfO5c" data-ep="37" data-t="0">0:00</a><p><b>Fits that say nothing.</b> A fit can look perfect and still say nothing about a parameter. That&#x27;s identifiability, and checking it belongs in every calibration.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=70LfCekfO5c&amp;t=15s" data-ep="37" data-t="15">0:15</a><p><b>The valley and the profile.</b> Fit our outbreak using only its first twenty five days. The loss map shows a long, flat valley: many pairs of beta and gamma fit almost equally well. A profile makes it precise: fix gamma, refit beta, and see how much worse the fit gets. With twenty five days, gamma could be anywhere from 0.04, the edge of what we tried, to 0.22, and R naught anywhere from 1.6 to 5.1. But the growth rate, beta minus gamma, was pinned between 0.136 and 0.163. Early data measure growth, not R naught. With all hundred days, R naught narrowed to 2.2 to 2.6.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=70LfCekfO5c&amp;t=54s" data-ep="37" data-t="54">0:54</a><p><b>Breaking ties.</b> Outside information breaks the tie. A prior saying people stay infectious for about ten days, give or take two, gave R naught 2.3 from the same twenty five days. Some pairs never separate. Fit the reporting share and the population size together, and their estimates were correlated at almost exactly minus one (−0.997). Only their product, the number of cases that could ever be reported, is identified.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=70LfCekfO5c&amp;t=79s" data-ep="37" data-t="79">1:19</a><p><b>Misspecification.</b> Misspecification is subtler. We fitted an SIR model to data from an SEIR outbreak. The fit looked fine, and its residuals showed no pattern. But it pushed the infectious period to the fifty day limit, and gave R naught 8.1. The truth was 2.5. The right model fitted only a little better. So a good fit is not proof: check whether the parameters make sense, and test on data the fit didn&#x27;t see.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=70LfCekfO5c&amp;t=104s" data-ep="37" data-t="104">1:44</a><p><b>Stress tests and trade-offs.</b> Stress tests help. We refitted on windows from thirty to seventy days: R naught moved between 1.8 and 2.6, and the forecast peak between nine hundred twenty one and one thousand one hundred ninety three cases a day. The truth was one thousand one hundred seventy four. And when targets conflict, show the trade-off. Fitting cases alone and fitting bed occupancy alone gave very different parameters. The weightings in between trace a curve of compromises, and picking a point on it is a decision, not a fit.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=70LfCekfO5c&amp;t=133s" data-ep="37" data-t="133">2:13</a><p><b>Module recap.</b> That closes Module eight: least squares, search, refinement, simulation-based inference, calibration and its diagnostics. Next, in Module nine: the data streams themselves, from surveillance to genomes.</p></div></div></div>
+            </details>
+        </div>
+        <div class="rl-eps">
+          <div class="rl-eps-head"><b>Module 8 episodes</b><span>6 episodes · 16 min</span></div>
+          <ol><li id="ep-32"><a class="rl-ep is-active" data-ep="32" href="https://www.youtube.com/watch?v=43T-qKrTw-c" aria-current=true><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep32.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>2:53</span></span><span><span class="rl-ep-num">Episode 32 · 8.1</span><span class="rl-ep-title" style="display:block">Fitting by least squares</span><span class="rl-ep-take" style="display:block">Least squares recovers R0 2.5, but a fit on cumulative counts claimed ±0.004 when the real spread was ±0.15.</span></span></a></li><li id="ep-33"><a class="rl-ep" data-ep="33" href="https://www.youtube.com/watch?v=eehnFjO2dUM"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep33.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>2:31</span></span><span><span class="rl-ep-num">Episode 33 · 8.2</span><span class="rl-ep-title" style="display:block">Search strategies</span><span class="rl-ep-take" style="display:block">Global searches find the valley fast; none reliably polishes the last percent: hand over to a local method.</span></span></a></li><li id="ep-34"><a class="rl-ep" data-ep="34" href="https://www.youtube.com/watch?v=Y8o1jEYdxns"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep34.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>2:32</span></span><span><span class="rl-ep-num">Episode 34 · 8.3</span><span class="rl-ep-title" style="display:block">Gradients and derivative-free refinement</span><span class="rl-ep-take" style="display:block">Curvature-aware methods reached the best fit in about 20 model runs; plain gradient descent was still 48% off after 1,500.</span></span></a></li><li id="ep-35"><a class="rl-ep" data-ep="35" href="https://www.youtube.com/watch?v=12x7NR_mpfU"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep35.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>2:51</span></span><span><span class="rl-ep-num">Episode 35 · 8.4</span><span class="rl-ep-title" style="display:block">Simulation-based and state-space inference</span><span class="rl-ep-take" style="display:block">ABC recovered R0 from simulations alone; a particle filter saw R fall below 1 six days after a lockdown.</span></span></a></li><li id="ep-36"><a class="rl-ep" data-ep="36" href="https://www.youtube.com/watch?v=ZxFTdC96Cb0"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep36.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>2:36</span></span><span><span class="rl-ep-num">Episode 36 · 8.5</span><span class="rl-ep-title" style="display:block">Targets, observations and loss design</span><span class="rl-ep-take" style="display:block">Same model, same data: four calibration targets gave 476 to 800 peak beds; the truth was 681.</span></span></a></li><li id="ep-37"><a class="rl-ep" data-ep="37" href="https://www.youtube.com/watch?v=70LfCekfO5c"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep37.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>2:48</span></span><span><span class="rl-ep-num">Episode 37 · 8.6</span><span class="rl-ep-title" style="display:block">Identifiability and diagnostics</span><span class="rl-ep-take" style="display:block">Early data measure growth, not R0; a good fit is not proof: check parameters, profiles and unseen data.</span></span></a></li></ol>
+        </div>
+      </div>
+      <script type="application/json" id="rl-episodes">[{"ep": 32, "youtube": "43T-qKrTw-c", "title": "Fitting by least squares", "duration": "2:53", "hook": "Fitting an epidemic model by least squares on a simulated outbreak with a known truth: the loss, weights and the log scale, and why fitting cumulative counts makes error bars far too small.", "takeaway": "Least squares recovers R0 2.5, but a fit on cumulative counts claimed ±0.004 when the real spread was ±0.15.", "thumbAbs": "/epidemic-modeling/img/eps/ep32.webp"}, {"ep": 33, "youtube": "eehnFjO2dUM", "title": "Search strategies", "duration": "2:31", "hook": "Searching for the best parameters: grid search and coarse-to-fine sweeps, the curse of dimensionality, Bayesian optimization, genetic algorithms and particle swarms, raced on one outbreak.", "takeaway": "Global searches find the valley fast; none reliably polishes the last percent: hand over to a local method.", "thumbAbs": "/epidemic-modeling/img/eps/ep33.webp"}, {"ep": 34, "youtube": "Y8o1jEYdxns", "title": "Gradients and derivative-free refinement", "duration": "2:32", "hook": "Local refinement: getting gradients, choosing a finite-difference step, why plain gradient descent crawls in a curved valley, Levenberg-Marquardt, BFGS and Nelder-Mead, and what noise does to a search.", "takeaway": "Curvature-aware methods reached the best fit in about 20 model runs; plain gradient descent was still 48% off after 1,500.", "thumbAbs": "/epidemic-modeling/img/eps/ep34.webp"}, {"ep": 35, "youtube": "12x7NR_mpfU", "title": "Simulation-based and state-space inference", "duration": "2:51", "hook": "Fitting models without a likelihood: approximate Bayesian computation on a stochastic town, tolerance and summaries, and a particle filter that tracks the reproduction number through a lockdown.", "takeaway": "ABC recovered R0 from simulations alone; a particle filter saw R fall below 1 six days after a lockdown.", "thumbAbs": "/epidemic-modeling/img/eps/ep35.webp"}, {"ep": 36, "youtube": "ZxFTdC96Cb0", "title": "Targets, observations and loss design", "duration": "2:36", "hook": "Calibration for a purpose: how the choice of target, the observation mapping and the loss change a model's answer about hospital beds, on a simulated outbreak.", "takeaway": "Same model, same data: four calibration targets gave 476 to 800 peak beds; the truth was 681.", "thumbAbs": "/epidemic-modeling/img/eps/ep36.webp"}, {"ep": 37, "youtube": "70LfCekfO5c", "title": "Identifiability and diagnostics", "duration": "2:48", "hook": "Can you trust a fit? Identifiability valleys and profiles, outside information, parameters that never separate, misspecification, stress tests and multi-objective trade-offs.", "takeaway": "Early data measure growth, not R0; a good fit is not proof: check parameters, profiles and unseen data.", "thumbAbs": "/epidemic-modeling/img/eps/ep37.webp"}]</script>
+    </div></section>
+    <section id="lab" class="rl-lab" aria-labelledby="lab-title">
+      <div class="proj-wrap rl-lab-head">
+        <p class="proj-label"><i class="ri-crosshair-2-line" aria-hidden="true"></i>Interactive lab</p>
+        <h2 id="lab-title" class="proj-h2" style="margin-top:.5rem">Fitting an outbreak</h2>
+        <p class="proj-lead">Fit the module&#x27;s simulated outbreak by weighted least squares with a grid, Nelder–Mead, gradient descent or a swarm, shorten the data to see the beta–gamma valley, and fit a stochastic town with ABC rejection.</p>
+        <p class="proj-lead" style="margin-top:.6rem">The first panel fits the module&#x27;s SIR outbreak and draws the loss over beta and gamma with each search&#x27;s path; the second runs approximate Bayesian computation on a random outbreak in a town of 2,000. Everything runs in your browser.</p>
+      </div>
+      <div class="rlx" id="calib-lab" data-epx="calib">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">One outbreak with a known truth</h3>
+          <p class="rlx-sub">The module's SIR outbreak: a town of 100,000, beta 0.25 and gamma 0.1 (R0 2.5), 40% of infections reported with negative binomial noise. Everything runs in your browser.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">Weighted least squares</div>
+              <div class="formula-line"><span class="formula-chip">loss = Σ (data − model)² / model</span></div>
+              <p class="math-card-copy">Each day's miss is divided by the noise expected on that day, so big days don't drown small ones.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Four searches</div>
+              <div class="formula-line"><span class="formula-chip">grid · Nelder–Mead · gradient · swarm</span></div>
+              <p class="math-card-copy">Each counts its model runs; the yellow dot is the best fit found by a careful reference search.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">ABC rejection</div>
+              <div class="formula-line"><span class="formula-chip">keep θ if distance(summaries) is small</span></div>
+              <p class="math-card-copy">Draw beta and gamma from a box, simulate a random outbreak, keep the closest draws.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Fitting controls">
+            <div><h4 class="rlx-h">Fit</h4><p class="rlx-sub">Pick a search and the days of data it may use.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><span>Search</span></div>
+              <div class="rlx-btns"><button type="button" class="control-button control-button-primary" data-k="m-grid">Grid</button><button type="button" class="control-button control-button-secondary" data-k="m-nm">Nelder–Mead</button><button type="button" class="control-button control-button-secondary" data-k="m-gd">Gradient</button><button type="button" class="control-button control-button-secondary" data-k="m-pso">Swarm</button></div></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="calWin">Days of data used</label><span class="control-value" data-k="win-out">100 days</span></div><input id="calWin" data-k="win" type="range" min="15" max="100" step="5" value="100"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="calSb">Start: beta</label><span class="control-value" data-k="sb-out">0.45</span></div><input id="calSb" data-k="sb" type="range" min="0.1" max="0.55" step="0.01" value="0.45"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="calSg">Start: gamma</label><span class="control-value" data-k="sg-out">0.22</span></div><input id="calSg" data-k="sg" type="range" min="0.04" max="0.28" step="0.01" value="0.22"></div>
+            <div class="rlx-row"><div><label class="rlx-label" for="calNear">Outline fits within 5% of the best</label></div><label class="toggle"><input id="calNear" data-k="near" type="checkbox"><span class="toggle-track"></span></label></div>
+            <div class="rlx-btns"><button type="button" class="control-button control-button-secondary is-wide" data-k="newdata">New noisy data</button></div>
+            <p class="rlx-hint">The start point is used by Nelder–Mead and gradient descent. Values are made up to show mechanisms.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">beta</div><div class="metric-value" data-k="fb">–</div></div><div class="metric-tile"><div class="metric-label">gamma</div><div class="metric-value" data-k="fg">–</div></div><div class="metric-tile"><div class="metric-label">R0</div><div class="metric-value" data-k="fr">–</div></div><div class="metric-tile"><div class="metric-label">Model runs</div><div class="metric-value" data-k="fe">–</div></div><div class="metric-tile"><div class="metric-label">Loss vs best</div><div class="metric-value" data-k="fx">–</div></div></div>
+            <p class="rlx-status" data-k="fstatus" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Loss map</h4><p class="rlx-sub">Dark: small loss. Orange: the search's path and result; yellow: the best fit; white ring: the truth.</p></div></div>
+              <div class="chart-shell" style="height:320px"><svg data-k="map" role="img" aria-label="Loss over beta and gamma with the search path"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Data and fit</h4><p class="rlx-sub">Grey: reported cases; orange: the fitted model over all 100 days.</p></div></div>
+              <div class="chart-shell"><svg data-k="fchart" role="img" aria-label="Reported cases and the fitted model"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current settings, here or in the ABC panel below.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Fit all 100 days with Nelder–Mead and get within 1% of the best fit.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Find a start point from which gradient descent gets within 5% of the best fit.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>With 30 days of data or fewer, find a valley: fits within 5% of the best whose gamma values are more than 0.1 apart.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>In ABC, get the 90% interval of R0 narrower than 1.0 with at least 50 kept draws.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+          <div class="rlx-grid" style="margin-top:1.5rem">
+            <aside class="rlx-card rlx-controls" aria-label="ABC controls">
+            <div><h4 class="rlx-h">ABC rejection</h4><p class="rlx-sub">A random outbreak in a town of 2,000 (5 first cases, R0 3) plays the data.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="abcSims">Simulations</label><span class="control-value" data-k="sims-out">5,000</span></div><input id="abcSims" data-k="sims" type="range" min="2000" max="20000" step="1000" value="5000"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="abcKeep">Keep the closest</label><span class="control-value" data-k="keep-out">1%</span></div><input id="abcKeep" data-k="keep" type="range" min="0" max="6" step="1" value="3"></div>
+            <div class="rlx-row"><div><label class="rlx-label" for="abcU0">Summary: total cases</label></div><label class="toggle"><input id="abcU0" data-k="u0" type="checkbox" checked><span class="toggle-track"></span></label></div>
+            <div class="rlx-row"><div><label class="rlx-label" for="abcU1">Summary: peak day</label></div><label class="toggle"><input id="abcU1" data-k="u1" type="checkbox" checked><span class="toggle-track"></span></label></div>
+            <div class="rlx-row"><div><label class="rlx-label" for="abcU2">Summary: peak height</label></div><label class="toggle"><input id="abcU2" data-k="u2" type="checkbox" checked><span class="toggle-track"></span></label></div>
+            <div class="rlx-btns"><button type="button" class="control-button control-button-primary is-wide" data-k="arun">Run ABC</button></div>
+            <p class="rlx-hint">Prior: beta 0.1–0.6, gamma 0.05–0.3. 20,000 simulations take a second or two. Which summary says the most about R0?</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Draws kept</div><div class="metric-value" data-k="ak">–</div></div><div class="metric-tile"><div class="metric-label">R0, median</div><div class="metric-value" data-k="am">–</div></div><div class="metric-tile"><div class="metric-label">R0, 90% interval</div><div class="metric-value" data-k="ai">–</div></div><div class="metric-tile"><div class="metric-label">Fizzled</div><div class="metric-value" data-k="af">–</div></div></div>
+            <p class="rlx-status" data-k="astatus" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Kept draws</h4><p class="rlx-sub">Blue: kept (beta, gamma); dashed box: the prior; dashed lines: the 90% range of R0; ring: the truth.</p></div></div>
+              <div class="chart-shell" style="height:300px"><svg data-k="plane" role="img" aria-label="Kept parameter draws of ABC"></svg></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="next" class="proj-section is-soft" aria-labelledby="next-title"><div class="proj-wrap">
+      <h2 id="next-title" class="proj-h2">Keep going</h2>
+      <div class="rl-pn"><a href="/epidemic-modeling/module-07/"><i class="ri-arrow-left-line" aria-hidden="true"></i><span><small>Previous · Module 7</small><strong>Data-driven models</strong></span></a><a class="is-next" href="/epidemic-modeling/module-09/"><span><small>Next · Module 9</small><strong>Surveillance, mobility and genomic data</strong></span><i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+    </div></section>
+  </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Courses</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/rl-course/" class="hover:text-white">Reinforcement Learning</a></li>
+                  <li><a href="/epidemic-modeling/" class="hover:text-white">Epidemic Modeling</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/rl-course/" class="hover:text-white">RL course</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <script src="/js/videos.js"></script>
+      
+      <script src="/js/epi-labs.js" defer></script>
+      <script src="/js/epi-course.js" defer></script>
+   </body>
+</html>

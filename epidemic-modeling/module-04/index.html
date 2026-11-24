@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_epi_course.py from data/epi-course.json. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Module 4: Spatio-temporal models | Epidemic Modeling Course | ACML</title>
+      <meta name="description" content="Module 4 of 13 of ACML’s Epidemic Modeling course. Cities, networks and continuous space: slides, 4 short episodes and an interactive lab.">
+      <meta name="author" content="Teddy Lazebnik">
+      <meta name="keywords" content="epidemic modeling, epidemiology, spatio-temporal models, course, ACML">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/epidemic-modeling/module-04/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Module 4: Spatio-temporal models · Epidemic Modeling">
+      <meta property="og:description" content="Module 4 of 13 of ACML’s Epidemic Modeling course. Cities, networks and continuous space: slides, 4 short episodes and an interactive lab.">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/epidemic-modeling/module-04/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/epidemic-modeling/module-04/share.jpg">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Module 4: Spatio-temporal models · Epidemic Modeling">
+      <meta name="twitter:description" content="Module 4 of 13 of ACML’s Epidemic Modeling course. Cities, networks and continuous space: slides, 4 short episodes and an interactive lab.">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/epidemic-modeling/module-04/share.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "Module 4: Spatio-temporal models",
+        "description": "Epidemics happen in places. We link cities by travel (metapopulation models), put people on contact networks, let infection spread as a wave across continuous space, and use matrix norms to bound growth without solving everything. Along the way: effective distance, imported sparks, excess degree and hubs, clustering, wave speed, borders, long jumps, transient growth and the critical patch size.",
+        "url": "https://acml.teddylazebnik.com/epidemic-modeling/module-04/",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "learningResourceType": [
+          "Lecture slides",
+          "Video",
+          "Interactive resource"
+        ],
+        "teaches": "Cities, networks and continuous space",
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Epidemic Modeling",
+          "url": "https://acml.teddylazebnik.com/epidemic-modeling/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Teddy Lazebnik",
+          "url": "https://teddylazebnik.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Applied Computational Mathematics Laboratory",
+          "url": "https://acml.teddylazebnik.com/"
+        },
+        "hasPart": [
+          {
+            "@type": "VideoObject",
+            "name": "Cities linked by travel",
+            "description": "Space enters the model: cities linked by travel.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep13.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/1Qy0UJvOzvE",
+            "duration": "PT5M42S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Networks of people",
+            "description": "Same average contacts, very different epidemics.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep14.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/TcMYASmCdh8",
+            "duration": "PT5M7S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Epidemics in continuous space",
+            "description": "An epidemic as a wave crossing a map.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep15.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/iAK6Uusy-_s",
+            "duration": "PT4M28S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Bounding the spread",
+            "description": "Will a 100-district outbreak grow or die out? The spectral radius decides; matrix norms bound it cheaply.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep16.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/CvhEDVfBs8M",
+            "duration": "PT5M30S"
+          },
+          {
+            "@type": "DigitalDocument",
+            "name": "Module 4 slides",
+            "encodingFormat": "application/pdf",
+            "url": "https://acml.teddylazebnik.com/epidemic-modeling/slides/Epidemic_Modeling_Module04_Spatio-temporal_models.pdf"
+          }
+        ]
+      }
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      <link href="/css/videos.css" rel="stylesheet">
+      
+      <link href="/css/exploration-lab.css" rel="stylesheet">
+      <link href="/css/rl-labs.css" rel="stylesheet">
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/project.css" rel="stylesheet">
+      <link href="/css/rl-course.css" rel="stylesheet">
+      <link href="/css/epi-course.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+          <a href="/courses.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Courses</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/courses.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Courses</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="proj-page rl-page bg-white">
+    <header class="proj-hero rl-hero">
+      <div class="proj-wrap proj-hero-grid">
+        <div>
+          <nav class="proj-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/courses.html">Courses</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/epidemic-modeling/">Epidemic Modeling</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Module 4</span></nav>
+          <p class="proj-kicker"><span><i class="ri-graduation-cap-line" aria-hidden="true"></i>Epidemic Modeling</span><span>Core models</span></p>
+          <h1 class="proj-title"><small>Module 4</small>Spatio-temporal models</h1>
+          <p class="proj-about-lead rl-summary">Epidemics happen in places. We link cities by travel (metapopulation models), put people on contact networks, let infection spread as a wave across continuous space, and use matrix norms to bound growth without solving everything. Along the way: effective distance, imported sparks, excess degree and hubs, clustering, wave speed, borders, long jumps, transient growth and the critical patch size.</p>
+          <div class="rl-goal"><i class="ri-focus-3-line" aria-hidden="true"></i><span>By the end you should be able to build a metapopulation model and read its timing, compute an epidemic threshold on a contact network, estimate the speed of an epidemic wave, and use matrix norms to prove that an outbreak dies out.</span></div>
+          <h2 class="proj-h3 rl-ideas-title">Key ideas, one per episode</h2>
+          <ul class="rl-ideas"><li><a href="#ep-13">Ep. 13</a><span>Travel decides when an epidemic arrives, not how big it gets; arrival follows effective distance, not the map.</span></li><li><a href="#ep-14">Ep. 14</a><span>On networks the threshold depends on excess degree: hubs lower it and speed spread, clustering slows it.</span></li><li><a href="#ep-15">Ep. 15</a><span>Reaction plus diffusion makes waves with speed 2√(D r); borders, drift and long jumps reshape them.</span></li><li><a href="#ep-16">Ep. 16</a><span>Any matrix norm below one proves an outbreak dies out; the spectral radius tells the long run, norms the short run.</span></li></ul>
+          <p class="rl-source"><b>Textbook:</b> Chapter 4 of <a href="https://shop.elsevier.com/books/epidemic-modeling/lazebnik/978-0-443-55525-1" target="_blank" rel="noopener">T. Lazebnik, Epidemic Modeling: Principles, Algorithms, and Applications (Academic Press, 2026)</a>. The episodes and slides follow the chapter’s topics in our own words, figures and simulations; nothing is copied from the book.</p>
+        </div>
+        <div class="rl-first">
+          <a class="rl-first-img" href="/epidemic-modeling/slides/Epidemic_Modeling_Module04_Spatio-temporal_models.pdf" target="_blank" rel="noopener"><img src="/epidemic-modeling/img/slides/m04-s01.webp" alt="The title slide of Module 4: Spatio-temporal models" width="960" height="540" fetchpriority="high" decoding="async"></a>
+          <p class="rl-first-text">39 slides, written to be read on your own, with worked examples, “try it” boxes, our own small simulations and check-yourself questions (answers at the end). PDF, 1.0 MB.</p>
+          <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="/epidemic-modeling/slides/Epidemic_Modeling_Module04_Spatio-temporal_models.pdf" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Open the PDF</a><a class="proj-btn" href="/epidemic-modeling/slides/Epidemic_Modeling_Module04_Spatio-temporal_models.pdf" download><i class="ri-download-2-line" aria-hidden="true"></i>Download</a></div>
+        </div>
+      </div>
+    </header>
+    <nav class="proj-subnav is-mobile-only" aria-label="Sections of this page"><div class="proj-wrap"><ul><li><a href="#watch">Watch</a></li><li><a href="#lab">Lab</a></li><li><a href="#next">Next</a></li></ul></div></nav>
+    <section id="watch" class="proj-section is-soft" aria-labelledby="watch-title"><div class="proj-wrap">
+      <h2 id="watch-title" class="proj-h2">Watch</h2>
+      <p class="proj-lead">4 short episodes for this module. Pick one from the list, and open the transcript to read along: each timestamp plays the episode from there. The narration is generated with a voice clone of Teddy, used with his permission.</p>
+      <div class="rl-watch">
+        <div class="rl-player-wrap">
+          <div id="rl-player" class="yt-player yt-16x9" data-yt-id="1Qy0UJvOzvE" data-yt-title="Cities linked by travel"><a class="yt-play" href="https://www.youtube.com/watch?v=1Qy0UJvOzvE" aria-label="Play episode 13: Cities linked by travel"><img src="/epidemic-modeling/img/eps/ep13.webp" alt="" width="640" height="360" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div>
+          <div class="rl-now">
+            <p id="rl-now-num" class="rl-now-num">Episode 13 · 5:42</p>
+            <p id="rl-now-title" class="rl-now-title">Cities linked by travel</p>
+            <p id="rl-now-hook" class="rl-now-hook">Space enters the model: cities linked by travel.</p>
+            <p id="rl-now-take" class="rl-now-take"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i><span>Travel decides when an epidemic arrives, not how big it gets; arrival follows effective distance, not the map.</span></p>
+          </div>
+            <details id="rl-tx" class="rl-tx">
+              <summary><i class="ri-file-text-line" aria-hidden="true"></i>Transcript<span id="rl-tx-which">Episode 13</span><i class="ri-arrow-down-s-line rl-tx-caret" aria-hidden="true"></i></summary>
+              <div class="rl-tx-body"><div class="rl-tx-ep" data-ep="13"><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=1Qy0UJvOzvE" data-ep="13" data-t="0">0:00</a><p><b>When will it arrive?.</b> An outbreak starts in one city. When does it reach the next city, and the one after that? Today, space enters the model, starting with cities linked by travel. And here&#x27;s where we&#x27;re heading: travel decides when an epidemic arrives far more than the map does.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=1Qy0UJvOzvE&amp;t=22s" data-ep="13" data-t="22">0:22</a><p><b>Patches linked by travel.</b> Split the map into patches: cities, districts, regions. Inside each patch, people mix well, so each patch runs its own S I R. Patches are linked by movement. A matrix M holds the travel rates: m p q is the share of patch p&#x27;s people who travel to patch q each day. Travelers carry their state with them. A susceptible traveler arrives susceptible. An infected one arrives infected, and seeds the next city. This is the flux, or migration, form. People really relocate, and every compartment flows along the links. The total population stays the same; only where people are changes.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=1Qy0UJvOzvE&amp;t=59s" data-ep="13" data-t="59">0:59</a><p><b>Moving people or moving risk.</b> There&#x27;s a second way to link patches. Most travel is commuting: people visit another city during the day and come home at night. Then we keep everyone at home and let infection pressure travel instead. The force of infection in patch p adds up contact with infected people from every patch, weighted by how much the two patches mix. Moving people, or moving risk. Pick the one that matches your data: migration records, or commuting and visit data.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=1Qy0UJvOzvE&amp;t=85s" data-ep="13" data-t="85">1:25</a><p><b>Two clocks: growth and travel.</b> Let&#x27;s see what travel does. Five cities in a row, each with R₀ of three, each linked only to its neighbors. The first city has the outbreak. With very little travel, three people in ten thousand a day, the waves come one after another. The last city peaks on day one hundred thirty seven, eighty seven days after the first. With a lot of travel, one person in ten a day, all five cities peak within two days of each other, around day fifty eight. And either way, every city ends with about ninety four percent infected. Travel changes the timing, not the total. Two clocks are racing: how fast the epidemic grows inside a city, and how fast people move between cities. Weak travel gives a chain of local epidemics. Strong travel merges them into one.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=1Qy0UJvOzvE&amp;t=129s" data-ep="13" data-t="129">2:09</a><p><b>Effective distance.</b> Now a more realistic map: eight cities of different sizes. Travel falls off with distance, plus one air link between the two big cities. The outbreak starts in the big city on the left. Its nearest neighbor is reached on day twenty four. The other big city, near the far end, across the air link: day ten. Distance on the map explains almost none of the arrival times. R squared is 0.05. So measure distance by travel instead. Brockmann and Helbing defined an effective distance: one minus the log of the share of travelers going from one city to the next, added up along the best route. With effective distance, arrival times fall on a straight line: R squared of 0.99. The epidemic moves like a wave, in travel space, not on the map.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=1Qy0UJvOzvE&amp;t=177s" data-ep="13" data-t="177">2:57</a><p><b>Imported sparks.</b> Travel can also keep an outbreak going where it would die out alone. Take a small town where each case infects only 0.8 others. On its own, a few cases fizzle: less than half a percent of the town is ever infected. Now let one tenth of the town&#x27;s contacts be with visitors from a big city, where R₀ is two. The town ends with thirty six percent infected. Locally, R₀ is below one, yet the town is hit hard, because sparks keep arriving. So don&#x27;t only ask if R₀ is above one. Ask how often sparks arrive.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=1Qy0UJvOzvE&amp;t=211s" data-ep="13" data-t="211">3:31</a><p><b>R0 of a network of patches.</b> So what is R₀ for a whole network of patches? The next generation matrix from Module three answers it: the local reproduction numbers, combined through the mixing matrix. R₀ is its dominant eigenvalue. Take one hot city where each case infects 1.6 people, and four cool cities at 0.8. On its own, the hot city sustains an outbreak. Mix them, and the hot city&#x27;s cases spend part of their contacts in cool cities. Mix half of all contacts, and R₀ falls to 1.1. Mix three quarters, and it reaches one. Now flip it. Five cities just below one, at 0.95. Turn one into a hotspot at 1.6, with thirty percent mixing, and the whole network goes above one, to 1.27. One hotspot can carry a region.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=1Qy0UJvOzvE&amp;t=258s" data-ep="13" data-t="258">4:18</a><p><b>Border closures.</b> Real models add more: different parameters per city, so some cities export infection and others import it; commuting that differs on weekdays and weekends; and travel that changes over time. Like a border closure. Two cities linked by travel. Cut the travel to one twentieth on day seven, and the second city&#x27;s outbreak arrives four days later, and peaks a week later. Cut it on day zero, and the peak comes two weeks later. Cut it on day twenty, after the virus has arrived, and it buys three days. And every time, the second city still ends with ninety four percent infected. A closure buys time: to prepare, to treat, to vaccinate. It doesn&#x27;t buy immunity.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=1Qy0UJvOzvE&amp;t=300s" data-ep="13" data-t="300">5:00</a><p><b>Recap.</b> So: patches with their own S I R, linked by travel. Weak links give a chain of waves; strong links synchronize them. Arrival follows effective distance, and imported sparks can keep places burning that couldn&#x27;t burn on their own. Next time, we zoom in from cities to people: epidemics on networks of contacts.</p></div></div><div class="rl-tx-ep" data-ep="14" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=TcMYASmCdh8" data-ep="14" data-t="0">0:00</a><p><b>Same contacts, different epidemics.</b> Two towns. In both, people have four contacts on average. In one, the epidemic peaks after about a hundred days. In the other, in under a month. The difference is who is connected to whom.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=TcMYASmCdh8&amp;t=21s" data-ep="14" data-t="21">0:21</a><p><b>Contact networks and T.</b> In a contact network, people are nodes, and an edge is a chance to infect: a household, the person at the next desk, a weekly meeting. Infection moves along edges. An infected person infects each susceptible neighbor at a rate, tau, and recovers at rate gamma. So every edge has a transmissibility, T: the chance it transmits before the infected end recovers. T equals tau over tau plus gamma. In our runs, one third.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=TcMYASmCdh8&amp;t=47s" data-ep="14" data-t="47">0:47</a><p><b>The percolation picture.</b> Now a beautiful shortcut. Flip a weighted coin for every edge: with probability T, it would transmit if it got the chance. Keep those edges, and delete the rest. A large outbreak is possible only if the kept edges form one giant connected cluster. That links epidemics to percolation, a classic problem in physics. For final sizes on random networks, the percolation picture is close to exact. It says nothing about timing, so for peaks and speed we still simulate.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=TcMYASmCdh8&amp;t=75s" data-ep="14" data-t="75">1:15</a><p><b>Excess degree and the threshold.</b> When does the giant cluster appear? When T, times the mean excess degree, is above one. Excess degree is how many other contacts a person has when you reach them by following an edge. And following edges is exactly what an infection does. The catch: edges lead to well-connected people more often. In our hub-heavy network, people have about four contacts on average, but the person at the end of a random edge has more than eleven. Your friends have more friends than you do. So the threshold drops. A random network with four contacts on average needs T above a quarter. The hub-heavy one, with the same average, needs T above about one in ten. With T of one third, both can take off. But the hub network peaks around day twenty seven, against day one hundred five for the random one, and infects half the town instead of forty four percent.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=TcMYASmCdh8&amp;t=125s" data-ep="14" data-t="125">2:05</a><p><b>Hubs first.</b> Look at who gets infected over time. In the first week, new cases on the hub network have about ten contacts each. By the tenth week, fewer than four. Hubs are infected early, and they spread fast. Then the epidemic runs out of hubs and slows down. That&#x27;s one reason early growth can fool a forecast.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=TcMYASmCdh8&amp;t=146s" data-ep="14" data-t="146">2:26</a><p><b>Clustering.</b> Now clustering. In real life, your friends often know each other. That makes triangles. Triangles waste transmissions. By the time you could infect your friend&#x27;s friend, your friend may already have done it. Compare two networks where everyone has exactly four contacts. One is wired at random. In the other, neighbors share friends. With T of one half, the random one takes off in sixty nine percent of runs, and infects eighty five percent of the town. The clustered one takes off in only thirteen percent of runs, and even then infects about twelve percent. Same number of contacts. A very different epidemic.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=TcMYASmCdh8&amp;t=181s" data-ep="14" data-t="181">3:01</a><p><b>Diseases you can catch again.</b> For diseases you can catch again, like S I S, the question is whether infection keeps circulating. There, a common approximation makes the threshold spectral: tau over gamma has to beat one over the largest eigenvalue of the network&#x27;s adjacency matrix. That eigenvalue is driven by dense cores. For our hub network it&#x27;s about thirteen, for the random one about five. A tight core keeps reinfecting itself.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=TcMYASmCdh8&amp;t=204s" data-ep="14" data-t="204">3:24</a><p><b>Interventions on the graph.</b> Networks make interventions concrete. Vaccination removes nodes. Distancing removes edges. Contact tracing follows the edges of each case. On the hub network, with T of one half, almost half the town is infected without vaccination. Vaccinate twenty percent of people at random, and it&#x27;s still twenty seven percent. Vaccinate the best-connected twenty percent, and the epidemic is gone: under one in a thousand. But that needs the whole contact network, which nobody has. A clever trick works without it. Pick random people, and vaccinate one of their friends. Friends tend to be hubs. Cohen and colleagues called it acquaintance immunization. With twenty percent, the attack rate falls under four percent.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=TcMYASmCdh8&amp;t=247s" data-ep="14" data-t="247">4:07</a><p><b>Middle paths and when to use networks.</b> Between simulating every person and assuming everyone mixes, there are middle paths: tracking people by their number of contacts, or equations that follow whether each edge has transmitted yet. Use networks when contact structure matters: superspreading, households, targeted interventions. They&#x27;re harder when the network is unknown or the population is huge. Often, a hybrid works: networks inside patches, and travel between them.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=TcMYASmCdh8&amp;t=271s" data-ep="14" data-t="271">4:31</a><p><b>Recap.</b> So: edge transmissibility T, a threshold set by excess degree, hubs infected first, clustering that slows spread, and interventions as surgery on the graph. Next time, we go continuous: epidemics as waves moving across a map.</p></div></div><div class="rl-tx-ep" data-ep="15" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=iAK6Uusy-_s" data-ep="15" data-t="0">0:00</a><p><b>A wave you can calculate.</b> Drop ink in water, and it spreads out. Now let the ink multiply as it spreads. That&#x27;s an epidemic wave crossing a map, and it moves at a speed you can calculate.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=iAK6Uusy-_s&amp;t=17s" data-ep="15" data-t="17">0:17</a><p><b>Densities, reaction and diffusion.</b> Instead of patches, treat space as continuous. S, I and R become densities: how many susceptible, infected and recovered people live around each point. Every point runs the usual S I R. That&#x27;s the reaction part. People also move. If each person takes many small random steps, then from far away the crowd spreads out smoothly. That&#x27;s diffusion. The diffusion coefficient D grows with the square of the step length, divided by the time per step. Reaction plus diffusion: local infection, plus local movement. A reaction diffusion model.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=iAK6Uusy-_s&amp;t=49s" data-ep="15" data-t="49">0:49</a><p><b>A ring of infection.</b> Here it is in a square town with closed borders, starting from one small seed. Infection grows where it is, and leaks into the neighborhood. The result is a ring of infection moving outward, with recovered people behind it, and susceptible people ahead.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=iAK6Uusy-_s&amp;t=64s" data-ep="15" data-t="64">1:04</a><p><b>The speed of the front.</b> How fast does the front move? A classic result by Fisher, and by Kolmogorov, Petrovsky and Piskunov, says: two times the square root of D times r. Here r is the early growth rate, beta minus gamma. Movement and growth set the speed together. In our runs, D is one square kilometer per day and r is 0.2. Theory says 0.89 kilometers a day. We measured 0.87. Multiply D by four, and the speed doubles: we measured 1.75, against 1.79 in theory. Movement matters, but through a square root. The measured fronts lag a little behind theory, because a front takes a long time to settle into its final speed.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=iAK6Uusy-_s&amp;t=108s" data-ep="15" data-t="108">1:48</a><p><b>Borders are assumptions.</b> In continuous space, the edges of the map matter. A boundary condition is an epidemiological assumption. A closed border keeps everyone in: after a hundred fifty days, all of our diffusing crowd is still inside. An absorbing border removes whoever reaches it: forty percent left. A leaky border lets some through: almost sixty percent left. And a border held at a fixed level of infection acts like a constant source, seeding the region again and again. Fit a model with the wrong border, and you&#x27;ll blame transmission for what was really travel.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=iAK6Uusy-_s&amp;t=139s" data-ep="15" data-t="139">2:19</a><p><b>Drift along corridors.</b> Movement isn&#x27;t always random. Commuters flow along corridors. Add a drift, a steady push in one direction, and the wave becomes lopsided. With a drift of 0.4 kilometers a day, the front moves downstream at 1.31, and upstream at only 0.51. Close to theory: the speed, plus or minus the drift.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=iAK6Uusy-_s&amp;t=162s" data-ep="15" data-t="162">2:42</a><p><b>Uneven landscapes.</b> Landscapes are uneven too. Put in a strip where transmission is too low to sustain spread, like a thinly populated area. A five kilometer strip delays the wave by ten days. A forty kilometer strip, by eighty two days. But in these equations, the strip never stops the wave, because fractions of a person can cross it. With whole people, a wide enough gap can break the chain. The equations can&#x27;t tell a millionth of a person from zero.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=iAK6Uusy-_s&amp;t=188s" data-ep="15" data-t="188">3:08</a><p><b>Long jumps.</b> The biggest limit of diffusion: it only allows small steps. Real people also take planes. So replace diffusion with a kernel: how strongly an infected person affects people at each distance. A thin-tailed kernel behaves like diffusion: a steady front, about three quarters of a kilometer a day. A fat-tailed kernel, with rare long jumps, is a different story. New outbreaks pop up far ahead, and the front speeds up: one hundred sixty kilometers by day one hundred, and over a thousand by day one hundred forty. With long jumps, there&#x27;s no single speed. Arrival is ruled by the rare long trips.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=iAK6Uusy-_s&amp;t=224s" data-ep="15" data-t="224">3:44</a><p><b>Recap.</b> So: reaction plus diffusion makes waves, with speed two root D r. Borders, drifts and uneven landscapes reshape them, and long jumps break the wave picture. Real models often combine both: smooth local spread, plus travel between hubs. Next time, the last episode of this module: bounding the spread with norms, to know if an outbreak will grow without solving everything.</p></div></div><div class="rl-tx-ep" data-ep="16" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=CvhEDVfBs8M" data-ep="16" data-t="0">0:00</a><p><b>Will it grow?.</b> A model with a hundred districts. Will the outbreak grow, or die out? You can&#x27;t eyeball a hundred curves. Today: one number decides it, and cheaper numbers can bound it.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=CvhEDVfBs8M&amp;t=17s" data-ep="16" data-t="17">0:17</a><p><b>One generation at a time.</b> Start near the beginning of an outbreak, when almost everyone is susceptible. Then new cases in each district depend linearly on the cases in all districts. Write the cases per district as a vector x. One generation later, x becomes A times x. Column q of A says what one case in district q causes, district by district. Growth or decay is set by the spectral radius of A: its largest eigenvalue, in size. Above one, the outbreak grows. Below one, it dies out. It&#x27;s the next generation matrix again, now in space.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=CvhEDVfBs8M&amp;t=52s" data-ep="16" data-t="52">0:52</a><p><b>Norms: cheap sizes.</b> But eigenvalues of big matrices can be costly, and often the matrix is only partly known. Norms are cheaper. A norm measures the size of a vector. The one norm is the total number of cases. The infinity norm is the worst district. A matrix norm measures how much a matrix can amplify, at most. The one norm of A is its largest column sum: the most cases that any single case can cause. The infinity norm is its largest row sum: the most pressure any one district can receive.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=CvhEDVfBs8M&amp;t=84s" data-ep="16" data-t="84">1:24</a><p><b>The guarantee.</b> And here&#x27;s the key fact: the spectral radius is never bigger than any of these norms. So if any one of them is below one, the outbreak must die out. Guaranteed. Our example: five districts. The largest column sum is 0.95. Every case causes fewer than one case. Decay is proven, without computing a single eigenvalue. The largest row sum is 1.1, so that norm can&#x27;t decide. The true spectral radius is 0.92. A norm gives a guarantee in one direction only. Starting from a hundred cases, the total falls to about fifty within ten generations.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=CvhEDVfBs8M&amp;t=120s" data-ep="16" data-t="120">2:00</a><p><b>Short run, long run.</b> Now the twist. The spectral radius tells you the long run. It doesn&#x27;t tell you what happens first. Take six districts along a travel route. Each case causes half a case at home, and one case in the next district down the line. The spectral radius is one half, so it will die out. But the largest column sum is 1.5. And from a hundred cases, the total climbs to about thirteen hundred sixty by generation eight, before it falls. Both numbers are right. The norm bounds how fast cases can grow in each step. The eigenvalue tells you where it ends. Check only the eigenvalue, and a big transient wave can surprise you. Take the norm of A to the power k, then its k-th root. As k grows, it slowly approaches the spectral radius. That&#x27;s Gelfand&#x27;s formula: norms are the short-run view, the eigenvalue is the long run.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=CvhEDVfBs8M&amp;t=174s" data-ep="16" data-t="174">2:54</a><p><b>Keep and export.</b> Norms also give simple policy rules. Say each case causes a share a at home, and a share b elsewhere, spread over the other districts by travel. Then every column sums to a plus b, and that sum is exactly the spectral radius. Keep 0.7 at home and export 0.2: that&#x27;s 0.9, and the outbreak decays. Export 0.35 instead: 1.05, and it grows. So you can trade: cut local transmission, or cut exports. What counts is the sum.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=CvhEDVfBs8M&amp;t=207s" data-ep="16" data-t="207">3:27</a><p><b>Norms in continuous space.</b> Norms work in continuous space too. Measure the infected density with an L two norm. With closed borders, diffusion only smooths. It can never make that norm grow faster than the local growth rate r. In our run, r was 0.2, and the fastest growth we saw was 0.17. With absorbing borders, diffusion even helps, because people carry infection out of the region. A strip of land with absorbing edges sustains an outbreak only if it&#x27;s wider than a critical size: pi times the square root of D over r. For our numbers, about seven kilometers. At eighty percent of that width, the outbreak shrinks by about eleven percent a day. At a hundred twenty percent, it grows by six percent a day. Just as theory says.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=CvhEDVfBs8M&amp;t=254s" data-ep="16" data-t="254">4:14</a><p><b>From space to a graph.</b> Finally, going from continuous space back to a graph. Split the map into regions, add up the people in each, and turn flows across borders into travel rates. Fewer regions make a cheaper model, but there&#x27;s a price. On a line of a hundred twenty kilometers, the wave reaches the far third on day one hundred forty. A graph with three towns gets there on day seventy five. Far too early. Twelve towns: day one hundred fourteen. Forty eight towns: day one hundred thirty six. Each town mixes instantly inside, so coarse graphs make waves too fast. Choose regions small enough that people inside really do mix fast, compared with how fast the epidemic grows.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=CvhEDVfBs8M&amp;t=296s" data-ep="16" data-t="296">4:56</a><p><b>Module 4 recap.</b> That&#x27;s Module four: patches linked by travel, networks of people, waves in continuous space, and norms that bound them all. Next, Module five: when the pathogen itself changes. Several strains, immunity, and mutation.</p></div></div></div>
+            </details>
+        </div>
+        <div class="rl-eps">
+          <div class="rl-eps-head"><b>Module 4 episodes</b><span>4 episodes · 21 min</span></div>
+          <ol><li id="ep-13"><a class="rl-ep is-active" data-ep="13" href="https://www.youtube.com/watch?v=1Qy0UJvOzvE" aria-current=true><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep13.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>5:42</span></span><span><span class="rl-ep-num">Episode 13 · 4.1</span><span class="rl-ep-title" style="display:block">Cities linked by travel</span><span class="rl-ep-take" style="display:block">Travel decides when an epidemic arrives, not how big it gets; arrival follows effective distance, not the map.</span></span></a></li><li id="ep-14"><a class="rl-ep" data-ep="14" href="https://www.youtube.com/watch?v=TcMYASmCdh8"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep14.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>5:07</span></span><span><span class="rl-ep-num">Episode 14 · 4.2</span><span class="rl-ep-title" style="display:block">Networks of people</span><span class="rl-ep-take" style="display:block">On networks the threshold depends on excess degree: hubs lower it and speed spread, clustering slows it.</span></span></a></li><li id="ep-15"><a class="rl-ep" data-ep="15" href="https://www.youtube.com/watch?v=iAK6Uusy-_s"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep15.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>4:28</span></span><span><span class="rl-ep-num">Episode 15 · 4.3</span><span class="rl-ep-title" style="display:block">Epidemics in continuous space</span><span class="rl-ep-take" style="display:block">Reaction plus diffusion makes waves with speed 2√(D r); borders, drift and long jumps reshape them.</span></span></a></li><li id="ep-16"><a class="rl-ep" data-ep="16" href="https://www.youtube.com/watch?v=CvhEDVfBs8M"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep16.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>5:30</span></span><span><span class="rl-ep-num">Episode 16 · 4.4</span><span class="rl-ep-title" style="display:block">Bounding the spread</span><span class="rl-ep-take" style="display:block">Any matrix norm below one proves an outbreak dies out; the spectral radius tells the long run, norms the short run.</span></span></a></li></ol>
+        </div>
+      </div>
+      <script type="application/json" id="rl-episodes">[{"ep": 13, "youtube": "1Qy0UJvOzvE", "title": "Cities linked by travel", "duration": "5:42", "hook": "Space enters the model: cities linked by travel.", "takeaway": "Travel decides when an epidemic arrives, not how big it gets; arrival follows effective distance, not the map.", "thumbAbs": "/epidemic-modeling/img/eps/ep13.webp"}, {"ep": 14, "youtube": "TcMYASmCdh8", "title": "Networks of people", "duration": "5:07", "hook": "Same average contacts, very different epidemics.", "takeaway": "On networks the threshold depends on excess degree: hubs lower it and speed spread, clustering slows it.", "thumbAbs": "/epidemic-modeling/img/eps/ep14.webp"}, {"ep": 15, "youtube": "iAK6Uusy-_s", "title": "Epidemics in continuous space", "duration": "4:28", "hook": "An epidemic as a wave crossing a map.", "takeaway": "Reaction plus diffusion makes waves with speed 2√(D r); borders, drift and long jumps reshape them.", "thumbAbs": "/epidemic-modeling/img/eps/ep15.webp"}, {"ep": 16, "youtube": "CvhEDVfBs8M", "title": "Bounding the spread", "duration": "5:30", "hook": "Will a 100-district outbreak grow or die out? The spectral radius decides; matrix norms bound it cheaply.", "takeaway": "Any matrix norm below one proves an outbreak dies out; the spectral radius tells the long run, norms the short run.", "thumbAbs": "/epidemic-modeling/img/eps/ep16.webp"}]</script>
+    </div></section>
+    <section id="lab" class="rl-lab" aria-labelledby="lab-title">
+      <div class="proj-wrap rl-lab-head">
+        <p class="proj-label"><i class="ri-route-line" aria-hidden="true"></i>Interactive lab</p>
+        <h2 id="lab-title" class="proj-h2" style="margin-top:.5rem">Cities, travel and networks</h2>
+        <p class="proj-lead">Change how much people travel between five cities and when a border closes, then compare how often outbreaks take off on three kinds of contact network.</p>
+        <p class="proj-lead" style="margin-top:.6rem">The cities panel solves a metapopulation SIR model as you move the sliders; the network panel builds a 400-person network and runs exact random-event SIR outbreaks on it, in your browser.</p>
+      </div>
+      <div class="rlx" id="space-lab" data-epx="space">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">Space in two ways</h3>
+          <p class="rlx-sub">Five cities on a line, linked by travel; then 400 people on a contact network. Both run in your browser.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">Cities</div>
+              <div class="formula-line"><span class="formula-chip">dIₚ/dt = β SₚIₚ/Nₚ − γ Iₚ + m Σ (neighbour I − Iₚ)</span></div>
+              <p class="math-card-copy">Each city runs SIR (γ = 1/10 per day); a share m of people moves to each neighbouring city per day, carrying their state.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Networks</div>
+              <div class="formula-line"><span class="formula-chip">T = τ / (τ + γ)</span></div>
+              <p class="math-card-copy">T is the chance an edge transmits before the infected end recovers. A large outbreak needs T × mean excess degree above 1.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Closure</div>
+              <div class="formula-line"><span class="formula-chip">m → m / 20 from the closure day</span></div>
+              <p class="math-card-copy">Cutting travel delays the wave in the far cities; it does not change how many get infected in the end.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Cities controls">
+            <div><h4 class="rlx-h">Cities</h4><p class="rlx-sub">City 1 starts the outbreak.</p></div>
+            <div class="rlx-btns"><button type="button" data-k="p-weak" class="control-button control-button-secondary">Little travel</button><button type="button" data-k="p-mid" class="control-button control-button-primary">Some travel</button><button type="button" data-k="p-strong" class="control-button control-button-secondary">Lots of travel</button></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="spM">Travel to each neighbour, per day</label><span class="control-value" data-k="m-out">32 in 10,000</span></div><input id="spM" data-k="m" type="range" min="-4" max="-1" step="0.1" value="-2.5"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="spR0">R₀ in every city</label><span class="control-value" data-k="R0-out">3.0</span></div><input id="spR0" data-k="R0" type="range" min="1.2" max="5" step="0.1" value="3"></div>
+            <div class="rlx-row"><div><label class="rlx-label" for="spClose">Border closure (travel ÷ 20)</label></div><label class="toggle"><input id="spClose" data-k="closeOn" type="checkbox"><span class="toggle-track"></span></label></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="spDay">Closure day</label><span class="control-value" data-k="close-out">day 7</span></div><input id="spDay" data-k="close" type="range" min="0" max="80" step="1" value="7"></div>
+            <p class="rlx-hint">“Little travel” and “Lots of travel” are close to the two runs in Episode 13 (3 in 10,000 and 1 in 10 per day). Values are made up to show mechanisms.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">City 5 reached</div><div class="metric-value" data-k="arrive">–</div></div><div class="metric-tile"><div class="metric-label">First to last peak</div><div class="metric-value" data-k="delay">–</div></div><div class="metric-tile"><div class="metric-label">City 5 infected in the end</div><div class="metric-value" data-k="final">–</div></div><div class="metric-tile"><div class="metric-label">Peak moved by closure</div><div class="metric-value" data-k="shift">–</div></div></div>
+            <p class="rlx-status" data-k="cstatus" role="status" aria-live="polite">Solving…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Infected now, city by city</h4><p class="rlx-sub">City 1 orange, then amber, green, blue and grey along the line.</p></div></div>
+              <div class="chart-shell"><svg data-k="cchart" role="img" aria-label="Infected share in five cities over time"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current settings, here or in the network panel below.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Make the last city peak at least 80 days after the first.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>With travel at 1 in 100 per day, use a closure to push city 5’s peak at least 15 days later.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>With T = 0.30, pick a network where fewer than 10% of runs take off.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+          <div class="rlx-grid" style="margin-top:1.5rem">
+            <aside class="rlx-card rlx-controls" aria-label="Network controls">
+            <div><h4 class="rlx-h">Networks</h4><p class="rlx-sub">400 people, about 4 contacts each; exact random-event SIR, recovery after 10 days on average.</p></div>
+            <div class="rlx-btns"><button type="button" data-k="net-random" class="control-button control-button-primary">Random</button><button type="button" data-k="net-clustered" class="control-button control-button-secondary">Clustered</button><button type="button" data-k="net-hubs" class="control-button control-button-secondary">Hubs</button></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="spT">Transmissibility T</label><span class="control-value" data-k="T-out">0.35</span></div><input id="spT" data-k="T" type="range" min="0.05" max="0.8" step="0.01" value="0.35"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="spRuns">Runs</label><span class="control-value" data-k="runs-out">200</span></div><input id="spRuns" data-k="runs" type="range" min="50" max="1000" step="50" value="200"></div>
+            <div class="rlx-btns"><button type="button" data-k="nseed" class="control-button control-button-secondary">New network and new runs</button></div>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Runs that take off (≥ 5%)</div><div class="metric-value" data-k="take">–</div></div><div class="metric-tile"><div class="metric-label">Their average size</div><div class="metric-value" data-k="size">–</div></div><div class="metric-tile"><div class="metric-label">Threshold 1 / excess degree</div><div class="metric-value" data-k="Tc">–</div></div><div class="metric-tile"><div class="metric-label">Clustering</div><div class="metric-value" data-k="clust">–</div></div></div>
+            <p class="rlx-status" data-k="nstatus" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Final sizes</h4><p class="rlx-sub">How many runs ended at each share infected (5% bins); green: runs that fizzled.</p></div></div>
+              <div class="chart-shell"><svg data-k="nhist" role="img" aria-label="Histogram of final outbreak sizes on the network"></svg></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="next" class="proj-section is-soft" aria-labelledby="next-title"><div class="proj-wrap">
+      <h2 id="next-title" class="proj-h2">Keep going</h2>
+      <div class="rl-pn"><a href="/epidemic-modeling/module-03/"><i class="ri-arrow-left-line" aria-hidden="true"></i><span><small>Previous · Module 3</small><strong>Compartmental models</strong></span></a><a class="is-next" href="/epidemic-modeling/module-05/"><span><small>Next · Module 5</small><strong>Multi-strain and evolving pandemics</strong></span><i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+    </div></section>
+  </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Courses</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/rl-course/" class="hover:text-white">Reinforcement Learning</a></li>
+                  <li><a href="/epidemic-modeling/" class="hover:text-white">Epidemic Modeling</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/rl-course/" class="hover:text-white">RL course</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <script src="/js/videos.js"></script>
+      
+      <script src="/js/epi-labs.js" defer></script>
+      <script src="/js/epi-course.js" defer></script>
+   </body>
+</html>

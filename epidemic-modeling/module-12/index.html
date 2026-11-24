@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_epi_course.py from data/epi-course.json. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Module 12: Computational considerations | Epidemic Modeling Course | ACML</title>
+      <meta name="description" content="Module 12 of 13 of ACML’s Epidemic Modeling course. Software, numerical stability, speed and scale: slides, 4 short episodes and an interactive lab.">
+      <meta name="author" content="Teddy Lazebnik">
+      <meta name="keywords" content="epidemic modeling, epidemiology, computational considerations, course, ACML">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/epidemic-modeling/module-12/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Module 12: Computational considerations · Epidemic Modeling">
+      <meta property="og:description" content="Module 12 of 13 of ACML’s Epidemic Modeling course. Software, numerical stability, speed and scale: slides, 4 short episodes and an interactive lab.">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/epidemic-modeling/module-12/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/epidemic-modeling/module-12/share.jpg">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Module 12: Computational considerations · Epidemic Modeling">
+      <meta name="twitter:description" content="Module 12 of 13 of ACML’s Epidemic Modeling course. Software, numerical stability, speed and scale: slides, 4 short episodes and an interactive lab.">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/epidemic-modeling/module-12/share.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "Module 12: Computational considerations",
+        "description": "The computer side of epidemic modeling. With our own code and timings, we write one agent model in four languages and check that all give the same answer, keep a model's parts apart and catch a planted bug with a conservation test, see Euler's method overshoot and go negative while Runge–Kutta holds, meet stiff models and the solvers built for them, compare exact and tau-leaping stochastic simulation, speed code up by profiling, better algorithms, batching and sparse structure, and calibrate at scale with exact gradients, emulators and history matching.",
+        "url": "https://acml.teddylazebnik.com/epidemic-modeling/module-12/",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "learningResourceType": [
+          "Lecture slides",
+          "Video",
+          "Interactive resource"
+        ],
+        "teaches": "Software, numerical stability, speed and scale",
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Epidemic Modeling",
+          "url": "https://acml.teddylazebnik.com/epidemic-modeling/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Teddy Lazebnik",
+          "url": "https://teddylazebnik.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Applied Computational Mathematics Laboratory",
+          "url": "https://acml.teddylazebnik.com/"
+        },
+        "hasPart": [
+          {
+            "@type": "VideoObject",
+            "name": "Languages, libraries and architecture",
+            "description": "The computer side of epidemic modeling: one agent-based model written in plain Python, NumPy, JavaScript and C and timed, why tested libraries matter, how to keep a model's parts apart, and a planted bug that only a conservation check catches.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep49.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/aa6myH6b5Ew",
+            "duration": "PT2M35S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Numerical stability",
+            "description": "Numerical stability: Euler against Runge-Kutta on the SIR model, step sizes that push compartments below zero, stiff models and the solvers built for them, why a daily-step model is a different model, and exact Gillespie simulation against tau-leaping.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep50.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/x5dtadCzKBw",
+            "duration": "PT2M55S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Making it fast",
+            "description": "Making epidemic code fast: profile first, replace an all-pairs contact search with a grid of cells, batch a thousand parameter sets into arrays, preallocate, store contact networks sparsely, exploit structure in the mixing matrix, and Amdahl's law for parallel computing.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep51.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/zMAqisWkysI",
+            "duration": "PT2M43S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Calibration at scale",
+            "description": "Calibration at scale: what a run costs and what that makes affordable, gradients from sensitivity equations against finite differences and Nelder-Mead on a 26-parameter fit, and Gaussian-process emulators with history matching for an expensive agent-based model.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep52.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/Pw3rGHXeNRw",
+            "duration": "PT2M38S"
+          },
+          {
+            "@type": "DigitalDocument",
+            "name": "Module 12 slides",
+            "encodingFormat": "application/pdf",
+            "url": "https://acml.teddylazebnik.com/epidemic-modeling/slides/Epidemic_Modeling_Module12_Computational_considerations.pdf"
+          }
+        ]
+      }
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      <link href="/css/videos.css" rel="stylesheet">
+      
+      <link href="/css/exploration-lab.css" rel="stylesheet">
+      <link href="/css/rl-labs.css" rel="stylesheet">
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/project.css" rel="stylesheet">
+      <link href="/css/rl-course.css" rel="stylesheet">
+      <link href="/css/epi-course.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+          <a href="/courses.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Courses</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/courses.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Courses</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="proj-page rl-page bg-white">
+    <header class="proj-hero rl-hero">
+      <div class="proj-wrap proj-hero-grid">
+        <div>
+          <nav class="proj-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/courses.html">Courses</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/epidemic-modeling/">Epidemic Modeling</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Module 12</span></nav>
+          <p class="proj-kicker"><span><i class="ri-graduation-cap-line" aria-hidden="true"></i>Epidemic Modeling</span><span>Policy and practice</span></p>
+          <h1 class="proj-title"><small>Module 12</small>Computational considerations</h1>
+          <p class="proj-about-lead rl-summary">The computer side of epidemic modeling. With our own code and timings, we write one agent model in four languages and check that all give the same answer, keep a model&#x27;s parts apart and catch a planted bug with a conservation test, see Euler&#x27;s method overshoot and go negative while Runge–Kutta holds, meet stiff models and the solvers built for them, compare exact and tau-leaping stochastic simulation, speed code up by profiling, better algorithms, batching and sparse structure, and calibrate at scale with exact gradients, emulators and history matching.</p>
+          <div class="rl-goal"><i class="ri-focus-3-line" aria-hidden="true"></i><span>By the end you should be able to choose tools and structure for a modeling project, test a model as well as its code, pick a solver and step size that are stable and accurate enough, find and remove the real bottleneck in slow code, and plan a calibration that the cost of a run can afford.</span></div>
+          <h2 class="proj-h3 rl-ideas-title">Key ideas, one per episode</h2>
+          <ul class="rl-ideas"><li><a href="#ep-49">Ep. 49</a><span>The same model ran about 40 times faster in C than in plain Python loops, with the same answer; a planted bug left the infection curve perfect and was caught by a one-line conservation check.</span></li><li><a href="#ep-50">Ep. 50</a><span>Euler with 7-day steps overshot the peak by 60% and went below zero; Runge–Kutta with 4-day steps stayed within 0.1%. A stiff solver needed about 30 times fewer evaluations.</span></li><li><a href="#ep-51">Ep. 51</a><span>A grid of cells gave the same epidemic as checking every pair, 8.6 times faster for 2,000 people; batching was 85 times faster, and a sparse network needed 12 MB instead of 80 GB.</span></li><li><a href="#ep-52">Ep. 52</a><span>With exact gradients a 26-parameter fit took 75 runs instead of about 2,000; an emulator trained on 50 runs ruled out half of the settings in under a hundredth of a second.</span></li></ul>
+          <p class="rl-source"><b>Textbook:</b> Chapter 12 of <a href="https://shop.elsevier.com/books/epidemic-modeling/lazebnik/978-0-443-55525-1" target="_blank" rel="noopener">T. Lazebnik, Epidemic Modeling: Principles, Algorithms, and Applications (Academic Press, 2026)</a>. The episodes and slides follow the chapter’s topics in our own words, figures and simulations; nothing is copied from the book.</p>
+        </div>
+        <div class="rl-first">
+          <a class="rl-first-img" href="/epidemic-modeling/slides/Epidemic_Modeling_Module12_Computational_considerations.pdf" target="_blank" rel="noopener"><img src="/epidemic-modeling/img/slides/m12-s01.webp" alt="The title slide of Module 12: Computational considerations" width="960" height="540" fetchpriority="high" decoding="async"></a>
+          <p class="rl-first-text">36 slides, written to be read on your own, with worked examples, “try it” boxes, our own small simulations and check-yourself questions (answers at the end). PDF, 0.7 MB.</p>
+          <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="/epidemic-modeling/slides/Epidemic_Modeling_Module12_Computational_considerations.pdf" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Open the PDF</a><a class="proj-btn" href="/epidemic-modeling/slides/Epidemic_Modeling_Module12_Computational_considerations.pdf" download><i class="ri-download-2-line" aria-hidden="true"></i>Download</a></div>
+        </div>
+      </div>
+    </header>
+    <nav class="proj-subnav is-mobile-only" aria-label="Sections of this page"><div class="proj-wrap"><ul><li><a href="#watch">Watch</a></li><li><a href="#lab">Lab</a></li><li><a href="#next">Next</a></li></ul></div></nav>
+    <section id="watch" class="proj-section is-soft" aria-labelledby="watch-title"><div class="proj-wrap">
+      <h2 id="watch-title" class="proj-h2">Watch</h2>
+      <p class="proj-lead">4 short episodes for this module. Pick one from the list, and open the transcript to read along: each timestamp plays the episode from there. The narration is generated with a voice clone of Teddy, used with his permission.</p>
+      <div class="rl-watch">
+        <div class="rl-player-wrap">
+          <div id="rl-player" class="yt-player yt-16x9" data-yt-id="aa6myH6b5Ew" data-yt-title="Languages, libraries and architecture"><a class="yt-play" href="https://www.youtube.com/watch?v=aa6myH6b5Ew" aria-label="Play episode 49: Languages, libraries and architecture"><img src="/epidemic-modeling/img/eps/ep49.webp" alt="" width="640" height="360" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div>
+          <div class="rl-now">
+            <p id="rl-now-num" class="rl-now-num">Episode 49 · 2:35</p>
+            <p id="rl-now-title" class="rl-now-title">Languages, libraries and architecture</p>
+            <p id="rl-now-hook" class="rl-now-hook">The computer side of epidemic modeling: one agent-based model written in plain Python, NumPy, JavaScript and C and timed, why tested libraries matter, how to keep a model&#x27;s parts apart, and a planted bug that only a conservation check catches.</p>
+            <p id="rl-now-take" class="rl-now-take"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i><span>The same model ran about 40 times faster in C than in plain Python loops, with the same answer; a planted bug left the infection curve perfect and was caught by a one-line conservation check.</span></p>
+          </div>
+            <details id="rl-tx" class="rl-tx">
+              <summary><i class="ri-file-text-line" aria-hidden="true"></i>Transcript<span id="rl-tx-which">Episode 49</span><i class="ri-arrow-down-s-line rl-tx-caret" aria-hidden="true"></i></summary>
+              <div class="rl-tx-body"><div class="rl-tx-ep" data-ep="49"><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=aa6myH6b5Ew" data-ep="49" data-t="0">0:00</a><p><b>Same math, different code.</b> The same epidemic model can take a tenth of a second to run, or a few thousandths. Same math, different code. Welcome to Module twelve: the computer side of epidemic modeling.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=aa6myH6b5Ew&amp;t=18s" data-ep="49" data-t="18">0:18</a><p><b>One model, four languages.</b> Choosing a language is a trade between how fast the code runs and how fast you can write it. We wrote one agent based model, ten thousand people for two hundred days, four times: in plain Python, in Python with NumPy, in JavaScript, and in C. C ran a whole epidemic in under four thousandths of a second. Plain Python loops took almost forty times longer. NumPy, which hands the loops to compiled code, came within a factor of two of C. JavaScript, which runs the labs on our website, was not far behind. And all four agreed: about ninety two percent of the town infected. That&#x27;s the first rule: a faster version is only worth having if it gives the same answer.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=aa6myH6b5Ew&amp;t=58s" data-ep="49" data-t="58">0:58</a><p><b>Libraries.</b> Libraries matter as much as languages. Well used solvers, random number generators and statistics packages have been tested by thousands of people. Writing your own is a great way to learn, and a risky way to publish.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=aa6myH6b5Ew&amp;t=70s" data-ep="49" data-t="70">1:10</a><p><b>Architecture.</b> Then architecture. Keep the parts of a model apart: the transmission mechanism, the parameters, the observation model that turns infections into reported cases, the inference code, and the outputs. Each part can then be tested, swapped and reused. Settings live in files, not inside the code, so every run records exactly what it used: the parameters, the data version, and the random seed.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=aa6myH6b5Ew&amp;t=92s" data-ep="49" data-t="92">1:32</a><p><b>Test the model.</b> And test the model, not just the code. Here&#x27;s a bug we planted on purpose: one term in an SEIR model takes recoveries from the exposed group, instead of the infectious group. The infection curve looks perfect: same peak, same day. But people are quietly disappearing. By the end, the town has lost more than a third of its population. A one line check, does everyone still add up to the whole town, flags it at the very first step. Another check compares the final size with the formula from Module three; a correct model agrees to within a millionth. Checks like these, run automatically after every change, catch exactly the errors that look plausible.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=aa6myH6b5Ew&amp;t=128s" data-ep="49" data-t="128">2:08</a><p><b>Next.</b> Next: numerical stability, and how a bigger time step can make your epidemic go negative.</p></div></div><div class="rl-tx-ep" data-ep="50" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=x5dtadCzKBw" data-ep="50" data-t="0">0:00</a><p><b>Right model, wrong solver.</b> Your model can be right, and your solver wrong. The same equations, solved with a careless step size, can give the wrong peak, or even a negative number of people.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=x5dtadCzKBw&amp;t=16s" data-ep="50" data-t="16">0:16</a><p><b>Euler and Runge–Kutta.</b> Take our SIR town. R₀ is 2.5, and people stay infectious for five days. Solved with tiny steps, the epidemic peaks with twenty three percent of the town infectious, on day thirty two. Euler&#x27;s method, the simplest solver, follows the slope for one whole step. With one day steps it overshoots the peak by six and a half percent. With seven day steps, by sixty percent, and the number infectious drops below zero. Runge Kutta of order four averages four slopes per step. With two day steps it lands within a hundredth of a percent of the peak; even with four day steps, within a tenth.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=x5dtadCzKBw&amp;t=53s" data-ep="50" data-t="53">0:53</a><p><b>Stiff models.</b> Some models are stiff: they mix very fast and very slow processes. Add a one hour triage step before hospital to our town. Euler now needs steps under two hours just to stay stable. With steps of a tenth of a day, the numbers swing and blow up. An adaptive solver built for smooth problems survives, but needs about eighteen and a half thousand evaluations for one year. Solvers built for stiff problems need about six hundred and forty, for the same answer: almost thirty times less work.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=x5dtadCzKBw&amp;t=83s" data-ep="50" data-t="83">1:23</a><p><b>Daily steps.</b> Discrete time models hide a quieter trap. A model that steps one day at a time is a different model, not an approximation. Turning the daily rates into daily probabilities stretched the average infectious time by half a day, to five and a half days. That quietly raised R₀ to 2.76. The continuous model had 2.5. The peak climbed too. It reached twenty seven percent instead of twenty three. Nothing crashed. The numbers were just different.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=x5dtadCzKBw&amp;t=113s" data-ep="50" data-t="113">1:53</a><p><b>Exact and approximate randomness.</b> Stochastic models have their own trade off. Gillespie&#x27;s algorithm is exact: it simulates every single event. For a town of ten thousand, that&#x27;s almost eighteen thousand events per epidemic. Tau leaping jumps ahead in fixed steps and draws many events at once. With steps of a tenth of a day, it matched the exact method closely. With four day steps, the final size rose to ninety six percent, where the exact answer is eighty nine. And most runs tried to remove more people than there were. So build in guards: no compartment below zero, everyone accounted for, and a check that a step half as long barely changes the answer.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=x5dtadCzKBw&amp;t=149s" data-ep="50" data-t="149">2:29</a><p><b>Next.</b> Next: making it fast. Where the time goes, and how to win it back.</p></div></div><div class="rl-tx-ep" data-ep="51" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=zMAqisWkysI" data-ep="51" data-t="0">0:00</a><p><b>Measure first.</b> Before you make code faster, find out where the time goes. The answer is rarely where you&#x27;d guess.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=zMAqisWkysI&amp;t=13s" data-ep="51" data-t="13">0:13</a><p><b>The obvious version.</b> Our town of agents lives on a map: people infect neighbors within a short distance. The first version is the obvious one. Every day, every infectious person checks every person in town. A profiler measures where the time goes. For a town of two thousand, it pointed at one place: the pair check, called more than nine million times in a single epidemic, inside a loop over every pair.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=zMAqisWkysI&amp;t=39s" data-ep="51" data-t="39">0:39</a><p><b>A better algorithm.</b> So change the algorithm. Divide the map into cells as wide as the contact distance; then each person checks only the nine cells around them. We fixed every random draw in advance, so both versions must give the same epidemic, to the last person. They did. For two thousand people, the grid ran about eight and a half times faster. And the gap keeps growing: the obvious version&#x27;s work grows with the square of the town, the grid&#x27;s only in proportion to it.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=zMAqisWkysI&amp;t=66s" data-ep="51" data-t="66">1:06</a><p><b>Work in bulk.</b> Next, let the computer work in bulk. Running a thousand parameter sets one at a time took two and a half seconds. The same thousand as one batch of arrays took three hundredths of a second: eighty five times faster, with identical numbers. Small habits matter too. Growing an array one value at a time copies it again and again: about seventy times slower than filling an array made in advance.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=zMAqisWkysI&amp;t=91s" data-ep="51" data-t="91">1:31</a><p><b>Structure, sparsity, parallel.</b> And use the structure of the problem. A contact network of a hundred thousand people, with about ten contacts each, stored as a full table, needs eighty gigabytes. Stored as a list of who knows whom: twelve megabytes. One step of the epidemic then takes about a millisecond. When people mix in proportion to their activity, the mixing matrix collapses into two vectors. For three thousand groups, the force of infection came out more than a thousand times faster, with the same result. Parallel computers help with the rest, but only with the part that can run in parallel. If a twentieth of the work is serial, sixty four cores give you about fifteen times, and no number of cores gives more than twenty. Measure first, fix the algorithm, then the habits, and check the answer after every step.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=zMAqisWkysI&amp;t=136s" data-ep="51" data-t="136">2:16</a><p><b>Next.</b> Next: calibration at scale, when every run of the model costs real time.</p></div></div><div class="rl-tx-ep" data-ep="52" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Pw3rGHXeNRw" data-ep="52" data-t="0">0:00</a><p><b>Can you afford it?.</b> Fitting a model means running it again and again. When one run takes seconds, the question is no longer how to fit it, but whether you can afford to.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Pw3rGHXeNRw&amp;t=15s" data-ep="52" data-t="15">0:15</a><p><b>The arithmetic of runs.</b> Here&#x27;s the arithmetic. Our SIR equations take about a hundredth of a second per run. Our agent town of sixteen thousand people, about two seconds. Twenty thousand steps of a Bayesian sampler: about three minutes for the equations, about eleven hours for the agents. A million runs for approximate Bayesian computation: a couple of hours, or about three weeks.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Pw3rGHXeNRw&amp;t=37s" data-ep="52" data-t="37">0:37</a><p><b>Gradients.</b> So make every run count. Gradients help most: they tell the optimizer which way is downhill in every direction at once. We fitted a separate transmission rate for each of twenty six weeks to half a year of noisy cases. Without gradients, Nelder Mead used twenty thousand runs and still hadn&#x27;t finished. With gradients from finite differences, a quasi Newton method finished in about two thousand. With exact gradients, from sensitivity equations solved alongside the model, it took seventy five. Automatic differentiation tools can build those derivatives straight from a model&#x27;s code. We checked ours against finite differences: they agreed to about one part in a billion, at the right step size.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Pw3rGHXeNRw&amp;t=75s" data-ep="52" data-t="75">1:15</a><p><b>Emulators and history matching.</b> When even that is too slow, train an emulator: a fast statistical stand in for the simulator. We ran the agent town fifty times, at well spread settings, and fitted a Gaussian process to the results. On sixty new runs, it predicted the share infected to within about seven points on average, and its ninety percent intervals caught eighty eight percent of the truths. Then history matching: rule out every setting the emulator says cannot reproduce the observed epidemic. Half of the ten thousand settings were ruled out in under a hundredth of a second; simulating them all would take about three hours. We checked twenty of the settings it kept, and four reproduced the epidemic. Not one of twenty ruled-out settings did. History matching doesn&#x27;t finish the job. It shrinks the search, safely, so the expensive runs go where they can matter.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Pw3rGHXeNRw&amp;t=123s" data-ep="52" data-t="123">2:03</a><p><b>In this order.</b> Correct first, then stable, then fast, and only then at scale. A speed up is worth nothing if the answer changes.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Pw3rGHXeNRw&amp;t=131s" data-ep="52" data-t="131">2:11</a><p><b>Next.</b> That closes Module twelve. Next, the final episode: where epidemic modeling goes from here.</p></div></div></div>
+            </details>
+        </div>
+        <div class="rl-eps">
+          <div class="rl-eps-head"><b>Module 12 episodes</b><span>4 episodes · 11 min</span></div>
+          <ol><li id="ep-49"><a class="rl-ep is-active" data-ep="49" href="https://www.youtube.com/watch?v=aa6myH6b5Ew" aria-current=true><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep49.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>2:35</span></span><span><span class="rl-ep-num">Episode 49 · 12.1</span><span class="rl-ep-title" style="display:block">Languages, libraries and architecture</span><span class="rl-ep-take" style="display:block">The same model ran about 40 times faster in C than in plain Python loops, with the same answer; a planted bug left the infection curve perfect and was caught by a one-line conservation check.</span></span></a></li><li id="ep-50"><a class="rl-ep" data-ep="50" href="https://www.youtube.com/watch?v=x5dtadCzKBw"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep50.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>2:55</span></span><span><span class="rl-ep-num">Episode 50 · 12.2</span><span class="rl-ep-title" style="display:block">Numerical stability</span><span class="rl-ep-take" style="display:block">Euler with 7-day steps overshot the peak by 60% and went below zero; Runge–Kutta with 4-day steps stayed within 0.1%. A stiff solver needed about 30 times fewer evaluations.</span></span></a></li><li id="ep-51"><a class="rl-ep" data-ep="51" href="https://www.youtube.com/watch?v=zMAqisWkysI"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep51.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>2:43</span></span><span><span class="rl-ep-num">Episode 51 · 12.3</span><span class="rl-ep-title" style="display:block">Making it fast</span><span class="rl-ep-take" style="display:block">A grid of cells gave the same epidemic as checking every pair, 8.6 times faster for 2,000 people; batching was 85 times faster, and a sparse network needed 12 MB instead of 80 GB.</span></span></a></li><li id="ep-52"><a class="rl-ep" data-ep="52" href="https://www.youtube.com/watch?v=Pw3rGHXeNRw"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep52.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>2:38</span></span><span><span class="rl-ep-num">Episode 52 · 12.4</span><span class="rl-ep-title" style="display:block">Calibration at scale</span><span class="rl-ep-take" style="display:block">With exact gradients a 26-parameter fit took 75 runs instead of about 2,000; an emulator trained on 50 runs ruled out half of the settings in under a hundredth of a second.</span></span></a></li></ol>
+        </div>
+      </div>
+      <script type="application/json" id="rl-episodes">[{"ep": 49, "youtube": "aa6myH6b5Ew", "title": "Languages, libraries and architecture", "duration": "2:35", "hook": "The computer side of epidemic modeling: one agent-based model written in plain Python, NumPy, JavaScript and C and timed, why tested libraries matter, how to keep a model's parts apart, and a planted bug that only a conservation check catches.", "takeaway": "The same model ran about 40 times faster in C than in plain Python loops, with the same answer; a planted bug left the infection curve perfect and was caught by a one-line conservation check.", "thumbAbs": "/epidemic-modeling/img/eps/ep49.webp"}, {"ep": 50, "youtube": "x5dtadCzKBw", "title": "Numerical stability", "duration": "2:55", "hook": "Numerical stability: Euler against Runge-Kutta on the SIR model, step sizes that push compartments below zero, stiff models and the solvers built for them, why a daily-step model is a different model, and exact Gillespie simulation against tau-leaping.", "takeaway": "Euler with 7-day steps overshot the peak by 60% and went below zero; Runge–Kutta with 4-day steps stayed within 0.1%. A stiff solver needed about 30 times fewer evaluations.", "thumbAbs": "/epidemic-modeling/img/eps/ep50.webp"}, {"ep": 51, "youtube": "zMAqisWkysI", "title": "Making it fast", "duration": "2:43", "hook": "Making epidemic code fast: profile first, replace an all-pairs contact search with a grid of cells, batch a thousand parameter sets into arrays, preallocate, store contact networks sparsely, exploit structure in the mixing matrix, and Amdahl's law for parallel computing.", "takeaway": "A grid of cells gave the same epidemic as checking every pair, 8.6 times faster for 2,000 people; batching was 85 times faster, and a sparse network needed 12 MB instead of 80 GB.", "thumbAbs": "/epidemic-modeling/img/eps/ep51.webp"}, {"ep": 52, "youtube": "Pw3rGHXeNRw", "title": "Calibration at scale", "duration": "2:38", "hook": "Calibration at scale: what a run costs and what that makes affordable, gradients from sensitivity equations against finite differences and Nelder-Mead on a 26-parameter fit, and Gaussian-process emulators with history matching for an expensive agent-based model.", "takeaway": "With exact gradients a 26-parameter fit took 75 runs instead of about 2,000; an emulator trained on 50 runs ruled out half of the settings in under a hundredth of a second.", "thumbAbs": "/epidemic-modeling/img/eps/ep52.webp"}]</script>
+    </div></section>
+    <section id="lab" class="rl-lab" aria-labelledby="lab-title">
+      <div class="proj-wrap rl-lab-head">
+        <p class="proj-label"><i class="ri-pulse-line" aria-hidden="true"></i>Interactive lab</p>
+        <h2 id="lab-title" class="proj-h2" style="margin-top:.5rem">Step sizes and chance</h2>
+        <p class="proj-lead">Change the step size of Euler&#x27;s method and of Runge–Kutta on the module&#x27;s SIR town, and run hundreds of exact or tau-leaping stochastic outbreaks in towns of different sizes.</p>
+        <p class="proj-lead" style="margin-top:.6rem">The first panel solves the module&#x27;s SIR town with the step you choose and compares it with a solution made of tiny steps; the second runs 200 stochastic outbreaks, exactly or with tau-leaping. Everything runs in your browser.</p>
+      </div>
+      <div class="rlx" id="stability-lab" data-epx="stability">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">Step sizes and chance</h3>
+          <p class="rlx-sub">The module's SIR town solved with two classic methods, and the same town simulated person by person. Everything runs in your browser.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">Euler</div>
+              <div class="formula-line"><span class="formula-chip">next = now + step × slope now</span></div>
+              <p class="math-card-copy">One slope per step. Simple, but its error grows with the step, and large steps can push a compartment below zero.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Runge–Kutta (RK4)</div>
+              <div class="formula-line"><span class="formula-chip">next = now + step × average of 4 slopes</span></div>
+              <p class="math-card-copy">Four slopes per step, weighted 1, 2, 2, 1. Its error shrinks with the fourth power of the step.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Exact or fast chance</div>
+              <div class="formula-line"><span class="formula-chip">Gillespie: one event at a time</span></div>
+              <p class="math-card-copy">Tau-leaping draws many events per fixed step instead: much faster, but big steps distort the epidemic.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Solver controls">
+            <div><h4 class="rlx-h">Solve the equations</h4><p class="rlx-sub">Green: tiny steps (the reference).</p></div>
+            <div class="rlx-field"><div class="rlx-label">Method</div>
+              <div class="rlx-btns"><button type="button" class="control-button control-button-primary" data-k="m-euler">Euler</button><button type="button" class="control-button control-button-secondary" data-k="m-rk4">Runge–Kutta</button></div></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="stH">Step</label><span class="control-value" data-k="sh-out">1 day</span></div><input id="stH" data-k="sh" type="range" min="0" max="11" step="1" value="4"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="stR">R₀</label><span class="control-value" data-k="sr-out">2.5</span></div><input id="stR" data-k="sr" type="range" min="1.2" max="5" step="0.1" value="2.5"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="stD">Days infectious</label><span class="control-value" data-k="sd-out">5 days</span></div><input id="stD" data-k="sd" type="range" min="2" max="10" step="0.5" value="5"></div>
+            <p class="rlx-hint">One in 10,000 people infectious on day 0. Steps: 0.05, 0.1, 0.25, 0.5, 1, 2 … 8 days. Values are made up to show mechanisms.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Peak</div><div class="metric-value" data-k="spk">–</div></div><div class="metric-tile"><div class="metric-label">Peak error</div><div class="metric-value" data-k="serr">–</div></div><div class="metric-tile"><div class="metric-label">Lowest value</div><div class="metric-value" data-k="smin">–</div></div><div class="metric-tile"><div class="metric-label">Slope evaluations</div><div class="metric-value" data-k="sev">–</div></div></div>
+            <p class="rlx-status" data-k="sstatus" role="status" aria-live="polite">Solving…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Share of the town infectious</h4><p class="rlx-sub">Green: tiny steps. Orange: Euler. Blue: Runge–Kutta. Dots mark the steps.</p></div></div>
+              <div class="chart-shell"><svg data-k="schart" role="img" aria-label="Share infectious over time for the chosen method and the reference"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current settings, in its own panel.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Make Euler push the number of infectious people below zero.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Find a step of at least 2 days where Runge–Kutta's peak is within 1% while Euler's is off by more than 10%.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Chance: with one first infection and R₀ = 2, run the exact method in a town of at least 1,000. About half the runs should fizzle out (between 40% and 60%).</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>Chance: use tau-leaping with steps of at least 2 days and find settings where more than half the runs try to remove more people than there are.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+          <div class="rlx-grid" style="margin-top:1.5rem">
+            <aside class="rlx-card rlx-controls" aria-label="Stochastic simulation controls">
+            <div><h4 class="rlx-h">Simulate person by person</h4><p class="rlx-sub">200 runs, 5 days infectious on average.</p></div>
+            <div class="rlx-field"><div class="rlx-label">Method</div>
+              <div class="rlx-btns"><button type="button" class="control-button control-button-primary" data-k="c-exact">Exact</button><button type="button" class="control-button control-button-secondary" data-k="c-tau">Tau-leaping</button></div></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="stN">Town size</label><span class="control-value" data-k="cn-out">1,000 people</span></div><input id="stN" data-k="cn" type="range" min="0" max="7" step="1" value="3"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="stI">First infections</label><span class="control-value" data-k="ci-out">10</span></div><input id="stI" data-k="ci" type="range" min="1" max="20" step="1" value="10"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="stC">R₀</label><span class="control-value" data-k="cr-out">2.5</span></div><input id="stC" data-k="cr" type="range" min="1.2" max="4" step="0.1" value="2.5"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="stT">Tau-leaping step</label><span class="control-value" data-k="ct-out">1 day</span></div><input id="stT" data-k="ct" type="range" min="0" max="6" step="1" value="3"></div>
+            <div class="rlx-btns"><button type="button" class="control-button control-button-secondary is-wide" data-k="crun">Run again</button></div>
+            <p class="rlx-hint">A run "fizzles out" when fewer than 1% of the town are ever infected. Tau-leaping counts are capped at zero, and the lab counts the runs that needed the cap.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Fizzled out</div><div class="metric-value" data-k="cfz">–</div></div><div class="metric-tile"><div class="metric-label">Infected (outbreaks)</div><div class="metric-value" data-k="cfm">–</div></div><div class="metric-tile"><div class="metric-label">Went below zero</div><div class="metric-value" data-k="cng">–</div></div><div class="metric-tile"><div class="metric-label">Events or steps per run</div><div class="metric-value" data-k="cwk">–</div></div></div>
+            <p class="rlx-status" data-k="cstatus" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">25 runs and the equations</h4><p class="rlx-sub">Thin lines: share infectious in single runs. Dark line: the equations.</p></div></div>
+              <div class="chart-shell"><svg data-k="cchart" role="img" aria-label="Share infectious in 25 stochastic runs and in the equations"></svg></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="next" class="proj-section is-soft" aria-labelledby="next-title"><div class="proj-wrap">
+      <h2 id="next-title" class="proj-h2">Keep going</h2>
+      <div class="rl-pn"><a href="/epidemic-modeling/module-11/"><i class="ri-arrow-left-line" aria-hidden="true"></i><span><small>Previous · Module 11</small><strong>Uncertainty, sensitivity and model comparison</strong></span></a><a class="is-next" href="/epidemic-modeling/module-13/"><span><small>Next · Module 13</small><strong>Closing remarks and future directions</strong></span><i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+    </div></section>
+  </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Courses</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/rl-course/" class="hover:text-white">Reinforcement Learning</a></li>
+                  <li><a href="/epidemic-modeling/" class="hover:text-white">Epidemic Modeling</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/rl-course/" class="hover:text-white">RL course</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <script src="/js/videos.js"></script>
+      
+      <script src="/js/epi-labs.js" defer></script>
+      <script src="/js/epi-course.js" defer></script>
+   </body>
+</html>

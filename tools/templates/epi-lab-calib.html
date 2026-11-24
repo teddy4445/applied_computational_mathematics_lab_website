@@ -1,0 +1,77 @@
+<!-- Used by tools/build_epi_course.py: the calibration lab (Module 8) of the Epidemic Modeling course: one simulated outbreak fitted by four searches on a loss map, the identifiability valley, and ABC rejection on a stochastic town. Script: js/epi-labs.js (data-epx="calib"), styles: css/exploration-lab.css + css/rl-labs.css + css/epi-course.css. -->
+      <div class="rlx" id="calib-lab" data-epx="calib">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">One outbreak with a known truth</h3>
+          <p class="rlx-sub">The module's SIR outbreak: a town of 100,000, beta 0.25 and gamma 0.1 (R0 2.5), 40% of infections reported with negative binomial noise. Everything runs in your browser.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">Weighted least squares</div>
+              <div class="formula-line"><span class="formula-chip">loss = Σ (data − model)² / model</span></div>
+              <p class="math-card-copy">Each day's miss is divided by the noise expected on that day, so big days don't drown small ones.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Four searches</div>
+              <div class="formula-line"><span class="formula-chip">grid · Nelder–Mead · gradient · swarm</span></div>
+              <p class="math-card-copy">Each counts its model runs; the yellow dot is the best fit found by a careful reference search.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">ABC rejection</div>
+              <div class="formula-line"><span class="formula-chip">keep θ if distance(summaries) is small</span></div>
+              <p class="math-card-copy">Draw beta and gamma from a box, simulate a random outbreak, keep the closest draws.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Fitting controls">
+            <div><h4 class="rlx-h">Fit</h4><p class="rlx-sub">Pick a search and the days of data it may use.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><span>Search</span></div>
+              <div class="rlx-btns"><button type="button" class="control-button control-button-primary" data-k="m-grid">Grid</button><button type="button" class="control-button control-button-secondary" data-k="m-nm">Nelder–Mead</button><button type="button" class="control-button control-button-secondary" data-k="m-gd">Gradient</button><button type="button" class="control-button control-button-secondary" data-k="m-pso">Swarm</button></div></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="calWin">Days of data used</label><span class="control-value" data-k="win-out">100 days</span></div><input id="calWin" data-k="win" type="range" min="15" max="100" step="5" value="100"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="calSb">Start: beta</label><span class="control-value" data-k="sb-out">0.45</span></div><input id="calSb" data-k="sb" type="range" min="0.1" max="0.55" step="0.01" value="0.45"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="calSg">Start: gamma</label><span class="control-value" data-k="sg-out">0.22</span></div><input id="calSg" data-k="sg" type="range" min="0.04" max="0.28" step="0.01" value="0.22"></div>
+            <div class="rlx-row"><div><label class="rlx-label" for="calNear">Outline fits within 5% of the best</label></div><label class="toggle"><input id="calNear" data-k="near" type="checkbox"><span class="toggle-track"></span></label></div>
+            <div class="rlx-btns"><button type="button" class="control-button control-button-secondary is-wide" data-k="newdata">New noisy data</button></div>
+            <p class="rlx-hint">The start point is used by Nelder–Mead and gradient descent. Values are made up to show mechanisms.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">beta</div><div class="metric-value" data-k="fb">–</div></div><div class="metric-tile"><div class="metric-label">gamma</div><div class="metric-value" data-k="fg">–</div></div><div class="metric-tile"><div class="metric-label">R0</div><div class="metric-value" data-k="fr">–</div></div><div class="metric-tile"><div class="metric-label">Model runs</div><div class="metric-value" data-k="fe">–</div></div><div class="metric-tile"><div class="metric-label">Loss vs best</div><div class="metric-value" data-k="fx">–</div></div></div>
+            <p class="rlx-status" data-k="fstatus" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Loss map</h4><p class="rlx-sub">Dark: small loss. Orange: the search's path and result; yellow: the best fit; white ring: the truth.</p></div></div>
+              <div class="chart-shell" style="height:320px"><svg data-k="map" role="img" aria-label="Loss over beta and gamma with the search path"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Data and fit</h4><p class="rlx-sub">Grey: reported cases; orange: the fitted model over all 100 days.</p></div></div>
+              <div class="chart-shell"><svg data-k="fchart" role="img" aria-label="Reported cases and the fitted model"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current settings, here or in the ABC panel below.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Fit all 100 days with Nelder–Mead and get within 1% of the best fit.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Find a start point from which gradient descent gets within 5% of the best fit.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>With 30 days of data or fewer, find a valley: fits within 5% of the best whose gamma values are more than 0.1 apart.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>In ABC, get the 90% interval of R0 narrower than 1.0 with at least 50 kept draws.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+          <div class="rlx-grid" style="margin-top:1.5rem">
+            <aside class="rlx-card rlx-controls" aria-label="ABC controls">
+            <div><h4 class="rlx-h">ABC rejection</h4><p class="rlx-sub">A random outbreak in a town of 2,000 (5 first cases, R0 3) plays the data.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="abcSims">Simulations</label><span class="control-value" data-k="sims-out">5,000</span></div><input id="abcSims" data-k="sims" type="range" min="2000" max="20000" step="1000" value="5000"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="abcKeep">Keep the closest</label><span class="control-value" data-k="keep-out">1%</span></div><input id="abcKeep" data-k="keep" type="range" min="0" max="6" step="1" value="3"></div>
+            <div class="rlx-row"><div><label class="rlx-label" for="abcU0">Summary: total cases</label></div><label class="toggle"><input id="abcU0" data-k="u0" type="checkbox" checked><span class="toggle-track"></span></label></div>
+            <div class="rlx-row"><div><label class="rlx-label" for="abcU1">Summary: peak day</label></div><label class="toggle"><input id="abcU1" data-k="u1" type="checkbox" checked><span class="toggle-track"></span></label></div>
+            <div class="rlx-row"><div><label class="rlx-label" for="abcU2">Summary: peak height</label></div><label class="toggle"><input id="abcU2" data-k="u2" type="checkbox" checked><span class="toggle-track"></span></label></div>
+            <div class="rlx-btns"><button type="button" class="control-button control-button-primary is-wide" data-k="arun">Run ABC</button></div>
+            <p class="rlx-hint">Prior: beta 0.1–0.6, gamma 0.05–0.3. 20,000 simulations take a second or two. Which summary says the most about R0?</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Draws kept</div><div class="metric-value" data-k="ak">–</div></div><div class="metric-tile"><div class="metric-label">R0, median</div><div class="metric-value" data-k="am">–</div></div><div class="metric-tile"><div class="metric-label">R0, 90% interval</div><div class="metric-value" data-k="ai">–</div></div><div class="metric-tile"><div class="metric-label">Fizzled</div><div class="metric-value" data-k="af">–</div></div></div>
+            <p class="rlx-status" data-k="astatus" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Kept draws</h4><p class="rlx-sub">Blue: kept (beta, gamma); dashed box: the prior; dashed lines: the 90% range of R0; ring: the truth.</p></div></div>
+              <div class="chart-shell" style="height:300px"><svg data-k="plane" role="img" aria-label="Kept parameter draws of ABC"></svg></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>

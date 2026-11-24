@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_epi_course.py from data/epi-course.json. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Module 11: Uncertainty, sensitivity and model comparison | Epidemic Modeling Course | ACML</title>
+      <meta name="description" content="Module 11 of 13 of ACML’s Epidemic Modeling course. Where uncertainty comes from, and how to measure it: slides, 4 short episodes and an interactive lab.">
+      <meta name="author" content="Teddy Lazebnik">
+      <meta name="keywords" content="epidemic modeling, epidemiology, uncertainty, sensitivity and model comparison, course, ACML">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/epidemic-modeling/module-11/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Module 11: Uncertainty, sensitivity and model comparison · Epidemic Modeling">
+      <meta property="og:description" content="Module 11 of 13 of ACML’s Epidemic Modeling course. Where uncertainty comes from, and how to measure it: slides, 4 short episodes and an interactive lab.">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/epidemic-modeling/module-11/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/epidemic-modeling/module-11/share.jpg">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Module 11: Uncertainty, sensitivity and model comparison · Epidemic Modeling">
+      <meta name="twitter:description" content="Module 11 of 13 of ACML’s Epidemic Modeling course. Where uncertainty comes from, and how to measure it: slides, 4 short episodes and an interactive lab.">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/epidemic-modeling/module-11/share.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "Module 11: Uncertainty, sensitivity and model comparison",
+        "description": "Where uncertainty comes from, and how to measure it. On made-up towns with known truths, we add the sources of uncertainty one layer at a time (chance, parameters, measurement, structure, scenarios, computation), show how different parameters can tell the same story and what breaks the tie, rank inputs with local derivatives, Morris screening and Sobol indices, and compare forecasters with proper scores and interval coverage.",
+        "url": "https://acml.teddylazebnik.com/epidemic-modeling/module-11/",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "learningResourceType": [
+          "Lecture slides",
+          "Video",
+          "Interactive resource"
+        ],
+        "teaches": "Where uncertainty comes from, and how to measure it",
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Epidemic Modeling",
+          "url": "https://acml.teddylazebnik.com/epidemic-modeling/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Teddy Lazebnik",
+          "url": "https://teddylazebnik.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Applied Computational Mathematics Laboratory",
+          "url": "https://acml.teddylazebnik.com/"
+        },
+        "hasPart": [
+          {
+            "@type": "VideoObject",
+            "name": "Where uncertainty comes from",
+            "description": "Where uncertainty comes from: chance, parameters, measurement, model structure, scenarios and computation, added one layer at a time to the same simulated epidemic, and how much each one widens the forecast.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep45.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/R0K6_LJK8Ow",
+            "duration": "PT2M34S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Identifiability and confounding",
+            "description": "Identifiability and confounding: why three towns with the same first month of cases can have very different futures, how the generation interval changes R, sloppy parameters, and how a serosurvey breaks the tie.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep46.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/SSMIudMSYEg",
+            "duration": "PT2M40S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "The sensitivity toolbox: Morris and Sobol",
+            "description": "The sensitivity toolbox: local derivatives and why they depend on where you stand, Morris screening, and Sobol indices that split an output's variance among seven inputs, with what each costs.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep47.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/wHIYFQWl57g",
+            "duration": "PT2M55S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Comparing models: scores and coverage",
+            "description": "Comparing models for a purpose: why better in-sample fit can mean worse forecasts, AIC, rolling-origin backtests, proper scores like the weighted interval score, interval coverage, and simple ensembles.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep48.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/KnK2QyplxtQ",
+            "duration": "PT2M38S"
+          },
+          {
+            "@type": "DigitalDocument",
+            "name": "Module 11 slides",
+            "encodingFormat": "application/pdf",
+            "url": "https://acml.teddylazebnik.com/epidemic-modeling/slides/Epidemic_Modeling_Module11_Uncertainty_sensitivity_and_model_comparison.pdf"
+          }
+        ]
+      }
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      <link href="/css/videos.css" rel="stylesheet">
+      
+      <link href="/css/exploration-lab.css" rel="stylesheet">
+      <link href="/css/rl-labs.css" rel="stylesheet">
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/project.css" rel="stylesheet">
+      <link href="/css/rl-course.css" rel="stylesheet">
+      <link href="/css/epi-course.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+          <a href="/courses.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Courses</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/courses.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Courses</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="proj-page rl-page bg-white">
+    <header class="proj-hero rl-hero">
+      <div class="proj-wrap proj-hero-grid">
+        <div>
+          <nav class="proj-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/courses.html">Courses</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/epidemic-modeling/">Epidemic Modeling</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Module 11</span></nav>
+          <p class="proj-kicker"><span><i class="ri-graduation-cap-line" aria-hidden="true"></i>Epidemic Modeling</span><span>Policy and practice</span></p>
+          <h1 class="proj-title"><small>Module 11</small>Uncertainty, sensitivity and model comparison</h1>
+          <p class="proj-about-lead rl-summary">Where uncertainty comes from, and how to measure it. On made-up towns with known truths, we add the sources of uncertainty one layer at a time (chance, parameters, measurement, structure, scenarios, computation), show how different parameters can tell the same story and what breaks the tie, rank inputs with local derivatives, Morris screening and Sobol indices, and compare forecasters with proper scores and interval coverage.</p>
+          <div class="rl-goal"><i class="ri-focus-3-line" aria-hidden="true"></i><span>By the end you should be able to name the sources of uncertainty in a forecast, recognize confounded parameters and the data that separates them, choose and read a sensitivity analysis, and evaluate forecasts with backtests, proper scores and calibration.</span></div>
+          <h2 class="proj-h3 rl-ideas-title">Key ideas, one per episode</h2>
+          <ul class="rl-ideas"><li><a href="#ep-45">Ep. 45</a><span>Chance alone moved the peak by 17 days; unknown parameters stretched that to 43; adding measurement, structure and scenarios widened it further.</span></li><li><a href="#ep-46">Ep. 46</a><span>Three towns with the same first month of cases ended with 9,000 to 85,000 cases; one serosurvey pinned the reporting share to 29–32%.</span></li><li><a href="#ep-47">Ep. 47</a><span>R0 alone explained 78% of the variance in the final size; the cut&#x27;s start day mattered only through interactions; reporting mattered only for reported peaks.</span></li><li><a href="#ep-48">Ep. 48</a><span>An overconfident forecaster had the same error as an honest one but covered the truth only 23% of the time; a simple blend scored best.</span></li></ul>
+          <p class="rl-source"><b>Textbook:</b> Chapter 11 of <a href="https://shop.elsevier.com/books/epidemic-modeling/lazebnik/978-0-443-55525-1" target="_blank" rel="noopener">T. Lazebnik, Epidemic Modeling: Principles, Algorithms, and Applications (Academic Press, 2026)</a>. The episodes and slides follow the chapter’s topics in our own words, figures and simulations; nothing is copied from the book.</p>
+        </div>
+        <div class="rl-first">
+          <a class="rl-first-img" href="/epidemic-modeling/slides/Epidemic_Modeling_Module11_Uncertainty_sensitivity_and_model_comparison.pdf" target="_blank" rel="noopener"><img src="/epidemic-modeling/img/slides/m11-s01.webp" alt="The title slide of Module 11: Uncertainty, sensitivity and model comparison" width="960" height="540" fetchpriority="high" decoding="async"></a>
+          <p class="rl-first-text">38 slides, written to be read on your own, with worked examples, “try it” boxes, our own small simulations and check-yourself questions (answers at the end). PDF, 0.9 MB.</p>
+          <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="/epidemic-modeling/slides/Epidemic_Modeling_Module11_Uncertainty_sensitivity_and_model_comparison.pdf" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Open the PDF</a><a class="proj-btn" href="/epidemic-modeling/slides/Epidemic_Modeling_Module11_Uncertainty_sensitivity_and_model_comparison.pdf" download><i class="ri-download-2-line" aria-hidden="true"></i>Download</a></div>
+        </div>
+      </div>
+    </header>
+    <nav class="proj-subnav is-mobile-only" aria-label="Sections of this page"><div class="proj-wrap"><ul><li><a href="#watch">Watch</a></li><li><a href="#lab">Lab</a></li><li><a href="#next">Next</a></li></ul></div></nav>
+    <section id="watch" class="proj-section is-soft" aria-labelledby="watch-title"><div class="proj-wrap">
+      <h2 id="watch-title" class="proj-h2">Watch</h2>
+      <p class="proj-lead">4 short episodes for this module. Pick one from the list, and open the transcript to read along: each timestamp plays the episode from there. The narration is generated with a voice clone of Teddy, used with his permission.</p>
+      <div class="rl-watch">
+        <div class="rl-player-wrap">
+          <div id="rl-player" class="yt-player yt-16x9" data-yt-id="R0K6_LJK8Ow" data-yt-title="Where uncertainty comes from"><a class="yt-play" href="https://www.youtube.com/watch?v=R0K6_LJK8Ow" aria-label="Play episode 45: Where uncertainty comes from"><img src="/epidemic-modeling/img/eps/ep45.webp" alt="" width="640" height="360" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div>
+          <div class="rl-now">
+            <p id="rl-now-num" class="rl-now-num">Episode 45 · 2:34</p>
+            <p id="rl-now-title" class="rl-now-title">Where uncertainty comes from</p>
+            <p id="rl-now-hook" class="rl-now-hook">Where uncertainty comes from: chance, parameters, measurement, model structure, scenarios and computation, added one layer at a time to the same simulated epidemic, and how much each one widens the forecast.</p>
+            <p id="rl-now-take" class="rl-now-take"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i><span>Chance alone moved the peak by 17 days; unknown parameters stretched that to 43; adding measurement, structure and scenarios widened it further.</span></p>
+          </div>
+            <details id="rl-tx" class="rl-tx">
+              <summary><i class="ri-file-text-line" aria-hidden="true"></i>Transcript<span id="rl-tx-which">Episode 45</span><i class="ri-arrow-down-s-line rl-tx-caret" aria-hidden="true"></i></summary>
+              <div class="rl-tx-body"><div class="rl-tx-ep" data-ep="45"><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=R0K6_LJK8Ow" data-ep="45" data-t="0">0:00</a><p><b>A guess dressed up as a fact.</b> A forecast without uncertainty is a guess dressed up as a fact. Welcome to Module eleven: where uncertainty comes from, and how to measure it.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=R0K6_LJK8Ow&amp;t=15s" data-ep="45" data-t="15">0:15</a><p><b>Chance.</b> Start with chance itself. Run the same epidemic, with the same parameters, two thousand times in a town of twenty thousand. The final size barely moves: about ninety one percent every time. But the peak day ranges from day forty seven to day sixty four, depending on how the first chains of infection happen to go. That&#x27;s process uncertainty: the randomness of who meets whom. It&#x27;s aleatory, so better data won&#x27;t remove it.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=R0K6_LJK8Ow&amp;t=40s" data-ep="45" data-t="40">0:40</a><p><b>Parameters.</b> Now admit we don&#x27;t know the parameters exactly. Let R₀ be anywhere from two to three. Let the infectious period last eight days, twelve days, or anything between. The earliest peak now comes on day thirty eight. The latest comes on day eighty one. And the peak height more than doubles across the range. Splitting the variance of the peak day, about four fifths came from not knowing the parameters, and one fifth from chance. Parameter uncertainty is epistemic: better data can shrink it.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=R0K6_LJK8Ow&amp;t=69s" data-ep="45" data-t="69">1:09</a><p><b>Measurement, structure, scenarios.</b> Then the measurement. We see only twenty to forty percent of infections, about six days later, with noise on top. The reported peak arrives about five days after the real one. Its height can be as low as about one hundred thirty cases a day, or as high as three hundred eighty. Next, the model itself. If half of our analysts add a latent period, with the same R₀, the range of peak days stretches out to day one hundred fourteen. Structural uncertainty never shows up inside any single model&#x27;s intervals. And the future. If there&#x27;s an even chance that people cut their contacts by thirty percent from day forty, the final size could be as low as fifty six percent, or as high as ninety four. That&#x27;s scenario uncertainty: not a property of the virus, but of choices still to be made.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=R0K6_LJK8Ow&amp;t=110s" data-ep="45" data-t="110">1:50</a><p><b>Computation, and the full stack.</b> A sixth source completes the list: computation. Samplers, filters and approximations add their own error, and they can fail quietly. Each layer added uncertainty. Leave one out, and your intervals are too narrow, and your confidence is borrowed.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=R0K6_LJK8Ow&amp;t=126s" data-ep="45" data-t="126">2:06</a><p><b>Next.</b> Next: when the data can&#x27;t tell parameters apart. Identifiability and confounding.</p></div></div><div class="rl-tx-ep" data-ep="46" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=SSMIudMSYEg" data-ep="46" data-t="0">0:00</a><p><b>A perfect fit, unknown parameters.</b> A model can fit the data perfectly and still not know its own parameters. That&#x27;s not a bug in the fitting. It&#x27;s a limit of the data.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=SSMIudMSYEg&amp;t=15s" data-ep="46" data-t="15">0:15</a><p><b>Reporting or infections?.</b> There are two kinds of identifiability. Structural: with perfect, noise free data, could the parameters be pinned down at all? Practical: with the noisy, finite data we actually have, can they? Here&#x27;s a classic tie. Picture three towns. The first reports ten percent of its infections. The second reports thirty percent, and the third reports ninety. Each starts with a different number of infections, chosen so that all three show the same reported cases for thirty days, within ten percent, which is less than the daily noise. Their futures differ enormously. The reported peaks fall twelve days apart, from day thirty eight to day fifty, and the totals run from about nine thousand up to eighty five thousand. The early curve fixes the product of reporting and infections, not either one.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=SSMIudMSYEg&amp;t=60s" data-ep="46" data-t="60">1:00</a><p><b>The generation interval.</b> Assumptions can confound too. To turn a growth rate into a reproduction number, you need the generation interval. The same epidemic, doubling every seven days, gives R of about one and a half if the interval is four days. Stretch the interval to ten days, and R becomes about two and a half.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=SSMIudMSYEg&amp;t=78s" data-ep="46" data-t="78">1:18</a><p><b>Sloppiness.</b> Even when every parameter is identifiable in principle, most combinations are barely constrained. Fit a five parameter SEIR model to sixty days of cases, and the loosest combination of parameters is about three and a half thousand times more uncertain than the stiffest. That&#x27;s sloppiness. The stiff direction here is essentially the growth rate. Along the sloppy directions, parameters can move a lot while the fit barely changes.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=SSMIudMSYEg&amp;t=105s" data-ep="46" data-t="105">1:45</a><p><b>Breaking the tie.</b> How do you break a tie? Bring in data that sees what cases can&#x27;t. From forty days of noisy cases, the reporting share could be anywhere from sixteen to thirty five percent. Add one serosurvey of two thousand people on day forty, and the range shrinks to between twenty nine and thirty two percent. The truth was thirty. Before you trust a parameter, ask: could different values tell the same story? If so, find data that tells them apart, or report the whole range.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=SSMIudMSYEg&amp;t=133s" data-ep="46" data-t="133">2:13</a><p><b>Next.</b> Next: which inputs drive a model&#x27;s output? The sensitivity toolbox.</p></div></div><div class="rl-tx-ep" data-ep="47" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=wHIYFQWl57g" data-ep="47" data-t="0">0:00</a><p><b>Which inputs matter?.</b> Seven uncertain inputs, three outputs we care about. Which inputs actually matter? Sensitivity analysis answers that, if you ask it the right way.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=wHIYFQWl57g&amp;t=15s" data-ep="47" data-t="15">0:15</a><p><b>Local sensitivity.</b> Our town is an SEIR model with a sixty day cut in contacts. The inputs: R₀, the latent and infectious periods, the reporting share, the first infections, how strong the cut is, and when it starts. The outputs: the share ever infected, the peak of reported cases, and the day of that peak. The quickest check is local: nudge one input by one percent and watch the outputs. At our baseline, a one percent rise in R₀ raises the final size by about 0.9 percent, and the peak of reported cases by almost seven percent. But local answers hold only near the point where you stand. Here the cut starts on day fifty, right at the peak, so the start day looks hugely important: one percent later raises the peak by four percent.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=wHIYFQWl57g&amp;t=59s" data-ep="47" data-t="59">0:59</a><p><b>Morris screening.</b> Global methods move all inputs across their whole ranges. Morris screening is cheap: it walks random paths through the input space, changing one input at a time, and records each effect. One hundred paths cost eight hundred runs. The mean size of those effects ranks the inputs; their spread flags curves and interactions. For the final size, R₀ ranks first by far. For the peak of reported cases, the reporting share comes a close second.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=wHIYFQWl57g&amp;t=88s" data-ep="47" data-t="88">1:28</a><p><b>Sobol indices.</b> Sobol indices go further: they split the output&#x27;s variance among the inputs. The first order index is the share due to an input alone; the total index adds every interaction it takes part in. With about one hundred forty seven thousand runs, R₀ alone explains seventy eight percent of the variance in the final size. The start day of the cut explains almost nothing alone, yet its total index is fifteen percent: it matters only together with other inputs. And the reporting share has a total index of zero for the final size and the peak day, but thirty seven percent for the peak of reported cases. Sensitivity always depends on the question.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=wHIYFQWl57g&amp;t=127s" data-ep="47" data-t="127">2:07</a><p><b>The toolbox.</b> The toolbox, in order of cost. Local derivatives give a first look in about fifteen runs. Morris screens many inputs with hundreds of runs. Sobol apportions the variance, but needs tens of thousands of runs or more, or a fast emulator trained to stand in for the model. Sensitivity tells you where to spend effort: which input to measure better, and which to stop arguing about.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=wHIYFQWl57g&amp;t=149s" data-ep="47" data-t="149">2:29</a><p><b>Next.</b> Next: comparing models, with scores, coverage, and fitness for purpose.</p></div></div><div class="rl-tx-ep" data-ep="48" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=KnK2QyplxtQ" data-ep="48" data-t="0">0:00</a><p><b>Best for what?.</b> Which model is best? Wrong question. Best for what? Nowcasting, forecasting and explaining reward different things.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=KnK2QyplxtQ&amp;t=15s" data-ep="48" data-t="15">0:15</a><p><b>Fit is not foresight.</b> First trap: in-sample fit. We fitted polynomials to twenty eight days of log cases. Each extra degree fitted the past better, but forecasts seven days ahead got worse. By degree five, they were typically off by a factor of about fourteen. Penalized criteria like AIC push back on complexity: here, AIC preferred the straight line. Better still, test a model the way you&#x27;ll use it: forecast from many past dates, using only the data available on each date.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=KnK2QyplxtQ&amp;t=43s" data-ep="48" data-t="43">0:43</a><p><b>Proper scores.</b> Then score the whole forecast, not just its middle. We backtested four forecasters on a simulated town with two waves, from twenty six dates, seven days ahead. A trend forecaster and an overconfident copy of it have the same median, and so the same average error. But the copy&#x27;s ninety percent intervals caught the truth only twenty three percent of the time. The honest version: ninety six percent. A proper score, like the weighted interval score, rewards being both sharp and right. It ranked the overconfident copy behind the honest one: 9.5 against 7.9, lower is better. A very wide forecaster caught everything, and still scored worse: 9.9.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=KnK2QyplxtQ&amp;t=90s" data-ep="48" data-t="90">1:30</a><p><b>Calibration and ensembles.</b> Calibration asks whether intervals mean what they say: ninety percent intervals should contain the truth about ninety percent of the time. Check it with coverage, and with histograms of where each observation falls within its forecast. Combining forecasters often helps. An equal blend of last week&#x27;s level and the trend scored 6.5, better than either alone, with ninety six percent coverage.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=KnK2QyplxtQ&amp;t=114s" data-ep="48" data-t="114">1:54</a><p><b>Fitness for purpose.</b> Finally, match the criteria to the decision. When running out of beds costs far more than having beds to spare, a model that captures the tail may beat one with a smaller average error. Uncertainty quantified, sensitivity explained, models compared for their purpose: that&#x27;s what makes a model trustworthy.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=KnK2QyplxtQ&amp;t=130s" data-ep="48" data-t="130">2:10</a><p><b>Next.</b> That closes Module eleven. Next, in Module twelve: the computer side of epidemic modeling.</p></div></div></div>
+            </details>
+        </div>
+        <div class="rl-eps">
+          <div class="rl-eps-head"><b>Module 11 episodes</b><span>4 episodes · 11 min</span></div>
+          <ol><li id="ep-45"><a class="rl-ep is-active" data-ep="45" href="https://www.youtube.com/watch?v=R0K6_LJK8Ow" aria-current=true><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep45.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>2:34</span></span><span><span class="rl-ep-num">Episode 45 · 11.1</span><span class="rl-ep-title" style="display:block">Where uncertainty comes from</span><span class="rl-ep-take" style="display:block">Chance alone moved the peak by 17 days; unknown parameters stretched that to 43; adding measurement, structure and scenarios widened it further.</span></span></a></li><li id="ep-46"><a class="rl-ep" data-ep="46" href="https://www.youtube.com/watch?v=SSMIudMSYEg"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep46.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>2:40</span></span><span><span class="rl-ep-num">Episode 46 · 11.2</span><span class="rl-ep-title" style="display:block">Identifiability and confounding</span><span class="rl-ep-take" style="display:block">Three towns with the same first month of cases ended with 9,000 to 85,000 cases; one serosurvey pinned the reporting share to 29–32%.</span></span></a></li><li id="ep-47"><a class="rl-ep" data-ep="47" href="https://www.youtube.com/watch?v=wHIYFQWl57g"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep47.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>2:55</span></span><span><span class="rl-ep-num">Episode 47 · 11.3</span><span class="rl-ep-title" style="display:block">The sensitivity toolbox: Morris and Sobol</span><span class="rl-ep-take" style="display:block">R0 alone explained 78% of the variance in the final size; the cut&#x27;s start day mattered only through interactions; reporting mattered only for reported peaks.</span></span></a></li><li id="ep-48"><a class="rl-ep" data-ep="48" href="https://www.youtube.com/watch?v=KnK2QyplxtQ"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep48.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>2:38</span></span><span><span class="rl-ep-num">Episode 48 · 11.4</span><span class="rl-ep-title" style="display:block">Comparing models: scores and coverage</span><span class="rl-ep-take" style="display:block">An overconfident forecaster had the same error as an honest one but covered the truth only 23% of the time; a simple blend scored best.</span></span></a></li></ol>
+        </div>
+      </div>
+      <script type="application/json" id="rl-episodes">[{"ep": 45, "youtube": "R0K6_LJK8Ow", "title": "Where uncertainty comes from", "duration": "2:34", "hook": "Where uncertainty comes from: chance, parameters, measurement, model structure, scenarios and computation, added one layer at a time to the same simulated epidemic, and how much each one widens the forecast.", "takeaway": "Chance alone moved the peak by 17 days; unknown parameters stretched that to 43; adding measurement, structure and scenarios widened it further.", "thumbAbs": "/epidemic-modeling/img/eps/ep45.webp"}, {"ep": 46, "youtube": "SSMIudMSYEg", "title": "Identifiability and confounding", "duration": "2:40", "hook": "Identifiability and confounding: why three towns with the same first month of cases can have very different futures, how the generation interval changes R, sloppy parameters, and how a serosurvey breaks the tie.", "takeaway": "Three towns with the same first month of cases ended with 9,000 to 85,000 cases; one serosurvey pinned the reporting share to 29–32%.", "thumbAbs": "/epidemic-modeling/img/eps/ep46.webp"}, {"ep": 47, "youtube": "wHIYFQWl57g", "title": "The sensitivity toolbox: Morris and Sobol", "duration": "2:55", "hook": "The sensitivity toolbox: local derivatives and why they depend on where you stand, Morris screening, and Sobol indices that split an output's variance among seven inputs, with what each costs.", "takeaway": "R0 alone explained 78% of the variance in the final size; the cut's start day mattered only through interactions; reporting mattered only for reported peaks.", "thumbAbs": "/epidemic-modeling/img/eps/ep47.webp"}, {"ep": 48, "youtube": "KnK2QyplxtQ", "title": "Comparing models: scores and coverage", "duration": "2:38", "hook": "Comparing models for a purpose: why better in-sample fit can mean worse forecasts, AIC, rolling-origin backtests, proper scores like the weighted interval score, interval coverage, and simple ensembles.", "takeaway": "An overconfident forecaster had the same error as an honest one but covered the truth only 23% of the time; a simple blend scored best.", "thumbAbs": "/epidemic-modeling/img/eps/ep48.webp"}]</script>
+    </div></section>
+    <section id="lab" class="rl-lab" aria-labelledby="lab-title">
+      <div class="proj-wrap rl-lab-head">
+        <p class="proj-label"><i class="ri-equalizer-line" aria-hidden="true"></i>Interactive lab</p>
+        <h2 id="lab-title" class="proj-h2" style="margin-top:.5rem">Sensitivity and forecast scores</h2>
+        <p class="proj-lead">Run local, Morris and Sobol sensitivity analyses on the module&#x27;s SEIR town, and backtest forecasters whose intervals you can stretch or shrink.</p>
+        <p class="proj-lead" style="margin-top:.6rem">The first panel analyzes the module&#x27;s SEIR town with seven uncertain inputs; the second backtests simple forecasters on a simulated epidemic. Everything runs in your browser.</p>
+      </div>
+      <div class="rlx" id="sens-lab" data-epx="sens">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">Sensitivity and forecast scores</h3>
+          <p class="rlx-sub">The module's SEIR town with a 60-day contact cut and seven uncertain inputs, and a simulated epidemic with two waves for backtesting forecasters. Everything runs in your browser.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">Local</div>
+              <div class="formula-line"><span class="formula-chip">elasticity = % change in output ÷ % change in input</span></div>
+              <p class="math-card-copy">Cheap and clear, but it only describes the neighborhood of the baseline you pick.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Morris and Sobol</div>
+              <div class="formula-line"><span class="formula-chip">S1 = alone · ST = with all its interactions</span></div>
+              <p class="math-card-copy">Morris walks random paths to rank inputs; Sobol splits the output's variance among them.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Scoring forecasts</div>
+              <div class="formula-line"><span class="formula-chip">weighted interval score: width + penalties for misses</span></div>
+              <p class="math-card-copy">A proper score rewards intervals that are both sharp and right; coverage checks they mean what they say.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Sensitivity controls">
+            <div><h4 class="rlx-h">Which inputs matter?</h4><p class="rlx-sub">Pick an output and a method.</p></div>
+            <div class="rlx-field"><div class="rlx-label">Output</div>
+              <div class="rlx-btns"><button type="button" class="control-button control-button-secondary" data-k="q-0">Share ever infected</button><button type="button" class="control-button control-button-primary" data-k="q-1">Reported peak</button><button type="button" class="control-button control-button-secondary" data-k="q-2">Peak day</button></div></div>
+            <div class="rlx-field"><div class="rlx-label">Method</div>
+              <div class="rlx-btns"><button type="button" class="control-button control-button-primary" data-k="m-local">Local</button><button type="button" class="control-button control-button-secondary" data-k="m-morris">Morris</button><button type="button" class="control-button control-button-secondary" data-k="m-sobol">Sobol</button></div></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="saBr">Baseline R₀ (local)</label><span class="control-value" data-k="br-out">2.5</span></div><input id="saBr" data-k="br" type="range" min="1.5" max="3.5" step="0.1" value="2.5"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="saBs">Baseline cut start (local)</label><span class="control-value" data-k="bs-out">day 50</span></div><input id="saBs" data-k="bs" type="range" min="20" max="80" step="5" value="50"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="saMr">Morris paths</label><span class="control-value" data-k="mr-out">100 paths</span></div><input id="saMr" data-k="mr" type="range" min="20" max="200" step="10" value="100"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="saSn">Sobol base samples</label><span class="control-value" data-k="sn-out">1,024 samples</span></div><input id="saSn" data-k="sn" type="range" min="1" max="4" step="1" value="3"></div>
+            <div class="rlx-btns"><button type="button" class="control-button control-button-secondary is-wide" data-k="srun">Run</button></div>
+            <p class="rlx-hint">Inputs: R₀ 1.5–3.5, latent 2–5 days, infectious 3–8 days, reporting 10–50%, first infections 1–50, contact cut 0–60% for 60 days, starting on day 20–80. Values are made up to show mechanisms.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Model runs</div><div class="metric-value" data-k="sruns">–</div></div><div class="metric-tile"><div class="metric-label">Largest</div><div class="metric-value" data-k="stop">–</div></div><div class="metric-tile"><div class="metric-label">Baseline output</div><div class="metric-value" data-k="sbase">–</div></div></div>
+            <p class="rlx-status" data-k="sstatus" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Sensitivity of the chosen output</h4><p class="rlx-sub">Local: elasticity size; Morris: mean effect and spread (scaled); Sobol: first-order (solid) and total (pale) indices.</p></div></div>
+              <div class="chart-shell"><svg data-k="schart" role="img" aria-label="Sensitivity indices for seven inputs"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current settings, in its own panel.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Move the baseline cut start until its local effect on the reported peak drops below 0.5.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Run Sobol with at least 1,024 samples and find an input that matters for the share ever infected almost only through interactions (first-order index under 0.05, total index at least 0.1 higher).</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Forecasts: stretch the trend's intervals until its 90% intervals cover 85–95% of the truths 14 days ahead.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>Forecasts: shrink the trend's intervals until they cover fewer than half the truths 7 days ahead, and see its score get worse with the same median.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+          <div class="rlx-grid" style="margin-top:1.5rem">
+            <aside class="rlx-card rlx-controls" aria-label="Forecast scoring controls">
+            <div><h4 class="rlx-h">Scoring forecasts</h4><p class="rlx-sub">26 forecast dates, one a week, using only the data known on each date.</p></div>
+            <div class="rlx-field"><div class="rlx-label">Days ahead</div>
+              <div class="rlx-btns"><button type="button" class="control-button control-button-secondary" data-k="h-1">1</button><button type="button" class="control-button control-button-primary" data-k="h-7">7</button><button type="button" class="control-button control-button-secondary" data-k="h-14">14</button></div></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="scFw">Trend interval width</label><span class="control-value" data-k="fw-out">×1.00</span></div><input id="scFw" data-k="fw" type="range" min="0.25" max="3" step="0.05" value="1"></div>
+            <p class="rlx-hint">Last week: its mean, flat. Trend: a log-linear fit to the last 14 days. Overconfident: the trend with intervals 4 times narrower. Very wide: flat and very uncertain. Blend: the average of last week and the trend.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Trend error</div><div class="metric-value" data-k="fmae">–</div></div><div class="metric-tile"><div class="metric-label">Trend score</div><div class="metric-value" data-k="fwis">–</div></div><div class="metric-tile"><div class="metric-label">Trend 90% coverage</div><div class="metric-value" data-k="fcov">–</div></div><div class="metric-tile"><div class="metric-label">Blend score</div><div class="metric-value" data-k="fens">–</div></div></div>
+            <p class="rlx-status" data-k="fstatus" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Weighted interval score</h4><p class="rlx-sub">Lower is better.</p></div></div>
+              <div class="chart-shell"><svg data-k="fchart" role="img" aria-label="Weighted interval score of five forecasters"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Coverage of 90% intervals</h4><p class="rlx-sub">Dashed: the nominal 90%.</p></div></div>
+              <div class="chart-shell"><svg data-k="cchart" role="img" aria-label="Coverage of 90 percent intervals for five forecasters"></svg></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="next" class="proj-section is-soft" aria-labelledby="next-title"><div class="proj-wrap">
+      <h2 id="next-title" class="proj-h2">Keep going</h2>
+      <div class="rl-pn"><a href="/epidemic-modeling/module-10/"><i class="ri-arrow-left-line" aria-hidden="true"></i><span><small>Previous · Module 10</small><strong>Intervention policies</strong></span></a><a class="is-next" href="/epidemic-modeling/module-12/"><span><small>Next · Module 12</small><strong>Computational considerations</strong></span><i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+    </div></section>
+  </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Courses</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/rl-course/" class="hover:text-white">Reinforcement Learning</a></li>
+                  <li><a href="/epidemic-modeling/" class="hover:text-white">Epidemic Modeling</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/rl-course/" class="hover:text-white">RL course</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <script src="/js/videos.js"></script>
+      
+      <script src="/js/epi-labs.js" defer></script>
+      <script src="/js/epi-course.js" defer></script>
+   </body>
+</html>

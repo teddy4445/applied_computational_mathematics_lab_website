@@ -1,0 +1,86 @@
+<!-- Used by tools/build_epi_course.py: the surveillance lab (Module 9) of the Epidemic Modeling course: a known latent epidemic seen through reported cases, a serosurvey with imperfect tests, and wastewater samples. Script: js/epi-labs.js (data-epx="streams"), styles: css/exploration-lab.css + css/rl-labs.css + css/epi-course.css. -->
+      <div class="rlx" id="streams-lab" data-epx="streams">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">One hidden epidemic, three views</h3>
+          <p class="rlx-sub">The module's simulated city: a million people, a lockdown on day 62, a relaxation on day 110. The infections (orange) are known; each panel shows what one data stream would see. Everything runs in your browser.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">Reported cases</div>
+              <div class="formula-line"><span class="formula-chip">cases(t) = Σ share × infections(t − d) × delay(d)</span></div>
+              <p class="math-card-copy">Only a share of infections is reported, after a delay (here a gamma distribution).</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Serosurvey</div>
+              <div class="formula-line"><span class="formula-chip">true ≈ (positive + sp − 1) ÷ (se + sp − 1)</span></div>
+              <p class="math-card-copy">Imperfect tests: false positives dominate when few people have been infected.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Wastewater</div>
+              <div class="formula-line"><span class="formula-chip">concentration = shedding ÷ flow × noise</span></div>
+              <p class="math-card-copy">Shedding from all recent infections, diluted on rainy days, measured with noise.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Reported case controls">
+            <div><h4 class="rlx-h">Reported cases</h4><p class="rlx-sub">Change what share is reported, and when.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="svR1">Share reported</label><span class="control-value" data-k="r1-out">35%</span></div><input id="svR1" data-k="r1" type="range" min="0.05" max="0.6" step="0.05" value="0.35"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="svR2">Share after the change</label><span class="control-value" data-k="r2-out">35%</span></div><input id="svR2" data-k="r2" type="range" min="0.05" max="0.6" step="0.05" value="0.35"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="svCd">Change on</label><span class="control-value" data-k="cd-out">day 150</span></div><input id="svCd" data-k="cd" type="range" min="80" max="190" step="5" value="150"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="svDl">Infection to report</label><span class="control-value" data-k="dl-out">8 days</span></div><input id="svDl" data-k="dl" type="range" min="2" max="16" step="1" value="8"></div>
+            <p class="rlx-hint">Blue: reported cases scaled up by the first share, so both curves can be compared. Values are made up to show mechanisms.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Infections peak</div><div class="metric-value" data-k="ipk">–</div></div><div class="metric-tile"><div class="metric-label">Cases peak</div><div class="metric-value" data-k="cpk">–</div></div><div class="metric-tile"><div class="metric-label">Share reported</div><div class="metric-value" data-k="csh">–</div></div><div class="metric-tile"><div class="metric-label">Wrong direction</div><div class="metric-value" data-k="cwrong">–</div></div></div>
+            <p class="rlx-status" data-k="cstatus" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Infections and cases</h4><p class="rlx-sub">Orange: new infections; blue: reported cases ÷ the first share.</p></div></div>
+              <div class="chart-shell"><svg data-k="cchart" role="img" aria-label="Infections and reported cases over 200 days"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current settings, in its own panel.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Make reported cases fall for at least 10 days while infections rise.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Serosurvey: with fewer than 1% ever infected, get a positive share more than 3 times the truth.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Serosurvey: get the corrected 90% range narrower than 1 percentage point (with more than 0.5% infected).</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>Wastewater: with noise of 0.5 or more, see the first wave turn at least 2 days before reported cases (and not before the infections).</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+          <div class="rlx-grid" style="margin-top:1.5rem">
+            <aside class="rlx-card rlx-controls" aria-label="Serosurvey controls">
+            <div><h4 class="rlx-h">Serosurvey</h4><p class="rlx-sub">Test a random sample for antibodies (positive 14 days after infection).</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="svSd">Survey day</label><span class="control-value" data-k="sday-out">day 140</span></div><input id="svSd" data-k="sday" type="range" min="20" max="199" step="1" value="140"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="svSn">People tested</label><span class="control-value" data-k="sn-out">2,000</span></div><input id="svSn" data-k="sn" type="range" min="500" max="10000" step="500" value="2000"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="svSe">Sensitivity</label><span class="control-value" data-k="se-out">90%</span></div><input id="svSe" data-k="se" type="range" min="0.7" max="1" step="0.01" value="0.9"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="svSp">Specificity</label><span class="control-value" data-k="sp-out">98.5%</span></div><input id="svSp" data-k="sp" type="range" min="0.95" max="1" step="0.005" value="0.985"></div>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Ever infected</div><div class="metric-value" data-k="st">–</div></div><div class="metric-tile"><div class="metric-label">Survey positive</div><div class="metric-value" data-k="sr">–</div></div><div class="metric-tile"><div class="metric-label">Corrected, 90% of surveys</div><div class="metric-value" data-k="sc">–</div></div></div>
+            <p class="rlx-status" data-k="sstatus" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">True and observed positivity</h4><p class="rlx-sub">Black: share ever infected; orange: the expected share testing positive.</p></div></div>
+              <div class="chart-shell"><svg data-k="schart" role="img" aria-label="True seroprevalence and observed positivity"></svg></div>
+            </div>
+            </div>
+          </div>
+          <div class="rlx-grid" style="margin-top:1.5rem">
+            <aside class="rlx-card rlx-controls" aria-label="Wastewater controls">
+            <div><h4 class="rlx-h">Wastewater</h4><p class="rlx-sub">Samples at the treatment plant.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="svWn">Measurement noise</label><span class="control-value" data-k="wn-out">0.35</span></div><input id="svWn" data-k="wn" type="range" min="0" max="0.8" step="0.05" value="0.35"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="svWk">Samples a week</label><span class="control-value" data-k="wk-out">3 samples</span></div><input id="svWk" data-k="wk" type="range" min="1" max="4" step="1" value="3"></div>
+            <div class="rlx-row"><div><label class="rlx-label" for="svWr">Rain dilutes some days</label></div><label class="toggle"><input id="svWr" data-k="wr" type="checkbox" checked><span class="toggle-track"></span></label></div>
+            <div class="rlx-row"><div><label class="rlx-label" for="svWz">Divide by a fecal marker</label></div><label class="toggle"><input id="svWz" data-k="wz" type="checkbox"><span class="toggle-track"></span></label></div>
+            <div class="rlx-btns"><button type="button" class="control-button control-button-secondary is-wide" data-k="wnew">New noise</button></div>
+            <p class="rlx-hint">Samples a week: 1, 2, 3 or every day. A turn counts when the 14-day growth stays negative for a week; noise can hide or fake a turn, so try New noise.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Infections turn</div><div class="metric-value" data-k="wti">–</div></div><div class="metric-tile"><div class="metric-label">Wastewater turns</div><div class="metric-value" data-k="wtw">–</div></div><div class="metric-tile"><div class="metric-label">Cases turn</div><div class="metric-value" data-k="wtc">–</div></div></div>
+            <p class="rlx-status" data-k="wstatus" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Infections and wastewater</h4><p class="rlx-sub">Orange: infections; blue dots: samples (light blue: rainy days); dashed: the day each stream turns.</p></div></div>
+              <div class="chart-shell"><svg data-k="wchart" role="img" aria-label="Infections and wastewater samples"></svg></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>

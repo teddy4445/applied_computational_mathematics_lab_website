@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_epi_course.py from data/epi-course.json. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Module 6: Multi-agent simulation | Epidemic Modeling Course | ACML</title>
+      <meta name="description" content="Module 6 of 13 of ACML’s Epidemic Modeling course. Building, running and trusting agent-based models: slides, 6 short episodes and an interactive lab.">
+      <meta name="author" content="Teddy Lazebnik">
+      <meta name="keywords" content="epidemic modeling, epidemiology, multi-agent simulation, course, ACML">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/epidemic-modeling/module-06/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Module 6: Multi-agent simulation · Epidemic Modeling">
+      <meta property="og:description" content="Module 6 of 13 of ACML’s Epidemic Modeling course. Building, running and trusting agent-based models: slides, 6 short episodes and an interactive lab.">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/epidemic-modeling/module-06/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/epidemic-modeling/module-06/share.jpg">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Module 6: Multi-agent simulation · Epidemic Modeling">
+      <meta name="twitter:description" content="Module 6 of 13 of ACML’s Epidemic Modeling course. Building, running and trusting agent-based models: slides, 6 short episodes and an interactive lab.">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/epidemic-modeling/module-06/share.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "Module 6: Multi-agent simulation",
+        "description": "Agent-based models simulate every person. We build agents with states, rules and neighbours, check that average agents give back the SIR equations, and see what heterogeneity changes. Agents can compute anything, which costs prediction, and their contact loops cost time. Then the building blocks: time steps or events, the update order, the neighbourhood, seeds and reproducibility, common random numbers for sharp comparisons, and richer agents. We finish with two case studies in a toy town (a flu-like illness with a school closure, a COVID-like illness with isolation and behaviour), seven design steps, sensitivity analysis, and the ethics and policy risks of these models.",
+        "url": "https://acml.teddylazebnik.com/epidemic-modeling/module-06/",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "learningResourceType": [
+          "Lecture slides",
+          "Video",
+          "Interactive resource"
+        ],
+        "teaches": "Building, running and trusting agent-based models",
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Epidemic Modeling",
+          "url": "https://acml.teddylazebnik.com/epidemic-modeling/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Teddy Lazebnik",
+          "url": "https://teddylazebnik.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Applied Computational Mathematics Laboratory",
+          "url": "https://acml.teddylazebnik.com/"
+        },
+        "hasPart": [
+          {
+            "@type": "VideoObject",
+            "name": "Why agents? Their power and their cost",
+            "description": "Why simulate every person? We build agents with states, rules and neighbours, check that 10,000 average agents give back the SIR equations, show how spreading out susceptibility shrinks the epidemic, meet Rule 110 and what agents can compute, and count the cost of checking contacts.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep20.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/jolefOOZxmg",
+            "duration": "PT3M52S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Building an agent-based model",
+            "description": "Three choices that look like programming details: the time step, the update order and the neighbourhood.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep21.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/glDu25mosjI",
+            "duration": "PT3M15S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Randomness and reproducibility",
+            "description": "Where an agent model's dice come from.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep22.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/E0Rl8RQnzJc",
+            "duration": "PT3M8S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Two case studies: flu-like illness and COVID-19",
+            "description": "Two case studies in a toy town of our own, after the ideas of FRED and Covasim: a flu-like illness with households, schools and workplaces, an eight-week school closure, a COVID-like illness with presymptomatic spread and isolation delays, and behaviour that feeds back.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep23.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/7O66Jbq4ti4",
+            "duration": "PT3M14S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Designing your own simulation",
+            "description": "Seven steps for designing an agent-based epidemic model: a question that names its output, the coarsest agents that work, contacts by setting, stage durations with the right shape, interventions as rule changes, a deliberate start, and enough runs.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep24.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/_hseTj1WsHo",
+            "duration": "PT3M17S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Sensitivity, ethics and policy risk",
+            "description": "How much to trust an agent model: we split uncertainty into inputs and chance, show why local sensitivity needs coupled runs, measure how easily people in a synthetic town can be singled out, look at who carries the burden, and discuss policy risk.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep25.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/WEKKRU9lV4c",
+            "duration": "PT3M12S"
+          },
+          {
+            "@type": "DigitalDocument",
+            "name": "Module 6 slides",
+            "encodingFormat": "application/pdf",
+            "url": "https://acml.teddylazebnik.com/epidemic-modeling/slides/Epidemic_Modeling_Module06_Multi-agent_simulation.pdf"
+          }
+        ]
+      }
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      <link href="/css/videos.css" rel="stylesheet">
+      
+      <link href="/css/exploration-lab.css" rel="stylesheet">
+      <link href="/css/rl-labs.css" rel="stylesheet">
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/project.css" rel="stylesheet">
+      <link href="/css/rl-course.css" rel="stylesheet">
+      <link href="/css/epi-course.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+          <a href="/courses.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Courses</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/courses.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Courses</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="proj-page rl-page bg-white">
+    <header class="proj-hero rl-hero">
+      <div class="proj-wrap proj-hero-grid">
+        <div>
+          <nav class="proj-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/courses.html">Courses</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/epidemic-modeling/">Epidemic Modeling</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Module 6</span></nav>
+          <p class="proj-kicker"><span><i class="ri-graduation-cap-line" aria-hidden="true"></i>Epidemic Modeling</span><span>Core models</span></p>
+          <h1 class="proj-title"><small>Module 6</small>Multi-agent simulation</h1>
+          <p class="proj-about-lead rl-summary">Agent-based models simulate every person. We build agents with states, rules and neighbours, check that average agents give back the SIR equations, and see what heterogeneity changes. Agents can compute anything, which costs prediction, and their contact loops cost time. Then the building blocks: time steps or events, the update order, the neighbourhood, seeds and reproducibility, common random numbers for sharp comparisons, and richer agents. We finish with two case studies in a toy town (a flu-like illness with a school closure, a COVID-like illness with isolation and behaviour), seven design steps, sensitivity analysis, and the ethics and policy risks of these models.</p>
+          <div class="rl-goal"><i class="ri-focus-3-line" aria-hidden="true"></i><span>By the end you should be able to design a small agent-based epidemic model, choose its time step, update order and geometry on purpose, make it reproducible, compare policies with common random numbers, and report its uncertainty, privacy and equity issues honestly.</span></div>
+          <h2 class="proj-h3 rl-ideas-title">Key ideas, one per episode</h2>
+          <ul class="rl-ideas"><li><a href="#ep-20">Ep. 20</a><span>Average agents give back SIR; spread-out agents do not. Agents can compute anything, and their contact loops cost time.</span></li><li><a href="#ep-21">Ep. 21</a><span>The time step, the update order and the neighbourhood are modeling choices that change the epidemic.</span></li><li><a href="#ep-22">Ep. 22</a><span>Seeds make runs reproducible; common random numbers make policy comparisons sharp; every richer rule needs data.</span></li><li><a href="#ep-23">Ep. 23</a><span>Structure shows who is infected and where; delays decide what isolation can do; behaviour feeds back.</span></li><li><a href="#ep-24">Ep. 24</a><span>Seven steps: a question with an output, coarse agents, contacts by setting, stage shapes, rules, a deliberate start, enough runs.</span></li><li><a href="#ep-25">Ep. 25</a><span>Split uncertainty into inputs and chance, couple runs for sensitivity, protect privacy, report by group, and don&#x27;t let detail pass for certainty.</span></li></ul>
+          <p class="rl-source"><b>Textbook:</b> Chapter 6 of <a href="https://shop.elsevier.com/books/epidemic-modeling/lazebnik/978-0-443-55525-1" target="_blank" rel="noopener">T. Lazebnik, Epidemic Modeling: Principles, Algorithms, and Applications (Academic Press, 2026)</a>. The episodes and slides follow the chapter’s topics in our own words, figures and simulations; nothing is copied from the book.</p>
+        </div>
+        <div class="rl-first">
+          <a class="rl-first-img" href="/epidemic-modeling/slides/Epidemic_Modeling_Module06_Multi-agent_simulation.pdf" target="_blank" rel="noopener"><img src="/epidemic-modeling/img/slides/m06-s01.webp" alt="The title slide of Module 6: Multi-agent simulation" width="960" height="540" fetchpriority="high" decoding="async"></a>
+          <p class="rl-first-text">38 slides, written to be read on your own, with worked examples, “try it” boxes, our own small simulations and check-yourself questions (answers at the end). PDF, 1.0 MB.</p>
+          <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="/epidemic-modeling/slides/Epidemic_Modeling_Module06_Multi-agent_simulation.pdf" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Open the PDF</a><a class="proj-btn" href="/epidemic-modeling/slides/Epidemic_Modeling_Module06_Multi-agent_simulation.pdf" download><i class="ri-download-2-line" aria-hidden="true"></i>Download</a></div>
+        </div>
+      </div>
+    </header>
+    <nav class="proj-subnav is-mobile-only" aria-label="Sections of this page"><div class="proj-wrap"><ul><li><a href="#watch">Watch</a></li><li><a href="#lab">Lab</a></li><li><a href="#next">Next</a></li></ul></div></nav>
+    <section id="watch" class="proj-section is-soft" aria-labelledby="watch-title"><div class="proj-wrap">
+      <h2 id="watch-title" class="proj-h2">Watch</h2>
+      <p class="proj-lead">6 short episodes for this module. Pick one from the list, and open the transcript to read along: each timestamp plays the episode from there. The narration is generated with a voice clone of Teddy, used with his permission.</p>
+      <div class="rl-watch">
+        <div class="rl-player-wrap">
+          <div id="rl-player" class="yt-player yt-16x9" data-yt-id="jolefOOZxmg" data-yt-title="Why agents? Their power and their cost"><a class="yt-play" href="https://www.youtube.com/watch?v=jolefOOZxmg" aria-label="Play episode 20: Why agents? Their power and their cost"><img src="/epidemic-modeling/img/eps/ep20.webp" alt="" width="640" height="360" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div>
+          <div class="rl-now">
+            <p id="rl-now-num" class="rl-now-num">Episode 20 · 3:52</p>
+            <p id="rl-now-title" class="rl-now-title">Why agents? Their power and their cost</p>
+            <p id="rl-now-hook" class="rl-now-hook">Why simulate every person? We build agents with states, rules and neighbours, check that 10,000 average agents give back the SIR equations, show how spreading out susceptibility shrinks the epidemic, meet Rule 110 and what agents can compute, and count the cost of checking contacts.</p>
+            <p id="rl-now-take" class="rl-now-take"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i><span>Average agents give back SIR; spread-out agents do not. Agents can compute anything, and their contact loops cost time.</span></p>
+          </div>
+            <details id="rl-tx" class="rl-tx">
+              <summary><i class="ri-file-text-line" aria-hidden="true"></i>Transcript<span id="rl-tx-which">Episode 20</span><i class="ri-arrow-down-s-line rl-tx-caret" aria-hidden="true"></i></summary>
+              <div class="rl-tx-body"><div class="rl-tx-ep" data-ep="20"><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=jolefOOZxmg" data-ep="20" data-t="0">0:00</a><p><b>From boxes to agents.</b> Welcome to Module six. Until now, our models moved people between boxes. Today, every person gets a little program of their own. Why would we do that, and what does it cost?</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=jolefOOZxmg&amp;t=17s" data-ep="20" data-t="17">0:17</a><p><b>What an agent is.</b> An agent is one simulated individual. It has a state, like susceptible or infected, plus anything else we care about: age, a household, a timer. It has rules for what it does each step. And it has neighbors: the agents it can meet. A scheduler decides when the agents act. Run the rules, and the epidemic curve comes out at the end. Nobody writes it down in advance.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=jolefOOZxmg&amp;t=42s" data-ep="20" data-t="42">0:42</a><p><b>Agents give back SIR.</b> First check: can agents reproduce what we already know? Ten thousand agents. Each infectious agent meets ten random people a day and infects each susceptible one with a chance of two and a half percent. It recovers with a chance of ten percent a day. That&#x27;s R₀ of 2.5. We ran it forty times, starting from ten cases. On average, eighty nine percent of the town got infected. The equations say the same: eighty nine percent. The peaks landed between day forty six and day sixty; the equations put it on day forty nine. So with everyone average and everyone mixing, agents just give back the SIR model, with some noise on top.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=jolefOOZxmg&amp;t=80s" data-ep="20" data-t="80">1:20</a><p><b>Nobody is average.</b> The point of agents is that nobody has to be average. Keep the same average susceptibility, but spread it out: some people are hardly susceptible, some very much. Now only sixty percent get infected, not eighty nine. The least susceptible fifth: fourteen percent infected. The most susceptible fifth: ninety six percent. The susceptible get infected early, and the wave runs out of fuel sooner. An average hides who drives the epidemic. Agents keep that information.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=jolefOOZxmg&amp;t=109s" data-ep="20" data-t="109">1:49</a><p><b>Rule 110 and what agents can compute.</b> How far can agents go? All the way. Here&#x27;s a row of cells, each zero or one. At every step, each cell looks at itself and its two neighbors, and a fixed table gives its next value. This table is called Rule 110. Starting from a single live cell, it builds these patterns. And Matthew Cook proved that Rule 110 can carry out any computation at all. Treat each cell as an agent, and you have an agent model that can do anything a computer can. That&#x27;s good news for flexibility, and bad news for prediction. No general method can tell you in advance whether an arbitrary agent model will even stop. So in practice we reason about the models we actually build.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=jolefOOZxmg&amp;t=150s" data-ep="20" data-t="150">2:30</a><p><b>The cost of contacts, and what to report.</b> And those models cost time. The naive way checks every pair of agents every day. In our town that&#x27;s fifty million pairs a day, and about 7.9 billion over one epidemic. Our agents only checked their ten contacts, so the work followed the infectious agents: about eight hundred ninety thousand checks per run. Nearly nine thousand times less. Grow the town tenfold, and the pairs grow a hundredfold, while the contact checks grow only tenfold. On a contact network, the work follows the edges of infectious agents instead. So when you report an agent model, report its size: how many agents, how many contacts or edges, how many steps, and which loop dominates the time and memory.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=jolefOOZxmg&amp;t=190s" data-ep="20" data-t="190">3:10</a><p><b>Recap.</b> So: agents are individuals with states, rules and neighbors. With everyone average they give back the equations. Their power is heterogeneity and explicit contacts, and in principle they can compute anything. Their price is design effort and computing time. Next time: building one. How to handle time, who moves first, and the shape of the world the agents live in.</p></div></div><div class="rl-tx-ep" data-ep="21" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=glDu25mosjI" data-ep="21" data-t="0">0:00</a><p><b>Three choices.</b> Three choices in an agent model look like programming details: how time moves, who acts first, and what counts as a neighbor. Today we&#x27;ll see that each one can change the epidemic.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=glDu25mosjI&amp;t=18s" data-ep="21" data-t="18">0:18</a><p><b>Time: steps or events.</b> Time first. The simplest choice is fixed steps: every step, every agent gets a chance to get infected and a chance to recover. Same rules, same town, only the step size changes. Steps of a tenth of a day give a peak of twenty four percent on day forty nine, just like the equations. Daily steps: twenty five percent, on day fifty one. Weekly steps: thirty five percent, on day sixty three. The step itself is a modeling choice. If a lot can happen within one step, a fixed step distorts the result. The alternative is to jump from event to event, as in the Gillespie algorithm from Module three. That&#x27;s exact, but in a town of ten thousand you handle about eighteen thousand events one by one. Tau leaping sits in between: it lumps the events of a short leap together.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=glDu25mosjI&amp;t=63s" data-ep="21" data-t="63">1:03</a><p><b>Who acts first.</b> Second: who acts first. A line of two hundred cells, infection at the left end, and every infected cell infects its neighbors for sure. If all cells update at once, from the old state, the front moves one cell per step. That&#x27;s synchronous updating. Now update one cell at a time, left to right, letting each cell see the new state. In a single step, the infection runs across all two hundred cells. Go right to left, and it moves one cell per step again. With a fresh random order each step, the front moves about 1.7 cells per step. The theory says e minus one, 1.72. The same happens in an SIR town. When everyone acts at once, the peak comes on day fifty six. When agents act one by one in a random order, a person infected in the morning can pass it on that afternoon, and the peak comes on day forty eight. Neither is wrong. But the update scheme is part of the model, so choose it on purpose, shuffle the order if you go one by one, and report it.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=glDu25mosjI&amp;t=121s" data-ep="21" data-t="121">2:01</a><p><b>Geometry.</b> Third: geometry. On a grid, who is your neighbor? Four cells, up, down, left and right? Or all eight around you? With certain infection, after sixteen steps, four neighbors give a diamond of five hundred forty five cells. Eight neighbors give a square of one thousand eighty nine. With a thirty percent chance per neighbor: one hundred eighteen against five hundred seven. Grids suit fields and buildings. For people, a contact network often matters more than distance, as we saw in Module four. And for crowds in a room, agents can move in continuous space.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=glDu25mosjI&amp;t=157s" data-ep="21" data-t="157">2:37</a><p><b>Recap.</b> So: steps or events, all at once or one by one, and which neighbors. Each choice changes the timing and the size of the epidemic. Next time: randomness. How to make a random model reproducible, and how to compare two policies without drowning in noise.</p></div></div><div class="rl-tx-ep" data-ep="22" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=E0Rl8RQnzJc" data-ep="22" data-t="0">0:00</a><p><b>Dice everywhere.</b> Agent models roll dice all the time. Today: where the dice come from, how to get the same run twice, and how to compare two policies when every run is different.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=E0Rl8RQnzJc&amp;t=19s" data-ep="22" data-t="19">0:19</a><p><b>Seeds and reproducibility.</b> Computers don&#x27;t really roll dice. They use pseudo-random number generators: formulas that produce numbers that look random, starting from a seed. Same seed, same numbers, same run. We ran our two thousand agent town twice with seed forty two, and got exactly the same epidemic, agent for agent. Seed forty three gives a different one. So save your seeds. They are part of the result. And on parallel machines, give each process its own stream, or the runs depend on which process happened to be faster.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=E0Rl8RQnzJc&amp;t=49s" data-ep="22" data-t="49">0:49</a><p><b>How different runs are.</b> How different are the runs? Two hundred runs of the same town, R₀ of 1.5, five first cases. Twenty nine fizzled out early. The rest ended between forty five and sixty five percent infected, fifty eight on average. The spread of single runs was about four percentage points. The uncertainty of the average shrinks with the square root of the number of runs: 1.3 points with ten runs, 0.4 with a hundred.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=E0Rl8RQnzJc&amp;t=76s" data-ep="22" data-t="76">1:16</a><p><b>Common random numbers.</b> Now compare two policies. A town of four thousand with R₀ of two, and a policy that removes three percent of contacts. On average it saves about two percent of the town. Run each policy with its own random numbers, two hundred times, and pair the runs up. In thirty seven pairs, the policy looks harmful. Pure noise. Now use common random numbers: give both policies the same random numbers, agent by agent and day by day. Then only six pairs out of two hundred look harmful. The spread of the difference dropped from 2.1 points to 0.9. To get the same precision with independent runs, you&#x27;d need more than five times as many.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=E0Rl8RQnzJc&amp;t=117s" data-ep="22" data-t="117">1:57</a><p><b>Richer agents.</b> Finally, richer agents. Our agents follow fixed rules. Agents can also have beliefs, desires and intentions, they can learn from what happens to them, and lately some models even use language models to decide what an agent does. A small taste: let agents who met an infectious person in the last week cut their chance of getting infected in half. Same town, same R₀. The epidemic grows slower and lasts longer, and it reaches forty nine percent of the town instead of eighty. Behavior can matter as much as biology. But every new rule is a new assumption, and it needs data behind it.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=E0Rl8RQnzJc&amp;t=151s" data-ep="22" data-t="151">2:31</a><p><b>Recap.</b> So: seeds make runs reproducible, many runs measure the noise, common random numbers make comparisons sharp, and richer rules add realism at the price of more assumptions. Next time: two real case studies, influenza in a structured town, and COVID with behavior and testing.</p></div></div><div class="rl-tx-ep" data-ep="23" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=7O66Jbq4ti4" data-ep="23" data-t="0">0:00</a><p><b>FRED and Covasim.</b> Two famous agent models shaped how we study epidemics: FRED for influenza and Covasim for COVID. Today we take the main idea of each, and build a toy version ourselves.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=7O66Jbq4ti4&amp;t=19s" data-ep="23" data-t="19">0:19</a><p><b>Our toy town.</b> FRED builds synthetic copies of real cities: households, schools and workplaces, where the agents meet every day. Covasim adds detailed infection stages, testing and behavior. Our numbers come from our own small town, not from those tools. Our town: four thousand five hundred seventy eight people in nineteen hundred households, fifty three school classes, one hundred sixty eight workplaces, and random meetings around town. The values are made up to show mechanisms.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=7O66Jbq4ti4&amp;t=45s" data-ep="23" data-t="45">0:45</a><p><b>A flu-like illness.</b> First, a flu-like illness: two days before becoming infectious, then four infectious days. Forty four percent of the town gets infected. Children: sixty eight percent. Adults: thirty nine. Seniors: thirteen. And we can ask where infection happens: forty four percent at home, nineteen percent at school, thirteen percent at work, and twenty four percent around town. A model with one infected box can&#x27;t answer that question. A town of agents answers it directly.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=7O66Jbq4ti4&amp;t=71s" data-ep="23" data-t="71">1:11</a><p><b>Closing schools.</b> Now close the schools for eight weeks, starting on the day two percent of the town has been infected. While they&#x27;re shut, the epidemic stays low. When they reopen, it comes back, with a peak of 1.4% infectious on day one hundred twenty eight, against 3.8% on day fifty one without closure. In the end, thirty percent infected instead of forty four. The closure lowered the total, but it mostly moved the wave. When to reopen is as important as when to close.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=7O66Jbq4ti4&amp;t=98s" data-ep="23" data-t="98">1:38</a><p><b>A COVID-like illness and isolation.</b> Second, a COVID-like illness in the same town: three days before becoming infectious, then two infectious days before symptoms, then five more. Thirty five percent never get symptoms, and they&#x27;re half as infectious. Sixty six percent get infected, and twenty seven percent of infections come from people who don&#x27;t have symptoms yet. Now let symptomatic people isolate, with eighty percent following the advice. Isolating on the first day of symptoms: thirty four percent infected. One day later: forty four. Two days: fifty one. Four days: sixty. Every day of delay costs. And the faster people isolate, the more of what remains comes from people without symptoms: thirty nine percent with same-day isolation. That&#x27;s the part waiting for symptoms can never catch.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=7O66Jbq4ti4&amp;t=142s" data-ep="23" data-t="142">2:22</a><p><b>Behaviour feeds back.</b> Finally, behavior. Let people cut their work and town contacts as reported cases rise, reported a week late. The peak drops from twelve percent infectious to 8.6%, and the total from sixty six percent to forty nine.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=7O66Jbq4ti4&amp;t=155s" data-ep="23" data-t="155">2:35</a><p><b>Recap.</b> So: structure tells you who gets infected and where. Stages and delays decide what testing and isolation can do. And behavior feeds back on the epidemic, as in Module two, now inside each agent. Next time: designing your own agent model, step by step.</p></div></div><div class="rl-tx-ep" data-ep="24" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=_hseTj1WsHo" data-ep="24" data-t="0">0:00</a><p><b>Seven steps.</b> Building an agent model is a chain of decisions. Today, seven steps that keep each decision tied to the question you&#x27;re asking.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=_hseTj1WsHo&amp;t=15s" data-ep="24" data-t="15">0:15</a><p><b>A question that names its output.</b> Step one: a question that names its output. What quantity, in which population, over what time, compared with what? And what must the model reproduce before you trust it? How do schools affect transmission is too vague. How much does closing schools for eight weeks change infections among adults over two hundred days, is a question a model can answer. And ask whether you need agents at all. If everyone can be treated as average, a compartmental model is clearer and faster.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=_hseTj1WsHo&amp;t=43s" data-ep="24" data-t="43">0:43</a><p><b>Agents and contacts.</b> Step two: the agents. Choose the coarsest agent that still expresses the mechanism: people, households or places. Then their state: health state, time in that state, age, household. Step three: who meets whom. If your intervention acts on a setting, like closing schools, you need contacts organized by setting.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=_hseTj1WsHo&amp;t=62s" data-ep="24" data-t="62">1:02</a><p><b>Stage durations.</b> Step four: the illness itself, and how long each stage lasts. Same average durations, two days before becoming infectious and four infectious days, but three shapes. Memoryless, exponential durations: the peak comes on day seventy two, at 2.5% infectious. Four stages in a row: day fifty four, at 3.9%. Fixed durations: day forty eight, at 4.4%. Part of the reason: with exponential durations, many infections are very short and a few very long, and the long ones spend extra days on family members who are already infected. If timing matters to your question, the shape matters.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=_hseTj1WsHo&amp;t=97s" data-ep="24" data-t="97">1:37</a><p><b>Interventions as rule changes.</b> Step five: behavior and interventions, written as rule changes. Vaccination lowers susceptibility. Isolation removes contacts. Masks lower the chance per contact.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=_hseTj1WsHo&amp;t=107s" data-ep="24" data-t="107">1:47</a><p><b>The starting point.</b> Step six: the starting point. Who lives where, and who the first cases are. We started outbreaks with two cases, a hundred times each. Two children in one school class: sixty seven outbreaks took off, and they reached two percent of the town on day twenty nine on average. Two random adults: fifty seven took off, day thirty. Two seniors: twenty seven, day thirty three. Where the first cases are changes whether an outbreak starts, and how fast. Treat it as a modeling decision, not a detail.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=_hseTj1WsHo&amp;t=135s" data-ep="24" data-t="135">2:15</a><p><b>Outputs and how many runs.</b> Step seven: run and collect. Decide in advance what you log and how often. Logging everything slows the model and invites fishing for results. And decide how many runs you need. Single runs of our town spread by about two percentage points. To pin the average down to plus or minus one point, you need fourteen runs. For half a point, fifty three.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=_hseTj1WsHo&amp;t=158s" data-ep="24" data-t="158">2:38</a><p><b>Recap.</b> So: a question with an output, the coarsest agents that work, contacts by setting, stage durations with the right shape, interventions as rule changes, a deliberate start, and an output plan with enough runs. Next time: how sensitive the answer is, and the ethics and risks of putting these models to use.</p></div></div><div class="rl-tx-ep" data-ep="25" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=WEKKRU9lV4c" data-ep="25" data-t="0">0:00</a><p><b>How much to trust the number.</b> An agent model has dozens of uncertain inputs, and it gives a different answer every run. How much should anyone trust its number? And what can go wrong when it&#x27;s used?</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=WEKKRU9lV4c&amp;t=17s" data-ep="25" data-t="17">0:17</a><p><b>Inputs or chance.</b> The spread in the output has two sources. Inputs we don&#x27;t know exactly, and chance: same inputs, different runs. The total variance splits into the variance of the average across inputs, plus the average of the run-to-run variance. We drew thirty settings for school and town transmission, each between seventy and one hundred thirty percent of our values, and ran each eight times. The inputs explain forty five percent of the variance; chance explains the rest. Ninety percent of runs ended between thirty four and fifty one percent infected. So report that range, not one run&#x27;s number. And the split tells you where to spend effort: on better data for the inputs, or on more runs.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=WEKKRU9lV4c&amp;t=58s" data-ep="25" data-t="58">0:58</a><p><b>Local sensitivity.</b> Local sensitivity asks a narrower question: nudge one input, and how much does the output move? We raised town transmission by five percent and measured the change in the share infected. With independent runs, eleven of thirty estimates came out negative, as if more transmission meant fewer infections. The lowest was minus 0.8 and the highest 0.9, plus one wild value from a run that fizzled. With common random numbers, all thirty landed between zero and about 0.6. The average was 0.26. Couple the runs, or the noise swamps the effect. Inputs that jump, like schools open or closed, are compared as scenarios. Global methods such as Morris and Sobol come in Module eleven.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=WEKKRU9lV4c&amp;t=100s" data-ep="25" data-t="100">1:40</a><p><b>Privacy.</b> Now the ethics. Realistic agents are built from data about real people, and realism can expose them. Even in our made-up town, an exact age, a household size and a neighborhood single out one person for a quarter of the town. Group ages into ten year bands, and that falls to 0.4%. Coarsen, aggregate, and treat synthetic populations as sensitive data.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=WEKKRU9lV4c&amp;t=123s" data-ep="25" data-t="123">2:03</a><p><b>Who carries the burden.</b> The burden isn&#x27;t even, either. In our flu-like runs, nineteen percent of people living alone got infected, against eighty percent of people in six person households. And interventions land unevenly too: closing schools costs some families far more than others. So report results by group, not only the total.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=WEKKRU9lV4c&amp;t=141s" data-ep="25" data-t="141">2:21</a><p><b>Policy risk.</b> Finally, policy risk. A detailed model looks precise, and its output can be given more authority than its data support. State the question it was built for, the range of outcomes, and what it cannot tell you.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=WEKKRU9lV4c&amp;t=154s" data-ep="25" data-t="154">2:34</a><p><b>Recap.</b> So: split the uncertainty into inputs and chance, couple runs when you measure sensitivity, protect the people behind the data, look at who carries the burden, and don&#x27;t let detail pass for certainty. That closes Module six. Next, in Module seven, we turn from simulating epidemics to learning them from data.</p></div></div></div>
+            </details>
+        </div>
+        <div class="rl-eps">
+          <div class="rl-eps-head"><b>Module 6 episodes</b><span>6 episodes · 20 min</span></div>
+          <ol><li id="ep-20"><a class="rl-ep is-active" data-ep="20" href="https://www.youtube.com/watch?v=jolefOOZxmg" aria-current=true><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep20.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>3:52</span></span><span><span class="rl-ep-num">Episode 20 · 6.1</span><span class="rl-ep-title" style="display:block">Why agents? Their power and their cost</span><span class="rl-ep-take" style="display:block">Average agents give back SIR; spread-out agents do not. Agents can compute anything, and their contact loops cost time.</span></span></a></li><li id="ep-21"><a class="rl-ep" data-ep="21" href="https://www.youtube.com/watch?v=glDu25mosjI"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep21.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>3:15</span></span><span><span class="rl-ep-num">Episode 21 · 6.2</span><span class="rl-ep-title" style="display:block">Building an agent-based model</span><span class="rl-ep-take" style="display:block">The time step, the update order and the neighbourhood are modeling choices that change the epidemic.</span></span></a></li><li id="ep-22"><a class="rl-ep" data-ep="22" href="https://www.youtube.com/watch?v=E0Rl8RQnzJc"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep22.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>3:08</span></span><span><span class="rl-ep-num">Episode 22 · 6.3</span><span class="rl-ep-title" style="display:block">Randomness and reproducibility</span><span class="rl-ep-take" style="display:block">Seeds make runs reproducible; common random numbers make policy comparisons sharp; every richer rule needs data.</span></span></a></li><li id="ep-23"><a class="rl-ep" data-ep="23" href="https://www.youtube.com/watch?v=7O66Jbq4ti4"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep23.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>3:14</span></span><span><span class="rl-ep-num">Episode 23 · 6.4</span><span class="rl-ep-title" style="display:block">Two case studies: flu-like illness and COVID-19</span><span class="rl-ep-take" style="display:block">Structure shows who is infected and where; delays decide what isolation can do; behaviour feeds back.</span></span></a></li><li id="ep-24"><a class="rl-ep" data-ep="24" href="https://www.youtube.com/watch?v=_hseTj1WsHo"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep24.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>3:17</span></span><span><span class="rl-ep-num">Episode 24 · 6.5</span><span class="rl-ep-title" style="display:block">Designing your own simulation</span><span class="rl-ep-take" style="display:block">Seven steps: a question with an output, coarse agents, contacts by setting, stage shapes, rules, a deliberate start, enough runs.</span></span></a></li><li id="ep-25"><a class="rl-ep" data-ep="25" href="https://www.youtube.com/watch?v=WEKKRU9lV4c"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep25.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>3:12</span></span><span><span class="rl-ep-num">Episode 25 · 6.6</span><span class="rl-ep-title" style="display:block">Sensitivity, ethics and policy risk</span><span class="rl-ep-take" style="display:block">Split uncertainty into inputs and chance, couple runs for sensitivity, protect privacy, report by group, and don&#x27;t let detail pass for certainty.</span></span></a></li></ol>
+        </div>
+      </div>
+      <script type="application/json" id="rl-episodes">[{"ep": 20, "youtube": "jolefOOZxmg", "title": "Why agents? Their power and their cost", "duration": "3:52", "hook": "Why simulate every person? We build agents with states, rules and neighbours, check that 10,000 average agents give back the SIR equations, show how spreading out susceptibility shrinks the epidemic, meet Rule 110 and what agents can compute, and count the cost of checking contacts.", "takeaway": "Average agents give back SIR; spread-out agents do not. Agents can compute anything, and their contact loops cost time.", "thumbAbs": "/epidemic-modeling/img/eps/ep20.webp"}, {"ep": 21, "youtube": "glDu25mosjI", "title": "Building an agent-based model", "duration": "3:15", "hook": "Three choices that look like programming details: the time step, the update order and the neighbourhood.", "takeaway": "The time step, the update order and the neighbourhood are modeling choices that change the epidemic.", "thumbAbs": "/epidemic-modeling/img/eps/ep21.webp"}, {"ep": 22, "youtube": "E0Rl8RQnzJc", "title": "Randomness and reproducibility", "duration": "3:08", "hook": "Where an agent model's dice come from.", "takeaway": "Seeds make runs reproducible; common random numbers make policy comparisons sharp; every richer rule needs data.", "thumbAbs": "/epidemic-modeling/img/eps/ep22.webp"}, {"ep": 23, "youtube": "7O66Jbq4ti4", "title": "Two case studies: flu-like illness and COVID-19", "duration": "3:14", "hook": "Two case studies in a toy town of our own, after the ideas of FRED and Covasim: a flu-like illness with households, schools and workplaces, an eight-week school closure, a COVID-like illness with presymptomatic spread and isolation delays, and behaviour that feeds back.", "takeaway": "Structure shows who is infected and where; delays decide what isolation can do; behaviour feeds back.", "thumbAbs": "/epidemic-modeling/img/eps/ep23.webp"}, {"ep": 24, "youtube": "_hseTj1WsHo", "title": "Designing your own simulation", "duration": "3:17", "hook": "Seven steps for designing an agent-based epidemic model: a question that names its output, the coarsest agents that work, contacts by setting, stage durations with the right shape, interventions as rule changes, a deliberate start, and enough runs.", "takeaway": "Seven steps: a question with an output, coarse agents, contacts by setting, stage shapes, rules, a deliberate start, enough runs.", "thumbAbs": "/epidemic-modeling/img/eps/ep24.webp"}, {"ep": 25, "youtube": "WEKKRU9lV4c", "title": "Sensitivity, ethics and policy risk", "duration": "3:12", "hook": "How much to trust an agent model: we split uncertainty into inputs and chance, show why local sensitivity needs coupled runs, measure how easily people in a synthetic town can be singled out, look at who carries the burden, and discuss policy risk.", "takeaway": "Split uncertainty into inputs and chance, couple runs for sensitivity, protect privacy, report by group, and don't let detail pass for certainty.", "thumbAbs": "/epidemic-modeling/img/eps/ep25.webp"}]</script>
+    </div></section>
+    <section id="lab" class="rl-lab" aria-labelledby="lab-title">
+      <div class="proj-wrap rl-lab-head">
+        <p class="proj-label"><i class="ri-group-line" aria-hidden="true"></i>Interactive lab</p>
+        <h2 id="lab-title" class="proj-h2" style="margin-top:.5rem">A town of agents</h2>
+        <p class="proj-lead">Simulate one agent per person in a town of households, see how stage durations change timing, and compare a policy with and without common random numbers.</p>
+        <p class="proj-lead" style="margin-top:.6rem">The first panel runs one epidemic in a town of about 1,800 agents; the second runs pairs of epidemics with and without a policy, with independent or common random numbers. Everything runs in your browser.</p>
+      </div>
+      <div class="rlx" id="agents-lab" data-epx="agents">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">A town of households, one agent per person</h3>
+          <p class="rlx-sub">About 1,800 agents in 700 households, simulated one day at a time in your browser.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">Infection</div>
+              <div class="formula-line"><span class="formula-chip">chance = 1 − (1 − pₕ)^(infectious at home) × e^(−k p × infectious in town ÷ N)</span></div>
+              <p class="math-card-copy">pₕ: chance per day per infectious household member. k: town meetings a day, p: chance per meeting.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Stages</div>
+              <div class="formula-line"><span class="formula-chip">latent 2 days, infectious 4 days, in k stages</span></div>
+              <p class="math-card-copy">One stage is exponential (memoryless); more stages make durations more regular; fixed means always 2 and 4 days.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Common random numbers</div>
+              <div class="formula-line"><span class="formula-chip">Var(A − B) = Var A + Var B − 2 Cov(A, B)</span></div>
+              <p class="math-card-copy">Every random number is tied to a seed, a day and an agent. Runs that share a seed share their luck, so their difference is sharp.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Town controls">
+            <div><h4 class="rlx-h">One town, one run</h4><p class="rlx-sub">Five first cases; each change runs the town again.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="agH">Household chance per day</label><span class="control-value" data-k="pH-out">12%</span></div><input id="agH" data-k="pH" type="range" min="0.02" max="0.3" step="0.01" value="0.12"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="agK">Town meetings per day</label><span class="control-value" data-k="k-out">8</span></div><input id="agK" data-k="k" type="range" min="0" max="20" step="1" value="8"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="agP">Chance per town meeting</label><span class="control-value" data-k="pC-out">3.0%</span></div><input id="agP" data-k="pC" type="range" min="0.005" max="0.06" step="0.005" value="0.03"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="agS">Stages per period</label><span class="control-value" data-k="stg-out">4</span></div><input id="agS" data-k="stg" type="range" min="0" max="4" step="1" value="2"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="agSeed">Seed</label><span class="control-value" data-k="seed-out">1</span></div><input id="agSeed" data-k="seed" type="range" min="1" max="999" step="1" value="1"></div>
+            <div class="rlx-btns"><button type="button" data-k="nseed" class="control-button control-button-secondary">Next seed</button><button type="button" data-k="p-reset" class="control-button control-button-secondary">Reset</button></div>
+            <p class="rlx-hint">The same seed always gives the same run. Values are made up to show mechanisms.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Infected in the end</div><div class="metric-value" data-k="att">–</div></div><div class="metric-tile"><div class="metric-label">Peak</div><div class="metric-value" data-k="pk">–</div></div><div class="metric-tile"><div class="metric-label">Infectious at the peak</div><div class="metric-value" data-k="pkv">–</div></div><div class="metric-tile"><div class="metric-label">Infections at home</div><div class="metric-value" data-k="home">–</div></div></div>
+            <p class="rlx-status" data-k="astatus" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Infectious now</h4><p class="rlx-sub">Share of the town infectious, day by day (first 200 days).</p></div></div>
+              <div class="chart-shell"><svg data-k="achart" role="img" aria-label="Share of agents infectious over time"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current settings, here or in the comparison panel below.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Without changing the three transmission sliders, find a run that peaks after day 70. Hint: stages and seeds.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Make home the place of more than half of all infections.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Compare a 5% cut in town meetings so that no pair of runs points the wrong way.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>Get the spread of the difference below 2 points.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+          <div class="rlx-grid" style="margin-top:1.5rem">
+            <aside class="rlx-card rlx-controls" aria-label="Comparison controls">
+            <div><h4 class="rlx-h">Compare two policies</h4><p class="rlx-sub">Baseline against a cut in town meetings, run in pairs with the town settings above.</p></div>
+            <div class="rlx-btns"><button type="button" data-k="m-ind" class="control-button control-button-primary">Independent runs</button><button type="button" data-k="m-crn" class="control-button control-button-secondary">Common random numbers</button></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="agCut">Cut in town meetings</label><span class="control-value" data-k="cut-out">5%</span></div><input id="agCut" data-k="cut" type="range" min="0.01" max="0.3" step="0.01" value="0.05"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="agPairs">Pairs of runs</label><span class="control-value" data-k="pairs-out">60</span></div><input id="agPairs" data-k="pairs" type="range" min="20" max="200" step="20" value="60"></div>
+            <div class="rlx-btns"><button type="button" data-k="crun" class="control-button control-button-secondary">New pairs of runs</button></div>
+            <p class="rlx-hint">Each pair: one run without and one with the policy. Pairs where a run fizzled out are left out.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Average saving</div><div class="metric-value" data-k="dmean">–</div></div><div class="metric-tile"><div class="metric-label">Spread of the difference</div><div class="metric-value" data-k="dsd">–</div></div><div class="metric-tile"><div class="metric-label">Pairs pointing the wrong way</div><div class="metric-value" data-k="wrong">–</div></div><div class="metric-tile"><div class="metric-label">Pairs needed for ±0.5 points</div><div class="metric-value" data-k="need">–</div></div></div>
+            <p class="rlx-status" data-k="cstatus" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Differences, pair by pair</h4><p class="rlx-sub">Orange bars: pairs where the policy seemed to make things worse.</p></div></div>
+              <div class="chart-shell"><svg data-k="cchart" role="img" aria-label="Histogram of differences between paired runs"></svg></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="next" class="proj-section is-soft" aria-labelledby="next-title"><div class="proj-wrap">
+      <h2 id="next-title" class="proj-h2">Keep going</h2>
+      <div class="rl-pn"><a href="/epidemic-modeling/module-05/"><i class="ri-arrow-left-line" aria-hidden="true"></i><span><small>Previous · Module 5</small><strong>Multi-strain and evolving pandemics</strong></span></a><a class="is-next" href="/epidemic-modeling/module-07/"><span><small>Next · Module 7</small><strong>Data-driven models</strong></span><i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+    </div></section>
+  </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Courses</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/rl-course/" class="hover:text-white">Reinforcement Learning</a></li>
+                  <li><a href="/epidemic-modeling/" class="hover:text-white">Epidemic Modeling</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/rl-course/" class="hover:text-white">RL course</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <script src="/js/videos.js"></script>
+      
+      <script src="/js/epi-labs.js" defer></script>
+      <script src="/js/epi-course.js" defer></script>
+   </body>
+</html>

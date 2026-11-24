@@ -1,0 +1,66 @@
+<!-- Used by tools/build_epi_course.py: the nowcasting and backtest lab (Module 7) of the Epidemic Modeling course: a simulated surveillance system with a reporting triangle, a nowcast, and a rolling-origin backtest of simple forecasters. Script: js/epi-labs.js (data-epx="nowcast"), styles: css/exploration-lab.css + css/rl-labs.css + css/epi-course.css. -->
+      <div class="rlx" id="nowcast-lab" data-epx="nowcast">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">A surveillance system with a known truth</h3>
+          <p class="rlx-sub">The course's simulated year: two waves in a town of 5 million; 1 in 4 infections becomes a case about 6 days later; reports arrive over two weeks. Everything runs in your browser.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">Reporting triangle</div>
+              <div class="formula-line"><span class="formula-chip">N(t, d) = cases tested on day t, reported d days later</span></div>
+              <p class="math-card-copy">On day T you only see the cells with t + d &lt; T: the newest test dates are incomplete.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Nowcast</div>
+              <div class="formula-line"><span class="formula-chip">nowcast(t) = arrived(t) ÷ F(T − t)</span></div>
+              <p class="math-card-copy">F(n): share of a day's cases reported within n days, estimated from complete test dates in a recent window.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Backtest</div>
+              <div class="formula-line"><span class="formula-chip">error = average |forecast − reported|</span></div>
+              <p class="math-card-copy">Rolling origins every 7 days: each forecast sees only reports up to its origin.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Nowcast controls">
+            <div><h4 class="rlx-h">Nowcast</h4><p class="rlx-sub">Pick today; the chart shows the last 28 test dates.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="ncToday">Today</label><span class="control-value" data-k="today-out">day 230</span></div><input id="ncToday" data-k="today" type="range" min="60" max="390" step="1" value="230"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="ncWin">Window for estimating delays</label><span class="control-value" data-k="win-out">63 days</span></div><input id="ncWin" data-k="win" type="range" min="14" max="91" step="7" value="63"></div>
+            <div class="rlx-row"><div><label class="rlx-label" for="ncSlow">Labs slow down on test dates 200–239</label></div><label class="toggle"><input id="ncSlow" data-k="slow" type="checkbox"><span class="toggle-track"></span></label></div>
+            <div class="rlx-row"><div><label class="rlx-label" for="ncTruth">Show the final counts</label></div><label class="toggle"><input id="ncTruth" data-k="truth" type="checkbox"><span class="toggle-track"></span></label></div>
+            <p class="rlx-hint">The final counts are what the data will show two weeks later; a real nowcaster never sees them in time. Values are made up to show mechanisms.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Last 7 days, arrived</div><div class="metric-value" data-k="arr7">–</div></div><div class="metric-tile"><div class="metric-label">Last 7 days, nowcast</div><div class="metric-value" data-k="now7">–</div></div><div class="metric-tile"><div class="metric-label">Last 7 days, final</div><div class="metric-value" data-k="fin7">–</div></div><div class="metric-tile"><div class="metric-label">Nowcast error</div><div class="metric-value" data-k="err7">–</div></div></div>
+            <p class="rlx-status" data-k="nstatus" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Cases by test date</h4><p class="rlx-sub">Orange: what has arrived; blue: the nowcast; dashed: the final count (if shown).</p></div></div>
+              <div class="chart-shell"><svg data-k="nchart" role="img" aria-label="Cases by test date: arrived, nowcast and final"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current settings, here or in the backtest panel below.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>With the slow labs on, find a day where the nowcast is off by more than 30%.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Still with slow labs, get the nowcast within 15% on a day between 225 and 235, changing only the delay window.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>In the backtest, find a horizon where repeating the last day beats the weekly mean.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>Get the trend × weekday forecast error below 100 cases.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+          <div class="rlx-grid" style="margin-top:1.5rem">
+            <aside class="rlx-card rlx-controls" aria-label="Backtest controls">
+            <div><h4 class="rlx-h">Backtest</h4><p class="rlx-sub">Four simple forecasters on the reported series (with weekends and holidays).</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="ncH">Days ahead</label><span class="control-value" data-k="h-out">3 days</span></div><input id="ncH" data-k="h" type="range" min="1" max="14" step="1" value="3"></div>
+            <p class="rlx-hint">Trend × weekday: last week's average, grown at last week's rate, times this weekday's usual share.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Repeat the last day</div><div class="metric-value" data-k="m-last">–</div></div><div class="metric-tile"><div class="metric-label">Repeat last week</div><div class="metric-value" data-k="m-week">–</div></div><div class="metric-tile"><div class="metric-label">Weekly mean</div><div class="metric-value" data-k="m-mean">–</div></div><div class="metric-tile"><div class="metric-label">Trend × weekday</div><div class="metric-value" data-k="m-trend">–</div></div></div>
+            <p class="rlx-status" data-k="bstatus" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Average miss</h4><p class="rlx-sub">Reported cases per forecast day, over origins every 7 days from day 120.</p></div></div>
+              <div class="chart-shell" style="height:180px"><svg data-k="bchart" role="img" aria-label="Average forecast error of four methods"></svg></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>

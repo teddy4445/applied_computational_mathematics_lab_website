@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_epi_course.py from data/epi-course.json. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Module 9: Surveillance, mobility and genomic data | Epidemic Modeling Course | ACML</title>
+      <meta name="description" content="Module 9 of 13 of ACML’s Epidemic Modeling course. What the data streams see, and what they miss: slides, 3 short episodes and an interactive lab.">
+      <meta name="author" content="Teddy Lazebnik">
+      <meta name="keywords" content="epidemic modeling, epidemiology, surveillance, mobility and genomic data, course, ACML">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/epidemic-modeling/module-09/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Module 9: Surveillance, mobility and genomic data · Epidemic Modeling">
+      <meta property="og:description" content="Module 9 of 13 of ACML’s Epidemic Modeling course. What the data streams see, and what they miss: slides, 3 short episodes and an interactive lab.">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/epidemic-modeling/module-09/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/epidemic-modeling/module-09/share.jpg">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Module 9: Surveillance, mobility and genomic data · Epidemic Modeling">
+      <meta name="twitter:description" content="Module 9 of 13 of ACML’s Epidemic Modeling course. What the data streams see, and what they miss: slides, 3 short episodes and an interactive lab.">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/epidemic-modeling/module-09/share.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "Module 9: Surveillance, mobility and genomic data",
+        "description": "What the data streams see, and what they miss. In a simulated city with a known epidemic, we treat surveillance as a measurement process (delays, a reporting share that changes), correct serosurveys for imperfect tests, see how phone-based mobility data can mislead, use genomes to follow a new variant and the bias in which samples get sequenced, and read wastewater, search and pharmacy signals, then combine the streams.",
+        "url": "https://acml.teddylazebnik.com/epidemic-modeling/module-09/",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "learningResourceType": [
+          "Lecture slides",
+          "Video",
+          "Interactive resource"
+        ],
+        "teaches": "What the data streams see, and what they miss",
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Epidemic Modeling",
+          "url": "https://acml.teddylazebnik.com/epidemic-modeling/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Teddy Lazebnik",
+          "url": "https://teddylazebnik.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Applied Computational Mathematics Laboratory",
+          "url": "https://acml.teddylazebnik.com/"
+        },
+        "hasPart": [
+          {
+            "@type": "VideoObject",
+            "name": "Surveillance as measurement, and mobility data",
+            "description": "Surveillance as a measurement process: reporting delays and a changing reporting share, why cases can fall while infections rise, correcting serosurveys for imperfect tests, and how phone-based mobility data can mislead.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep38.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/31zIzVIRNzg",
+            "duration": "PT3M17S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Genomics: from sequences to transmission",
+            "description": "Genomic surveillance as an observation model: lab capacity, how many genomes it takes to spot a new variant, estimating its growth advantage, and what biased sampling does and doesn't distort.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep39.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/acWsuARle04",
+            "duration": "PT2M41S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Wastewater, syndromic and pharmacy signals",
+            "description": "Signals beyond the clinic: wastewater (shedding, dilution, normalization), syndromic and search data that drift, pharmacy sales that aren't specific, and combining streams around one hidden epidemic.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep40.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/5h2pfe3cbkw",
+            "duration": "PT2M48S"
+          },
+          {
+            "@type": "DigitalDocument",
+            "name": "Module 9 slides",
+            "encodingFormat": "application/pdf",
+            "url": "https://acml.teddylazebnik.com/epidemic-modeling/slides/Epidemic_Modeling_Module09_Surveillance_mobility_and_genomic_data.pdf"
+          }
+        ]
+      }
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      <link href="/css/videos.css" rel="stylesheet">
+      
+      <link href="/css/exploration-lab.css" rel="stylesheet">
+      <link href="/css/rl-labs.css" rel="stylesheet">
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/project.css" rel="stylesheet">
+      <link href="/css/rl-course.css" rel="stylesheet">
+      <link href="/css/epi-course.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+          <a href="/courses.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Courses</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/courses.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Courses</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="proj-page rl-page bg-white">
+    <header class="proj-hero rl-hero">
+      <div class="proj-wrap proj-hero-grid">
+        <div>
+          <nav class="proj-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/courses.html">Courses</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/epidemic-modeling/">Epidemic Modeling</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Module 9</span></nav>
+          <p class="proj-kicker"><span><i class="ri-graduation-cap-line" aria-hidden="true"></i>Epidemic Modeling</span><span>Data and inference</span></p>
+          <h1 class="proj-title"><small>Module 9</small>Surveillance, mobility and genomic data</h1>
+          <p class="proj-about-lead rl-summary">What the data streams see, and what they miss. In a simulated city with a known epidemic, we treat surveillance as a measurement process (delays, a reporting share that changes), correct serosurveys for imperfect tests, see how phone-based mobility data can mislead, use genomes to follow a new variant and the bias in which samples get sequenced, and read wastewater, search and pharmacy signals, then combine the streams.</p>
+          <div class="rl-goal"><i class="ri-focus-3-line" aria-hidden="true"></i><span>By the end you should be able to write the observation model behind a data stream, correct a serosurvey for test errors, judge mobility and genomic data by how they were sampled, and combine several streams to follow one hidden epidemic.</span></div>
+          <h2 class="proj-h3 rl-ideas-title">Key ideas, one per episode</h2>
+          <ul class="rl-ideas"><li><a href="#ep-38">Ep. 38</a><span>Cases are infections seen through delays and a changing reporting share; correct serosurveys for test errors; phone data count only the phones they see.</span></li><li><a href="#ep-39">Ep. 39</a><span>Fifty genomes a week found a new variant around day 31, five hundred around day 10; a constant sampling bias distorts its share, not its growth.</span></li><li><a href="#ep-40">Ep. 40</a><span>Wastewater turned 6 to 9 days before reported cases and ignored a testing cut; combining streams beat any one alone.</span></li></ul>
+          <p class="rl-source"><b>Textbook:</b> Chapter 9 of <a href="https://shop.elsevier.com/books/epidemic-modeling/lazebnik/978-0-443-55525-1" target="_blank" rel="noopener">T. Lazebnik, Epidemic Modeling: Principles, Algorithms, and Applications (Academic Press, 2026)</a>. The episodes and slides follow the chapter’s topics in our own words, figures and simulations; nothing is copied from the book.</p>
+        </div>
+        <div class="rl-first">
+          <a class="rl-first-img" href="/epidemic-modeling/slides/Epidemic_Modeling_Module09_Surveillance_mobility_and_genomic_data.pdf" target="_blank" rel="noopener"><img src="/epidemic-modeling/img/slides/m09-s01.webp" alt="The title slide of Module 9: Surveillance, mobility and genomic data" width="960" height="540" fetchpriority="high" decoding="async"></a>
+          <p class="rl-first-text">28 slides, written to be read on your own, with worked examples, “try it” boxes, our own small simulations and check-yourself questions (answers at the end). PDF, 0.8 MB.</p>
+          <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="/epidemic-modeling/slides/Epidemic_Modeling_Module09_Surveillance_mobility_and_genomic_data.pdf" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Open the PDF</a><a class="proj-btn" href="/epidemic-modeling/slides/Epidemic_Modeling_Module09_Surveillance_mobility_and_genomic_data.pdf" download><i class="ri-download-2-line" aria-hidden="true"></i>Download</a></div>
+        </div>
+      </div>
+    </header>
+    <nav class="proj-subnav is-mobile-only" aria-label="Sections of this page"><div class="proj-wrap"><ul><li><a href="#watch">Watch</a></li><li><a href="#lab">Lab</a></li><li><a href="#next">Next</a></li></ul></div></nav>
+    <section id="watch" class="proj-section is-soft" aria-labelledby="watch-title"><div class="proj-wrap">
+      <h2 id="watch-title" class="proj-h2">Watch</h2>
+      <p class="proj-lead">3 short episodes for this module. Pick one from the list, and open the transcript to read along: each timestamp plays the episode from there. The narration is generated with a voice clone of Teddy, used with his permission.</p>
+      <div class="rl-watch">
+        <div class="rl-player-wrap">
+          <div id="rl-player" class="yt-player yt-16x9" data-yt-id="31zIzVIRNzg" data-yt-title="Surveillance as measurement, and mobility data"><a class="yt-play" href="https://www.youtube.com/watch?v=31zIzVIRNzg" aria-label="Play episode 38: Surveillance as measurement, and mobility data"><img src="/epidemic-modeling/img/eps/ep38.webp" alt="" width="640" height="360" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div>
+          <div class="rl-now">
+            <p id="rl-now-num" class="rl-now-num">Episode 38 · 3:17</p>
+            <p id="rl-now-title" class="rl-now-title">Surveillance as measurement, and mobility data</p>
+            <p id="rl-now-hook" class="rl-now-hook">Surveillance as a measurement process: reporting delays and a changing reporting share, why cases can fall while infections rise, correcting serosurveys for imperfect tests, and how phone-based mobility data can mislead.</p>
+            <p id="rl-now-take" class="rl-now-take"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i><span>Cases are infections seen through delays and a changing reporting share; correct serosurveys for test errors; phone data count only the phones they see.</span></p>
+          </div>
+            <details id="rl-tx" class="rl-tx">
+              <summary><i class="ri-file-text-line" aria-hidden="true"></i>Transcript<span id="rl-tx-which">Episode 38</span><i class="ri-arrow-down-s-line rl-tx-caret" aria-hidden="true"></i></summary>
+              <div class="rl-tx-body"><div class="rl-tx-ep" data-ep="38"><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=31zIzVIRNzg" data-ep="38" data-t="0">0:00</a><p><b>The end of a pipeline.</b> A case count is not a thermometer reading of the epidemic. It&#x27;s the end of a long pipeline. Welcome to Module nine: the data streams, and what each one really sees.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=31zIzVIRNzg&amp;t=17s" data-ep="38" data-t="17">0:17</a><p><b>Infections and cases.</b> Our simulated city has a million people, an epidemic, a lockdown on day sixty two and a relaxation on day one hundred ten. We know every infection: seventy one thousand in all. An infection becomes a case only if someone notices: symptoms after about five days, then a test and a report about four days later. Cases arrive eight days after infection on average, and only a share is ever found. That share changes. Here testing grew from fifteen to thirty five percent of infections, and then a policy change on day one hundred fifty cut it to twenty. Overall, only twenty two percent of infections became cases.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=31zIzVIRNzg&amp;t=55s" data-ep="38" data-t="55">0:55</a><p><b>When testing changes.</b> Watch what the policy change does. In the week after it, infections grew by more than two percent a day, while cases fell by about one percent a day. For eleven days, cases fell while infections rose. So model the measurement: write the infections, then the delays and the reporting share that turn them into data.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=31zIzVIRNzg&amp;t=75s" data-ep="38" data-t="75">1:15</a><p><b>Serosurveys.</b> Serosurveys measure past infection directly: test a random sample for antibodies. But tests make mistakes. With ninety percent sensitivity and ninety eight and a half percent specificity, false positives dominate when few people are truly positive. On day forty, when only 0.03 percent had been infected, a survey of two thousand people would find about one and a half percent positive: fifty times too many. The standard correction subtracts the false positive rate. Then it divides by the sum of sensitivity and specificity, minus one. On day one hundred ninety, corrected surveys ranged from 3.9 to 5.8 percent, around the truth of 4.8. Cases alone said 1.4.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=31zIzVIRNzg&amp;t=120s" data-ep="38" data-t="120">2:00</a><p><b>Mobility data.</b> Mobility data tell us how places connect: who travels where, and who mixes with whom. Phone data are the richest source, but they count only the phones they see. Our test: an outbreak starts in a small town whose residents make a thousand trips a day to the city. Only eight percent of the town&#x27;s people use the phone company that shares data, against twenty eight percent nationally. Scaled up, the data show two hundred eighty trips. With the true flows, the city passes one infectious person per ten thousand on day twenty seven. With the phone flows, the model says day thirty two: five days of warning that don&#x27;t exist. And a drop in visits is not the same as a drop in contacts: the link between them has to be estimated. Treat mobility as an input with its own uncertainty, and protect the privacy of the people behind it.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=31zIzVIRNzg&amp;t=169s" data-ep="38" data-t="169">2:49</a><p><b>Next.</b> Next: genomes. How sequences reveal new variants, and how sampling shapes what they can tell us.</p></div></div><div class="rl-tx-ep" data-ep="39" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=acWsuARle04" data-ep="39" data-t="0">0:00</a><p><b>What genomes add.</b> Counts tell you how many. Genomes tell you how infections are related: new introductions, local spread, and new variants.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=acWsuARle04&amp;t=14s" data-ep="39" data-t="14">0:14</a><p><b>Sequencing as an observation model.</b> From a patient sample to a lineage takes a pipeline: sequencing reads, alignment to a reference, a consensus genome, and a place on the family tree. Each step can fail, or bias what survives. And which samples get sequenced is an observation model of its own. The number of genomes depends on infections, but also on lab capacity, and on who decides what to sequence. In our city, labs sequence ten percent of cases, at most eighty a week. For seven weeks around the peak the cap was binding: in the busiest week, only six percent of cases were sequenced.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=acWsuARle04&amp;t=49s" data-ep="39" data-t="49">0:49</a><p><b>Lineage frequencies.</b> Lineage frequencies are the workhorse. Suppose a new variant grows seven percent a day faster than the rest, on the log odds of its share, starting from one infection in a thousand. After eight weeks it&#x27;s still under five percent of infections. Sequence fifty random cases a week, and the first variant genome typically turns up around day thirty one. Sequence five hundred a week, and around day ten. Now estimate its advantage from eight weeks of data. With fifty genomes a week, the ninety percent range was huge: 0.01 at the bottom, 0.41 at the top. With five hundred genomes a week, it tightened to between 0.05 and 0.09, around the true value of 0.07.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=acWsuARle04&amp;t=94s" data-ep="39" data-t="94">1:34</a><p><b>Biased sampling.</b> Next, bias the sampling. Suppose travelers&#x27; samples are sequenced first, so the variant is three times as likely to be sequenced. Its share looks like ten percent when it&#x27;s really about four. Yet the estimated advantage stays at 0.07: a constant bias shifts the log odds, not their slope. If the targeting starts halfway through, though, the advantage comes out at 0.09, about a quarter too high. So know how the samples were chosen, and keep that choice constant, or model it.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=acWsuARle04&amp;t=122s" data-ep="39" data-t="122">2:02</a><p><b>Beyond frequencies.</b> Genomes can do more: count separate introductions, tell local spread from new seeding, and date when lineages arose. Those methods build transmission trees, and they need the same care about sampling.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=acWsuARle04&amp;t=134s" data-ep="39" data-t="134">2:14</a><p><b>Next.</b> Next: signals from beyond the clinic. Wastewater, searches, and pharmacy sales.</p></div></div><div class="rl-tx-ep" data-ep="40" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=5h2pfe3cbkw" data-ep="40" data-t="0">0:00</a><p><b>Beyond the clinic.</b> Not everyone who&#x27;s infected sees a doctor. But almost everyone uses a toilet. Signals from beyond the clinic can see what testing misses.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=5h2pfe3cbkw&amp;t=16s" data-ep="40" data-t="16">0:16</a><p><b>Wastewater.</b> Wastewater first. Infected people shed viral genetic material into sewage, starting soon after infection. What reaches the treatment plant is the shedding of all infections combined, diluted by the flow. In our city, shedding peaks around six days after infection, samples come in three times a week, measurements are noisy, and on twenty seven rainy days the extra water dilutes everything. Dividing by a fecal marker, which the rain dilutes in the same way, corrects for the flow. Here it trimmed the error of the wastewater growth rate by about seven percent, from 0.042 to 0.039 per</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=5h2pfe3cbkw&amp;t=52s" data-ep="40" data-t="52">0:52</a><p><b>Earlier, and blind to testing.</b> After the first peak, infections started falling on day seventy two. The wastewater showed the turn on day. day seventy four with the correction and day seventy seven without it. Reported cases showed it only on day eighty three, six to nine days after the wastewater. And wastewater doesn&#x27;t care about testing policy. In the two weeks after testing was cut on day one hundred fifty, infections grew 2.4 percent a day. Cases showed only 0.5. Wastewater showed 1.7.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=5h2pfe3cbkw&amp;t=83s" data-ep="40" data-t="83">1:23</a><p><b>Syndromic and pharmacy signals.</b> Syndromic signals react fast too: emergency visits for fever, searches for symptoms. But they drift. Our search index followed symptom onsets with a correlation above 0.96 all year, yet it said the second wave was 2.8 times the first peak. The truth was 2. Pharmacy sales and absenteeism are broad, but not specific. At the peak, only twenty eight percent of our cold medicine sales came from this epidemic. The rest came from other illnesses.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=5h2pfe3cbkw&amp;t=110s" data-ep="40" data-t="110">1:50</a><p><b>Combining streams.</b> The best use of these streams is together: one hidden epidemic, and many observation equations, each stream with its own delay, scale and noise, weighted by how much it can be trusted. Even the simplest version helps. Weighting the growth rates from cases and wastewater by their reliability, about three quarters cases and one quarter wastewater, gave a smaller error than either stream alone. No stream is the epidemic. Each one is a view of it, and good models combine the views.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=5h2pfe3cbkw&amp;t=139s" data-ep="40" data-t="139">2:19</a><p><b>Module recap.</b> That closes Module nine. Next, in Module ten: interventions, from lockdowns to vaccines, and how to put them into a model.</p></div></div></div>
+            </details>
+        </div>
+        <div class="rl-eps">
+          <div class="rl-eps-head"><b>Module 9 episodes</b><span>3 episodes · 9 min</span></div>
+          <ol><li id="ep-38"><a class="rl-ep is-active" data-ep="38" href="https://www.youtube.com/watch?v=31zIzVIRNzg" aria-current=true><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep38.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>3:17</span></span><span><span class="rl-ep-num">Episode 38 · 9.1</span><span class="rl-ep-title" style="display:block">Surveillance as measurement, and mobility data</span><span class="rl-ep-take" style="display:block">Cases are infections seen through delays and a changing reporting share; correct serosurveys for test errors; phone data count only the phones they see.</span></span></a></li><li id="ep-39"><a class="rl-ep" data-ep="39" href="https://www.youtube.com/watch?v=acWsuARle04"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep39.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>2:41</span></span><span><span class="rl-ep-num">Episode 39 · 9.2</span><span class="rl-ep-title" style="display:block">Genomics: from sequences to transmission</span><span class="rl-ep-take" style="display:block">Fifty genomes a week found a new variant around day 31, five hundred around day 10; a constant sampling bias distorts its share, not its growth.</span></span></a></li><li id="ep-40"><a class="rl-ep" data-ep="40" href="https://www.youtube.com/watch?v=5h2pfe3cbkw"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep40.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>2:48</span></span><span><span class="rl-ep-num">Episode 40 · 9.3</span><span class="rl-ep-title" style="display:block">Wastewater, syndromic and pharmacy signals</span><span class="rl-ep-take" style="display:block">Wastewater turned 6 to 9 days before reported cases and ignored a testing cut; combining streams beat any one alone.</span></span></a></li></ol>
+        </div>
+      </div>
+      <script type="application/json" id="rl-episodes">[{"ep": 38, "youtube": "31zIzVIRNzg", "title": "Surveillance as measurement, and mobility data", "duration": "3:17", "hook": "Surveillance as a measurement process: reporting delays and a changing reporting share, why cases can fall while infections rise, correcting serosurveys for imperfect tests, and how phone-based mobility data can mislead.", "takeaway": "Cases are infections seen through delays and a changing reporting share; correct serosurveys for test errors; phone data count only the phones they see.", "thumbAbs": "/epidemic-modeling/img/eps/ep38.webp"}, {"ep": 39, "youtube": "acWsuARle04", "title": "Genomics: from sequences to transmission", "duration": "2:41", "hook": "Genomic surveillance as an observation model: lab capacity, how many genomes it takes to spot a new variant, estimating its growth advantage, and what biased sampling does and doesn't distort.", "takeaway": "Fifty genomes a week found a new variant around day 31, five hundred around day 10; a constant sampling bias distorts its share, not its growth.", "thumbAbs": "/epidemic-modeling/img/eps/ep39.webp"}, {"ep": 40, "youtube": "5h2pfe3cbkw", "title": "Wastewater, syndromic and pharmacy signals", "duration": "2:48", "hook": "Signals beyond the clinic: wastewater (shedding, dilution, normalization), syndromic and search data that drift, pharmacy sales that aren't specific, and combining streams around one hidden epidemic.", "takeaway": "Wastewater turned 6 to 9 days before reported cases and ignored a testing cut; combining streams beat any one alone.", "thumbAbs": "/epidemic-modeling/img/eps/ep40.webp"}]</script>
+    </div></section>
+    <section id="lab" class="rl-lab" aria-labelledby="lab-title">
+      <div class="proj-wrap rl-lab-head">
+        <p class="proj-label"><i class="ri-radar-line" aria-hidden="true"></i>Interactive lab</p>
+        <h2 id="lab-title" class="proj-h2" style="margin-top:.5rem">What surveillance sees</h2>
+        <p class="proj-lead">Change the reporting share and delay, correct a serosurvey for sensitivity and specificity, and see how noise, rain and sampling change what wastewater shows.</p>
+        <p class="proj-lead" style="margin-top:.6rem">The module&#x27;s simulated city runs in your browser: the true infections are known, and each panel shows what one data stream would see.</p>
+      </div>
+      <div class="rlx" id="streams-lab" data-epx="streams">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">One hidden epidemic, three views</h3>
+          <p class="rlx-sub">The module's simulated city: a million people, a lockdown on day 62, a relaxation on day 110. The infections (orange) are known; each panel shows what one data stream would see. Everything runs in your browser.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">Reported cases</div>
+              <div class="formula-line"><span class="formula-chip">cases(t) = Σ share × infections(t − d) × delay(d)</span></div>
+              <p class="math-card-copy">Only a share of infections is reported, after a delay (here a gamma distribution).</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Serosurvey</div>
+              <div class="formula-line"><span class="formula-chip">true ≈ (positive + sp − 1) ÷ (se + sp − 1)</span></div>
+              <p class="math-card-copy">Imperfect tests: false positives dominate when few people have been infected.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Wastewater</div>
+              <div class="formula-line"><span class="formula-chip">concentration = shedding ÷ flow × noise</span></div>
+              <p class="math-card-copy">Shedding from all recent infections, diluted on rainy days, measured with noise.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Reported case controls">
+            <div><h4 class="rlx-h">Reported cases</h4><p class="rlx-sub">Change what share is reported, and when.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="svR1">Share reported</label><span class="control-value" data-k="r1-out">35%</span></div><input id="svR1" data-k="r1" type="range" min="0.05" max="0.6" step="0.05" value="0.35"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="svR2">Share after the change</label><span class="control-value" data-k="r2-out">35%</span></div><input id="svR2" data-k="r2" type="range" min="0.05" max="0.6" step="0.05" value="0.35"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="svCd">Change on</label><span class="control-value" data-k="cd-out">day 150</span></div><input id="svCd" data-k="cd" type="range" min="80" max="190" step="5" value="150"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="svDl">Infection to report</label><span class="control-value" data-k="dl-out">8 days</span></div><input id="svDl" data-k="dl" type="range" min="2" max="16" step="1" value="8"></div>
+            <p class="rlx-hint">Blue: reported cases scaled up by the first share, so both curves can be compared. Values are made up to show mechanisms.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Infections peak</div><div class="metric-value" data-k="ipk">–</div></div><div class="metric-tile"><div class="metric-label">Cases peak</div><div class="metric-value" data-k="cpk">–</div></div><div class="metric-tile"><div class="metric-label">Share reported</div><div class="metric-value" data-k="csh">–</div></div><div class="metric-tile"><div class="metric-label">Wrong direction</div><div class="metric-value" data-k="cwrong">–</div></div></div>
+            <p class="rlx-status" data-k="cstatus" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Infections and cases</h4><p class="rlx-sub">Orange: new infections; blue: reported cases ÷ the first share.</p></div></div>
+              <div class="chart-shell"><svg data-k="cchart" role="img" aria-label="Infections and reported cases over 200 days"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current settings, in its own panel.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Make reported cases fall for at least 10 days while infections rise.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Serosurvey: with fewer than 1% ever infected, get a positive share more than 3 times the truth.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Serosurvey: get the corrected 90% range narrower than 1 percentage point (with more than 0.5% infected).</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>Wastewater: with noise of 0.5 or more, see the first wave turn at least 2 days before reported cases (and not before the infections).</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+          <div class="rlx-grid" style="margin-top:1.5rem">
+            <aside class="rlx-card rlx-controls" aria-label="Serosurvey controls">
+            <div><h4 class="rlx-h">Serosurvey</h4><p class="rlx-sub">Test a random sample for antibodies (positive 14 days after infection).</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="svSd">Survey day</label><span class="control-value" data-k="sday-out">day 140</span></div><input id="svSd" data-k="sday" type="range" min="20" max="199" step="1" value="140"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="svSn">People tested</label><span class="control-value" data-k="sn-out">2,000</span></div><input id="svSn" data-k="sn" type="range" min="500" max="10000" step="500" value="2000"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="svSe">Sensitivity</label><span class="control-value" data-k="se-out">90%</span></div><input id="svSe" data-k="se" type="range" min="0.7" max="1" step="0.01" value="0.9"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="svSp">Specificity</label><span class="control-value" data-k="sp-out">98.5%</span></div><input id="svSp" data-k="sp" type="range" min="0.95" max="1" step="0.005" value="0.985"></div>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Ever infected</div><div class="metric-value" data-k="st">–</div></div><div class="metric-tile"><div class="metric-label">Survey positive</div><div class="metric-value" data-k="sr">–</div></div><div class="metric-tile"><div class="metric-label">Corrected, 90% of surveys</div><div class="metric-value" data-k="sc">–</div></div></div>
+            <p class="rlx-status" data-k="sstatus" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">True and observed positivity</h4><p class="rlx-sub">Black: share ever infected; orange: the expected share testing positive.</p></div></div>
+              <div class="chart-shell"><svg data-k="schart" role="img" aria-label="True seroprevalence and observed positivity"></svg></div>
+            </div>
+            </div>
+          </div>
+          <div class="rlx-grid" style="margin-top:1.5rem">
+            <aside class="rlx-card rlx-controls" aria-label="Wastewater controls">
+            <div><h4 class="rlx-h">Wastewater</h4><p class="rlx-sub">Samples at the treatment plant.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="svWn">Measurement noise</label><span class="control-value" data-k="wn-out">0.35</span></div><input id="svWn" data-k="wn" type="range" min="0" max="0.8" step="0.05" value="0.35"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="svWk">Samples a week</label><span class="control-value" data-k="wk-out">3 samples</span></div><input id="svWk" data-k="wk" type="range" min="1" max="4" step="1" value="3"></div>
+            <div class="rlx-row"><div><label class="rlx-label" for="svWr">Rain dilutes some days</label></div><label class="toggle"><input id="svWr" data-k="wr" type="checkbox" checked><span class="toggle-track"></span></label></div>
+            <div class="rlx-row"><div><label class="rlx-label" for="svWz">Divide by a fecal marker</label></div><label class="toggle"><input id="svWz" data-k="wz" type="checkbox"><span class="toggle-track"></span></label></div>
+            <div class="rlx-btns"><button type="button" class="control-button control-button-secondary is-wide" data-k="wnew">New noise</button></div>
+            <p class="rlx-hint">Samples a week: 1, 2, 3 or every day. A turn counts when the 14-day growth stays negative for a week; noise can hide or fake a turn, so try New noise.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Infections turn</div><div class="metric-value" data-k="wti">–</div></div><div class="metric-tile"><div class="metric-label">Wastewater turns</div><div class="metric-value" data-k="wtw">–</div></div><div class="metric-tile"><div class="metric-label">Cases turn</div><div class="metric-value" data-k="wtc">–</div></div></div>
+            <p class="rlx-status" data-k="wstatus" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Infections and wastewater</h4><p class="rlx-sub">Orange: infections; blue dots: samples (light blue: rainy days); dashed: the day each stream turns.</p></div></div>
+              <div class="chart-shell"><svg data-k="wchart" role="img" aria-label="Infections and wastewater samples"></svg></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="next" class="proj-section is-soft" aria-labelledby="next-title"><div class="proj-wrap">
+      <h2 id="next-title" class="proj-h2">Keep going</h2>
+      <div class="rl-pn"><a href="/epidemic-modeling/module-08/"><i class="ri-arrow-left-line" aria-hidden="true"></i><span><small>Previous · Module 8</small><strong>Parameter estimation and calibration</strong></span></a><a class="is-next" href="/epidemic-modeling/module-10/"><span><small>Next · Module 10</small><strong>Intervention policies</strong></span><i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+    </div></section>
+  </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Courses</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/rl-course/" class="hover:text-white">Reinforcement Learning</a></li>
+                  <li><a href="/epidemic-modeling/" class="hover:text-white">Epidemic Modeling</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/rl-course/" class="hover:text-white">RL course</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <script src="/js/videos.js"></script>
+      
+      <script src="/js/epi-labs.js" defer></script>
+      <script src="/js/epi-course.js" defer></script>
+   </body>
+</html>

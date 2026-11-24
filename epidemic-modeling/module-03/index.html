@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_epi_course.py from data/epi-course.json. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Module 3: Compartmental models | Epidemic Modeling Course | ACML</title>
+      <meta name="description" content="Module 3 of 13 of ACML’s Epidemic Modeling course. SIR and its family, R₀ and the next-generation matrix: slides, 6 short episodes and an interactive lab.">
+      <meta name="author" content="Teddy Lazebnik">
+      <meta name="keywords" content="epidemic modeling, epidemiology, compartmental models, course, ACML">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/epidemic-modeling/module-03/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Module 3: Compartmental models · Epidemic Modeling">
+      <meta property="og:description" content="Module 3 of 13 of ACML’s Epidemic Modeling course. SIR and its family, R₀ and the next-generation matrix: slides, 6 short episodes and an interactive lab.">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/epidemic-modeling/module-03/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/epidemic-modeling/module-03/share.jpg">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Module 3: Compartmental models · Epidemic Modeling">
+      <meta name="twitter:description" content="Module 3 of 13 of ACML’s Epidemic Modeling course. SIR and its family, R₀ and the next-generation matrix: slides, 6 short episodes and an interactive lab.">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/epidemic-modeling/module-03/share.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "Module 3: Compartmental models",
+        "description": "The workhorse of epidemic modeling. We build the SIR model from its assumptions, derive R0, the epidemic threshold and the final-size relation, and see why epidemics stop before everyone is infected. Then we add boxes (births and deaths, reinfection, latency, infectious stages, hospital outcomes, age groups, mosquitoes), let transmission change with seasons, interventions and behavior, bring in chance with stochastic simulation and early extinction, and finish with the next-generation matrix, the general recipe for R0.",
+        "url": "https://acml.teddylazebnik.com/epidemic-modeling/module-03/",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "learningResourceType": [
+          "Lecture slides",
+          "Video",
+          "Interactive resource"
+        ],
+        "teaches": "SIR and its family, R₀ and the next-generation matrix",
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Epidemic Modeling",
+          "url": "https://acml.teddylazebnik.com/epidemic-modeling/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Teddy Lazebnik",
+          "url": "https://teddylazebnik.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Applied Computational Mathematics Laboratory",
+          "url": "https://acml.teddylazebnik.com/"
+        },
+        "hasPart": [
+          {
+            "@type": "VideoObject",
+            "name": "SIR from scratch and the meaning of R₀",
+            "description": "The workhorse of epidemic modeling, built from scratch: three boxes, five assumptions, two rates.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep07.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/lqr3N2MzL5A",
+            "duration": "PT4M32S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "More states: births, deaths, reinfection, latency",
+            "description": "The basic SIR model has one wave.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep08.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/Lh7S1FgyuaI",
+            "duration": "PT4M14S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "More classes: stages, outcomes, structure, vectors",
+            "description": "Not every infected person is the same.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep09.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/3Yep7RAxwyo",
+            "duration": "PT3M54S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "When transmission changes",
+            "description": "Transmission is never constant.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep10.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/wPko3ZxUywE",
+            "duration": "PT3M56S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Chance matters: stochastic models",
+            "description": "In the equations, one case always starts an epidemic if R0 is above one.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep11.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/tQR6_VDZQ6U",
+            "duration": "PT3M47S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "The next-generation matrix",
+            "description": "When one formula for R0 is not enough: the next-generation matrix.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep12.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/FRq7jiyVaHo",
+            "duration": "PT3M50S"
+          },
+          {
+            "@type": "DigitalDocument",
+            "name": "Module 3 slides",
+            "encodingFormat": "application/pdf",
+            "url": "https://acml.teddylazebnik.com/epidemic-modeling/slides/Epidemic_Modeling_Module03_Compartmental_models.pdf"
+          }
+        ]
+      }
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      <link href="/css/videos.css" rel="stylesheet">
+      
+      <link href="/css/exploration-lab.css" rel="stylesheet">
+      <link href="/css/rl-labs.css" rel="stylesheet">
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/project.css" rel="stylesheet">
+      <link href="/css/rl-course.css" rel="stylesheet">
+      <link href="/css/epi-course.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+          <a href="/courses.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Courses</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/courses.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Courses</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="proj-page rl-page bg-white">
+    <header class="proj-hero rl-hero">
+      <div class="proj-wrap proj-hero-grid">
+        <div>
+          <nav class="proj-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/courses.html">Courses</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/epidemic-modeling/">Epidemic Modeling</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Module 3</span></nav>
+          <p class="proj-kicker"><span><i class="ri-graduation-cap-line" aria-hidden="true"></i>Epidemic Modeling</span><span>Core models</span></p>
+          <h1 class="proj-title"><small>Module 3</small>Compartmental models</h1>
+          <p class="proj-about-lead rl-summary">The workhorse of epidemic modeling. We build the SIR model from its assumptions, derive R0, the epidemic threshold and the final-size relation, and see why epidemics stop before everyone is infected. Then we add boxes (births and deaths, reinfection, latency, infectious stages, hospital outcomes, age groups, mosquitoes), let transmission change with seasons, interventions and behavior, bring in chance with stochastic simulation and early extinction, and finish with the next-generation matrix, the general recipe for R0.</p>
+          <div class="rl-goal"><i class="ri-focus-3-line" aria-hidden="true"></i><span>By the end you should be able to write and solve an SIR-family model, compute R0 and the final size, explain early extinction in stochastic models, and build a next-generation matrix for a model with several infected types.</span></div>
+          <h2 class="proj-h3 rl-ideas-title">Key ideas, one per episode</h2>
+          <ul class="rl-ideas"><li><a href="#ep-7">Ep. 7</a><span>SIR from scratch: R0 = β/γ, growth needs S &gt; 1/R0, and the epidemic stops before everyone is infected.</span></li><li><a href="#ep-8">Ep. 8</a><span>Births refill susceptibles, fading immunity brings waves back, and latency changes the timing, not the total.</span></li><li><a href="#ep-9">Ep. 9</a><span>Stages, outcomes, groups and vectors: hidden stages sustain spread, hospitals lag, and bites count twice.</span></li><li><a href="#ep-10">Ep. 10</a><span>β moves: seasons as a yearly wave, interventions as steps, behavior as feedback; R(t) is not R0.</span></li><li><a href="#ep-11">Ep. 11</a><span>Chance decides whether an outbreak takes off (about 1/R0 fizzle); the equations describe it if it does.</span></li><li><a href="#ep-12">Ep. 12</a><span>The next-generation matrix: R0 is its dominant eigenvalue, and it shows where transmission lives.</span></li></ul>
+          <p class="rl-source"><b>Textbook:</b> Chapter 3 of <a href="https://shop.elsevier.com/books/epidemic-modeling/lazebnik/978-0-443-55525-1" target="_blank" rel="noopener">T. Lazebnik, Epidemic Modeling: Principles, Algorithms, and Applications (Academic Press, 2026)</a>. The episodes and slides follow the chapter’s topics in our own words, figures and simulations; nothing is copied from the book.</p>
+        </div>
+        <div class="rl-first">
+          <a class="rl-first-img" href="/epidemic-modeling/slides/Epidemic_Modeling_Module03_Compartmental_models.pdf" target="_blank" rel="noopener"><img src="/epidemic-modeling/img/slides/m03-s01.webp" alt="The title slide of Module 3: Compartmental models" width="960" height="540" fetchpriority="high" decoding="async"></a>
+          <p class="rl-first-text">41 slides, written to be read on your own, with worked examples, “try it” boxes, our own small simulations and check-yourself questions (answers at the end). PDF, 0.9 MB.</p>
+          <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="/epidemic-modeling/slides/Epidemic_Modeling_Module03_Compartmental_models.pdf" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Open the PDF</a><a class="proj-btn" href="/epidemic-modeling/slides/Epidemic_Modeling_Module03_Compartmental_models.pdf" download><i class="ri-download-2-line" aria-hidden="true"></i>Download</a></div>
+        </div>
+      </div>
+    </header>
+    <nav class="proj-subnav is-mobile-only" aria-label="Sections of this page"><div class="proj-wrap"><ul><li><a href="#watch">Watch</a></li><li><a href="#lab">Lab</a></li><li><a href="#next">Next</a></li></ul></div></nav>
+    <section id="watch" class="proj-section is-soft" aria-labelledby="watch-title"><div class="proj-wrap">
+      <h2 id="watch-title" class="proj-h2">Watch</h2>
+      <p class="proj-lead">6 short episodes for this module. Pick one from the list, and open the transcript to read along: each timestamp plays the episode from there. The narration is generated with a voice clone of Teddy, used with his permission.</p>
+      <div class="rl-watch">
+        <div class="rl-player-wrap">
+          <div id="rl-player" class="yt-player yt-16x9" data-yt-id="lqr3N2MzL5A" data-yt-title="SIR from scratch and the meaning of R₀"><a class="yt-play" href="https://www.youtube.com/watch?v=lqr3N2MzL5A" aria-label="Play episode 7: SIR from scratch and the meaning of R₀"><img src="/epidemic-modeling/img/eps/ep07.webp" alt="" width="640" height="360" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div>
+          <div class="rl-now">
+            <p id="rl-now-num" class="rl-now-num">Episode 7 · 4:32</p>
+            <p id="rl-now-title" class="rl-now-title">SIR from scratch and the meaning of R₀</p>
+            <p id="rl-now-hook" class="rl-now-hook">The workhorse of epidemic modeling, built from scratch: three boxes, five assumptions, two rates.</p>
+            <p id="rl-now-take" class="rl-now-take"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i><span>SIR from scratch: R0 = β/γ, growth needs S &gt; 1/R0, and the epidemic stops before everyone is infected.</span></p>
+          </div>
+            <details id="rl-tx" class="rl-tx">
+              <summary><i class="ri-file-text-line" aria-hidden="true"></i>Transcript<span id="rl-tx-which">Episode 7</span><i class="ri-arrow-down-s-line rl-tx-caret" aria-hidden="true"></i></summary>
+              <div class="rl-tx-body"><div class="rl-tx-ep" data-ep="7"><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=lqr3N2MzL5A" data-ep="7" data-t="0">0:00</a><p><b>Compartmental models.</b> Welcome to Module three. For the next six episodes, we build the field&#x27;s workhorse: compartmental models. We start with the simplest one, the SIR model. Three boxes, two arrows, and a surprising amount of insight.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=lqr3N2MzL5A&amp;t=20s" data-ep="7" data-t="20">0:20</a><p><b>Three boxes, five assumptions.</b> Split the population into three groups. Susceptible people can catch it. Infected people can pass it on. Removed people are out of the game: recovered, isolated, or dead. The basic model makes five simplifying assumptions. Everyone mixes with everyone, equally. New infections follow mass action. And nobody is born, dies of other causes, or moves away. Recovery gives permanent immunity. And the time someone stays infectious is random, with the same chance of recovering every day. None of these is literally true. They give us a clean baseline, and every later model relaxes one of them.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=lqr3N2MzL5A&amp;t=55s" data-ep="7" data-t="55">0:55</a><p><b>The SIR equations.</b> Now the equations. Susceptible people become infected at rate beta, times S, times I. Infected people recover at rate gamma, times I. Beta packs two things together: how often people meet, and the chance that a meeting passes the infection on. One over gamma is the average time someone stays infectious. One choice matters more than it looks. Written like this, transmission grows with the size of the crowd. Divide by the population, and each person makes a fixed number of contacts, however big the town is.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=lqr3N2MzL5A&amp;t=87s" data-ep="7" data-t="87">1:27</a><p><b>R0, the threshold and the peak.</b> At the start, almost everyone is susceptible, so each case infects about beta over gamma people in total. That&#x27;s the basic reproduction number, R₀. In our run, beta is 0.3 per day, and people stay infectious for ten days. So R₀ is three. Another way to see it: ten contacts a day, a three percent chance of passing it on per contact, for ten days. Ten times 0.03 times ten is three. And R₀ is not speed. Early on, infections grow at rate beta minus gamma, 0.2 per day here, so they double about every three and a half days. Two diseases with the same R₀ can grow at very different speeds. Infections grow only while the susceptible share is above one over R₀. Here, one third. As susceptibles run out, the effective number, R₀ times the susceptible share, falls. It crosses one exactly at the peak. In our run, around day thirty eight. So the peak isn&#x27;t when the virus gets tired. It&#x27;s when there aren&#x27;t enough susceptible people left for each case to replace itself.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=lqr3N2MzL5A&amp;t=150s" data-ep="7" data-t="150">2:30</a><p><b>Final size and overshoot.</b> Here&#x27;s the second surprise. The epidemic ends while some people were never infected. Take time out of the equations and you get the final size relation. The total share infected depends only on R₀. An R₀ of 1.5 infects about fifty eight percent. Two, about eighty percent. Three, about ninety four percent. And notice the overshoot. With R₀ three, herd immunity is reached when two thirds are immune, but the epidemic runs on to ninety four percent, because so many people are still infected at that moment. That gap matters for policy. Vaccinating two thirds before an outbreak prevents it. Reaching two thirds immune by infection costs another quarter of the town on top.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=lqr3N2MzL5A&amp;t=192s" data-ep="7" data-t="192">3:12</a><p><b>Counts can&#x27;t go negative.</b> One sanity check before we build bigger models: counts can&#x27;t go negative. In the exact equations, they never do. S can only shrink toward zero, R only grows, and I can never cross below zero. So if your simulation shows a negative number of susceptible people, the model isn&#x27;t wrong. Your numerical method is. Take ten-day steps with the simplest method, and S drops below zero. More in Module twelve.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=lqr3N2MzL5A&amp;t=215s" data-ep="7" data-t="215">3:35</a><p><b>What we observe.</b> And in real life, we never see S, I and R. We see reported cases, hospital admissions and deaths. So applied models add an observation layer on top: only a share of infections gets reported, with delays and noise. The SIR flows stay the same; the layer links them to the data. Modules seven and eight live there.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=lqr3N2MzL5A&amp;t=235s" data-ep="7" data-t="235">3:55</a><p><b>Recap.</b> So: three boxes, two rates. R₀ is beta over gamma, the threshold is a susceptible share of one over R₀, and the final size depends only on R₀. Next time, we add more boxes: births and deaths, reinfection, and a latent period.</p></div></div><div class="rl-tx-ep" data-ep="8" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Lh7S1FgyuaI" data-ep="8" data-t="0">0:00</a><p><b>Real diseases come back.</b> The basic SIR model has one wave, and then it&#x27;s over forever. Real diseases come back. Today, three ways to bring them back, and one way to slow them down. We add births and deaths, reinfection, and a latent period.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Lh7S1FgyuaI&amp;t=20s" data-ep="8" data-t="20">0:20</a><p><b>Births, deaths, endemic waves.</b> First, births and deaths. Babies arrive susceptible, and everyone dies of other causes at some rate. Now the susceptible pool keeps refilling, so the disease can settle in for good. That&#x27;s an endemic disease. At balance, the susceptible share is exactly one over R₀. In our town, R₀ is five, so a fifth of people are susceptible at any time. It also tells us the average age at infection: roughly life expectancy divided by R₀ minus one. With a fifty-year life expectancy, about twelve and a half years. The higher R₀, the earlier in life people catch it. That&#x27;s why measles, with a very high R₀, used to be a disease of childhood. Started near that balance, the disease comes back in waves every four to six years, each one a bit smaller, as it settles down. No seasons, no behavior change. The waves come from births alone, slowly refilling the pool. Near balance, theory predicts a period of about 3.7 years for these waves. Our run starts a bit away from balance, so its first waves are slower, and they speed up as they settle.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Lh7S1FgyuaI&amp;t=87s" data-ep="8" data-t="87">1:27</a><p><b>How much vaccination.</b> This also tells us how much vaccination we need. Vaccinate a share of newborns, and R₀ effectively shrinks by that share. To eliminate the disease, push it below one. With R₀ five, that&#x27;s eighty percent of newborns.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Lh7S1FgyuaI&amp;t=103s" data-ep="8" data-t="103">1:43</a><p><b>Reinfection: SIS and SIRS.</b> Second, reinfection. If recovery gives no immunity at all, people go straight back to susceptible. That&#x27;s the S I S model. With R₀ three, it settles at two thirds of people infected at any time. A steady state, with no waves. Some bacterial infections behave roughly like this, since recovering from them leaves little protection. If immunity lasts a while and then fades, that&#x27;s S I R S. In our run, immunity lasts a year on average. After the big first wave, smaller waves follow about every nine months, and it settles near two percent infected. Common colds and seasonal coronaviruses are closer to this picture: you can catch the same virus again a year or two later.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Lh7S1FgyuaI&amp;t=149s" data-ep="8" data-t="149">2:29</a><p><b>Latency: SEIR.</b> Third, latency. Newly infected people usually can&#x27;t infect others right away. So we add an exposed box, E, between S and I. With the same R₀ of three and five days of latency, growth slows down a lot. Cases double every seven days, instead of every three and a half. The peak comes on day seventy four instead of day thirty eight, and it&#x27;s lower: twenty percent infected at once, instead of thirty. But the final size is the same, ninety four percent. Latency changes the timing, not the total.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Lh7S1FgyuaI&amp;t=183s" data-ep="8" data-t="183">3:03</a><p><b>Erlang stages, and which box.</b> One more refinement. In a single exposed box, people leave at a constant rate, so some leave after one day and some after twenty. Real latent periods are more regular. The trick is to split E into several stages in a row. Same average, much less spread. With four stages, the peak in our run moves from day seventy four to day eighty. Small, but it matters when you fit real data. So which box do you add? It depends on the disease and the question. Births and deaths for long time scales, waning for diseases you can catch again, latency whenever the delay to infectiousness matters for timing or control.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Lh7S1FgyuaI&amp;t=218s" data-ep="8" data-t="218">3:38</a><p><b>Recap.</b> So: births refill the susceptible pool and make a disease endemic. Fading immunity brings waves back. Latency stretches the timeline without changing the total. Next time, more classes: different kinds of infected people, hospital outcomes, age groups, and mosquitoes.</p></div></div><div class="rl-tx-ep" data-ep="9" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=3Yep7RAxwyo" data-ep="9" data-t="0">0:00</a><p><b>Not every infection is the same.</b> Not every infected person is the same. Some never feel sick, some spread it before they know it, and some end up in hospital. Today, we give each of them a box.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=3Yep7RAxwyo&amp;t=17s" data-ep="9" data-t="17">0:17</a><p><b>Several infectious stages.</b> Picture a toy disease. Everyone spends two days infectious before symptoms. Then seven in ten get sick for five days, and three in ten never show symptoms and spread at half the rate. Add up the contribution of each stage, and R₀ comes out at about 1.9. About a third of that comes before symptoms, more than half from people with symptoms, and twelve percent from people who never feel ill. Now suppose people with symptoms isolate after one day. R₀ drops to about 1.04. Much better, but still above one. The hidden stages keep it going. The structure of the infected classes decides what control can achieve.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=3Yep7RAxwyo&amp;t=57s" data-ep="9" data-t="57">0:57</a><p><b>Hospital, deaths and delays.</b> Next, outcomes. Instead of one removed box, we track who goes to hospital, and who dies. In our run, three percent of infections need a hospital bed for ten days, and half a percent are fatal, about three weeks after infection. New infections peak on day eighty six. Hospital occupancy peaks on day one hundred four, at about five hundred fifty beds per hundred thousand people. Deaths peak on day one hundred six. A word on two ratios. The infection fatality ratio divides deaths by all infections. The case fatality ratio divides deaths by reported cases. Early in an outbreak, when few mild cases are tested, the second can be many times the first. That lag is the point. By the time hospitals are fullest, new infections have been falling for almost three weeks.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=3Yep7RAxwyo&amp;t=104s" data-ep="9" data-t="104">1:44</a><p><b>Structured populations.</b> Third, structure. People differ by age, risk or place, and they mix unevenly, as we saw in Module two. So we split the population into groups, each with its own S, I and R, linked by a contact matrix. In our two-group town, a quarter of people are children, and they have many more contacts. Ninety five percent of children get infected, against seventy three percent of adults. With more groups, say ten age bands, we get ten copies of the equations, and a ten by ten matrix of who infects whom. Bigger, but the same idea. One R₀ for the whole town hides that. The last episode of this module shows how to get one honest number out of a matrix like this.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=3Yep7RAxwyo&amp;t=143s" data-ep="9" data-t="143">2:23</a><p><b>Vectors: mosquitoes.</b> Last, vectors. Malaria and dengue need a mosquito in between. People infect mosquitoes, and mosquitoes infect people. So we couple two models: S I R for people, and S I for mosquitoes, which usually stay infected for the rest of their short lives. Mosquitoes add their own clock too. After biting an infected person, the parasite needs days to develop inside the mosquito, and many mosquitoes die before it&#x27;s ready. Toy numbers: one infected person infects ten mosquitoes, and each infected mosquito infects 0.3 people. From person to person, over the two steps, that&#x27;s three. Halve the number of mosquitoes, and it drops to 1.5. But halve the bites, with bed nets, and it drops to 0.75. Below one. Bites count twice: a mosquito bites to get infected, and bites again to pass it on. That&#x27;s why the biting rate appears squared in the classic Ross Macdonald formula.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=3Yep7RAxwyo&amp;t=200s" data-ep="9" data-t="200">3:20</a><p><b>Recap.</b> So: split the infected by stage, track outcomes with their delays, split the population into groups, and couple hosts with vectors. Next time, we let the rates change over time: seasons, interventions and behavior.</p></div></div><div class="rl-tx-ep" data-ep="10" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=wPko3ZxUywE" data-ep="10" data-t="0">0:00</a><p><b>Beta is never constant.</b> So far, beta has been a constant. In real life, it never is. Winter comes, schools close, people get scared. Today, beta becomes a function of time.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=wPko3ZxUywE&amp;t=17s" data-ep="10" data-t="17">0:17</a><p><b>Seasons.</b> Start with seasons. Many respiratory infections spread better in winter: people crowd indoors, and some viruses survive longer in cold, dry air. Schools add their own rhythm. Classic studies of measles found that epidemics followed the school calendar: transmission rose when terms started, and fell during holidays. A simple model: beta goes up and down once a year, twenty percent above and below its average. From peak to trough, that&#x27;s a ratio of 1.5. Combine that with immunity that fades after about a year. Without seasons, our model settles at a steady 1.6 percent infected. With seasons, it locks into a yearly wave, peaking at about eight percent, right around the time transmission is highest. A modest swing in beta becomes a big swing in cases, because the epidemic amplifies it. And the timing of the yearly peak is set by the season, not by when the first case arrived. In our run, the first wave peaks on day thirty nine; a few years later, every peak lands within a day of the yearly high point of transmission.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=wPko3ZxUywE&amp;t=81s" data-ep="10" data-t="81">1:21</a><p><b>Interventions as steps.</b> Next, interventions. The simplest way is piecewise: beta drops on the day a measure starts, and comes back on the day it ends. In reality, measures switch on gradually, and not everyone complies. A smoother ramp, or a compliance share, can capture that. But steps are a good first sketch. In our run, a measure cuts transmission from day thirty to day ninety. A twenty percent cut lowers the peak from thirty percent to twenty two. A forty percent cut brings it down to thirteen. But a sixty percent cut does worse than forty: the peak is fifteen percent, on day one hundred fifteen. Strong but short, and most people are still susceptible when it ends. More is not always better, if it stops too soon. Strength and timing work together. This is the same lesson as in Module two, now written as a beta that changes on chosen days. We&#x27;ll optimize those days properly in Module ten.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=wPko3ZxUywE&amp;t=139s" data-ep="10" data-t="139">2:19</a><p><b>Feedback and the product form.</b> Third, beta can depend on the epidemic itself. When cases rise, people cut contacts, and beta falls. We built exactly this in Module two. Then beta is no longer a function of time alone. It depends on the state of the system, and that feedback can create plateaus and new waves. A handy way to write all of this: beta of t equals a baseline, times a season factor, times a policy factor, times a behavior factor. Each factor is a small model of its own.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=wPko3ZxUywE&amp;t=168s" data-ep="10" data-t="168">2:48</a><p><b>R0 versus R(t).</b> One warning about words. R₀ is defined at the start, with everyone susceptible and nothing changed. Once beta changes, what you measure is the effective reproduction number, R t. It includes immunity, interventions, behavior and season, all at once. Estimating R t from data is a big topic of its own: you need the delays from infection to report, and the typical gap between one infection and the next. We&#x27;ll see the tools in Module seven. So when the news says R is now 0.9, it means R t, not R₀.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=wPko3ZxUywE&amp;t=201s" data-ep="10" data-t="201">3:21</a><p><b>Recap.</b> So: seasons as a smooth yearly wave, interventions as steps, and behavior as feedback. Same model, with a beta that moves. Next time, we stop pretending that everything is smooth and certain. Chance.</p></div></div><div class="rl-tx-ep" data-ep="11" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=tQR6_VDZQ6U" data-ep="11" data-t="0">0:00</a><p><b>One case: fizzle or take off.</b> In the equations, one infected person in a town of a thousand always starts an epidemic, if R₀ is above one. In reality, the first case often just recovers, and that&#x27;s the end of it.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=tQR6_VDZQ6U&amp;t=18s" data-ep="11" data-t="18">0:18</a><p><b>Random events, Gillespie.</b> To capture that, we switch from smooth flows to random events. People are whole numbers. Either someone gets infected, or someone recovers. Each event has a rate: beta times S times I over N for an infection, gamma times I for a recovery. The time to the next event is random, and so is which event it is. Simulating this one event at a time is called the Gillespie algorithm. Run it many times, and you get a whole distribution of outbreaks, instead of one curve. There are faster cousins, too. Tau-leaping jumps ahead by small time steps and draws how many events happened. Chain binomial models, like the classic Reed Frost model, move in whole generations.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=tQR6_VDZQ6U&amp;t=62s" data-ep="11" data-t="62">1:02</a><p><b>Early extinction and 1/R0.</b> We ran it two thousand times in a town of a thousand, starting from one case, with R₀ of two. In forty nine percent of the runs, the outbreak died out on its own after a handful of cases. The rest took off. Theory predicts this. Early on, the outbreak is a branching process, and with these assumptions the chance of extinction is one over R₀. One half. With R₀ three, we got thirty two percent, against a third in theory. And starting from three cases instead of one, the chance drops to about one in eight.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=tQR6_VDZQ6U&amp;t=93s" data-ep="11" data-t="93">1:33</a><p><b>Tiny or big outbreaks.</b> So the outcomes split in two. Either a tiny outbreak, or a big one. Almost nothing in between. And when it takes off, the big outbreak matches the smooth model closely: about eighty percent infected on average, just like the equations. The equations describe what happens if it takes off. Chance decides whether it takes off.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=tQR6_VDZQ6U&amp;t=114s" data-ep="11" data-t="114">1:54</a><p><b>Timing spread and bands.</b> Timing varies too. Among the big outbreaks with R₀ two, the peak came on day sixty six on average, give or take fifteen days. That matters for planning. A single smooth curve hides that spread. Instead of one curve, report a band: the range where, say, ninety percent of the simulated epidemics fall. That band is an honest picture of chance alone, before we even question the parameters.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=tQR6_VDZQ6U&amp;t=139s" data-ep="11" data-t="139">2:19</a><p><b>When chance matters.</b> So when do you need a stochastic model? When numbers are small: the first cases, a small community, the tail end of an epidemic, or elimination. Small numbers also cause fade-out. After a big wave, cases can drop so low that the chain breaks by chance. For measles, studies found it kept circulating without fade-out only in cities of a few hundred thousand people or more. That&#x27;s the critical community size. When numbers are large, the smooth equations give a good average, and they&#x27;re much cheaper to run. And remember Module two: if spread is uneven, early extinction gets even more likely, and the outbreaks that survive are more explosive. This randomness comes from individual events, so it shrinks as the population grows. A different kind, like a random cold spell, hits everyone at once, and doesn&#x27;t average out.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=tQR6_VDZQ6U&amp;t=188s" data-ep="11" data-t="188">3:08</a><p><b>Recap.</b> So: random events, many runs, a distribution. Early extinction with a chance of about one over R₀, and big outbreaks that look like the equations. Next time, the last tool of this module: the next generation matrix, for when one simple R₀ formula is not enough.</p></div></div><div class="rl-tx-ep" data-ep="12" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=FRq7jiyVaHo" data-ep="12" data-t="0">0:00</a><p><b>When beta over gamma breaks.</b> R₀ equals beta over gamma works for one simple model. Add stages, age groups or mosquitoes, and that formula breaks. Today, the general recipe.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=FRq7jiyVaHo&amp;t=17s" data-ep="12" data-t="17">0:17</a><p><b>Generations and the matrix.</b> The idea is to follow infections from generation to generation. For a typical infected person of each type, ask: how many new infected people of each type do they cause? Put those numbers in a matrix, called the next generation matrix. R₀ is its dominant eigenvalue: the long-run growth factor per generation, once the mix of infected types settles down.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=FRq7jiyVaHo&amp;t=41s" data-ep="12" data-t="41">0:41</a><p><b>F and V, and SEIR.</b> To build it, split the equations of the infected boxes in two. F holds new infections arriving. V holds everything else: moves between infected boxes, and exits. The matrix is F times the inverse of V. In words: new infections per day, times the time spent in each infected box. Try it on S E I R. Only I creates new infections, and the latent box just delays things. The recipe gives R₀ equal to beta over gamma, the same as S I R. Latency cancels out. In symbols: F has beta in the corner, V has sigma and gamma, and the product gives sigma over sigma, times beta over gamma. The sigma, the latent rate, cancels.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=FRq7jiyVaHo&amp;t=81s" data-ep="12" data-t="81">1:21</a><p><b>The two-group town.</b> Now our two-group town from two episodes ago. Children are a quarter of the town, but they meet each other a lot. One infected child infects about 2.1 children and 1.3 adults. One infected adult infects about 0.4 children and 1.3 adults. Neither group alone tells the story. Children alone would give 2.1, adults alone 1.3. The dominant eigenvalue of the matrix is about 2.5. And its eigenvector tells us who the cases are, generation after generation: about half children and half adults, though children are only a quarter of the town. The same recipe handles Episode three&#x27;s toy disease: presymptomatic, symptomatic and asymptomatic stages are three infected boxes, and the matrix adds up their contributions to 1.9, as before.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=FRq7jiyVaHo&amp;t=129s" data-ep="12" data-t="129">2:09</a><p><b>Comparing policies.</b> Now we can compare policies properly. Cut contacts among children by sixty percent, say by closing schools, and R₀ falls from 2.5 to 1.8. Cut contacts among adults by the same sixty percent, and it only falls to 2.4. Same cut, very different effect. The matrix shows where transmission really lives. You can push this further: ask how much R₀ changes when you change each entry of the matrix. Those sensitivities point to the transmission routes worth targeting first.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=FRq7jiyVaHo&amp;t=159s" data-ep="12" data-t="159">2:39</a><p><b>Vectors and conventions.</b> One subtlety with vectors. In the next generation matrix, one generation is one step: person to mosquito, or mosquito to person. So for our mosquito toy, the matrix gives the square root of three, about 1.7, instead of three over two steps. Same threshold at one, different number. Always check which one a paper uses.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=FRq7jiyVaHo&amp;t=178s" data-ep="12" data-t="178">2:58</a><p><b>The fine print.</b> And the fine print. The recipe describes the start of an outbreak, near a disease-free state. It doesn&#x27;t give you the peak or the final size. And how you split F and V is a modeling choice. Different splits can give different numbers, with the same threshold at one.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=FRq7jiyVaHo&amp;t=194s" data-ep="12" data-t="194">3:14</a><p><b>Module 3 recap.</b> That&#x27;s Module three: SIR and its family, rates that change over time, chance, and a recipe for R₀ that works for any number of infected types. Next, Module four: space. Cities linked by travel, networks of people, and epidemics that move like waves across a map.</p></div></div></div>
+            </details>
+        </div>
+        <div class="rl-eps">
+          <div class="rl-eps-head"><b>Module 3 episodes</b><span>6 episodes · 24 min</span></div>
+          <ol><li id="ep-7"><a class="rl-ep is-active" data-ep="7" href="https://www.youtube.com/watch?v=lqr3N2MzL5A" aria-current=true><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep07.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>4:32</span></span><span><span class="rl-ep-num">Episode 7 · 3.1</span><span class="rl-ep-title" style="display:block">SIR from scratch and the meaning of R₀</span><span class="rl-ep-take" style="display:block">SIR from scratch: R0 = β/γ, growth needs S &gt; 1/R0, and the epidemic stops before everyone is infected.</span></span></a></li><li id="ep-8"><a class="rl-ep" data-ep="8" href="https://www.youtube.com/watch?v=Lh7S1FgyuaI"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep08.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>4:14</span></span><span><span class="rl-ep-num">Episode 8 · 3.2</span><span class="rl-ep-title" style="display:block">More states: births, deaths, reinfection, latency</span><span class="rl-ep-take" style="display:block">Births refill susceptibles, fading immunity brings waves back, and latency changes the timing, not the total.</span></span></a></li><li id="ep-9"><a class="rl-ep" data-ep="9" href="https://www.youtube.com/watch?v=3Yep7RAxwyo"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep09.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>3:54</span></span><span><span class="rl-ep-num">Episode 9 · 3.3</span><span class="rl-ep-title" style="display:block">More classes: stages, outcomes, structure, vectors</span><span class="rl-ep-take" style="display:block">Stages, outcomes, groups and vectors: hidden stages sustain spread, hospitals lag, and bites count twice.</span></span></a></li><li id="ep-10"><a class="rl-ep" data-ep="10" href="https://www.youtube.com/watch?v=wPko3ZxUywE"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep10.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>3:56</span></span><span><span class="rl-ep-num">Episode 10 · 3.4</span><span class="rl-ep-title" style="display:block">When transmission changes</span><span class="rl-ep-take" style="display:block">β moves: seasons as a yearly wave, interventions as steps, behavior as feedback; R(t) is not R0.</span></span></a></li><li id="ep-11"><a class="rl-ep" data-ep="11" href="https://www.youtube.com/watch?v=tQR6_VDZQ6U"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep11.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>3:47</span></span><span><span class="rl-ep-num">Episode 11 · 3.5</span><span class="rl-ep-title" style="display:block">Chance matters: stochastic models</span><span class="rl-ep-take" style="display:block">Chance decides whether an outbreak takes off (about 1/R0 fizzle); the equations describe it if it does.</span></span></a></li><li id="ep-12"><a class="rl-ep" data-ep="12" href="https://www.youtube.com/watch?v=FRq7jiyVaHo"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep12.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>3:50</span></span><span><span class="rl-ep-num">Episode 12 · 3.6</span><span class="rl-ep-title" style="display:block">The next-generation matrix</span><span class="rl-ep-take" style="display:block">The next-generation matrix: R0 is its dominant eigenvalue, and it shows where transmission lives.</span></span></a></li></ol>
+        </div>
+      </div>
+      <script type="application/json" id="rl-episodes">[{"ep": 7, "youtube": "lqr3N2MzL5A", "title": "SIR from scratch and the meaning of R₀", "duration": "4:32", "hook": "The workhorse of epidemic modeling, built from scratch: three boxes, five assumptions, two rates.", "takeaway": "SIR from scratch: R0 = β/γ, growth needs S > 1/R0, and the epidemic stops before everyone is infected.", "thumbAbs": "/epidemic-modeling/img/eps/ep07.webp"}, {"ep": 8, "youtube": "Lh7S1FgyuaI", "title": "More states: births, deaths, reinfection, latency", "duration": "4:14", "hook": "The basic SIR model has one wave.", "takeaway": "Births refill susceptibles, fading immunity brings waves back, and latency changes the timing, not the total.", "thumbAbs": "/epidemic-modeling/img/eps/ep08.webp"}, {"ep": 9, "youtube": "3Yep7RAxwyo", "title": "More classes: stages, outcomes, structure, vectors", "duration": "3:54", "hook": "Not every infected person is the same.", "takeaway": "Stages, outcomes, groups and vectors: hidden stages sustain spread, hospitals lag, and bites count twice.", "thumbAbs": "/epidemic-modeling/img/eps/ep09.webp"}, {"ep": 10, "youtube": "wPko3ZxUywE", "title": "When transmission changes", "duration": "3:56", "hook": "Transmission is never constant.", "takeaway": "β moves: seasons as a yearly wave, interventions as steps, behavior as feedback; R(t) is not R0.", "thumbAbs": "/epidemic-modeling/img/eps/ep10.webp"}, {"ep": 11, "youtube": "tQR6_VDZQ6U", "title": "Chance matters: stochastic models", "duration": "3:47", "hook": "In the equations, one case always starts an epidemic if R0 is above one.", "takeaway": "Chance decides whether an outbreak takes off (about 1/R0 fizzle); the equations describe it if it does.", "thumbAbs": "/epidemic-modeling/img/eps/ep11.webp"}, {"ep": 12, "youtube": "FRq7jiyVaHo", "title": "The next-generation matrix", "duration": "3:50", "hook": "When one formula for R0 is not enough: the next-generation matrix.", "takeaway": "The next-generation matrix: R0 is its dominant eigenvalue, and it shows where transmission lives.", "thumbAbs": "/epidemic-modeling/img/eps/ep12.webp"}]</script>
+    </div></section>
+    <section id="lab" class="rl-lab" aria-labelledby="lab-title">
+      <div class="proj-wrap rl-lab-head">
+        <p class="proj-label"><i class="ri-node-tree" aria-hidden="true"></i>Interactive lab</p>
+        <h2 id="lab-title" class="proj-h2" style="margin-top:.5rem">SIR-family builder and chance</h2>
+        <p class="proj-lead">Build SIR, SEIR, SIRS and seasonal models from the same controls, and run hundreds of stochastic outbreaks to compare chance with the equations.</p>
+        <p class="proj-lead" style="margin-top:.6rem">The builder re-solves the equations as you change R0 and the boxes; the chance panel runs Gillespie simulations in your browser and compares the share of outbreaks that fizzle with the 1/R0 rule.</p>
+      </div>
+      <div class="rlx" id="family-lab" data-epx="family">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">One model, many boxes</h3>
+          <p class="rlx-sub">Shares of a town, one in a thousand infected on day 0. Switch boxes on and off; the transmission rate β₀ is set so that R₀ is the value on the slider.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">SIR</div>
+              <div class="formula-line"><span class="formula-chip">dS/dt = −β S I · dI/dt = β S I − γ I</span></div>
+              <p class="math-card-copy">γ = 1 / infectious period. Without other boxes, R₀ = β / γ and the epidemic stops while some people were never infected.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Extra boxes</div>
+              <div class="formula-line"><span class="formula-chip">S → E → I → R → S</span></div>
+              <p class="math-card-copy">Latency adds E (infected, not yet infectious). Waning immunity sends R back to S. Births and deaths (life 50 years) refill S.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Seasons</div>
+              <div class="formula-line"><span class="formula-chip">β(t) = β₀ (1 + a cos(2πt/365))</span></div>
+              <p class="math-card-copy">Transmission swings once a year, highest on day 0, 365, 730 and so on.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Builder controls">
+            <div><h4 class="rlx-h">Builder</h4><p class="rlx-sub">Every change re-solves the equations.</p></div>
+            <div class="rlx-btns"><button type="button" data-k="p-sir" class="control-button control-button-primary">SIR</button><button type="button" data-k="p-seir" class="control-button control-button-secondary">SEIR</button><button type="button" data-k="p-sirs" class="control-button control-button-secondary">SIRS</button><button type="button" data-k="p-season" class="control-button control-button-secondary">Seasonal SIRS</button></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="fmR0">R₀</label><span class="control-value" data-k="R0-out">3.0</span></div><input id="fmR0" data-k="R0" type="range" min="0.5" max="6" step="0.1" value="3"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="fmD">Infectious period</label><span class="control-value" data-k="D-out">10 days</span></div><input id="fmD" data-k="D" type="range" min="2" max="14" step="1" value="10"></div>
+            <div class="rlx-row"><div><label class="rlx-label" for="fmLat">Latency (E box)</label></div><label class="toggle"><input id="fmLat" data-k="latent" type="checkbox"><span class="toggle-track"></span></label></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="fmL">Latent period</label><span class="control-value" data-k="L-out">5 days</span></div><input id="fmL" data-k="L" type="range" min="1" max="14" step="1" value="5"></div>
+            <div class="rlx-row"><div><label class="rlx-label" for="fmWane">Waning immunity</label></div><label class="toggle"><input id="fmWane" data-k="wane" type="checkbox"><span class="toggle-track"></span></label></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="fmImm">Immunity lasts</label><span class="control-value" data-k="Imm-out">12 months</span></div><input id="fmImm" data-k="Imm" type="range" min="90" max="1095" step="15" value="365"></div>
+            <div class="rlx-row"><div><label class="rlx-label" for="fmDemo">Births and deaths</label></div><label class="toggle"><input id="fmDemo" data-k="demo" type="checkbox"><span class="toggle-track"></span></label></div>
+            <div class="rlx-row"><div><label class="rlx-label" for="fmSeason">Seasons</label></div><label class="toggle"><input id="fmSeason" data-k="season" type="checkbox"><span class="toggle-track"></span></label></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="fmA">Seasonal swing a</label><span class="control-value" data-k="a-out">±20%</span></div><input id="fmA" data-k="a" type="range" min="0" max="0.5" step="0.05" value="0.2"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="fmDays">Time shown</label><span class="control-value" data-k="days-out">160 days</span></div><input id="fmDays" data-k="days" type="range" min="100" max="3650" step="10" value="160"></div>
+            <p class="rlx-hint">The presets load the runs used in Episodes 7, 8 and 10 and in the Module 3 slides. Values are made up to show mechanisms.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Peak infected</div><div class="metric-value" data-k="peak">–</div></div><div class="metric-tile"><div class="metric-label">Peak day</div><div class="metric-value" data-k="peakday">–</div></div><div class="metric-tile"><div class="metric-label" data-k="final-label">Ever infected</div><div class="metric-value" data-k="final">–</div></div><div class="metric-tile"><div class="metric-label">Herd immunity 1 − 1/R₀</div><div class="metric-value" data-k="herd">–</div></div></div>
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">Solving…</p>
+            <div class="rlx-two">
+              <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">All boxes</h4><p class="rlx-sub">Shares of the town over time.</p></div></div>
+                <div class="chart-shell"><svg data-k="chart" role="img" aria-label="S, E, I and R over time"></svg></div>
+                <div class="rlx-legend"><span class="line-swatch" style="--swatch:#0072b2">S</span><span class="line-swatch is-dash" style="--swatch:#d97706">E</span><span class="line-swatch" style="--swatch:#d55e00">I</span><span class="line-swatch" style="--swatch:#009e73">R</span></div>
+              </div>
+              <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Infected, zoomed</h4><p class="rlx-sub">Marks: waves (peaks above 0.1%, at least 60 days apart).</p></div></div>
+                <div class="chart-shell"><svg data-k="ichart" role="img" aria-label="Infected share over time"></svg></div>
+              </div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current settings, in the builder or in the chance panel below.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Keep R₀ at 3, switch latency on, and push the peak past day 100.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>With waning immunity and seasons on, make every yearly wave after the first bigger than 15%.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>In the chance panel, with R₀ above 1, make more than 60% of runs fizzle.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+          <div class="rlx-grid" style="margin-top:1.5rem">
+            <aside class="rlx-card rlx-controls" aria-label="Chance controls">
+            <div><h4 class="rlx-h">Chance</h4><p class="rlx-sub">Whole people and random events (Gillespie), recovery after 10 days on average.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="fmN">Town size</label><span class="control-value" data-k="N-out">1,000</span></div><input id="fmN" data-k="N" type="range" min="100" max="3000" step="100" value="1000"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="fmcR0">R₀</label><span class="control-value" data-k="cR0-out">2.0</span></div><input id="fmcR0" data-k="cR0" type="range" min="0.8" max="4" step="0.1" value="2"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="fmI0">First cases</label><span class="control-value" data-k="i0-out">1</span></div><input id="fmI0" data-k="i0" type="range" min="1" max="5" step="1" value="1"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="fmRuns">Runs</label><span class="control-value" data-k="runs-out">500</span></div><input id="fmRuns" data-k="runs" type="range" min="100" max="2000" step="100" value="500"></div>
+            <div class="rlx-btns"><button type="button" data-k="crun" class="control-button control-button-primary">Run again with new random numbers</button></div>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Runs that fizzled</div><div class="metric-value" data-k="fizz">–</div></div><div class="metric-tile"><div class="metric-label">Theory (1/R₀) per first case</div><div class="metric-value" data-k="theory">–</div></div><div class="metric-tile"><div class="metric-label">Big runs, average size</div><div class="metric-value" data-k="bigmean">–</div></div><div class="metric-tile"><div class="metric-label">Equations’ final size</div><div class="metric-value" data-k="ode">–</div></div></div>
+            <p class="rlx-status" data-k="cstatus" role="status" aria-live="polite">Running…</p>
+            <div>
+              <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Final sizes</h4><p class="rlx-sub">How many runs ended at each share infected (5% bins). A run that infects under 5% of the town counts as fizzled.</p></div></div>
+                <div class="chart-shell"><svg data-k="hist" role="img" aria-label="Histogram of final outbreak sizes"></svg></div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="next" class="proj-section is-soft" aria-labelledby="next-title"><div class="proj-wrap">
+      <h2 id="next-title" class="proj-h2">Keep going</h2>
+      <div class="rl-pn"><a href="/epidemic-modeling/module-02/"><i class="ri-arrow-left-line" aria-hidden="true"></i><span><small>Previous · Module 2</small><strong>Beyond the virus</strong></span></a><a class="is-next" href="/epidemic-modeling/module-04/"><span><small>Next · Module 4</small><strong>Spatio-temporal models</strong></span><i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+    </div></section>
+  </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Courses</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/rl-course/" class="hover:text-white">Reinforcement Learning</a></li>
+                  <li><a href="/epidemic-modeling/" class="hover:text-white">Epidemic Modeling</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/rl-course/" class="hover:text-white">RL course</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <script src="/js/videos.js"></script>
+      
+      <script src="/js/epi-labs.js" defer></script>
+      <script src="/js/epi-course.js" defer></script>
+   </body>
+</html>

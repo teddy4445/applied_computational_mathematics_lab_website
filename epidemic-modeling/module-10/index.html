@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_epi_course.py from data/epi-course.json. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Module 10: Intervention policies | Epidemic Modeling Course | ACML</title>
+      <meta name="description" content="Module 10 of 13 of ACML’s Epidemic Modeling course. Interventions, optimal control and vaccination: slides, 4 short episodes, an interactive lab and a game.">
+      <meta name="author" content="Teddy Lazebnik">
+      <meta name="keywords" content="epidemic modeling, epidemiology, intervention policies, course, ACML">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/epidemic-modeling/module-10/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Module 10: Intervention policies · Epidemic Modeling">
+      <meta property="og:description" content="Module 10 of 13 of ACML’s Epidemic Modeling course. Interventions, optimal control and vaccination: slides, 4 short episodes, an interactive lab and a game.">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/epidemic-modeling/module-10/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/epidemic-modeling/module-10/share.jpg">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Module 10: Intervention policies · Epidemic Modeling">
+      <meta name="twitter:description" content="Module 10 of 13 of ACML’s Epidemic Modeling course. Interventions, optimal control and vaccination: slides, 4 short episodes, an interactive lab and a game.">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/epidemic-modeling/module-10/share.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "Module 10: Intervention policies",
+        "description": "Interventions, optimal control and vaccination. In made-up towns, we put interventions into the equations (a dial on transmission, settings in a contact matrix, vaccination as a flow, isolation as a box), see why lockdown timing matters as much as strength, solve an optimal-control problem two ways, weigh health against the economy on a Pareto front, choose who gets vaccinated first, and see how travel cuts, data lags and drug resistance change the answer.",
+        "url": "https://acml.teddylazebnik.com/epidemic-modeling/module-10/",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "learningResourceType": [
+          "Lecture slides",
+          "Video",
+          "Interactive resource"
+        ],
+        "teaches": "Interventions, optimal control and vaccination",
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Epidemic Modeling",
+          "url": "https://acml.teddylazebnik.com/epidemic-modeling/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Teddy Lazebnik",
+          "url": "https://teddylazebnik.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Applied Computational Mathematics Laboratory",
+          "url": "https://acml.teddylazebnik.com/"
+        },
+        "hasPart": [
+          {
+            "@type": "VideoObject",
+            "name": "Putting interventions into the model",
+            "description": "How interventions enter an epidemic model: a dial on the transmission rate, why lockdown timing matters as much as strength, contact matrices by setting (school, work, shielding), vaccination as a flow, and testing and isolation.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep41.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/3KvE8nRawXk",
+            "duration": "PT2M56S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Optimal control for epidemics",
+            "description": "Optimal control for epidemics: the objective, Pontryagin's maximum principle and adjoints as shadow prices, the optimal lockdown path in an SIR town, smooth versus bang-bang policies, and re-planning with model predictive control.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep42.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/xQvVw1qUWhI",
+            "duration": "PT2M57S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Health and economy; vaccination strategy",
+            "description": "Health and economy in one model: voluntary caution, the Pareto front of lockdown policies, why the choice is a value judgement, and vaccine priority by age: infections versus deaths, vaccine type and timing.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep43.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/0LNTZCDv8Qs",
+            "duration": "PT3M2S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Space, networks, strains and real use cases",
+            "description": "Interventions in space and time: how much time travel cuts buy, trigger policies and the cost of data lags, drug resistance under treatment pressure, and lessons from 1918, SARS, Ebola and COVID-19.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/epidemic-modeling/img/eps/ep44.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/r_vFSd8dR8E",
+            "duration": "PT3M15S"
+          },
+          {
+            "@type": "DigitalDocument",
+            "name": "Module 10 slides",
+            "encodingFormat": "application/pdf",
+            "url": "https://acml.teddylazebnik.com/epidemic-modeling/slides/Epidemic_Modeling_Module10_Intervention_policies.pdf"
+          }
+        ]
+      }
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      <link href="/css/videos.css" rel="stylesheet">
+      
+      <link href="/css/exploration-lab.css" rel="stylesheet">
+      <link href="/css/rl-labs.css" rel="stylesheet">
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/project.css" rel="stylesheet">
+      <link href="/css/rl-course.css" rel="stylesheet">
+      <link href="/css/epi-course.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+          <a href="/courses.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Courses</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/courses.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Courses</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="proj-page rl-page bg-white">
+    <header class="proj-hero rl-hero">
+      <div class="proj-wrap proj-hero-grid">
+        <div>
+          <nav class="proj-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/courses.html">Courses</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/epidemic-modeling/">Epidemic Modeling</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Module 10</span></nav>
+          <p class="proj-kicker"><span><i class="ri-graduation-cap-line" aria-hidden="true"></i>Epidemic Modeling</span><span>Policy and practice</span></p>
+          <h1 class="proj-title"><small>Module 10</small>Intervention policies</h1>
+          <p class="proj-about-lead rl-summary">Interventions, optimal control and vaccination. In made-up towns, we put interventions into the equations (a dial on transmission, settings in a contact matrix, vaccination as a flow, isolation as a box), see why lockdown timing matters as much as strength, solve an optimal-control problem two ways, weigh health against the economy on a Pareto front, choose who gets vaccinated first, and see how travel cuts, data lags and drug resistance change the answer.</p>
+          <div class="rl-goal"><i class="ri-focus-3-line" aria-hidden="true"></i><span>By the end you should be able to write an intervention into an epidemic model, set up and solve a simple optimal-control problem, read a Pareto front without pretending it picks the answer, compare vaccine priorities for different goals, and judge trigger policies by the lag of their signal.</span></div>
+          <h2 class="proj-h3 rl-ideas-title">Key ideas, one per episode</h2>
+          <ul class="rl-ideas"><li><a href="#ep-41">Ep. 41</a><span>A 60-day lockdown started on day 65 nearly halved deaths; started on day 10, it changed almost nothing. Shielding seniors cut deaths by 31% while barely moving R0.</span></li><li><a href="#ep-42">Ep. 42</a><span>The optimal policy builds to about a 50% cut and tapers, landing near herd immunity; a plan made with the wrong R0 does no better than nothing until it is re-planned.</span></li><li><a href="#ep-43">Ep. 43</a><span>Only 24 of 468 lockdowns were on the Pareto front; children first cut infections most, seniors first cut deaths most, and a later start doubled deaths.</span></li><li><a href="#ep-44">Ep. 44</a><span>A 99% travel cut bought four weeks; a 12-day data lag raised peak beds from 213 to over capacity; heavy treatment handed 95% of infections to a resistant strain.</span></li></ul>
+          <p class="rl-source"><b>Textbook:</b> Chapter 10 of <a href="https://shop.elsevier.com/books/epidemic-modeling/lazebnik/978-0-443-55525-1" target="_blank" rel="noopener">T. Lazebnik, Epidemic Modeling: Principles, Algorithms, and Applications (Academic Press, 2026)</a>. The episodes and slides follow the chapter’s topics in our own words, figures and simulations; nothing is copied from the book.</p>
+        </div>
+        <div class="rl-first">
+          <a class="rl-first-img" href="/epidemic-modeling/slides/Epidemic_Modeling_Module10_Intervention_policies.pdf" target="_blank" rel="noopener"><img src="/epidemic-modeling/img/slides/m10-s01.webp" alt="The title slide of Module 10: Intervention policies" width="960" height="540" fetchpriority="high" decoding="async"></a>
+          <p class="rl-first-text">35 slides, written to be read on your own, with worked examples, “try it” boxes, our own small simulations and check-yourself questions (answers at the end). PDF, 1.4 MB.</p>
+          <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="/epidemic-modeling/slides/Epidemic_Modeling_Module10_Intervention_policies.pdf" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Open the PDF</a><a class="proj-btn" href="/epidemic-modeling/slides/Epidemic_Modeling_Module10_Intervention_policies.pdf" download><i class="ri-download-2-line" aria-hidden="true"></i>Download</a></div>
+        </div>
+      </div>
+    </header>
+    <nav class="proj-subnav is-mobile-only" aria-label="Sections of this page"><div class="proj-wrap"><ul><li><a href="#watch">Watch</a></li><li><a href="#lab">Lab</a></li><li><a href="#play">Play</a></li><li><a href="#next">Next</a></li></ul></div></nav>
+    <section id="watch" class="proj-section is-soft" aria-labelledby="watch-title"><div class="proj-wrap">
+      <h2 id="watch-title" class="proj-h2">Watch</h2>
+      <p class="proj-lead">4 short episodes for this module. Pick one from the list, and open the transcript to read along: each timestamp plays the episode from there. The narration is generated with a voice clone of Teddy, used with his permission.</p>
+      <div class="rl-watch">
+        <div class="rl-player-wrap">
+          <div id="rl-player" class="yt-player yt-16x9" data-yt-id="3KvE8nRawXk" data-yt-title="Putting interventions into the model"><a class="yt-play" href="https://www.youtube.com/watch?v=3KvE8nRawXk" aria-label="Play episode 41: Putting interventions into the model"><img src="/epidemic-modeling/img/eps/ep41.webp" alt="" width="640" height="360" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div>
+          <div class="rl-now">
+            <p id="rl-now-num" class="rl-now-num">Episode 41 · 2:56</p>
+            <p id="rl-now-title" class="rl-now-title">Putting interventions into the model</p>
+            <p id="rl-now-hook" class="rl-now-hook">How interventions enter an epidemic model: a dial on the transmission rate, why lockdown timing matters as much as strength, contact matrices by setting (school, work, shielding), vaccination as a flow, and testing and isolation.</p>
+            <p id="rl-now-take" class="rl-now-take"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i><span>A 60-day lockdown started on day 65 nearly halved deaths; started on day 10, it changed almost nothing. Shielding seniors cut deaths by 31% while barely moving R0.</span></p>
+          </div>
+            <details id="rl-tx" class="rl-tx">
+              <summary><i class="ri-file-text-line" aria-hidden="true"></i>Transcript<span id="rl-tx-which">Episode 41</span><i class="ri-arrow-down-s-line rl-tx-caret" aria-hidden="true"></i></summary>
+              <div class="rl-tx-body"><div class="rl-tx-ep" data-ep="41"><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=3KvE8nRawXk" data-ep="41" data-t="0">0:00</a><p><b>Decisions inside the equations.</b> A model that only predicts can&#x27;t help a mayor decide. To help, the decisions have to be inside the equations. Welcome to Module ten: intervention policies.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=3KvE8nRawXk&amp;t=17s" data-ep="41" data-t="17">0:17</a><p><b>A dial on transmission.</b> The simplest way in is a dial on transmission. Distancing or masks multiply the infection rate by one minus u, where u, between zero and one, is how hard we push. Our town has a million people, an R₀ of 2.5 and a thousand hospital beds. With no action, eighty nine percent are infected, the beds overflow for forty five days, and about nine thousand one hundred people die. Turn the dial to thirty percent and leave it there. The peak falls by more than half, but the wave lasts longer, and the beds still overflow, now for fifty six days.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=3KvE8nRawXk&amp;t=49s" data-ep="41" data-t="49">0:49</a><p><b>Timing.</b> Timing matters as much as strength. Take a sixty day lockdown that cuts transmission by sixty percent, enough to hold R at one, and slide its start date. Started on day ten, it changes almost nothing: the epidemic simply waits. Started on day one hundred, after the peak, it&#x27;s too late. The best start here was day sixty five, which cut deaths from about nine thousand one hundred to about four thousand nine hundred.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=3KvE8nRawXk&amp;t=73s" data-ep="41" data-t="73">1:13</a><p><b>Who meets whom.</b> Many measures act on who meets whom. Split contacts by setting: home, school, work, and everything else. A policy then scales parts of the contact matrix. In an age-structured version of our town, closing schools lowers R₀ from 2.5 to 2.1, yet deaths barely move. Shielding seniors hardly changes R₀ at all, but cuts deaths by thirty one percent. Closing schools, and cutting contacts at work and everywhere else in half, brings R₀ down to 1.3, and the share infected from eighty five to thirty nine percent.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=3KvE8nRawXk&amp;t=108s" data-ep="41" data-t="108">1:48</a><p><b>Vaccines and isolation.</b> Vaccination is different: it moves people out of the susceptible box. In the equations, it&#x27;s a flow from S straight to immune. If half a percent of susceptible people gain immunity each day from day zero, forty six percent are eventually infected instead of eighty nine. Start on day sixty, after the wave took off, and eighty two percent are. Testing and isolation split the infectious box: people who are found move to isolation, where they no longer infect. If sixty percent of infections are ever found, isolating them within a day cuts R in half. It falls to 1.25. Find ninety percent and isolate within two days, and R drops below one. Speed and coverage both matter: what is never found can&#x27;t be isolated.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=3KvE8nRawXk&amp;t=151s" data-ep="41" data-t="151">2:31</a><p><b>Next.</b> Next: how to choose the best policy over time, with optimal control.</p></div></div><div class="rl-tx-ep" data-ep="42" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=xQvVw1qUWhI" data-ep="42" data-t="0">0:00</a><p><b>Hard and short, or gentle and long?.</b> Lock down hard and short, or gently and long? Optimal control turns that question into mathematics.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=xQvVw1qUWhI&amp;t=14s" data-ep="42" data-t="14">0:14</a><p><b>The objective and the maximum principle.</b> First, write down what we want to make small: the cost of infections over time, plus the cost of the measures, plus the infections still to come once we stop. Here the measure is a cut u in transmission, up to seventy percent, and its cost grows with the square of u. Pontryagin&#x27;s maximum principle gives the conditions an optimal policy must meet. It adds a second set of equations, the adjoints, which run backwards in time. Each adjoint is a shadow price: the future cost of one more person in that state. The rule for the best cut follows: push harder when there are many infections, and when an infection costs much more in the future than a susceptible person does.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=xQvVw1qUWhI&amp;t=52s" data-ep="42" data-t="52">0:52</a><p><b>The optimal policy.</b> Our town is a simple SIR model with an R₀ of 2.5. With no measures, eighty nine percent are eventually infected. The best constant cut, kept all along, is just thirteen percent, and it barely helps. The optimal policy starts small, builds to a cut of about fifty percent near the peak, then tapers slowly. The peak falls by half, and in the end sixty three percent are infected: close to the sixty percent where herd immunity is reached, with little overshoot. The best single strict lockdown costs about eight and a half percent more than the optimum. And two very different solvers agree: the adjoint method and a direct search over weekly cuts land within 0.02 percent of each other.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=xQvVw1qUWhI&amp;t=95s" data-ep="42" data-t="95">1:35</a><p><b>Smooth or bang-bang.</b> The shape depends on the costs. If the cost of measures grows in proportion to u, instead of its square, the optimum becomes bang-bang: one strict lockdown, here from about day sixty to day one hundred twenty, and nothing else. And if infections weigh five times less, the best policy is gentle: never more than a twenty percent cut, for about a hundred days. So the answer is never just lock down or don&#x27;t. It depends on what you count, and how you weigh it.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=xQvVw1qUWhI&amp;t=124s" data-ep="42" data-t="124">2:04</a><p><b>Model predictive control.</b> One catch: the optimum is only as good as the model. Suppose the planner believes R₀ is two, when it&#x27;s really 2.5. Following that plan to the end does no better than doing nothing. Re-planning every two weeks from the latest data recovers most of the loss, even with the wrong R₀. Re-estimating R₀ each time as well brings the cost back to the optimum. That&#x27;s model predictive control: plan, act for a while, look again, and plan again.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=xQvVw1qUWhI&amp;t=150s" data-ep="42" data-t="150">2:30</a><p><b>Next.</b> Next: the economy enters the objective, and we choose who gets vaccinated first.</p></div></div><div class="rl-tx-ep" data-ep="43" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=0LNTZCDv8Qs" data-ep="43" data-t="0">0:00</a><p><b>Two bills.</b> Every lockdown sends two bills: one paid in health, one in livelihoods. And every vaccine dose is a choice about who goes first.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=0LNTZCDv8Qs&amp;t=17s" data-ep="43" data-t="17">0:17</a><p><b>An economy in the model.</b> Our town again, now with an economy. A lockdown that cuts transmission by sixty percent costs thirty percent of that day&#x27;s output. And people don&#x27;t wait for orders: as hospital beds fill, they cut their contacts on their own. So doing nothing isn&#x27;t free. With no lockdown, caution alone cut the share infected from eighty nine to seventy two percent, and cost about 2.4 percent of a year&#x27;s output.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=0LNTZCDv8Qs&amp;t=43s" data-ep="43" data-t="43">0:43</a><p><b>The Pareto front.</b> Now try four hundred sixty eight lockdowns, with different strengths, start dates and lengths. Each one is a point: economic loss across, deaths up. Most are wasteful: another policy has both fewer deaths and a smaller loss. Only twenty four points are left. They form the Pareto front, the set of honest compromises. Which point to pick depends on how a death is weighed against output. That&#x27;s a value judgement, not a calculation. Count a death as twenty years of one person&#x27;s output, and a short, moderate lockdown wins. Count it as a hundred years, and a longer one does. And if a vaccine arrives on day two hundred, the picture changes. At the higher weight, the best choice is to suppress hard from day ten until the vaccine: deaths almost vanish, at a cost of seventeen percent of a year&#x27;s output.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=0LNTZCDv8Qs&amp;t=89s" data-ep="43" data-t="89">1:29</a><p><b>Who gets vaccinated first.</b> Now, vaccines. In a well-mixed town, an R₀ of 2.5 means sixty percent must be immune for herd immunity. With a vaccine that&#x27;s ninety percent effective, that&#x27;s sixty seven percent coverage. But people differ. In our age-structured town, five thousand doses a day arrive from day thirty, four hundred thousand in all. Who should go first? To cut infections, vaccinate those with the most contacts: children first gave the fewest infections. To cut deaths, protect those most at risk: seniors first gave about thirteen hundred deaths, against about thirty two hundred for children first. If the vaccine mainly prevents severe disease rather than infection, the indirect protection fades: every order gave about the same number of infections, and seniors first was still best for deaths. And speed counts. Starting the same campaign on day sixty, instead of day thirty, doubled the deaths.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=0LNTZCDv8Qs&amp;t=143s" data-ep="43" data-t="143">2:23</a><p><b>No universal ranking.</b> The best order isn&#x27;t a universal ranking. It depends on the vaccine, the contacts, the timing, and what you choose to minimize.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=0LNTZCDv8Qs&amp;t=151s" data-ep="43" data-t="151">2:31</a><p><b>Next.</b> Next: interventions in space and on networks, policies that react to data, pathogens that evolve, and what real epidemics taught us.</p></div></div><div class="rl-tx-ep" data-ep="44" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=r_vFSd8dR8E" data-ep="44" data-t="0">0:00</a><p><b>Where you act.</b> Where you act matters as much as how hard. And the pathogen can answer back.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=r_vFSd8dR8E&amp;t=12s" data-ep="44" data-t="12">0:12</a><p><b>Travel cuts.</b> Six cities: a hub of two million, and five towns on a ring, linked by daily travel. An outbreak starts in one town. With no restrictions, the hub passes one infectious person in ten thousand on day thirty eight. Cutting all travel by ninety percent delays that to day fifty one. Even a ninety nine percent cut only reaches day sixty six, and in the end the same eighty nine percent are infected. Cut only the hub&#x27;s links, and the hub is delayed just as much, but the neighbouring towns still catch it on day thirty eight, along the ring. Infection follows every path that&#x27;s left open. Travel restrictions buy time, here about two weeks per tenfold cut. Time is worth a lot, if you use it to prepare.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=r_vFSd8dR8E&amp;t=55s" data-ep="44" data-t="55">0:55</a><p><b>Policies that react to data.</b> Real policies react to data: measures go on when a signal passes a threshold, and off when it falls. Here, a seventy percent cut goes on above fifteen hundred new infections a day, and off below five hundred. If we could see infections the day after they happen, hospital beds would peak at two hundred thirteen, a fifth of capacity. With the four day lag of wastewater, three hundred fifty two. With the eight day lag of reported cases, six hundred eleven. With the twelve day lag of hospital admissions, the beds overflow. The lag also makes the response cruder: fewer, longer lockdowns, and almost twice the deaths in the first year.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=r_vFSd8dR8E&amp;t=93s" data-ep="44" data-t="93">1:33</a><p><b>Pathogens answer back.</b> Pathogens evolve, and our measures shape the selection. Suppose an antiviral cuts the infectious period of treated people in half. A resistant strain shrugs it off. It spreads ten percent less well, but the drug can&#x27;t touch it. Treating sixty percent of infections cut total infections by almost a fifth, but a third of them were resistant. Treating ninety percent made the resistant strain dominant by day ninety: ninety five percent of infections, and nearly as many in total as with no treatment. Vaccines that stop disease but not infection raise similar questions: in poultry, such vaccines have let more virulent strains of Marek&#x27;s disease keep spreading. Evolution-aware policy counts tomorrow&#x27;s strains, not just today&#x27;s cases.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=r_vFSd8dR8E&amp;t=136s" data-ep="44" data-t="136">2:16</a><p><b>What real epidemics taught.</b> Real epidemics teach the same lessons. In 1918, American cities that acted early and kept their measures in place generally saw lower peaks of death. With SARS in 2003, faster isolation after symptoms helped bring transmission down. In West Africa in 2014, Ebola showed that isolation beds and safe burials must scale up fast enough to keep pace. And COVID-19 turned every idea in this module into a daily decision: timing, triggers, vaccine priorities and new variants.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=r_vFSd8dR8E&amp;t=166s" data-ep="44" data-t="166">2:46</a><p><b>Next.</b> That closes Module ten. Next, in Module eleven: uncertainty, sensitivity, and how to compare models.</p></div></div></div>
+            </details>
+        </div>
+        <div class="rl-eps">
+          <div class="rl-eps-head"><b>Module 10 episodes</b><span>4 episodes · 12 min</span></div>
+          <ol><li id="ep-41"><a class="rl-ep is-active" data-ep="41" href="https://www.youtube.com/watch?v=3KvE8nRawXk" aria-current=true><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep41.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>2:56</span></span><span><span class="rl-ep-num">Episode 41 · 10.1</span><span class="rl-ep-title" style="display:block">Putting interventions into the model</span><span class="rl-ep-take" style="display:block">A 60-day lockdown started on day 65 nearly halved deaths; started on day 10, it changed almost nothing. Shielding seniors cut deaths by 31% while barely moving R0.</span></span></a></li><li id="ep-42"><a class="rl-ep" data-ep="42" href="https://www.youtube.com/watch?v=xQvVw1qUWhI"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep42.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>2:57</span></span><span><span class="rl-ep-num">Episode 42 · 10.2</span><span class="rl-ep-title" style="display:block">Optimal control for epidemics</span><span class="rl-ep-take" style="display:block">The optimal policy builds to about a 50% cut and tapers, landing near herd immunity; a plan made with the wrong R0 does no better than nothing until it is re-planned.</span></span></a></li><li id="ep-43"><a class="rl-ep" data-ep="43" href="https://www.youtube.com/watch?v=0LNTZCDv8Qs"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep43.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>3:02</span></span><span><span class="rl-ep-num">Episode 43 · 10.3</span><span class="rl-ep-title" style="display:block">Health and economy; vaccination strategy</span><span class="rl-ep-take" style="display:block">Only 24 of 468 lockdowns were on the Pareto front; children first cut infections most, seniors first cut deaths most, and a later start doubled deaths.</span></span></a></li><li id="ep-44"><a class="rl-ep" data-ep="44" href="https://www.youtube.com/watch?v=r_vFSd8dR8E"><span class="rl-ep-thumb"><img src="/epidemic-modeling/img/eps/ep44.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>3:15</span></span><span><span class="rl-ep-num">Episode 44 · 10.4</span><span class="rl-ep-title" style="display:block">Space, networks, strains and real use cases</span><span class="rl-ep-take" style="display:block">A 99% travel cut bought four weeks; a 12-day data lag raised peak beds from 213 to over capacity; heavy treatment handed 95% of infections to a resistant strain.</span></span></a></li></ol>
+        </div>
+      </div>
+      <script type="application/json" id="rl-episodes">[{"ep": 41, "youtube": "3KvE8nRawXk", "title": "Putting interventions into the model", "duration": "2:56", "hook": "How interventions enter an epidemic model: a dial on the transmission rate, why lockdown timing matters as much as strength, contact matrices by setting (school, work, shielding), vaccination as a flow, and testing and isolation.", "takeaway": "A 60-day lockdown started on day 65 nearly halved deaths; started on day 10, it changed almost nothing. Shielding seniors cut deaths by 31% while barely moving R0.", "thumbAbs": "/epidemic-modeling/img/eps/ep41.webp"}, {"ep": 42, "youtube": "xQvVw1qUWhI", "title": "Optimal control for epidemics", "duration": "2:57", "hook": "Optimal control for epidemics: the objective, Pontryagin's maximum principle and adjoints as shadow prices, the optimal lockdown path in an SIR town, smooth versus bang-bang policies, and re-planning with model predictive control.", "takeaway": "The optimal policy builds to about a 50% cut and tapers, landing near herd immunity; a plan made with the wrong R0 does no better than nothing until it is re-planned.", "thumbAbs": "/epidemic-modeling/img/eps/ep42.webp"}, {"ep": 43, "youtube": "0LNTZCDv8Qs", "title": "Health and economy; vaccination strategy", "duration": "3:02", "hook": "Health and economy in one model: voluntary caution, the Pareto front of lockdown policies, why the choice is a value judgement, and vaccine priority by age: infections versus deaths, vaccine type and timing.", "takeaway": "Only 24 of 468 lockdowns were on the Pareto front; children first cut infections most, seniors first cut deaths most, and a later start doubled deaths.", "thumbAbs": "/epidemic-modeling/img/eps/ep43.webp"}, {"ep": 44, "youtube": "r_vFSd8dR8E", "title": "Space, networks, strains and real use cases", "duration": "3:15", "hook": "Interventions in space and time: how much time travel cuts buy, trigger policies and the cost of data lags, drug resistance under treatment pressure, and lessons from 1918, SARS, Ebola and COVID-19.", "takeaway": "A 99% travel cut bought four weeks; a 12-day data lag raised peak beds from 213 to over capacity; heavy treatment handed 95% of infections to a resistant strain.", "thumbAbs": "/epidemic-modeling/img/eps/ep44.webp"}]</script>
+    </div></section>
+    <section id="lab" class="rl-lab" aria-labelledby="lab-title">
+      <div class="proj-wrap rl-lab-head">
+        <p class="proj-label"><i class="ri-scales-3-line" aria-hidden="true"></i>Interactive lab</p>
+        <h2 id="lab-title" class="proj-h2" style="margin-top:.5rem">Lockdowns and vaccine priority</h2>
+        <p class="proj-lead">Choose a lockdown&#x27;s start day, length and strength in the module&#x27;s town and see beds, deaths and lost output; then give a limited vaccine supply to children, adults or seniors first and compare infections and deaths.</p>
+        <p class="proj-lead" style="margin-top:.6rem">The first panel runs the module&#x27;s town of a million people with one lockdown you design; the second runs its age-structured version with a vaccine campaign. Everything runs in your browser.</p>
+      </div>
+      <div class="rlx" id="policy-lab" data-epx="policy">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">Lockdowns and vaccine priority</h3>
+          <p class="rlx-sub">The module's made-up town: a million people, R₀ 2.5, a thousand hospital beds. Design one lockdown, then decide who gets a limited vaccine first. Everything runs in your browser.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">A dial on transmission</div>
+              <div class="formula-line"><span class="formula-chip">β(t) = β₀ × (1 − u(t))</span></div>
+              <p class="math-card-copy">A lockdown of strength u between its start and end; 2% of infections need a bed for 10 days.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Two bills</div>
+              <div class="formula-line"><span class="formula-chip">output lost a day = 0.5 × u + 0.3 × caution</span></div>
+              <p class="math-card-copy">With caution on, people cut contacts by up to half as beds fill. Patients who find no bed die more often.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Vaccination as a flow</div>
+              <div class="formula-line"><span class="formula-chip">dS/dt = −λS − doses(t)</span></div>
+              <p class="math-card-copy">Doses go to susceptible people, group by group, in the order you choose; children, adults and seniors mix differently.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Lockdown controls">
+            <div><h4 class="rlx-h">One lockdown</h4><p class="rlx-sub">Choose when it starts, how long it lasts, and how hard it pushes.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="poLs">Start</label><span class="control-value" data-k="ls-out">day 60</span></div><input id="poLs" data-k="ls" type="range" min="0" max="150" step="5" value="60"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="poLl">Length</label><span class="control-value" data-k="ll-out">60 days</span></div><input id="poLl" data-k="ll" type="range" min="0" max="180" step="10" value="60"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="poLv">Strength (cut in transmission)</label><span class="control-value" data-k="lv-out">60%</span></div><input id="poLv" data-k="lv" type="range" min="0" max="0.8" step="0.05" value="0.6"></div>
+            <div class="rlx-row"><div><label class="rlx-label" for="poLc">People's own caution</label></div><label class="toggle"><input id="poLc" data-k="lc" type="checkbox"><span class="toggle-track"></span></label></div>
+            <p class="rlx-hint">A 60% cut holds R at 1. Grey: no lockdown; dashed: the 1,000 beds. Values are made up to show mechanisms.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Infected</div><div class="metric-value" data-k="lat">–</div></div><div class="metric-tile"><div class="metric-label">Peak beds</div><div class="metric-value" data-k="lpb">–</div></div><div class="metric-tile"><div class="metric-label">Over capacity</div><div class="metric-value" data-k="lov">–</div></div><div class="metric-tile"><div class="metric-label">Deaths</div><div class="metric-value" data-k="ld">–</div></div><div class="metric-tile"><div class="metric-label">Output lost</div><div class="metric-value" data-k="lg">–</div></div></div>
+            <p class="rlx-status" data-k="lstatus" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Hospital beds in use</h4><p class="rlx-sub">Orange: with your lockdown; grey: no lockdown; dashed: capacity.</p></div></div>
+              <div class="chart-shell"><svg data-k="lchart" role="img" aria-label="Hospital beds in use over one year"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current settings, in its own panel.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Without caution, bring deaths below 5,000 with one lockdown.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Without caution, find a lockdown of at least 50% for at least 30 days that is so early it barely helps (deaths within 2% of no lockdown).</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Vaccines: get fewer than 600,000 infections.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>Vaccines: get fewer than 1,000 deaths.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+          <div class="rlx-grid" style="margin-top:1.5rem">
+            <aside class="rlx-card rlx-controls" aria-label="Vaccine controls">
+            <div><h4 class="rlx-h">Who goes first?</h4><p class="rlx-sub">The age-structured town: children have the most contacts, seniors the highest risk.</p></div>
+            <div class="rlx-field"><div class="rlx-label">Order</div>
+              <div class="rlx-btns"><button type="button" class="control-button control-button-primary" data-k="o-seniors">Seniors first</button><button type="button" class="control-button control-button-secondary" data-k="o-children">Children first</button><button type="button" class="control-button control-button-secondary" data-k="o-adults">Adults first</button><button type="button" class="control-button control-button-secondary" data-k="o-equal">Everyone equally</button></div></div>
+            <div class="rlx-field"><div class="rlx-label">Vaccine</div>
+              <div class="rlx-btns"><button type="button" class="control-button control-button-primary" data-k="x-block">Blocks infection</button><button type="button" class="control-button control-button-secondary" data-k="x-severe">Prevents severe disease</button></div></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="poVd">Doses a day</label><span class="control-value" data-k="vd-out">5,000 a day</span></div><input id="poVd" data-k="vd" type="range" min="0.001" max="0.01" step="0.001" value="0.005"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="poVs">First doses on</label><span class="control-value" data-k="vs-out">day 30</span></div><input id="poVs" data-k="vs" type="range" min="0" max="120" step="10" value="30"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="poVk">Doses in all</label><span class="control-value" data-k="vk-out">400,000</span></div><input id="poVk" data-k="vk" type="range" min="0.1" max="0.8" step="0.05" value="0.4"></div>
+            <p class="rlx-hint">Both vaccines prevent 90% of deaths among the vaccinated; one also blocks 90% of infections, the other only 30%.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Infections</div><div class="metric-value" data-k="vi">–</div></div><div class="metric-tile"><div class="metric-label">Deaths</div><div class="metric-value" data-k="vdd">–</div></div><div class="metric-tile"><div class="metric-label">Senior deaths</div><div class="metric-value" data-k="vsd">–</div></div></div>
+            <p class="rlx-status" data-k="vstatus" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">New infections a day</h4><p class="rlx-sub">Blue: with your campaign; grey: no vaccine.</p></div></div>
+              <div class="chart-shell"><svg data-k="vchart" role="img" aria-label="New infections a day with and without the vaccine campaign"></svg></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="play" class="proj-section is-soft" aria-labelledby="play-title"><div class="proj-wrap">
+      <h2 id="play-title" class="proj-h2">Play</h2>
+      <p class="proj-lead">A game that goes with this module, and what to look for while you play.</p>
+      <div class="rl-games is-1"><article class="rl-game"><a href="/mayor-outbreak.html" tabindex="-1" aria-hidden="true"><img src="/img/share/mayor-outbreak.jpg" alt="" width="800" height="450" loading="lazy" decoding="async"></a><div class="rl-game-body"><p class="rl-game-title">Mayor&#x27;s Outbreak</p><p class="rl-game-tag">An SIR strategy game in your browser</p><p class="rl-game-why"><b>In this module:</b> steer a city through an epidemic with your own policies, then compare your choices with the trade-offs this module computes.</p><p class="rl-game-text">Mayor&#x27;s Outbreak is a browser-based SIR strategy simulation where you steer a city through an epidemic by balancing mobility, testing, and public protection.</p><div class="rl-game-foot"><a class="proj-btn proj-btn-primary" href="/mayor-outbreak.html"><i class="ri-gamepad-line" aria-hidden="true"></i>Play</a></div></div></article></div>
+    </div></section>
+    <section id="next" class="proj-section" aria-labelledby="next-title"><div class="proj-wrap">
+      <h2 id="next-title" class="proj-h2">Keep going</h2>
+      <div class="rl-pn"><a href="/epidemic-modeling/module-09/"><i class="ri-arrow-left-line" aria-hidden="true"></i><span><small>Previous · Module 9</small><strong>Surveillance, mobility and genomic data</strong></span></a><a class="is-next" href="/epidemic-modeling/module-11/"><span><small>Next · Module 11</small><strong>Uncertainty, sensitivity and model comparison</strong></span><i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+    </div></section>
+  </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Courses</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/rl-course/" class="hover:text-white">Reinforcement Learning</a></li>
+                  <li><a href="/epidemic-modeling/" class="hover:text-white">Epidemic Modeling</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/rl-course/" class="hover:text-white">RL course</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <script src="/js/videos.js"></script>
+      
+      <script src="/js/epi-labs.js" defer></script>
+      <script src="/js/epi-course.js" defer></script>
+   </body>
+</html>

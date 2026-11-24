@@ -1,0 +1,83 @@
+<!-- Used by tools/build_epi_course.py: the SIR-family builder and chance lab (Module 3) of the Epidemic Modeling course. Script: js/epi-labs.js (data-epx="family"), styles: css/exploration-lab.css + css/rl-labs.css + css/epi-course.css. -->
+      <div class="rlx" id="family-lab" data-epx="family">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">One model, many boxes</h3>
+          <p class="rlx-sub">Shares of a town, one in a thousand infected on day 0. Switch boxes on and off; the transmission rate β₀ is set so that R₀ is the value on the slider.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">SIR</div>
+              <div class="formula-line"><span class="formula-chip">dS/dt = −β S I · dI/dt = β S I − γ I</span></div>
+              <p class="math-card-copy">γ = 1 / infectious period. Without other boxes, R₀ = β / γ and the epidemic stops while some people were never infected.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Extra boxes</div>
+              <div class="formula-line"><span class="formula-chip">S → E → I → R → S</span></div>
+              <p class="math-card-copy">Latency adds E (infected, not yet infectious). Waning immunity sends R back to S. Births and deaths (life 50 years) refill S.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Seasons</div>
+              <div class="formula-line"><span class="formula-chip">β(t) = β₀ (1 + a cos(2πt/365))</span></div>
+              <p class="math-card-copy">Transmission swings once a year, highest on day 0, 365, 730 and so on.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Builder controls">
+            <div><h4 class="rlx-h">Builder</h4><p class="rlx-sub">Every change re-solves the equations.</p></div>
+            <div class="rlx-btns"><button type="button" data-k="p-sir" class="control-button control-button-primary">SIR</button><button type="button" data-k="p-seir" class="control-button control-button-secondary">SEIR</button><button type="button" data-k="p-sirs" class="control-button control-button-secondary">SIRS</button><button type="button" data-k="p-season" class="control-button control-button-secondary">Seasonal SIRS</button></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="fmR0">R₀</label><span class="control-value" data-k="R0-out">3.0</span></div><input id="fmR0" data-k="R0" type="range" min="0.5" max="6" step="0.1" value="3"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="fmD">Infectious period</label><span class="control-value" data-k="D-out">10 days</span></div><input id="fmD" data-k="D" type="range" min="2" max="14" step="1" value="10"></div>
+            <div class="rlx-row"><div><label class="rlx-label" for="fmLat">Latency (E box)</label></div><label class="toggle"><input id="fmLat" data-k="latent" type="checkbox"><span class="toggle-track"></span></label></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="fmL">Latent period</label><span class="control-value" data-k="L-out">5 days</span></div><input id="fmL" data-k="L" type="range" min="1" max="14" step="1" value="5"></div>
+            <div class="rlx-row"><div><label class="rlx-label" for="fmWane">Waning immunity</label></div><label class="toggle"><input id="fmWane" data-k="wane" type="checkbox"><span class="toggle-track"></span></label></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="fmImm">Immunity lasts</label><span class="control-value" data-k="Imm-out">12 months</span></div><input id="fmImm" data-k="Imm" type="range" min="90" max="1095" step="15" value="365"></div>
+            <div class="rlx-row"><div><label class="rlx-label" for="fmDemo">Births and deaths</label></div><label class="toggle"><input id="fmDemo" data-k="demo" type="checkbox"><span class="toggle-track"></span></label></div>
+            <div class="rlx-row"><div><label class="rlx-label" for="fmSeason">Seasons</label></div><label class="toggle"><input id="fmSeason" data-k="season" type="checkbox"><span class="toggle-track"></span></label></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="fmA">Seasonal swing a</label><span class="control-value" data-k="a-out">±20%</span></div><input id="fmA" data-k="a" type="range" min="0" max="0.5" step="0.05" value="0.2"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="fmDays">Time shown</label><span class="control-value" data-k="days-out">160 days</span></div><input id="fmDays" data-k="days" type="range" min="100" max="3650" step="10" value="160"></div>
+            <p class="rlx-hint">The presets load the runs used in Episodes 7, 8 and 10 and in the Module 3 slides. Values are made up to show mechanisms.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Peak infected</div><div class="metric-value" data-k="peak">–</div></div><div class="metric-tile"><div class="metric-label">Peak day</div><div class="metric-value" data-k="peakday">–</div></div><div class="metric-tile"><div class="metric-label" data-k="final-label">Ever infected</div><div class="metric-value" data-k="final">–</div></div><div class="metric-tile"><div class="metric-label">Herd immunity 1 − 1/R₀</div><div class="metric-value" data-k="herd">–</div></div></div>
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">Solving…</p>
+            <div class="rlx-two">
+              <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">All boxes</h4><p class="rlx-sub">Shares of the town over time.</p></div></div>
+                <div class="chart-shell"><svg data-k="chart" role="img" aria-label="S, E, I and R over time"></svg></div>
+                <div class="rlx-legend"><span class="line-swatch" style="--swatch:#0072b2">S</span><span class="line-swatch is-dash" style="--swatch:#d97706">E</span><span class="line-swatch" style="--swatch:#d55e00">I</span><span class="line-swatch" style="--swatch:#009e73">R</span></div>
+              </div>
+              <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Infected, zoomed</h4><p class="rlx-sub">Marks: waves (peaks above 0.1%, at least 60 days apart).</p></div></div>
+                <div class="chart-shell"><svg data-k="ichart" role="img" aria-label="Infected share over time"></svg></div>
+              </div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current settings, in the builder or in the chance panel below.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Keep R₀ at 3, switch latency on, and push the peak past day 100.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>With waning immunity and seasons on, make every yearly wave after the first bigger than 15%.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>In the chance panel, with R₀ above 1, make more than 60% of runs fizzle.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+          <div class="rlx-grid" style="margin-top:1.5rem">
+            <aside class="rlx-card rlx-controls" aria-label="Chance controls">
+            <div><h4 class="rlx-h">Chance</h4><p class="rlx-sub">Whole people and random events (Gillespie), recovery after 10 days on average.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="fmN">Town size</label><span class="control-value" data-k="N-out">1,000</span></div><input id="fmN" data-k="N" type="range" min="100" max="3000" step="100" value="1000"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="fmcR0">R₀</label><span class="control-value" data-k="cR0-out">2.0</span></div><input id="fmcR0" data-k="cR0" type="range" min="0.8" max="4" step="0.1" value="2"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="fmI0">First cases</label><span class="control-value" data-k="i0-out">1</span></div><input id="fmI0" data-k="i0" type="range" min="1" max="5" step="1" value="1"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="fmRuns">Runs</label><span class="control-value" data-k="runs-out">500</span></div><input id="fmRuns" data-k="runs" type="range" min="100" max="2000" step="100" value="500"></div>
+            <div class="rlx-btns"><button type="button" data-k="crun" class="control-button control-button-primary">Run again with new random numbers</button></div>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Runs that fizzled</div><div class="metric-value" data-k="fizz">–</div></div><div class="metric-tile"><div class="metric-label">Theory (1/R₀) per first case</div><div class="metric-value" data-k="theory">–</div></div><div class="metric-tile"><div class="metric-label">Big runs, average size</div><div class="metric-value" data-k="bigmean">–</div></div><div class="metric-tile"><div class="metric-label">Equations’ final size</div><div class="metric-value" data-k="ode">–</div></div></div>
+            <p class="rlx-status" data-k="cstatus" role="status" aria-live="polite">Running…</p>
+            <div>
+              <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Final sizes</h4><p class="rlx-sub">How many runs ended at each share infected (5% bins). A run that infects under 5% of the town counts as fizzled.</p></div></div>
+                <div class="chart-shell"><svg data-k="hist" role="img" aria-label="Histogram of final outbreak sizes"></svg></div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>

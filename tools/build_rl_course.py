@@ -192,7 +192,7 @@ def build_hub(data, template, eps):
     hero = f'''    <header class="proj-hero rl-hero">
       <div class="proj-wrap proj-hero-grid">
         <div>
-          {crumbs(("Home", "/"), ("Tools", "/tools.html"), ("Reinforcement learning course", None))}
+          {crumbs(("Home", "/"), ("Courses", "/courses.html"), ("Reinforcement learning course", None))}
           <p class="proj-kicker"><span><i class="ri-graduation-cap-line" aria-hidden="true"></i>Open course materials</span><span><i class="ri-user-3-line" aria-hidden="true"></i>{esc(data["teacher"])}</span></p>
           <h1 class="proj-title">{esc(data["title"])}</h1>
           <p class="proj-subtitle">{esc(data["description"])}</p>
@@ -291,7 +291,7 @@ def build_lecture(data, template, eps, l, tx):
     hero = f'''    <header class="proj-hero rl-hero">
       <div class="proj-wrap proj-hero-grid">
         <div>
-          {crumbs(("Home", "/"), ("Tools", "/tools.html"), ("RL course", "/rl-course/"), (f"Lecture {n}", None))}
+          {crumbs(("Home", "/"), ("Courses", "/courses.html"), ("RL course", "/rl-course/"), (f"Lecture {n}", None))}
           <p class="proj-kicker"><span><i class="ri-graduation-cap-line" aria-hidden="true"></i>{esc(data["title"])}</span><span>Part {pi} · {esc(part["title"])}</span></p>
           <h1 class="proj-title"><small>Lecture {n}</small>{esc(l["title"])}</h1>
           <p class="proj-about-lead rl-summary">{esc(l["summary"])}</p>

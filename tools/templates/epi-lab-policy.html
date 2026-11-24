@@ -1,0 +1,72 @@
+<!-- Used by tools/build_epi_course.py: the intervention lab (Module 10) of the Epidemic Modeling course: one lockdown you design (start, length, strength) in a town of a million, and a vaccine campaign in its age-structured version (order, vaccine type, supply, start). Script: js/epi-labs.js (data-epx="policy"), styles: css/exploration-lab.css + css/rl-labs.css + css/epi-course.css. -->
+      <div class="rlx" id="policy-lab" data-epx="policy">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">Lockdowns and vaccine priority</h3>
+          <p class="rlx-sub">The module's made-up town: a million people, R₀ 2.5, a thousand hospital beds. Design one lockdown, then decide who gets a limited vaccine first. Everything runs in your browser.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">A dial on transmission</div>
+              <div class="formula-line"><span class="formula-chip">β(t) = β₀ × (1 − u(t))</span></div>
+              <p class="math-card-copy">A lockdown of strength u between its start and end; 2% of infections need a bed for 10 days.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Two bills</div>
+              <div class="formula-line"><span class="formula-chip">output lost a day = 0.5 × u + 0.3 × caution</span></div>
+              <p class="math-card-copy">With caution on, people cut contacts by up to half as beds fill. Patients who find no bed die more often.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Vaccination as a flow</div>
+              <div class="formula-line"><span class="formula-chip">dS/dt = −λS − doses(t)</span></div>
+              <p class="math-card-copy">Doses go to susceptible people, group by group, in the order you choose; children, adults and seniors mix differently.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Lockdown controls">
+            <div><h4 class="rlx-h">One lockdown</h4><p class="rlx-sub">Choose when it starts, how long it lasts, and how hard it pushes.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="poLs">Start</label><span class="control-value" data-k="ls-out">day 60</span></div><input id="poLs" data-k="ls" type="range" min="0" max="150" step="5" value="60"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="poLl">Length</label><span class="control-value" data-k="ll-out">60 days</span></div><input id="poLl" data-k="ll" type="range" min="0" max="180" step="10" value="60"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="poLv">Strength (cut in transmission)</label><span class="control-value" data-k="lv-out">60%</span></div><input id="poLv" data-k="lv" type="range" min="0" max="0.8" step="0.05" value="0.6"></div>
+            <div class="rlx-row"><div><label class="rlx-label" for="poLc">People's own caution</label></div><label class="toggle"><input id="poLc" data-k="lc" type="checkbox"><span class="toggle-track"></span></label></div>
+            <p class="rlx-hint">A 60% cut holds R at 1. Grey: no lockdown; dashed: the 1,000 beds. Values are made up to show mechanisms.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Infected</div><div class="metric-value" data-k="lat">–</div></div><div class="metric-tile"><div class="metric-label">Peak beds</div><div class="metric-value" data-k="lpb">–</div></div><div class="metric-tile"><div class="metric-label">Over capacity</div><div class="metric-value" data-k="lov">–</div></div><div class="metric-tile"><div class="metric-label">Deaths</div><div class="metric-value" data-k="ld">–</div></div><div class="metric-tile"><div class="metric-label">Output lost</div><div class="metric-value" data-k="lg">–</div></div></div>
+            <p class="rlx-status" data-k="lstatus" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Hospital beds in use</h4><p class="rlx-sub">Orange: with your lockdown; grey: no lockdown; dashed: capacity.</p></div></div>
+              <div class="chart-shell"><svg data-k="lchart" role="img" aria-label="Hospital beds in use over one year"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current settings, in its own panel.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Without caution, bring deaths below 5,000 with one lockdown.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Without caution, find a lockdown of at least 50% for at least 30 days that is so early it barely helps (deaths within 2% of no lockdown).</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Vaccines: get fewer than 600,000 infections.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>Vaccines: get fewer than 1,000 deaths.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+          <div class="rlx-grid" style="margin-top:1.5rem">
+            <aside class="rlx-card rlx-controls" aria-label="Vaccine controls">
+            <div><h4 class="rlx-h">Who goes first?</h4><p class="rlx-sub">The age-structured town: children have the most contacts, seniors the highest risk.</p></div>
+            <div class="rlx-field"><div class="rlx-label">Order</div>
+              <div class="rlx-btns"><button type="button" class="control-button control-button-primary" data-k="o-seniors">Seniors first</button><button type="button" class="control-button control-button-secondary" data-k="o-children">Children first</button><button type="button" class="control-button control-button-secondary" data-k="o-adults">Adults first</button><button type="button" class="control-button control-button-secondary" data-k="o-equal">Everyone equally</button></div></div>
+            <div class="rlx-field"><div class="rlx-label">Vaccine</div>
+              <div class="rlx-btns"><button type="button" class="control-button control-button-primary" data-k="x-block">Blocks infection</button><button type="button" class="control-button control-button-secondary" data-k="x-severe">Prevents severe disease</button></div></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="poVd">Doses a day</label><span class="control-value" data-k="vd-out">5,000 a day</span></div><input id="poVd" data-k="vd" type="range" min="0.001" max="0.01" step="0.001" value="0.005"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="poVs">First doses on</label><span class="control-value" data-k="vs-out">day 30</span></div><input id="poVs" data-k="vs" type="range" min="0" max="120" step="10" value="30"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="poVk">Doses in all</label><span class="control-value" data-k="vk-out">400,000</span></div><input id="poVk" data-k="vk" type="range" min="0.1" max="0.8" step="0.05" value="0.4"></div>
+            <p class="rlx-hint">Both vaccines prevent 90% of deaths among the vaccinated; one also blocks 90% of infections, the other only 30%.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Infections</div><div class="metric-value" data-k="vi">–</div></div><div class="metric-tile"><div class="metric-label">Deaths</div><div class="metric-value" data-k="vdd">–</div></div><div class="metric-tile"><div class="metric-label">Senior deaths</div><div class="metric-value" data-k="vsd">–</div></div></div>
+            <p class="rlx-status" data-k="vstatus" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">New infections a day</h4><p class="rlx-sub">Blue: with your campaign; grey: no vaccine.</p></div></div>
+              <div class="chart-shell"><svg data-k="vchart" role="img" aria-label="New infections a day with and without the vaccine campaign"></svg></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
