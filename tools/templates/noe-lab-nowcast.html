@@ -1,0 +1,37 @@
+<!-- Used by tools/build_noe_course.py: lab 5 (Module 5) of the Non-Observed Economy course: nowcast the hidden share of thirty invented countries with persistence, a regression and anchor-and-update, check them honestly, and watch drift alarms. Script: js/noe-labs.js (data-noex="nowcast"). -->
+      <div class="rlx" id="nowcast-lab" data-noex="nowcast">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">The forecast desk: a careful number, a year late</h3>
+          <p class="rlx-sub">Thirty invented countries, quarter by quarter. A careful benchmark covers a year and is published a year after it ends; four quarterly indicators arrive at once (cash ratio, unemployment, digital payments). Three things happen along the way, each of which you can switch off: digital payments take over in half the countries, a recession, and an e-invoicing reform.</p>
+          <div class="math-grid">
+            <article class="math-card"><div class="math-card-title">Persistence</div><div class="formula-line"><span class="formula-chip">ŝₜ = latest published benchmark</span></div><p class="math-card-copy">The baseline every model must beat.</p></article>
+            <article class="math-card"><div class="math-card-title">Regression on levels</div><div class="formula-line"><span class="formula-chip">ŝₜ = f(indicatorsₜ)</span></div><p class="math-card-copy">Learns how indicators relate to past benchmarks.</p></article>
+            <article class="math-card"><div class="math-card-title">Anchor and update</div><div class="formula-line"><span class="formula-chip">ŝₜ = Bᵧ + g(indicatorsₜ − indicatorsᵧ)</span></div><p class="math-card-copy">Old but careful level, timely signals of change.</p></article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Forecaster controls">
+            <div><h4 class="rlx-h">Forecaster</h4><p class="rlx-sub">Choose a forecaster and how much history it sees.</p></div>
+            <div class="rlx-field"><label class="rlx-label" for="ncM">Forecaster</label><select id="ncM" class="control-select" data-k="model"><option value="persistence" selected>persistence</option><option value="regression">regression on levels</option><option value="anchor">anchor and update</option></select></div><div class="rlx-field"><label class="rlx-label" for="ncW">History used</label><select id="ncW" class="control-select" data-k="win"><option value="2">last 2 years</option><option value="3">last 3 years</option><option value="5">last 5 years</option><option value="99" selected>all history</option></select></div><div class="rlx-field"><label class="rlx-label" for="ncC">How it is checked</label><select id="ncC" class="control-select" data-k="check"><option value="rolling" selected>rolling origin (honest)</option><option value="random">random quarters held out</option></select></div><div class="rlx-label" style="margin-top:.4rem">What happens</div><label class="srx-check"><input type="checkbox" data-k="tech" checked> Digital payments take over (quarter 20)</label><label class="srx-check"><input type="checkbox" data-k="rec" checked> A recession (quarters 28–35)</label><label class="srx-check"><input type="checkbox" data-k="reform" checked> E-invoicing in a third of countries (quarter 36)</label>
+            <p class="rlx-hint">Errors are mean absolute errors in points of hidden share, against the invented truth, for nowcasts of quarters 16–47.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Overall error</div><div class="metric-value" data-k="all">–</div></div><div class="metric-tile"><div class="metric-label">Calm years</div><div class="metric-value" data-k="calm">–</div></div><div class="metric-tile"><div class="metric-label">In the recession</div><div class="metric-value" data-k="rec-e">–</div></div><div class="metric-tile"><div class="metric-label">First drift alarm</div><div class="metric-value" data-k="alarm">–</div></div></div>
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Nowcast error, quarter by quarter</h4><p class="rlx-sub" data-k="note"></p></div></div>
+              <div class="chart-shell" style="height:300px"><svg data-k="chart" role="img" aria-label="Nowcast error by quarter for the chosen forecaster and for persistence"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current settings.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Find the forecaster that is fine in calm years (under 2 points) but off by more than 4 points in the recession.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Switch the check to random quarters and see the regression look at least half a point better than it really is.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Switch off all three shifts and run a forecaster whose drift alarm never rings.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>With all three shifts on, get the overall error below 1.7 points.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>

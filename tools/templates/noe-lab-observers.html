@@ -1,0 +1,52 @@
+<!-- Used by tools/build_noe_course.py: lab 1 (Module 1) of the Non-Observed Economy course: three observers over the invented town of Lantern Bay, the five components, definitions and denominators. Script: js/noe-labs.js (data-noex="observers"), styles: css/exploration-lab.css + css/rl-labs.css + css/epi-course.css + css/noe-course.css. -->
+      <div class="rlx" id="observers-lab" data-noex="observers">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">One town, three observers</h3>
+          <p class="rlx-sub">Lantern Bay is invented, so we know everything it really produced: about 1,666 million in its own currency. Each observer records a different part. The non-observed economy is what the statistics office misses.</p>
+          <div class="math-grid">
+            <article class="math-card"><div class="math-card-title">Tax office</div><div class="formula-line"><span class="formula-chip">declared sales of registered firms</span></div><p class="math-card-copy">Sees new firms the register missed; never sees undeclared sales, informal or illegal production.</p></article>
+            <article class="math-card"><div class="math-card-title">Statistics office</div><div class="formula-line"><span class="formula-chip">register + household survey</span></div><p class="math-card-copy">Surveys firms on its register, plus households for informal businesses and home-grown food. People under-report informal sales.</p></article>
+            <article class="math-card"><div class="math-card-title">Card company</div><div class="formula-line"><span class="formula-chip">card payments only</span></div><p class="math-card-copy">Sees money move, not what was bought or whether it was declared. Undeclared sales are mostly paid in cash.</p></article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Observer controls">
+            <div><h4 class="rlx-h">Observers</h4><p class="rlx-sub">Switch observers on and off, and change what the statistics office can see.</p></div>
+            <label class="srx-check"><input type="checkbox" data-k="tax" checked> Tax office</label>
+            <label class="srx-check"><input type="checkbox" data-k="stats" checked> Statistics office</label>
+            <label class="srx-check"><input type="checkbox" data-k="card" checked> Card company</label>
+            <label class="srx-check"><input type="checkbox" data-k="reg"> Statistics register up to date (adds the 40 new firms)</label>
+            <div class="rlx-field"><div class="rlx-label"><label for="obsHon">Household survey catches</label><span class="control-value" data-k="hon-out">78%</span></div><input id="obsHon" data-k="hon" type="range" min="0" max="100" step="1" value="78"></div>
+            <div class="rlx-field"><label class="rlx-label" for="obsDef">What counts</label><select id="obsDef" class="control-select" data-k="def"><option value="all">everything the statistics office misses</option><option value="shadow">concealed legal sales only (shadow)</option></select></div>
+            <div class="rlx-field"><label class="rlx-label" for="obsDen">Divided by</label><select id="obsDen" class="control-select" data-k="den"><option value="true">what was really produced</option><option value="gdp">official GDP (what the statistics office records)</option></select></div>
+            <p class="rlx-hint">All numbers come from our own simulation of the town, the same as in the videos.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Size of the NOE</div><div class="metric-value" data-k="size">–</div></div><div class="metric-tile"><div class="metric-label">Statistics office records</div><div class="metric-value" data-k="stats-v">–</div></div><div class="metric-tile"><div class="metric-label">Missed production</div><div class="metric-value" data-k="missed">–</div></div><div class="metric-tile"><div class="metric-label">Tax ÷ official GDP / ÷ truth</div><div class="metric-value" data-k="taxgdp">–</div></div></div>
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">What each observer records</h4><p class="rlx-sub">Share of everything Lantern Bay really produced.</p></div></div>
+              <div class="chart-shell" style="height:200px"><svg data-k="chart" role="img" aria-label="Bars: what each observer records as a share of true output"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Sort five producers into the five components</h4><p class="rlx-sub" data-k="sorted">0 of 5 right</p></div></div>
+              <div class="noex-sort">
+                <label><span>A café that skips some receipts</span><select class="control-select" data-sort="underground"><option value="">choose…</option><option value="underground">underground</option><option value="illegal">illegal</option><option value="informal">informal sector</option><option value="own">own use</option><option value="omission">statistical omission</option></select></label>
+                <label><span>A taxi with no licence</span><select class="control-select" data-sort="illegal"><option value="">choose…</option><option value="underground">underground</option><option value="illegal">illegal</option><option value="informal">informal sector</option><option value="own">own use</option><option value="omission">statistical omission</option></select></label>
+                <label><span>A dressmaker sewing at home, unregistered</span><select class="control-select" data-sort="informal"><option value="">choose…</option><option value="underground">underground</option><option value="illegal">illegal</option><option value="informal">informal sector</option><option value="own">own use</option><option value="omission">statistical omission</option></select></label>
+                <label><span>A family growing vegetables for its table</span><select class="control-select" data-sort="own"><option value="">choose…</option><option value="underground">underground</option><option value="illegal">illegal</option><option value="informal">informal sector</option><option value="own">own use</option><option value="omission">statistical omission</option></select></label>
+                <label><span>A new bakery the register has not caught up with</span><select class="control-select" data-sort="omission"><option value="">choose…</option><option value="underground">underground</option><option value="illegal">illegal</option><option value="informal">informal sector</option><option value="own">own use</option><option value="omission">statistical omission</option></select></label>
+              </div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current settings.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Using only the statistics office's settings, bring the NOE (everything missed, divided by what was really produced) below 12%.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Find a definition and a denominator that report the NOE as more than 17% of something.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Sort all five producers into the right components.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>Make the statistics office record less than the tax office. Which setting does it, and why?</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>

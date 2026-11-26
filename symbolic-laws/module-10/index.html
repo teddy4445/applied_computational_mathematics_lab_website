@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_sr_course.py from data/sr-course.json. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Module 10: Extensions of symbolic regression | Symbolic Physical Laws Discovery Course | ACML</title>
+      <meta name="description" content="Module 10 of 10 of ACML’s Symbolic Physical Laws Discovery course. Agents, distillation and generative data: slides, 2 videos and an interactive lab.">
+      <meta name="author" content="Teddy Lazebnik">
+      <meta name="keywords" content="symbolic regression, equation discovery, physics-informed machine learning, extensions of symbolic regression, course, ACML">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/symbolic-laws/module-10/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Module 10: Extensions of symbolic regression · Symbolic Physical Laws Discovery">
+      <meta property="og:description" content="Module 10 of 10 of ACML’s Symbolic Physical Laws Discovery course. Agents, distillation and generative data: slides, 2 videos and an interactive lab.">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/symbolic-laws/module-10/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/symbolic-laws/module-10/share.jpg">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Module 10: Extensions of symbolic regression · Symbolic Physical Laws Discovery">
+      <meta name="twitter:description" content="Module 10 of 10 of ACML’s Symbolic Physical Laws Discovery course. Agents, distillation and generative data: slides, 2 videos and an interactive lab.">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/symbolic-laws/module-10/share.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "Module 10: Extensions of symbolic regression",
+        "description": "Symbolic regression rarely works alone. We describe a tool by its interface: data with units and claims in; candidates, uncertainty, tests and a log out. On eight textbook laws measured in a narrow range, a one-shot search that keeps the best fit got 131 of 160 right; a small loop that proposes the simplest formula and lets three critics (units, fit to the noise, a wider range) check it got all 160, with about two tool calls per task, and ablations show what each critic does. Then we distil black boxes: a neural network and boosted trees learn a projectile's range, and symbolic students fitted to their answers recover the law where the teachers learned, and copy their mistakes where they did not. One found feature lets a straight line beat both black boxes, a representation bank picks it out, and data from a generative model corrupt the search. We end with research directions and the questions of the whole course.",
+        "url": "https://acml.teddylazebnik.com/symbolic-laws/module-10/",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "learningResourceType": [
+          "Lecture slides",
+          "Video",
+          "Interactive resource"
+        ],
+        "teaches": "Agents, distillation and generative data",
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Symbolic Physical Laws Discovery",
+          "url": "https://acml.teddylazebnik.com/symbolic-laws/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Teddy Lazebnik",
+          "url": "https://teddylazebnik.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Applied Computational Mathematics Laboratory",
+          "url": "https://acml.teddylazebnik.com/"
+        },
+        "hasPart": [
+          {
+            "@type": "VideoObject",
+            "name": "Symbolic regression inside bigger AI systems",
+            "description": "Eight textbook laws, 160 trials: the best fit was right 131 times. A loop with three critics was right every time, after about two tool calls.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/symbolic-laws/img/videos/v21.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/2Fo7CpanWWA",
+            "duration": "PT8M28S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Distillation, symbolic features, generated data, and what's next",
+            "description": "A neural network learned a projectile's range to 2.6%. A symbolic student fitted to its answers wrote the textbook law, and was more accurate than its teacher.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/symbolic-laws/img/videos/v22.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/AigOP3Y4TVE",
+            "duration": "PT8M27S"
+          },
+          {
+            "@type": "DigitalDocument",
+            "name": "Module 10 slides",
+            "encodingFormat": "application/pdf",
+            "url": "https://acml.teddylazebnik.com/symbolic-laws/slides/Symbolic_Laws_Module10_Extensions_of_symbolic_regression.pdf"
+          }
+        ]
+      }
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      <link href="/css/videos.css" rel="stylesheet">
+      
+      <link href="/css/exploration-lab.css" rel="stylesheet">
+      <link href="/css/rl-labs.css" rel="stylesheet">
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/project.css" rel="stylesheet">
+      <link href="/css/rl-course.css" rel="stylesheet">
+      <link href="/css/epi-course.css" rel="stylesheet">
+      <link href="/css/sr-course.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+          <a href="/courses.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Courses</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/courses.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Courses</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="proj-page rl-page bg-white">
+    <header class="proj-hero rl-hero">
+      <div class="proj-wrap proj-hero-grid">
+        <div>
+          <nav class="proj-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/courses.html">Courses</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/symbolic-laws/">Symbolic Physical Laws Discovery</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Module 10</span></nav>
+          <p class="proj-kicker"><span><i class="ri-graduation-cap-line" aria-hidden="true"></i>Symbolic Physical Laws Discovery</span><span>Trust and beyond</span></p>
+          <h1 class="proj-title"><small>Module 10</small>Extensions of symbolic regression</h1>
+          <p class="proj-about-lead rl-summary">Symbolic regression rarely works alone. We describe a tool by its interface: data with units and claims in; candidates, uncertainty, tests and a log out. On eight textbook laws measured in a narrow range, a one-shot search that keeps the best fit got 131 of 160 right; a small loop that proposes the simplest formula and lets three critics (units, fit to the noise, a wider range) check it got all 160, with about two tool calls per task, and ablations show what each critic does. Then we distil black boxes: a neural network and boosted trees learn a projectile&#x27;s range, and symbolic students fitted to their answers recover the law where the teachers learned, and copy their mistakes where they did not. One found feature lets a straight line beat both black boxes, a representation bank picks it out, and data from a generative model corrupt the search. We end with research directions and the questions of the whole course.</p>
+          <div class="rl-goal"><i class="ri-focus-3-line" aria-hidden="true"></i><span>By the end you should be able to describe a discovery tool by its interface, build a loop with critics and evaluate it on known answers with costs, abstentions and ablations, distil a black box into a formula and report fidelity and accuracy separately, use found formulas as features, and keep generated data out of the evidence.</span></div>
+          <h2 class="proj-h3 rl-ideas-title">Key ideas, one per video</h2>
+          <ul class="rl-ideas"><li><a href="#ep-21">Video 21</a><span>With gravity nearly fixed, the best fit chose the wrong power of g in 15 of 20 water-pressure trials; one answer had the wrong units and missed wider data by 220%. The units critic cut the fits from about 144 to about 2 per task; either critic alone was enough here, but with only a fit check the loop was wrong 95 times in 160.</span></li><li><a href="#ep-22">Video 22</a><span>Distilled where the teachers learned, both students wrote R = v²·sin 2θ / g (0.4% and 0.7% off); distilled over wider speeds they copied their teachers&#x27; mistakes (40% and 70% off). A straight line on the found feature was 0.19% off, and 0.03% beyond the data; with 400 generated shots added to 40 real ones, the search found the law in 0 of 20 trials.</span></li></ul>
+          <p class="rl-source"><b>Book:</b> Chapter 10 of <cite>Computational Methods for Symbolic Physical Laws Discovery</cite> by Teddy Lazebnik (coming soon). The videos and slides follow the chapter’s topics in our own words, figures and simulations; nothing is copied from the book.</p>
+        </div>
+        <div class="rl-first">
+          <a class="rl-first-img" href="/symbolic-laws/slides/Symbolic_Laws_Module10_Extensions_of_symbolic_regression.pdf" target="_blank" rel="noopener"><img src="/symbolic-laws/img/slides/m10-s01.webp" alt="The title slide of Module 10: Extensions of symbolic regression" width="960" height="540" fetchpriority="high" decoding="async"></a>
+          <p class="rl-first-text">22 slides, written to be read on your own, with worked examples, our own small simulations and check-yourself questions (answers at the end). PDF, 1.3 MB.</p>
+          <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="/symbolic-laws/slides/Symbolic_Laws_Module10_Extensions_of_symbolic_regression.pdf" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Open the PDF</a><a class="proj-btn" href="/symbolic-laws/slides/Symbolic_Laws_Module10_Extensions_of_symbolic_regression.pdf" download><i class="ri-download-2-line" aria-hidden="true"></i>Download</a></div>
+        </div>
+      </div>
+    </header>
+    <nav class="proj-subnav is-mobile-only" aria-label="Sections of this page"><div class="proj-wrap"><ul><li><a href="#watch">Watch</a></li><li><a href="#lab">Lab</a></li><li><a href="#next">Next</a></li></ul></div></nav>
+    <section id="watch" class="proj-section is-soft" aria-labelledby="watch-title"><div class="proj-wrap">
+      <h2 id="watch-title" class="proj-h2">Watch</h2>
+      <p class="proj-lead">2 videos for this module, each about 8 to 15 minutes. Pick one from the list, and open the transcript to read along: each timestamp plays the video from there. The narration is generated with a voice clone of Teddy, used with his permission.</p>
+      <div class="rl-watch">
+        <div class="rl-player-wrap">
+          <div id="rl-player" class="yt-player yt-16x9" data-yt-id="2Fo7CpanWWA" data-yt-title="Symbolic regression inside bigger AI systems"><a class="yt-play" href="https://www.youtube.com/watch?v=2Fo7CpanWWA" aria-label="Play video 21: Symbolic regression inside bigger AI systems"><img src="/symbolic-laws/img/videos/v21.webp" alt="" width="640" height="360" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div>
+          <div class="rl-now">
+            <p id="rl-now-num" class="rl-now-num">Video 21 · 8:28</p>
+            <p id="rl-now-title" class="rl-now-title">Symbolic regression inside bigger AI systems</p>
+            <p id="rl-now-hook" class="rl-now-hook">Eight textbook laws, 160 trials: the best fit was right 131 times. A loop with three critics was right every time, after about two tool calls.</p>
+            <p id="rl-now-take" class="rl-now-take"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i><span>With gravity nearly fixed, the best fit chose the wrong power of g in 15 of 20 water-pressure trials; one answer had the wrong units and missed wider data by 220%. The units critic cut the fits from about 144 to about 2 per task; either critic alone was enough here, but with only a fit check the loop was wrong 95 times in 160.</span></p>
+          </div>
+            <details id="rl-tx" class="rl-tx">
+              <summary><i class="ri-file-text-line" aria-hidden="true"></i>Transcript<span id="rl-tx-which">Video 21</span><i class="ri-arrow-down-s-line rl-tx-caret" aria-hidden="true"></i></summary>
+              <div class="rl-tx-body"><div class="rl-tx-ep" data-ep="21"><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=2Fo7CpanWWA" data-ep="21" data-t="0">0:00</a><p><b>One-shot search or a loop?.</b> We gave the same eight textbook laws to two procedures. Each law came with thirty noisy measurements from a narrow range. A one-shot search, which returns the formula that fits best, got 131 right, out of 160. A small loop, which proposes the simplest formula not yet tried, fits it, and lets three critics check it, got all 160 right, with about two tool calls per task. Same search space, same data. The difference was orchestration. This video is about symbolic regression inside bigger systems. This is Module ten, the last module: extensions of symbolic regression. Part one: interfaces. Part two: discovery as orchestration. Part three: mechanisms and agents. Part four: how to evaluate a discovery system.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=2Fo7CpanWWA&amp;t=55s" data-ep="21" data-t="55">0:55</a><p><b>Interfaces matter more than labels.</b> Part one: interfaces matter more than labels. Call it a neural network, an agent or a genetic program: what matters is what goes in and what comes out. A good symbolic regression tool takes data with units and ranges, the knowledge you trust, and the claim you want to test. It returns not one formula, but candidates with their errors, their uncertainty, the tests they passed and failed, and a log of how they were found. Ranges matter as much as units. A formula is only claimed where it was tested, so a tool that reports the range of its data tells you where its answer stops. Logs matter more than they seem. A formula without its history can&#x27;t be checked: you don&#x27;t know how many candidates were tried, which data were used, or which tests it failed before one passed. That interface lets a bigger system use the tool: call it, check its answer, and call it again with a better question. In Module three, units were a rule inside the search. Here, they&#x27;re a critic outside it. Whatever is inside, judge a discovery tool by what it promises at its edges.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=2Fo7CpanWWA&amp;t=114s" data-ep="21" data-t="114">1:54</a><p><b>Discovery as orchestration.</b> Part two: orchestration rather than one-shot generation. Our eight tasks: a projectile&#x27;s range, a pendulum&#x27;s period, the speed of water from a hole, kinetic energy, a spring&#x27;s period, drag, a centripetal force, and water pressure. Each had thirty measurements with two percent noise, in a narrow range, with gravity held near Earth&#x27;s value. The search space was the same for both procedures: a constant times the inputs raised to powers from minus two to two, about three hundred candidates per task. Some tasks include an input that doesn&#x27;t matter, like the pendulum&#x27;s mass, to see whether the search leaves it out. The one-shot search picked the best fit, and in 29 of 160 cases that was wrong. For water pressure it was wrong fifteen times in twenty: with gravity nearly fixed, the data couldn&#x27;t tell which power of gravity to use, and the noise chose for it. That&#x27;s a general trap. When an input barely varies in the data, any power of it fits about equally well, so the fit can&#x27;t choose. Only data where gravity changes, or a units check, can decide. One of its answers: the density squared, times the square root of gravity, times the depth. It fitted the narrow data as well as the law did. On wider data, including the Moon and Mars, it was off by 220 percent. And its units are wrong: anyone who checked them would have thrown it out. For the pendulum, one wrong answer dropped gravity altogether: a constant times the square root of the length. It missed the wider data by 37 percent. For the water from a hole, the same mistake missed by 93. The loop works differently. A proposer offers formulas, simplest first. A units critic rejects any formula whose units don&#x27;t match, before fitting anything. A fit critic asks whether the error is within one and a half times the noise. And a range critic tests the survivor on thirty measurements from a wider range, from less than half to two and a half times the narrow one, with gravity on Earth, Mars and the Moon. The units critic is cheap and strict. Of the 343 candidate formulas for the pendulum, only one has units of seconds. For the range, eight have units of length, and the fit critic chose among them. Units checks are this strong because they don&#x27;t depend on the data at all. A formula with the wrong units can fit one range by luck, but it can&#x27;t be a law in every system of units. The loop found every law, with about two tool calls per task: one fit and one range check. Without the units critic, it still found them all, but needed about 144 tool calls per task. Without the range critic, it also found them all: in our tasks, either critic was enough on its own. Remove both, keeping only the fit check, and the loop went wrong in 95 of 160 cases. Simplest first isn&#x27;t enough: in a narrow range, a simple wrong formula fits as well as the right one. An agent is a search with critics. The critics are where the science goes.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=2Fo7CpanWWA&amp;t=286s" data-ep="21" data-t="286">4:46</a><p><b>Mechanisms and agents.</b> Part three: mechanisms and agents. A mechanistic agent goes further: it proposes mechanisms, not just formulas, and designs experiments to choose among them. We ran a small version in Module nine. The loop fitted three rival laws for a draining tank, chose the starting level where they disagreed most, forecast the result before seeing it, and dropped the laws that missed. One experiment was enough, every time. That loop had the same parts as today&#x27;s: a proposer, critics, and a list of what had been ruled out. The new part was the experiment. Instead of judging candidates on the data it had, it chose the data that would judge them best. The list of what&#x27;s been ruled out matters too. Without it, a proposer can suggest the same failed idea again in new words, and the loop pays for the same test twice. Language models can now take the proposer&#x27;s seat: suggesting mechanisms, writing code, reading the literature. That makes the critics more important, not less. A fluent proposal is not evidence. A language model can propose a mechanism in a sentence, and write the code to fit it in a minute. It can also propose a mechanism that sounds right and isn&#x27;t, or write code with a quiet bug. So its proposals get the same critics: units, fit to the noise, a wider range, and a designed experiment. Let anything propose. Let only evidence decide.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=2Fo7CpanWWA&amp;t=363s" data-ep="21" data-t="363">6:03</a><p><b>Evaluating discovery systems.</b> Part four: how to evaluate a discovery system. First, tasks with known answers, and enough of them: we used eight laws, with twenty noise draws each. Twenty draws turn anecdotes into rates. Second, measure more than success. Count wrong answers separately from abstentions: a system that says I don&#x27;t know is better than one that is confidently wrong. And count the cost: fits, experiments, time. Cost matters because some steps are cheap and some aren&#x27;t. A units check costs nothing, a fit costs a little, and a new experiment can cost a week. Good loops spend the cheap checks first. Our loop could abstain: if no candidate passed all three critics, it would return nothing. Here, it never had to. On harder tasks, a good loop abstains more often, and that should count in its favour. Third, test outside the training range, as our range critic did, and report the failures task by task. Our one-shot search was perfect on four laws, and right only thirteen and five times in twenty on two others. Fourth, beware of memory. Textbook laws can be recognised rather than discovered, especially by systems trained on textbooks. Good benchmarks rename variables, change units, or use laws that no one has written down yet. And fifth, ablations. Remove each critic and count what breaks. Ours showed something we didn&#x27;t expect: either critic alone was enough here, and the units critic was far cheaper. Only an ablation tells you which parts of a system are doing the work. A discovery system is a scientific instrument. Calibrate it before you trust it.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=2Fo7CpanWWA&amp;t=453s" data-ep="21" data-t="453">7:33</a><p><b>Recap.</b> Let&#x27;s recap. Interfaces matter more than labels: data, units and claims in; candidates, uncertainty, tests and logs out. Orchestration beats one-shot generation when the critics carry real knowledge: units, noise and range. Agents can propose mechanisms and experiments, but evidence must still decide. And evaluate discovery systems on known answers, with costs, abstentions, failures and ablations. Next video, the last of the course: distillation, symbolic features, generated data, and what comes next.</p></div></div><div class="rl-tx-ep" data-ep="22" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=AigOP3Y4TVE" data-ep="22" data-t="0">0:00</a><p><b>A formula from a black box.</b> A neural network learned a projectile&#x27;s range from four hundred noisy shots, with an error of 2.6 percent. Then we asked a symbolic student to imitate it. The student wrote: the range equals 0.1023 times the speed squared, times the sine of twice the angle. That&#x27;s the textbook law, with one over g equal to 0.102. And the student was more accurate than its teacher. The student was 0.4 percent off. The teacher was 2.6 percent off. Distillation turns a black box into a formula you can read. This last video is about distillation, symbolic features, generated data, and what comes next. Part one: distilling a neural teacher. Part two: what a student explains, and distilling trees. Part three: symbolic regression as feature engineering. Part four: generated data. Part five: what&#x27;s next.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=AigOP3Y4TVE&amp;t=60s" data-ep="22" data-t="60">1:00</a><p><b>Distilling a neural teacher.</b> Our data: four hundred shots on flat ground without drag, at speeds from five to twenty metres per second and angles from ten to eighty degrees, with two percent noise. The law: the range equals the speed squared times the sine of twice the angle, over g. The teacher: a small neural network, two layers of thirty-two units, trained on the shots. The student: a constant, times a power of the speed, times one of eight functions of the angle, from a sine to a simple parabola. We asked the teacher two thousand questions inside its training range, and fitted the student to its answers. Why two thousand questions, when we only had four hundred shots? A teacher can be asked as often as we like, so the student gets as many answers as it needs, spread evenly over the range. The student matched its teacher to within 2.7 percent. It matched the truth to within 0.4. Why better than the teacher? The student&#x27;s shape is restricted, so it can&#x27;t follow the teacher&#x27;s small wiggles. It keeps what the teacher learned that a formula can express, and drops the rest. And because the student&#x27;s formula is the law, it was just as good at speeds from twenty to thirty metres per second, where the teacher had never seen a shot: 0.4 percent off there too. Fitted directly to the four hundred shots, the same student found the law too, even more precisely. So when you have the data, fit the data. Distil when you have the model but not the data: a published network, a simulator too slow to search, or a model trained on data you can&#x27;t share. A good student isn&#x27;t a copy. It&#x27;s the part of the teacher that can be written down.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=AigOP3Y4TVE&amp;t=152s" data-ep="22" data-t="152">2:32</a><p><b>What a student explains.</b> Part two: what a student explains. A student fitted to a teacher explains the teacher, not the world. Ask the network about speeds it never saw, from twenty to thirty metres per second, and its error grows to fourteen percent. Now ask the teacher over that wider range, and the student copies the teacher&#x27;s mistakes. It wrote the speed to the power 1.5, times a parabola in the angle: forty percent off inside the original range, fourteen beyond it. The parabola looks a lot like the sine of twice the angle: both are zero at zero and ninety degrees, and both peak at forty-five. Given a teacher&#x27;s slightly wrong answers, the student can&#x27;t tell which one is the physics. They&#x27;re close, not equal. Scaled to agree at forty-five degrees, at eighty degrees the parabola gives 0.40. The sine gives 0.34. A small gap, easily hidden by a teacher&#x27;s errors. Gradient-boosted trees, three hundred small ones, make the point sharper. Their predictions are a staircase: 7.2 percent off inside the range, and flat beyond it, 39 percent off at the higher speeds. Trees can only predict values they&#x27;ve seen in training. Beyond the data, each tree returns the value of its outermost leaf, which is why the staircase goes flat. Distilled inside the range, the trees&#x27; student was the true law again, 0.7 percent off. Yet it matched its teacher only to 8.4 percent. Distilled over the wider range, it put the speed to the first power, and was seventy percent off inside the original range. So query the teacher where it learned from data, and nowhere else. And report fidelity, how well the student copies its teacher, separately from accuracy, how well it matches the world. Distillation can&#x27;t add knowledge the teacher doesn&#x27;t have. It can only make that knowledge readable.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=AigOP3Y4TVE&amp;t=257s" data-ep="22" data-t="257">4:17</a><p><b>Symbolic features.</b> Part three: symbolic regression as feature engineering. A linear model on the raw speed and angle is forty-eight percent off. The same linear model on one found feature, the speed squared times the sine of twice the angle, is 0.19 percent off. At speeds it never saw, it is 0.03 percent off. That one feature did more than either black box: the trees were 7.2 percent off inside the range. The network was 2.6 percent off. And both were much worse beyond it. Why does it work? The hard part of the problem, how the range bends with speed and angle, is inside the feature. What&#x27;s left for the model is a straight line. A straight line extrapolates well when the feature is right, and badly when it isn&#x27;t. That suggests a modest way to use symbolic regression: not as the final model, but as a source of a few strong features for a model you already trust. A representation bank goes one step further: a list of candidate features, here eleven, and a sparse fit that chooses among them. With any threshold from 0.2 to 0.8, it kept exactly one: the speed squared times the sine of twice the angle. With lower thresholds, it kept four, all of them the speed squared times something. At 1.2, it kept nothing. The threshold is a choice, as it was for sparse regression earlier in the course: sweep it, and report what survives across the sweep. Symbolic features let simple models do the work of complex ones, and carry them beyond the data.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=AigOP3Y4TVE&amp;t=342s" data-ep="22" data-t="342">5:42</a><p><b>Generated data.</b> Part four: generated data. Suppose we only had forty real shots. Could a generative model add more? We fitted a mixture of Gaussians to the forty shots, and drew four hundred new ones from it. With the forty real shots alone, the search found the law in all twenty trials, 0.3 percent off. With the four hundred generated shots added, it found the law in none, and was thirty-three percent off. Why so much worse? The search trusted every shot equally, and ten generated shots outnumbered each real one. The law had to fit the generator&#x27;s version of the world. The real shots scattered about two percent around the law. A typical generated shot was nineteen percent off, and seven in ten were more than ten percent off: the generator copied the spread of the data, not the physics. One trial&#x27;s answer was a parabola in the angle, with a constant that fitted the generator, not gravity. Larger generators, including diffusion models, are far better at looking realistic. The rule doesn&#x27;t change: generated data carry the generator&#x27;s assumptions, not new measurements. Use them to test a pipeline, as we used simulations throughout this course, not as evidence for a law. A generator can&#x27;t measure. Only experiments can.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=AigOP3Y4TVE&amp;t=413s" data-ep="22" data-t="413">6:53</a><p><b>What comes next.</b> Part five: what comes next. Discovery systems that plan experiments in real laboratories, with critics that know units, conservation and symmetry. Laws found across many systems at once, with parameters that change from case to case. Uncertainty reported as routinely as the formula. And benchmarks that test discovery, not memory. Some questions are still open: how to search when the right variables were never measured, and how to tell a law from a habit of one dataset. And when people and algorithms find a law together, who gets the credit? Each of those is a place where the habits of this course still apply: state the claim, test it where it could fail, and report what you find. And through all of it, the questions of this course: what do the data really say, what would refute this law, and how would anyone check it?</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=AigOP3Y4TVE&amp;t=461s" data-ep="22" data-t="461">7:41</a><p><b>Recap.</b> Let&#x27;s recap. Distil a teacher inside the range where it learned, and report fidelity and accuracy separately. When you have the data, fit the data. A student explains its teacher, mistakes included. Symbolic features let simple models extrapolate. And generated data carry the generator&#x27;s assumptions, not new evidence. In the lab, you&#x27;ll distil a black box into a formula, and test it beyond the data. That&#x27;s the end of the course. Thank you for discovering with us.</p></div></div></div>
+            </details>
+        </div>
+        <div class="rl-eps">
+          <div class="rl-eps-head"><b>Module 10 videos</b><span>2 videos · 17 min</span></div>
+          <ol><li id="ep-21"><a class="rl-ep is-active" data-ep="21" href="https://www.youtube.com/watch?v=2Fo7CpanWWA" aria-current=true><span class="rl-ep-thumb"><img src="/symbolic-laws/img/videos/v21.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>8:28</span></span><span><span class="rl-ep-num">Video 21 · 10.1</span><span class="rl-ep-title" style="display:block">Symbolic regression inside bigger AI systems</span><span class="rl-ep-take" style="display:block">With gravity nearly fixed, the best fit chose the wrong power of g in 15 of 20 water-pressure trials; one answer had the wrong units and missed wider data by 220%. The units critic cut the fits from about 144 to about 2 per task; either critic alone was enough here, but with only a fit check the loop was wrong 95 times in 160.</span></span></a></li><li id="ep-22"><a class="rl-ep" data-ep="22" href="https://www.youtube.com/watch?v=AigOP3Y4TVE"><span class="rl-ep-thumb"><img src="/symbolic-laws/img/videos/v22.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>8:27</span></span><span><span class="rl-ep-num">Video 22 · 10.2</span><span class="rl-ep-title" style="display:block">Distillation, symbolic features, generated data, and what&#x27;s next</span><span class="rl-ep-take" style="display:block">Distilled where the teachers learned, both students wrote R = v²·sin 2θ / g (0.4% and 0.7% off); distilled over wider speeds they copied their teachers&#x27; mistakes (40% and 70% off). A straight line on the found feature was 0.19% off, and 0.03% beyond the data; with 400 generated shots added to 40 real ones, the search found the law in 0 of 20 trials.</span></span></a></li></ol>
+        </div>
+      </div>
+      <script type="application/json" id="rl-episodes">[{"ep": 21, "youtube": "2Fo7CpanWWA", "title": "Symbolic regression inside bigger AI systems", "duration": "8:28", "hook": "Eight textbook laws, 160 trials: the best fit was right 131 times. A loop with three critics was right every time, after about two tool calls.", "takeaway": "With gravity nearly fixed, the best fit chose the wrong power of g in 15 of 20 water-pressure trials; one answer had the wrong units and missed wider data by 220%. The units critic cut the fits from about 144 to about 2 per task; either critic alone was enough here, but with only a fit check the loop was wrong 95 times in 160.", "thumbAbs": "/symbolic-laws/img/videos/v21.webp"}, {"ep": 22, "youtube": "AigOP3Y4TVE", "title": "Distillation, symbolic features, generated data, and what's next", "duration": "8:27", "hook": "A neural network learned a projectile's range to 2.6%. A symbolic student fitted to its answers wrote the textbook law, and was more accurate than its teacher.", "takeaway": "Distilled where the teachers learned, both students wrote R = v²·sin 2θ / g (0.4% and 0.7% off); distilled over wider speeds they copied their teachers' mistakes (40% and 70% off). A straight line on the found feature was 0.19% off, and 0.03% beyond the data; with 400 generated shots added to 40 real ones, the search found the law in 0 of 20 trials.", "thumbAbs": "/symbolic-laws/img/videos/v22.webp"}]</script>
+    </div></section>
+    <section id="lab" class="rl-lab" aria-labelledby="lab-title">
+      <div class="proj-wrap rl-lab-head">
+        <p class="proj-label"><i class="ri-flask-line" aria-hidden="true"></i>Interactive lab</p>
+        <h2 id="lab-title" class="proj-h2" style="margin-top:.5rem">Distil a black box</h2>
+        <p class="proj-lead">Train a black box on a projectile&#x27;s range, ask it questions inside or beyond its data, and fit a symbolic student to its answers. Compare fidelity with accuracy, see a student copy its teacher&#x27;s mistakes, and use the formula you found as a feature for a straight line.</p>
+        <p class="proj-lead" style="margin-top:.6rem">The shots are simulated in your browser (flat ground, no drag, the noise you choose), and both black boxes are trained there: a nearest-neighbour average and a degree-4 polynomial. Four challenges are checked as you go.</p>
+      </div>
+      <div class="rlx" id="distill-lab" data-srx="distill">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">A projectile, a black box and a student</h3>
+          <p class="rlx-sub">The page simulates 400 shots on flat ground without drag, at speeds from 5 to 20 m/s and angles from 10° to 80°, with the noise you choose. A black box learns the range from them. You ask it questions, fit a simple formula to its answers, and check that formula against the true law, inside the data and at 20 to 30 m/s. Everything runs in your browser.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">The law</div>
+              <div class="formula-line"><span class="formula-chip">R = v²·sin 2θ / g, g = 9.81 m/s²</span></div>
+              <p class="math-card-copy">The student is c·v^a·f(θ): a power of the speed times one of eight functions of the angle.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Two different numbers</div>
+              <div class="formula-line"><span class="formula-chip">fidelity: student vs teacher · accuracy: student vs the law</span></div>
+              <p class="math-card-copy">A student can copy its teacher well and still be wrong, or copy it loosely and be right.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">A formula as a feature</div>
+              <div class="formula-line"><span class="formula-chip">R ≈ b₀ + b₁·(the student's formula)</span></div>
+              <p class="math-card-copy">A straight line on a good feature can work far beyond the data.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Teacher and student">
+            <div><h4 class="rlx-h">A · Teacher</h4><p class="rlx-sub">A black box, trained on the shots.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="dsT">Black box</label></div>
+              <select id="dsT" data-k="teacher" class="control-select"><option value="knn" selected>nearest-neighbour average of 8 shots</option><option value="poly">degree-4 polynomial in v and θ</option></select></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="dsN">Noise</label><span class="control-value" data-k="noise-out">2%</span></div><input id="dsN" data-k="noise" type="range" min="0" max="3" step="1" value="2"></div>
+            <div style="margin-top:.75rem"><h4 class="rlx-h">B · Student</h4><p class="rlx-sub">Where its training answers come from. Start without a teacher, then ask one.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="dsQ">Questions</label></div>
+              <select id="dsQ" data-k="query" class="control-select"><option value="data" selected>no teacher: fit the 400 shots directly</option><option value="in">ask the teacher inside its data, 5–20 m/s</option><option value="wide">ask the teacher at 5–30 m/s</option></select></div>
+            <div class="rlx-btns"><button type="button" class="control-button control-button-secondary is-wide" data-k="redraw">New shots</button></div>
+            </aside>
+            <div class="rlx-main">
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">–</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Teacher and student at 45°</h4><p class="rlx-sub">Grey: the true law. Purple: the black box. Orange: the student. Shaded: the speeds in the data.</p></div></div>
+              <p class="rlx-hint srx-mono" data-k="law">–</p>
+              <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Teacher off the law, 5–20 / 20–30 m/s</div><div class="metric-value" data-k="teach">–</div></div><div class="metric-tile"><div class="metric-label">Fidelity (student vs teacher)</div><div class="metric-value" data-k="fid">–</div></div><div class="metric-tile"><div class="metric-label">Student off the law, 5–20 m/s</div><div class="metric-value" data-k="ain">–</div></div><div class="metric-tile"><div class="metric-label">Student off the law, 20–30 m/s</div><div class="metric-value" data-k="aout">–</div></div></div>
+              <div class="chart-shell" style="height:280px"><svg data-k="chart" role="img" aria-label="Range against speed at 45 degrees: the law, the black box and the student"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">The formula as a feature</h4><p class="rlx-sub">Two straight lines fitted to the 400 shots: one on the raw speed and angle, one on the student's formula.</p></div></div>
+              <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Line on v and θ, 5–20 / 20–30 m/s</div><div class="metric-value" data-k="raw">–</div></div><div class="metric-tile"><div class="metric-label">Line on the student's formula, 5–20 / 20–30 m/s</div><div class="metric-value" data-k="sym">–</div></div></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked as you go.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Ask a teacher inside its data, and get a student that is the true law (v² times sin 2θ) and less than 2% off.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Find a student that is more accurate than its teacher, inside the data.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Make a student copy its teacher's mistakes: ask beyond the data, and see it more than 10% off at 20–30 m/s.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>Use a formula distilled from a teacher as a feature: a straight line on it less than 1% off at 20–30 m/s, while the line on v and θ is more than 20% off.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="next" class="proj-section is-soft" aria-labelledby="next-title"><div class="proj-wrap">
+      <h2 id="next-title" class="proj-h2">Keep going</h2>
+      <div class="rl-pn"><a href="/symbolic-laws/module-09/"><i class="ri-arrow-left-line" aria-hidden="true"></i><span><small>Previous · Module 9</small><strong>Trustworthy equation discovery</strong></span></a><a class="is-next" href="/symbolic-laws/"><span><small>That’s the course</small><strong>Back to the course page</strong></span><i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+    </div></section>
+  </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Courses</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/rl-course/" class="hover:text-white">Reinforcement Learning</a></li>
+                  <li><a href="/epidemic-modeling/" class="hover:text-white">Epidemic Modeling</a></li>
+                  <li><a href="/symbolic-laws/" class="hover:text-white">Symbolic Physical Laws Discovery</a></li>
+                  <li><a href="/non-observed-economy/" class="hover:text-white">Non-Observed Economy</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/rl-course/" class="hover:text-white">RL course</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <script src="/js/videos.js"></script>
+      
+      <script src="/js/sr-labs.js" defer></script>
+      <script src="/js/epi-course.js" defer></script>
+   </body>
+</html>

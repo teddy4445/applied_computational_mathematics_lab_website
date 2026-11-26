@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_noe_course.py from data/noe-course.json. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Module 5: Predicting size and trends | Computational Approaches to the Non-Observed Economy Course | ACML</title>
+      <meta name="description" content="Module 5 of 9 of ACML’s Computational Approaches to the Non-Observed Economy course. Forecasting something you can&#x27;t see: slides, 2 videos and an interactive lab.">
+      <meta name="author" content="Teddy Lazebnik">
+      <meta name="keywords" content="non-observed economy, informal economy, shadow economy, computational economics, predicting size and trends, course, ACML">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/non-observed-economy/module-05/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Module 5: Predicting size and trends · Computational Approaches to the Non-Observed Economy">
+      <meta property="og:description" content="Module 5 of 9 of ACML’s Computational Approaches to the Non-Observed Economy course. Forecasting something you can&#x27;t see: slides, 2 videos and an interactive lab.">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/non-observed-economy/module-05/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/non-observed-economy/module-05/share.jpg">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Module 5: Predicting size and trends · Computational Approaches to the Non-Observed Economy">
+      <meta name="twitter:description" content="Module 5 of 9 of ACML’s Computational Approaches to the Non-Observed Economy course. Forecasting something you can&#x27;t see: slides, 2 videos and an interactive lab.">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/non-observed-economy/module-05/share.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "Module 5: Predicting size and trends",
+        "description": "A careful estimate of the hidden share covers a year and arrives a year late, yet a ministry wants this quarter's number now. Thirty invented countries, quarter by quarter, live through a shift to digital payments, a recession and a reform. We line up four forecasters, from simply repeating the latest benchmark to anchoring on it and letting fresh indicators speak only about the change, check them with a rolling origin and real publication lags, test how much history to use, and then follow flexible forecasters into concept drift: three kinds, detected late, and adapted to by kind.",
+        "url": "https://acml.teddylazebnik.com/non-observed-economy/module-05/",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "learningResourceType": [
+          "Lecture slides",
+          "Video",
+          "Interactive resource"
+        ],
+        "teaches": "Forecasting something you can't see",
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Computational Approaches to the Non-Observed Economy",
+          "url": "https://acml.teddylazebnik.com/non-observed-economy/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Teddy Lazebnik",
+          "url": "https://teddylazebnik.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Applied Computational Mathematics Laboratory",
+          "url": "https://acml.teddylazebnik.com/"
+        },
+        "hasPart": [
+          {
+            "@type": "VideoObject",
+            "name": "Forecasting something you can't see",
+            "description": "A careful estimate arrives a year late. Reusing it is off by about 2.8 points; a regression trained in calm years misses by 8 in a recession.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/non-observed-economy/img/videos/v10.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/6fIECaLDDt8",
+            "duration": "PT8M33S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Deep forecasts and concept drift",
+            "description": "After a switch to digital payments, the forecaster's favourite clue lost most of its meaning: shuffling cash added over 12 points of error before, under 4 after.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/non-observed-economy/img/videos/v11.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/5ovXw5DmBOg",
+            "duration": "PT8M12S"
+          },
+          {
+            "@type": "DigitalDocument",
+            "name": "Module 5 slides",
+            "encodingFormat": "application/pdf",
+            "url": "https://acml.teddylazebnik.com/non-observed-economy/slides/Non_Observed_Economy_Module05_Predicting_size_and_trends.pdf"
+          }
+        ]
+      }
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      <link href="/css/videos.css" rel="stylesheet">
+      
+      <link href="/css/exploration-lab.css" rel="stylesheet">
+      <link href="/css/rl-labs.css" rel="stylesheet">
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/project.css" rel="stylesheet">
+      <link href="/css/rl-course.css" rel="stylesheet">
+      <link href="/css/epi-course.css" rel="stylesheet">
+      <link href="/css/noe-course.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+          <a href="/courses.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Courses</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/courses.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Courses</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="proj-page rl-page bg-white">
+    <header class="proj-hero rl-hero">
+      <div class="proj-wrap proj-hero-grid">
+        <div>
+          <nav class="proj-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/courses.html">Courses</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/non-observed-economy/">Computational Approaches to the Non-Observed Economy</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Module 5</span></nav>
+          <p class="proj-kicker"><span><i class="ri-graduation-cap-line" aria-hidden="true"></i>Computational Approaches to the Non-Observed Economy</span><span>Measuring</span></p>
+          <h1 class="proj-title"><small>Module 5</small>Predicting size and trends</h1>
+          <p class="proj-about-lead rl-summary">A careful estimate of the hidden share covers a year and arrives a year late, yet a ministry wants this quarter&#x27;s number now. Thirty invented countries, quarter by quarter, live through a shift to digital payments, a recession and a reform. We line up four forecasters, from simply repeating the latest benchmark to anchoring on it and letting fresh indicators speak only about the change, check them with a rolling origin and real publication lags, test how much history to use, and then follow flexible forecasters into concept drift: three kinds, detected late, and adapted to by kind.</p>
+          <div class="rl-goal"><i class="ri-focus-3-line" aria-hidden="true"></i><span>By the end you should be able to tell a nowcast from a forecast, beat a persistence baseline, check forecasts with a rolling origin and publication lags, name the three kinds of drift and the models each breaks, and detect and adapt to drift when the truth arrives late.</span></div>
+          <h2 class="proj-h3 rl-ideas-title">Key ideas, one per video</h2>
+          <ul class="rl-ideas"><li><a href="#ep-10">Video 10</a><span>Anchoring on the latest benchmark and letting indicators speak only about the change stayed near 2 points (2.2 overall). Random held-out quarters flattered the regression (3.4 points against 4.9 checked honestly): use a rolling origin and real publication lags.</span></li><li><a href="#ep-11">Video 11</a><span>Trees cannot extrapolate (boosting was 9 points off in the recession), and each kind of drift breaks a different model. With an annual benchmark a year late, the first drift alarm rang three years after the shift began: watch faster signals.</span></li></ul>
+          <p class="rl-source"><b>Book:</b> Chapter 5 of <cite>Computational Approaches to the Non-Observed Economy: From Theory to Practice</cite> (coming soon). The videos and slides follow the chapter’s topics in our own words, figures and simulations; the towns and countries are invented, and nothing is copied from the book.</p>
+        </div>
+        <div class="rl-first">
+          <a class="rl-first-img" href="/non-observed-economy/slides/Non_Observed_Economy_Module05_Predicting_size_and_trends.pdf" target="_blank" rel="noopener"><img src="/non-observed-economy/img/slides/m05-s01.webp" alt="The title slide of Module 5: Predicting size and trends" width="960" height="540" fetchpriority="high" decoding="async"></a>
+          <p class="rl-first-text">24 slides, written to be read on your own, with worked examples, our own small simulations and check-yourself questions (answers at the end). PDF, 2.3 MB.</p>
+          <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="/non-observed-economy/slides/Non_Observed_Economy_Module05_Predicting_size_and_trends.pdf" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Open the PDF</a><a class="proj-btn" href="/non-observed-economy/slides/Non_Observed_Economy_Module05_Predicting_size_and_trends.pdf" download><i class="ri-download-2-line" aria-hidden="true"></i>Download</a></div>
+        </div>
+      </div>
+    </header>
+    <nav class="proj-subnav is-mobile-only" aria-label="Sections of this page"><div class="proj-wrap"><ul><li><a href="#watch">Watch</a></li><li><a href="#lab">Lab</a></li><li><a href="#next">Next</a></li></ul></div></nav>
+    <section id="watch" class="proj-section is-soft" aria-labelledby="watch-title"><div class="proj-wrap">
+      <h2 id="watch-title" class="proj-h2">Watch</h2>
+      <p class="proj-lead">2 videos for this module, each about 8 to 11 minutes. Pick one from the list, and open the transcript to read along: each timestamp plays the video from there. The narration is generated with a voice clone of Teddy, used with his permission.</p>
+      <div class="rl-watch">
+        <div class="rl-player-wrap">
+          <div id="rl-player" class="yt-player yt-16x9" data-yt-id="6fIECaLDDt8" data-yt-title="Forecasting something you can&#x27;t see"><a class="yt-play" href="https://www.youtube.com/watch?v=6fIECaLDDt8" aria-label="Play video 10: Forecasting something you can&#x27;t see"><img src="/non-observed-economy/img/videos/v10.webp" alt="" width="640" height="360" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div>
+          <div class="rl-now">
+            <p id="rl-now-num" class="rl-now-num">Video 10 · 8:33</p>
+            <p id="rl-now-title" class="rl-now-title">Forecasting something you can&#x27;t see</p>
+            <p id="rl-now-hook" class="rl-now-hook">A careful estimate arrives a year late. Reusing it is off by about 2.8 points; a regression trained in calm years misses by 8 in a recession.</p>
+            <p id="rl-now-take" class="rl-now-take"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i><span>Anchoring on the latest benchmark and letting indicators speak only about the change stayed near 2 points (2.2 overall). Random held-out quarters flattered the regression (3.4 points against 4.9 checked honestly): use a rolling origin and real publication lags.</span></p>
+          </div>
+            <details id="rl-tx" class="rl-tx">
+              <summary><i class="ri-file-text-line" aria-hidden="true"></i>Transcript<span id="rl-tx-which">Video 10</span><i class="ri-arrow-down-s-line rl-tx-caret" aria-hidden="true"></i></summary>
+              <div class="rl-tx-body"><div class="rl-tx-ep" data-ep="10"><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=6fIECaLDDt8" data-ep="10" data-t="0">0:00</a><p><b>The number arrives late.</b> The most careful estimate of a country&#x27;s hidden economy usually arrives late. In our invented world, it covers a whole year, and it&#x27;s published a year after that year ends. But a ministry wants this quarter&#x27;s number, now. What do you do? The simplest answer: reuse the latest estimate. Across thirty invented countries and eight years, that&#x27;s off by about 2.8 points. A model that reads fresh indicators, trained in calm years, does better while things stay calm. Then a recession hits, and it&#x27;s off by eight points. A third approach, which keeps the old estimate as an anchor and lets the indicators say only how much has changed, stays around two points, even in the recession. This video is about forecasting a quantity nobody observes directly, and checking those forecasts honestly.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=6fIECaLDDt8&amp;t=55s" data-ep="10" data-t="55">0:55</a><p><b>Adding time.</b> Welcome to Module 5: predicting the size and the trend of the non-observed economy. I&#x27;m Teddy. In Module 4 we estimated the size for countries without a benchmark. Now we add time. We want the hidden share this quarter, and next year, using only what&#x27;s known today. Our world is the Archipelago again, now quarter by quarter. Thirty invented countries, forty-eight quarters, with three things that happen along the way: a shift to digital payments, a recession, and a reform.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=6fIECaLDDt8&amp;t=84s" data-ep="10" data-t="84">1:24</a><p><b>Two traditions.</b> Forecasting has two long traditions, and both matter here. The statistical one started with smoothing: give recent observations more weight, and let the level and the trend adapt. Then came models that use past values and past errors, and state-space models. A state-space model fits this field beautifully. It says there&#x27;s a hidden process that evolves over time, and we only see it through noisy measurements. That&#x27;s exactly the situation of the hidden economy. The econometric tradition added long-run relationships between series, models that switch regime in a crisis, and panel models that pool many countries. Factor models went further. They compress dozens of indicators into a few. And nowcasting changed the question. Instead of a fixed annual dataset, the information grows release by release, at different frequencies, with different delays. Forecasting becomes a matter of using each piece the moment it arrives. Researchers brought these tools to the hidden economy: long panels of estimates studied as a persistent process, dynamic versions of the cash models, and long-run relationships built into hidden-variable models. The common thread is respect for time. Values persist, they react to shocks with delays, and the rules of the game can change.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=6fIECaLDDt8&amp;t=156s" data-ep="10" data-t="156">2:36</a><p><b>What the analyst sees.</b> Here is what our analyst sees. A careful annual benchmark, close to the truth, but published a year late. And four indicators, every quarter, almost at once: the cash ratio, an electricity gap, unemployment, and the share of digital payments. Mixed frequencies are normal. Some indicators are monthly, some quarterly, the benchmark yearly. And the indicators have problems of their own: they get revised, and their definitions change. So there are two targets. A nowcast is this quarter&#x27;s hidden share. A forecast looks a year ahead. Both have to be made from today&#x27;s information only. And there&#x27;s a catch for checking. The truth is never observed. In practice, you score last year&#x27;s nowcasts when the benchmark finally arrives. In our world, we can also score them against the truth.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=6fIECaLDDt8&amp;t=199s" data-ep="10" data-t="199">3:19</a><p><b>Three forecasters.</b> Let&#x27;s line up the forecasters. The first is persistence: the latest published benchmark, unchanged. It&#x27;s the baseline every model must beat. It sounds naive, but hidden shares move slowly, so last year&#x27;s careful number is often close. In calm periods here, it was off by only about one and a half points. The second is smoothing with a trend. It extrapolates the benchmark series. Here, it did slightly worse than persistence, about 3.3 points. Trends in a short annual series are noisy. The third is a regression. Learn how the indicators relate to the benchmark in past years, then apply that to this quarter&#x27;s indicators. Each past quarter gets the benchmark of its year as a label, so the model learns from hundreds of quarter-country pairs, even though the benchmark is annual. In calm periods it&#x27;s as good as anything, about one and a half points. But in the recession, its error jumps to eight. Overall, it&#x27;s the worst of the three, at about five. Why? Because it learned levels. Unemployment rose beyond anything in the training years, and the link between cash and hiding changed in half the countries. A model of levels has nothing to hold on to.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=6fIECaLDDt8&amp;t=268s" data-ep="10" data-t="268">4:28</a><p><b>Anchor and update.</b> The fourth forecaster keeps the best of both. Take the latest benchmark as the level. Then use the indicators only to estimate how much has changed since that benchmark&#x27;s year. Call it anchor and update. It&#x27;s the state-space idea in plain form: a precise but old measurement, plus timely but noisy signals about the change. An example with made-up numbers. Say last year&#x27;s benchmark for a country was twenty percent. Since then, unemployment rose and cash use moved in a way that, in past years, went with one more point of hiding. The nowcast is twenty-one. When the next benchmark arrives, the anchor moves to it, and the update starts again from there. Errors can&#x27;t pile up for long. Its overall error is about 2.2 points. It stays near two through the technology shift and the recession, and rises to about three during the reform. A year ahead, everything gets harder. Persistence and anchor and update are both about three points off. The regression, about six. Ranges should widen with the horizon too. For anchor and update, the typical miss grew from about two points for this quarter to about three for next year. A forecast without a range hides that. When the target is hidden and arrives late, an old but careful measurement is worth more than it looks. Use new signals for the change, not for the level.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=6fIECaLDDt8&amp;t=346s" data-ep="10" data-t="346">5:46</a><p><b>Checking forecasts honestly.</b> Now, how should forecasts be checked? The tempting way is to hold out random quarters and train on the rest. Before the numbers, guess. Will the random check make the regression look better, or worse, than it really is? Better. With random quarters held out, the regression scores about 3.4 points. Checked the honest way, it&#x27;s about 4.9. For boosting, the gap is wider: 2.9 on random quarters, 5.3 honestly. Random holes let a model peek at the quarters around the hole, including the future. The honest check is called rolling origin. Stand at a date, use only what was known then, forecast, move forward one quarter, and repeat. It&#x27;s slower, and it&#x27;s the only check that matches how forecasts are used. And respect the publication lag. A benchmark for a year can&#x27;t be used until it was actually published. Training on it earlier is leakage, even if the number is in your file. In real life you can only score against the benchmark, a year later. That&#x27;s slow, and noisy. Keep a log of every forecast you made, with its date, so you can score it honestly when the truth, or the best estimate of it, arrives.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=6fIECaLDDt8&amp;t=418s" data-ep="10" data-t="418">6:58</a><p><b>How much history.</b> How much history should a forecaster use? More data usually helps. But old data come from a world that may have changed. We tried windows of two, three and five years, and all the history. For the regression, shorter windows made things worse, not better. With two years of data, its recession error doubled. It saw too little to learn anything stable. For anchor and update, a short window helped a little, especially during the technology shift. It only learns changes, which need less data, and recent changes are the relevant ones. So the right amount of history depends on what the model learns. Test it with the same rolling check, don&#x27;t assume it.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=6fIECaLDDt8&amp;t=457s" data-ep="10" data-t="457">7:37</a><p><b>Recap.</b> Let&#x27;s recap. Forecasting the hidden economy means forecasting a quantity that arrives late, if at all. Persistence is the baseline. A regression on levels did well in calm times and failed in the recession. Anchoring on the latest benchmark and updating with indicators was the most robust. Check with a rolling origin, respect publication lags, and test how much history to use. In the lab, you&#x27;ll run all four forecasters through the Archipelago&#x27;s shocks, and change how much history they see. Next video: flexible forecasters, and what happens when the world they learned stops existing.</p></div></div><div class="rl-tx-ep" data-ep="11" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=5ovXw5DmBOg" data-ep="11" data-t="0">0:00</a><p><b>The favourite clue loses its meaning.</b> In fifteen of our invented countries, people switch to digital payments. So does part of the hidden trade. Before the switch, the cash ratio was by far the most important input of our boosted forecaster. Shuffle it, and the error grew by more than twelve points. After the switch, shuffling it adds less than four. The model&#x27;s favourite clue lost most of its meaning. Nobody told the model. That&#x27;s concept drift: the world a model learned changes under it. This video is about noticing, and adapting.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=5ovXw5DmBOg&amp;t=35s" data-ep="11" data-t="35">0:35</a><p><b>Four questions.</b> Welcome back to Module 5. This is video two: flexible forecasters and concept drift. We&#x27;ll look at what machine learning and deep learning bring to forecasting, the three kinds of drift that matter in this field, how to detect them, and how to adapt.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=5ovXw5DmBOg&amp;t=49s" data-ep="11" data-t="49">0:49</a><p><b>Flexible forecasters.</b> Machine learning forecasters treat the past as features. Recent values, lags, rolling averages, and the indicators, all fed to a model like gradient boosting. Typical features include last quarter&#x27;s value, the change since last year, a seasonal pattern, and how old the latest benchmark is. Designing them is most of the work. They can learn interactions and thresholds. But trees have one hard limit: they can&#x27;t predict outside the range they&#x27;ve seen. In our recession, unemployment went higher than in any training year. The boosted forecaster&#x27;s error jumped to about nine points. It simply had no leaf for that world. A tree predicts by averaging similar past cases. If no past case had unemployment this high, it averages the most extreme ones it has, which were milder. So it under-reacts, exactly when reacting matters most. Deep learning offers sequence models, like recurrent networks and transformers, that read a whole history and learn their own features. They need many long series to learn from. Thirty countries with a dozen annual benchmarks are not enough. They become useful with monthly data, many regions, or many firms. Whatever the model, the label problem from Module 2 stays. A forecaster trained on a published estimate forecasts the estimate.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=5ovXw5DmBOg&amp;t=124s" data-ep="11" data-t="124">2:04</a><p><b>Three kinds of drift.</b> Now, drift. The book distinguishes three kinds, and our world has one of each. A technology shift. Digital payments jump in fifteen countries. Cash falls for reasons that have nothing to do with hiding, and hidden trade starts using digital channels too. The meaning of the cash indicator changes. A behaviour shift. The recession raises unemployment, and hiding rises by about two and a half points on average. The relationships may hold, but the inputs move into new territory. A regulation shift. Ten countries introduce e-invoicing. Hiding truly falls, by about three and a half points, and at the same time payments move to cards. Behaviour and observation change together. In the real world, these come in many forms. Mobile money and payment apps, platform work, new reporting rules, crises, inflation. Each one can change what hiding looks like, or what our indicators mean. Each one hurts different models. The regression on levels suffered most in the recession, about eight points. Persistence suffered most after the reform, about four. Anchor and update stayed between about two and three throughout.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=5ovXw5DmBOg&amp;t=194s" data-ep="11" data-t="194">3:14</a><p><b>Detecting drift.</b> How do you notice drift, when the truth is never observed? The natural signal is each new benchmark release. When it arrives, score last year&#x27;s nowcasts against it. If the errors grow, raise an alarm. A common recipe adds up the errors as they arrive, and raises the alarm when the running total drifts too far from zero. It catches a slow drift that no single error would reveal. We did that for the regression, with an alarm when the error doubles. The shift to digital payments began in quarter twenty. Pause for a moment. When do you think the first alarm went off? In quarter thirty-two. Three years after the shift began. The benchmark is annual and arrives a year late, so the evidence of drift arrives late too. The scored errors tell the story. About one and a half points for the calm years, then two, then almost five. As the recession began, between five and six, and a year into it, over ten. By the time the alarm rang, the model had been wrong for a long time. When the target is slow to arrive, drift detection has to use faster signals. There are several. Watch whether models that should agree start to disagree. Watch relationships between indicators, like cash against card payments. And fund small, fast direct evidence, like a quarterly survey or a round of random audits, as an early warning.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=5ovXw5DmBOg&amp;t=273s" data-ep="11" data-t="273">4:33</a><p><b>Adapting.</b> Once you&#x27;ve noticed drift, how do you adapt? The obvious move is a shorter training window, so old relationships fade. As we saw in the last video, that can backfire. The regression got worse with less history. Better moves depend on the kind of drift. For a technology shift, change the inputs: the cash ratio needs a companion, the digital share, and their meaning must be re-estimated after the shift. For a behaviour shift into new territory, prefer models that extrapolate sensibly, like ones built on changes rather than levels, or with a structure from theory. For a regulation shift, model the observation process explicitly, as we said in Module 2, and compare with similar countries that didn&#x27;t change. Two more tools help in every case. Retrain on a schedule, not only when something breaks. And keep several models trained on different windows, so you can see when they start to disagree. And in every case, anchor on fresh direct evidence whenever it arrives. That&#x27;s what kept anchor and update steady here. Picture the reform year from the analyst&#x27;s chair. The cash indicator drops sharply in ten countries. Before reading it as less hiding, check what else changed: the reform moved payments to cards. Hold the nowcast near the anchor, flag it, and wait for direct evidence.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=5ovXw5DmBOg&amp;t=351s" data-ep="11" data-t="351">5:51</a><p><b>Explanations expire.</b> Drift also changes explanations. Tools like SHAP values, or the simpler shuffle test we used, describe what a model relies on. Before the technology shift, our boosted model leaned on cash above everything. After it, cash mattered about a third as much. And the model&#x27;s error rose to 4 points, up from 2.3. So explanations have an expiry date. Recompute them after any shift, and never present an old one as a description of today&#x27;s economy. The same is true of the coefficients of a simple model. A weight estimated before a shift describes the old world. Re-estimate it, and say which period it comes from. And remember, as in Module 4: important to a model is not the same as a lever for policy.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=5ovXw5DmBOg&amp;t=392s" data-ep="11" data-t="392">6:32</a><p><b>A routine.</b> Here&#x27;s a practical routine for forecasting the hidden economy. Keep a persistence baseline. Use a rolling-origin check with real publication lags. Prefer models that anchor on the latest careful estimate. Log every benchmark release, and score last year&#x27;s nowcasts against it. Watch faster signals for drift. And when you find drift, ask which kind it is before you change the model. Report forecasts with ranges, and say how the range was checked. A forecast of something nobody sees deserves more humility, not less. And write down, in advance, what would make you distrust your own forecast. A new payment system, a reform, a crisis. When one of those happens, check the model before you publish its number.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=5ovXw5DmBOg&amp;t=434s" data-ep="11" data-t="434">7:14</a><p><b>Recap.</b> Let&#x27;s recap. Flexible forecasters learn interactions, but trees can&#x27;t extrapolate, and deep models need far more series than thirty countries. Drift comes in three kinds: technology, behaviour and regulation. Each one breaks different models. Benchmarks that arrive late make drift detection late, here by three years, so watch faster signals. Adapt to the kind of drift, anchor on fresh evidence, and recompute explanations after every shift. In the lab, you&#x27;ll switch the three shifts on and off, watch the alarms, and see which forecaster survives. Next module: where hidden activity happens, and through which links. Spatial dynamics.</p></div></div></div>
+            </details>
+        </div>
+        <div class="rl-eps">
+          <div class="rl-eps-head"><b>Module 5 videos</b><span>2 videos · 17 min</span></div>
+          <ol><li id="ep-10"><a class="rl-ep is-active" data-ep="10" href="https://www.youtube.com/watch?v=6fIECaLDDt8" aria-current=true><span class="rl-ep-thumb"><img src="/non-observed-economy/img/videos/v10.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>8:33</span></span><span><span class="rl-ep-num">Video 10 · 5.1</span><span class="rl-ep-title" style="display:block">Forecasting something you can&#x27;t see</span><span class="rl-ep-take" style="display:block">Anchoring on the latest benchmark and letting indicators speak only about the change stayed near 2 points (2.2 overall). Random held-out quarters flattered the regression (3.4 points against 4.9 checked honestly): use a rolling origin and real publication lags.</span></span></a></li><li id="ep-11"><a class="rl-ep" data-ep="11" href="https://www.youtube.com/watch?v=5ovXw5DmBOg"><span class="rl-ep-thumb"><img src="/non-observed-economy/img/videos/v11.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>8:12</span></span><span><span class="rl-ep-num">Video 11 · 5.2</span><span class="rl-ep-title" style="display:block">Deep forecasts and concept drift</span><span class="rl-ep-take" style="display:block">Trees cannot extrapolate (boosting was 9 points off in the recession), and each kind of drift breaks a different model. With an annual benchmark a year late, the first drift alarm rang three years after the shift began: watch faster signals.</span></span></a></li></ol>
+        </div>
+      </div>
+      <script type="application/json" id="rl-episodes">[{"ep": 10, "youtube": "6fIECaLDDt8", "title": "Forecasting something you can't see", "duration": "8:33", "hook": "A careful estimate arrives a year late. Reusing it is off by about 2.8 points; a regression trained in calm years misses by 8 in a recession.", "takeaway": "Anchoring on the latest benchmark and letting indicators speak only about the change stayed near 2 points (2.2 overall). Random held-out quarters flattered the regression (3.4 points against 4.9 checked honestly): use a rolling origin and real publication lags.", "thumbAbs": "/non-observed-economy/img/videos/v10.webp"}, {"ep": 11, "youtube": "5ovXw5DmBOg", "title": "Deep forecasts and concept drift", "duration": "8:12", "hook": "After a switch to digital payments, the forecaster's favourite clue lost most of its meaning: shuffling cash added over 12 points of error before, under 4 after.", "takeaway": "Trees cannot extrapolate (boosting was 9 points off in the recession), and each kind of drift breaks a different model. With an annual benchmark a year late, the first drift alarm rang three years after the shift began: watch faster signals.", "thumbAbs": "/non-observed-economy/img/videos/v11.webp"}]</script>
+    </div></section>
+    <section id="lab" class="rl-lab" aria-labelledby="lab-title">
+      <div class="proj-wrap rl-lab-head">
+        <p class="proj-label"><i class="ri-line-chart-line" aria-hidden="true"></i>Interactive lab</p>
+        <h2 id="lab-title" class="proj-h2" style="margin-top:.5rem">The forecast desk</h2>
+        <p class="proj-lead">Nowcast the hidden share of thirty invented countries with persistence, a regression on levels or anchor-and-update. Change how much history each sees, switch the digital-payments shift, the recession and the reform on and off, compare an honest rolling check with random held-out quarters, and watch the drift alarms.</p>
+        <p class="proj-lead" style="margin-top:.6rem">The countries are simulated in your browser (a benchmark that covers a year and is published a year later, and quarterly indicators). Four challenges are checked as you go.</p>
+      </div>
+      <div class="rlx" id="nowcast-lab" data-noex="nowcast">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">The forecast desk: a careful number, a year late</h3>
+          <p class="rlx-sub">Thirty invented countries, quarter by quarter. A careful benchmark covers a year and is published a year after it ends; four quarterly indicators arrive at once (cash ratio, unemployment, digital payments). Three things happen along the way, each of which you can switch off: digital payments take over in half the countries, a recession, and an e-invoicing reform.</p>
+          <div class="math-grid">
+            <article class="math-card"><div class="math-card-title">Persistence</div><div class="formula-line"><span class="formula-chip">ŝₜ = latest published benchmark</span></div><p class="math-card-copy">The baseline every model must beat.</p></article>
+            <article class="math-card"><div class="math-card-title">Regression on levels</div><div class="formula-line"><span class="formula-chip">ŝₜ = f(indicatorsₜ)</span></div><p class="math-card-copy">Learns how indicators relate to past benchmarks.</p></article>
+            <article class="math-card"><div class="math-card-title">Anchor and update</div><div class="formula-line"><span class="formula-chip">ŝₜ = Bᵧ + g(indicatorsₜ − indicatorsᵧ)</span></div><p class="math-card-copy">Old but careful level, timely signals of change.</p></article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Forecaster controls">
+            <div><h4 class="rlx-h">Forecaster</h4><p class="rlx-sub">Choose a forecaster and how much history it sees.</p></div>
+            <div class="rlx-field"><label class="rlx-label" for="ncM">Forecaster</label><select id="ncM" class="control-select" data-k="model"><option value="persistence" selected>persistence</option><option value="regression">regression on levels</option><option value="anchor">anchor and update</option></select></div><div class="rlx-field"><label class="rlx-label" for="ncW">History used</label><select id="ncW" class="control-select" data-k="win"><option value="2">last 2 years</option><option value="3">last 3 years</option><option value="5">last 5 years</option><option value="99" selected>all history</option></select></div><div class="rlx-field"><label class="rlx-label" for="ncC">How it is checked</label><select id="ncC" class="control-select" data-k="check"><option value="rolling" selected>rolling origin (honest)</option><option value="random">random quarters held out</option></select></div><div class="rlx-label" style="margin-top:.4rem">What happens</div><label class="srx-check"><input type="checkbox" data-k="tech" checked> Digital payments take over (quarter 20)</label><label class="srx-check"><input type="checkbox" data-k="rec" checked> A recession (quarters 28–35)</label><label class="srx-check"><input type="checkbox" data-k="reform" checked> E-invoicing in a third of countries (quarter 36)</label>
+            <p class="rlx-hint">Errors are mean absolute errors in points of hidden share, against the invented truth, for nowcasts of quarters 16–47.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Overall error</div><div class="metric-value" data-k="all">–</div></div><div class="metric-tile"><div class="metric-label">Calm years</div><div class="metric-value" data-k="calm">–</div></div><div class="metric-tile"><div class="metric-label">In the recession</div><div class="metric-value" data-k="rec-e">–</div></div><div class="metric-tile"><div class="metric-label">First drift alarm</div><div class="metric-value" data-k="alarm">–</div></div></div>
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Nowcast error, quarter by quarter</h4><p class="rlx-sub" data-k="note"></p></div></div>
+              <div class="chart-shell" style="height:300px"><svg data-k="chart" role="img" aria-label="Nowcast error by quarter for the chosen forecaster and for persistence"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current settings.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Find the forecaster that is fine in calm years (under 2 points) but off by more than 4 points in the recession.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Switch the check to random quarters and see the regression look at least half a point better than it really is.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Switch off all three shifts and run a forecaster whose drift alarm never rings.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>With all three shifts on, get the overall error below 1.7 points.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="next" class="proj-section is-soft" aria-labelledby="next-title"><div class="proj-wrap">
+      <h2 id="next-title" class="proj-h2">Keep going</h2>
+      <div class="rl-pn"><a href="/non-observed-economy/module-04/"><i class="ri-arrow-left-line" aria-hidden="true"></i><span><small>Previous · Module 4</small><strong>Estimating the size</strong></span></a><a class="is-next" href="/non-observed-economy/module-06/"><span><small>Next · Module 6</small><strong>Spatial dynamics</strong></span><i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+    </div></section>
+  </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Courses</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/rl-course/" class="hover:text-white">Reinforcement Learning</a></li>
+                  <li><a href="/epidemic-modeling/" class="hover:text-white">Epidemic Modeling</a></li>
+                  <li><a href="/symbolic-laws/" class="hover:text-white">Symbolic Physical Laws Discovery</a></li>
+                  <li><a href="/non-observed-economy/" class="hover:text-white">Non-Observed Economy</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/rl-course/" class="hover:text-white">RL course</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <script src="/js/videos.js"></script>
+      
+      <script src="/js/noe-labs.js" defer></script>
+      <script src="/js/epi-course.js" defer></script>
+   </body>
+</html>

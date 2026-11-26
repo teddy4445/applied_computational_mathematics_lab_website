@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_noe_course.py from data/noe-course.json. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Module 6: Spatial dynamics | Computational Approaches to the Non-Observed Economy Course | ACML</title>
+      <meta name="description" content="Module 6 of 9 of ACML’s Computational Approaches to the Non-Observed Economy course. Where hidden activity happens, and through which links: slides, 2 videos and an interactive lab.">
+      <meta name="author" content="Teddy Lazebnik">
+      <meta name="keywords" content="non-observed economy, informal economy, shadow economy, computational economics, spatial dynamics, course, ACML">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/non-observed-economy/module-06/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Module 6: Spatial dynamics · Computational Approaches to the Non-Observed Economy">
+      <meta property="og:description" content="Module 6 of 9 of ACML’s Computational Approaches to the Non-Observed Economy course. Where hidden activity happens, and through which links: slides, 2 videos and an interactive lab.">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/non-observed-economy/module-06/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/non-observed-economy/module-06/share.jpg">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Module 6: Spatial dynamics · Computational Approaches to the Non-Observed Economy">
+      <meta name="twitter:description" content="Module 6 of 9 of ACML’s Computational Approaches to the Non-Observed Economy course. Where hidden activity happens, and through which links: slides, 2 videos and an interactive lab.">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/non-observed-economy/module-06/share.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "Module 6: Spatial dynamics",
+        "description": "One national number can hide very different maps, and the map changes the policy. On an invented country of 160 hexagonal districts with a river, a smuggling corridor, two market towns and 40 surveys, we name the support, relation, observation process and task of a spatial study, use norms and graphs (and say what an edge means), smooth where the economy is continuous and not across a border, report the distance to the evidence, and test for structure with shuffles. Then we work backwards from traces to hidden activity, list the ways that fails, validate on regions a model never saw, and compress a detailed map into a small graph of regimes.",
+        "url": "https://acml.teddylazebnik.com/non-observed-economy/module-06/",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "learningResourceType": [
+          "Lecture slides",
+          "Video",
+          "Interactive resource"
+        ],
+        "teaches": "Where hidden activity happens, and through which links",
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Computational Approaches to the Non-Observed Economy",
+          "url": "https://acml.teddylazebnik.com/non-observed-economy/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Teddy Lazebnik",
+          "url": "https://teddylazebnik.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Applied Computational Mathematics Laboratory",
+          "url": "https://acml.teddylazebnik.com/"
+        },
+        "hasPart": [
+          {
+            "@type": "VideoObject",
+            "name": "Shadows have neighbours",
+            "description": "Three maps of one invented country, each averaging 22% hidden: evenly spread, along a corridor, or around two market towns.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/non-observed-economy/img/videos/v12.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/c6fIUsX7NHY",
+            "duration": "PT8M50S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "From a map to a model",
+            "description": "Read cash withdrawals as hiding and eight bank towns hold 81% of it. In the invented truth they hold about 5%.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/non-observed-economy/img/videos/v13.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/8zWdEIW91OA",
+            "duration": "PT8M6S"
+          },
+          {
+            "@type": "DigitalDocument",
+            "name": "Module 6 slides",
+            "encodingFormat": "application/pdf",
+            "url": "https://acml.teddylazebnik.com/non-observed-economy/slides/Non_Observed_Economy_Module06_Spatial_dynamics.pdf"
+          }
+        ]
+      }
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      <link href="/css/videos.css" rel="stylesheet">
+      
+      <link href="/css/exploration-lab.css" rel="stylesheet">
+      <link href="/css/rl-labs.css" rel="stylesheet">
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/project.css" rel="stylesheet">
+      <link href="/css/rl-course.css" rel="stylesheet">
+      <link href="/css/epi-course.css" rel="stylesheet">
+      <link href="/css/noe-course.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+          <a href="/courses.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Courses</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/courses.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Courses</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="proj-page rl-page bg-white">
+    <header class="proj-hero rl-hero">
+      <div class="proj-wrap proj-hero-grid">
+        <div>
+          <nav class="proj-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/courses.html">Courses</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/non-observed-economy/">Computational Approaches to the Non-Observed Economy</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Module 6</span></nav>
+          <p class="proj-kicker"><span><i class="ri-graduation-cap-line" aria-hidden="true"></i>Computational Approaches to the Non-Observed Economy</span><span>Space and systems</span></p>
+          <h1 class="proj-title"><small>Module 6</small>Spatial dynamics</h1>
+          <p class="proj-about-lead rl-summary">One national number can hide very different maps, and the map changes the policy. On an invented country of 160 hexagonal districts with a river, a smuggling corridor, two market towns and 40 surveys, we name the support, relation, observation process and task of a spatial study, use norms and graphs (and say what an edge means), smooth where the economy is continuous and not across a border, report the distance to the evidence, and test for structure with shuffles. Then we work backwards from traces to hidden activity, list the ways that fails, validate on regions a model never saw, and compress a detailed map into a small graph of regimes.</p>
+          <div class="rl-goal"><i class="ri-focus-3-line" aria-hidden="true"></i><span>By the end you should be able to choose and justify a spatial relation, use smoothness as a prior with honest borders, test spatial structure and multiple local tests, reconstruct a map from traces with a stated operator and prior, validate on unseen regions, and report fidelity and reduction for a reduced model.</span></div>
+          <h2 class="proj-h3 rl-ideas-title">Key ideas, one per video</h2>
+          <ul class="rl-ideas"><li><a href="#ep-12">Video 12</a><span>Moran&#x27;s I was 0.86 on the Mainland, but a survey method alone produced 0.26, and a shuffled map still showed 7 &#x27;significant&#x27; local clusters. Picking audits by network exposure found a hider a third of the time, against one in eight at random.</span></li><li><a href="#ep-13">Video 13</a><span>The raw inversion was off by 4.4 points and light smoothing by 2.2. A wrong observation operator raised the error to 11.6, while deleting 30% of graph links left it at 2.2. Holding out whole regions doubled the map-neighbour error (2.3 to 4.6).</span></li></ul>
+          <p class="rl-source"><b>Book:</b> Chapter 6 of <cite>Computational Approaches to the Non-Observed Economy: From Theory to Practice</cite> (coming soon). The videos and slides follow the chapter’s topics in our own words, figures and simulations; the towns and countries are invented, and nothing is copied from the book.</p>
+        </div>
+        <div class="rl-first">
+          <a class="rl-first-img" href="/non-observed-economy/slides/Non_Observed_Economy_Module06_Spatial_dynamics.pdf" target="_blank" rel="noopener"><img src="/non-observed-economy/img/slides/m06-s01.webp" alt="The title slide of Module 6: Spatial dynamics" width="960" height="540" fetchpriority="high" decoding="async"></a>
+          <p class="rl-first-text">28 slides, written to be read on your own, with worked examples, our own small simulations and check-yourself questions (answers at the end). PDF, 3.1 MB.</p>
+          <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="/non-observed-economy/slides/Non_Observed_Economy_Module06_Spatial_dynamics.pdf" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Open the PDF</a><a class="proj-btn" href="/non-observed-economy/slides/Non_Observed_Economy_Module06_Spatial_dynamics.pdf" download><i class="ri-download-2-line" aria-hidden="true"></i>Download</a></div>
+        </div>
+      </div>
+    </header>
+    <nav class="proj-subnav is-mobile-only" aria-label="Sections of this page"><div class="proj-wrap"><ul><li><a href="#watch">Watch</a></li><li><a href="#lab">Lab</a></li><li><a href="#next">Next</a></li></ul></div></nav>
+    <section id="watch" class="proj-section is-soft" aria-labelledby="watch-title"><div class="proj-wrap">
+      <h2 id="watch-title" class="proj-h2">Watch</h2>
+      <p class="proj-lead">2 videos for this module, each about 8 to 11 minutes. Pick one from the list, and open the transcript to read along: each timestamp plays the video from there. The narration is generated with a voice clone of Teddy, used with his permission.</p>
+      <div class="rl-watch">
+        <div class="rl-player-wrap">
+          <div id="rl-player" class="yt-player yt-16x9" data-yt-id="c6fIUsX7NHY" data-yt-title="Shadows have neighbours"><a class="yt-play" href="https://www.youtube.com/watch?v=c6fIUsX7NHY" aria-label="Play video 12: Shadows have neighbours"><img src="/non-observed-economy/img/videos/v12.webp" alt="" width="640" height="360" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div>
+          <div class="rl-now">
+            <p id="rl-now-num" class="rl-now-num">Video 12 · 8:50</p>
+            <p id="rl-now-title" class="rl-now-title">Shadows have neighbours</p>
+            <p id="rl-now-hook" class="rl-now-hook">Three maps of one invented country, each averaging 22% hidden: evenly spread, along a corridor, or around two market towns.</p>
+            <p id="rl-now-take" class="rl-now-take"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i><span>Moran&#x27;s I was 0.86 on the Mainland, but a survey method alone produced 0.26, and a shuffled map still showed 7 &#x27;significant&#x27; local clusters. Picking audits by network exposure found a hider a third of the time, against one in eight at random.</span></p>
+          </div>
+            <details id="rl-tx" class="rl-tx">
+              <summary><i class="ri-file-text-line" aria-hidden="true"></i>Transcript<span id="rl-tx-which">Video 12</span><i class="ri-arrow-down-s-line rl-tx-caret" aria-hidden="true"></i></summary>
+              <div class="rl-tx-body"><div class="rl-tx-ep" data-ep="12"><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=c6fIUsX7NHY" data-ep="12" data-t="0">0:00</a><p><b>Same average, three maps.</b> Here are three maps of the same invented country. In every one of them, the hidden share of the economy averages 22 percent. In the first map, hiding is spread evenly. In the second, it follows a smuggling corridor. In the third, it gathers around two market towns. A national estimate can&#x27;t tell these apart. It&#x27;s the same number every time. But they call for different policies. Patrol a corridor, inspect two markets, or improve services everywhere. Where hiding happens, and through which links, is part of the answer. This module is about seeing that structure.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=c6fIUsX7NHY&amp;t=43s" data-ep="12" data-t="43">0:43</a><p><b>The Mainland.</b> Welcome to Module 6: the spatial dynamics of the non-observed economy. I&#x27;m Teddy. Our world zooms in on one country of the Archipelago. We call it the Mainland. It has 160 districts on a hexagonal map. A river splits it into two provinces. The West introduced e-invoicing, so it hides less. In the East there&#x27;s a smuggling corridor from a border crossing to the port, two market towns, and hills full of self-employment. Careful surveys exist in 40 districts, mostly around the capital in the West. Everything else has to be estimated.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=c6fIUsX7NHY&amp;t=77s" data-ep="12" data-t="77">1:17</a><p><b>Name four things.</b> Spatial analysis starts from a simple observation: nearby things tend to be more related than distant ones. But nearby can mean many things. Two districts can be neighbours on the map. Two countries can be close because their institutions are alike. Two firms can be close because they share an owner or trade every week. So before any model, name four things. The support: where is the process defined? Districts, firms, or transactions. The relation: who counts as close? The observation process: how does hidden activity leave traces? And the task: describe, predict, reconstruct, or simulate. Two warnings come with maps. Change the size of the regions, and the patterns you find can change. And a pattern among regional averages need not hold for the people or firms inside them.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=c6fIUsX7NHY&amp;t=123s" data-ep="12" data-t="123">2:03</a><p><b>Distance and bandwidth.</b> The first way to represent space is a norm. Put every district in a feature space, and measure how far apart they are. The features can be coordinates, or the economy: cash use, self-employment, income, digital payments. The choice of distance says what similar means. When features are correlated, a distance that accounts for that stops one idea from being counted twice. When they mix numbers and categories, you need a distance built for mixed data. Distances turn into weights through a kernel, and the kernel has a bandwidth. Let&#x27;s estimate the 120 unsurveyed districts from the 40 surveyed ones, weighting by economic similarity. With a tiny bandwidth, each estimate leans on one or two lookalikes, and the error is about 5.2 points. At the best bandwidth, it&#x27;s 4.7. With a huge bandwidth, every survey counts equally. The error climbs to 9.2, almost exactly the error of the plain average. Which neighbours should count? Five nearest on the map gave an error of 4.8. Five nearest in the economy, also 4.8. A distance that mixes both did better, at 4.4. A norm also lets relationships change across space. A local regression fits its own coefficients around each district. Useful, but a map of local coefficients is not a map of causes.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=c6fIUsX7NHY&amp;t=199s" data-ep="12" data-t="199">3:19</a><p><b>A firm network.</b> The second representation is a graph. Nodes are units, and edges are relations: shared borders, similar profiles, trade, ownership, or movement of workers. Graphs come with a toolbox. Who is central, how clustered the network is, and which groups trade mostly among themselves. One graph is often not enough. Geography, transactions, ownership and social ties are different layers. Merging them can invent paths that don&#x27;t exist, so say what an edge means. Here&#x27;s a firm network we invented. Three hundred firms in fifteen trading communities. In three of those communities, most firms hide sales. Elsewhere, few do. Fifteen hiders have already been caught. The tax office can audit thirty more. Who should it pick? Picking at random finds a hider in about one audit in eight. Picking the firms located closest to known hiders, about one in five. Picking by network exposure, how close a firm is to known hiders through its trading links, finds a hider in a third of the audits. The communities weren&#x27;t geographic, so the map missed them. One caution: the edges most likely to be missing are cash deals and informal subcontracting. A missing link is not proof of independence.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=c6fIUsX7NHY&amp;t=274s" data-ep="12" data-t="274">4:34</a><p><b>Smoothness and borders.</b> A graph also lets you measure smoothness: add up the squared differences between connected districts. Small means neighbours look alike. That sum is a useful regulariser. But smoothness is an assumption, not a law. Borders, reforms and special zones create real jumps. Our river is one. Let&#x27;s take a cheap, noisy estimate for every district, and smooth it over the map. Right at the river, the true step between the provinces is 6.4 points. Smoothing across the river shrank it to about four. Cutting the edges that cross the river kept a step, though it overshot, at 8.7 points. And near the river, the error fell to 1.6 points, down from 1.8. Smooth where the economy is continuous. Let the model jump where the rules change.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=c6fIUsX7NHY&amp;t=321s" data-ep="12" data-t="321">5:21</a><p><b>Distance from the evidence.</b> Distance can also be an indicator in its own right. Distance from a tax office, a bank, or a border can stand for enforcement, transaction costs, or how well statistics reach a place. On a globe, straight-line distance is a start. Inside a country, travel time and road access usually mean more. And a nearest-neighbour graph can quietly create very long edges for remote places, so look at it. In networks, distance is the shortest path. A firm can be one ownership step from a known shell company, and far away on the map. One distance deserves a place in every report: how far a district is from the nearest surveyed district, in the economy&#x27;s terms. For the quarter of districts closest to a survey, our neighbour estimates were off by about 1.7 points. For the farthest quarter, about 10.5. Every one of the farthest was in the East. Distance from the evidence is a warning light. It tells you when a model is extrapolating, which a standard confidence interval often doesn&#x27;t.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=c6fIUsX7NHY&amp;t=379s" data-ep="12" data-t="379">6:19</a><p><b>Moran&#x27;s I and local clusters.</b> Now, how do you test whether a map has structure at all? The classic statistic is Moran&#x27;s I. It asks whether connected districts deviate from the mean in the same direction. For the Mainland&#x27;s hidden shares, Moran&#x27;s I is 0.86. To judge it, shuffle the values across the map and recompute. None of 999 shuffled maps came close. The evenly spread map from the start scores about zero. The corridor map, 0.70. The market-town map, 0.59. Here&#x27;s a trap. We made a map with no hidden structure at all, but the East&#x27;s survey method reads three points high. Moran&#x27;s I jumped to 0.26, and again, no shuffle came close. Spatial structure in the measurements is not the same as spatial structure in the hidden economy. Local statistics break the map into clusters: high districts among high neighbours, low among low, and outliers. The Mainland has 36 high clusters, 55 low ones, and no significant outliers. Before the next number, guess. If we shuffle the map completely, how many districts will still look like significant clusters? Seven. With 160 tests at the five percent level, some false hot spots are guaranteed. Local maps are exploratory, and multiple testing has to be reported. Finally, a dependent map can enter a regression in two ways. Neighbours&#x27; hidden shares can affect each district directly, or the errors can be correlated because something spatial is missing. They mean different things, and cross-sectional data often can&#x27;t tell them apart.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=c6fIUsX7NHY&amp;t=474s" data-ep="12" data-t="474">7:54</a><p><b>Recap.</b> Let&#x27;s recap. A national number hides very different maps, and the map changes the policy. Name the support, the relation, the observation process and the task. Norms measure similarity, graphs encode relations, and both need a stated meaning. Smooth where the economy is continuous, not across borders. Report the distance to your evidence. And test structure with shuffles, remembering that measurement methods can create it. In the lab, you&#x27;ll explore the Mainland&#x27;s map, change who counts as a neighbour, and hunt for hot spots, real and false. Next video: turning traces on a map back into the hidden activity that made them.</p></div></div><div class="rl-tx-ep" data-ep="13" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=8zWdEIW91OA" data-ep="13" data-t="0">0:00</a><p><b>Where cash becomes visible.</b> Here&#x27;s the Mainland&#x27;s map of cash withdrawals. The brightest districts are eight towns with banks. Read it as a map of hiding, and those eight towns hold 81 percent of all hidden activity. In our invented world, we know the truth. They hold about five percent. People from the countryside travel to town to withdraw cash. A trace shows where activity becomes visible, not where it happens. This video is about working backwards, and checking the result honestly.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=8zWdEIW91OA&amp;t=38s" data-ep="13" data-t="38">0:38</a><p><b>Four steps.</b> Welcome back to Module 6. This is video two: from a map to a model. We&#x27;ll reconstruct a hidden map from its traces, list the ways that fails, validate spatial predictions properly, and compress a detailed map into a small model of regimes.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=8zWdEIW91OA&amp;t=52s" data-ep="13" data-t="52">0:52</a><p><b>The inverse problem.</b> Spatial analysis of the hidden economy is often an inverse problem. We see traces, and we want the activity that produced them. Write the traces as the hidden map passed through an observation operator. In our world, a rural district withdraws 80 percent of its cash in the nearest town, and only 20 percent locally. If we know that operator, we can invert it exactly. But measurement noise gets amplified. The raw inversion was off by 4.4 points on average, and by up to 13 points in the towns. That&#x27;s what ill-posed means. Many hidden maps fit the traces almost equally well, and small changes in the data cause large changes in the answer. The classic fix is regularisation: among the maps that fit, prefer ones where neighbours are similar. With a light smoothing penalty, the error fell to 2.2 points, and in the towns to 3.4. But smoothing has a price. At the market-town hot spots, the raw inversion was off by 2.5 points. Light smoothing made that 2.7, and heavy smoothing, 5.2. Sharp concentrations get blurred away. Other penalties encode other beliefs: hiding concentrated in a few places, or paths that are smooth with occasional breaks. Either way, the answer depends on the prior, so report it.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=8zWdEIW91OA&amp;t=128s" data-ep="13" data-t="128">2:08</a><p><b>Other traces.</b> Reconstruction gets stronger when several traces see different parts of the hidden map. Researchers have linked night-time lights, satellite imagery, and phone records to output, poverty and wealth, especially where official statistics are thin. None of these measures the hidden economy directly. They show how to anchor high-resolution traces with a few careful labels, and why you must test on regions the model never saw. For hiding, each trace needs a reason to respond to hidden activity, not just to activity in general.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=8zWdEIW91OA&amp;t=158s" data-ep="13" data-t="158">2:38</a><p><b>Ways it fails.</b> Spatial reconstruction can fail in at least five ways. Let&#x27;s see some of them in our world. First, an ambiguous trace. Cash can mean hiding, or tourists, or distrust of banks. We added tourist cash at the port. The port&#x27;s error doubled, from about five points to about ten. Second, a wrong operator. Suppose we believe rural districts withdraw 40 percent of their cash in town, when it&#x27;s really 80. The error jumped to 11.6, up from 2.2. If we send 30 percent of the districts to the wrong town, the error rises to 4.3. Third, a wrong graph. We deleted 30 percent of the neighbour links used for smoothing. The error barely moved, 2.2 either way. Here, the operator mattered far more than the graph. Fourth, boundary mismatch: the traces and the benchmarks are counted over different regions. Fifth, process change: a reform or a new payment system changes how hiding becomes visible. And sixth, if you like, support failure: applying the model to districts unlike any surveyed one, which we met in the last video. Uncertainty in a reconstructed map has to include the operator, the graph and the prior, not only the noise.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=8zWdEIW91OA&amp;t=230s" data-ep="13" data-t="230">3:50</a><p><b>Hold out whole regions.</b> Now, validating spatial predictions. Suppose every district had a survey, and we want to know how well a model would do in a region it never saw. We compare four models: the plain average, a regression on the economic indicators, a random forest that also sees coordinates, and an average of the five nearest districts on the map. The usual check holds out random districts. The spatial check holds out whole blocks of the map, five regions in turn. Before the numbers, guess. Which model will lose the most when we switch to whole blocks? The map neighbours. With random holes, every test district has surveyed neighbours, and the error is 2.3. With whole blocks held out, it doubles, to 4.6. The forest&#x27;s error grew too, to 2.1, up from 1.8. The regression on indicators lost the least: 1.9, up from 1.7. It relies on the economy, not on location, so it travelled best. Also check the leftovers. Moran&#x27;s I of the errors was 0.58 for the map neighbours and 0.22 for the regression. A spatial pattern in the errors means something spatial was missed. And ask whether each target region lies inside the range of the training data. If it doesn&#x27;t, the block check should say so.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=8zWdEIW91OA&amp;t=309s" data-ep="13" data-t="309">5:09</a><p><b>Smooth gently.</b> One more knob: smoothing a model&#x27;s predictions over the graph. The regression&#x27;s block-checked error was 1.9. Light smoothing brought it to 1.6. Heavy smoothing pushed it up to 3.8, because it erased real differences, including the step at the river. A strong Moran&#x27;s I says neighbours are similar. It doesn&#x27;t say they should be forced to be identical.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=8zWdEIW91OA&amp;t=329s" data-ep="13" data-t="329">5:29</a><p><b>A small graph of regimes.</b> The last idea of the module is reduction. A detailed spatial model can be expensive to simulate again and again. Can a small graph do the job? We follow the 160 districts for twenty years. That&#x27;s 3,200 district-years, each a point in a space of hidden share, cash, digital payments, self-employment and location. Halfway through, the East adopts e-invoicing. The reduction has two stages. First, partition the space into a few regimes. Each regime becomes a node. Second, learn how districts move between regimes, as a transition table. Then score two things. Fidelity: does the small model reproduce the national trajectory? And reduction: with eight nodes instead of 160 districts, pairwise interactions shrink by 99.8 percent. A map grid is the obvious partition. But districts never move on the map, so the grid&#x27;s transition table says nothing ever changes. It matched the national path at 93.7 percent. Economic regimes do better. Eight k-means regimes followed the path at 98.0 percent, and their transition model at 97.1. Why the gap? A transition table only knows the current regime, not the year. It spread the reform&#x27;s sudden drop over two decades. Other partitions make other trade-offs. Covering the space evenly kept a rare regime where the hidden share averaged 39 percent. K-means merged it into a regime near 36. Adaptive splitting adds nodes where the map is most mixed. Always report fidelity and reduction together. And a transition between regimes describes what similar districts did. It&#x27;s not a causal path.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=8zWdEIW91OA&amp;t=427s" data-ep="13" data-t="427">7:07</a><p><b>Recap.</b> Let&#x27;s recap. Traces show where activity becomes visible. Working backwards is an inverse problem, and regularisation makes it stable at the cost of blurring. The observation operator can matter more than the graph. Get it wrong, and the map is wrong with confidence. Validate by holding out whole regions, check the errors for leftover structure, and smooth gently. A small graph of regimes can stand in for a detailed map, if you report both fidelity and reduction. In the lab, you&#x27;ll reconstruct the Mainland from its cash traces, and build your own reduced graph. Next module: building the hidden economy from the bottom up. Agent-based simulation.</p></div></div></div>
+            </details>
+        </div>
+        <div class="rl-eps">
+          <div class="rl-eps-head"><b>Module 6 videos</b><span>2 videos · 17 min</span></div>
+          <ol><li id="ep-12"><a class="rl-ep is-active" data-ep="12" href="https://www.youtube.com/watch?v=c6fIUsX7NHY" aria-current=true><span class="rl-ep-thumb"><img src="/non-observed-economy/img/videos/v12.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>8:50</span></span><span><span class="rl-ep-num">Video 12 · 6.1</span><span class="rl-ep-title" style="display:block">Shadows have neighbours</span><span class="rl-ep-take" style="display:block">Moran&#x27;s I was 0.86 on the Mainland, but a survey method alone produced 0.26, and a shuffled map still showed 7 &#x27;significant&#x27; local clusters. Picking audits by network exposure found a hider a third of the time, against one in eight at random.</span></span></a></li><li id="ep-13"><a class="rl-ep" data-ep="13" href="https://www.youtube.com/watch?v=8zWdEIW91OA"><span class="rl-ep-thumb"><img src="/non-observed-economy/img/videos/v13.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>8:06</span></span><span><span class="rl-ep-num">Video 13 · 6.2</span><span class="rl-ep-title" style="display:block">From a map to a model</span><span class="rl-ep-take" style="display:block">The raw inversion was off by 4.4 points and light smoothing by 2.2. A wrong observation operator raised the error to 11.6, while deleting 30% of graph links left it at 2.2. Holding out whole regions doubled the map-neighbour error (2.3 to 4.6).</span></span></a></li></ol>
+        </div>
+      </div>
+      <script type="application/json" id="rl-episodes">[{"ep": 12, "youtube": "c6fIUsX7NHY", "title": "Shadows have neighbours", "duration": "8:50", "hook": "Three maps of one invented country, each averaging 22% hidden: evenly spread, along a corridor, or around two market towns.", "takeaway": "Moran's I was 0.86 on the Mainland, but a survey method alone produced 0.26, and a shuffled map still showed 7 'significant' local clusters. Picking audits by network exposure found a hider a third of the time, against one in eight at random.", "thumbAbs": "/non-observed-economy/img/videos/v12.webp"}, {"ep": 13, "youtube": "8zWdEIW91OA", "title": "From a map to a model", "duration": "8:06", "hook": "Read cash withdrawals as hiding and eight bank towns hold 81% of it. In the invented truth they hold about 5%.", "takeaway": "The raw inversion was off by 4.4 points and light smoothing by 2.2. A wrong observation operator raised the error to 11.6, while deleting 30% of graph links left it at 2.2. Holding out whole regions doubled the map-neighbour error (2.3 to 4.6).", "thumbAbs": "/non-observed-economy/img/videos/v13.webp"}]</script>
+    </div></section>
+    <section id="lab" class="rl-lab" aria-labelledby="lab-title">
+      <div class="proj-wrap rl-lab-head">
+        <p class="proj-label"><i class="ri-map-2-line" aria-hidden="true"></i>Interactive lab</p>
+        <h2 id="lab-title" class="proj-h2" style="margin-top:.5rem">The night atlas</h2>
+        <p class="proj-lead">Explore an invented country of 160 hexagonal districts with 40 surveys. Choose who counts as a neighbour, estimate the unsurveyed districts, smooth across or within a river, test for spatial structure with shuffles, and hunt for hot spots, real and false.</p>
+        <p class="proj-lead" style="margin-top:.6rem">The map is simulated in your browser (a river, a smuggling corridor, two market towns, hills). Four challenges are checked as you go.</p>
+      </div>
+      <div class="rlx" id="map-lab" data-noex="map">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">The night atlas: 160 districts, 40 surveys</h3>
+          <p class="rlx-sub">An invented country on a hexagonal map. A river splits a West that hides less from an East with a smuggling corridor, two market towns and hills. Careful surveys exist in 40 districts (rings), mostly in the West; cash use and self-employment are known everywhere.</p>
+          <div class="math-grid">
+            <article class="math-card"><div class="math-card-title">Neighbours</div><div class="formula-line"><span class="formula-chip">map, economy, or both</span></div><p class="math-card-copy">Which districts count as close decides what an estimate borrows.</p></article>
+            <article class="math-card"><div class="math-card-title">Smoothing</div><div class="formula-line"><span class="formula-chip">minimise ‖z − ŝ‖² + λ Σ(zᵢ − zⱼ)²</span></div><p class="math-card-copy">Cut the edges across the river and the model can jump there.</p></article>
+            <article class="math-card"><div class="math-card-title">Moran's I</div><div class="formula-line"><span class="formula-chip">I = (n/W) Σ wᵢⱼ zᵢ zⱼ / Σ zᵢ²</span></div><p class="math-card-copy">Compare it with shuffled maps; local versions find clusters.</p></article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Map controls">
+            <div><h4 class="rlx-h">Map</h4><p class="rlx-sub">Choose what to see and how to estimate.</p></div>
+            <div class="rlx-field"><label class="rlx-label" for="mpL">Show</label><select id="mpL" class="control-select" data-k="layer"><option value="truth">the invented truth</option><option value="estimate" selected>the estimate</option><option value="clusters">local clusters</option></select></div><div class="rlx-field"><label class="rlx-label" for="mpH">Neighbours for estimating</label><select id="mpH" class="control-select" data-k="how"><option value="map" selected>nearest on the map</option><option value="economy">most similar economy</option><option value="mixed">both</option></select></div><div class="rlx-field"><div class="rlx-label"><label for="mpK">Surveys borrowed (k)</label><span class="control-value" data-k="k-out">5</span></div><input id="mpK" data-k="k" type="range" min="1" max="20" step="1" value="5"></div><div class="rlx-field"><div class="rlx-label"><label for="mpS">Smoothing strength (λ)</label><span class="control-value" data-k="lam-out">0.0</span></div><input id="mpS" data-k="lam" type="range" min="0" max="5" step="0.1" value="0"></div><label class="srx-check"><input type="checkbox" data-k="cut"> Cut the edges that cross the river</label><label class="srx-check"><input type="checkbox" data-k="shuf"> Shuffle the true values across the map</label>
+            <p class="rlx-hint">Errors are in points of hidden share on the 120 unsurveyed districts. The river step compares districts on each bank.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Moran's I (truth)</div><div class="metric-value" data-k="moran">–</div></div><div class="metric-tile"><div class="metric-label">Error, unsurveyed</div><div class="metric-value" data-k="err">–</div></div><div class="metric-tile"><div class="metric-label">Step at the river</div><div class="metric-value" data-k="step">–</div></div><div class="metric-tile"><div class="metric-label">Significant local clusters</div><div class="metric-value" data-k="nsig">–</div></div></div>
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">The map</h4></div></div>
+              <div class="chart-shell" style="height:360px"><svg data-k="chart" role="img" aria-label="Hexagonal map of 160 invented districts"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current settings.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>See Moran's I above 0.8 on the true map, then shuffle the values and bring it near zero.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Estimate the unsurveyed districts with an error below 2.3 points.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Smooth with a strength of at least 1 and still keep a step of at least 7 points at the river.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>On the shuffled map, find at least three “significant” local clusters: false hot spots from many tests.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="next" class="proj-section is-soft" aria-labelledby="next-title"><div class="proj-wrap">
+      <h2 id="next-title" class="proj-h2">Keep going</h2>
+      <div class="rl-pn"><a href="/non-observed-economy/module-05/"><i class="ri-arrow-left-line" aria-hidden="true"></i><span><small>Previous · Module 5</small><strong>Predicting size and trends</strong></span></a><a class="is-next" href="/non-observed-economy/module-07/"><span><small>Next · Module 7</small><strong>Simulating the hidden economy</strong></span><i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+    </div></section>
+  </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Courses</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/rl-course/" class="hover:text-white">Reinforcement Learning</a></li>
+                  <li><a href="/epidemic-modeling/" class="hover:text-white">Epidemic Modeling</a></li>
+                  <li><a href="/symbolic-laws/" class="hover:text-white">Symbolic Physical Laws Discovery</a></li>
+                  <li><a href="/non-observed-economy/" class="hover:text-white">Non-Observed Economy</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/rl-course/" class="hover:text-white">RL course</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <script src="/js/videos.js"></script>
+      
+      <script src="/js/noe-labs.js" defer></script>
+      <script src="/js/epi-course.js" defer></script>
+   </body>
+</html>

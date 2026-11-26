@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_sr_course.py from data/sr-course.json. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Module 3: Encoding physics and domain knowledge | Symbolic Physical Laws Discovery Course | ACML</title>
+      <meta name="description" content="Module 3 of 10 of ACML’s Symbolic Physical Laws Discovery course. Units, conservation, symmetry and known pieces: slides, 2 videos and an interactive lab.">
+      <meta name="author" content="Teddy Lazebnik">
+      <meta name="keywords" content="symbolic regression, equation discovery, physics-informed machine learning, encoding physics and domain knowledge, course, ACML">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/symbolic-laws/module-03/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Module 3: Encoding physics and domain knowledge · Symbolic Physical Laws Discovery">
+      <meta property="og:description" content="Module 3 of 10 of ACML’s Symbolic Physical Laws Discovery course. Units, conservation, symmetry and known pieces: slides, 2 videos and an interactive lab.">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/symbolic-laws/module-03/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/symbolic-laws/module-03/share.jpg">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Module 3: Encoding physics and domain knowledge · Symbolic Physical Laws Discovery">
+      <meta name="twitter:description" content="Module 3 of 10 of ACML’s Symbolic Physical Laws Discovery course. Units, conservation, symmetry and known pieces: slides, 2 videos and an interactive lab.">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/symbolic-laws/module-03/share.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "Module 3: Encoding physics and domain knowledge",
+        "description": "Before any data arrive, we usually know a lot: units, what is conserved, which symmetries hold, the shape of a response, values at a boundary, limiting behaviour, part of the mechanism. This module turns that knowledge into code. With a draining tank as the running example, we sort eight kinds of knowledge, inject the same rule four ways (hard, soft, preferential, after the search), and use units to type-check every node and to shrink five variables to three dimensionless groups. The second video adds conservation (integrating beats differentiating; an unknown invariant found from trajectories), symmetry through invariant variables, shape constraints with a range, boundaries, limits and skeletons, diagnostics for wrong knowledge, and a ladder of knowledge whose every rung is measured.",
+        "url": "https://acml.teddylazebnik.com/symbolic-laws/module-03/",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "learningResourceType": [
+          "Lecture slides",
+          "Video",
+          "Interactive resource"
+        ],
+        "teaches": "Units, conservation, symmetry and known pieces",
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Symbolic Physical Laws Discovery",
+          "url": "https://acml.teddylazebnik.com/symbolic-laws/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Teddy Lazebnik",
+          "url": "https://teddylazebnik.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Applied Computational Mathematics Laboratory",
+          "url": "https://acml.teddylazebnik.com/"
+        },
+        "hasPart": [
+          {
+            "@type": "VideoObject",
+            "name": "Knowledge you can execute",
+            "description": "A cubic fits a draining tank to within two millimetres, then predicts a level of minus 17 cm. We knew better; the search didn't.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/symbolic-laws/img/videos/v06.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/ggLjnM--HgI",
+            "duration": "PT8M1S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Conservation, symmetry, shape and partial models",
+            "description": "Forty small tanks, one big question: climb a ladder of knowledge and measure what each rung buys.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/symbolic-laws/img/videos/v07.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/4MXQeNJ-alU",
+            "duration": "PT9M25S"
+          },
+          {
+            "@type": "DigitalDocument",
+            "name": "Module 3 slides",
+            "encodingFormat": "application/pdf",
+            "url": "https://acml.teddylazebnik.com/symbolic-laws/slides/Symbolic_Laws_Module03_Encoding_physics_and_domain_knowledge.pdf"
+          }
+        ]
+      }
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      <link href="/css/videos.css" rel="stylesheet">
+      
+      <link href="/css/exploration-lab.css" rel="stylesheet">
+      <link href="/css/rl-labs.css" rel="stylesheet">
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/project.css" rel="stylesheet">
+      <link href="/css/rl-course.css" rel="stylesheet">
+      <link href="/css/epi-course.css" rel="stylesheet">
+      <link href="/css/sr-course.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+          <a href="/courses.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Courses</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/courses.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Courses</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="proj-page rl-page bg-white">
+    <header class="proj-hero rl-hero">
+      <div class="proj-wrap proj-hero-grid">
+        <div>
+          <nav class="proj-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/courses.html">Courses</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/symbolic-laws/">Symbolic Physical Laws Discovery</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Module 3</span></nav>
+          <p class="proj-kicker"><span><i class="ri-graduation-cap-line" aria-hidden="true"></i>Symbolic Physical Laws Discovery</span><span>Foundations</span></p>
+          <h1 class="proj-title"><small>Module 3</small>Encoding physics and domain knowledge</h1>
+          <p class="proj-about-lead rl-summary">Before any data arrive, we usually know a lot: units, what is conserved, which symmetries hold, the shape of a response, values at a boundary, limiting behaviour, part of the mechanism. This module turns that knowledge into code. With a draining tank as the running example, we sort eight kinds of knowledge, inject the same rule four ways (hard, soft, preferential, after the search), and use units to type-check every node and to shrink five variables to three dimensionless groups. The second video adds conservation (integrating beats differentiating; an unknown invariant found from trajectories), symmetry through invariant variables, shape constraints with a range, boundaries, limits and skeletons, diagnostics for wrong knowledge, and a ladder of knowledge whose every rung is measured.</p>
+          <div class="rl-goal"><i class="ri-focus-3-line" aria-hidden="true"></i><span>By the end you should be able to classify prior knowledge, choose how strongly to encode it, find dimensionless groups, and measure what each piece of knowledge buys with weight paths and ablations.</span></div>
+          <h2 class="proj-h3 rl-ideas-title">Key ideas, one per video</h2>
+          <ul class="rl-ideas"><li><a href="#ep-6">Video 6</a><span>A soft never-rises rule repaired the cubic&#x27;s three-minute prediction (from −17 cm to about 6 cm) at no cost inside the data; units turned five variables into three groups, and forty runs collapsed onto one line.</span></li><li><a href="#ep-7">Video 7</a><span>On ten big tanks, data alone missed by 174% (eight negative drain times); units brought it to 1.8% and the scaling rung to 1.5% with Cd = 0.600. A wrong prior kept the error near 58% at every weight.</span></li></ul>
+          <p class="rl-source"><b>Book:</b> Chapter 3 of <cite>Computational Methods for Symbolic Physical Laws Discovery</cite> by Teddy Lazebnik (coming soon). The videos and slides follow the chapter’s topics in our own words, figures and simulations; nothing is copied from the book.</p>
+        </div>
+        <div class="rl-first">
+          <a class="rl-first-img" href="/symbolic-laws/slides/Symbolic_Laws_Module03_Encoding_physics_and_domain_knowledge.pdf" target="_blank" rel="noopener"><img src="/symbolic-laws/img/slides/m03-s01.webp" alt="The title slide of Module 3: Encoding physics and domain knowledge" width="960" height="540" fetchpriority="high" decoding="async"></a>
+          <p class="rl-first-text">34 slides, written to be read on your own, with worked examples, our own small simulations and check-yourself questions (answers at the end). PDF, 1.7 MB.</p>
+          <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="/symbolic-laws/slides/Symbolic_Laws_Module03_Encoding_physics_and_domain_knowledge.pdf" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Open the PDF</a><a class="proj-btn" href="/symbolic-laws/slides/Symbolic_Laws_Module03_Encoding_physics_and_domain_knowledge.pdf" download><i class="ri-download-2-line" aria-hidden="true"></i>Download</a></div>
+        </div>
+      </div>
+    </header>
+    <nav class="proj-subnav is-mobile-only" aria-label="Sections of this page"><div class="proj-wrap"><ul><li><a href="#watch">Watch</a></li><li><a href="#lab">Lab</a></li><li><a href="#next">Next</a></li></ul></div></nav>
+    <section id="watch" class="proj-section is-soft" aria-labelledby="watch-title"><div class="proj-wrap">
+      <h2 id="watch-title" class="proj-h2">Watch</h2>
+      <p class="proj-lead">2 videos for this module, each about 8 to 15 minutes. Pick one from the list, and open the transcript to read along: each timestamp plays the video from there. The narration is generated with a voice clone of Teddy, used with his permission.</p>
+      <div class="rl-watch">
+        <div class="rl-player-wrap">
+          <div id="rl-player" class="yt-player yt-16x9" data-yt-id="ggLjnM--HgI" data-yt-title="Knowledge you can execute"><a class="yt-play" href="https://www.youtube.com/watch?v=ggLjnM--HgI" aria-label="Play video 6: Knowledge you can execute"><img src="/symbolic-laws/img/videos/v06.webp" alt="" width="640" height="360" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div>
+          <div class="rl-now">
+            <p id="rl-now-num" class="rl-now-num">Video 6 · 8:01</p>
+            <p id="rl-now-title" class="rl-now-title">Knowledge you can execute</p>
+            <p id="rl-now-hook" class="rl-now-hook">A cubic fits a draining tank to within two millimetres, then predicts a level of minus 17 cm. We knew better; the search didn&#x27;t.</p>
+            <p id="rl-now-take" class="rl-now-take"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i><span>A soft never-rises rule repaired the cubic&#x27;s three-minute prediction (from −17 cm to about 6 cm) at no cost inside the data; units turned five variables into three groups, and forty runs collapsed onto one line.</span></p>
+          </div>
+            <details id="rl-tx" class="rl-tx">
+              <summary><i class="ri-file-text-line" aria-hidden="true"></i>Transcript<span id="rl-tx-which">Video 6</span><i class="ri-arrow-down-s-line rl-tx-caret" aria-hidden="true"></i></summary>
+              <div class="rl-tx-body"><div class="rl-tx-ep" data-ep="6"><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=ggLjnM--HgI" data-ep="6" data-t="0">0:00</a><p><b>A tank, a cubic, and an impossible level.</b> A tank drains through a small hole. We log its water level every two seconds, for one minute. Two formulas fit that minute equally well, to within two millimetres: a cubic polynomial, and Torricelli&#x27;s law with two constants. Now ask them about the future. After three minutes, the cubic says the level is minus 17 centimetres. Torricelli says 6. The tank empties after about five minutes. We knew all along that water can&#x27;t go below empty. The search didn&#x27;t, because nobody told it in a form it could execute. Welcome to Module three: encoding physics and domain knowledge. In this video: the kinds of knowledge we have, four ways to inject the same knowledge, and units, the most executable knowledge of all, right up to dimensionless groups. Here&#x27;s the principle for this module. Scientific discovery is data evidence, plus search, plus explicit knowledge, plus independent tests. It&#x27;s not an equation you can solve. It&#x27;s a reminder that knowledge can enter at many points, and that the same knowledge can enter in more than one way. A scientific constraint is a computable restriction, preference or test that comes from what we already know. If it doesn&#x27;t change which formulas are generated, kept or trusted, it isn&#x27;t doing any work.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=ggLjnM--HgI&amp;t=79s" data-ep="6" data-t="79">1:19</a><p><b>Kinds of knowledge.</b> Part one: what kinds of knowledge are there? Let&#x27;s sort them, using our tank. Units: the level is a length, so the speed of the water leaving the hole must be a length per time. Conservation: the water that leaves through the hole is exactly the water missing from the tank. Symmetry: turn the tank around its axis, and nothing changes. Shape: with no inflow, the level never rises, and it never goes below empty. Boundary and initial knowledge: at the start, the level is 40 centimetres. Asymptotic knowledge: as the tank nearly empties, the outflow shrinks toward zero. A mechanistic skeleton: the level falls at a rate set by the outflow, and only the outflow law is unknown. And finally, hypotheses from experts or the literature: Torricelli&#x27;s law suggests a square root. Eight kinds of knowledge, and they&#x27;re mathematically different objects. Lump them all into one penalty, and later you can&#x27;t tell which one did the work. Two more distinctions help. Some knowledge is universal: any physical equation must be dimensionally consistent. Some is specific to one system and one regime: this tank, this range of levels. And some knowledge restricts the form of an equation, like no logarithm of a length. Other knowledge restricts its behaviour, like a level that never rises.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=ggLjnM--HgI&amp;t=149s" data-ep="6" data-t="149">2:29</a><p><b>One rule, four ways to use it.</b> Part two: one piece of knowledge, four ways to use it. Take the rule: the level never rises, and never goes below empty. Hard: candidates that break the rule are rejected, or can&#x27;t even be built. Soft: breaking it adds a penalty to the score. Preferential: the rule tilts which candidates get proposed or ranked first, with no guarantee. Post-hoc: search first, and throw away the violators at the end. Hard gives the most consistency, but locks out the truth if the knowledge is wrong. Soft tolerates approximate knowledge, but needs a weight. Post-hoc is easy, and wastes effort on hopeless regions. Let&#x27;s try the soft version on our cubic. We add a penalty for any rise, and for any level below zero, over the next four minutes. Even a tiny weight changes the picture. Inside the minute of data, the fit is just as good: still within two millimetres. But after three minutes, the cubic now says about 6 centimetres, close to Torricelli. Knowledge that agrees with the data costs almost nothing where the data are, and repairs the predictions where they aren&#x27;t. Here&#x27;s a question. Should every piece of knowledge become a hard rule? Pause and think about what could go wrong. It depends on how sure you are. A useful order of confidence: mathematical necessity, then well established physical principles, then theory for one regime, then empirical regularities, then expert hunches, and last, suggestions from a machine. Adding seconds to metres is structurally wrong, so a hard rule is safe. A trend seen only in your measured range deserves a soft or range-limited check. A constraint suggested by a language model deserves even less authority. Match the mode to the confidence, and write down which is which. Knowledge can also act at different moments: while a formula is being built, while it&#x27;s scored, or when the finished formulas are screened. Building-time rules are the cheapest: an invalid branch is cut before anything is evaluated. Scoring-time rules can keep fit and plausibility as separate objectives, and show the trade-off as a Pareto front.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=ggLjnM--HgI&amp;t=275s" data-ep="6" data-t="275">4:35</a><p><b>Units as executable knowledge.</b> Part three: units, the most executable knowledge of all. Write each quantity&#x27;s dimensions as a vector of powers of mass, length and time. A water level is zero, one, zero. A flow rate, volume per time, is zero, three, minus one. Gravity&#x27;s acceleration is zero, one, minus two. Multiplying adds the vectors. Dividing subtracts them. Adding requires them to be equal. And functions like the sine and the exponential need the zero vector inside. Units become a type system that runs at every node. Checked while a tree is being built, a unit rule stops invalid branches before they cost a single evaluation.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=ggLjnM--HgI&amp;t=315s" data-ep="6" data-t="315">5:15</a><p><b>Dimensionless groups.</b> But units can do more than reject formulas. They can shrink the problem itself. The drain time of our tank depends on four quantities: the starting level h, gravity g, the hole area a, and the tank area A. Together with the time T, that&#x27;s five, built from two base dimensions, length and time. Put their exponents in a two by five matrix. Any product of powers whose exponents lie in the matrix&#x27;s null space has no units at all. Five quantities, rank two, so three independent dimensionless groups. One choice: T times the square root of g over h. The area ratio, a over A. And A over h squared. So the law must say: the first group equals some function of the other two. Three variables instead of five, before we&#x27;ve seen any data. Let&#x27;s test it. We simulated forty drain experiments with different levels, holes and tanks, with two percent timing noise. Plotted raw, drain time against starting level, the points scatter everywhere. Plotted as the first group against the area ratio, on log scales, they fall onto one line. Its slope is minus 1.00. Its constant is 2.31, and Torricelli&#x27;s law with our discharge coefficient gives 2.36. The third group turns out not to matter at all. Units told us which variables to combine. The data told us the shape of the function. The choice of groups isn&#x27;t unique. T squared times g over h is just as dimensionless. Equivalent groups can make the search easier or harder, so choosing them is a modeling decision, not paperwork. And beware of a look-alike. Subtracting the mean and dividing by the standard deviation makes a number unitless, but not physically dimensionless. Its meaning depends on the centre and the scale you chose. A law found in standardized variables has to be transformed back before you read any physics into it.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=ggLjnM--HgI&amp;t=422s" data-ep="6" data-t="422">7:02</a><p><b>Recap.</b> Let&#x27;s recap. Knowledge comes in kinds: units, conservation, symmetry, shape, boundary values, limits, skeletons and hypotheses. Each can enter as a hard rule, a soft penalty, a preference, or a final screen. Match the mode to your confidence. Units are the most executable knowledge: they type-check every node, and dimensional analysis can turn five variables into three groups before you collect any data. In this module&#x27;s lab, you&#x27;ll tag variables with units, watch candidates get rejected, find dimensionless groups, and slide between hard and soft rules. Next video: conservation, symmetry, shape, and partial models.</p></div></div><div class="rl-tx-ep" data-ep="7" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=4MXQeNJ-alU" data-ep="7" data-t="0">0:00</a><p><b>Forty small tanks, one big question.</b> Forty small tanks, drained and timed. Now predict a big one: two metres of water, a hole two centimetres wide. How much should you trust your formula? We&#x27;ll climb a ladder of knowledge one rung at a time, and measure what each rung buys. On the way up: conservation, symmetry, shape, limits, partial models, and what happens when the knowledge is wrong.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=4MXQeNJ-alU&amp;t=29s" data-ep="7" data-t="29">0:29</a><p><b>Conservation and balance.</b> Part one: conservation. Many laws say that something changes only through flows in and out, and through sources and sinks. For the tank, the rate of change of the water volume equals the inflow minus the outflow. Spread over space and time, the same idea becomes a density, a flux, and a source. Written for a whole region, a balance lets you integrate instead of differentiate. And with noisy data, integrating is gentle, while differentiating amplifies the noise. Let&#x27;s measure that. Seventy six level readings, one every two seconds, with two millimetres of noise. We want the outflow law: the level falls at a rate proportional to h to some power p. The truth is one half. Estimate the slope at each reading by finite differences, then fit: p comes out 0.55. Fit whole simulated level curves instead: p comes out 0.496. The discharge coefficient comes out 0.59; the true value is 0.6. Same data, same law. Integrating the model beat differentiating the data. Conservation can be a penalty on a residual, or it can be built into the form, so that a violation can&#x27;t even be written. When a property is exact, building it in usually beats punishing it again and again. Sometimes you only know that something is conserved, not what. Take a frictionless pendulum. Is there a combination of the angular speed squared and the cosine of the angle that stays constant? We searched for the constant c in omega squared plus c times cosine theta that varies least along four simulated swings. The best value is minus 19.6. Twice g over the length is 19.62. That&#x27;s energy, found from trajectories alone.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=4MXQeNJ-alU&amp;t=130s" data-ep="7" data-t="130">2:10</a><p><b>Symmetry and coordinates.</b> Part two: symmetry. A symmetry says that changing the description shouldn&#x27;t change the law. For a scalar, like a potential energy, invariance means the value doesn&#x27;t change when you rotate the coordinates. For a vector, like a force, equivariance means it rotates right along with them. The cheapest encoding is invariant variables. A central potential written in x and y is k over the square root of x squared plus y squared: ten nodes. Written in the distance r, it&#x27;s k over r: three nodes. Choose coordinates in which the law is simple, and the search gets easier for free. Real systems are rarely perfectly symmetric. A tilted table, a draft, an uneven wall can break the ideal. So instead of deleting every candidate that breaks the symmetry, score how much it breaks it, or allow a small symmetry-breaking term, and let the data decide whether it&#x27;s needed. Ask not only which expression fits, but in which coordinates the law becomes simple.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=4MXQeNJ-alU&amp;t=189s" data-ep="7" data-t="189">3:09</a><p><b>Shape, boundaries, limits and skeletons.</b> Part three: shape. Often you know less than a mechanism, but more than nothing: a sign, a trend, a curvature, a bound, a saturation, a period. For our tank: the outflow grows with the level, and grows ever more slowly. We fitted a quartic to outflow measured between ten and forty centimetres. A counterexample search over the declared range, zero to one metre, finds the first violation at 33 centimetres, still inside the data: there the quartic starts bending upward. At one metre it predicts 970 cubic centimetres per second. The truth is 134. Store every shape constraint with the range where you believe it, and how sure you are. A constraint without a range is stronger than you meant. Part four: boundaries, limits and skeletons. Boundary and initial values aren&#x27;t ordinary data points. They define the problem. You can build a candidate that satisfies them exactly: a known part, plus a factor that vanishes on the boundary, times a piece to discover. Then the search looks only for that piece. Limits say even more. If theory says the outflow grows like the square root of the level, write the candidate as c times the square root of h, plus a correction, and let the search work on the correction. A model can fit the measured range beautifully and still grow at the wrong rate. A single error number can&#x27;t see that. Often you know the architecture of a law, but not all of it. For the tank: area times the rate of change of the level equals inflow minus outflow. Only the outflow law is unknown. So search for the outflow, not for the whole textbook. A grammar can fix the root as a known part plus an unknown part, and leave only the unknown slot open. Then label every piece of the final equation: fixed in advance, constant fitted, structure discovered, or simplified afterwards. Otherwise your assumptions get reported as the machine&#x27;s discoveries.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=4MXQeNJ-alU&amp;t=308s" data-ep="7" data-t="308">5:08</a><p><b>When knowledge is wrong.</b> Question. What&#x27;s more dangerous: a discovery system with no physics, or one with wrong physics, enforced confidently? Pause and decide. The second. A wrong hard rule makes the truth unreachable, and nothing in the score will tell you. Knowledge goes wrong in ordinary ways: the regime changed, the literature model was approximate, a unit was typed wrong, a symmetry is broken, a variable is missing, or a machine suggested something plausible and false. Two diagnostics. First, the weight path: solve again across a range of weights, and watch what changes. We pulled a flexible outflow model toward a prior. With a correct prior, the square root, the error at levels above the data falls from 44 percent to under 2, while the fit inside loosens only a little, from 0.9 to 1.6 cubic centimetres per second. With a wrong prior, outflow proportional to the level, the error above the data stays between 56 and 59 percent, and the fit inside gets about twelve times worse as the weight grows. A conclusion that holds only at one finely tuned weight isn&#x27;t a conclusion. Second, ablation: run with no prior, with each prior alone, and with all of them. A constraint that changes nothing is clutter. One that improves the fit inside but ruins extrapolation isn&#x27;t doing what you hoped. And keep a log of where knowledge came from: papers, prompts, retrieved sources, manual edits. A model trained on millions of formulas may hand you a famous law it remembered, rather than one it inferred.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=4MXQeNJ-alU&amp;t=401s" data-ep="7" data-t="401">6:41</a><p><b>A ladder of knowledge.</b> Part five: the ladder. Forty simulated small tanks, with levels from 20 to 60 centimetres and holes of 4 to 10 millimetres. Then predict ten big tanks: up to two metres of water, and holes up to two centimetres. Rung zero, data only: a flexible quadratic in level, hole size and tank size, with ten constants. It fits the small tanks to about 11 percent. On the big tanks its error is 174 percent, and eight of the ten predicted drain times are negative. Rung one, units: search only over the dimensionless groups. A power law in the two ratios fits the small tanks to 1.6 percent, and predicts the big ones to 1.8 percent. Rung two, signs and trends: drain times must be positive, and grow with the level and with the tank. The power law already obeys them. The quadratic didn&#x27;t. Rung three, scaling: for small holes, drain time should be proportional to the area ratio. Fix that exponent and fit a single constant: 1.5 percent on the big tanks, and a discharge coefficient of 0.600. Rung four, the skeleton: keep the volume balance, and search only for the outflow law. From level curves, it comes out as the square root of the level, with a coefficient of 0.59. Rung five, the stress test: remove each piece of knowledge in turn. Without units, the prediction collapses. Without the scaling rung, it barely changes: units had already done that work. Every rung is a modeling decision. Compare it with the rung below, and report what each one bought.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=4MXQeNJ-alU&amp;t=493s" data-ep="7" data-t="493">8:13</a><p><b>Designing the pipeline.</b> So here&#x27;s how to design a knowledge-aware pipeline. List every piece of knowledge with its source, its confidence, and the range where it holds. Choose a mode for each: hard for necessities, soft or preferential for regularities and hunches. Run the ablations and the weight paths. And keep the provenance of every term. Let&#x27;s recap. Conservation can be scored, integrated, or built in, and even an unknown invariant can be found from trajectories. Symmetry is cheapest as invariant variables. Shape constraints need a range and a confidence. Boundaries, limits and skeletons let the search focus on what&#x27;s actually unknown, as long as you label what was supplied. And wrong knowledge, enforced confidently, is the most dangerous kind. In the lab, you&#x27;ll climb the ladder yourself. Next module: search and optimization, or how to move through an enormous space.</p></div></div></div>
+            </details>
+        </div>
+        <div class="rl-eps">
+          <div class="rl-eps-head"><b>Module 3 videos</b><span>2 videos · 17 min</span></div>
+          <ol><li id="ep-6"><a class="rl-ep is-active" data-ep="6" href="https://www.youtube.com/watch?v=ggLjnM--HgI" aria-current=true><span class="rl-ep-thumb"><img src="/symbolic-laws/img/videos/v06.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>8:01</span></span><span><span class="rl-ep-num">Video 6 · 3.1</span><span class="rl-ep-title" style="display:block">Knowledge you can execute</span><span class="rl-ep-take" style="display:block">A soft never-rises rule repaired the cubic&#x27;s three-minute prediction (from −17 cm to about 6 cm) at no cost inside the data; units turned five variables into three groups, and forty runs collapsed onto one line.</span></span></a></li><li id="ep-7"><a class="rl-ep" data-ep="7" href="https://www.youtube.com/watch?v=4MXQeNJ-alU"><span class="rl-ep-thumb"><img src="/symbolic-laws/img/videos/v07.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>9:25</span></span><span><span class="rl-ep-num">Video 7 · 3.2</span><span class="rl-ep-title" style="display:block">Conservation, symmetry, shape and partial models</span><span class="rl-ep-take" style="display:block">On ten big tanks, data alone missed by 174% (eight negative drain times); units brought it to 1.8% and the scaling rung to 1.5% with Cd = 0.600. A wrong prior kept the error near 58% at every weight.</span></span></a></li></ol>
+        </div>
+      </div>
+      <script type="application/json" id="rl-episodes">[{"ep": 6, "youtube": "ggLjnM--HgI", "title": "Knowledge you can execute", "duration": "8:01", "hook": "A cubic fits a draining tank to within two millimetres, then predicts a level of minus 17 cm. We knew better; the search didn't.", "takeaway": "A soft never-rises rule repaired the cubic's three-minute prediction (from −17 cm to about 6 cm) at no cost inside the data; units turned five variables into three groups, and forty runs collapsed onto one line.", "thumbAbs": "/symbolic-laws/img/videos/v06.webp"}, {"ep": 7, "youtube": "4MXQeNJ-alU", "title": "Conservation, symmetry, shape and partial models", "duration": "9:25", "hook": "Forty small tanks, one big question: climb a ladder of knowledge and measure what each rung buys.", "takeaway": "On ten big tanks, data alone missed by 174% (eight negative drain times); units brought it to 1.8% and the scaling rung to 1.5% with Cd = 0.600. A wrong prior kept the error near 58% at every weight.", "thumbAbs": "/symbolic-laws/img/videos/v07.webp"}]</script>
+    </div></section>
+    <section id="lab" class="rl-lab" aria-labelledby="lab-title">
+      <div class="proj-wrap rl-lab-head">
+        <p class="proj-label"><i class="ri-scales-3-line" aria-hidden="true"></i>Interactive lab</p>
+        <h2 id="lab-title" class="proj-h2" style="margin-top:.5rem">Units guard</h2>
+        <p class="proj-lead">Check drain-time formulas for a draining tank against their units, find dimensionless groups from a null space, slide a rule from soft to hard, and climb the knowledge ladder on your own simulated tanks.</p>
+        <p class="proj-lead" style="margin-top:.6rem">The tank is simulated in your browser (Torricelli&#x27;s law with a made-up discharge coefficient of 0.6). Four challenges are checked as you go.</p>
+      </div>
+      <div class="rlx" id="units-lab" data-srx="units">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">A tank drains through a small hole</h3>
+          <p class="rlx-sub">Water leaves at about C<sub>d</sub>·√(2gh). In this simulation C<sub>d</sub> = 0.6, a typical but made-up value. Everything runs in your browser; your draws of noise and tanks differ from the ones in the videos.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">Units as types</div>
+              <div class="formula-line"><span class="formula-chip">[T] = time · [g] = L/T² · [a] = L²</span></div>
+              <p class="math-card-copy">A drain-time formula must come out as a time. Products add powers; sums need equal units.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Dimensionless groups</div>
+              <div class="formula-line"><span class="formula-chip">exponents in the null space</span></div>
+              <p class="math-card-copy">Five quantities with two base dimensions leave three groups. The law must link the groups.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Hard or soft</div>
+              <div class="formula-line"><span class="formula-chip">fit + λ·(rises² + negatives²)</span></div>
+              <p class="math-card-copy">A rule can be a penalty with a weight λ, or (with a huge weight) a hard limit.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-main">
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">A · The units guard</h4><p class="rlx-sub">Type a formula for the drain time T using h, g, a, A (and d, nu, rho if you like), or try one of these.</p></div></div>
+              <div class="rlx-field"><label class="rlx-label" for="unCand">T =</label><input id="unCand" data-k="cand" type="text" class="control-select srx-formula" value="(A/a)*sqrt(h/g)" spellcheck="false" autocomplete="off"></div>
+              <div class="srx-presets"><button type="button" class="control-button control-button-secondary" data-cand="h/g">h/g</button><button type="button" class="control-button control-button-secondary" data-cand="A/a + sqrt(h/g)">A/a + √(h/g)</button><button type="button" class="control-button control-button-secondary" data-cand="sqrt(2)/0.6*(A/a)*sqrt(h/g)">Torricelli</button><button type="button" class="control-button control-button-secondary" data-cand="sqrt(h/g)*exp(a/A)">√(h/g)·exp(a/A)</button></div>
+              <p class="rlx-status" data-k="verdict" role="status" aria-live="polite">–</p>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">B · Dimensionless groups</h4><p class="rlx-sub">Pick the quantities you think matter. The page builds their dimension matrix and an integer basis of its null space.</p></div></div>
+              <div data-k="pick" class="srx-units"></div>
+              <div data-k="groups" class="srx-groups"></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">C · Hard or soft</h4><p class="rlx-sub">A cubic fitted to one minute of level readings (shaded), with a penalty for any rise or any level below empty between 0 and 240 s. Orange: the cubic; blue dashed: Torricelli's law, the truth here.</p></div></div>
+              <div class="rlx-field" style="max-width:420px"><div class="rlx-label"><label for="unLam">Penalty weight λ</label><span class="control-value" data-k="lam-out">0</span></div><input id="unLam" data-k="lam" type="range" min="0" max="6" step="1" value="0"></div>
+              <div class="rlx-btns" style="max-width:420px"><button type="button" class="control-button control-button-secondary is-wide" data-k="newlevels">New noisy readings</button></div>
+              <p class="rlx-hint" data-k="plain"></p>
+              <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Fit inside the minute</div><div class="metric-value" data-k="rin">–</div></div><div class="metric-tile"><div class="metric-label">Level at 3 min</div><div class="metric-value" data-k="r180">–</div></div><div class="metric-tile"><div class="metric-label">Lowest level, 0–240 s</div><div class="metric-value" data-k="rlow">–</div></div></div>
+              <div class="chart-shell" style="height:300px"><svg data-k="lchart" role="img" aria-label="Level readings, the penalized cubic and Torricelli's law"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">D · The ladder</h4><p class="rlx-sub">Forty small tanks (levels 20–60 cm, holes 4–10 mm) are timed; the rungs then predict ten big ones (up to 2 m, holes up to 2 cm).</p></div></div>
+              <div class="rlx-field" style="max-width:420px"><div class="rlx-label"><label for="unNoise">Timing noise</label><span class="control-value" data-k="noise-out">2%</span></div><input id="unNoise" data-k="noise" type="range" min="0" max="20" step="1" value="2"></div>
+              <div class="rlx-btns" style="max-width:420px"><button type="button" class="control-button control-button-secondary is-wide" data-k="newtanks">New tanks</button></div>
+              <div class="srx-tablewrap"><table class="srx-table" data-k="rungs"></table></div>
+              <p class="rlx-hint">Rung 0 fits a quadratic in level, hole and tank size (10 constants). Rung 1 fits a power law in the groups T·√(g/h), a/A and A/h². Rung 3 fixes the small-hole scaling and fits one constant.</p>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current settings.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Write a drain-time formula that passes the units guard but is not Torricelli's shape: units are a filter, not a validation.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Choose quantities that leave exactly two dimensionless groups, with the drain time T in one of them.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Find readings where the plain cubic goes below empty, then pick the smallest soft weight (not hard) that keeps the lowest level above −1 cm and the fit inside under 2.5 mm.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>With at least 10% timing noise, show that rung 3 still recovers C<sub>d</sub> within 3% of 0.6.</span></li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="next" class="proj-section is-soft" aria-labelledby="next-title"><div class="proj-wrap">
+      <h2 id="next-title" class="proj-h2">Keep going</h2>
+      <div class="rl-pn"><a href="/symbolic-laws/module-02/"><i class="ri-arrow-left-line" aria-hidden="true"></i><span><small>Previous · Module 2</small><strong>Mathematical languages for symbolic models</strong></span></a><a class="is-next" href="/symbolic-laws/module-04/"><span><small>Next · Module 4</small><strong>Search and optimization</strong></span><i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+    </div></section>
+  </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Courses</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/rl-course/" class="hover:text-white">Reinforcement Learning</a></li>
+                  <li><a href="/epidemic-modeling/" class="hover:text-white">Epidemic Modeling</a></li>
+                  <li><a href="/symbolic-laws/" class="hover:text-white">Symbolic Physical Laws Discovery</a></li>
+                  <li><a href="/non-observed-economy/" class="hover:text-white">Non-Observed Economy</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/rl-course/" class="hover:text-white">RL course</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <script src="/js/videos.js"></script>
+      
+      <script src="/js/sr-labs.js" defer></script>
+      <script src="/js/epi-course.js" defer></script>
+   </body>
+</html>

@@ -204,7 +204,7 @@ def build_hub(data, tpl, eps):
     M = data['modules']
     ready = [m for m in M if m.get('ready')]
     book = data['book_parts']
-    acts = (btn(f'{BASE}module-01/', 'ri-play-circle-line', 'Start with Module 1', True) + btn('#modules', 'ri-list-check-2', 'All modules')
+    acts = (btn(f'{BASE}module-01/', 'ri-play-circle-line', 'Start with Module 1', True)
             + btn('#play', 'ri-flask-line', 'Labs and games') + btn(BOOK_URL, 'ri-book-open-line', 'Get the book', extra=' target="_blank" rel="noopener"')
             + (btn(PLAYLIST_URL, 'ri-youtube-line', 'Playlist on YouTube', extra=' target="_blank" rel="noopener"') if PLAYLIST_URL else ''))
     hero = f'''    <header class="proj-hero rl-hero">

@@ -1,0 +1,45 @@
+<!-- Used by tools/build_noe_course.py: lab 3 (Module 3) of the Non-Observed Economy course: an inspection game between a tax office and learning firms, and tipping when people copy each other. Script: js/noe-labs.js (data-noex="audit"). -->
+      <div class="rlx" id="audit-lab" data-noex="audit">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">An inspection game, played by learners</h3>
+          <p class="rlx-sub">A firm can comply or evade; the tax office can audit or not, and neither sees the other's move. Evading saves the tax (1); if audited, the firm pays the fine on top. Auditing costs the office c and recovers the tax. Both sides learn by trial and error. The payoffs are stylised: read the logic, not the levels.</p>
+          <div class="math-grid">
+            <article class="math-card"><div class="math-card-title">The office audits</div><div class="formula-line"><span class="formula-chip">q* = 1 / (1 + fine)</span></div><p class="math-card-copy">just often enough that evading stops paying.</p></article>
+            <article class="math-card"><div class="math-card-title">Firms evade</div><div class="formula-line"><span class="formula-chip">x* = c / 2</span></div><p class="math-card-copy">just often enough that auditing still pays. The fine does not appear.</p></article>
+            <article class="math-card"><div class="math-card-title">Copying</div><div class="formula-line"><span class="formula-chip">evade if uᵢ − 12·a + α(E − ½) &gt; 0</span></div><p class="math-card-copy">2,000 agents; E is the share of others evading, a the audit rate, α how strongly people copy.</p></article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Game controls">
+            <div><h4 class="rlx-h">The game</h4><p class="rlx-sub">Change the fine, the audit cost and how noisy the firms are.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="audF">Fine</label><span class="control-value" data-k="fine-out">3.0× the tax</span></div><input id="audF" data-k="fine" type="range" min="1" max="10" step="0.5" value="3"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="audC">Audit cost c</label><span class="control-value" data-k="cost-out">0.15</span></div><input id="audC" data-k="cost" type="range" min="0.04" max="0.5" step="0.01" value="0.15"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="audN">How sharply firms respond</label><span class="control-value" data-k="noise-out">15</span></div><input id="audN" data-k="noise" type="range" min="5" max="40" step="1" value="15"></div>
+            <label class="srx-check"><input type="checkbox" data-k="double" checked> Double the fine half way through</label>
+            <div><h4 class="rlx-h" style="margin-top:.8rem">Copying</h4></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="audA">Copying strength α</label><span class="control-value" data-k="alpha-out">1.00</span></div><input id="audA" data-k="alpha" type="range" min="0" max="1.5" step="0.05" value="1"></div>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Evading, before / after</div><div class="metric-value"><span data-k="x0">–</span> / <span data-k="x1">–</span></div></div><div class="metric-tile"><div class="metric-label">Audited, before / after</div><div class="metric-value"><span data-k="q0">–</span> / <span data-k="q1">–</span></div></div><div class="metric-tile"><div class="metric-label">Tipping loop</div><div class="metric-value" data-k="loop">–</div></div></div>
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Who adapts</h4><p class="rlx-sub">Blue: share of firms evading. Amber: audit rate.</p></div></div>
+              <p class="rlx-hint" data-k="nash"></p>
+              <div class="chart-shell" style="height:280px"><svg data-k="chart" role="img" aria-label="Evasion and audit rates over rounds of play"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Audits up, then down</h4><p class="rlx-sub">Orange: audits rising from a high-evasion world. Blue: audits falling from a compliant one.</p></div></div>
+              <div class="chart-shell" style="height:260px"><svg data-k="cchart" role="img" aria-label="Share evading as the audit rate is swept up and down"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current settings.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>With the fine doubling half way, find settings where long-run evasion ends within 1.5 points of where it started, while audits fall by more than a quarter.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Bring long-run evasion below 4%. Which lever does it: the fine or the audit cost?</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Find a copying strength where the tipping loop is wider than 2 points of audit rate.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>Switch copying off and check that the two curves become one.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>

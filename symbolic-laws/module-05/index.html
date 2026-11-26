@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_sr_course.py from data/sr-course.json. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Module 5: Scientific data, noise and experimental design | Symbolic Physical Laws Discovery Course | ACML</title>
+      <meta name="description" content="Module 5 of 10 of ACML’s Symbolic Physical Laws Discovery course. Getting data ready for discovery: slides, 2 videos and an interactive lab.">
+      <meta name="author" content="Teddy Lazebnik">
+      <meta name="keywords" content="symbolic regression, equation discovery, physics-informed machine learning, scientific data, noise and experimental design, course, ACML">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/symbolic-laws/module-05/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Module 5: Scientific data, noise and experimental design · Symbolic Physical Laws Discovery">
+      <meta property="og:description" content="Module 5 of 10 of ACML’s Symbolic Physical Laws Discovery course. Getting data ready for discovery: slides, 2 videos and an interactive lab.">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/symbolic-laws/module-05/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/symbolic-laws/module-05/share.jpg">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Module 5: Scientific data, noise and experimental design · Symbolic Physical Laws Discovery">
+      <meta name="twitter:description" content="Module 5 of 10 of ACML’s Symbolic Physical Laws Discovery course. Getting data ready for discovery: slides, 2 videos and an interactive lab.">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/symbolic-laws/module-05/share.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "Module 5: Scientific data, noise and experimental design",
+        "description": "The data decide which laws can be told apart. With a weight on a spring filmed by a phone, we ask whether data are adequate for a claim (quantity, coverage, resolution, signal to noise, observability, excitation), sort the kinds of noise and sampling trouble from aliasing to gaps with geometry, and follow positions into velocities and accelerations: finite differences turn a millimetre of tracking noise into acceleration noise more than twice the real signal, smoothing trades noise for bias, and weak forms move the derivative onto a known test function. The second video separates new evidence from synthetic data, chooses the next experiment where candidate laws disagree, matches validation splits to the claim, and locks the data decisions in a readiness protocol before the search.",
+        "url": "https://acml.teddylazebnik.com/symbolic-laws/module-05/",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "learningResourceType": [
+          "Lecture slides",
+          "Video",
+          "Interactive resource"
+        ],
+        "teaches": "Getting data ready for discovery",
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Symbolic Physical Laws Discovery",
+          "url": "https://acml.teddylazebnik.com/symbolic-laws/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Teddy Lazebnik",
+          "url": "https://teddylazebnik.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Applied Computational Mathematics Laboratory",
+          "url": "https://acml.teddylazebnik.com/"
+        },
+        "hasPart": [
+          {
+            "@type": "VideoObject",
+            "name": "Is the data ready?",
+            "description": "One phone video of a weight on a spring, three careful pipelines, three different laws. The difference is everything before the search.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/symbolic-laws/img/videos/v10.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/Tu9iPr4kOBA",
+            "duration": "PT8M35S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Making better data",
+            "description": "A model filled in a swing nobody measured, and the stiffening term flipped sign. One real recording fixed it.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/symbolic-laws/img/videos/v11.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/crbsu6qkG10",
+            "duration": "PT8M19S"
+          },
+          {
+            "@type": "DigitalDocument",
+            "name": "Module 5 slides",
+            "encodingFormat": "application/pdf",
+            "url": "https://acml.teddylazebnik.com/symbolic-laws/slides/Symbolic_Laws_Module05_Scientific_data_noise_and_experimental_design.pdf"
+          }
+        ]
+      }
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      <link href="/css/videos.css" rel="stylesheet">
+      
+      <link href="/css/exploration-lab.css" rel="stylesheet">
+      <link href="/css/rl-labs.css" rel="stylesheet">
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/project.css" rel="stylesheet">
+      <link href="/css/rl-course.css" rel="stylesheet">
+      <link href="/css/epi-course.css" rel="stylesheet">
+      <link href="/css/sr-course.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+          <a href="/courses.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Courses</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/courses.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Courses</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="proj-page rl-page bg-white">
+    <header class="proj-hero rl-hero">
+      <div class="proj-wrap proj-hero-grid">
+        <div>
+          <nav class="proj-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/courses.html">Courses</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/symbolic-laws/">Symbolic Physical Laws Discovery</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Module 5</span></nav>
+          <p class="proj-kicker"><span><i class="ri-graduation-cap-line" aria-hidden="true"></i>Symbolic Physical Laws Discovery</span><span>Search and data</span></p>
+          <h1 class="proj-title"><small>Module 5</small>Scientific data, noise and experimental design</h1>
+          <p class="proj-about-lead rl-summary">The data decide which laws can be told apart. With a weight on a spring filmed by a phone, we ask whether data are adequate for a claim (quantity, coverage, resolution, signal to noise, observability, excitation), sort the kinds of noise and sampling trouble from aliasing to gaps with geometry, and follow positions into velocities and accelerations: finite differences turn a millimetre of tracking noise into acceleration noise more than twice the real signal, smoothing trades noise for bias, and weak forms move the derivative onto a known test function. The second video separates new evidence from synthetic data, chooses the next experiment where candidate laws disagree, matches validation splits to the claim, and locks the data decisions in a readiness protocol before the search.</p>
+          <div class="rl-goal"><i class="ri-focus-3-line" aria-hidden="true"></i><span>By the end you should be able to judge whether data are adequate for a discovery claim, diagnose noise and sampling problems, choose between finite differences, smoothing and weak forms, control synthetic data, design the next experiment, and match the validation split to the claim.</span></div>
+          <h2 class="proj-h3 rl-ideas-title">Key ideas, one per video</h2>
+          <ul class="rl-ideas"><li><a href="#ep-10">Video 10</a><span>With 1 mm of tracking noise at 30 frames per second, finite differences gave accelerations with about 2 m/s² of noise against a real signal below 0.8, and lost the damping; filming at 120 frames per second made it about 17 times worse. Smoothing found the right terms with damping 13% too small; the weak form found −16.1·x − 0.40·v.</span></li><li><a href="#ep-11">Video 11</a><span>Over 40 noise draws, a model-generated 8 cm swing turned the stiffening coefficient (truth 400) into about −59 every time, while one real 8 cm recording gave about 402. Random-row and whole-recording splits could not tell a flexible polynomial from the law&#x27;s form (7% vs 7%); an amplitude split could (58% vs 7%).</span></li></ul>
+          <p class="rl-source"><b>Book:</b> Chapter 5 of <cite>Computational Methods for Symbolic Physical Laws Discovery</cite> by Teddy Lazebnik (coming soon). The videos and slides follow the chapter’s topics in our own words, figures and simulations; nothing is copied from the book.</p>
+        </div>
+        <div class="rl-first">
+          <a class="rl-first-img" href="/symbolic-laws/slides/Symbolic_Laws_Module05_Scientific_data_noise_and_experimental_design.pdf" target="_blank" rel="noopener"><img src="/symbolic-laws/img/slides/m05-s01.webp" alt="The title slide of Module 5: Scientific data, noise and experimental design" width="960" height="540" fetchpriority="high" decoding="async"></a>
+          <p class="rl-first-text">30 slides, written to be read on your own, with worked examples, our own small simulations and check-yourself questions (answers at the end). PDF, 1.5 MB.</p>
+          <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="/symbolic-laws/slides/Symbolic_Laws_Module05_Scientific_data_noise_and_experimental_design.pdf" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Open the PDF</a><a class="proj-btn" href="/symbolic-laws/slides/Symbolic_Laws_Module05_Scientific_data_noise_and_experimental_design.pdf" download><i class="ri-download-2-line" aria-hidden="true"></i>Download</a></div>
+        </div>
+      </div>
+    </header>
+    <nav class="proj-subnav is-mobile-only" aria-label="Sections of this page"><div class="proj-wrap"><ul><li><a href="#watch">Watch</a></li><li><a href="#lab">Lab</a></li><li><a href="#next">Next</a></li></ul></div></nav>
+    <section id="watch" class="proj-section is-soft" aria-labelledby="watch-title"><div class="proj-wrap">
+      <h2 id="watch-title" class="proj-h2">Watch</h2>
+      <p class="proj-lead">2 videos for this module, each about 8 to 15 minutes. Pick one from the list, and open the transcript to read along: each timestamp plays the video from there. The narration is generated with a voice clone of Teddy, used with his permission.</p>
+      <div class="rl-watch">
+        <div class="rl-player-wrap">
+          <div id="rl-player" class="yt-player yt-16x9" data-yt-id="Tu9iPr4kOBA" data-yt-title="Is the data ready?"><a class="yt-play" href="https://www.youtube.com/watch?v=Tu9iPr4kOBA" aria-label="Play video 10: Is the data ready?"><img src="/symbolic-laws/img/videos/v10.webp" alt="" width="640" height="360" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div>
+          <div class="rl-now">
+            <p id="rl-now-num" class="rl-now-num">Video 10 · 8:35</p>
+            <p id="rl-now-title" class="rl-now-title">Is the data ready?</p>
+            <p id="rl-now-hook" class="rl-now-hook">One phone video of a weight on a spring, three careful pipelines, three different laws. The difference is everything before the search.</p>
+            <p id="rl-now-take" class="rl-now-take"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i><span>With 1 mm of tracking noise at 30 frames per second, finite differences gave accelerations with about 2 m/s² of noise against a real signal below 0.8, and lost the damping; filming at 120 frames per second made it about 17 times worse. Smoothing found the right terms with damping 13% too small; the weak form found −16.1·x − 0.40·v.</span></p>
+          </div>
+            <details id="rl-tx" class="rl-tx">
+              <summary><i class="ri-file-text-line" aria-hidden="true"></i>Transcript<span id="rl-tx-which">Video 10</span><i class="ri-arrow-down-s-line rl-tx-caret" aria-hidden="true"></i></summary>
+              <div class="rl-tx-body"><div class="rl-tx-ep" data-ep="10"><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Tu9iPr4kOBA" data-ep="10" data-t="0">0:00</a><p><b>One video, three laws.</b> We film a weight bouncing on a spring with a phone, at thirty frames per second. The tracking is good to about a millimetre. From that one video, three careful pipelines return three different laws. Finite differences say: a equals minus 17.8 x. The damping has vanished. Smoothing says: minus 15 x, minus 0.35 v. A weak form says: minus 16.1 x, minus 0.40 v. The law we simulated is minus 16 x, minus 0.4 v. Same data, same search. The difference is everything that happened before the search. This video is about that part. This is Module five: scientific data, noise, and experimental design. Part one: is the data adequate? Part two: noise and sampling. Part three: derivatives, and how to avoid them.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Tu9iPr4kOBA&amp;t=57s" data-ep="10" data-t="57">0:57</a><p><b>Is the data adequate?.</b> A camera never returns the state of a system. It returns a measurement of it: a function of the state, the settings and the calibration, plus error. So every discovery depends on three things: the law, the experiment, and the measurement. Ask six questions before any search. Quantity: enough independent observations? Coverage: do they reach the states where candidate laws differ? Resolution: are the fast scales resolved? Signal to noise. Observability: are the needed variables measured at all? And excitation: was the system pushed hard enough? More data is not a universal remedy. Measuring somewhere new often beats measuring the same place again. Here&#x27;s an example. Suppose our spring stiffens when it is stretched far: an extra term, minus four hundred x cubed. At a two centimetre swing, that term is about one percent of the force. At eight centimetres, it is sixteen percent. We estimated the cubic coefficient from small swings, two hundred times, with fresh noise each time. The estimates scattered widely. Some were negative. Some were three times the truth. From eight centimetre swings, every estimate landed within five percent of four hundred. No optimizer can create information the experiment never collected. The problem here isn&#x27;t noise. It&#x27;s support. Two more questions are about the experiment itself. Observability: if the mechanism needs a variable you never measured, the search will invent complicated stand-ins built from the variables you did measure. And excitation: a coefficient on something that barely changes is barely identified. Different starts, forcings or amplitudes are what separate one candidate term from another.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Tu9iPr4kOBA&amp;t=157s" data-ep="10" data-t="157">2:37</a><p><b>Noise and sampling.</b> Part two: noise. The textbook picture is independent noise added to the response. Real data are messier. Error in the inputs, not just the outputs. Noise that grows with the signal. Errors that are correlated in time. An instrument that slowly drifts. Values clipped at a sensor&#x27;s limit. And gaps that are not random. Each one does its own damage. Input error biases coefficients. Correlated errors make a sample look bigger than it is. Drift invents terms that depend on time. Clipping creates fake plateaus. And measurement noise is not the same as a random system. If the system itself is random, that randomness is part of the law you are looking for. Report noise against a scale. Five percent of what? For our camera: about one millimetre on a five centimetre swing, so two percent of the amplitude. Sampling decides which scales you can see at all. Our spring swings with a period of about 1.6 seconds. Sample it about every 1.4 seconds, and the points trace a slow wave with a period of almost 16 seconds. That&#x27;s aliasing. The samples look smooth, convincing, and completely wrong. A search would happily fit a law for a slow oscillator that doesn&#x27;t exist. Gaps have geometry too. Losing a random fifth of the frames thins the data. Losing the end of the recording removes the slow decay, exactly where damping shows itself. And dense is not the same as independent. A camera at a thousand frames per second does not give a thousand independent observations per second of a slow swing.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Tu9iPr4kOBA&amp;t=251s" data-ep="10" data-t="251">4:11</a><p><b>Derivatives amplify noise.</b> Part three: derivatives. The camera gives positions. The law is about acceleration. Somewhere, positions must become velocities and accelerations. The simplest way is finite differences: the change between neighbouring frames, divided by the time step. For acceleration, a second difference, divided by the time step squared. And that&#x27;s where noise explodes. With one millimetre of tracking noise at thirty frames per second, the noise in the computed acceleration is about two metres per second squared. The real acceleration never exceeds 0.8. Pause. Should we film in slow motion, at a hundred and twenty frames per second, to get better accelerations? Decide before we show you. It gets worse, about seventeen times worse: from about two, to about thirty four. Dividing by a smaller time step squared amplifies the same millimetre more. Finer sampling shrinks the approximation error, and multiplies the noise.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Tu9iPr4kOBA&amp;t=315s" data-ep="10" data-t="315">5:15</a><p><b>Smoothing and weak forms.</b> The usual fix is smoothing: fit a smooth curve through the noisy positions, then differentiate the curve. Here, a local cubic fitted over half a second of frames. The acceleration noise drops from about two to about four hundredths. And the search now finds the right two terms. But look at the numbers: minus 15 x, and minus 0.35 v. Both are too small. Smoothing is a modelling choice. It decides what counts as signal. A wider window removes more noise, and more of the oscillation. With a quarter second window, the damping was off by four percent. With a second and a half, by sixty two percent. Or avoid differentiating the data at all. Multiply the law by a smooth bump that is zero at both ends of a window, and integrate. Integration by parts moves the derivatives from the noisy data onto the bump, which we know exactly. Acceleration times the bump becomes position times the bump&#x27;s second derivative. No noisy derivative is ever computed. On the same video, the weak form gives minus 16.1 x, minus 0.40 v. Over forty noise draws, its damping stayed within about one percent, up to two millimetres of noise. But the window is a choice too. Narrow windows keep detail and average little noise. Wide windows average more, and can blur different regimes together. The window is part of the scientific design.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Tu9iPr4kOBA&amp;t=400s" data-ep="10" data-t="400">6:40</a><p><b>A sweep, and many recordings.</b> Here&#x27;s the whole sweep, with forty noise draws at each level. Finite differences recover the right two terms up to a quarter of a millimetre of noise, and never from half a millimetre on. Smoothing and the weak form keep the right terms much longer. At eight millimetres, smoothing still found them in nineteen draws of forty, and the weak form in all forty. But up to four millimetres, smoothing&#x27;s damping stays about thirteen percent too small, because that error comes from the window, not from the noise. Right terms with wrong numbers, or good numbers with an extra term: structure and coefficients are separate questions. Report both. One recording rarely explores a whole system. Several starts, amplitudes or forcings cover more of the states where candidate laws differ. But keep the grouping. Frames from one recording are close cousins. When you test, split recordings, not rows. And before pooling experiments, ask whether the same law should hold in all of them. Pool different regimes, and you get an average law that fits none of them.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Tu9iPr4kOBA&amp;t=463s" data-ep="10" data-t="463">7:43</a><p><b>Recap.</b> Let&#x27;s recap. Adequacy depends on the claim: quantity, coverage, resolution, signal to noise, observability, and excitation. Small swings could not see the stiffening term at all. Noise comes in many shapes, so report it against a scale. Sampling can alias a fast swing into a slow one. And derivatives amplify noise: smoothing trades noise for bias, and weak forms move the derivative onto a function we know. In the lab, you&#x27;ll damage our spring&#x27;s data yourself. Next video: making better data, from synthetic enrichment to experiments chosen on purpose.</p></div></div><div class="rl-tx-ep" data-ep="11" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=crbsu6qkG10" data-ep="11" data-t="0">0:00</a><p><b>A swing nobody measured.</b> Our spring stiffens at large swings, but we only measured swings up to four centimetres. So we let a model fill in an eight centimetre swing, and gave the search real and synthetic data together. Over forty noise draws, the search reported a stiffening coefficient near minus 59, every time. The true value is 400. With one real recording at eight centimetres instead, it found about 402. The synthetic swing looked smooth and physical. It carried the assumptions of the model that made it, and nothing new about the spring. In this video. Part one: what synthetic data can and cannot do. Part two: choosing the next experiment. Part three: validation splits that match the claim. Part four: a data-readiness protocol.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=crbsu6qkG10&amp;t=54s" data-ep="11" data-t="54">0:54</a><p><b>What synthetic data can and cannot do.</b> Separate two things: choosing where to measure, and producing the value there. If a method picks a new swing and you then run that experiment, you have new evidence. If a model supplies the value as well, the point is synthetic. Synthetic data can still help. It can fill sparse regions, stabilize derivatives, or test a search under conditions you control. But every synthetic point is a descendant of a model. Enrichment can add numerical resolution without adding any structural information. Ten thousand generated points can reinforce a distortion more strongly than a hundred careful measurements. Even inside the measured range, support can be thin. Measurements bunched around two settings leave a gap between them. A generated point in that gap is inside the range, and still far from any real observation. Synthetic points also flatter the error bars. Each one counts like a measurement, so the fit looks more certain, while no new information has arrived. Generators differ in what they assume: small perturbations or interpolation, a statistical copy of the data, a model of outputs given inputs, a mechanistic simulator, or a learned generator with physics built in. Each one brings a prior. If a reconstruction enforces energy conservation, finding a law that conserves energy afterwards is not a discovery. It was built in upstream. And a law fitted only to simulator output is a law of the simulator. That can be very useful, as a compact surrogate. But testing it against nature needs measurements the simulator never saw. Pretrained generators carry a prior too: millions of training formulas decide which shapes feel familiar. Report the training distribution, so readers can tell prior exposure from evidence. The strongest use of synthetic data is the honest one: a controlled test, where the truth is known and the difficulty is turned up on purpose. Every number in this module came from exactly that kind of test. So every use of synthetic data needs a control: rerun without it, keep a flag on every generated point, and report the share of synthetic to real. For our spring, that control catches the problem at once. Real data alone gave about 400, with a wide spread. The synthetic swing flipped the sign, in all forty draws. The spread tells the same story. Across the draws, real data alone scattered widely around 400. With the one new recording added, the scatter shrank more than six times.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=crbsu6qkG10&amp;t=193s" data-ep="11" data-t="193">3:13</a><p><b>Choosing the next experiment.</b> Part two: choose the next experiment on purpose. Fit the competing candidate laws, then ask where they disagree the most. From our small swings we have two candidates: a plain spring, and a stiffening one. Up to about three centimetres, they predict almost the same force. Beyond that, they pull apart faster and faster. So we run one swing at the largest amplitude we can safely reach. One recording settles a question that more small swings never could. The rule depends on the goal. Uncertainty for prediction. Disagreement between candidate laws for choosing a mechanism. Novelty for coverage. And you can choose more than x: starts, forcing, sensor positions, sampling times. Record the rule that chose each experiment. Otherwise nobody can tell whether the law was robust, or steered into the data. And when the procedure itself steers where to measure, the record has to say so, or a reader may credit the law with a robustness that was really the design. And notice the cost. More small swings would add more frames, but every one of them would sit where the two candidates already agree.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=crbsu6qkG10&amp;t=259s" data-ep="11" data-t="259">4:19</a><p><b>Splits that match the claim.</b> Pause. A flexible model and the true law&#x27;s form both score about seven percent error on frames held out at random. Which one would you trust at a bigger swing? Hold out a random fifth of the frames: 7.0 and 6.8 percent. Hold out a whole recording: 6.6 and 6.1 percent. Neither test tells them apart. Now train on swings up to four centimetres, and test on eight. The law&#x27;s form: seven percent. The flexible polynomial: fifty eight percent. These are medians over forty noise draws. The split decides which question you answered. Random rows test interpolation. Whole recordings test new starts. Held-out amplitudes test extrapolation. Match the split to the claim. And keep preprocessing on the training side. Smoothing windows, normalization and synthetic points must never be tuned on the test data. Validation has three layers. Predictive: does the law forecast measurements? Structural: when the truth is known, are the right terms recovered? Scientific: does the law survive tests that played no part in finding it? These layers can disagree. A wrong expression can predict well over a narrow range, while a plausible one can lose a little accuracy inside the data, and extrapolate far better. Our spring shows all three. On random frames, the flexible polynomial predicted as well as the law. Its terms were not the spring&#x27;s terms, so it failed the structural test. And at the bigger swing, it failed the scientific one.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=crbsu6qkG10&amp;t=349s" data-ep="11" data-t="349">5:49</a><p><b>A data-readiness protocol.</b> Part four: a data-readiness protocol. Its job is simple: fix the data decisions before the search, so they cannot drift toward a favourite equation. Start with the claim, stated precisely. For example: one law for this spring, for swings up to eight centimetres, that predicts recordings from new starts. Then the measurement chain: what was measured, and what was derived. An acceleration computed twice from video is not a measurement with the same uncertainty as position. Then the rest: support, uncertainty from repeated measurements rather than from residuals, at least two derivative pipelines, splits fixed in advance, and a flag on every value: measured, derived, interpolated, or simulated. If the law changes whenever one reasonable preprocessing choice changes, the honest conclusion is that the data do not yet identify a stable law. The protocol is not a cage. If the first search reveals a missing variable or an unstable derivative, revise the protocol in the open, and start a new analysis. Never replace the old one silently. Here&#x27;s our spring through the protocol. The claim: one law for swings up to eight centimetres. Measured: position only, with about a millimetre of noise. Derived: velocity and acceleration, three ways. Finite differences lost the damping. Smoothing found the right terms with numbers that were too small. The weak form found both. When pipelines agree on structure but not on numbers, that is itself a finding to report. Splits by recording and by amplitude, fixed in advance. No synthetic points in the final fit, and the enriched run reported as a warning. So what we would report is narrow, and honest: a stiffening spring, with a coefficient near 400 once the large swing was measured, valid for swings up to eight centimetres, from new starts.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=crbsu6qkG10&amp;t=453s" data-ep="11" data-t="453">7:33</a><p><b>Recap.</b> Let&#x27;s recap. Synthetic data adds computation, not evidence: control it, flag it, and report its share. Pretraining is a prior. Choose new experiments where candidate laws disagree: one well-placed recording beat many repeats. Splits must match the claim. And lock the data decisions before the search. In the lab, you&#x27;ll choose the next swing yourself. Next module: static laws and interpretable surrogates.</p></div></div></div>
+            </details>
+        </div>
+        <div class="rl-eps">
+          <div class="rl-eps-head"><b>Module 5 videos</b><span>2 videos · 17 min</span></div>
+          <ol><li id="ep-10"><a class="rl-ep is-active" data-ep="10" href="https://www.youtube.com/watch?v=Tu9iPr4kOBA" aria-current=true><span class="rl-ep-thumb"><img src="/symbolic-laws/img/videos/v10.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>8:35</span></span><span><span class="rl-ep-num">Video 10 · 5.1</span><span class="rl-ep-title" style="display:block">Is the data ready?</span><span class="rl-ep-take" style="display:block">With 1 mm of tracking noise at 30 frames per second, finite differences gave accelerations with about 2 m/s² of noise against a real signal below 0.8, and lost the damping; filming at 120 frames per second made it about 17 times worse. Smoothing found the right terms with damping 13% too small; the weak form found −16.1·x − 0.40·v.</span></span></a></li><li id="ep-11"><a class="rl-ep" data-ep="11" href="https://www.youtube.com/watch?v=crbsu6qkG10"><span class="rl-ep-thumb"><img src="/symbolic-laws/img/videos/v11.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>8:19</span></span><span><span class="rl-ep-num">Video 11 · 5.2</span><span class="rl-ep-title" style="display:block">Making better data</span><span class="rl-ep-take" style="display:block">Over 40 noise draws, a model-generated 8 cm swing turned the stiffening coefficient (truth 400) into about −59 every time, while one real 8 cm recording gave about 402. Random-row and whole-recording splits could not tell a flexible polynomial from the law&#x27;s form (7% vs 7%); an amplitude split could (58% vs 7%).</span></span></a></li></ol>
+        </div>
+      </div>
+      <script type="application/json" id="rl-episodes">[{"ep": 10, "youtube": "Tu9iPr4kOBA", "title": "Is the data ready?", "duration": "8:35", "hook": "One phone video of a weight on a spring, three careful pipelines, three different laws. The difference is everything before the search.", "takeaway": "With 1 mm of tracking noise at 30 frames per second, finite differences gave accelerations with about 2 m/s² of noise against a real signal below 0.8, and lost the damping; filming at 120 frames per second made it about 17 times worse. Smoothing found the right terms with damping 13% too small; the weak form found −16.1·x − 0.40·v.", "thumbAbs": "/symbolic-laws/img/videos/v10.webp"}, {"ep": 11, "youtube": "crbsu6qkG10", "title": "Making better data", "duration": "8:19", "hook": "A model filled in a swing nobody measured, and the stiffening term flipped sign. One real recording fixed it.", "takeaway": "Over 40 noise draws, a model-generated 8 cm swing turned the stiffening coefficient (truth 400) into about −59 every time, while one real 8 cm recording gave about 402. Random-row and whole-recording splits could not tell a flexible polynomial from the law's form (7% vs 7%); an amplitude split could (58% vs 7%).", "thumbAbs": "/symbolic-laws/img/videos/v11.webp"}]</script>
+    </div></section>
+    <section id="lab" class="rl-lab" aria-labelledby="lab-title">
+      <div class="proj-wrap rl-lab-head">
+        <p class="proj-label"><i class="ri-pulse-line" aria-hidden="true"></i>Interactive lab</p>
+        <h2 id="lab-title" class="proj-h2" style="margin-top:.5rem">Noisy derivatives</h2>
+        <p class="proj-lead">Film a weight on a spring with a simulated phone: change the tracking noise, frame rate and windows, and watch finite differences, smoothing and a weak form recover (or lose) the law. Then choose the amplitude of the next swing to pin down a stiffening term.</p>
+        <p class="proj-lead" style="margin-top:.6rem">The spring and the camera are simulated in your browser (a = −16·x − 0.4·v, made up). Four challenges are checked as you go.</p>
+      </div>
+      <div class="rlx" id="deriv-lab" data-srx="deriv">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">A weight on a spring, filmed by a phone</h3>
+          <p class="rlx-sub">The page simulates four recordings of 6 seconds (starts of 2 to 5 cm) from a = −16·x − 0.4·v, our own made-up spring. The camera sees the position x only, with tracking noise. Every pipeline searches the same library (1, x, v, x², x·v, x³, x²·v) with thresholded least squares. Everything runs in your browser.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">Finite differences</div>
+              <div class="formula-line"><span class="formula-chip">a ≈ (xᵢ₊₁ − 2xᵢ + xᵢ₋₁) / Δt²</span></div>
+              <p class="math-card-copy">Simple, and the noise is divided by Δt²: faster cameras make it worse.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Smoothing</div>
+              <div class="formula-line"><span class="formula-chip">local cubic, then differentiate</span></div>
+              <p class="math-card-copy">Less noise, but the window also flattens the swing: a bias.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Weak form</div>
+              <div class="formula-line"><span class="formula-chip">∫ φ·a dt = ∫ φ″·x dt</span></div>
+              <p class="math-card-copy">A bump φ that vanishes at both ends takes the derivatives; no noisy derivative is computed.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Camera and pipelines">
+            <div><h4 class="rlx-h">Camera and pipelines</h4><p class="rlx-sub">Changes apply when you release a slider.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="drN">Tracking noise σ</label><span class="control-value" data-k="noise-out">0.25 mm</span></div><input id="drN" data-k="noise" type="range" min="0" max="7" step="1" value="2"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="drF">Frame rate</label><span class="control-value" data-k="fps-out">30 frames/s</span></div><input id="drF" data-k="fps" type="range" min="0" max="4" step="1" value="1"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="drW">Smoothing window</label><span class="control-value" data-k="win-out">0.50 s</span></div><input id="drW" data-k="win" type="range" min="10" max="150" step="5" value="50"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="drV">Weak-form window</label><span class="control-value" data-k="wwin-out">1.00 s</span></div><input id="drV" data-k="wwin" type="range" min="30" max="200" step="10" value="100"></div>
+            <div class="rlx-btns"><button type="button" class="control-button control-button-secondary is-wide" data-k="redraw">New noise</button></div>
+            <p class="rlx-hint">Noise in the finite-difference acceleration (recording 1): <b data-k="fdnoise">–</b>. The real acceleration never exceeds 0.8 m/s².</p>
+            </aside>
+            <div class="rlx-main">
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">–</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">A · Three pipelines, one video</h4><p class="rlx-sub">The true law is a = −16·x − 0.4·v. Damping error compares the coefficient of v with 0.4.</p></div></div>
+              <div class="srx-tablewrap"><table class="srx-table" data-k="table"></table></div>
+              <div class="chart-shell" style="height:260px"><svg data-k="achart" role="img" aria-label="True acceleration, finite differences and smoothing for recording 1"></svg></div>
+              <p class="rlx-hint">Dashed: the true acceleration. Grey: finite differences. Orange: smoothing.</p>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">B · The next swing</h4><p class="rlx-sub">Now the spring stiffens: a = −16·x − 0.4·v − 400·x³. We have swings of 1, 1.5 and 2 cm (σ = 0.5 mm). The curve shows where a plain spring and a stiffening one, both fitted to those swings, disagree.</p></div></div>
+              <div class="chart-shell" style="height:240px"><svg data-k="dchart" role="img" aria-label="Disagreement of two candidate laws against swing amplitude"></svg></div>
+              <div class="rlx-field" style="max-width:420px"><div class="rlx-label"><label for="drA">Amplitude of one new swing</label><span class="control-value" data-k="amp-out">3 cm</span></div><input id="drA" data-k="amp" type="range" min="1" max="10" step="1" value="3"></div>
+              <div class="rlx-btns" style="max-width:420px"><button type="button" class="control-button control-button-primary is-wide" data-k="swing">Record this swing</button></div>
+              <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Stiffening k₃, small swings only</div><div class="metric-value" data-k="k3before">–</div></div><div class="metric-tile"><div class="metric-label">With the new swing (truth 400)</div><div class="metric-value" data-k="k3after">–</div></div></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked as you go.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Find a noise level where finite differences lose the right terms but the weak form keeps them.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Show that a faster camera makes the finite-difference acceleration noisier (same tracking noise, higher frame rate).</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Pick a smoothing window that pushes the damping error above 30% while the weak form stays under 5%.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>Record one new swing that brings the stiffening coefficient within 3% of 400.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="next" class="proj-section is-soft" aria-labelledby="next-title"><div class="proj-wrap">
+      <h2 id="next-title" class="proj-h2">Keep going</h2>
+      <div class="rl-pn"><a href="/symbolic-laws/module-04/"><i class="ri-arrow-left-line" aria-hidden="true"></i><span><small>Previous · Module 4</small><strong>Search and optimization</strong></span></a><a class="is-next" href="/symbolic-laws/module-06/"><span><small>Next · Module 6</small><strong>Static laws and interpretable surrogates</strong></span><i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+    </div></section>
+  </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Courses</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/rl-course/" class="hover:text-white">Reinforcement Learning</a></li>
+                  <li><a href="/epidemic-modeling/" class="hover:text-white">Epidemic Modeling</a></li>
+                  <li><a href="/symbolic-laws/" class="hover:text-white">Symbolic Physical Laws Discovery</a></li>
+                  <li><a href="/non-observed-economy/" class="hover:text-white">Non-Observed Economy</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/rl-course/" class="hover:text-white">RL course</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <script src="/js/videos.js"></script>
+      
+      <script src="/js/sr-labs.js" defer></script>
+      <script src="/js/epi-course.js" defer></script>
+   </body>
+</html>

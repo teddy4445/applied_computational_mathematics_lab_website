@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_noe_course.py from data/noe-course.json. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Module 8: Designing counter-NOE policy | Computational Approaches to the Non-Observed Economy Course | ACML</title>
+      <meta name="description" content="Module 8 of 9 of ACML’s Computational Approaches to the Non-Observed Economy course. Optimisation under uncertainty, many objectives: slides, 2 videos and an interactive lab.">
+      <meta name="author" content="Teddy Lazebnik">
+      <meta name="keywords" content="non-observed economy, informal economy, shadow economy, computational economics, designing counter-noe policy, course, ACML">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/non-observed-economy/module-08/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Module 8: Designing counter-NOE policy · Computational Approaches to the Non-Observed Economy">
+      <meta property="og:description" content="Module 8 of 9 of ACML’s Computational Approaches to the Non-Observed Economy course. Optimisation under uncertainty, many objectives: slides, 2 videos and an interactive lab.">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/non-observed-economy/module-08/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/non-observed-economy/module-08/share.jpg">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Module 8: Designing counter-NOE policy · Computational Approaches to the Non-Observed Economy">
+      <meta name="twitter:description" content="Module 8 of 9 of ACML’s Computational Approaches to the Non-Observed Economy course. Optimisation under uncertainty, many objectives: slides, 2 videos and an interactive lab.">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/non-observed-economy/module-08/share.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "Module 8: Designing counter-NOE policy",
+        "description": "Policy against the hidden economy serves four different goals, and one instrument can help one goal while hurting another. With an invented ten-year model of audits, digital reporting and services, run through a thousand possible futures, we turn policy into a decision problem, keep six sources of uncertainty apart, compare criteria (average, bad tail, worst case, chance of reaching a target), see why learned audit rules need a little randomness and why adaptive rules need timely numbers, and then read a Pareto front, choose by weights, limits or priorities, find the assumptions behind the spread, and ask whether the recommendation changes.",
+        "url": "https://acml.teddylazebnik.com/non-observed-economy/module-08/",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "learningResourceType": [
+          "Lecture slides",
+          "Video",
+          "Interactive resource"
+        ],
+        "teaches": "Optimisation under uncertainty, many objectives",
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Computational Approaches to the Non-Observed Economy",
+          "url": "https://acml.teddylazebnik.com/non-observed-economy/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Teddy Lazebnik",
+          "url": "https://teddylazebnik.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Applied Computational Mathematics Laboratory",
+          "url": "https://acml.teddylazebnik.com/"
+        },
+        "hasPart": [
+          {
+            "@type": "VideoObject",
+            "name": "Optimal relative to what?",
+            "description": "Four policy packages, a thousand futures: services first wins on average, digital reporting wins in the worst tenth.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/non-observed-economy/img/videos/v17.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/dWzQEfa9fLU",
+            "duration": "PT8M22S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Many objectives, sensitivity, and an end-to-end policy study",
+            "description": "145 affordable policy mixes, each run through a thousand futures: only 21 are not beaten on both cost and hidden share.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/non-observed-economy/img/videos/v18.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/bwy721eoIio",
+            "duration": "PT8M13S"
+          },
+          {
+            "@type": "DigitalDocument",
+            "name": "Module 8 slides",
+            "encodingFormat": "application/pdf",
+            "url": "https://acml.teddylazebnik.com/non-observed-economy/slides/Non_Observed_Economy_Module08_Designing_counter_NOE_policy.pdf"
+          }
+        ]
+      }
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      <link href="/css/videos.css" rel="stylesheet">
+      
+      <link href="/css/exploration-lab.css" rel="stylesheet">
+      <link href="/css/rl-labs.css" rel="stylesheet">
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/project.css" rel="stylesheet">
+      <link href="/css/rl-course.css" rel="stylesheet">
+      <link href="/css/epi-course.css" rel="stylesheet">
+      <link href="/css/noe-course.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+          <a href="/courses.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Courses</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/courses.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Courses</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="proj-page rl-page bg-white">
+    <header class="proj-hero rl-hero">
+      <div class="proj-wrap proj-hero-grid">
+        <div>
+          <nav class="proj-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/courses.html">Courses</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/non-observed-economy/">Computational Approaches to the Non-Observed Economy</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Module 8</span></nav>
+          <p class="proj-kicker"><span><i class="ri-graduation-cap-line" aria-hidden="true"></i>Computational Approaches to the Non-Observed Economy</span><span>Policy and practice</span></p>
+          <h1 class="proj-title"><small>Module 8</small>Designing counter-NOE policy</h1>
+          <p class="proj-about-lead rl-summary">Policy against the hidden economy serves four different goals, and one instrument can help one goal while hurting another. With an invented ten-year model of audits, digital reporting and services, run through a thousand possible futures, we turn policy into a decision problem, keep six sources of uncertainty apart, compare criteria (average, bad tail, worst case, chance of reaching a target), see why learned audit rules need a little randomness and why adaptive rules need timely numbers, and then read a Pareto front, choose by weights, limits or priorities, find the assumptions behind the spread, and ask whether the recommendation changes.</p>
+          <div class="rl-goal"><i class="ri-focus-3-line" aria-hidden="true"></i><span>By the end you should be able to write a policy as a decision problem, compare criteria under uncertainty, read and choose on a Pareto front, run global and decision sensitivity with the value of information, report true, observed and unseen activity separately, and plan a pilot and an adaptive rollout.</span></div>
+          <h2 class="proj-h3 rl-ideas-title">Key ideas, one per video</h2>
+          <ul class="rl-ideas"><li><a href="#ep-17">Video 17</a><span>Audit models trained on past audits found evaders 55% of the time; 6% random audits for learning lifted that to 64%. Three-year-old numbers made an adaptive rule overshoot by 8 points, and a method change in the same year made the audit effect look twice as large.</span></li><li><a href="#ep-18">Video 18</a><span>Weights picked anything from the full budget to doing nothing. The services effect explained most of the spread (total index 0.45), and learning it first was worth about 1.8 points. Under digital reporting, detections rose while true hiding fell.</span></li></ul>
+          <p class="rl-source"><b>Book:</b> Chapter 8 of <cite>Computational Approaches to the Non-Observed Economy: From Theory to Practice</cite> (coming soon). The videos and slides follow the chapter’s topics in our own words, figures and simulations; the towns and countries are invented, and nothing is copied from the book.</p>
+        </div>
+        <div class="rl-first">
+          <a class="rl-first-img" href="/non-observed-economy/slides/Non_Observed_Economy_Module08_Designing_counter_NOE_policy.pdf" target="_blank" rel="noopener"><img src="/non-observed-economy/img/slides/m08-s01.webp" alt="The title slide of Module 8: Designing counter-NOE policy" width="960" height="540" fetchpriority="high" decoding="async"></a>
+          <p class="rl-first-text">24 slides, written to be read on your own, with worked examples, our own small simulations and check-yourself questions (answers at the end). PDF, 2.4 MB.</p>
+          <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="/non-observed-economy/slides/Non_Observed_Economy_Module08_Designing_counter_NOE_policy.pdf" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Open the PDF</a><a class="proj-btn" href="/non-observed-economy/slides/Non_Observed_Economy_Module08_Designing_counter_NOE_policy.pdf" download><i class="ri-download-2-line" aria-hidden="true"></i>Download</a></div>
+        </div>
+      </div>
+    </header>
+    <nav class="proj-subnav is-mobile-only" aria-label="Sections of this page"><div class="proj-wrap"><ul><li><a href="#watch">Watch</a></li><li><a href="#lab">Lab</a></li><li><a href="#next">Next</a></li></ul></div></nav>
+    <section id="watch" class="proj-section is-soft" aria-labelledby="watch-title"><div class="proj-wrap">
+      <h2 id="watch-title" class="proj-h2">Watch</h2>
+      <p class="proj-lead">2 videos for this module, each about 8 to 11 minutes. Pick one from the list, and open the transcript to read along: each timestamp plays the video from there. The narration is generated with a voice clone of Teddy, used with his permission.</p>
+      <div class="rl-watch">
+        <div class="rl-player-wrap">
+          <div id="rl-player" class="yt-player yt-16x9" data-yt-id="dWzQEfa9fLU" data-yt-title="Optimal relative to what?"><a class="yt-play" href="https://www.youtube.com/watch?v=dWzQEfa9fLU" aria-label="Play video 17: Optimal relative to what?"><img src="/non-observed-economy/img/videos/v17.webp" alt="" width="640" height="360" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div>
+          <div class="rl-now">
+            <p id="rl-now-num" class="rl-now-num">Video 17 · 8:22</p>
+            <p id="rl-now-title" class="rl-now-title">Optimal relative to what?</p>
+            <p id="rl-now-hook" class="rl-now-hook">Four policy packages, a thousand futures: services first wins on average, digital reporting wins in the worst tenth.</p>
+            <p id="rl-now-take" class="rl-now-take"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i><span>Audit models trained on past audits found evaders 55% of the time; 6% random audits for learning lifted that to 64%. Three-year-old numbers made an adaptive rule overshoot by 8 points, and a method change in the same year made the audit effect look twice as large.</span></p>
+          </div>
+            <details id="rl-tx" class="rl-tx">
+              <summary><i class="ri-file-text-line" aria-hidden="true"></i>Transcript<span id="rl-tx-which">Video 17</span><i class="ri-arrow-down-s-line rl-tx-caret" aria-hidden="true"></i></summary>
+              <div class="rl-tx-body"><div class="rl-tx-ep" data-ep="17"><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=dWzQEfa9fLU" data-ep="17" data-t="0">0:00</a><p><b>Four packages, a thousand futures.</b> Four policy packages for our invented Mainland, each costing about the same. We ran each one through a thousand possible futures. On average, the package that funds services and formalisation wins. After ten years, it leaves about 15 percent of the economy hidden. But in the worst tenth of futures, a different package wins: the one that invests in digital reporting. Best is always best by some measure, under some assumptions. This module is about choosing policy when the truth is uncertain and every choice has a cost.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=dWzQEfa9fLU&amp;t=41s" data-ep="17" data-t="41">0:41</a><p><b>Four steps.</b> Welcome to Module 8: designing policy against the non-observed economy. I&#x27;m Teddy. In this video: what counts as policy here, how to turn it into a decision problem, the kinds of uncertainty, the ways to optimise under them, and how to fit the models that predict a policy&#x27;s effect.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=dWzQEfa9fLU&amp;t=58s" data-ep="17" data-t="58">0:58</a><p><b>Goals and instruments.</b> Policy against the hidden economy is much more than audits and fines. It includes third-party reporting, e-invoicing, traceable payments, easier registration, simpler rules, social protection, public services and trust. And it can aim at four different things. Reducing the true amount of hidden activity. Formalising workers and firms. Making activity visible to the authorities. Or reducing harm, like protecting workers, even before full formalisation is possible. One instrument can help one goal and hurt another. Digital reporting can make activity visible without reducing it. An aggressive audit campaign can raise revenue while pushing vulnerable workers away and eroding trust. So we describe the state with several numbers: the true hidden share, how much the authority can observe, trust, and the wider context. And the policy with several instruments: audits, digital reporting, and services. A policy can be fixed, a schedule over years, or a rule that reacts to new data. And it has to respect budgets, capacity, law, fairness and risk.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=dWzQEfa9fLU&amp;t=120s" data-ep="17" data-t="120">2:00</a><p><b>Whom to audit.</b> Take a classic decision: whom to audit. On paper, it&#x27;s simple. Pick the firms with the highest expected recovery, until the budget runs out. But every number in that formula is uncertain. And one of them hides a trap: the risk estimates are learned from past audits, and past audits weren&#x27;t random. We invented 2,000 firms in four sectors. One sector is the riskiest: more than half of its firms evade. But an old rule never audited it. A model trained on past audits finds an evader in 55 percent of its next 200 audits. That beats random audits, at 37. But only 27 percent of its picks come from the riskiest sector. It can&#x27;t learn about firms it has never seen. Add six percent of audits chosen at random, just for learning. The next model finds an evader 64 percent of the time, almost as well as if we knew the true risks. And 85 percent of its picks now come from the riskiest sector. A little randomness buys a lot of knowledge.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=dWzQEfa9fLU&amp;t=182s" data-ep="17" data-t="182">3:02</a><p><b>Average, bad tail, worst case.</b> Uncertainty comes from six places. The measurement itself. Unknown response coefficients. Which mechanism is right. How people adapt. Whether the policy is delivered as planned. And shocks from outside. Keep them apart. If the measured hidden share rises after a reform, it could mean more hiding, better detection, or a new method of measurement. Each calls for a different response. Our Mainland model has three instruments and three states: the hidden share, observability, and trust. Every response coefficient is uncertain, so each of the thousand futures draws its own, plus recessions and noise. The simplest criterion is the average outcome. Services first wins, at about 15 percent. Enforcement first gets 20, digital reporting 22, and the status quo 25. But averages hide bad tails. Look at the worst ten percent of futures. There, digital reporting does best, at 27 percent. Services first reaches 28, because it depends on an effect we&#x27;re unsure about. Enforcement first reaches 33. In its single worst future, enforcement first ends at 48 percent. When trust collapses, heavy audits backfire. One caution about scenarios. Running more random seeds doesn&#x27;t fix an equation that&#x27;s wrong. The scenarios have to span the uncertainty that matters, including the mechanisms themselves. So report more than one number for every package: its average, its bad tail, and its worst case. A ranking that holds under all three is worth more than a win on any single one.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=dWzQEfa9fLU&amp;t=269s" data-ep="17" data-t="269">4:29</a><p><b>Robust choices and chance targets.</b> That&#x27;s the idea of robust optimisation: choose the policy whose worst plausible outcome is acceptable. It needs no probabilities, only a set of plausible values. Its danger is being too cautious, if that set includes combinations that can&#x27;t happen together. A middle way protects against a range of possible distributions, not just one. That matters here, because a policy can change the very patterns it was trained on. Or set a chance constraint: the hidden share must end below 22 percent with high probability. Services first gets there in 72 percent of futures, enforcement in 59, digital reporting in 47, the status quo in 23. How high is high enough? Ninety percent? Ninety-five? That number is a policy choice, not a statistical constant.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=dWzQEfa9fLU&amp;t=314s" data-ep="17" data-t="314">5:14</a><p><b>Adaptive policy and late information.</b> A fixed plan isn&#x27;t always safest. A government can pilot, watch, and adjust. For example, raise audits when the hidden share is above target, and lower them when it&#x27;s below. But the hidden share arrives late. We ran that rule three ways: with last year&#x27;s number, with a one-year delay, and with a three-year delay. With fresh numbers, it overshot the target by about five points and used twelve audit-years. With a three-year delay, it overshot by eight, and used fifteen. It kept pushing long after the job was done. When the model is a simulation, the objective is a noisy black box. Start with a plain grid or random search, then re-test the finalists in many fresh futures. A clever optimiser can fail silently. And remember the practical limits. Instruments have start-up costs, delays and saturation. Assigning money to e-invoicing doesn&#x27;t mean everyone adopts it, and assigning an audit doesn&#x27;t mean it gets done. These limits belong inside the model, not in a footnote. A plan that ignores them will look better on paper than it does in the field.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=dWzQEfa9fLU&amp;t=378s" data-ep="17" data-t="378">6:18</a><p><b>Fitting the response model.</b> All of this rests on a model of how the world responds to policy. Fitting the past is one question. Whether the policy&#x27;s effect is identified, for the range you plan to use, is another. Here&#x27;s a trap. In our invented history, audits rose in year six. In the same year, the statistics office changed its method, which made the measured hidden share three points lower. Calibrate without knowing that, and the model credits audits with the drop. It estimates an audit effect of 0.12, more than twice the true 0.05. Add a term for the method change, and the estimate falls to 0.08. Closer, but still off, because both changes happened in the same year. The data can&#x27;t fully separate them. When a likelihood is out of reach, simulated moments, approximate Bayesian computation or synthetic likelihood can still fit a simulator. And always ask who could enter the data, and why an outcome was observed. Evaluate the model where decisions are made: near budget limits and near the points where the preferred policy changes. And treat published effects from other countries as ranges, not as universal constants.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=dWzQEfa9fLU&amp;t=445s" data-ep="17" data-t="445">7:25</a><p><b>Recap.</b> Let&#x27;s recap. Counter-NOE policy has four distinct goals, and instruments can help one while hurting another. Learned audit rules inherit past selection. A little random auditing fixes a lot. The best policy depends on the criterion: average, bad tail, worst case, or a chance target. Adaptive rules need timely information, and fitted effects need identification. In the lab, you&#x27;ll choose a package for the Mainland and see how its ranking changes with the criterion. Next video: many objectives at once, which assumptions really matter, and a policy study from start to finish.</p></div></div><div class="rl-tx-ep" data-ep="18" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=bwy721eoIio" data-ep="18" data-t="0">0:00</a><p><b>145 mixes, 21 on the front.</b> We tried every affordable mix of audits, digital reporting and services for the Mainland. There are 145 of them, each run through a thousand futures. Only 21 are not beaten on both cost and hidden share at once. Every other mix wastes money or leaves hiding on the table. Choosing among those 21 is not a calculation. It&#x27;s a decision. This video is about making it well.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=bwy721eoIio&amp;t=31s" data-ep="18" data-t="31">0:31</a><p><b>Three parts.</b> Welcome back to Module 8. This is video two: many objectives, sensitivity, and a policy study from start to finish.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=bwy721eoIio&amp;t=39s" data-ep="18" data-t="39">0:39</a><p><b>Many objectives.</b> A government cares about many things at once: hidden activity, revenue, worker protection, jobs, the burden on small firms, fair auditing, privacy, trust, and regional equity. One policy dominates another if it&#x27;s no worse on every objective and better on at least one. The undominated policies form the Pareto front. The front removes waste. It doesn&#x27;t pick a winner. On our front, spending moves the hidden share from 32 percent with no policy at all down to 12 at the full budget. The early steps buy the most. A weighted sum is the easy way to pick one. But watch the weights. Put a fifth of the weight on cost, and you choose the full-budget mix. Half the weight, and you choose light audits only. Most of the weight on cost, and you choose to do nothing. Small changes in weights, completely different policies. And weighted sums can miss parts of a front that isn&#x27;t convex. So show the weights you used, and check how far they can move before the choice changes. If a small shift flips the answer, say so. A limit is often clearer. Minimise hidden activity, subject to trust staying at least one half and the cost at most 0.8. That picks moderate audits plus services, ending near 16 percent. Strict priorities, targets with allowed deviations, and evolutionary search for messy simulated fronts are other options. Choose the method that matches how the objectives are actually stated.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=bwy721eoIio&amp;t=118s" data-ep="18" data-t="118">1:58</a><p><b>Constraints, horizon, combinations.</b> Set the objectives before running anything, and don&#x27;t choose weights after seeing which policy they favour. Fairness can be a constraint, like a cap on the difference in audit rates between regions. But equal rates aren&#x27;t automatically fair if risk differs. The definition has to follow the purpose and the law. Some things shouldn&#x27;t be traded at all. If no revenue gain can justify a privacy violation, privacy is a constraint, not an objective. The same goes for due process and minimum services. The horizon matters too. Some instruments pay back quickly, others need years of investment first. State the horizon and the discounting, and check that the choice survives other reasonable ones. And look for combinations. Digital records make audits sharper. Services make digital adoption easier. Some pairs work better together, and some work against each other. When you present results, show a few named packages, not hundreds of points. For each one: the average, the bad tail, the cost, who bears it, and the assumptions under which it stops being the best choice.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=bwy721eoIio&amp;t=180s" data-ep="18" data-t="180">3:00</a><p><b>Sensitivity analysis.</b> Next, sensitivity analysis. Uncertainty analysis describes the spread of outcomes. Sensitivity analysis asks which assumptions create it. Local derivatives are quick but see only a neighbourhood. Changing one input at a time is easy to explain, but misses interactions. Screening methods cheaply find the inputs worth a closer look. Global methods vary everything at once over its plausible range, and split the output&#x27;s variance into contributions. The first-order index counts an input alone. The total index adds all its interactions. For the robust policy, the services effect explains the most, with a total index of 0.45. The audit effect follows, at 0.35, then the baseline drift, at 0.13. The first-order indices add up to only about 0.8. The rest comes from interactions, which a one-at-a-time analysis would never see. Use good sampling, check that the indices have converged, and don&#x27;t choose the ranges after seeing the results. A ranking of inputs is not a ranking of causes. Beyond parameters, change the model itself: different decision rules for agents, different peer networks, a different benchmark. Some assumptions can&#x27;t be tested by sweeping a number. And remember equifinality from Module 7. Test every candidate policy across all the calibrations that fit the data, not just the one that fits best.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=bwy721eoIio&amp;t=265s" data-ep="18" data-t="265">4:25</a><p><b>Decision sensitivity and the value of information.</b> But the question that matters for policy is simpler. Does the recommended policy change? We varied the services effect alone. If it&#x27;s essentially zero, enforcement first wins. At small values, the robust mix wins, then the mix that&#x27;s best on average. From a modest value upward, services first wins. So the decision hinges on one number we don&#x27;t know well. That tells you where to spend research money. If we could learn the services effect before choosing, the expected hidden share would fall by about 1.8 points. Learning the audit effect is worth 0.7. Learning the direct effect of digital reporting, almost nothing. Run the pilot that could change your mind. And turn the influential quantities into monitoring indicators, with stopping rules written down in advance. A sensitivity analysis that ends with a table of indices is only half done. The useful ending is a sentence a decision maker can act on: which number to learn, how to learn it, and what you&#x27;d do with each answer.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=bwy721eoIio&amp;t=325s" data-ep="18" data-t="325">5:25</a><p><b>The study, end to end.</b> Now the whole study, end to end. The best mix on average spends on light audits and lots of services, and ends near 12 percent. Its worst tenth reaches 23. The robust mix adds a little digital reporting and more audits. Its average is a bit worse, near 13.5. Its worst tenth is better, at 22. And the knee of the front, where extra money starts buying much less, is audits alone at 40 percent of the budget, ending near 21 percent. One more lesson from the digital package. As observability rises, the part of hiding that the authority can see grows from 12 points to 18, while true hiding falls from 27 to 22. Read the rising detections as rising hiding, and you&#x27;d cancel a policy that&#x27;s working. Report true, observed and unseen separately. All of these numbers come from an invented teaching model, not from real policy effects. Their value is in the workflow they demonstrate.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=bwy721eoIio&amp;t=381s" data-ep="18" data-t="381">6:21</a><p><b>From model to study.</b> Finally, turn the model into a study. First, pilot in a few regions, varying the instruments that drive the uncertainty, and measure adoption, appeals, survival, jobs, trust and payment channels. Second, recalibrate an ensemble of models with the pilot data, and prefer policies that stay near the front under all of them. A policy that&#x27;s optimal only under one fragile equation shouldn&#x27;t be scaled up. Third, implement adaptively, with the rules, indicators and review dates announced in advance. Adapting doesn&#x27;t mean changing the objective after seeing the results. And communicate honestly. One package minimises the average, another the bad tail, a third balances cost, trust and hiding. Show the ranges and the assumptions. The choice belongs to the public. Each step leaves a record of what was assumed, what was tested and what was decided. That record lets someone else check the study, or redo it when new data arrive.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=bwy721eoIio&amp;t=437s" data-ep="18" data-t="437">7:17</a><p><b>Recap.</b> Let&#x27;s recap. The Pareto front removes waste. Weights, limits and priorities choose, and the method should match how the goals are stated. Global sensitivity finds the assumptions behind the spread. Decision sensitivity asks whether the recommendation changes, and the value of information says what to learn next. Report true, observed and unseen activity separately, and move from model to pilot to adaptive policy. In the lab, you&#x27;ll explore the front, change the weights and limits, and run a sensitivity analysis on your favourite package. Next and final module: a practical guide, from a question to a defensible answer.</p></div></div></div>
+            </details>
+        </div>
+        <div class="rl-eps">
+          <div class="rl-eps-head"><b>Module 8 videos</b><span>2 videos · 17 min</span></div>
+          <ol><li id="ep-17"><a class="rl-ep is-active" data-ep="17" href="https://www.youtube.com/watch?v=dWzQEfa9fLU" aria-current=true><span class="rl-ep-thumb"><img src="/non-observed-economy/img/videos/v17.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>8:22</span></span><span><span class="rl-ep-num">Video 17 · 8.1</span><span class="rl-ep-title" style="display:block">Optimal relative to what?</span><span class="rl-ep-take" style="display:block">Audit models trained on past audits found evaders 55% of the time; 6% random audits for learning lifted that to 64%. Three-year-old numbers made an adaptive rule overshoot by 8 points, and a method change in the same year made the audit effect look twice as large.</span></span></a></li><li id="ep-18"><a class="rl-ep" data-ep="18" href="https://www.youtube.com/watch?v=bwy721eoIio"><span class="rl-ep-thumb"><img src="/non-observed-economy/img/videos/v18.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>8:13</span></span><span><span class="rl-ep-num">Video 18 · 8.2</span><span class="rl-ep-title" style="display:block">Many objectives, sensitivity, and an end-to-end policy study</span><span class="rl-ep-take" style="display:block">Weights picked anything from the full budget to doing nothing. The services effect explained most of the spread (total index 0.45), and learning it first was worth about 1.8 points. Under digital reporting, detections rose while true hiding fell.</span></span></a></li></ol>
+        </div>
+      </div>
+      <script type="application/json" id="rl-episodes">[{"ep": 17, "youtube": "dWzQEfa9fLU", "title": "Optimal relative to what?", "duration": "8:22", "hook": "Four policy packages, a thousand futures: services first wins on average, digital reporting wins in the worst tenth.", "takeaway": "Audit models trained on past audits found evaders 55% of the time; 6% random audits for learning lifted that to 64%. Three-year-old numbers made an adaptive rule overshoot by 8 points, and a method change in the same year made the audit effect look twice as large.", "thumbAbs": "/non-observed-economy/img/videos/v17.webp"}, {"ep": 18, "youtube": "bwy721eoIio", "title": "Many objectives, sensitivity, and an end-to-end policy study", "duration": "8:13", "hook": "145 affordable policy mixes, each run through a thousand futures: only 21 are not beaten on both cost and hidden share.", "takeaway": "Weights picked anything from the full budget to doing nothing. The services effect explained most of the spread (total index 0.45), and learning it first was worth about 1.8 points. Under digital reporting, detections rose while true hiding fell.", "thumbAbs": "/non-observed-economy/img/videos/v18.webp"}]</script>
+    </div></section>
+    <section id="lab" class="rl-lab" aria-labelledby="lab-title">
+      <div class="proj-wrap rl-lab-head">
+        <p class="proj-label"><i class="ri-government-line" aria-hidden="true"></i>Interactive lab</p>
+        <h2 id="lab-title" class="proj-h2" style="margin-top:.5rem">The policy room</h2>
+        <p class="proj-lead">Spend a yearly budget on audits, digital reporting and services for an invented country, judged across 300 futures by the average, the worst tenth and the chance of reaching a target. Find the Pareto front, then run a pilot that pins an uncertain effect and see the decision change.</p>
+        <p class="proj-lead" style="margin-top:.6rem">The course&#x27;s ten-year teaching model, run in your browser. An invented model, not real policy effects. Four challenges are checked as you go.</p>
+      </div>
+      <div class="rlx" id="policy-lab" data-noex="policy">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">The policy room: three instruments, 300 futures</h3>
+          <p class="rlx-sub">The course’s ten-year teaching model of the invented Mainland: audits, digital reporting and services act on the true hidden share, the authority’s observability and trust. Every response coefficient is uncertain, so each of 300 futures draws its own, with recessions and noise. A yearly budget of 1.0 buys audits at 1, digital reporting at 1.5 and services at 1.3 per unit.</p>
+          <div class="math-grid">
+            <article class="math-card"><div class="math-card-title">Criteria</div><div class="formula-line"><span class="formula-chip">average · worst tenth · P(≤ 22%)</span></div><p class="math-card-copy">The best mix depends on which you choose.</p></article>
+            <article class="math-card"><div class="math-card-title">Pareto front</div><div class="formula-line"><span class="formula-chip">no mix cheaper and better at once</span></div><p class="math-card-copy">The front removes waste; it does not pick a winner.</p></article>
+            <article class="math-card"><div class="math-card-title">A pilot</div><div class="formula-line"><span class="formula-chip">pin one uncertain effect</span></div><p class="math-card-copy">Learning the right number can change the decision.</p></article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Your mix controls">
+            <div><h4 class="rlx-h">Your mix</h4><p class="rlx-sub">Spend the budget.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="poA">Audits</label><span class="control-value" data-k="a-out">0.2</span></div><input id="poA" data-k="a" type="range" min="0" max="10" step="1" value="2"></div><div class="rlx-field"><div class="rlx-label"><label for="poD">Digital reporting</label><span class="control-value" data-k="d-out">0.0</span></div><input id="poD" data-k="d" type="range" min="0" max="6" step="1" value="0"></div><div class="rlx-field"><div class="rlx-label"><label for="poF">Services and formalisation</label><span class="control-value" data-k="f-out">0.00</span></div><input id="poF" data-k="f" type="range" min="0" max="15" step="1" value="0"></div><label class="srx-check"><input type="checkbox" data-k="pilot"> A pilot pins the services effect</label><div class="rlx-field"><div class="rlx-label"><label for="poP">Services effect found by the pilot</label><span class="control-value" data-k="pin-out">0.000</span></div><input id="poP" data-k="pin" type="range" min="0" max="35" step="1" value="0"></div>
+            <p class="rlx-hint">Hidden share after 10 years, across 300 futures. Status quo: audits 0.2. An invented teaching model, not real policy effects.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Average</div><div class="metric-value" data-k="mean">–</div></div><div class="metric-tile"><div class="metric-label">Worst tenth</div><div class="metric-value" data-k="p90">–</div></div><div class="metric-tile"><div class="metric-label">Chance of ≤ 22%</div><div class="metric-value" data-k="pt">–</div></div><div class="metric-tile"><div class="metric-label">Yearly cost</div><div class="metric-value" data-k="cost">–</div></div></div>
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Cost and average hidden share</h4><p class="rlx-sub" data-k="note"></p></div></div>
+              <div class="chart-shell" style="height:320px"><svg data-k="chart" role="img" aria-label="Pareto front of affordable policy mixes with your mix marked"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current settings.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Beat the status quo on both the average and the worst tenth, within budget.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Find a mix that ends below 22% in at least 85% of futures, within budget.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Find a mix on the Pareto front that costs less than 0.5.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>Run a pilot that finds the services effect near zero (at most 0.005), and see services first lose to enforcement first on average.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="next" class="proj-section is-soft" aria-labelledby="next-title"><div class="proj-wrap">
+      <h2 id="next-title" class="proj-h2">Keep going</h2>
+      <div class="rl-pn"><a href="/non-observed-economy/module-07/"><i class="ri-arrow-left-line" aria-hidden="true"></i><span><small>Previous · Module 7</small><strong>Simulating the hidden economy</strong></span></a><a class="is-next" href="/non-observed-economy/module-09/"><span><small>Next · Module 9</small><strong>A practical guide</strong></span><i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+    </div></section>
+  </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Courses</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/rl-course/" class="hover:text-white">Reinforcement Learning</a></li>
+                  <li><a href="/epidemic-modeling/" class="hover:text-white">Epidemic Modeling</a></li>
+                  <li><a href="/symbolic-laws/" class="hover:text-white">Symbolic Physical Laws Discovery</a></li>
+                  <li><a href="/non-observed-economy/" class="hover:text-white">Non-Observed Economy</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/rl-course/" class="hover:text-white">RL course</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <script src="/js/videos.js"></script>
+      
+      <script src="/js/noe-labs.js" defer></script>
+      <script src="/js/epi-course.js" defer></script>
+   </body>
+</html>

@@ -1,0 +1,45 @@
+<!-- Used by tools/build_noe_course.py: lab 2 (Module 2) of the Non-Observed Economy course: forty invented countries, a simple and a flexible model of a published estimate, random vs country splits, estimate vs truth, and a payments reform. Script: js/noe-labs.js (data-noex="countries"). -->
+      <div class="rlx" id="countries-lab" data-noex="countries">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">Forty invented countries, sixteen years each</h3>
+          <p class="rlx-sub">The true hidden share depends on taxes, enforcement, trust, self-employment and digital payments, plus each country's quirks. A published estimate leans on cash use, so it runs high where cash is common and low where it is rare. Both models learn the published estimate.</p>
+          <div class="math-grid">
+            <article class="math-card"><div class="math-card-title">Simple, theory-guided</div><div class="formula-line"><span class="formula-chip">logit(ŝ) = w₀ + Σ wⱼ·causeⱼ</span></div><p class="math-card-copy">A linear model on the five causes theory names.</p></article>
+            <article class="math-card"><div class="math-card-title">Flexible</div><div class="formula-line"><span class="formula-chip">ŝ = average of k nearest</span></div><p class="math-card-copy">Nearest neighbours on the causes, plus population if you allow it: a number fixed for each country, which works like a name tag.</p></article>
+            <article class="math-card"><div class="math-card-title">The reform</div><div class="formula-line"><span class="formula-chip">year 10: e-invoicing</span></div><p class="math-card-copy">Half the countries move payments to cards. Hiding falls a little; cash falls a lot.</p></article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Model controls">
+            <div><h4 class="rlx-h">Check</h4><p class="rlx-sub">Choose how to hold data out, and what to score against.</p></div>
+            <div class="rlx-field"><label class="rlx-label" for="ctrSplit">Hold out</label><select id="ctrSplit" class="control-select" data-k="split"><option value="random">a random quarter of rows</option><option value="country">ten whole countries</option></select></div>
+            <div class="rlx-field"><label class="rlx-label" for="ctrScore">Score against</label><select id="ctrScore" class="control-select" data-k="score"><option value="benchmark">the published estimate</option><option value="truth">the truth (we built the world)</option></select></div>
+            <label class="srx-check"><input type="checkbox" data-k="tag" checked> Let the flexible model see population (a name tag)</label>
+            <div class="rlx-field"><div class="rlx-label"><label for="ctrK">Neighbours (k)</label><span class="control-value" data-k="k-out">3</span></div><input id="ctrK" data-k="k" type="range" min="1" max="20" step="1" value="3"></div>
+            <label class="srx-check"><input type="checkbox" data-k="reform"> Switch on the payments reform (year 10)</label>
+            <div class="rlx-btns"><button type="button" class="control-button control-button-secondary is-wide" data-k="newdata">New world</button></div>
+            <p class="rlx-hint">Errors are mean absolute errors in points of hidden share.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Simple model</div><div class="metric-value" data-k="elin">–</div></div><div class="metric-tile"><div class="metric-label">Flexible model</div><div class="metric-value" data-k="eknn">–</div></div><div class="metric-tile"><div class="metric-label">Published estimate vs truth</div><div class="metric-value" data-k="ebench">–</div></div></div>
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Errors on the held-out rows</h4><p class="rlx-sub">Points of hidden share.</p></div></div>
+              <div class="chart-shell" style="height:150px"><svg data-k="chart" role="img" aria-label="Bars: the two models' errors and the published estimate's own error"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">The reform, in the reform countries</h4><p class="rlx-sub">Change after year 10 compared with year 9, in points.</p></div></div>
+              <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Published estimate says</div><div class="metric-value" data-k="dbench">–</div></div><div class="metric-tile"><div class="metric-label">Truth changed by</div><div class="metric-value" data-k="dtrue">–</div></div><div class="metric-tile"><div class="metric-label">Reform's true effect</div><div class="metric-value" data-k="eff">–</div></div></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on the settings you have tried.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Scoring against the published estimate, with the name tag on, find a k where the flexible model beats the simple one on random rows but loses on whole countries.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Score against the truth, and find settings where both models are further from the truth than the published estimate they learned from.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Switch on the reform and see the published estimate's drop come out more than one and a half times the reform's true effect.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>On random rows, take the name tag away and watch the flexible model's error rise by more than half a point.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>

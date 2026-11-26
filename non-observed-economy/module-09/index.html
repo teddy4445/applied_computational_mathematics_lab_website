@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_noe_course.py from data/noe-course.json. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Module 9: A practical guide | Computational Approaches to the Non-Observed Economy Course | ACML</title>
+      <meta name="description" content="Module 9 of 9 of ACML’s Computational Approaches to the Non-Observed Economy course. From a question to a defensible answer: slides, 2 videos and an interactive lab.">
+      <meta name="author" content="Teddy Lazebnik">
+      <meta name="keywords" content="non-observed economy, informal economy, shadow economy, computational economics, a practical guide, course, ACML">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/non-observed-economy/module-09/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Module 9: A practical guide · Computational Approaches to the Non-Observed Economy">
+      <meta property="og:description" content="Module 9 of 9 of ACML’s Computational Approaches to the Non-Observed Economy course. From a question to a defensible answer: slides, 2 videos and an interactive lab.">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/non-observed-economy/module-09/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/non-observed-economy/module-09/share.jpg">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Module 9: A practical guide · Computational Approaches to the Non-Observed Economy">
+      <meta name="twitter:description" content="Module 9 of 9 of ACML’s Computational Approaches to the Non-Observed Economy course. From a question to a defensible answer: slides, 2 videos and an interactive lab.">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/non-observed-economy/module-09/share.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "Module 9: A practical guide",
+        "description": "The last module turns the course into a research practice. One invented e-invoicing reform gives six correct answers to one question, so a study must fix its estimand first: population, outcome, intervention, comparator, horizon and summary. We name task types, audiences and the cost of error, separate production, compliance and observability, then choose models from a small candidate set with a baseline, select inside the validation instead of after it, report coverage by subgroup, run a multiverse of reasonable analyses, and report so others can reproduce, check and act.",
+        "url": "https://acml.teddylazebnik.com/non-observed-economy/module-09/",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "learningResourceType": [
+          "Lecture slides",
+          "Video",
+          "Interactive resource"
+        ],
+        "teaches": "From a question to a defensible answer",
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Computational Approaches to the Non-Observed Economy",
+          "url": "https://acml.teddylazebnik.com/non-observed-economy/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Teddy Lazebnik",
+          "url": "https://teddylazebnik.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Applied Computational Mathematics Laboratory",
+          "url": "https://acml.teddylazebnik.com/"
+        },
+        "hasPart": [
+          {
+            "@type": "VideoObject",
+            "name": "From a question to an estimand",
+            "description": "One invented e-invoicing reform, 3,000 firms, six correct answers to the question “does it work?”.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/non-observed-economy/img/videos/v19.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/tl5WWDm1Pbg",
+            "duration": "PT8M26S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Choose, validate, report",
+            "description": "The best of 300 specifications scored 2.9 by cross-validation, 3.35 on fresh countries, and 3.7 when the whole selection was checked.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/non-observed-economy/img/videos/v20.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/daJkcTIyTN8",
+            "duration": "PT8M30S"
+          },
+          {
+            "@type": "DigitalDocument",
+            "name": "Module 9 slides",
+            "encodingFormat": "application/pdf",
+            "url": "https://acml.teddylazebnik.com/non-observed-economy/slides/Non_Observed_Economy_Module09_A_practical_guide.pdf"
+          }
+        ]
+      }
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      <link href="/css/videos.css" rel="stylesheet">
+      
+      <link href="/css/exploration-lab.css" rel="stylesheet">
+      <link href="/css/rl-labs.css" rel="stylesheet">
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/project.css" rel="stylesheet">
+      <link href="/css/rl-course.css" rel="stylesheet">
+      <link href="/css/epi-course.css" rel="stylesheet">
+      <link href="/css/noe-course.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+          <a href="/courses.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Courses</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/courses.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Courses</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="proj-page rl-page bg-white">
+    <header class="proj-hero rl-hero">
+      <div class="proj-wrap proj-hero-grid">
+        <div>
+          <nav class="proj-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/courses.html">Courses</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/non-observed-economy/">Computational Approaches to the Non-Observed Economy</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Module 9</span></nav>
+          <p class="proj-kicker"><span><i class="ri-graduation-cap-line" aria-hidden="true"></i>Computational Approaches to the Non-Observed Economy</span><span>Policy and practice</span></p>
+          <h1 class="proj-title"><small>Module 9</small>A practical guide</h1>
+          <p class="proj-about-lead rl-summary">The last module turns the course into a research practice. One invented e-invoicing reform gives six correct answers to one question, so a study must fix its estimand first: population, outcome, intervention, comparator, horizon and summary. We name task types, audiences and the cost of error, separate production, compliance and observability, then choose models from a small candidate set with a baseline, select inside the validation instead of after it, report coverage by subgroup, run a multiverse of reasonable analyses, and report so others can reproduce, check and act.</p>
+          <div class="rl-goal"><i class="ri-focus-3-line" aria-hidden="true"></i><span>By the end you should be able to run a study in order from question to report, write a precise estimand, match validation to the claim, avoid selection optimism with nesting, report uncertainty by subgroup and across analyst choices, and write a reproducible, honest report.</span></div>
+          <h2 class="proj-h3 rl-ideas-title">Key ideas, one per video</h2>
+          <ul class="rl-ideas"><li><a href="#ep-19">Video 19</a><span>Write the estimand first: population, outcome, intervention, comparator, horizon and summary. An estimand limited to eligible firms missed the small firms&#x27; slight rise in hiding and the closures above the size threshold.</span></li><li><a href="#ep-20">Video 20</a><span>A pooled 90% interval covered 95% overall but 80% in the noisiest countries. Across 36 reasonable analyses the estimate ran from 19.8% to 22.3% (truth 20.4%), and the choice of benchmark explained 57% of the spread.</span></li></ul>
+          <p class="rl-source"><b>Book:</b> Chapter 9 of <cite>Computational Approaches to the Non-Observed Economy: From Theory to Practice</cite> (coming soon). The videos and slides follow the chapter’s topics in our own words, figures and simulations; the towns and countries are invented, and nothing is copied from the book.</p>
+        </div>
+        <div class="rl-first">
+          <a class="rl-first-img" href="/non-observed-economy/slides/Non_Observed_Economy_Module09_A_practical_guide.pdf" target="_blank" rel="noopener"><img src="/non-observed-economy/img/slides/m09-s01.webp" alt="The title slide of Module 9: A practical guide" width="960" height="540" fetchpriority="high" decoding="async"></a>
+          <p class="rl-first-text">26 slides, written to be read on your own, with worked examples, our own small simulations and check-yourself questions (answers at the end). PDF, 4.7 MB.</p>
+          <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="/non-observed-economy/slides/Non_Observed_Economy_Module09_A_practical_guide.pdf" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Open the PDF</a><a class="proj-btn" href="/non-observed-economy/slides/Non_Observed_Economy_Module09_A_practical_guide.pdf" download><i class="ri-download-2-line" aria-hidden="true"></i>Download</a></div>
+        </div>
+      </div>
+    </header>
+    <nav class="proj-subnav is-mobile-only" aria-label="Sections of this page"><div class="proj-wrap"><ul><li><a href="#watch">Watch</a></li><li><a href="#lab">Lab</a></li><li><a href="#next">Next</a></li></ul></div></nav>
+    <section id="watch" class="proj-section is-soft" aria-labelledby="watch-title"><div class="proj-wrap">
+      <h2 id="watch-title" class="proj-h2">Watch</h2>
+      <p class="proj-lead">2 videos for this module, each about 8 to 11 minutes. Pick one from the list, and open the transcript to read along: each timestamp plays the video from there. The narration is generated with a voice clone of Teddy, used with his permission.</p>
+      <div class="rl-watch">
+        <div class="rl-player-wrap">
+          <div id="rl-player" class="yt-player yt-16x9" data-yt-id="tl5WWDm1Pbg" data-yt-title="From a question to an estimand"><a class="yt-play" href="https://www.youtube.com/watch?v=tl5WWDm1Pbg" aria-label="Play video 19: From a question to an estimand"><img src="/non-observed-economy/img/videos/v19.webp" alt="" width="640" height="360" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div>
+          <div class="rl-now">
+            <p id="rl-now-num" class="rl-now-num">Video 19 · 8:26</p>
+            <p id="rl-now-title" class="rl-now-title">From a question to an estimand</p>
+            <p id="rl-now-hook" class="rl-now-hook">One invented e-invoicing reform, 3,000 firms, six correct answers to the question “does it work?”.</p>
+            <p id="rl-now-take" class="rl-now-take"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i><span>Write the estimand first: population, outcome, intervention, comparator, horizon and summary. An estimand limited to eligible firms missed the small firms&#x27; slight rise in hiding and the closures above the size threshold.</span></p>
+          </div>
+            <details id="rl-tx" class="rl-tx">
+              <summary><i class="ri-file-text-line" aria-hidden="true"></i>Transcript<span id="rl-tx-which">Video 19</span><i class="ri-arrow-down-s-line rl-tx-caret" aria-hidden="true"></i></summary>
+              <div class="rl-tx-body"><div class="rl-tx-ep" data-ep="19"><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=tl5WWDm1Pbg" data-ep="19" data-t="0">0:00</a><p><b>One reform, six answers.</b> Does e-invoicing reduce the hidden economy? We invented a reform for 3,000 firms, and got six different answers. All of them correct. Declared sales of the firms that must e-invoice rose by 11 percent. Their hidden share fell from 20 percent to 11. The whole economy&#x27;s fell from 22 to 15. Revenue rose by about 10 percent. Detected hidden sales rose by 46 percent, because invoices make hiding easier to catch. And among firms just above the size threshold, almost four in a hundred more closed. Six questions, six answers. A study has to say which question it answers before it computes anything. That&#x27;s where this final module begins.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=tl5WWDm1Pbg&amp;t=48s" data-ep="19" data-t="48">0:48</a><p><b>Two videos.</b> Welcome to Module 9, the last module of the course: a practical guide to research on the non-observed economy. I&#x27;m Teddy. This video goes from a vague question to a precise target. The next one covers choosing models, validating them, and reporting.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=tl5WWDm1Pbg&amp;t=63s" data-ep="19" data-t="63">1:03</a><p><b>A fixed order.</b> A credible study runs in a fixed order. The question and its intended use define the target quantity. The target decides which evidence matters. The evidence limits the candidate models. Validation decides which conclusions survive. And reporting turns them into outputs people can use. Reverse that order, and the study weakens. Starting with we&#x27;ll use a neural network, or we&#x27;ll build a simulation, puts a favourite method in place of a defined task. Explaining, predicting and estimating an effect are different goals. A model that explains an association is judged one way. A forecasting model is judged another way. And a model that measures a policy&#x27;s effect is judged a third way. The bridge is the estimand: the exact quantity the study is trying to learn. Write it down before choosing any estimator.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=tl5WWDm1Pbg&amp;t=111s" data-ep="19" data-t="111">1:51</a><p><b>A topic is not a task.</b> Studying tax evasion is a topic, not a task. Estimating the average undeclared share among registered retail firms in a given year is a measurement task. Ranking firms by expected recoverable tax for the next audit cycle is a detection task. Estimating the two-year effect of e-invoicing on eligible small firms is a causal task. Six task types cover most of the field: measurement, detection, forecasting, causal evaluation, simulation, and policy design. Each produces a different output: a level, a ranking, a trajectory, an effect, a generated distribution, or a portfolio. A project can contain several, but one should be primary, because each is judged differently. Measurement against evidence and accounting. Forecasts against later data. Scenarios on the credibility of their assumptions. A simple task card keeps it honest: the question, the audience, the output, the estimand, the data, the model, the validation, and the reporting. In that order. Fill in the card before the analysis starts, and keep it. When the results arrive, it shows whether the study answered the question it set out to answer.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=tl5WWDm1Pbg&amp;t=182s" data-ep="19" data-t="182">3:02</a><p><b>Audience and the cost of error.</b> Who will use the result matters. A statistics office needs an aggregate consistent with the accounts, with metadata and revision rules. A tax office needs a ranking that supports human review, with error rates and an audit trail. So does the cost of error. A country-level estimate that&#x27;s off by two points may be fine for comparing countries, and serious for fiscal planning. Repurpose that country model to flag individual firms, and the error is no longer two points. It&#x27;s a category mistake. A relationship among countries doesn&#x27;t identify which firm is hiding. Write the output down precisely: a level, a probability, a distribution, a ranking. And state how often it updates, and how long it should live. If the data arrive a year late, a current-year number is a nowcast, not a measurement. Interpretability needs differ too. A statistics office may need every assumption visible. A tax office needs reasons a human reviewer can check, firm by firm. One question helps before any data work: what would the user do differently if the number came out high, or low? If nothing would change, the question needs more work before the data does.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=tl5WWDm1Pbg&amp;t=247s" data-ep="19" data-t="247">4:07</a><p><b>Production, compliance, observability.</b> Next, the concepts. Separate three properties of any activity. Is it production, inside the accounting boundary? Does it comply with the rules? And can the responsible institution observe it? A compliant activity can be unobserved, through gaps in statistics. A non-compliant one can be observed, once it&#x27;s detected. So unobserved needs three more words: by whom, when, and for what purpose. Choose the unit to match the claim: transactions, workers, firms, regions, or country-years. Aggregating a firm into formal or informal loses the firm that does both. Fix the time basis: reference period, frequency, prices, data vintage, flows or stocks. And always state the denominator. In Module 1, one invented town&#x27;s hidden economy was 15, 18 or 8 percent, depending on the definition and the denominator. State the benchmark&#x27;s status too. Survey, audit, administrative, calibrated, or the output of another model. A flexible model trained on a model-based series is a model of a model. A handy test is one example in and one example out for every boundary. An undeclared repair job is in. An undeclared bank balance is not current production. Unpaid care is outside the usual production boundary, valuable as it is. Write each of these choices on the task card, so a reader can check them without guessing.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=tl5WWDm1Pbg&amp;t=330s" data-ep="19" data-t="330">5:30</a><p><b>Building the estimand.</b> Now turn a policy question into an estimand. Take our reform. Which population: all firms, or only those required to e-invoice? Which outcome: declared sales, true hidden sales, detected cases, revenue, or survival? Compared with what: no reform, or the old paper invoices? Over what horizon: a month, a year, five years? And summarised how: a mean, a share, a distribution? Fix all of these, and the question has one answer. Leave them open, and our six numbers all compete to be the effect. Keep three layers apart. The theoretical estimand is what you care about, like the true hidden share of eligible firms. The empirical estimand is what the data can identify under assumptions, like the gap between invoices and audit findings. The estimator is the procedure that computes it. For observational data, describe the experiment you wish you could run: who is eligible, what each group receives, when follow-up starts, and what&#x27;s measured. Formalisation isn&#x27;t an intervention until you say who gets what, how much, when, and compared with what. Causal diagrams help expose the assumptions that link the data to an effect. But a diagram doesn&#x27;t replace knowing how the institution actually works. A written estimand also helps readers. They can see at once whether your number answers their question, or a nearby one.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=tl5WWDm1Pbg&amp;t=406s" data-ep="19" data-t="406">6:46</a><p><b>Who is counted.</b> Defining the population also decides what you can see. In our reform, the small firms that weren&#x27;t required to e-invoice hid slightly more afterwards, about one point more, as some activity moved to them. An estimand limited to eligible firms would never notice. An economy-wide one would, but would mix that displacement with the main effect. The same goes for closures. If firms just above the threshold close, their hidden sales vanish from the eligible group, and the average can improve for the wrong reason. Survival belongs in the outcome list. So list every group a reform can touch, including firms just outside it, and say which of them your estimand counts. Most disagreements about whether a policy worked are disagreements about the estimand.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=tl5WWDm1Pbg&amp;t=449s" data-ep="19" data-t="449">7:29</a><p><b>Recap.</b> Let&#x27;s recap. Question, estimand, evidence, models, validation, reporting. In that order. Name the task type and the audience, and price the errors. State production, compliance and observability, the observer, the unit, the time basis and the denominator. Turn every policy question into a population, an outcome, an intervention, a comparator, a horizon and a summary, before estimating anything. In the lab, you&#x27;ll fill in a task card and an estimand card, and the lab will flag the common gaps. Next and final video: choosing models, validating them honestly, and reporting what you found.</p></div></div><div class="rl-tx-ep" data-ep="20" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=daJkcTIyTN8" data-ep="20" data-t="0">0:00</a><p><b>The best of 300.</b> We gave 40 invented countries 22 possible predictors, only two of them real, and tried 300 model specifications. The best one, chosen by cross-validation, was off by 2.9 points. On fresh countries from the same world, it was off by 3.35. When the whole selection was repeated inside an outer check, the honest estimate was 3.7. Pick a winner and test it on the same data, and the winner looks better than it is. This last video is about choosing, validating and reporting honestly.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=daJkcTIyTN8&amp;t=41s" data-ep="20" data-t="41">0:41</a><p><b>Three parts.</b> Welcome back to Module 9. This is the final video of the course: choose, validate, report.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=daJkcTIyTN8&amp;t=48s" data-ep="20" data-t="48">0:48</a><p><b>Readiness and candidates.</b> Before models, check the data. For each source: coverage, timing, linkage, definitions, quality and access. A readiness check can say go, or say collect better data first. Where registers, invoices or payment data are thin, newer traces like night lights, phone records or platform data can help, but only with anchors, triangulation and honest benchmark uncertainty. Teaching data like ours are complete and reproducible. Real data are partial, revised and selected. Write down who could enter each dataset, and why each outcome was observed. Then choose a small candidate set: a transparent baseline, a model that matches the theory, and one flexible model. Baseline first, always. In Modules 5 and 7, simply repeating last year&#x27;s number was hard to beat. The details often matter more than the algorithm: representation, data quality, leakage, the objective, and how you evaluate. Write down which checks failed, too. A model that couldn&#x27;t be built is a finding about the data, and it saves the next team time.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=daJkcTIyTN8&amp;t=110s" data-ep="20" data-t="110">1:50</a><p><b>Selection without self-deception.</b> Now selection. Our 300 specifications had cross-validation errors from 2.9 up to about 4.7. The winner did contain both real predictors, plus two pieces of noise. Its reported score was the best of many tries on the same folds, so luck was built in. On fresh data it lost almost half a point. The fix is nesting. Tune and select inside an inner loop, and score the whole procedure on data the selection never touched. Report every specification you tried, not only the winner. Many models can fit about equally well while relying on different variables. That&#x27;s the Rashomon effect, a cousin of the equifinality we met in Module 7. Report the range of stories, not one importance ranking. Avoid automatic stepwise selection, and keep a model card: purpose, data, candidates, baseline, tuning, assumptions, intended use, expected failures, and the uncertainty method. Information criteria, regularisation and model averaging are all reasonable ways to choose. What matters is that the choice happens inside the validation, not after a look at the test results. A quick test for any choice of model: could you have written the selection rule down before seeing the data? If not, the score you report includes some of your own searching.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=daJkcTIyTN8&amp;t=185s" data-ep="20" data-t="185">3:05</a><p><b>Validation.</b> Validation checks the whole procedure, from data preparation to thresholds, for its intended use. Test on later years, on other places, or in another institution, depending on how the model will travel. Random audits are unusually valuable here, because who gets audited doesn&#x27;t depend on earlier rules. And when you validate someone else&#x27;s model on new data, reproduce it exactly before changing anything. Document how leakage was prevented. Say how the data were resampled and how tuning was done. And state how far you claim the result generalises. Validate at the level of the claim. An aggregate model is checked against aggregates. A firm-level ranking is checked against firm-level outcomes, counting both false alarms and missed cases. And keep the final evaluation data untouched until the very end. Every peek turns test data into training data. If the model will be used in another place or another year, test it there before trusting it there. A score earned on familiar data says little about unfamiliar ones.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=daJkcTIyTN8&amp;t=247s" data-ep="20" data-t="247">4:07</a><p><b>Uncertainty and coverage.</b> Uncertainty has six sources: the measurement, the sample, the parameters, the model&#x27;s form, the future, and how the result will be used. A standard error covers only part of that. Here&#x27;s a subtle one. We built a 90 percent interval for next year&#x27;s benchmark in 12 invented countries, calibrated on all of them together. Overall, it covered the truth 95 percent of the time. But in the three noisiest countries, only 80 percent. In the nine calmer ones, every time. Calibrating each country separately adapts the widths, from under one point to about seven. But with only ten years per country, one fell to 60 percent coverage. Report coverage by subgroup, and say how much data stands behind each interval. And watch for drift after deployment. A model can change the very behaviour it measures. Bootstrap the whole procedure to capture sampling variation. For panels and maps, resample whole countries or regions, not single rows, or the uncertainty will look smaller than it is. Even intervals with formal guarantees assume the future resembles the calibration data. A structural break isn&#x27;t fixed by a cleverer interval. It&#x27;s found by monitoring.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=daJkcTIyTN8&amp;t=313s" data-ep="20" data-t="313">5:13</a><p><b>The multiverse.</b> There&#x27;s another kind of uncertainty: the choices the analyst makes. So run the multiverse. Repeat the analysis across every reasonable combination of choices. We estimated one invented country&#x27;s hidden share for next year with three benchmark series, three history windows, and two models, one of them with three predictor sets. That&#x27;s 36 reasonable analyses. They range from about 19.8 percent to 22.3. The true value was 20.4. And which choice mattered? The benchmark series explained 57 percent of the spread. The history window, 21. The predictors, 6. The model, almost nothing. That&#x27;s worth knowing before collecting anything new. Here, settling which benchmark to trust would narrow the range far more than any change of model. The choice you argue about least can matter most. Show the whole multiverse.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=daJkcTIyTN8&amp;t=365s" data-ep="20" data-t="365">6:05</a><p><b>Reporting.</b> Finally, reporting. Keep the chain visible: the question, the estimand, the evidence, the model, the validation, and the uncertainty. A number without that chain is an assertion. Share a reproducibility package: code, data or access instructions, software versions, and random seeds, so someone else can get the same numbers. Separate what the evidence directly supports from what depends on model assumptions. And give both absolute and relative changes. A fall from 20 percent to 15 is five points, and also a quarter. If the result will guide action on people or firms, report errors by subgroup, the proxies the model relies on, who reviews its outputs, and how decisions can be appealed. For decision makers, add a one-page summary: what was asked, what was found, how sure we are, what would change the conclusion, and what should be measured next. And pre-register what you can: the estimand, the validation design and the main comparison, before seeing any results. It&#x27;s the simplest protection against fooling yourself. Finally, say what the study cannot tell you. A clear list of limits makes the rest of the report more credible, not less.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=daJkcTIyTN8&amp;t=434s" data-ep="20" data-t="434">7:14</a><p><b>The course in one view.</b> Let&#x27;s recap this video. Check data readiness, start from baselines, nest your selection, validate the whole procedure, report coverage by subgroup, and run the multiverse. And that&#x27;s the course. We defined the non-observed economy, built theory and data around it, estimated and forecast it, mapped it, simulated it, designed policy against it, and turned it all into a research practice. Every number in these videos came from invented worlds we built, so we could check our methods against a truth. Real studies don&#x27;t get that luxury, which is exactly why the habits matter. If you remember one thing, make it the order: question, estimand, evidence, model, validation, report. The decks, labs and transcripts for every module are on the course page. In the last lab, you&#x27;ll design a complete study and get a report card. Thank you for learning with me. I&#x27;m Teddy. Go look for what&#x27;s hidden, carefully.</p></div></div></div>
+            </details>
+        </div>
+        <div class="rl-eps">
+          <div class="rl-eps-head"><b>Module 9 videos</b><span>2 videos · 17 min</span></div>
+          <ol><li id="ep-19"><a class="rl-ep is-active" data-ep="19" href="https://www.youtube.com/watch?v=tl5WWDm1Pbg" aria-current=true><span class="rl-ep-thumb"><img src="/non-observed-economy/img/videos/v19.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>8:26</span></span><span><span class="rl-ep-num">Video 19 · 9.1</span><span class="rl-ep-title" style="display:block">From a question to an estimand</span><span class="rl-ep-take" style="display:block">Write the estimand first: population, outcome, intervention, comparator, horizon and summary. An estimand limited to eligible firms missed the small firms&#x27; slight rise in hiding and the closures above the size threshold.</span></span></a></li><li id="ep-20"><a class="rl-ep" data-ep="20" href="https://www.youtube.com/watch?v=daJkcTIyTN8"><span class="rl-ep-thumb"><img src="/non-observed-economy/img/videos/v20.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>8:30</span></span><span><span class="rl-ep-num">Video 20 · 9.2</span><span class="rl-ep-title" style="display:block">Choose, validate, report</span><span class="rl-ep-take" style="display:block">A pooled 90% interval covered 95% overall but 80% in the noisiest countries. Across 36 reasonable analyses the estimate ran from 19.8% to 22.3% (truth 20.4%), and the choice of benchmark explained 57% of the spread.</span></span></a></li></ol>
+        </div>
+      </div>
+      <script type="application/json" id="rl-episodes">[{"ep": 19, "youtube": "tl5WWDm1Pbg", "title": "From a question to an estimand", "duration": "8:26", "hook": "One invented e-invoicing reform, 3,000 firms, six correct answers to the question “does it work?”.", "takeaway": "Write the estimand first: population, outcome, intervention, comparator, horizon and summary. An estimand limited to eligible firms missed the small firms' slight rise in hiding and the closures above the size threshold.", "thumbAbs": "/non-observed-economy/img/videos/v19.webp"}, {"ep": 20, "youtube": "daJkcTIyTN8", "title": "Choose, validate, report", "duration": "8:30", "hook": "The best of 300 specifications scored 2.9 by cross-validation, 3.35 on fresh countries, and 3.7 when the whole selection was checked.", "takeaway": "A pooled 90% interval covered 95% overall but 80% in the noisiest countries. Across 36 reasonable analyses the estimate ran from 19.8% to 22.3% (truth 20.4%), and the choice of benchmark explained 57% of the spread.", "thumbAbs": "/non-observed-economy/img/videos/v20.webp"}]</script>
+    </div></section>
+    <section id="lab" class="rl-lab" aria-labelledby="lab-title">
+      <div class="proj-wrap rl-lab-head">
+        <p class="proj-label"><i class="ri-draft-line" aria-hidden="true"></i>Interactive lab</p>
+        <h2 id="lab-title" class="proj-h2" style="margin-top:.5rem">Study designer</h2>
+        <p class="proj-lead">Fill in a task and estimand card that flags what does not fit together, then try up to 300 model specifications on forty invented countries and see how picking the best flatters it, and how nesting the selection gives an honest estimate.</p>
+        <p class="proj-lead" style="margin-top:.6rem">Everything runs in your browser. Four challenges are checked as you go.</p>
+      </div>
+      <div class="rlx" id="study-lab" data-noex="study">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">Study designer: a card that checks itself</h3>
+          <p class="rlx-sub">Part one: describe a study in a few choices and the card flags what does not fit together. Part two: forty invented countries, 22 candidate predictors of which only two are real, and up to 300 specifications chosen by cross-validation on the same folds.</p>
+          <div class="math-grid">
+            <article class="math-card"><div class="math-card-title">The order</div><div class="formula-line"><span class="formula-chip">question → estimand → evidence → model → validation → report</span></div><p class="math-card-copy">Each step is defined by the one before.</p></article>
+            <article class="math-card"><div class="math-card-title">An estimand</div><div class="formula-line"><span class="formula-chip">population, outcome, intervention, comparator, horizon, summary</span></div><p class="math-card-copy">Fix all six and the question has one answer.</p></article>
+            <article class="math-card"><div class="math-card-title">Nesting</div><div class="formula-line"><span class="formula-chip">select inside, score outside</span></div><p class="math-card-copy">The whole selection procedure is what you validate.</p></article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Task card controls">
+            <div><h4 class="rlx-h">Task card</h4><p class="rlx-sub">Describe your study.</p></div>
+            <div class="rlx-field"><label class="rlx-label" for="stT">Task type</label><select id="stT" class="control-select" data-k="task"><option value="measurement" selected>measurement</option><option value="detection">detection</option><option value="forecasting">forecasting</option><option value="causal">causal evaluation</option><option value="simulation">simulation</option><option value="policy">policy design</option></select></div><div class="rlx-field"><label class="rlx-label" for="stA">Audience</label><select id="stA" class="control-select" data-k="audience"><option value="statistics office" selected>a statistics office</option><option value="tax office">a tax office</option><option value="ministry">a ministry</option><option value="researchers">researchers</option></select></div><div class="rlx-field"><label class="rlx-label" for="stO">Output</label><select id="stO" class="control-select" data-k="output"><option value="level" selected>a level</option><option value="ranking">a ranking</option><option value="trajectory">a trajectory</option><option value="effect">an effect</option><option value="distribution">a generated distribution</option><option value="portfolio">a portfolio</option></select></div><div class="rlx-field"><label class="rlx-label" for="stU">Unit</label><select id="stU" class="control-select" data-k="unit"><option value="country-year" selected>country-years</option><option value="region">regions</option><option value="firm">firms</option><option value="transaction">transactions</option></select></div><div class="rlx-field"><label class="rlx-label" for="stC">Compared with</label><select id="stC" class="control-select" data-k="comparator"><option value="none" selected>not stated</option><option value="no reform">no reform</option><option value="old rules">the old rules</option></select></div><div class="rlx-field"><label class="rlx-label" for="stH">Horizon</label><select id="stH" class="control-select" data-k="horizon"><option value="none" selected>not stated</option><option value="one year">one year</option><option value="two years">two years</option><option value="five years">five years</option></select></div><div class="rlx-field"><label class="rlx-label" for="stV">Validation</label><select id="stV" class="control-select" data-k="validation"><option value="random rows" selected>random rows held out</option><option value="held-out regions">whole regions held out</option><option value="later years">later years (rolling origin)</option><option value="random audits">against random audits</option></select></div><div class="rlx-field"><label class="rlx-label" for="stD">Denominator</label><select id="stD" class="control-select" data-k="denominator"><option value="unstated" selected>not stated</option><option value="stated">stated (a share of what)</option></select></div><div class="rlx-field"><label class="rlx-label" for="stQ">Uncertainty</label><select id="stQ" class="control-select" data-k="uncertainty"><option value="none" selected>none</option><option value="standard error">a standard error</option><option value="tested by subgroup">intervals tested by subgroup</option></select></div><div class="rlx-label" style="margin-top:.4rem">Reporting</div><label class="srx-check"><input type="checkbox" data-k="limits"> A list of limits</label><label class="srx-check"><input type="checkbox" data-k="code"> Code, data access and seeds</label><label class="srx-check"><input type="checkbox" data-k="prereg"> Estimand and validation written down first</label>
+            <p class="rlx-hint">The card is generic: it checks consistency, not the quality of an idea.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Card checks passed</div><div class="metric-value" data-k="score">–</div></div><div class="metric-tile"><div class="metric-label">Best cross-validated error</div><div class="metric-value" data-k="best">–</div></div><div class="metric-tile"><div class="metric-label">On fresh data</div><div class="metric-value" data-k="fresh">–</div></div><div class="metric-tile"><div class="metric-label">Nested estimate</div><div class="metric-value" data-k="nest">–</div></div></div>
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Report card</h4><p class="rlx-sub">What the card flags right now.</p></div></div>
+              <ul class="noex-flags" data-k="flags"></ul>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Choosing among many specifications</h4><p class="rlx-sub" data-k="fnote"></p></div></div>
+              <div class="rlx-field"><div class="rlx-label"><label for="stK">Specifications tried</label><span class="control-value" data-k="specs-out">1</span></div><input id="stK" data-k="specs" type="range" min="1" max="300" step="1" value="1"></div><label class="srx-check"><input type="checkbox" data-k="nested"> Nest the whole selection inside an outer check</label>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current settings.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Fill in the card with no flags at all.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Choose a detection task with country-year units and see the level-mismatch flag.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Try 300 specifications and see the winner’s cross-validated error look at least 0.3 points better than on fresh data.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>Nest the selection and get an honest estimate within 0.2 points of the fresh-data error.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="next" class="proj-section is-soft" aria-labelledby="next-title"><div class="proj-wrap">
+      <h2 id="next-title" class="proj-h2">Keep going</h2>
+      <div class="rl-pn"><a href="/non-observed-economy/module-08/"><i class="ri-arrow-left-line" aria-hidden="true"></i><span><small>Previous · Module 8</small><strong>Designing counter-NOE policy</strong></span></a><a class="is-next" href="/non-observed-economy/"><span><small>That’s the course</small><strong>Back to the course page</strong></span><i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+    </div></section>
+  </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Courses</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/rl-course/" class="hover:text-white">Reinforcement Learning</a></li>
+                  <li><a href="/epidemic-modeling/" class="hover:text-white">Epidemic Modeling</a></li>
+                  <li><a href="/symbolic-laws/" class="hover:text-white">Symbolic Physical Laws Discovery</a></li>
+                  <li><a href="/non-observed-economy/" class="hover:text-white">Non-Observed Economy</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/rl-course/" class="hover:text-white">RL course</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <script src="/js/videos.js"></script>
+      
+      <script src="/js/noe-labs.js" defer></script>
+      <script src="/js/epi-course.js" defer></script>
+   </body>
+</html>

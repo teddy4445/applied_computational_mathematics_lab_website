@@ -1,0 +1,42 @@
+<!-- Used by tools/build_noe_course.py: lab 4 (Module 4) of the Non-Observed Economy course: estimate twenty invented countries with linear models, a tree or nearest neighbours, and test 90% ranges. Script: js/noe-labs.js (data-noex="estimate"). -->
+      <div class="rlx" id="estimate-lab" data-noex="estimate">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">The Archipelago: thirty countries teach, twenty to estimate</h3>
+          <p class="rlx-sub">Fifty invented countries × 12 years. The hidden share jumps where enforcement is below 0.35, cash matters more where banks are scarce, and every country has quirks. A careful benchmark exists for thirty countries; the models estimate the other twenty, and we score them against the truth.</p>
+          <div class="math-grid">
+            <article class="math-card"><div class="math-card-title">Linear</div><div class="formula-line"><span class="formula-chip">ŝ = w₀ + Σ wⱼxⱼ, or on the log-odds</span></div><p class="math-card-copy">With the logistic link, every estimate stays between 0 and 1.</p></article>
+            <article class="math-card"><div class="math-card-title">Tree</div><div class="formula-line"><span class="formula-chip">yes/no questions, then an average</span></div><p class="math-card-copy">Each question splits on the input and cut point that reduce the error most.</p></article>
+            <article class="math-card"><div class="math-card-title">90% ranges</div><div class="formula-line"><span class="formula-chip">ŝ ± 90% quantile of held-out errors</span></div><p class="math-card-copy">Conformal prediction: what you hold out decides whether the range is honest for new countries.</p></article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Estimator controls">
+            <div><h4 class="rlx-h">Estimator</h4><p class="rlx-sub">Pick a model and its setting.</p></div>
+            <div class="rlx-field"><label class="rlx-label" for="estM">Model</label><select id="estM" class="control-select" data-k="model"><option value="linear">linear</option><option value="tree">decision tree</option><option value="knn">nearest neighbours</option></select></div>
+            <div class="rlx-field"><label class="rlx-label" for="estI">Inputs</label><select id="estI" class="control-select" data-k="inputs"><option value="all">causes and indicators (11)</option><option value="causes">causes only (8)</option></select></div>
+            <label class="srx-check" data-for="linear"><input type="checkbox" data-k="link"> Logistic link</label>
+            <div class="rlx-field" data-for="tree" hidden><div class="rlx-label"><label for="estD">Questions deep</label><span class="control-value" data-k="depth-out">2</span></div><input id="estD" data-k="depth" type="range" min="1" max="10" step="1" value="2"></div>
+            <div class="rlx-field" data-for="knn" hidden><div class="rlx-label"><label for="estK">Neighbours (k)</label><span class="control-value" data-k="k-out">10</span></div><input id="estK" data-k="k" type="range" min="1" max="40" step="1" value="10"></div>
+            <div class="rlx-field"><label class="rlx-label" for="estC">Calibrate the 90% range on</label><select id="estC" class="control-select" data-k="cal"><option value="rows">random rows of the 30 countries</option><option value="countries">whole countries held out</option></select></div>
+            <p class="rlx-hint">Errors are mean absolute errors in points of hidden share: training error against the benchmark the model learned, new countries against the truth.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Training error</div><div class="metric-value" data-k="etr">–</div></div><div class="metric-tile"><div class="metric-label">New countries</div><div class="metric-value" data-k="ete">–</div></div><div class="metric-tile"><div class="metric-label">Negative estimates</div><div class="metric-value" data-k="neg">–</div></div><div class="metric-tile"><div class="metric-label">90% range covers</div><div class="metric-value" data-k="cov">–</div></div></div>
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Estimates for the twenty new countries</h4><p class="rlx-sub" data-k="split"></p></div></div>
+              <div class="chart-shell" style="height:320px"><svg data-k="chart" role="img" aria-label="Estimated against true hidden share for the new countries"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current settings.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>See the straight line predict a negative hidden share, then switch on the logistic link and make every estimate positive.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Grow a tree whose first question is about enforcement, near the threshold of 0.35 we built in. (Hint: which inputs does it see?)</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Grow a tree with a training error below 1.5 points and an error on new countries above 6 points.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>Get 90% ranges that cover at least 85% of the new countries. What did you hold out?</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>

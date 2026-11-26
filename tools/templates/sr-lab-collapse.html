@@ -1,0 +1,63 @@
+<!-- Used by tools/build_sr_course.py: lab 6 (Module 6) of the Symbolic Physical Laws Discovery course: collapse and envelope. Nine simulated pendulums (Earth, Mars, Moon; 0.3, 0.6 and 1.2 m) are timed at swings up to 2.5 rad; the visitor picks the axes until they fall on one curve, then measures the validity envelope of a formula for the period at a chosen tolerance. Script: js/sr-labs.js (data-srx="collapse"). -->
+      <div class="rlx" id="collapse-lab" data-srx="collapse">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">Nine pendulums, one curve, one envelope</h3>
+          <p class="rlx-sub">The page times nine simulated pendulums: Earth, Mars and the Moon (g = 9.81, 3.71, 1.62 m/s²), lengths 0.3, 0.6 and 1.2 m, swings from 0.1 to 2.5 rad, with 0.5% timing noise. The exact periods come from the elliptic integral. Everything runs in your browser.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">Units first</div>
+              <div class="formula-line"><span class="formula-chip">T·√(g/L) = f(θ₀)</span></div>
+              <p class="math-card-copy">Period, length, gravity, mass and angle: five quantities, three units, two numbers.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">A failed collapse</div>
+              <div class="formula-line"><span class="formula-chip">a heavy string</span></div>
+              <p class="math-card-copy">If the points refuse to fall on one curve, something missing from the list shapes the period.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Envelope</div>
+              <div class="formula-line"><span class="formula-chip">|formula ÷ exact − 1| ≤ tolerance</span></div>
+              <p class="math-card-copy">Where a formula holds depends on the tolerance you declare, and on the data it was fitted to.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Axes and formula">
+            <div><h4 class="rlx-h">A · Axes</h4><p class="rlx-sub">Pick what to plot. The scatter measures how far the points sit from one smooth curve.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="clY">Vertical axis</label></div>
+              <select id="clY" data-k="yax" class="control-select"><option value="T">T, the period [s]</option><option value="TL">T ÷ L [s/m]</option><option value="Tg">T · g [m/s]</option><option value="TLg">T · √(L/g) [s²]</option><option value="TgL">T · √(g/L) [no units]</option></select></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="clX">Horizontal axis</label></div>
+              <select id="clX" data-k="xax" class="control-select"><option value="th">θ₀ [rad]</option><option value="th2">θ₀² [rad²]</option><option value="sin">sin(θ₀/2)</option></select></div>
+            <label class="srx-check"><input type="checkbox" data-k="string"> <span>Hang the 1.2 m bobs on a heavy string (string as heavy as the bob)</span></label>
+            <div class="rlx-btns"><button type="button" class="control-button control-button-secondary is-wide" data-k="redraw">New timing noise</button></div>
+            <div style="margin-top:.75rem"><h4 class="rlx-h">B · Envelope</h4><p class="rlx-sub">A formula for T ÷ T₀, where T₀ = 2π√(L/g) is the small-swing law.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="clF">Formula</label></div>
+              <select id="clF" data-k="form" class="control-select"><option value="two">1 + θ₀²/16 (first correction)</option><option value="series">1 + θ₀²/16 + 11·θ₀⁴/3072 (textbook)</option><option value="fit" selected>a + b·θ₀² + c·θ₀⁴, fitted</option></select></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="clR">Fit to swings up to</label><span class="control-value" data-k="fitmax-out">1.5 rad</span></div><input id="clR" data-k="fitmax" type="range" min="0" max="10" step="1" value="5"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="clT">Tolerance</label><span class="control-value" data-k="tol-out">1%</span></div><input id="clT" data-k="tol" type="range" min="0" max="6" step="1" value="3"></div>
+            </aside>
+            <div class="rlx-main">
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">–</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">A · Do they collapse?</h4><p class="rlx-sub">Green: Earth. Red: Mars. Blue: the Moon. Bigger dots: longer pendulums.</p></div></div>
+              <div class="chart-shell" style="height:280px"><svg data-k="cchart" role="img" aria-label="The nine pendulums' timings on the chosen axes"></svg></div>
+              <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Scatter around one curve</div><div class="metric-value" data-k="scatter">–</div></div><div class="metric-tile"><div class="metric-label">Timing noise</div><div class="metric-value">0.5%</div></div></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">B · Where does the formula hold?</h4><p class="rlx-sub">Its error against the exact period, on a log scale. The envelope ends where the error first crosses the tolerance.</p></div></div>
+              <p class="rlx-hint srx-mono" data-k="formula">–</p>
+              <div class="chart-shell" style="height:260px"><svg data-k="echart" role="img" aria-label="Error of the formula against swing angle, with the tolerance line"></svg></div>
+              <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Envelope at this tolerance</div><div class="metric-value" data-k="env">–</div></div><div class="metric-tile"><div class="metric-label">Error at a 0.1 rad swing</div><div class="metric-value" data-k="small">–</div></div></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked as you go.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Choose axes that collapse all nine pendulums to within 1%.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Show that the groups are not unique: collapse them to within 1% with a different horizontal axis.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Break the collapse with a missing variable: keep collapsing axes and push the scatter above 2%.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>Refit the correction on wider swings until its 1% envelope passes 2.3 rad. What happens at small swings?</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>

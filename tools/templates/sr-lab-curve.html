@@ -1,0 +1,58 @@
+<!-- Used by tools/build_sr_course.py: lab 1 (Module 1) of the Symbolic Physical Laws Discovery course: a polynomial and two drag laws fitted to a falling ball's speed, the window stretched to see which survives, and Kepler's third law with Uranus held out. Script: js/sr-labs.js (data-srx="curve"), styles: css/exploration-lab.css + css/rl-labs.css + css/epi-course.css. -->
+      <div class="rlx" id="curve-lab" data-srx="curve">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">A light ball falls through air</h3>
+          <p class="rlx-sub">Its speed is logged every 0.05 s for 3.5 s. The truth in this simulation is quadratic drag with k₂ = 0.12 per metre (made up, roughly a ping-pong ball). You only see noisy readings. Everything runs in your browser.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">A flexible curve</div>
+              <div class="formula-line"><span class="formula-chip">v(t) = c₀ + c₁t + … + c_d t^d</span></div>
+              <p class="math-card-copy">Least squares on the readings inside the window. More degrees, more freedom.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Linear drag</div>
+              <div class="formula-line"><span class="formula-chip">dv/dt = g − k₁ v</span></div>
+              <p class="math-card-copy">Solved exactly and fitted by one number, k₁, in units of one over seconds.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Quadratic drag</div>
+              <div class="formula-line"><span class="formula-chip">dv/dt = g − k₂ v|v|</span></div>
+              <p class="math-card-copy">Also one number, k₂, in units of one over metres. Its curve levels off at √(g/k₂).</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Fitting controls">
+            <div><h4 class="rlx-h">Fit</h4><p class="rlx-sub">Choose how much of the fall the models may see, and how flexible the curve is.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="crvWin">Fit window</label><span class="control-value" data-k="win-out">2.0 s</span></div><input id="crvWin" data-k="win" type="range" min="0.3" max="3.5" step="0.1" value="2.0"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="crvDeg">Polynomial degree</label><span class="control-value" data-k="deg-out">1</span></div><input id="crvDeg" data-k="deg" type="range" min="1" max="6" step="1" value="1"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="crvSig">Sensor noise</label><span class="control-value" data-k="sig-out">0.05 m/s</span></div><input id="crvSig" data-k="sig" type="range" min="0.02" max="0.3" step="0.01" value="0.05"></div>
+            <div class="rlx-btns"><button type="button" class="control-button control-button-secondary is-wide" data-k="newdata">New noisy readings</button></div>
+            <p class="rlx-hint">Errors are typical misfits in m/s: inside the window (what the fit saw) and after it (what it had to predict).</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">k₁ (linear)</div><div class="metric-value" data-k="k1">–</div></div><div class="metric-tile"><div class="metric-label">k₂ (quadratic)</div><div class="metric-value" data-k="k2">–</div></div><div class="metric-tile"><div class="metric-label">Polynomial: in / after</div><div class="metric-value"><span data-k="pin">–</span> / <span data-k="pout">–</span></div></div><div class="metric-tile"><div class="metric-label">Linear: in / after</div><div class="metric-value"><span data-k="lin">–</span> / <span data-k="lout">–</span></div></div><div class="metric-tile"><div class="metric-label">Quadratic: in / after</div><div class="metric-value"><span data-k="qin">–</span> / <span data-k="qout">–</span></div></div></div>
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Speed and the three fits</h4><p class="rlx-sub">Shaded: the fit window. Filled dots were used; hollow dots are the future. Orange: polynomial; grey dashed: linear drag; blue: quadratic drag.</p></div></div>
+              <div class="chart-shell" style="height:320px"><svg data-k="chart" role="img" aria-label="Speed readings with the polynomial and the two drag laws"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Kepler's third law, with Uranus held out</h4><p class="rlx-sub">Fit the six classical planets, then predict Uranus. Blue: a power law T = c·a^p; orange: a polynomial in a.</p></div></div>
+              <div class="rlx-field" style="max-width:360px"><div class="rlx-label"><label for="crvKdeg">Polynomial degree</label><span class="control-value" data-k="kdeg-out">2</span></div><input id="crvKdeg" data-k="kdeg" type="range" min="1" max="5" step="1" value="2"></div>
+              <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Power p</div><div class="metric-value" data-k="kp">–</div></div><div class="metric-tile"><div class="metric-label">Law predicts Uranus</div><div class="metric-value" data-k="klaw">–</div></div><div class="metric-tile"><div class="metric-label">Polynomial predicts</div><div class="metric-value" data-k="kpoly">–</div></div></div>
+              <p class="rlx-hint" data-k="kin"></p>
+              <div class="chart-shell" style="height:300px"><svg data-k="kchart" role="img" aria-label="Orbital period against distance for the planets, with two fitted curves"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current settings.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>With a window of 1 s or less, find a polynomial that fits the window better than quadratic drag, yet misses the future by more than ten times as much.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>With sensor noise of at least 0.10 m/s, get the fitted k₂ within 5% of the true 0.12 per metre.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Make the polynomial predict impossible physics: a negative speed, or more than 30 m/s, somewhere in the 3.5 s.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>Kepler: find a polynomial that fits the six planets to within 1%, yet misses Uranus by more than 20%, while the power law stays within 2%.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>

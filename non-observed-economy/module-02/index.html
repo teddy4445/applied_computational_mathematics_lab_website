@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_noe_course.py from data/noe-course.json. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Module 2: Theory-based and data-driven modelling | Computational Approaches to the Non-Observed Economy Course | ACML</title>
+      <meta name="description" content="Module 2 of 9 of ACML’s Computational Approaches to the Non-Observed Economy course. When the target itself is hidden: slides, 2 videos and an interactive lab.">
+      <meta name="author" content="Teddy Lazebnik">
+      <meta name="keywords" content="non-observed economy, informal economy, shadow economy, computational economics, theory-based and data-driven modelling, course, ACML">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/non-observed-economy/module-02/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Module 2: Theory-based and data-driven modelling · Computational Approaches to the Non-Observed Economy">
+      <meta property="og:description" content="Module 2 of 9 of ACML’s Computational Approaches to the Non-Observed Economy course. When the target itself is hidden: slides, 2 videos and an interactive lab.">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/non-observed-economy/module-02/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/non-observed-economy/module-02/share.jpg">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Module 2: Theory-based and data-driven modelling · Computational Approaches to the Non-Observed Economy">
+      <meta name="twitter:description" content="Module 2 of 9 of ACML’s Computational Approaches to the Non-Observed Economy course. When the target itself is hidden: slides, 2 videos and an interactive lab.">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/non-observed-economy/module-02/share.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "Module 2: Theory-based and data-driven modelling",
+        "description": "In most empirical work the outcome can be counted. Here the target is hidden: latent, rebuilt by someone else's model, or seen only for a few people. Studying it needs a production story and an observation story. We look at the mechanisms theory offers, five modelling objectives that are often confused, a strong association that is a weak lever, a cross-country slope with the wrong sign, and then the data side: labels and their status, provenance, coverage, timing and leakage, and a division of labour between theory and data. Forty invented countries keep every claim checkable.",
+        "url": "https://acml.teddylazebnik.com/non-observed-economy/module-02/",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "learningResourceType": [
+          "Lecture slides",
+          "Video",
+          "Interactive resource"
+        ],
+        "teaches": "When the target itself is hidden",
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Computational Approaches to the Non-Observed Economy",
+          "url": "https://acml.teddylazebnik.com/non-observed-economy/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Teddy Lazebnik",
+          "url": "https://teddylazebnik.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Applied Computational Mathematics Laboratory",
+          "url": "https://acml.teddylazebnik.com/"
+        },
+        "hasPart": [
+          {
+            "@type": "VideoObject",
+            "name": "When the target itself is hidden",
+            "description": "Two models of a published estimate score 4.5 and 8 points. Against the truth, both are off by about 8.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/non-observed-economy/img/videos/v03.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/siGp9EXO0Zo",
+            "duration": "PT9M57S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Ground truth, leakage, and making theory and data meet",
+            "description": "A published estimate says a reform cut hidden activity by 8 points. The reform's true effect was 3.5.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/non-observed-economy/img/videos/v04.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/Z-ZSsl2FZQw",
+            "duration": "PT9M20S"
+          },
+          {
+            "@type": "DigitalDocument",
+            "name": "Module 2 slides",
+            "encodingFormat": "application/pdf",
+            "url": "https://acml.teddylazebnik.com/non-observed-economy/slides/Non_Observed_Economy_Module02_Theory_based_and_data_driven_modelling.pdf"
+          }
+        ]
+      }
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      <link href="/css/videos.css" rel="stylesheet">
+      
+      <link href="/css/exploration-lab.css" rel="stylesheet">
+      <link href="/css/rl-labs.css" rel="stylesheet">
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/project.css" rel="stylesheet">
+      <link href="/css/rl-course.css" rel="stylesheet">
+      <link href="/css/epi-course.css" rel="stylesheet">
+      <link href="/css/noe-course.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+          <a href="/courses.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Courses</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/courses.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Courses</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="proj-page rl-page bg-white">
+    <header class="proj-hero rl-hero">
+      <div class="proj-wrap proj-hero-grid">
+        <div>
+          <nav class="proj-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/courses.html">Courses</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/non-observed-economy/">Computational Approaches to the Non-Observed Economy</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Module 2</span></nav>
+          <p class="proj-kicker"><span><i class="ri-graduation-cap-line" aria-hidden="true"></i>Computational Approaches to the Non-Observed Economy</span><span>Foundations</span></p>
+          <h1 class="proj-title"><small>Module 2</small>Theory-based and data-driven modelling</h1>
+          <p class="proj-about-lead rl-summary">In most empirical work the outcome can be counted. Here the target is hidden: latent, rebuilt by someone else&#x27;s model, or seen only for a few people. Studying it needs a production story and an observation story. We look at the mechanisms theory offers, five modelling objectives that are often confused, a strong association that is a weak lever, a cross-country slope with the wrong sign, and then the data side: labels and their status, provenance, coverage, timing and leakage, and a division of labour between theory and data. Forty invented countries keep every claim checkable.</p>
+          <div class="rl-goal"><i class="ri-focus-3-line" aria-hidden="true"></i><span>By the end you should be able to separate the production and observation stories, match a model to its objective, recognise when an association is not a lever, audit a dataset for label status and leakage, and choose a check that matches the use.</span></div>
+          <h2 class="proj-h3 rl-ideas-title">Key ideas, one per video</h2>
+          <ul class="rl-ideas"><li><a href="#ep-3">Video 3</a><span>The flexible model&#x27;s good score came from recognising countries it had seen. Ten more points of digital payments go with 5.2 fewer points of hidden activity across countries; pushing them up by ten points, all else fixed, cuts it by 0.3.</span></li><li><a href="#ep-4">Video 4</a><span>A model trained on an estimate learns the estimate (8.3 points from the truth on new countries, against 6.5 for the estimate itself). The split must match the use, and last year&#x27;s value (2.4 points) beat a random forest (3.4).</span></li></ul>
+          <p class="rl-source"><b>Book:</b> Chapter 2 of <cite>Computational Approaches to the Non-Observed Economy: From Theory to Practice</cite> (coming soon). The videos and slides follow the chapter’s topics in our own words, figures and simulations; the towns and countries are invented, and nothing is copied from the book.</p>
+        </div>
+        <div class="rl-first">
+          <a class="rl-first-img" href="/non-observed-economy/slides/Non_Observed_Economy_Module02_Theory_based_and_data_driven_modelling.pdf" target="_blank" rel="noopener"><img src="/non-observed-economy/img/slides/m02-s01.webp" alt="The title slide of Module 2: Theory-based and data-driven modelling" width="960" height="540" fetchpriority="high" decoding="async"></a>
+          <p class="rl-first-text">39 slides, written to be read on your own, with worked examples, our own small simulations and check-yourself questions (answers at the end). PDF, 7.3 MB.</p>
+          <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="/non-observed-economy/slides/Non_Observed_Economy_Module02_Theory_based_and_data_driven_modelling.pdf" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Open the PDF</a><a class="proj-btn" href="/non-observed-economy/slides/Non_Observed_Economy_Module02_Theory_based_and_data_driven_modelling.pdf" download><i class="ri-download-2-line" aria-hidden="true"></i>Download</a></div>
+        </div>
+      </div>
+    </header>
+    <nav class="proj-subnav is-mobile-only" aria-label="Sections of this page"><div class="proj-wrap"><ul><li><a href="#watch">Watch</a></li><li><a href="#lab">Lab</a></li><li><a href="#next">Next</a></li></ul></div></nav>
+    <section id="watch" class="proj-section is-soft" aria-labelledby="watch-title"><div class="proj-wrap">
+      <h2 id="watch-title" class="proj-h2">Watch</h2>
+      <p class="proj-lead">2 videos for this module, each about 8 to 11 minutes. Pick one from the list, and open the transcript to read along: each timestamp plays the video from there. The narration is generated with a voice clone of Teddy, used with his permission.</p>
+      <div class="rl-watch">
+        <div class="rl-player-wrap">
+          <div id="rl-player" class="yt-player yt-16x9" data-yt-id="siGp9EXO0Zo" data-yt-title="When the target itself is hidden"><a class="yt-play" href="https://www.youtube.com/watch?v=siGp9EXO0Zo" aria-label="Play video 3: When the target itself is hidden"><img src="/non-observed-economy/img/videos/v03.webp" alt="" width="640" height="360" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div>
+          <div class="rl-now">
+            <p id="rl-now-num" class="rl-now-num">Video 3 · 9:57</p>
+            <p id="rl-now-title" class="rl-now-title">When the target itself is hidden</p>
+            <p id="rl-now-hook" class="rl-now-hook">Two models of a published estimate score 4.5 and 8 points. Against the truth, both are off by about 8.</p>
+            <p id="rl-now-take" class="rl-now-take"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i><span>The flexible model&#x27;s good score came from recognising countries it had seen. Ten more points of digital payments go with 5.2 fewer points of hidden activity across countries; pushing them up by ten points, all else fixed, cuts it by 0.3.</span></p>
+          </div>
+            <details id="rl-tx" class="rl-tx">
+              <summary><i class="ri-file-text-line" aria-hidden="true"></i>Transcript<span id="rl-tx-which">Video 3</span><i class="ri-arrow-down-s-line rl-tx-caret" aria-hidden="true"></i></summary>
+              <div class="rl-tx-body"><div class="rl-tx-ep" data-ep="3"><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=siGp9EXO0Zo" data-ep="3" data-t="0">0:00</a><p><b>Two models, three scores.</b> Here are forty countries, sixteen years each. For every country and year, someone has published an estimate of its hidden economy. We train two models to predict that published estimate. One is flexible: a random forest that sees everything we have. The other is simple, and only uses variables that theory says matter. Test them on a random quarter of the rows. The flexible model is off by about 4.5 points. The simple one, by 8. Now test them on ten countries they have never seen. The flexible model&#x27;s error jumps to almost 7 points. The simple one barely moves. And here&#x27;s the twist. These countries are invented, so we know the true hidden share. Against the truth, both models are off by about 8 points. So which number would you report? That question is what this module is about.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=siGp9EXO0Zo&amp;t=55s" data-ep="3" data-t="55">0:55</a><p><b>Two stories.</b> Welcome to Module 2: theory-based and data-driven modelling. In most empirical work, the thing you&#x27;re explaining can be measured. People argue about why unemployment changes, but they can count the unemployed. Here, the target itself is hidden. It&#x27;s latent, or reconstructed by somebody&#x27;s model, or observed only for a few people. So every study of the hidden economy needs two stories. A production story: how hidden activity arises. And an observation story: how evidence about it reaches us. Theory is good at the first. Data are good at testing both. In this video, we look at what theory brings, and what each kind of model is for. The plan: first the mechanisms theory gives us, then the five things a model can be for, then a trap about prediction and policy, then what makes a model theory-based, and finally back to our two models.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=siGp9EXO0Zo&amp;t=106s" data-ep="3" data-t="106">1:46</a><p><b>Mechanisms.</b> Start with concealment. Economists have long modelled crime and tax evasion as a choice: people compare what they gain from hiding with what they expect to lose if caught. That gives hiding an economic logic. But real people don&#x27;t know the audit probability. They act on the risk they believe in, shaped by experience, advisers and rumours. Information is part of the mechanism too. When an employer reports your wage, there&#x27;s little to hide. With value added tax, one firm&#x27;s sale is another firm&#x27;s purchase, so their reports can be checked against each other. Digital invoices and payments add more traces. But data only deter if the tax office can link them and use them. Then there&#x27;s social life. People learn from their neighbours what is normal and what is risky. And trust matters: people pay more willingly when they see taxes as fair and services as worth it. Informal firms need a different story: the costs and benefits of registering, and the jobs that are actually available. Illegal markets need another: prohibition, secrecy and trusted networks. And statistical omissions need a story about the observer: registers, samples and classifications. A theory of the hidden economy must include the observation process, not only the production process. Notice that no single mechanism covers all of this. Hiding sales, running an unregistered shop, selling something illegal and being missed by a register are different processes. A model has to be built for the process you&#x27;re studying.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=siGp9EXO0Zo&amp;t=190s" data-ep="3" data-t="190">3:10</a><p><b>Five objectives.</b> Before choosing a model, choose the objective. There are five, and they&#x27;re often confused. Measurement asks how big the hidden economy is, now or in the past. It&#x27;s judged by how credible the reconstruction is, and how honest its uncertainty. Explanation asks why it exists, or why it changed. It needs mechanisms, and it&#x27;s judged by whether those mechanisms account for the patterns we see. Prediction asks what will happen next, using only what&#x27;s known today. It&#x27;s judged on data the model has never seen, in time order. Simulation asks how individual choices add up. It&#x27;s judged by whether it reproduces patterns at both the small and the large scale. And policy asks what would happen if we changed something. That needs a counterfactual, which is much more than a good prediction. In our forty countries, the five look like this. Measurement: how big was the hidden share in country twelve last year? Explanation: why is it falling there? Prediction: what will it be next year? Simulation: how do millions of individual choices add up to that number? And policy: what happens if country twelve doubles its audits? A model can be excellent at one of these and useless at another. A random forest can predict well and explain nothing.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=siGp9EXO0Zo&amp;t=262s" data-ep="3" data-t="262">4:22</a><p><b>Prediction is not policy.</b> Here is why prediction is not policy. In our forty countries, places with more digital payments have less hidden activity. Across countries, ten more points of digital payments go with about 5 fewer points of hidden activity. So, should a government push digital payments up by ten points? Pause for a moment, and guess how much hidden activity would fall. We can actually run that experiment, because we built this world. Force digital payments up by ten points, and keep everything else the same. Hidden activity falls by about a third of a point. Not five. A third of one. Why? Because in this world, strong institutions drive both. They bring digital payments, and they bring enforcement and trust. Digital payments mostly ride along. Draw it as arrows. Institutions point to digital payments. Institutions also point to enforcement and trust, and those point to hidden activity. Digital payments have only a thin arrow of their own. Any variable with a strong common cause can look like a lever. Theory is what tells you which arrows exist. A model that predicts well will happily use digital payments as a clue. That&#x27;s fine for prediction. It&#x27;s wrong for policy.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=siGp9EXO0Zo&amp;t=339s" data-ep="3" data-t="339">5:39</a><p><b>Theory-based models.</b> So what makes a model theory-based? Not equations. The structure comes from an economic argument, made before the model sees the data. A linear regression isn&#x27;t automatically theory. And a machine-learning model can carry a lot of theory: which variables enter, which signs are allowed, which actions are possible. The classic evasion model is a good template. One person chooses how much income to report. Then you can add beliefs, norms, trust, third-party reports, or repeated audits, and solve it with a computer. Firms work the same way. Register or not, declare how much, pay workers formally or not, accept cards or cash. Theory says why each choice matters. Data say how much. The strength of theory is interpretation. Its weakness is identification. Here&#x27;s a warning from our own world. In this world, raising taxes makes people hide more. We built it that way. Five extra points of tax adds about a point of hidden activity. Yet across countries, higher-tax countries hide less. Five more points of tax go with almost 9 fewer points of hidden activity. Same world, opposite signs. Strong institutions raise both taxes and compliance. The correlation tells you about institutions, not about taxes.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=siGp9EXO0Zo&amp;t=415s" data-ep="3" data-t="415">6:55</a><p><b>Proxies.</b> Some of the oldest size estimates were theory-based too. Currency demand methods assume that hidden trade needs extra cash, beyond what normal habits explain. Electricity methods assume that production needs power, recorded or not. And latent-variable models combine several causes and several indicators at once. Each made a hidden quantity approachable. Each also leans on a proxy with other causes. Cash depends on banking, interest rates and habits. Power depends on technology and climate. Latent-variable models tried to fix that by listening to many causes and many indicators at once: tax burden, regulation and unemployment on one side; cash, power and working hours on the other. That spreads the risk across several proxies. But it raises new questions: is the hidden quantity really identified, and in what units is it measured? The published estimate in our forty countries is built that way. It leans on cash use. It follows the truth closely, with a correlation of zero point nine two. But it&#x27;s off by about 6 points on average. It&#x27;s too high where cash is common, and too low where it&#x27;s rare.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=siGp9EXO0Zo&amp;t=482s" data-ep="3" data-t="482">8:02</a><p><b>Name tags.</b> Back to our two models. Why did the flexible one look so good on random rows? Because a country&#x27;s years look almost alike. From one year to the next, the hidden share has a correlation of zero point nine four. A random split puts a country&#x27;s neighbours in training and its other years in the test. The forest learns each country&#x27;s quirks. Population, for example, is fixed for each country, so it works like a name tag. On new countries, the name tags are useless, and the error grows by half. The simple model has no name tags, so its score barely moves. That&#x27;s honest. But it isn&#x27;t more accurate against the truth. So report both scores, and say which one matches your use. If you&#x27;ll apply the model to countries it has never seen, the random-split score is the wrong one to quote. And there&#x27;s a deeper problem. Both models learned the published estimate, not the hidden economy. We&#x27;ll take that apart in the next video.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=siGp9EXO0Zo&amp;t=537s" data-ep="3" data-t="537">8:57</a><p><b>Recap.</b> Let&#x27;s recap. The hidden economy needs two stories: how activity arises, and how evidence about it is produced. Theory brings mechanisms: incentives and information, norms and trust, the costs of formality, prohibition, and the observer itself. Measurement, explanation, prediction, simulation and policy are different objectives, judged in different ways. A strong association can be a weak lever. And a correlation across countries can have the opposite sign to the mechanism. In the lab, you&#x27;ll build the forty countries yourself, train both models, and switch between random and country splits. Next: ground truth, leakage, and how to make theory and data work together.</p></div></div><div class="rl-tx-ep" data-ep="4" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Z-ZSsl2FZQw" data-ep="4" data-t="0">0:00</a><p><b>A reform the estimate misreads.</b> Half of our forty countries introduce electronic invoicing in year ten. Every sale gets a digital record. The published estimate reacts strongly. In those countries, it says the hidden economy fell by 8 points. Because this world is invented, we can rerun it without the reform. The reform&#x27;s true effect was about 3.5 points. The estimate more than doubled it. Nobody lied, and nothing was miscalculated. Pause and think: what went wrong? The estimate reads cash use. The reform pushed people from cash to cards, so the estimate&#x27;s input fell, even where hiding didn&#x27;t. The reform changed the observation process, not only behaviour. This video is about seeing that kind of trap before it bites.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Z-ZSsl2FZQw&amp;t=55s" data-ep="4" data-t="55">0:55</a><p><b>Data are made by institutions.</b> Start with a mindset. A dataset is not a neutral picture of the economy. It&#x27;s a product of institutions and behaviour. Tax records exist because rules require reports. Registers exist because firms register. Payment data exist because people pay through a particular system. And the same institutions that create the hidden economy decide what data exist to measure it. So a data infrastructure has to connect five things: the target, the observation process, where each variable came from, who is covered, and when each value became known. We&#x27;ll go through them one at a time, then look at what flexible models add, and finish with a division of labour between theory and data.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Z-ZSsl2FZQw&amp;t=96s" data-ep="4" data-t="96">1:36</a><p><b>An estimate is not ground truth.</b> First, the target. It might be a national estimate, an audit finding, a count of informal jobs, or a risk flag on a transaction. These are different objects. And many of them are estimates, not observations. A published shadow-economy series may itself come from a currency model or a survey. Train a model on such a series, and the model learns the series. In our world, a forest trained on the published estimate ends up about 8 points from the truth on new countries. The published estimate itself is about 6.5 points from the truth. The student is no better than its teacher. If we could train on the truth, the same forest would be about 7 points off. That&#x27;s the gap we lost to the label, before any modelling choice. Audit data have a different problem, which we met in Module 1. Audits target risky cases, so a model trained on them partly learns how auditors choose. So label every target with its status. Directly observed, rebuilt from records, reported in a survey, produced by a model, or imputed. And carry that uncertainty forward. A useful trick is to combine a little direct evidence, like a survey in a few places, with broad indirect indicators that cover everywhere. The direct evidence anchors the level. The broad indicators spread it across places and years. Neither alone can do both jobs.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Z-ZSsl2FZQw&amp;t=175s" data-ep="4" data-t="175">2:55</a><p><b>Provenance.</b> Second, where each variable came from. Every source sees only a projection of the economy. Tax returns see what was declared. Card data see card payments, and nothing paid in cash. Keep a record of each variable&#x27;s history: who collected it, how its definition changed, what was done to it, and when it became available. Here&#x27;s why. Suppose a statistics office changes how it classifies self-employment in a given year. The series jumps. A model that doesn&#x27;t know about the change will learn the jump as if it were behaviour. Without that history, the reform at the start of this video is uninterpretable. Recorded sales rise. Is that less hiding, more production, better records, or all three? Linked records are especially valuable: an employer&#x27;s report against a worker&#x27;s, a buyer&#x27;s invoice against a seller&#x27;s. They add information about the same event, not just more columns. But check that your confirmations are independent. Three variables computed from the same tax return are one source, not three.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Z-ZSsl2FZQw&amp;t=231s" data-ep="4" data-t="231">3:51</a><p><b>Coverage, timing and leakage.</b> Third, coverage. The process that hides activity can also keep it out of the dataset. Registered firms are easier to see than unregistered ones. Card payments are easier to see than cash. A billion card payments can describe the card network perfectly, and still say little about the trade that moved to cash. We saw it in Lantern Bay. The card company had detailed records of more than half the town&#x27;s output, and almost nothing on the undeclared sales, which were paid in cash. Fourth, timing. Values arrive late and get revised. If a model trains on revised numbers, or on audits that finished later, it&#x27;s using the future. That&#x27;s leakage. It can also sneak in through preprocessing, filling in missing values, building features, and splitting at random. Here&#x27;s a common version. You fill in missing values using the average of the whole dataset, test rows included. Now every training row carries a little information from the test set. Or you build a feature from a country&#x27;s average over all years, then test on its later years. The future has quietly entered the past. In our forty countries, the flexible model scored 4.5 on random rows, and almost 7 on new countries. Same model, same data, a different question. So the split must match the use. Forecasting means testing on later years. Transfer means testing on whole new countries. Risk scoring means testing on new firms. Maps mean testing on new regions. And remember how much data you really have. Our panel has 640 rows. But with years this alike, it behaves more like forty stories than six hundred and forty.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Z-ZSsl2FZQw&amp;t=321s" data-ep="4" data-t="321">5:21</a><p><b>What flexible models bring.</b> Now, what do flexible models bring? They can learn shapes and interactions that nobody wrote down. Cash may mean something different where banks are scarce. Their discipline is out-of-sample testing. Fit on some data, judge on other data. And match their flexibility to the real amount of information, with regularisation and simple baselines. And always run a simple baseline. Here&#x27;s one for forecasting: just use last year&#x27;s published value. On the last four years of our panel, that&#x27;s off by about 2.4 points. The random forest, trained on the earlier years, is off by about 3.4. The one-line baseline wins. Complexity has to earn its place. Know what each feature is. It may be a cause, a consequence, a trace of the observation system, or just a control. A feature can predict well because it names a country, or a reporting system. Even the fact that a value is missing can be a name tag. That&#x27;s fine if you&#x27;ll only ever predict for the same countries under the same systems. It breaks the moment you move to a new country, or the reporting system changes. Explanation tools, like SHAP values, describe what a model uses. They don&#x27;t tell you what would happen if you changed that feature. Important to the model is not the same as a policy lever. And relationships drift. A model trained before electronic invoicing learned a world that no longer exists after it. Treat a data-driven model as something you monitor, not something you finish. A practical habit: keep watching the gap between your model and any fresh direct evidence, like a new survey or a round of random audits. When the gap grows, the world has moved.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Z-ZSsl2FZQw&amp;t=412s" data-ep="4" data-t="412">6:52</a><p><b>Theory and data together.</b> So how do theory and data work together? Give each the job it&#x27;s good at. Theory should fix the target, the actors, and what each of them knows. It should say how a policy reaches behaviour. And it should impose accounting identities, legal limits and feasibility. Data should learn the sizes, the shapes, the thresholds and the interactions that theory can&#x27;t pin down. And data should decide whether extra complexity earns its place. Here&#x27;s an example. Theory says that third-party reporting makes hiding harder. It doesn&#x27;t say whether the effect is a straight line, whether there&#x27;s a threshold, or whether it depends on firm size. That&#x27;s what data are for. Or the effect of digital payments may depend on whether the tax office can actually link payment records to tax returns. Theory names the interaction. Data measure it. Then validate against the objective. And when a model fails, read the failure. Failing after a reform says the observation process changed. Failing in low-trust countries says trust is missing from the model. For our reform, the fix is to model the observation process explicitly. Let the estimate know that cash use changed for reasons other than hiding. And use a counterfactual. Compare with similar countries that didn&#x27;t reform, or with a simulation of the same world without the reform, the way we did here. That&#x27;s the loop: theory proposes, data test, failures teach, and theory is revised. Neither side gets the last word.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Z-ZSsl2FZQw&amp;t=496s" data-ep="4" data-t="496">8:16</a><p><b>Recap.</b> Let&#x27;s recap. A dataset is made by institutions. Record each target&#x27;s status, and each variable&#x27;s history. A model trained on an estimate learns the estimate. It can&#x27;t be more right than its label. Coverage depends on how data are generated, not on how much there is. And the test split must match the intended use. Theory fixes the target, the actors, the information and the constraints. Data learn the shapes. Failures teach you which part was wrong. And a one-line baseline is the first test any complex model has to pass. In the lab, you&#x27;ll switch on the reform, and watch the published estimate, the truth, and your models disagree. Next module: games between auditors and the people they audit, written down as mathematics.</p></div></div></div>
+            </details>
+        </div>
+        <div class="rl-eps">
+          <div class="rl-eps-head"><b>Module 2 videos</b><span>2 videos · 19 min</span></div>
+          <ol><li id="ep-3"><a class="rl-ep is-active" data-ep="3" href="https://www.youtube.com/watch?v=siGp9EXO0Zo" aria-current=true><span class="rl-ep-thumb"><img src="/non-observed-economy/img/videos/v03.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>9:57</span></span><span><span class="rl-ep-num">Video 3 · 2.1</span><span class="rl-ep-title" style="display:block">When the target itself is hidden</span><span class="rl-ep-take" style="display:block">The flexible model&#x27;s good score came from recognising countries it had seen. Ten more points of digital payments go with 5.2 fewer points of hidden activity across countries; pushing them up by ten points, all else fixed, cuts it by 0.3.</span></span></a></li><li id="ep-4"><a class="rl-ep" data-ep="4" href="https://www.youtube.com/watch?v=Z-ZSsl2FZQw"><span class="rl-ep-thumb"><img src="/non-observed-economy/img/videos/v04.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>9:20</span></span><span><span class="rl-ep-num">Video 4 · 2.2</span><span class="rl-ep-title" style="display:block">Ground truth, leakage, and making theory and data meet</span><span class="rl-ep-take" style="display:block">A model trained on an estimate learns the estimate (8.3 points from the truth on new countries, against 6.5 for the estimate itself). The split must match the use, and last year&#x27;s value (2.4 points) beat a random forest (3.4).</span></span></a></li></ol>
+        </div>
+      </div>
+      <script type="application/json" id="rl-episodes">[{"ep": 3, "youtube": "siGp9EXO0Zo", "title": "When the target itself is hidden", "duration": "9:57", "hook": "Two models of a published estimate score 4.5 and 8 points. Against the truth, both are off by about 8.", "takeaway": "The flexible model's good score came from recognising countries it had seen. Ten more points of digital payments go with 5.2 fewer points of hidden activity across countries; pushing them up by ten points, all else fixed, cuts it by 0.3.", "thumbAbs": "/non-observed-economy/img/videos/v03.webp"}, {"ep": 4, "youtube": "Z-ZSsl2FZQw", "title": "Ground truth, leakage, and making theory and data meet", "duration": "9:20", "hook": "A published estimate says a reform cut hidden activity by 8 points. The reform's true effect was 3.5.", "takeaway": "A model trained on an estimate learns the estimate (8.3 points from the truth on new countries, against 6.5 for the estimate itself). The split must match the use, and last year's value (2.4 points) beat a random forest (3.4).", "thumbAbs": "/non-observed-economy/img/videos/v04.webp"}]</script>
+    </div></section>
+    <section id="lab" class="rl-lab" aria-labelledby="lab-title">
+      <div class="proj-wrap rl-lab-head">
+        <p class="proj-label"><i class="ri-earth-line" aria-hidden="true"></i>Interactive lab</p>
+        <h2 id="lab-title" class="proj-h2" style="margin-top:.5rem">Forty countries</h2>
+        <p class="proj-lead">Build forty invented countries, train a simple theory-guided model and a flexible one on a published estimate, and switch between random and country splits and between scoring against the estimate and against the truth. Then switch on a payments reform.</p>
+        <p class="proj-lead" style="margin-top:.6rem">The countries are simulated in your browser (a hidden share driven by institutions, taxes and payments, and a published estimate that leans on cash). Four challenges are checked as you go.</p>
+      </div>
+      <div class="rlx" id="countries-lab" data-noex="countries">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">Forty invented countries, sixteen years each</h3>
+          <p class="rlx-sub">The true hidden share depends on taxes, enforcement, trust, self-employment and digital payments, plus each country's quirks. A published estimate leans on cash use, so it runs high where cash is common and low where it is rare. Both models learn the published estimate.</p>
+          <div class="math-grid">
+            <article class="math-card"><div class="math-card-title">Simple, theory-guided</div><div class="formula-line"><span class="formula-chip">logit(ŝ) = w₀ + Σ wⱼ·causeⱼ</span></div><p class="math-card-copy">A linear model on the five causes theory names.</p></article>
+            <article class="math-card"><div class="math-card-title">Flexible</div><div class="formula-line"><span class="formula-chip">ŝ = average of k nearest</span></div><p class="math-card-copy">Nearest neighbours on the causes, plus population if you allow it: a number fixed for each country, which works like a name tag.</p></article>
+            <article class="math-card"><div class="math-card-title">The reform</div><div class="formula-line"><span class="formula-chip">year 10: e-invoicing</span></div><p class="math-card-copy">Half the countries move payments to cards. Hiding falls a little; cash falls a lot.</p></article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Model controls">
+            <div><h4 class="rlx-h">Check</h4><p class="rlx-sub">Choose how to hold data out, and what to score against.</p></div>
+            <div class="rlx-field"><label class="rlx-label" for="ctrSplit">Hold out</label><select id="ctrSplit" class="control-select" data-k="split"><option value="random">a random quarter of rows</option><option value="country">ten whole countries</option></select></div>
+            <div class="rlx-field"><label class="rlx-label" for="ctrScore">Score against</label><select id="ctrScore" class="control-select" data-k="score"><option value="benchmark">the published estimate</option><option value="truth">the truth (we built the world)</option></select></div>
+            <label class="srx-check"><input type="checkbox" data-k="tag" checked> Let the flexible model see population (a name tag)</label>
+            <div class="rlx-field"><div class="rlx-label"><label for="ctrK">Neighbours (k)</label><span class="control-value" data-k="k-out">3</span></div><input id="ctrK" data-k="k" type="range" min="1" max="20" step="1" value="3"></div>
+            <label class="srx-check"><input type="checkbox" data-k="reform"> Switch on the payments reform (year 10)</label>
+            <div class="rlx-btns"><button type="button" class="control-button control-button-secondary is-wide" data-k="newdata">New world</button></div>
+            <p class="rlx-hint">Errors are mean absolute errors in points of hidden share.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Simple model</div><div class="metric-value" data-k="elin">–</div></div><div class="metric-tile"><div class="metric-label">Flexible model</div><div class="metric-value" data-k="eknn">–</div></div><div class="metric-tile"><div class="metric-label">Published estimate vs truth</div><div class="metric-value" data-k="ebench">–</div></div></div>
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Errors on the held-out rows</h4><p class="rlx-sub">Points of hidden share.</p></div></div>
+              <div class="chart-shell" style="height:150px"><svg data-k="chart" role="img" aria-label="Bars: the two models' errors and the published estimate's own error"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">The reform, in the reform countries</h4><p class="rlx-sub">Change after year 10 compared with year 9, in points.</p></div></div>
+              <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Published estimate says</div><div class="metric-value" data-k="dbench">–</div></div><div class="metric-tile"><div class="metric-label">Truth changed by</div><div class="metric-value" data-k="dtrue">–</div></div><div class="metric-tile"><div class="metric-label">Reform's true effect</div><div class="metric-value" data-k="eff">–</div></div></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on the settings you have tried.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Scoring against the published estimate, with the name tag on, find a k where the flexible model beats the simple one on random rows but loses on whole countries.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Score against the truth, and find settings where both models are further from the truth than the published estimate they learned from.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Switch on the reform and see the published estimate's drop come out more than one and a half times the reform's true effect.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>On random rows, take the name tag away and watch the flexible model's error rise by more than half a point.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="next" class="proj-section is-soft" aria-labelledby="next-title"><div class="proj-wrap">
+      <h2 id="next-title" class="proj-h2">Keep going</h2>
+      <div class="rl-pn"><a href="/non-observed-economy/module-01/"><i class="ri-arrow-left-line" aria-hidden="true"></i><span><small>Previous · Module 1</small><strong>What is the non-observed economy?</strong></span></a><a class="is-next" href="/non-observed-economy/module-03/"><span><small>Next · Module 3</small><strong>Mathematical-economic modelling</strong></span><i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+    </div></section>
+  </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Courses</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/rl-course/" class="hover:text-white">Reinforcement Learning</a></li>
+                  <li><a href="/epidemic-modeling/" class="hover:text-white">Epidemic Modeling</a></li>
+                  <li><a href="/symbolic-laws/" class="hover:text-white">Symbolic Physical Laws Discovery</a></li>
+                  <li><a href="/non-observed-economy/" class="hover:text-white">Non-Observed Economy</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/rl-course/" class="hover:text-white">RL course</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <script src="/js/videos.js"></script>
+      
+      <script src="/js/noe-labs.js" defer></script>
+      <script src="/js/epi-course.js" defer></script>
+   </body>
+</html>

@@ -1,0 +1,37 @@
+<!-- Used by tools/build_noe_course.py: lab 7 (Module 7) of the Non-Observed Economy course: a small agent-based town of 300 invented firms; change audits, peer effects and moral costs, add a recession or e-invoicing, and look for tipping points. Script: js/noe-labs.js (data-noex="town"). -->
+      <div class="rlx" id="town-lab" data-noex="town">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">Town in silico: 300 firms, nobody told to hide</h3>
+          <p class="rlx-sub">A small version of the videos’ Saltmarsh. Every quarter each invented firm chooses how much of its cash sales to declare, weighing the tax, the audit risk it believes, a moral cost that grows with trust, and what its peer group does. Card sales are always recorded. Trust follows the revenue the town collects.</p>
+          <div class="math-grid">
+            <article class="math-card"><div class="math-card-title">A firm’s choice</div><div class="formula-line"><span class="formula-chip">max −τd − p̂(τ+φ)(1−d) − m(1−d)</span></div><p class="math-card-copy">Declared share d; believed audit chance p̂; moral cost m.</p></article>
+            <article class="math-card"><div class="math-card-title">Moral cost</div><div class="formula-line"><span class="formula-chip">m = m₀(0.4 + trust) − peers × group hiding</span></div><p class="math-card-copy">Peers make hiding cheaper; trust makes it dearer.</p></article>
+            <article class="math-card"><div class="math-card-title">Feedback</div><div class="formula-line"><span class="formula-chip">trust ← trust + 0.25(services − trust)</span></div><p class="math-card-copy">Services are paid by the revenue actually collected.</p></article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Town controls">
+            <div><h4 class="rlx-h">Town</h4><p class="rlx-sub">Change the rules and run it again.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="twA">Audit rate</label><span class="control-value" data-k="audit-out">4%</span></div><input id="twA" data-k="audit" type="range" min="1" max="15" step="1" value="4"></div><div class="rlx-field"><div class="rlx-label"><label for="twP">Peer weight</label><span class="control-value" data-k="peer-out">0.8</span></div><input id="twP" data-k="peer" type="range" min="0" max="1.6" step="0.1" value="0.8"></div><div class="rlx-field"><div class="rlx-label"><label for="twH">How much moral costs vary</label><span class="control-value" data-k="het-out">1.00</span></div><input id="twH" data-k="het" type="range" min="0.35" max="1.6" step="0.05" value="1"></div><label class="srx-check"><input type="checkbox" data-k="rec"> A recession (quarters 12–19)</label><label class="srx-check"><input type="checkbox" data-k="einv"> E-invoicing for the largest quarter of firms (quarter 20)</label><label class="srx-check"><input type="checkbox" data-k="fb" checked> Revenue feeds services and trust</label>
+            <p class="rlx-hint">Hidden share is of all output, including undeclared side work by people who lose jobs in a recession. Each run takes a moment.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Hidden share (end)</div><div class="metric-value" data-k="hidden">–</div></div><div class="metric-tile"><div class="metric-label">Firms declaring everything</div><div class="metric-value" data-k="honest">–</div></div><div class="metric-tile"><div class="metric-label">Top tenth of firms hold</div><div class="metric-value" data-k="top">–</div></div><div class="metric-tile"><div class="metric-label">Started high vs low</div><div class="metric-value" data-k="gap">–</div></div></div>
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Hidden share, quarter by quarter</h4><p class="rlx-sub" data-k="note"></p></div></div>
+              <div class="chart-shell" style="height:300px"><svg data-k="chart" role="img" aria-label="Hidden share over 40 quarters in the invented town"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current settings.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Find an audit rate where a town that starts with hiding common ends at least 5 points above one that starts honest.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Switch on the recession and see hiding still at least a point higher two years after demand returns.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Switch on e-invoicing and see the small firms, which were not reformed, hide at least 8 points less.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>Get the hidden share below 15% with an audit rate of at most 8%.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>

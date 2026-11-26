@@ -1,0 +1,60 @@
+<!-- Used by tools/build_sr_course.py: lab 4 (Module 4) of the Symbolic Physical Laws Discovery course: the search arena. Random search, size-ordered enumeration and a small genetic program race to recover the range of a thrown ball, R = v²·sin(2θ)/g, from 60 simulated throws, on one budget and several seeds. Script: js/sr-labs.js (data-srx="arena"). -->
+      <div class="rlx" id="arena-lab" data-srx="arena">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">Sixty throws, three searchers</h3>
+          <p class="rlx-sub">The page simulates 60 throws (speeds 5–15 m/s, angles 0.2–1.2 rad, small measurement noise) from the law R = v²·sin(2θ)/g. The searchers see only v, θ and the ranges, and may use + − × ÷ sin cos and the number 1; every candidate gets a fitted scale and offset. Everything runs in your browser.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">Random search</div>
+              <div class="formula-line"><span class="formula-chip">draw, fit, keep the best</span></div>
+              <p class="math-card-copy">Random trees of depth 1 to 5, as many as the budget allows.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Enumeration</div>
+              <div class="formula-line"><span class="formula-chip">smallest first, no repeats</span></div>
+              <p class="math-card-copy">Every different candidate in order of size; repeats (equal up to scale and offset) are skipped. One run: it has no randomness.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Genetic programming</div>
+              <div class="formula-line"><span class="formula-chip">select · cross · mutate · keep the best</span></div>
+              <p class="math-card-copy">200 formulas, tournament selection, subtree crossover and mutation, size limit 21.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Arena settings">
+            <div><h4 class="rlx-h">Settings</h4><p class="rlx-sub">The same budget and seeds for every searcher.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="arB">Budget (evaluations)</label><span class="control-value" data-k="budget-out">10,000</span></div><input id="arB" data-k="budget" type="range" min="0" max="6" step="1" value="3"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="arS">Seeds</label><span class="control-value" data-k="seeds-out">10</span></div><input id="arS" data-k="seeds" type="range" min="1" max="20" step="1" value="10"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="arT">Tournament size</label><span class="control-value" data-k="tsize-out">4</span></div><input id="arT" data-k="tsize" type="range" min="1" max="10" step="1" value="4"></div>
+            <label class="srx-check"><input type="checkbox" data-k="xover" checked> crossover (4 children in 5)</label>
+            <div class="rlx-field"><div class="rlx-label"><label for="arN">Measurement noise</label><span class="control-value" data-k="noise-out">1%</span></div><input id="arN" data-k="noise" type="range" min="0" max="20" step="1" value="1"></div>
+            <div class="rlx-btns"><button type="button" class="control-button control-button-primary is-wide" data-k="run">Run the race</button></div>
+            <p class="rlx-hint">Recovered means the best formula predicts faster throws (15–25 m/s), outside the data, to within 2%. Big budgets and many seeds take a few seconds.</p>
+            </aside>
+            <div class="rlx-main">
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">Choose settings and press Run.</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Results</h4><p class="rlx-sub">Errors are the misfit on the 60 throws, as a share of their spread.</p></div></div>
+              <div class="srx-tablewrap"><table class="srx-table" data-k="table"></table></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Best error during the run (seed 1)</h4><p class="rlx-sub">Grey: random search; orange: enumeration; blue: genetic programming.</p></div></div>
+              <div class="chart-shell" style="height:280px"><svg data-k="trace" role="img" aria-label="Best error against evaluations for the three searchers"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Size against error (genetic programming, seed 1)</h4><p class="rlx-sub">Grey: the final population. Blue: the Pareto front, the best formula of each size found during the run that beats every smaller one. Look for the knee.</p></div></div>
+              <div class="chart-shell" style="height:280px"><svg data-k="front" role="img" aria-label="Error against formula size for the final population"></svg></div>
+              <pre class="srx-pre" data-k="fronttxt"></pre>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked against the runs you have made.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Raise the budget until enumeration recovers the law. How many evaluations did it need?</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Find settings where genetic programming without crossover recovers the law at least as often as with it (everything else the same).</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Find a tournament size that recovers the law less often than tournaments of 4 (everything else the same).</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>With at least 10 seeds, raise the noise until genetic programming never recovers the law, although it did at a lower noise with the same budget.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>

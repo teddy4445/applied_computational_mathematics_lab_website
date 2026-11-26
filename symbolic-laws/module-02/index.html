@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_sr_course.py from data/sr-course.json. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Module 2: Mathematical languages for symbolic models | Symbolic Physical Laws Discovery Course | ACML</title>
+      <meta name="description" content="Module 2 of 10 of ACML’s Symbolic Physical Laws Discovery course. Trees, grammars, constants and complexity: slides, 2 videos and an interactive lab.">
+      <meta name="author" content="Teddy Lazebnik">
+      <meta name="keywords" content="symbolic regression, equation discovery, physics-informed machine learning, mathematical languages for symbolic models, course, ACML">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/symbolic-laws/module-02/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Module 2: Mathematical languages for symbolic models · Symbolic Physical Laws Discovery">
+      <meta property="og:description" content="Module 2 of 10 of ACML’s Symbolic Physical Laws Discovery course. Trees, grammars, constants and complexity: slides, 2 videos and an interactive lab.">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/symbolic-laws/module-02/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/symbolic-laws/module-02/share.jpg">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Module 2: Mathematical languages for symbolic models · Symbolic Physical Laws Discovery">
+      <meta name="twitter:description" content="Module 2 of 10 of ACML’s Symbolic Physical Laws Discovery course. Trees, grammars, constants and complexity: slides, 2 videos and an interactive lab.">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/symbolic-laws/module-02/share.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "Module 2: Mathematical languages for symbolic models",
+        "description": "Before any search begins, someone chooses a language. We follow mathematical notation from words to symbols to computation, then store one formula as a tree, as prefix and postfix strings, as a graph with sharing, as a token sequence and as a grammar derivation, and see what each makes easy, hard or invalid. Grammars and unit rules decide what may be written; our exact count shows how much of the space units remove. The second video turns to constants (fitting, redundancy, and whether 6.296 is really 2π), to the many disguises of one formula, and to complexity measures that disagree. It ends by designing a language for a pendulum with air drag, before touching any data.",
+        "url": "https://acml.teddylazebnik.com/symbolic-laws/module-02/",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "learningResourceType": [
+          "Lecture slides",
+          "Video",
+          "Interactive resource"
+        ],
+        "teaches": "Trees, grammars, constants and complexity",
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Symbolic Physical Laws Discovery",
+          "url": "https://acml.teddylazebnik.com/symbolic-laws/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Teddy Lazebnik",
+          "url": "https://teddylazebnik.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Applied Computational Mathematics Laboratory",
+          "url": "https://acml.teddylazebnik.com/"
+        },
+        "hasPart": [
+          {
+            "@type": "VideoObject",
+            "name": "Expressions as computational objects",
+            "description": "One formula, six objects: a computer never searches mathematics itself, only the language someone chose.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/symbolic-laws/img/videos/v04.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/4YaAy1P-qBw",
+            "duration": "PT9M53S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Constants, equivalence and complexity",
+            "description": "A search returns 6.296. Is that 2π, or just a number that happened to fit?",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/symbolic-laws/img/videos/v05.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/mmQvrd_bEoM",
+            "duration": "PT9M30S"
+          },
+          {
+            "@type": "DigitalDocument",
+            "name": "Module 2 slides",
+            "encodingFormat": "application/pdf",
+            "url": "https://acml.teddylazebnik.com/symbolic-laws/slides/Symbolic_Laws_Module02_Mathematical_languages_for_symbolic_models.pdf"
+          }
+        ]
+      }
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      <link href="/css/videos.css" rel="stylesheet">
+      
+      <link href="/css/exploration-lab.css" rel="stylesheet">
+      <link href="/css/rl-labs.css" rel="stylesheet">
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/project.css" rel="stylesheet">
+      <link href="/css/rl-course.css" rel="stylesheet">
+      <link href="/css/epi-course.css" rel="stylesheet">
+      <link href="/css/sr-course.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+          <a href="/courses.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Courses</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/courses.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Courses</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="proj-page rl-page bg-white">
+    <header class="proj-hero rl-hero">
+      <div class="proj-wrap proj-hero-grid">
+        <div>
+          <nav class="proj-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/courses.html">Courses</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/symbolic-laws/">Symbolic Physical Laws Discovery</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Module 2</span></nav>
+          <p class="proj-kicker"><span><i class="ri-graduation-cap-line" aria-hidden="true"></i>Symbolic Physical Laws Discovery</span><span>Foundations</span></p>
+          <h1 class="proj-title"><small>Module 2</small>Mathematical languages for symbolic models</h1>
+          <p class="proj-about-lead rl-summary">Before any search begins, someone chooses a language. We follow mathematical notation from words to symbols to computation, then store one formula as a tree, as prefix and postfix strings, as a graph with sharing, as a token sequence and as a grammar derivation, and see what each makes easy, hard or invalid. Grammars and unit rules decide what may be written; our exact count shows how much of the space units remove. The second video turns to constants (fitting, redundancy, and whether 6.296 is really 2π), to the many disguises of one formula, and to complexity measures that disagree. It ends by designing a language for a pendulum with air drag, before touching any data.</p>
+          <div class="rl-goal"><i class="ri-focus-3-line" aria-hidden="true"></i><span>By the end you should be able to store and measure formulas in several representations, write a grammar with unit rules, fit and question constants, define equivalence for your problem, and declare a complexity measure in advance.</span></div>
+          <h2 class="proj-h3 rl-ideas-title">Key ideas, one per video</h2>
+          <ul class="rl-ideas"><li><a href="#ep-4">Video 4</a><span>With six operators, our tiny language has about 8.9 billion formulas and fewer than 4% pass the unit check; units are a filter, not a validation.</span></li><li><a href="#ep-5">Video 5</a><span>Least squares reached the noise level in 6 evaluations where 1,000 random guesses did not; and the bell curve is simpler than a quadratic by node count, more complex by depth, and tied by weight.</span></li></ul>
+          <p class="rl-source"><b>Book:</b> Chapter 2 of <cite>Computational Methods for Symbolic Physical Laws Discovery</cite> by Teddy Lazebnik (coming soon). The videos and slides follow the chapter’s topics in our own words, figures and simulations; nothing is copied from the book.</p>
+        </div>
+        <div class="rl-first">
+          <a class="rl-first-img" href="/symbolic-laws/slides/Symbolic_Laws_Module02_Mathematical_languages_for_symbolic_models.pdf" target="_blank" rel="noopener"><img src="/symbolic-laws/img/slides/m02-s01.webp" alt="The title slide of Module 2: Mathematical languages for symbolic models" width="960" height="540" fetchpriority="high" decoding="async"></a>
+          <p class="rl-first-text">43 slides, written to be read on your own, with worked examples, our own small simulations and check-yourself questions (answers at the end). PDF, 2.1 MB.</p>
+          <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="/symbolic-laws/slides/Symbolic_Laws_Module02_Mathematical_languages_for_symbolic_models.pdf" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Open the PDF</a><a class="proj-btn" href="/symbolic-laws/slides/Symbolic_Laws_Module02_Mathematical_languages_for_symbolic_models.pdf" download><i class="ri-download-2-line" aria-hidden="true"></i>Download</a></div>
+        </div>
+      </div>
+    </header>
+    <nav class="proj-subnav is-mobile-only" aria-label="Sections of this page"><div class="proj-wrap"><ul><li><a href="#watch">Watch</a></li><li><a href="#lab">Lab</a></li><li><a href="#next">Next</a></li></ul></div></nav>
+    <section id="watch" class="proj-section is-soft" aria-labelledby="watch-title"><div class="proj-wrap">
+      <h2 id="watch-title" class="proj-h2">Watch</h2>
+      <p class="proj-lead">2 videos for this module, each about 8 to 15 minutes. Pick one from the list, and open the transcript to read along: each timestamp plays the video from there. The narration is generated with a voice clone of Teddy, used with his permission.</p>
+      <div class="rl-watch">
+        <div class="rl-player-wrap">
+          <div id="rl-player" class="yt-player yt-16x9" data-yt-id="4YaAy1P-qBw" data-yt-title="Expressions as computational objects"><a class="yt-play" href="https://www.youtube.com/watch?v=4YaAy1P-qBw" aria-label="Play video 4: Expressions as computational objects"><img src="/symbolic-laws/img/videos/v04.webp" alt="" width="640" height="360" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div>
+          <div class="rl-now">
+            <p id="rl-now-num" class="rl-now-num">Video 4 · 9:53</p>
+            <p id="rl-now-title" class="rl-now-title">Expressions as computational objects</p>
+            <p id="rl-now-hook" class="rl-now-hook">One formula, six objects: a computer never searches mathematics itself, only the language someone chose.</p>
+            <p id="rl-now-take" class="rl-now-take"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i><span>With six operators, our tiny language has about 8.9 billion formulas and fewer than 4% pass the unit check; units are a filter, not a validation.</span></p>
+          </div>
+            <details id="rl-tx" class="rl-tx">
+              <summary><i class="ri-file-text-line" aria-hidden="true"></i>Transcript<span id="rl-tx-which">Video 4</span><i class="ri-arrow-down-s-line rl-tx-caret" aria-hidden="true"></i></summary>
+              <div class="rl-tx-body"><div class="rl-tx-ep" data-ep="4"><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=4YaAy1P-qBw" data-ep="4" data-t="0">0:00</a><p><b>One formula, six objects.</b> Here&#x27;s one formula: a cup cooling in a room, with a small heater switching on and off. c times the room temperature minus T, plus q times the sine of omega t. Now here it is again, five more times. As a tree. As prefix and postfix strings. As a graph. And as a derivation from a grammar. Which one is the formula? All of them, and none of them. A computer never searches mathematics itself. It searches one of these objects, and each object changes what the search can see, reach and break. Welcome to Module two. This video has three parts: a short history of mathematical notation, the main ways a computer stores a formula, and grammars with units, the rules that decide which sentences are allowed.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=4YaAy1P-qBw&amp;t=52s" data-ep="4" data-t="52">0:52</a><p><b>From words to symbols.</b> Before equations, there were marks: notches on a stick, tokens for grain, counts of animals and days. Algebra itself is older than its symbols. For centuries, problems were solved in words. Symbols arrived slowly. In 1557, Robert Recorde introduced the equals sign: two parallel lines, because no two things could be more equal. Around 1591, François Viète used letters for both known and unknown quantities, so whole families of problems could share one form. In 1637, Descartes tied algebra to curves. Calculus made change itself writable. Leibniz published his notation for differentials in 1684, and Newton wrote about fluxions, quantities flowing in time. Now the unknown could be a whole trajectory, not a number. The idea of a function grew too. Euler treated functions as analytic expressions. Later, mathematicians accepted any rule that gives each input one output, with or without a formula. So a formula, a table, a graph and a program can carry the same mathematical content, and still be different objects. In the 1930s, Church and Turing made computation itself mathematical: symbols manipulated by finite rules. That&#x27;s the bridge to us. An expression tree, a token sequence, a grammar: each is a modern encoding of choices that mathematicians made over centuries. A symbolic regression system never searches mathematics in general. It searches a language that someone chose.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=4YaAy1P-qBw&amp;t=139s" data-ep="4" data-t="139">2:19</a><p><b>What an expression language is.</b> So what is an expression language? It&#x27;s the primitive symbols, the rules for combining them, the type or unit rules, and the way candidates are stored. It defines the hypothesis space before any optimization begins. If the language has multiplication but no powers, a power law is still expressible, but only as a long product. If it allows unrestricted division and logarithms, it contains short formulas that break on part of your data. A language is an inductive bias. It changes how likely a useful equation is to be short, reachable and valid. Often it matters as much as the search algorithm.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=4YaAy1P-qBw&amp;t=174s" data-ep="4" data-t="174">2:54</a><p><b>Formulas as computational objects.</b> Part two: formulas as computational objects. Start with the tree. For our heater formula, the root is a plus. On one side, c times the room temperature minus T. On the other, q times the sine of omega t. The tree makes dependencies explicit: to evaluate the root, first evaluate its children. Depth measures nesting. Node count gives one notion of size. And any subtree is a complete piece that can be cut out and replaced. Now mutate one branch. Replace the sine of omega t by omega t squared. One small edit in the tree. But a bounded wiggle has become a term that grows without limit. Computational distance and mathematical distance are different things. Two trees one edit apart can behave completely differently, and two very different trees can be the same function. The search moves through a geometry made by the representation. A tree can also be flattened. Take x minus two, times y. In prefix form, each operator comes first: times, minus, x, two, y. In postfix form, it comes last: x, two, minus, y, times. No parentheses are needed, as long as you know how many arguments each operator takes. Prefix strings are great for generators. Write plus, sine, x. The sine is complete, but the plus still has one open slot. Keep counting open slots, and when the count reaches zero, the formula is done. If it can&#x27;t reach zero within the length limit, reject it early. Flat sequences store compactly, hash quickly and evaluate fast, which matters when you test millions of candidates. But edits get harder. A subtree becomes an interval that you can only find by counting arguments. And swapping a sine for a plus suddenly demands an extra argument, so the rest of the string has to be repaired or rejected. And remember, well formed is not meaningful. The log of minus three is a perfectly formed string. So is x divided by x minus x. Both are valid syntax, and useless. Tree-based genetic programming loves a property called closure. Every operator accepts whatever the others return, so any subtree can be attached anywhere. That&#x27;s convenient: variation rarely creates broken formulas. Science often wants less freedom. A vector shouldn&#x27;t go where a number belongs. Seconds shouldn&#x27;t be added to meters. And the logarithm of a length makes no sense. Types and units bring those distinctions back. Trees also repeat themselves. In e to the minus t, times the cosine of t, plus e to the minus t, the exponential appears twice. A tree stores both copies: ten nodes. A graph with sharing stores it once: six nodes. Sharing changes mutation too. Change the shared node, and both uses change at once. Copy it first, and the two uses drift apart. The same nominal move does different mathematics. It even changes what complexity means. Count stored nodes, and you measure computing cost. Count visible symbols, and you measure what a reader has to parse. Neural generators use yet another object: a sequence of tokens, usually in prefix order. A transformer writes a formula symbol by symbol, like a sentence, and a parser turns it back into a tree. Validity and equivalence then need explicit care: masks that forbid impossible next tokens, and checks that catch the same formula written twice.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=4YaAy1P-qBw&amp;t=378s" data-ep="4" data-t="378">6:18</a><p><b>Grammars and units.</b> Part three: grammars. A list of operators says what exists. A grammar says where it may appear. Here&#x27;s a small grammar of our own. An expression is a sum of terms. A term is a product of factors. A factor is x, a constant, or e to the power of minus a constant times x. This grammar can&#x27;t build the exponential of an exponential, or the exponential of x plus one. It allows decay terms under the exponential, and nothing else. The grammar has quietly encoded a physical expectation. Here&#x27;s a question for you. Two grammars produce exactly the same set of formulas. Can they still lead to different discoveries? Pause and think. They can. We generated random formulas from one language with two sets of production weights. With the sine chosen five percent of the time, about thirty one percent of the formulas contained a sine. At twenty percent, sixty one percent did. Same language, same reachable formulas, very different search. Under a finite budget, whatever is easy to say gets said more often. Some methods go one step further, as in grammatical evolution: they evolve a code of numbers, and the grammar decodes it into a formula. The object being varied and the formula you read are now different things. One changed number can redirect a whole derivation and rewrite an entire subtree. And many different codes can decode to the same formula. Syntax alone happily builds x plus t. To catch that, attach units to every expression: the powers of length and of time that it carries. Multiply, and the powers add. Divide, and they subtract. Add or subtract, and they must match. Exponentials, logarithms and sines need a pure number inside. Now bad formulas are rejected while they&#x27;re being built. They never get evaluated, and never enter the population. How much does that remove? We counted a tiny language: plus, minus, times and divide, with four leaves: a length x, a time t, a speed v, and a pure number c. With two operators there are 2,048 formulas, and only 744 pass the unit check. With four operators there are about 3.7 million, and about 430,000 pass, roughly twelve percent. With six operators, about 8.9 billion formulas, and fewer than four percent survive. Require the answer to be a speed, and only about a quarter of one percent remain. That&#x27;s not only a speed up. The search spends its effort on formulas that could mean something. But a valid formula can still be wrong. Units don&#x27;t prove causality, conservation, or the right behavior at the extremes. Units are a filter, not a validation.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=4YaAy1P-qBw&amp;t=538s" data-ep="4" data-t="538">8:58</a><p><b>Recap.</b> Let&#x27;s recap. A formula on paper becomes a computational object: a tree, a flat sequence, a graph, a token stream, or a grammar derivation. Each one decides what is close, what is valid, and what is cheap. Grammars and units decide which sentences can even be written. They are scientific assumptions, so write them down. In this module&#x27;s lab, you&#x27;ll build trees, see their prefix and postfix forms, mutate branches, and count how many formulas survive the unit rules. Next video: constants, equivalence, and why complexity depends on your language.</p></div></div><div class="rl-tx-ep" data-ep="5" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=mmQvrd_bEoM" data-ep="5" data-t="0">0:00</a><p><b>Is 6.296 really 2π?.</b> A search returns a constant: 6.296. Is that two pi? Or just a number that happened to fit? Today: the numbers inside formulas, the many disguises of a single formula, and why simple depends on who is counting. At the end, we&#x27;ll design a language for a pendulum, before touching any data.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=mmQvrd_bEoM&amp;t=28s" data-ep="5" data-t="28">0:28</a><p><b>Constants: the continuous unknowns.</b> Part one: constants. A formula has two kinds of unknowns. Its structure is discrete. Its constants are continuous. Take y equals a times x over b plus x, a curve that rises and levels off. Once that shape is chosen, finding a and b is ordinary curve fitting. Searching for them with the same machinery that searches structure is usually a waste. Here&#x27;s our example: twenty five simulated noisy points from that curve. The true values are 2.5 for a, and 0.8 for b. Strategy one: guess random constants. With ten guesses, the best typical error is 0.21. With a hundred guesses, 0.10. With a thousand guesses, 0.062. Strategy two: nonlinear least squares, starting from one and one. Six evaluations later, the error is 0.031, right at the noise level. It finds a at 2.47, and b at 0.74. Between these extremes there&#x27;s a whole menu. A small fixed set of numbers, like one, two and pi. Linear least squares, when the constants enter linearly. Gradient methods, through formulas that can be differentiated. Or neural networks that predict constants from the data, followed by polishing. Each has a weakness. A fixed set can&#x27;t fit arbitrary scales. Local methods depend on where they start. And predicted constants usually need refinement. Constants can also be redundant. Write the same curve as c one times c two times x, over b plus x. Now one times 2.47 gives exactly the same fit as two times 1.23. So does five times 0.49. The data can only pin down the product. Redundant constants create flat valleys, slow down the optimizer, and produce numbers that mean nothing on their own. Then comes the tempting question: is a fitted constant secretly famous? We simulated a pendulum at eight lengths, with a hundredth of a second of timing noise, and fitted T equals c times the square root of L over g. The fit gives c equal to 6.296, give or take 0.013. Two pi is 6.283, within about one standard error. So two pi is consistent with the data. But so are many nearby numbers. Replacing the fit by two pi is a claim. Show the evidence, or keep the fitted number.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=mmQvrd_bEoM&amp;t=174s" data-ep="5" data-t="174">2:54</a><p><b>Equivalence: one formula, many disguises.</b> Part two: equivalence. Symbolic spaces are full of disguises. x plus x, two times x, and x times one plus one are the same function, and three different trees. x squared minus one, over x minus one, equals x plus one everywhere except at one, where the first is undefined. And the square root of x squared is the absolute value of x, not x. So same equation needs a definition. Here are four levels of sameness. Syntactic: the same string. Algebraic: one can be rewritten into the other by accepted rules. Numerical: the same values, within a tolerance, on the domain you care about. And scientific: the same predictions that matter for the application, including limits, symmetries, and what happens under an intervention. How much redundancy is out there? We grew ten thousand random trees, up to depth three, from plus, minus, times, x, one and two. There were 6,298 different trees. But evaluated at a few points, they formed only 872 different functions. And a single function made up twelve percent of everything we drew. Tools fight this. A canonicalizer rewrites formulas into one standard form: sort the arguments of plus and times, collect the numbers, drop times one and plus zero. Hashing finds identical subtrees fast. Equality graphs, or e-graphs for short, store many equivalent forms at once, so a search can recognize a formula it has already seen in another costume. But simplification carries assumptions. Rewriting e to the log of x as x assumes x is positive. Cancelling x over x assumes x is never zero, and a pendulum passes through zero twice in every swing. And computers don&#x27;t do exact arithmetic. Add one to ten to the sixteen, then subtract ten to the sixteen, and you get zero. Do the subtraction first, then add one, and you get one. Same algebra, different answer.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=mmQvrd_bEoM&amp;t=299s" data-ep="5" data-t="299">4:59</a><p><b>Complexity depends on the language.</b> Part three: complexity. Model selection trades error against complexity. But what is complexity, exactly? Node count is easy, but it treats a sine like a plus. Depth measures nesting. Weighted counts charge more for exponentials and powers. Description length asks how many bits it takes to write the formula down. Other measures count nonlinearity, or the cost of evaluating, or how hard the formula is for a person to use. Quick test. Which is simpler: a x squared plus b x plus c, or a times e to the minus b x squared? Pause and decide. By node count, the bell curve wins: nine nodes against eleven. By depth, the polynomial wins: four levels against five. And with heavier weights for exponentials and powers, they tie at thirteen. We ranked six common formulas under three measures. The line and the power law stay simplest under all three. The logistic curve is fifth by node count, but last by depth and by weighted cost. So declare your complexity measure before you see the results. Otherwise it&#x27;s far too easy to pick the measure that flatters your favorite. Representation also shapes the search itself. Small edits can cause big changes. Big edits can change nothing. And trees can keep growing without improving the fit, a problem called bloat. Some methods vary formulas by their behavior instead of their syntax. Others choose parents one data case at a time, which keeps specialists alive. Each changes which formulas survive long enough to matter.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=mmQvrd_bEoM&amp;t=393s" data-ep="5" data-t="393">6:33</a><p><b>Designing a language for a pendulum.</b> Part four: let&#x27;s design a language before touching any data. A pendulum swings with air drag. We measure the angle theta and the angular speed omega, and we want a law for the angular acceleration. Units first. The angle is a pure number. Omega has units of one over time. The target has units of one over time squared. A conservative language: plus, minus, times, and the sine of the angle, which is allowed because the angle is a pure number. It already contains the classic law: minus c one times the sine of theta, minus c two times omega. And the units assign every constant a physical type. c one must carry one over time squared. c two must carry one over time. A broader language adds absolute value and division. Now minus c three times omega times the absolute value of omega becomes reachable: air drag that grows with the square of the speed. Here c three turns out to be a pure number. That&#x27;s more expressive, but the space is bigger, and division brings new questions about dividing by zero. Broader is justified only when your question needs those alternatives. Before searching, also declare the equivalence policy. Sort commutative arguments, collect constants, drop zeros and ones. And never cancel omega over omega, because omega is zero at every turning point. Declare the complexity weights now as well, not after you&#x27;ve seen the winners. Here&#x27;s the checklist to write down before any run: the terminals, the operators with their arities and domains, the unit rules, the constant strategy, the size limits, the simplification and equivalence rules, the complexity measure, and any special building blocks. Report it like an apparatus. It matters as much as the optimizer&#x27;s settings. So which representation should you choose? Trees are a strong default for compact laws in a few variables. Graphs help when pieces repeat. Grammars help when you know the roles of terms. Token sequences suit neural generators. And fixed libraries of terms suit problems where you already know the vocabulary. No representation is best for everything. Choose the one that exposes the structure your question is about.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=mmQvrd_bEoM&amp;t=522s" data-ep="5" data-t="522">8:42</a><p><b>Recap.</b> Let&#x27;s recap. Constants are continuous: fit them numerically, watch for redundancy, and snap them to famous numbers only with evidence. Equivalent formulas waste search unless you define sameness and remove duplicates carefully. And complexity depends on the language, so fix your measure in advance. In the lab, you&#x27;ll test equivalence at random points, compare complexity measures, and design your own language. Next module: encoding physics and domain knowledge. See you there.</p></div></div></div>
+            </details>
+        </div>
+        <div class="rl-eps">
+          <div class="rl-eps-head"><b>Module 2 videos</b><span>2 videos · 19 min</span></div>
+          <ol><li id="ep-4"><a class="rl-ep is-active" data-ep="4" href="https://www.youtube.com/watch?v=4YaAy1P-qBw" aria-current=true><span class="rl-ep-thumb"><img src="/symbolic-laws/img/videos/v04.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>9:53</span></span><span><span class="rl-ep-num">Video 4 · 2.1</span><span class="rl-ep-title" style="display:block">Expressions as computational objects</span><span class="rl-ep-take" style="display:block">With six operators, our tiny language has about 8.9 billion formulas and fewer than 4% pass the unit check; units are a filter, not a validation.</span></span></a></li><li id="ep-5"><a class="rl-ep" data-ep="5" href="https://www.youtube.com/watch?v=mmQvrd_bEoM"><span class="rl-ep-thumb"><img src="/symbolic-laws/img/videos/v05.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>9:30</span></span><span><span class="rl-ep-num">Video 5 · 2.2</span><span class="rl-ep-title" style="display:block">Constants, equivalence and complexity</span><span class="rl-ep-take" style="display:block">Least squares reached the noise level in 6 evaluations where 1,000 random guesses did not; and the bell curve is simpler than a quadratic by node count, more complex by depth, and tied by weight.</span></span></a></li></ol>
+        </div>
+      </div>
+      <script type="application/json" id="rl-episodes">[{"ep": 4, "youtube": "4YaAy1P-qBw", "title": "Expressions as computational objects", "duration": "9:53", "hook": "One formula, six objects: a computer never searches mathematics itself, only the language someone chose.", "takeaway": "With six operators, our tiny language has about 8.9 billion formulas and fewer than 4% pass the unit check; units are a filter, not a validation.", "thumbAbs": "/symbolic-laws/img/videos/v04.webp"}, {"ep": 5, "youtube": "mmQvrd_bEoM", "title": "Constants, equivalence and complexity", "duration": "9:30", "hook": "A search returns 6.296. Is that 2π, or just a number that happened to fit?", "takeaway": "Least squares reached the noise level in 6 evaluations where 1,000 random guesses did not; and the bell curve is simpler than a quadratic by node count, more complex by depth, and tied by weight.", "thumbAbs": "/symbolic-laws/img/videos/v05.webp"}]</script>
+    </div></section>
+    <section id="lab" class="rl-lab" aria-labelledby="lab-title">
+      <div class="proj-wrap rl-lab-head">
+        <p class="proj-label"><i class="ri-node-tree" aria-hidden="true"></i>Interactive lab</p>
+        <h2 id="lab-title" class="proj-h2" style="margin-top:.5rem">Expression workbench</h2>
+        <p class="proj-lead">Type a formula and see its tree, prefix and postfix strings, size measures and sharing. Mutate branches, test two formulas for equivalence, check units, and count what survives the unit rules.</p>
+        <p class="proj-lead" style="margin-top:.6rem">Everything is computed in your browser from your own formulas; the counts are exact. Four challenges are checked as you go.</p>
+      </div>
+      <div class="rlx" id="expr-lab" data-srx="expr">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">One formula, many objects</h3>
+          <p class="rlx-sub">Type a formula with + − * / ^, the functions sin, cos, exp, log, sqrt and abs, numbers, and variable names. The page turns it into a tree and measures it. Everything runs in your browser.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">Trees and strings</div>
+              <div class="formula-line"><span class="formula-chip">(x − 2) × y  →  × − x 2 y</span></div>
+              <p class="math-card-copy">Prefix writes each operator first, postfix last. Neither needs parentheses.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Size, three ways</div>
+              <div class="formula-line"><span class="formula-chip">nodes · depth · weighted</span></div>
+              <p class="math-card-copy">Weights: + − × and leaves 1; ÷, √ and |·| 2; powers, sin, cos, exp and log 3. A graph with sharing stores repeated pieces once.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Units as types</div>
+              <div class="formula-line"><span class="formula-chip">[L] + [T]  ✗</span></div>
+              <p class="math-card-copy">Sums need matching units; products add powers; sin, exp and log need a pure number inside. A free constant can take any unit.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Formula controls">
+            <div><h4 class="rlx-h">Formula A</h4><p class="rlx-sub">Type, pick a preset, or mutate a random branch.</p></div>
+            <div class="rlx-field"><label class="rlx-label" for="exA">Formula A</label><input id="exA" data-k="f" type="text" class="control-select srx-formula" value="c*(Te - T) + q*sin(w*t)" spellcheck="false" autocomplete="off"></div>
+            <div class="srx-presets"><button type="button" class="control-button control-button-secondary" data-preset="0">heater</button><button type="button" class="control-button control-button-secondary" data-preset="1">(x − 2)·y</button><button type="button" class="control-button control-button-secondary" data-preset="2">shared exp</button><button type="button" class="control-button control-button-secondary" data-preset="3">saturating</button></div>
+            <div class="rlx-btns"><button type="button" class="control-button control-button-primary" data-k="mutate">Mutate a branch</button><button type="button" class="control-button control-button-secondary" data-k="undo">Undo</button></div>
+            <div><h4 class="rlx-h">Formula B</h4><p class="rlx-sub">Compared with A at 400 random points.</p></div>
+            <div class="rlx-field"><label class="rlx-label" for="exB">Formula B</label><input id="exB" data-k="g" type="text" class="control-select srx-formula" value="c*(Te - T) + q*cos(w*t)" spellcheck="false" autocomplete="off"></div>
+            <div class="rlx-field"><label class="rlx-label" for="exR">Sample variables from</label><select id="exR" data-k="range" class="control-select"><option value="all">−3 to 3</option><option value="pos">0.1 to 3 (positive only)</option></select></div>
+            <div class="rlx-field"><label class="rlx-label" for="exT">Target units for A</label><select id="exT" data-k="target" class="control-select"></select></div>
+            <p class="rlx-hint">Variables x, y, z, h are lengths, t a time, v a speed, g an acceleration, T and Te temperatures, w a rate; other single names start as free constants. Change any of them in the Units card.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Nodes (tree)</div><div class="metric-value" data-k="nodes">–</div></div><div class="metric-tile"><div class="metric-label">Nodes (graph with sharing)</div><div class="metric-value" data-k="dag">–</div></div><div class="metric-tile"><div class="metric-label">Depth</div><div class="metric-value" data-k="depth">–</div></div><div class="metric-tile"><div class="metric-label">Weighted</div><div class="metric-value" data-k="weighted">–</div></div></div>
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">The tree of A</h4><p class="rlx-sub">Circles are operations, squares are variables and numbers.</p></div></div>
+              <div class="chart-shell" style="height:300px"><svg data-k="tree" role="img" aria-label="The expression tree of formula A"></svg></div>
+              <dl class="srx-forms"><dt>infix</dt><dd data-k="infix">–</dd><dt>prefix</dt><dd data-k="prefix">–</dd><dt>postfix</dt><dd data-k="postfix">–</dd><dt>B, prefix</dt><dd data-k="gprefix">–</dd></dl>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Same function?</h4><p class="rlx-sub">Equal values on many random points suggest the same function on that range; one clear difference proves they differ.</p></div></div>
+              <p class="rlx-status" data-k="eq">–</p>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Units of A</h4><p class="rlx-sub">Give each variable its units. The check runs while the tree is built, before any evaluation.</p></div></div>
+              <div data-k="units" class="srx-units"></div>
+              <p class="rlx-status" data-k="ures">–</p>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">How much do units remove?</h4><p class="rlx-sub">Every formula with n operators from + − × ÷ and leaves x [L], t [T], v [L/T], c [pure number], counted exactly.</p></div></div>
+              <div class="rlx-field" style="max-width:360px"><div class="rlx-label"><label for="exN">Operators</label><span class="control-value" data-k="n-out">4</span></div><input id="exN" data-k="n" type="range" min="1" max="6" step="1" value="4"></div>
+              <label class="srx-check"><input type="checkbox" data-k="speed"> count only formulas that give a speed</label>
+              <div class="srx-tablewrap"><table class="srx-table" data-k="count"></table></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current formulas and settings.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Make A and B different trees (different prefix strings) that the test calls the same function.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Type a formula of your own (not a preset) whose graph with sharing saves at least four nodes over its tree.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Build a formula A that contains a sine or cosine and whose units come out as a speed, L/T.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>Set the operator count to the smallest size at which fewer than 5% of formulas pass the unit check.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="next" class="proj-section is-soft" aria-labelledby="next-title"><div class="proj-wrap">
+      <h2 id="next-title" class="proj-h2">Keep going</h2>
+      <div class="rl-pn"><a href="/symbolic-laws/module-01/"><i class="ri-arrow-left-line" aria-hidden="true"></i><span><small>Previous · Module 1</small><strong>From predictive models to scientific laws</strong></span></a><a class="is-next" href="/symbolic-laws/module-03/"><span><small>Next · Module 3</small><strong>Encoding physics and domain knowledge</strong></span><i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+    </div></section>
+  </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Courses</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/rl-course/" class="hover:text-white">Reinforcement Learning</a></li>
+                  <li><a href="/epidemic-modeling/" class="hover:text-white">Epidemic Modeling</a></li>
+                  <li><a href="/symbolic-laws/" class="hover:text-white">Symbolic Physical Laws Discovery</a></li>
+                  <li><a href="/non-observed-economy/" class="hover:text-white">Non-Observed Economy</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/rl-course/" class="hover:text-white">RL course</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <script src="/js/videos.js"></script>
+      
+      <script src="/js/sr-labs.js" defer></script>
+      <script src="/js/epi-course.js" defer></script>
+   </body>
+</html>

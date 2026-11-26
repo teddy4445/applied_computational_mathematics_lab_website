@@ -1,0 +1,59 @@
+<!-- Used by tools/build_sr_course.py: lab 3 (Module 3) of the Symbolic Physical Laws Discovery course: the units guard. A draining tank (Torricelli's law with Cd = 0.6, simulated in the browser): candidate drain-time formulas checked for units, dimensionless groups from a null space, a soft "never rises, never below empty" rule on a cubic, and the knowledge ladder of video 7. Script: js/sr-labs.js (data-srx="units"). -->
+      <div class="rlx" id="units-lab" data-srx="units">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">A tank drains through a small hole</h3>
+          <p class="rlx-sub">Water leaves at about C<sub>d</sub>·√(2gh). In this simulation C<sub>d</sub> = 0.6, a typical but made-up value. Everything runs in your browser; your draws of noise and tanks differ from the ones in the videos.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">Units as types</div>
+              <div class="formula-line"><span class="formula-chip">[T] = time · [g] = L/T² · [a] = L²</span></div>
+              <p class="math-card-copy">A drain-time formula must come out as a time. Products add powers; sums need equal units.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Dimensionless groups</div>
+              <div class="formula-line"><span class="formula-chip">exponents in the null space</span></div>
+              <p class="math-card-copy">Five quantities with two base dimensions leave three groups. The law must link the groups.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Hard or soft</div>
+              <div class="formula-line"><span class="formula-chip">fit + λ·(rises² + negatives²)</span></div>
+              <p class="math-card-copy">A rule can be a penalty with a weight λ, or (with a huge weight) a hard limit.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-main">
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">A · The units guard</h4><p class="rlx-sub">Type a formula for the drain time T using h, g, a, A (and d, nu, rho if you like), or try one of these.</p></div></div>
+              <div class="rlx-field"><label class="rlx-label" for="unCand">T =</label><input id="unCand" data-k="cand" type="text" class="control-select srx-formula" value="(A/a)*sqrt(h/g)" spellcheck="false" autocomplete="off"></div>
+              <div class="srx-presets"><button type="button" class="control-button control-button-secondary" data-cand="h/g">h/g</button><button type="button" class="control-button control-button-secondary" data-cand="A/a + sqrt(h/g)">A/a + √(h/g)</button><button type="button" class="control-button control-button-secondary" data-cand="sqrt(2)/0.6*(A/a)*sqrt(h/g)">Torricelli</button><button type="button" class="control-button control-button-secondary" data-cand="sqrt(h/g)*exp(a/A)">√(h/g)·exp(a/A)</button></div>
+              <p class="rlx-status" data-k="verdict" role="status" aria-live="polite">–</p>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">B · Dimensionless groups</h4><p class="rlx-sub">Pick the quantities you think matter. The page builds their dimension matrix and an integer basis of its null space.</p></div></div>
+              <div data-k="pick" class="srx-units"></div>
+              <div data-k="groups" class="srx-groups"></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">C · Hard or soft</h4><p class="rlx-sub">A cubic fitted to one minute of level readings (shaded), with a penalty for any rise or any level below empty between 0 and 240 s. Orange: the cubic; blue dashed: Torricelli's law, the truth here.</p></div></div>
+              <div class="rlx-field" style="max-width:420px"><div class="rlx-label"><label for="unLam">Penalty weight λ</label><span class="control-value" data-k="lam-out">0</span></div><input id="unLam" data-k="lam" type="range" min="0" max="6" step="1" value="0"></div>
+              <div class="rlx-btns" style="max-width:420px"><button type="button" class="control-button control-button-secondary is-wide" data-k="newlevels">New noisy readings</button></div>
+              <p class="rlx-hint" data-k="plain"></p>
+              <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Fit inside the minute</div><div class="metric-value" data-k="rin">–</div></div><div class="metric-tile"><div class="metric-label">Level at 3 min</div><div class="metric-value" data-k="r180">–</div></div><div class="metric-tile"><div class="metric-label">Lowest level, 0–240 s</div><div class="metric-value" data-k="rlow">–</div></div></div>
+              <div class="chart-shell" style="height:300px"><svg data-k="lchart" role="img" aria-label="Level readings, the penalized cubic and Torricelli's law"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">D · The ladder</h4><p class="rlx-sub">Forty small tanks (levels 20–60 cm, holes 4–10 mm) are timed; the rungs then predict ten big ones (up to 2 m, holes up to 2 cm).</p></div></div>
+              <div class="rlx-field" style="max-width:420px"><div class="rlx-label"><label for="unNoise">Timing noise</label><span class="control-value" data-k="noise-out">2%</span></div><input id="unNoise" data-k="noise" type="range" min="0" max="20" step="1" value="2"></div>
+              <div class="rlx-btns" style="max-width:420px"><button type="button" class="control-button control-button-secondary is-wide" data-k="newtanks">New tanks</button></div>
+              <div class="srx-tablewrap"><table class="srx-table" data-k="rungs"></table></div>
+              <p class="rlx-hint">Rung 0 fits a quadratic in level, hole and tank size (10 constants). Rung 1 fits a power law in the groups T·√(g/h), a/A and A/h². Rung 3 fixes the small-hole scaling and fits one constant.</p>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current settings.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Write a drain-time formula that passes the units guard but is not Torricelli's shape: units are a filter, not a validation.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Choose quantities that leave exactly two dimensionless groups, with the drain time T in one of them.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Find readings where the plain cubic goes below empty, then pick the smallest soft weight (not hard) that keeps the lowest level above −1 cm and the fit inside under 2.5 mm.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>With at least 10% timing noise, show that rung 3 still recovers C<sub>d</sub> within 3% of 0.6.</span></li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>

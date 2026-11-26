@@ -1,0 +1,68 @@
+<!-- Used by tools/build_sr_course.py: lab 9 (Module 9) of the Symbolic Physical Laws Discovery course: a stress-test bench. A simulated tank drains through a small hole (Torricelli's law, dh/dt = −c·√h); a level sensor reads every 2 s. The visitor fits dh/dt = −c·h^p with different pipelines and data, checks whether the 90% interval is calibrated on 100 simulated experiments, runs a negative control (shuffled readings) and a positive control (a syrup, p = 1), and chooses the next 60-second experiment where three rival laws disagree most. Script: js/sr-labs.js (data-srx="stress"). -->
+      <div class="rlx" id="stress-lab" data-srx="stress">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">A draining tank on the test bench</h3>
+          <p class="rlx-sub">The page simulates a tank draining through a 1 cm hole. Torricelli’s law says the level falls at a rate proportional to its square root: dh/dt = −c·√h. A sensor reads the level every 2 seconds with the noise you choose and stops below 2 cm. You fit dh/dt = −c·h^p and test the fit the way Module 9 does. Everything runs in your browser.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">The law and a power to find</div>
+              <div class="formula-line"><span class="formula-chip">dh/dt = −c·h^p, truth p = 1/2</span></div>
+              <p class="math-card-copy">A syrup through a long thin outlet drains by a different law: p = 1.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Calibration</div>
+              <div class="formula-line"><span class="formula-chip">does the 90% interval contain the truth 90% of the time?</span></div>
+              <p class="math-card-copy">Rerun the same analysis on 100 simulated experiments and count.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">A discriminating experiment</div>
+              <div class="formula-line"><span class="formula-chip">run where rival laws disagree most</span></div>
+              <p class="math-card-copy">A law whose forecast misses by more than 5 noise widths is falsified.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Data and pipeline">
+            <div><h4 class="rlx-h">A · Data</h4><p class="rlx-sub">What the sensor recorded.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="tkD">Drains</label></div>
+              <select id="tkD" data-k="data" class="control-select"><option value="three" selected>three drains, from 1.0, 0.7 and 0.4 m</option><option value="full">one drain from 1 m, to the end</option><option value="short">one drain from 1 m, only 40 seconds</option><option value="top">one drain, watched from 1 m down to 60 cm</option></select></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="tkF">Fluid</label></div>
+              <select id="tkF" data-k="fluid" class="control-select"><option value="water" selected>water through a small hole</option><option value="syrup">syrup through a long thin outlet</option></select></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="tkN">Noise</label><span class="control-value" data-k="noise-out">1 mm</span></div><input id="tkN" data-k="noise" type="range" min="0" max="4" step="1" value="2"></div>
+            <label class="srx-check"><input type="checkbox" data-k="shuffle"> <span>Shuffle the readings in time (a negative control)</span></label>
+            <div style="margin-top:.75rem"><h4 class="rlx-h">B · Pipeline</h4><p class="rlx-sub">How the power p is estimated.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="tkP">Pipeline</label></div>
+              <select id="tkP" data-k="pipe" class="control-select"><option value="fd" selected>differences of neighbours, log-log line</option><option value="sg">smoothing over 21 readings, log-log line</option><option value="traj">fit whole trajectories</option></select></div>
+            <div class="rlx-btns"><button type="button" class="control-button control-button-secondary is-wide" data-k="redraw">New noise</button></div>
+            </aside>
+            <div class="rlx-main">
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">–</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">The fit, and how sure it is</h4><p class="rlx-sub">Grey: readings. Blue: the fitted law. The 90% interval comes from the pipeline’s own error estimate.</p></div></div>
+              <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Power p</div><div class="metric-value" data-k="p">–</div></div><div class="metric-tile"><div class="metric-label">90% interval</div><div class="metric-value" data-k="ci">–</div></div><div class="metric-tile"><div class="metric-label">Truth inside?</div><div class="metric-value" data-k="inside">–</div></div><div class="metric-tile"><div class="metric-label">Trajectory error</div><div class="metric-value" data-k="rms">–</div></div></div>
+              <div class="chart-shell" style="height:260px"><svg data-k="fchart" role="img" aria-label="Level readings and the fitted law"></svg></div>
+              <div class="rlx-btns"><button type="button" class="control-button is-wide" data-k="calib">Check calibration on 100 experiments</button></div>
+              <p class="rlx-hint">Intervals that contained the truth: <b data-k="cover">not checked yet</b></p>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Choose the next experiment</h4><p class="rlx-sub">Three rival laws fitted on your data: a power law (Torricelli), a straight-line rate, an exponential. Where would a 60-second run from a new level tell them apart?</p></div></div>
+              <div class="chart-shell" style="height:220px"><svg data-k="dchart" role="img" aria-label="How much the rival laws disagree, by starting level"></svg></div>
+              <p class="rlx-hint" data-k="dstatus">–</p>
+              <div class="rlx-field"><div class="rlx-label"><label for="tkL">Starting level</label></div>
+                <select id="tkL" data-k="level" class="control-select"><option value="0.1">10 cm</option><option value="0.2">20 cm</option><option value="0.3">30 cm</option><option value="0.4">40 cm</option><option value="0.5">50 cm</option><option value="0.6">60 cm</option><option value="0.7">70 cm</option><option value="0.8">80 cm</option><option value="0.9" selected>90 cm</option><option value="1">1 m</option></select></div>
+              <div class="rlx-btns"><button type="button" class="control-button is-wide" data-k="runx">Run the 60-second experiment</button></div>
+              <div class="chart-shell" style="height:220px"><svg data-k="xchart" role="img" aria-label="The experiment's readings and the three laws' forecasts"></svg></div>
+              <p class="rlx-hint srx-mono" data-k="xres">–</p>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked as you go.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Find p within 0.01 of 1/2, with a 90% interval that contains 1/2, at 1 mm of noise or more.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Check calibration twice: find a pipeline whose intervals contain the truth in fewer than half of the experiments, and one that reaches 85% or more.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Run the negative control: with shuffled readings, see a log-log pipeline still report a power, while the trajectory fit’s error goes above 50 mm.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>Watch only the top of the tank (1 m to 60 cm), then falsify both rival laws with a single 60-second experiment.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>

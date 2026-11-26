@@ -1,0 +1,68 @@
+<!-- Used by tools/build_sr_course.py: lab 2 (Module 2) of the Symbolic Physical Laws Discovery course: an expression workbench. A typed formula becomes a tree; its prefix and postfix strings, its size measures, its sharing, its units, a numerical equivalence test and the unit counts of video 4 are computed in the browser. Script: js/sr-labs.js (data-srx="expr"). -->
+      <div class="rlx" id="expr-lab" data-srx="expr">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">One formula, many objects</h3>
+          <p class="rlx-sub">Type a formula with + − * / ^, the functions sin, cos, exp, log, sqrt and abs, numbers, and variable names. The page turns it into a tree and measures it. Everything runs in your browser.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">Trees and strings</div>
+              <div class="formula-line"><span class="formula-chip">(x − 2) × y  →  × − x 2 y</span></div>
+              <p class="math-card-copy">Prefix writes each operator first, postfix last. Neither needs parentheses.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Size, three ways</div>
+              <div class="formula-line"><span class="formula-chip">nodes · depth · weighted</span></div>
+              <p class="math-card-copy">Weights: + − × and leaves 1; ÷, √ and |·| 2; powers, sin, cos, exp and log 3. A graph with sharing stores repeated pieces once.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Units as types</div>
+              <div class="formula-line"><span class="formula-chip">[L] + [T]  ✗</span></div>
+              <p class="math-card-copy">Sums need matching units; products add powers; sin, exp and log need a pure number inside. A free constant can take any unit.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Formula controls">
+            <div><h4 class="rlx-h">Formula A</h4><p class="rlx-sub">Type, pick a preset, or mutate a random branch.</p></div>
+            <div class="rlx-field"><label class="rlx-label" for="exA">Formula A</label><input id="exA" data-k="f" type="text" class="control-select srx-formula" value="c*(Te - T) + q*sin(w*t)" spellcheck="false" autocomplete="off"></div>
+            <div class="srx-presets"><button type="button" class="control-button control-button-secondary" data-preset="0">heater</button><button type="button" class="control-button control-button-secondary" data-preset="1">(x − 2)·y</button><button type="button" class="control-button control-button-secondary" data-preset="2">shared exp</button><button type="button" class="control-button control-button-secondary" data-preset="3">saturating</button></div>
+            <div class="rlx-btns"><button type="button" class="control-button control-button-primary" data-k="mutate">Mutate a branch</button><button type="button" class="control-button control-button-secondary" data-k="undo">Undo</button></div>
+            <div><h4 class="rlx-h">Formula B</h4><p class="rlx-sub">Compared with A at 400 random points.</p></div>
+            <div class="rlx-field"><label class="rlx-label" for="exB">Formula B</label><input id="exB" data-k="g" type="text" class="control-select srx-formula" value="c*(Te - T) + q*cos(w*t)" spellcheck="false" autocomplete="off"></div>
+            <div class="rlx-field"><label class="rlx-label" for="exR">Sample variables from</label><select id="exR" data-k="range" class="control-select"><option value="all">−3 to 3</option><option value="pos">0.1 to 3 (positive only)</option></select></div>
+            <div class="rlx-field"><label class="rlx-label" for="exT">Target units for A</label><select id="exT" data-k="target" class="control-select"></select></div>
+            <p class="rlx-hint">Variables x, y, z, h are lengths, t a time, v a speed, g an acceleration, T and Te temperatures, w a rate; other single names start as free constants. Change any of them in the Units card.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Nodes (tree)</div><div class="metric-value" data-k="nodes">–</div></div><div class="metric-tile"><div class="metric-label">Nodes (graph with sharing)</div><div class="metric-value" data-k="dag">–</div></div><div class="metric-tile"><div class="metric-label">Depth</div><div class="metric-value" data-k="depth">–</div></div><div class="metric-tile"><div class="metric-label">Weighted</div><div class="metric-value" data-k="weighted">–</div></div></div>
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">The tree of A</h4><p class="rlx-sub">Circles are operations, squares are variables and numbers.</p></div></div>
+              <div class="chart-shell" style="height:300px"><svg data-k="tree" role="img" aria-label="The expression tree of formula A"></svg></div>
+              <dl class="srx-forms"><dt>infix</dt><dd data-k="infix">–</dd><dt>prefix</dt><dd data-k="prefix">–</dd><dt>postfix</dt><dd data-k="postfix">–</dd><dt>B, prefix</dt><dd data-k="gprefix">–</dd></dl>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Same function?</h4><p class="rlx-sub">Equal values on many random points suggest the same function on that range; one clear difference proves they differ.</p></div></div>
+              <p class="rlx-status" data-k="eq">–</p>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Units of A</h4><p class="rlx-sub">Give each variable its units. The check runs while the tree is built, before any evaluation.</p></div></div>
+              <div data-k="units" class="srx-units"></div>
+              <p class="rlx-status" data-k="ures">–</p>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">How much do units remove?</h4><p class="rlx-sub">Every formula with n operators from + − × ÷ and leaves x [L], t [T], v [L/T], c [pure number], counted exactly.</p></div></div>
+              <div class="rlx-field" style="max-width:360px"><div class="rlx-label"><label for="exN">Operators</label><span class="control-value" data-k="n-out">4</span></div><input id="exN" data-k="n" type="range" min="1" max="6" step="1" value="4"></div>
+              <label class="srx-check"><input type="checkbox" data-k="speed"> count only formulas that give a speed</label>
+              <div class="srx-tablewrap"><table class="srx-table" data-k="count"></table></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current formulas and settings.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Make A and B different trees (different prefix strings) that the test calls the same function.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Type a formula of your own (not a preset) whose graph with sharing saves at least four nodes over its tree.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Build a formula A that contains a sine or cosine and whose units come out as a speed, L/T.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>Set the operator count to the smallest size at which fewer than 5% of formulas pass the unit check.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>

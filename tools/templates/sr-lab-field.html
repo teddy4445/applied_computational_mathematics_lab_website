@@ -1,0 +1,60 @@
+<!-- Used by tools/build_sr_course.py: lab 8 (Module 8) of the Symbolic Physical Laws Discovery course: field discovery. A simulated plant spreads along a 100-km coast (the Fisher–KPP equation); sensors every 1 km read the cover 4 times a week for 24 weeks. The visitor picks the experiment, the noise, the pipeline (weak form or finite differences) and the threshold, runs sparse regression on a 7-term library, and tests the found law on two releases that merge (never in the fit). Script: js/sr-labs.js (data-srx="field"). -->
+      <div class="rlx" id="field-lab" data-srx="field">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">A plant on the coast, one field law</h3>
+          <p class="rlx-sub">The page simulates a plant spreading along 100 km of coast with the Fisher–KPP equation: ∂u/∂t = 0.5·u·(1 − u) + 4·∂²u/∂x², where u is the fraction of ground covered. Sensors every 1 km read u four times a week for 24 weeks, with the noise you choose; the ends of the coast are closed. Everything runs in your browser.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">A library of field terms</div>
+              <div class="formula-line"><span class="formula-chip">u, u², u³, u_x, u_xx, u·u_x, u_xxx</span></div>
+              <p class="math-card-copy">Growth and crowding, drift, spread, transport that depends on cover, and a wave term.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">The weak form</div>
+              <div class="formula-line"><span class="formula-chip">∬ φ·∂u/∂t = −∬ ∂φ/∂t·u</span></div>
+              <p class="math-card-copy">A smooth bump on windows 12 km × 3 weeks takes every derivative; the readings are only integrated.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">A held-out test</div>
+              <div class="formula-line"><span class="formula-chip">two releases that merge</span></div>
+              <p class="math-card-copy">The found law runs on an experiment it never saw; the error is in cover, 0 to 1.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Data and method">
+            <div><h4 class="rlx-h">A · Data</h4><p class="rlx-sub">What the sensors recorded.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="fdE">Experiment</label></div>
+              <select id="fdE" data-k="exp" class="control-select"><option value="window">west-end release, a 40-km window (weeks 6–18)</option><option value="west">west-end release, whole coast</option><option value="middle" selected>release in the middle, whole coast</option></select></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="fdN">Noise</label><span class="control-value" data-k="noise-out">1%</span></div><input id="fdN" data-k="noise" type="range" min="0" max="5" step="1" value="3"></div>
+            <div style="margin-top:.75rem"><h4 class="rlx-h">B · Method</h4><p class="rlx-sub">How the derivatives are handled, and how hard terms are pruned.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="fdP">Pipeline</label></div>
+              <select id="fdP" data-k="pipe" class="control-select"><option value="weak">weak form (no derivatives of the data)</option><option value="fd" selected>finite differences</option></select></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="fdT">Threshold</label><span class="control-value" data-k="tau-out">0.2</span></div><input id="fdT" data-k="tau" type="range" min="0" max="6" step="1" value="3"></div>
+            <div class="rlx-btns"><button type="button" class="control-button control-button-secondary is-wide" data-k="redraw">New noise</button></div>
+            </aside>
+            <div class="rlx-main">
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">–</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">The law found</h4><p class="rlx-sub">Sparse regression on the readings the search saw (map below: green is more cover; time runs down).</p></div></div>
+              <p class="rlx-hint srx-mono" data-k="law">–</p>
+              <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Terms kept</div><div class="metric-value" data-k="nterms">–</div></div><div class="metric-tile"><div class="metric-label">The plant’s law?</div><div class="metric-value" data-k="right">–</div></div></div>
+              <div class="chart-shell" style="height:220px"><svg data-k="hchart" role="img" aria-label="The noisy readings as a space–time map"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">A test the fit never saw</h4><p class="rlx-sub">Two releases, at 25 and 75 km, whose fronts merge. Dashed: the true plant. Orange: the found law from the same start.</p></div></div>
+              <div class="chart-shell" style="height:280px"><svg data-k="mchart" role="img" aria-label="Cover along the coast at weeks 4, 8 and 12: the truth and the found law"></svg></div>
+              <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Forecast error (RMS, 24 weeks)</div><div class="metric-value" data-k="test">–</div></div></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked as you go.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Find the plant’s three-term law at 1% noise or more. Hint: the pipeline matters.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Watch one front through the 40-km window and get a law with a drift term; then find the plant’s law from the middle release, with the same noise and method.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Find where the weak form stops working on the middle release: the law found at 1% noise and missed at 2%.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>Forecast the merging fronts to within 0.005 of cover (RMS) with a law found at 1% noise or more.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>

@@ -126,6 +126,26 @@ python tools/build_epi_course.py
 
 Labs: `js/epi-labs.js` holds every lab of the course in one file; a lab starts only when its root element (`data-epx="..."`) is on the page, and its markup lives in `tools/templates/epi-lab-*.html` (the builder adds it to the module page). The labs reuse `css/exploration-lab.css` and `css/rl-labs.css`. All numbers a lab shows come from the visitor's own runs in the browser.
 
+## Symbolic Physical Laws Discovery course (symbolic-laws/)
+
+Teddy's course on discovering physical laws with computers, one module per chapter of his forthcoming book (T. Lazebnik, *Computational Methods for Symbolic Physical Laws Discovery*). Pages: `symbolic-laws/` (the course page: how to study, the 10 modules in four parts, the labs) and one page per module that is online, `symbolic-laws/module-01/` and on. A module goes online when its text and slide deck are ready; its videos (8 to 15 minutes each) show "Video coming soon" until they are on YouTube, and the course page lists the other modules as "in production". A module page has the module's summary, goal and key ideas, the first slide with the PDF, the videos with transcripts, and the lab that goes with it.
+
+Everything comes from `data/sr-course.json` (modules, videos with transcripts, labs). Styles: `css/rl-course.css`, `css/epi-course.css` plus `css/sr-course.css`; scripts: `js/epi-course.js` (the player and the "coming soon" state) and `js/sr-labs.js` (the labs). The builder reuses the helpers of `tools/build_rl_course.py` and updates its own blocks in `sitemap.xml` and `llms.txt`:
+
+```
+python tools/build_sr_course.py
+```
+
+## Computational Approaches to the Non-Observed Economy course (non-observed-economy/)
+
+Teddy's course on studying the non-observed economy (informal, underground, illegal and unrecorded production) with computation, one module per chapter of the forthcoming book *Computational Approaches to the Non-Observed Economy: From Theory to Practice*. Pages: `non-observed-economy/` (the course page: how to study, the 9 modules in four parts, the labs) and one page per module that is online, `non-observed-economy/module-01/` and on. A module goes online when its text and slide deck are ready; its videos show "Video coming soon" until they are on YouTube. A module page has the module's summary, goal and key ideas, the first slide with the PDF, the videos with transcripts, and the lab that goes with it. The towns and countries in the videos, slides and labs are invented, and every number comes from ACML's own simulations.
+
+Everything comes from `data/noe-course.json` (modules, videos with transcripts, labs). Styles: `css/rl-course.css`, `css/epi-course.css` plus `css/noe-course.css`; scripts: `js/epi-course.js` (the player and the "coming soon" state) and `js/noe-labs.js` (the nine labs; markup in `tools/templates/noe-lab-*.html`). To rebuild the pages, the sitemap block and the llms.txt block after changing the JSON:
+
+```
+python tools/build_noe_course.py
+```
+
 ## Images
 
 Large images have `.webp` copies next to the originals, and the pages and data files point at the `.webp` versions. Keep the originals: share previews (`og:image`) still use PNG/JPEG. When you add a large photo, add a `.webp` copy as well (for example with https://squoosh.app), roughly 800 px wide for team photos and 1000 to 1200 px for cards and project images.

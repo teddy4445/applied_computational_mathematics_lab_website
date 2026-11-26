@@ -1,0 +1,40 @@
+<!-- Used by tools/build_noe_course.py: lab 9 (Module 9) of the Non-Observed Economy course: fill in a task and estimand card that checks itself, then see how choosing the best of many specifications flatters a model and how nesting fixes it. Script: js/noe-labs.js (data-noex="study"). -->
+      <div class="rlx" id="study-lab" data-noex="study">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">Study designer: a card that checks itself</h3>
+          <p class="rlx-sub">Part one: describe a study in a few choices and the card flags what does not fit together. Part two: forty invented countries, 22 candidate predictors of which only two are real, and up to 300 specifications chosen by cross-validation on the same folds.</p>
+          <div class="math-grid">
+            <article class="math-card"><div class="math-card-title">The order</div><div class="formula-line"><span class="formula-chip">question → estimand → evidence → model → validation → report</span></div><p class="math-card-copy">Each step is defined by the one before.</p></article>
+            <article class="math-card"><div class="math-card-title">An estimand</div><div class="formula-line"><span class="formula-chip">population, outcome, intervention, comparator, horizon, summary</span></div><p class="math-card-copy">Fix all six and the question has one answer.</p></article>
+            <article class="math-card"><div class="math-card-title">Nesting</div><div class="formula-line"><span class="formula-chip">select inside, score outside</span></div><p class="math-card-copy">The whole selection procedure is what you validate.</p></article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Task card controls">
+            <div><h4 class="rlx-h">Task card</h4><p class="rlx-sub">Describe your study.</p></div>
+            <div class="rlx-field"><label class="rlx-label" for="stT">Task type</label><select id="stT" class="control-select" data-k="task"><option value="measurement" selected>measurement</option><option value="detection">detection</option><option value="forecasting">forecasting</option><option value="causal">causal evaluation</option><option value="simulation">simulation</option><option value="policy">policy design</option></select></div><div class="rlx-field"><label class="rlx-label" for="stA">Audience</label><select id="stA" class="control-select" data-k="audience"><option value="statistics office" selected>a statistics office</option><option value="tax office">a tax office</option><option value="ministry">a ministry</option><option value="researchers">researchers</option></select></div><div class="rlx-field"><label class="rlx-label" for="stO">Output</label><select id="stO" class="control-select" data-k="output"><option value="level" selected>a level</option><option value="ranking">a ranking</option><option value="trajectory">a trajectory</option><option value="effect">an effect</option><option value="distribution">a generated distribution</option><option value="portfolio">a portfolio</option></select></div><div class="rlx-field"><label class="rlx-label" for="stU">Unit</label><select id="stU" class="control-select" data-k="unit"><option value="country-year" selected>country-years</option><option value="region">regions</option><option value="firm">firms</option><option value="transaction">transactions</option></select></div><div class="rlx-field"><label class="rlx-label" for="stC">Compared with</label><select id="stC" class="control-select" data-k="comparator"><option value="none" selected>not stated</option><option value="no reform">no reform</option><option value="old rules">the old rules</option></select></div><div class="rlx-field"><label class="rlx-label" for="stH">Horizon</label><select id="stH" class="control-select" data-k="horizon"><option value="none" selected>not stated</option><option value="one year">one year</option><option value="two years">two years</option><option value="five years">five years</option></select></div><div class="rlx-field"><label class="rlx-label" for="stV">Validation</label><select id="stV" class="control-select" data-k="validation"><option value="random rows" selected>random rows held out</option><option value="held-out regions">whole regions held out</option><option value="later years">later years (rolling origin)</option><option value="random audits">against random audits</option></select></div><div class="rlx-field"><label class="rlx-label" for="stD">Denominator</label><select id="stD" class="control-select" data-k="denominator"><option value="unstated" selected>not stated</option><option value="stated">stated (a share of what)</option></select></div><div class="rlx-field"><label class="rlx-label" for="stQ">Uncertainty</label><select id="stQ" class="control-select" data-k="uncertainty"><option value="none" selected>none</option><option value="standard error">a standard error</option><option value="tested by subgroup">intervals tested by subgroup</option></select></div><div class="rlx-label" style="margin-top:.4rem">Reporting</div><label class="srx-check"><input type="checkbox" data-k="limits"> A list of limits</label><label class="srx-check"><input type="checkbox" data-k="code"> Code, data access and seeds</label><label class="srx-check"><input type="checkbox" data-k="prereg"> Estimand and validation written down first</label>
+            <p class="rlx-hint">The card is generic: it checks consistency, not the quality of an idea.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Card checks passed</div><div class="metric-value" data-k="score">–</div></div><div class="metric-tile"><div class="metric-label">Best cross-validated error</div><div class="metric-value" data-k="best">–</div></div><div class="metric-tile"><div class="metric-label">On fresh data</div><div class="metric-value" data-k="fresh">–</div></div><div class="metric-tile"><div class="metric-label">Nested estimate</div><div class="metric-value" data-k="nest">–</div></div></div>
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Report card</h4><p class="rlx-sub">What the card flags right now.</p></div></div>
+              <ul class="noex-flags" data-k="flags"></ul>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Choosing among many specifications</h4><p class="rlx-sub" data-k="fnote"></p></div></div>
+              <div class="rlx-field"><div class="rlx-label"><label for="stK">Specifications tried</label><span class="control-value" data-k="specs-out">1</span></div><input id="stK" data-k="specs" type="range" min="1" max="300" step="1" value="1"></div><label class="srx-check"><input type="checkbox" data-k="nested"> Nest the whole selection inside an outer check</label>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current settings.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Fill in the card with no flags at all.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Choose a detection task with country-year units and see the level-mismatch flag.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Try 300 specifications and see the winner’s cross-validated error look at least 0.3 points better than on fresh data.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>Nest the selection and get an honest estimate within 0.2 points of the fresh-data error.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_sr_course.py from data/sr-course.json. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Module 4: Search and optimization | Symbolic Physical Laws Discovery Course | ACML</title>
+      <meta name="description" content="Module 4 of 10 of ACML’s Symbolic Physical Laws Discovery course. How the search moves through equation space: slides, 2 videos and an interactive lab.">
+      <meta name="author" content="Teddy Lazebnik">
+      <meta name="keywords" content="symbolic regression, equation discovery, physics-informed machine learning, search and optimization, course, ACML">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/symbolic-laws/module-04/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Module 4: Search and optimization · Symbolic Physical Laws Discovery">
+      <meta property="og:description" content="Module 4 of 10 of ACML’s Symbolic Physical Laws Discovery course. How the search moves through equation space: slides, 2 videos and an interactive lab.">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/symbolic-laws/module-04/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/symbolic-laws/module-04/share.jpg">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Module 4: Search and optimization · Symbolic Physical Laws Discovery">
+      <meta name="twitter:description" content="Module 4 of 10 of ACML’s Symbolic Physical Laws Discovery course. How the search moves through equation space: slides, 2 videos and an interactive lab.">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/symbolic-laws/module-04/share.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "Module 4: Search and optimization",
+        "description": "Equation space is huge and rough: one edit can change everything, and many change nothing. With the range of a thrown ball as the running example, we count the space exactly (729,657 trees up to eight nodes, 107,570 different candidates), enumerate it with pruning, and evolve formulas with genetic programming: selection, crossover, mutation, diversity and bloat. A race on one budget, repeated over 100 runs on five sets of throws, shows how much a single data set or ten seeds can mislead. Then the other families: token-by-token policies and tree search, pretrained and differentiable generators, constants fitted inside the loop, Pareto fronts, caching and quick checks, stopping rules, and how to compare searchers fairly.",
+        "url": "https://acml.teddylazebnik.com/symbolic-laws/module-04/",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "learningResourceType": [
+          "Lecture slides",
+          "Video",
+          "Interactive resource"
+        ],
+        "teaches": "How the search moves through equation space",
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Symbolic Physical Laws Discovery",
+          "url": "https://acml.teddylazebnik.com/symbolic-laws/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Teddy Lazebnik",
+          "url": "https://teddylazebnik.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Applied Computational Mathematics Laboratory",
+          "url": "https://acml.teddylazebnik.com/"
+        },
+        "hasPart": [
+          {
+            "@type": "VideoObject",
+            "name": "Searching an enormous space",
+            "description": "Sixty throws, one law hidden among hundreds of thousands of formulas, and three searchers with the same budget.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/symbolic-laws/img/videos/v08.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/__rQPIA0bLo",
+            "duration": "PT9M12S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Other ways to search, and a fair comparison",
+            "description": "Two thirds of the formulas our genetic program evaluated were repeats. A fair comparison starts by counting the waste.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/symbolic-laws/img/videos/v09.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/ubA35DqQaEo",
+            "duration": "PT8M17S"
+          },
+          {
+            "@type": "DigitalDocument",
+            "name": "Module 4 slides",
+            "encodingFormat": "application/pdf",
+            "url": "https://acml.teddylazebnik.com/symbolic-laws/slides/Symbolic_Laws_Module04_Search_and_optimization.pdf"
+          }
+        ]
+      }
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      <link href="/css/videos.css" rel="stylesheet">
+      
+      <link href="/css/exploration-lab.css" rel="stylesheet">
+      <link href="/css/rl-labs.css" rel="stylesheet">
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/project.css" rel="stylesheet">
+      <link href="/css/rl-course.css" rel="stylesheet">
+      <link href="/css/epi-course.css" rel="stylesheet">
+      <link href="/css/sr-course.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+          <a href="/courses.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Courses</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/courses.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Courses</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="proj-page rl-page bg-white">
+    <header class="proj-hero rl-hero">
+      <div class="proj-wrap proj-hero-grid">
+        <div>
+          <nav class="proj-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/courses.html">Courses</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/symbolic-laws/">Symbolic Physical Laws Discovery</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Module 4</span></nav>
+          <p class="proj-kicker"><span><i class="ri-graduation-cap-line" aria-hidden="true"></i>Symbolic Physical Laws Discovery</span><span>Search and data</span></p>
+          <h1 class="proj-title"><small>Module 4</small>Search and optimization</h1>
+          <p class="proj-about-lead rl-summary">Equation space is huge and rough: one edit can change everything, and many change nothing. With the range of a thrown ball as the running example, we count the space exactly (729,657 trees up to eight nodes, 107,570 different candidates), enumerate it with pruning, and evolve formulas with genetic programming: selection, crossover, mutation, diversity and bloat. A race on one budget, repeated over 100 runs on five sets of throws, shows how much a single data set or ten seeds can mislead. Then the other families: token-by-token policies and tree search, pretrained and differentiable generators, constants fitted inside the loop, Pareto fronts, caching and quick checks, stopping rules, and how to compare searchers fairly.</p>
+          <div class="rl-goal"><i class="ri-focus-3-line" aria-hidden="true"></i><span>By the end you should be able to explain how enumeration, genetic programming and sequential or learned searchers move through equation space, fit constants inside the loop, keep a Pareto front, and design a fair comparison with enough seeds, data sets and ablations.</span></div>
+          <h2 class="proj-h3 rl-ideas-title">Key ideas, one per video</h2>
+          <ul class="rl-ideas"><li><a href="#ep-8">Video 8</a><span>On our first set of throws, genetic programming found the range law in 11 of 20 runs, random search in 3 and enumeration in none. Over 100 runs on five sets of throws it was 28 against 15, and switching crossover off gave 45: rank searchers on many runs, not one.</span></li><li><a href="#ep-9">Video 9</a><span>With fitted constants the right structure reaches the noise level (0.0225) and its scale, 0.1023, matches 1/g = 0.1019. Ten seeds made crossover look essential; 100 runs said otherwise. Compare searchers on equal terms, over many seeds and data sets.</span></li></ul>
+          <p class="rl-source"><b>Book:</b> Chapter 4 of <cite>Computational Methods for Symbolic Physical Laws Discovery</cite> by Teddy Lazebnik (coming soon). The videos and slides follow the chapter’s topics in our own words, figures and simulations; nothing is copied from the book.</p>
+        </div>
+        <div class="rl-first">
+          <a class="rl-first-img" href="/symbolic-laws/slides/Symbolic_Laws_Module04_Search_and_optimization.pdf" target="_blank" rel="noopener"><img src="/symbolic-laws/img/slides/m04-s01.webp" alt="The title slide of Module 4: Search and optimization" width="960" height="540" fetchpriority="high" decoding="async"></a>
+          <p class="rl-first-text">30 slides, written to be read on your own, with worked examples, our own small simulations and check-yourself questions (answers at the end). PDF, 1.5 MB.</p>
+          <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="/symbolic-laws/slides/Symbolic_Laws_Module04_Search_and_optimization.pdf" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Open the PDF</a><a class="proj-btn" href="/symbolic-laws/slides/Symbolic_Laws_Module04_Search_and_optimization.pdf" download><i class="ri-download-2-line" aria-hidden="true"></i>Download</a></div>
+        </div>
+      </div>
+    </header>
+    <nav class="proj-subnav is-mobile-only" aria-label="Sections of this page"><div class="proj-wrap"><ul><li><a href="#watch">Watch</a></li><li><a href="#lab">Lab</a></li><li><a href="#next">Next</a></li></ul></div></nav>
+    <section id="watch" class="proj-section is-soft" aria-labelledby="watch-title"><div class="proj-wrap">
+      <h2 id="watch-title" class="proj-h2">Watch</h2>
+      <p class="proj-lead">2 videos for this module, each about 8 to 15 minutes. Pick one from the list, and open the transcript to read along: each timestamp plays the video from there. The narration is generated with a voice clone of Teddy, used with his permission.</p>
+      <div class="rl-watch">
+        <div class="rl-player-wrap">
+          <div id="rl-player" class="yt-player yt-16x9" data-yt-id="__rQPIA0bLo" data-yt-title="Searching an enormous space"><a class="yt-play" href="https://www.youtube.com/watch?v=__rQPIA0bLo" aria-label="Play video 8: Searching an enormous space"><img src="/symbolic-laws/img/videos/v08.webp" alt="" width="640" height="360" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div>
+          <div class="rl-now">
+            <p id="rl-now-num" class="rl-now-num">Video 8 · 9:12</p>
+            <p id="rl-now-title" class="rl-now-title">Searching an enormous space</p>
+            <p id="rl-now-hook" class="rl-now-hook">Sixty throws, one law hidden among hundreds of thousands of formulas, and three searchers with the same budget.</p>
+            <p id="rl-now-take" class="rl-now-take"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i><span>On our first set of throws, genetic programming found the range law in 11 of 20 runs, random search in 3 and enumeration in none. Over 100 runs on five sets of throws it was 28 against 15, and switching crossover off gave 45: rank searchers on many runs, not one.</span></p>
+          </div>
+            <details id="rl-tx" class="rl-tx">
+              <summary><i class="ri-file-text-line" aria-hidden="true"></i>Transcript<span id="rl-tx-which">Video 8</span><i class="ri-arrow-down-s-line rl-tx-caret" aria-hidden="true"></i></summary>
+              <div class="rl-tx-body"><div class="rl-tx-ep" data-ep="8"><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=__rQPIA0bLo" data-ep="8" data-t="0">0:00</a><p><b>Sixty throws, three searchers.</b> We throw a ball sixty times, at different speeds and angles, and measure how far it lands. Somewhere among hundreds of thousands of formulas is the range law. Who finds it, with ten thousand tries? Three searchers get the same budget: a blind random searcher, a careful enumerator that tries every formula from small to large, and an evolving population of formulas. By the end of this video you&#x27;ll know who won, and how much to trust the answer. This is Module four: search and optimization. Part one: the shape of the problem. Part two: searching systematically, with pruning. Part three: genetic programming, the evolutionary workhorse.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=__rQPIA0bLo&amp;t=45s" data-ep="8" data-t="45">0:45</a><p><b>Why search is hard.</b> Formally, we want the structure and the constants that minimize the error plus a complexity penalty. Even restricted versions of this problem are known to be computationally hard. So every practical solver bets on some structure: bounded size, good priors, useful building blocks, or learned proposals. And judging a solver by its smallest training error is a trap. A flexible approximation can win on error and still miss the law. Large comparisons show it too: solvers differ in accuracy, in the size of their formulas, and in how often they recover the exact law, and their ranking changes with the benchmark and the metric. Solvers come in families. Enumerators list formulas by complexity. Genetic programming evolves a population. Sequential methods build a formula token by token, guided by a policy or a tree search. Neural generators propose formulas after pretraining. And differentiable methods relax the choice of operators into something continuous. What separates them is the search policy: the rule that decides where the computing effort goes. Which candidates get generated, refined or thrown away, and when to stop.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=__rQPIA0bLo&amp;t=110s" data-ep="8" data-t="110">1:50</a><p><b>The shape of the space.</b> Part one: the space. Our language has four binary operations, sine and cosine, and three leaves: the speed v, the angle theta, and the number one. Every candidate also gets a fitted scale and offset, so overall constants come for free. Counted exactly, there are 729,657 trees with at most eight nodes. Most repeat each other: once a scale and offset are allowed, they describe only about 108,000 different candidates, roughly one in seven. The range law, v squared times the sine of twice theta, needs eight nodes: v times v, times the sine of theta plus theta. And this space isn&#x27;t smooth. One edit can change everything, many edits change nothing, and good formulas sit on narrow ridges between wide plateaus. Picture the neighbours of a formula: change one leaf, swap one operator, replace one branch. From v times v, a single swap gives v plus v, a completely different curve. From v times v times one, removing the one changes nothing at all.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=__rQPIA0bLo&amp;t=174s" data-ep="8" data-t="174">2:54</a><p><b>Systematic search and pruning.</b> Part two: systematic search. List candidates in order of complexity, and evaluate each one. Its great virtue is honesty: up to the size you reached, nothing was missed. And it can be pruned. Check syntax, types and units before evaluating. Drop candidates that repeat a function already tried. Bound the size. Screen out variables that don&#x27;t matter. Guard against division by zero. Order the checks from cheap to expensive: syntax, then units, then a quick numerical check, then fitting constants, then the full data, and only then slow simulation tests. Each stage is a filter with a price. A pruning rule is worth it only when it saves more than it costs, and when the assumption behind it can be defended. Our enumerator skips repeats, so ten thousand evaluations cover every candidate up to six nodes, and part of the seven-node ones. The range law is number 68,655 on its list. So the enumerator is certain to find it, but only after almost seven times the budget. Enumeration can certify that nothing simpler exists. It struggles as soon as the law is a few nodes bigger. Enumeration is most useful inside bigger systems: to search small pieces, to seed a population, or to prove that nothing simpler exists below some size. Pruning has a dark side. A rule that removes the true law turns a belief into an invisible theorem. No amount of optimization brings it back. So record every pruning rule as part of the method, and rerun important discoveries with the rules relaxed.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=__rQPIA0bLo&amp;t=264s" data-ep="8" data-t="264">4:24</a><p><b>Genetic programming.</b> Part three: genetic programming. Start with a population of random formulas. Pick parents that fit well. Make children by swapping subtrees between two parents, or by replacing a subtree with a fresh random one. Keep the best, and repeat. The first population is usually grown at several depths, some trees full and some irregular, so that it starts out diverse. Children replace their parents a whole generation at a time, or one by one, and the best can be kept unchanged. Our version: two hundred formulas, ten thousand evaluations, tournaments of four, crossover four times out of five, and the best formula always survives. Every design choice matters: how the first formulas are grown, how parents are chosen, how children are made, who survives, how diversity is kept, and how bloat is controlled. Here&#x27;s one run. For a while the best error barely moves, near 0.4. Then it slips to 0.3, and after about four thousand four hundred evaluations it drops to 0.045. Later it reaches 0.0225, the noise level. The law itself is now in the population: v times the sine of theta plus theta, times v. Meanwhile the trees grow, from about four nodes on average to about sixteen. And the population&#x27;s diversity rises, then falls as one family takes over. Look inside good formulas from different runs. The same pieces keep coming back: v times v, and the sine of twice theta, or a sine times a cosine. Genetic programming bets that such pieces can be found apart, and joined by crossover. Pause. Two questions. Does crossover really help here? And does tougher selection, with bigger tournaments, help? Decide before we show you the numbers. We ran every setting a hundred times: five sets of throws, twenty seeds each. Tournaments of two found the law in 33 runs. Tournaments of four, in 28. Tournaments of ten, in 31. Differences that small are within the noise. And crossover? Without it, mutation alone found the law in 45 runs out of 100. With crossover, in 28. In this small language, swapping pieces between formulas did not pay off. We expected the opposite. On our first set of throws, ten seeds without crossover found the law only twice, and crossover looked essential. A hundred runs said otherwise. Small samples tell confident stories. Selection decides which errors count. Tournaments compare total error. Lexicase selection compares parents one data case at a time, in random order, so specialists that are excellent on a few cases survive. Diversity can be measured by the trees, or by what they compute. Semantic methods vary formulas by their behaviour, not just their syntax. And bloat, trees that grow without getting better, is controlled with size limits, with a pressure toward smaller formulas, or by keeping a Pareto front of error against size. Diversity has a structural side too: remove duplicates by hashing, keep niches apart by tree distance, and watch the share of the population that still differs.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=__rQPIA0bLo&amp;t=445s" data-ep="8" data-t="445">7:25</a><p><b>Who won.</b> So who won? On our first set of throws, with ten thousand evaluations and twenty seeds each, random search recovered the law in 3 runs, enumeration in none, and genetic programming in 11. Recovered means more than a good fit. The formula must predict throws faster than any in the data, to within two percent. The losers didn&#x27;t fail quietly. Random search&#x27;s best formulas fit to about fifteen percent of the spread, and enumeration&#x27;s best within budget to about twenty four: decent curves, but not the law. Then we drew four more sets of throws: same law, new speeds, new noise. For genetic programming, the worst set gave one success in twenty. The best gave eleven. Over all hundred runs, random search found the law 15 times, and genetic programming 28 times. Enumeration, never. Genetic programming beat blind search here, but by less than one set of throws suggested, and its settings mattered in ways we did not expect. In another language, or with another budget, the ranking can change. That&#x27;s the subject of the next video.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=__rQPIA0bLo&amp;t=504s" data-ep="8" data-t="504">8:24</a><p><b>Recap.</b> Let&#x27;s recap. Symbolic regression is hard in general, so every solver exploits structure. Enumeration is honest and can certify, but runs out of budget fast. Pruning helps, as long as you record it. Genetic programming adapts, and it beat blind search over a hundred runs. But its success swung with the data, crossover did not pay off here, and its trees bloat. In the lab, you&#x27;ll race these searchers yourself, on one budget. Next video: other ways to search, and how to compare them fairly.</p></div></div><div class="rl-tx-ep" data-ep="9" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=ubA35DqQaEo" data-ep="9" data-t="0">0:00</a><p><b>Two thirds were repeats.</b> Two thirds of the formulas our genetic programming evaluated had already been evaluated before. Search is full of waste, and fairness starts with counting it. In this video: building formulas one token at a time, learned and differentiable search, constants inside the loop, keeping several answers, speed-ups, when to stop, and how to compare searchers fairly. Last video, genetic programming beat blind search, by a margin that swung with the data. This video asks what else is possible, and how to make a race fair.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=ubA35DqQaEo&amp;t=41s" data-ep="9" data-t="41">0:41</a><p><b>Sequential and tree search.</b> Part one: sequential search. Instead of whole trees, build a formula one token at a time, in prefix order. Each partial formula is a state, and each next token is an action. A policy, often a neural network, gives probabilities to the next tokens. Reinforcement learning rewards it for good finished formulas, and risk-seeking variants learn only from the best few percent, because we want the best formula, not a good average. Monte Carlo tree search treats the same choices as a game tree. It balances exploiting branches that already look promising against exploring branches it hardly knows. And partial formulas can be checked early. A branch that already breaks the units, or can&#x27;t close within the length limit, is pruned before it&#x27;s finished. The hard part is credit assignment: a token chosen early only gets its reward when the whole formula is finished and fitted.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=ubA35DqQaEo&amp;t=92s" data-ep="9" data-t="92">1:32</a><p><b>Learned and differentiable search.</b> Part two: learned and differentiable search. A transformer pretrained on millions of synthetic formulas can propose candidates for new data in a fraction of a second. But that speed was paid for in advance, during pretraining, and its proposals lean toward the kinds of formulas it was trained on. Report both costs, and ask how far your data are from its training. Differentiable methods relax the discrete choice. Each node becomes a soft mixture of operators, with weights trained by gradient descent, then sharpened until one operator wins. The catch is the final rounding: the best soft mixture can be far from the best single formula. Always refit after discretizing. Many systems mix these ideas: a network proposes formulas, an evolutionary search refines them, and the network learns again from the refined results. Training data matter: if most training formulas were polynomials, a generator will keep proposing polynomials, even for a pendulum.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=ubA35DqQaEo&amp;t=146s" data-ep="9" data-t="146">2:26</a><p><b>Constants inside the loop.</b> Part three: constants. Structure and constants are coupled. A correct structure with bad constants looks wrong, and gets thrown away. Take the right structure for our throws, with random constants: its typical error is more than ten times the spread of the data. With fitted constants: 0.0225, the noise level. A wrong structure, v squared times theta, fitted just as carefully, still scores 0.67. And the fitted scale comes out as 0.1023. One over g is 0.1019. The fitted constant carries physics. So every candidate deserves a fair shot at its constants: linear least squares when they enter linearly, a few local steps otherwise, and restarts when the landscape is rough. Constant fitting has a price too. In many systems it takes most of the compute, so it belongs in the accounting when methods are compared.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=ubA35DqQaEo&amp;t=197s" data-ep="9" data-t="197">3:17</a><p><b>Several answers: the Pareto front.</b> Part four: keep several answers. Here&#x27;s the final population of one run, as error against size. Its Pareto front has four members: v alone, v squared, the range law with eight nodes, and a nineteen-node formula that&#x27;s better by a hair. The knee is obvious. From eight nodes to nineteen, the error drops by just two ten-thousandths, to 0.0223. That&#x27;s noise, not physics. Choose from the front with held-out data and the checks from Module one, not with the training error. Some methods search the front directly, keeping error and complexity as separate objectives, sometimes with more: a physics residual, a smoothness score, or the error on held-out data.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=ubA35DqQaEo&amp;t=238s" data-ep="9" data-t="238">3:58</a><p><b>Speed, stopping and reporting.</b> Part five: speed. Most of the cost is evaluation, so the tricks are about evaluating less. Cache results: two thirds of our candidates were repeats. Take a quick look first: a check on ten of the sixty points would have flagged 37 percent of candidates as hopeless before the full evaluation. Vectorize, compile, and run in parallel, but remember that the slowest serial part limits any speed-up. Even the timing of evaluations matters. Asynchronous workers don&#x27;t wait for a whole generation to finish, and that changes the evolution itself, not just the speed. Simplify before you evaluate: when two candidates reduce to the same canonical form, one evaluation serves both. Part six: when to stop, and what to report. Stop on a budget, on a front that has stopped improving, or on a target error. And state which one in advance. Report the language, the budget in evaluations and in time, the number of seeds, the constant fitting, the simplification rules, the full Pareto fronts, and the success rate across seeds, not just the best run. Watch diagnostics while it runs: the front over time, the population&#x27;s diversity, the share of duplicates, and how often constant fitting fails. They tell you whether a search is stuck, or just slow. And seeds belong in the report: with the same seed and the same software, anyone should get exactly your front. One lucky seed is an anecdote. Many seeds, on several sets of data, are evidence. Pause. One searcher returns its answers in a second, another takes an hour. Is the first one cheaper? Think about what might be hidden. Not necessarily. The fast one may have spent weeks pretraining. A fair comparison counts offline and online cost separately, and reports both. Hardware counts too: a run on many processors and a run on one are different budgets, even with the same number of evaluations. Memory and engineering count as well. A method that needs a cache of millions of formulas, or a specialised compiler, carries costs that a count of evaluations never shows.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=ubA35DqQaEo&amp;t=363s" data-ep="9" data-t="363">6:03</a><p><b>A fair comparison.</b> Part seven: a fair comparison. Give every searcher identical data, language, constant fitting, budget, and number of seeds. Then measure several things: how often each recovers the true structure, not just a good fit; error on held-out and extrapolated data; complexity; time to the first success; and how much effort went to repeats. Then remove pieces, and use enough runs. On one set of throws and ten seeds, removing crossover looked like a disaster: two successes. Over a hundred runs, it was the best setting we tried: 45 successes. With crossover, 28. A claim that one method is better is incomplete until it says: better at what, on which problems, and with which budget. Run a version without constant fitting, and one without removing duplicates. The differences show how much of the success came from the search itself, and how much from the machinery around it. Summarize with several views, not one winning number: error against time, the final fronts, and recovery rates across seeds. And state the scope. Our arena had two variables, one law and sixty throws. A real study needs several problems, noise levels and held-out regions before a ranking means much. Our own runs show why. With identical settings, standard genetic programming succeeded in only one seed out of twenty on one set of throws. On another set, it succeeded in eleven.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=ubA35DqQaEo&amp;t=445s" data-ep="9" data-t="445">7:25</a><p><b>Recap.</b> Let&#x27;s recap. Sequential and tree-search methods build formulas token by token. Learned generators are fast, but carry their training with them. Differentiable search must be rounded, and refit. Constants need a fair fit inside the loop. Several answers should be kept on a Pareto front. And speed comes from evaluating less: caching, quick checks, parallel work. And compare searchers on equal terms, across many seeds. In the lab, you&#x27;ll do exactly that. Next module: scientific data, noise, and experimental design.</p></div></div></div>
+            </details>
+        </div>
+        <div class="rl-eps">
+          <div class="rl-eps-head"><b>Module 4 videos</b><span>2 videos · 17 min</span></div>
+          <ol><li id="ep-8"><a class="rl-ep is-active" data-ep="8" href="https://www.youtube.com/watch?v=__rQPIA0bLo" aria-current=true><span class="rl-ep-thumb"><img src="/symbolic-laws/img/videos/v08.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>9:12</span></span><span><span class="rl-ep-num">Video 8 · 4.1</span><span class="rl-ep-title" style="display:block">Searching an enormous space</span><span class="rl-ep-take" style="display:block">On our first set of throws, genetic programming found the range law in 11 of 20 runs, random search in 3 and enumeration in none. Over 100 runs on five sets of throws it was 28 against 15, and switching crossover off gave 45: rank searchers on many runs, not one.</span></span></a></li><li id="ep-9"><a class="rl-ep" data-ep="9" href="https://www.youtube.com/watch?v=ubA35DqQaEo"><span class="rl-ep-thumb"><img src="/symbolic-laws/img/videos/v09.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>8:17</span></span><span><span class="rl-ep-num">Video 9 · 4.2</span><span class="rl-ep-title" style="display:block">Other ways to search, and a fair comparison</span><span class="rl-ep-take" style="display:block">With fitted constants the right structure reaches the noise level (0.0225) and its scale, 0.1023, matches 1/g = 0.1019. Ten seeds made crossover look essential; 100 runs said otherwise. Compare searchers on equal terms, over many seeds and data sets.</span></span></a></li></ol>
+        </div>
+      </div>
+      <script type="application/json" id="rl-episodes">[{"ep": 8, "youtube": "__rQPIA0bLo", "title": "Searching an enormous space", "duration": "9:12", "hook": "Sixty throws, one law hidden among hundreds of thousands of formulas, and three searchers with the same budget.", "takeaway": "On our first set of throws, genetic programming found the range law in 11 of 20 runs, random search in 3 and enumeration in none. Over 100 runs on five sets of throws it was 28 against 15, and switching crossover off gave 45: rank searchers on many runs, not one.", "thumbAbs": "/symbolic-laws/img/videos/v08.webp"}, {"ep": 9, "youtube": "ubA35DqQaEo", "title": "Other ways to search, and a fair comparison", "duration": "8:17", "hook": "Two thirds of the formulas our genetic program evaluated were repeats. A fair comparison starts by counting the waste.", "takeaway": "With fitted constants the right structure reaches the noise level (0.0225) and its scale, 0.1023, matches 1/g = 0.1019. Ten seeds made crossover look essential; 100 runs said otherwise. Compare searchers on equal terms, over many seeds and data sets.", "thumbAbs": "/symbolic-laws/img/videos/v09.webp"}]</script>
+    </div></section>
+    <section id="lab" class="rl-lab" aria-labelledby="lab-title">
+      <div class="proj-wrap rl-lab-head">
+        <p class="proj-label"><i class="ri-trophy-line" aria-hidden="true"></i>Interactive lab</p>
+        <h2 id="lab-title" class="proj-h2" style="margin-top:.5rem">Search arena</h2>
+        <p class="proj-lead">Race random search, size-ordered enumeration and a small genetic program on one budget to recover the range of a thrown ball. Change the budget, seeds, tournament size, crossover and noise, and watch the best error, the recovery rate and the Pareto front.</p>
+        <p class="proj-lead" style="margin-top:.6rem">The throws are simulated in your browser (R = v²·sin 2θ / g with small noise), and each searcher runs here too. Four challenges are checked against the runs you make.</p>
+      </div>
+      <div class="rlx" id="arena-lab" data-srx="arena">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">Sixty throws, three searchers</h3>
+          <p class="rlx-sub">The page simulates 60 throws (speeds 5–15 m/s, angles 0.2–1.2 rad, small measurement noise) from the law R = v²·sin(2θ)/g. The searchers see only v, θ and the ranges, and may use + − × ÷ sin cos and the number 1; every candidate gets a fitted scale and offset. Everything runs in your browser.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">Random search</div>
+              <div class="formula-line"><span class="formula-chip">draw, fit, keep the best</span></div>
+              <p class="math-card-copy">Random trees of depth 1 to 5, as many as the budget allows.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Enumeration</div>
+              <div class="formula-line"><span class="formula-chip">smallest first, no repeats</span></div>
+              <p class="math-card-copy">Every different candidate in order of size; repeats (equal up to scale and offset) are skipped. One run: it has no randomness.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Genetic programming</div>
+              <div class="formula-line"><span class="formula-chip">select · cross · mutate · keep the best</span></div>
+              <p class="math-card-copy">200 formulas, tournament selection, subtree crossover and mutation, size limit 21.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Arena settings">
+            <div><h4 class="rlx-h">Settings</h4><p class="rlx-sub">The same budget and seeds for every searcher.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="arB">Budget (evaluations)</label><span class="control-value" data-k="budget-out">10,000</span></div><input id="arB" data-k="budget" type="range" min="0" max="6" step="1" value="3"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="arS">Seeds</label><span class="control-value" data-k="seeds-out">10</span></div><input id="arS" data-k="seeds" type="range" min="1" max="20" step="1" value="10"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="arT">Tournament size</label><span class="control-value" data-k="tsize-out">4</span></div><input id="arT" data-k="tsize" type="range" min="1" max="10" step="1" value="4"></div>
+            <label class="srx-check"><input type="checkbox" data-k="xover" checked> crossover (4 children in 5)</label>
+            <div class="rlx-field"><div class="rlx-label"><label for="arN">Measurement noise</label><span class="control-value" data-k="noise-out">1%</span></div><input id="arN" data-k="noise" type="range" min="0" max="20" step="1" value="1"></div>
+            <div class="rlx-btns"><button type="button" class="control-button control-button-primary is-wide" data-k="run">Run the race</button></div>
+            <p class="rlx-hint">Recovered means the best formula predicts faster throws (15–25 m/s), outside the data, to within 2%. Big budgets and many seeds take a few seconds.</p>
+            </aside>
+            <div class="rlx-main">
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">Choose settings and press Run.</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Results</h4><p class="rlx-sub">Errors are the misfit on the 60 throws, as a share of their spread.</p></div></div>
+              <div class="srx-tablewrap"><table class="srx-table" data-k="table"></table></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Best error during the run (seed 1)</h4><p class="rlx-sub">Grey: random search; orange: enumeration; blue: genetic programming.</p></div></div>
+              <div class="chart-shell" style="height:280px"><svg data-k="trace" role="img" aria-label="Best error against evaluations for the three searchers"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Size against error (genetic programming, seed 1)</h4><p class="rlx-sub">Grey: the final population. Blue: the Pareto front, the best formula of each size found during the run that beats every smaller one. Look for the knee.</p></div></div>
+              <div class="chart-shell" style="height:280px"><svg data-k="front" role="img" aria-label="Error against formula size for the final population"></svg></div>
+              <pre class="srx-pre" data-k="fronttxt"></pre>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked against the runs you have made.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Raise the budget until enumeration recovers the law. How many evaluations did it need?</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Find settings where genetic programming without crossover recovers the law at least as often as with it (everything else the same).</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Find a tournament size that recovers the law less often than tournaments of 4 (everything else the same).</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>With at least 10 seeds, raise the noise until genetic programming never recovers the law, although it did at a lower noise with the same budget.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="next" class="proj-section is-soft" aria-labelledby="next-title"><div class="proj-wrap">
+      <h2 id="next-title" class="proj-h2">Keep going</h2>
+      <div class="rl-pn"><a href="/symbolic-laws/module-03/"><i class="ri-arrow-left-line" aria-hidden="true"></i><span><small>Previous · Module 3</small><strong>Encoding physics and domain knowledge</strong></span></a><a class="is-next" href="/symbolic-laws/module-05/"><span><small>Next · Module 5</small><strong>Scientific data, noise and experimental design</strong></span><i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+    </div></section>
+  </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Courses</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/rl-course/" class="hover:text-white">Reinforcement Learning</a></li>
+                  <li><a href="/epidemic-modeling/" class="hover:text-white">Epidemic Modeling</a></li>
+                  <li><a href="/symbolic-laws/" class="hover:text-white">Symbolic Physical Laws Discovery</a></li>
+                  <li><a href="/non-observed-economy/" class="hover:text-white">Non-Observed Economy</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/rl-course/" class="hover:text-white">RL course</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <script src="/js/videos.js"></script>
+      
+      <script src="/js/sr-labs.js" defer></script>
+      <script src="/js/epi-course.js" defer></script>
+   </body>
+</html>

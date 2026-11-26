@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_sr_course.py from data/sr-course.json. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Symbolic Physical Laws Discovery Course | ACML</title>
+      <meta name="description" content="An open course on discovering physical laws with computers: how symbolic regression searches for equations, how physics knowledge guides it, and how to tell a fitted formula from a law. 10 modules, one per chapter of Teddy Lazebnik&#x27;s forthcoming book, with long videos, slides and browser labs.">
+      <meta name="author" content="Teddy Lazebnik">
+      <meta name="keywords" content="symbolic regression, equation discovery, physics-informed machine learning, scientific discovery, course, ACML">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/symbolic-laws/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Symbolic Physical Laws Discovery · an ACML course">
+      <meta property="og:description" content="An open course on discovering physical laws with computers: how symbolic regression searches for equations, how physics knowledge guides it, and how to tell a fitted formula from a law. 10 modules, one per chapter of Teddy Lazebnik&#x27;s forthcoming book, with long videos, slides and browser labs.">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/symbolic-laws/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/symbolic-laws/share.jpg">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Symbolic Physical Laws Discovery · an ACML course">
+      <meta name="twitter:description" content="An open course on discovering physical laws with computers: how symbolic regression searches for equations, how physics knowledge guides it, and how to tell a fitted formula from a law. 10 modules, one per chapter of Teddy Lazebnik&#x27;s forthcoming book, with long videos, slides and browser labs.">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/symbolic-laws/share.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Symbolic Physical Laws Discovery",
+        "description": "An open course on discovering physical laws with computers: how symbolic regression searches for equations, how physics knowledge guides it, and how to tell a fitted formula from a law. 10 modules, one per chapter of Teddy Lazebnik's forthcoming book, with long videos, slides and browser labs.",
+        "url": "https://acml.teddylazebnik.com/symbolic-laws/",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "provider": {
+          "@type": "Organization",
+          "name": "Applied Computational Mathematics Laboratory",
+          "url": "https://acml.teddylazebnik.com/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Teddy Lazebnik",
+          "url": "https://teddylazebnik.com/"
+        },
+        "hasPart": [
+          {
+            "@type": "LearningResource",
+            "name": "Module 1: From predictive models to scientific laws",
+            "url": "https://acml.teddylazebnik.com/symbolic-laws/module-01/"
+          },
+          {
+            "@type": "LearningResource",
+            "name": "Module 2: Mathematical languages for symbolic models",
+            "url": "https://acml.teddylazebnik.com/symbolic-laws/module-02/"
+          },
+          {
+            "@type": "LearningResource",
+            "name": "Module 3: Encoding physics and domain knowledge",
+            "url": "https://acml.teddylazebnik.com/symbolic-laws/module-03/"
+          },
+          {
+            "@type": "LearningResource",
+            "name": "Module 4: Search and optimization",
+            "url": "https://acml.teddylazebnik.com/symbolic-laws/module-04/"
+          },
+          {
+            "@type": "LearningResource",
+            "name": "Module 5: Scientific data, noise and experimental design",
+            "url": "https://acml.teddylazebnik.com/symbolic-laws/module-05/"
+          },
+          {
+            "@type": "LearningResource",
+            "name": "Module 6: Static laws and interpretable surrogates",
+            "url": "https://acml.teddylazebnik.com/symbolic-laws/module-06/"
+          },
+          {
+            "@type": "LearningResource",
+            "name": "Module 7: Ordinary differential equations",
+            "url": "https://acml.teddylazebnik.com/symbolic-laws/module-07/"
+          },
+          {
+            "@type": "LearningResource",
+            "name": "Module 8: PDEs, fields and graphs",
+            "url": "https://acml.teddylazebnik.com/symbolic-laws/module-08/"
+          },
+          {
+            "@type": "LearningResource",
+            "name": "Module 9: Trustworthy equation discovery",
+            "url": "https://acml.teddylazebnik.com/symbolic-laws/module-09/"
+          },
+          {
+            "@type": "LearningResource",
+            "name": "Module 10: Extensions of symbolic regression",
+            "url": "https://acml.teddylazebnik.com/symbolic-laws/module-10/"
+          }
+        ]
+      }
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      <link href="/css/videos.css" rel="stylesheet">
+      
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/project.css" rel="stylesheet">
+      <link href="/css/rl-course.css" rel="stylesheet">
+      <link href="/css/epi-course.css" rel="stylesheet">
+      <link href="/css/sr-course.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+          <a href="/courses.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Courses</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/courses.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Courses</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="proj-page rl-page bg-white">
+    <header class="proj-hero rl-hero">
+      <div class="proj-wrap proj-hero-grid">
+        <div>
+          <nav class="proj-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/courses.html">Courses</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Symbolic Physical Laws Discovery</span></nav>
+          <p class="proj-kicker"><span><i class="ri-graduation-cap-line" aria-hidden="true"></i>Open course materials</span><span><i class="ri-user-3-line" aria-hidden="true"></i>Prof. Teddy Lazebnik</span></p>
+          <h1 class="proj-title">Symbolic Physical Laws Discovery</h1>
+          <p class="proj-subtitle">An open course on discovering physical laws with computers: how symbolic regression searches for equations, how physics knowledge guides it, and how to tell a fitted formula from a law. 10 modules, one per chapter of Teddy Lazebnik&#x27;s forthcoming book, with long videos, slides and browser labs.</p>
+          <div class="em-book"><i class="ri-book-open-line" aria-hidden="true"></i><p><b>The course book.</b> Teddy Lazebnik, <cite>Computational Methods for Symbolic Physical Laws Discovery</cite>. Coming soon. Each module follows one chapter of the book; the videos, slides and labs are written in our own words, figures and simulations.</p></div>
+          <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="/symbolic-laws/module-01/"><i class="ri-play-circle-line" aria-hidden="true"></i>Start with Module 1</a><a class="proj-btn" href="#modules"><i class="ri-list-check-2" aria-hidden="true"></i>All modules</a><a class="proj-btn" href="#labs"><i class="ri-flask-line" aria-hidden="true"></i>Labs</a><a class="proj-btn" aria-disabled="true" title="The book is coming soon"><i class="ri-book-open-line" aria-hidden="true"></i>Buy the book</a></div>
+        </div>
+        <figure class="rl-art em-cover"><img src="/symbolic-laws/img/cover.webp" alt="Cover of the course book: Computational Methods for Symbolic Physical Laws Discovery, by Teddy Lazebnik" width="640" height="905" fetchpriority="high" decoding="async"></figure>
+      </div>
+    </header>
+    <nav class="proj-subnav" aria-label="Sections of this page"><div class="proj-wrap"><ul><li><a href="#how">How to study</a></li><li><a href="#modules">Modules</a></li><li><a href="#labs">Labs</a></li></ul></div></nav>
+    <section id="how" class="proj-section" aria-labelledby="how-title"><div class="proj-wrap">
+      <h2 id="how-title" class="proj-h2">How to study each module</h2>
+      <p class="proj-lead">Every module page brings the same three things together. Use them in any order; this one works well.</p>
+      <div class="rl-steps is-3">
+        <div class="rl-step"><span class="rl-step-icon"><i class="ri-play-circle-line" aria-hidden="true"></i></span><h3>Watch</h3><p>Two or three animated videos per module, 8 to 15 minutes each, drawn like a blueprint as they go, with a transcript to read along. Each has a pause-and-predict moment and a worked example with our own numbers.</p></div>
+        <div class="rl-step"><span class="rl-step-icon"><i class="ri-slideshow-line" aria-hidden="true"></i></span><h3>Read the slides</h3><p>Each deck is written to be read on your own: worked examples, our own small simulations, common pitfalls, and check-yourself questions with answers at the end. The matching chapter of the book goes deeper.</p></div>
+        <div class="rl-step"><span class="rl-step-icon"><i class="ri-flask-line" aria-hidden="true"></i></span><h3>Try it</h3><p>Every module has a lab that runs in your browser, starting with <a href="/symbolic-laws/module-01/#lab">curve versus law</a> in Module 1. The challenges are checked as you go.</p></div>
+      </div>
+    </div></section>
+    <section id="modules" class="proj-section is-soft" aria-labelledby="modules-title"><div class="proj-wrap">
+      <h2 id="modules-title" class="proj-h2">The 10 modules</h2>
+      <p class="proj-lead">From why science wants equations to agents and distillation. Modules go online one at a time; each card opens the module page with its videos, slides and lab.</p>
+      <div style="margin-top:1.75rem"><div class="rl-part"><div class="rl-part-head"><h3><span>Part 1</span>Foundations</h3><p>Why science wants laws, how formulas are written as data, and how physics knowledge enters the search.</p></div><div class="rl-lec-grid is-3"><a class="rl-lec-card" href="/symbolic-laws/module-01/"><img src="/symbolic-laws/img/modules/m01.webp" alt="Blueprint drawing for Module 1: From predictive models to scientific laws" width="960" height="540" loading="lazy" decoding="async"><div class="rl-lec-body"><span class="rl-lec-num">Module 1</span><span class="rl-lec-title">From predictive models to scientific laws</span><span class="rl-lec-text">Why science wants equations, not only good predictions</span><span class="rl-lec-meta"><span><i class="ri-slideshow-line" aria-hidden="true"></i>46 slides</span><span><i class="ri-play-circle-line" aria-hidden="true"></i>3 videos · 41 min</span><span><i class="ri-flask-line" aria-hidden="true"></i>Lab</span></span></div></a><a class="rl-lec-card" href="/symbolic-laws/module-02/"><img src="/symbolic-laws/img/modules/m02.webp" alt="Blueprint drawing for Module 2: Mathematical languages for symbolic models" width="960" height="540" loading="lazy" decoding="async"><div class="rl-lec-body"><span class="rl-lec-num">Module 2</span><span class="rl-lec-title">Mathematical languages for symbolic models</span><span class="rl-lec-text">Trees, grammars, constants and complexity</span><span class="rl-lec-meta"><span><i class="ri-slideshow-line" aria-hidden="true"></i>43 slides</span><span><i class="ri-play-circle-line" aria-hidden="true"></i>2 videos · 19 min</span><span><i class="ri-flask-line" aria-hidden="true"></i>Lab</span></span></div></a><a class="rl-lec-card" href="/symbolic-laws/module-03/"><img src="/symbolic-laws/img/modules/m03.webp" alt="Blueprint drawing for Module 3: Encoding physics and domain knowledge" width="960" height="540" loading="lazy" decoding="async"><div class="rl-lec-body"><span class="rl-lec-num">Module 3</span><span class="rl-lec-title">Encoding physics and domain knowledge</span><span class="rl-lec-text">Units, conservation, symmetry and known pieces</span><span class="rl-lec-meta"><span><i class="ri-slideshow-line" aria-hidden="true"></i>34 slides</span><span><i class="ri-play-circle-line" aria-hidden="true"></i>2 videos · 17 min</span><span><i class="ri-flask-line" aria-hidden="true"></i>Lab</span></span></div></a></div></div><div class="rl-part"><div class="rl-part-head"><h3><span>Part 2</span>Search and data</h3><p>How the search moves through equation space, and how to get data that can tell laws apart.</p></div><div class="rl-lec-grid is-2"><a class="rl-lec-card" href="/symbolic-laws/module-04/"><img src="/symbolic-laws/img/modules/m04.webp" alt="Blueprint drawing for Module 4: Search and optimization" width="960" height="540" loading="lazy" decoding="async"><div class="rl-lec-body"><span class="rl-lec-num">Module 4</span><span class="rl-lec-title">Search and optimization</span><span class="rl-lec-text">How the search moves through equation space</span><span class="rl-lec-meta"><span><i class="ri-slideshow-line" aria-hidden="true"></i>30 slides</span><span><i class="ri-play-circle-line" aria-hidden="true"></i>2 videos · 17 min</span><span><i class="ri-flask-line" aria-hidden="true"></i>Lab</span></span></div></a><a class="rl-lec-card" href="/symbolic-laws/module-05/"><img src="/symbolic-laws/img/modules/m05.webp" alt="Blueprint drawing for Module 5: Scientific data, noise and experimental design" width="960" height="540" loading="lazy" decoding="async"><div class="rl-lec-body"><span class="rl-lec-num">Module 5</span><span class="rl-lec-title">Scientific data, noise and experimental design</span><span class="rl-lec-text">Getting data ready for discovery</span><span class="rl-lec-meta"><span><i class="ri-slideshow-line" aria-hidden="true"></i>30 slides</span><span><i class="ri-play-circle-line" aria-hidden="true"></i>2 videos · 17 min</span><span><i class="ri-flask-line" aria-hidden="true"></i>Lab</span></span></div></a></div></div><div class="rl-part"><div class="rl-part-head"><h3><span>Part 3</span>Laws in practice</h3><p>Static laws and surrogates, differential equations, and laws in space and time.</p></div><div class="rl-lec-grid is-3"><a class="rl-lec-card" href="/symbolic-laws/module-06/"><img src="/symbolic-laws/img/modules/m06.webp" alt="Blueprint drawing for Module 6: Static laws and interpretable surrogates" width="960" height="540" loading="lazy" decoding="async"><div class="rl-lec-body"><span class="rl-lec-num">Module 6</span><span class="rl-lec-title">Static laws and interpretable surrogates</span><span class="rl-lec-text">Scaling laws, correlations and closures</span><span class="rl-lec-meta"><span><i class="ri-slideshow-line" aria-hidden="true"></i>27 slides</span><span><i class="ri-play-circle-line" aria-hidden="true"></i>2 videos · 17 min</span><span><i class="ri-flask-line" aria-hidden="true"></i>Lab</span></span></div></a><a class="rl-lec-card" href="/symbolic-laws/module-07/"><img src="/symbolic-laws/img/modules/m07.webp" alt="Blueprint drawing for Module 7: Ordinary differential equations" width="960" height="540" loading="lazy" decoding="async"><div class="rl-lec-body"><span class="rl-lec-num">Module 7</span><span class="rl-lec-title">Ordinary differential equations</span><span class="rl-lec-text">Discovering how systems change in time</span><span class="rl-lec-meta"><span><i class="ri-slideshow-line" aria-hidden="true"></i>24 slides</span><span><i class="ri-play-circle-line" aria-hidden="true"></i>2 videos · 17 min</span><span><i class="ri-flask-line" aria-hidden="true"></i>Lab</span></span></div></a><a class="rl-lec-card" href="/symbolic-laws/module-08/"><img src="/symbolic-laws/img/modules/m08.webp" alt="Blueprint drawing for Module 8: PDEs, fields and graphs" width="960" height="540" loading="lazy" decoding="async"><div class="rl-lec-body"><span class="rl-lec-num">Module 8</span><span class="rl-lec-title">PDEs, fields and graphs</span><span class="rl-lec-text">Laws in space and time</span><span class="rl-lec-meta"><span><i class="ri-slideshow-line" aria-hidden="true"></i>25 slides</span><span><i class="ri-play-circle-line" aria-hidden="true"></i>2 videos · 17 min</span><span><i class="ri-flask-line" aria-hidden="true"></i>Lab</span></span></div></a></div></div><div class="rl-part"><div class="rl-part-head"><h3><span>Part 4</span>Trust and beyond</h3><p>How sure we can be, how to validate honestly, and where symbolic regression is going.</p></div><div class="rl-lec-grid is-2"><a class="rl-lec-card" href="/symbolic-laws/module-09/"><img src="/symbolic-laws/img/modules/m09.webp" alt="Blueprint drawing for Module 9: Trustworthy equation discovery" width="960" height="540" loading="lazy" decoding="async"><div class="rl-lec-body"><span class="rl-lec-num">Module 9</span><span class="rl-lec-title">Trustworthy equation discovery</span><span class="rl-lec-text">Uncertainty, validation and falsification</span><span class="rl-lec-meta"><span><i class="ri-slideshow-line" aria-hidden="true"></i>25 slides</span><span><i class="ri-play-circle-line" aria-hidden="true"></i>3 videos · 26 min</span><span><i class="ri-flask-line" aria-hidden="true"></i>Lab</span></span></div></a><a class="rl-lec-card" href="/symbolic-laws/module-10/"><img src="/symbolic-laws/img/modules/m10.webp" alt="Blueprint drawing for Module 10: Extensions of symbolic regression" width="960" height="540" loading="lazy" decoding="async"><div class="rl-lec-body"><span class="rl-lec-num">Module 10</span><span class="rl-lec-title">Extensions of symbolic regression</span><span class="rl-lec-text">Agents, distillation and generative data</span><span class="rl-lec-meta"><span><i class="ri-slideshow-line" aria-hidden="true"></i>22 slides</span><span><i class="ri-play-circle-line" aria-hidden="true"></i>2 videos · 17 min</span><span><i class="ri-flask-line" aria-hidden="true"></i>Lab</span></span></div></a></div></div></div>
+    </div></section>
+    <section id="labs" class="proj-section" aria-labelledby="labs-title"><div class="proj-wrap">
+      <h2 id="labs-title" class="proj-h2">Labs</h2>
+      <p class="proj-lead">The labs run the course’s ideas in your browser, with challenges that are checked as you go. One lab per module; new ones appear as modules go online.</p>
+      <div class="em-grid em-labs"><a class="tool-card em-lab" href="/symbolic-laws/module-01/#lab"><div class="card-body"><span class="em-lab-icon"><i class="ri-line-chart-line" aria-hidden="true"></i></span><p class="card-title">Curve versus law</p><p class="card-text">A polynomial and two drag laws on falling-ball data; Kepler&#x27;s law with Uranus held out.</p><span class="card-more">Module 1 lab <i class="ri-arrow-right-line" aria-hidden="true"></i></span></div></a><a class="tool-card em-lab" href="/symbolic-laws/module-02/#lab"><div class="card-body"><span class="em-lab-icon"><i class="ri-node-tree" aria-hidden="true"></i></span><p class="card-title">Expression workbench</p><p class="card-text">Trees, prefix and postfix, sharing, units and equivalence for formulas you type.</p><span class="card-more">Module 2 lab <i class="ri-arrow-right-line" aria-hidden="true"></i></span></div></a><a class="tool-card em-lab" href="/symbolic-laws/module-03/#lab"><div class="card-body"><span class="em-lab-icon"><i class="ri-scales-3-line" aria-hidden="true"></i></span><p class="card-title">Units guard</p><p class="card-text">Units, dimensionless groups, soft and hard rules, and a ladder of knowledge for a draining tank.</p><span class="card-more">Module 3 lab <i class="ri-arrow-right-line" aria-hidden="true"></i></span></div></a><a class="tool-card em-lab" href="/symbolic-laws/module-04/#lab"><div class="card-body"><span class="em-lab-icon"><i class="ri-trophy-line" aria-hidden="true"></i></span><p class="card-title">Search arena</p><p class="card-text">Random search, enumeration and genetic programming race for the range law on one budget.</p><span class="card-more">Module 4 lab <i class="ri-arrow-right-line" aria-hidden="true"></i></span></div></a><a class="tool-card em-lab" href="/symbolic-laws/module-05/#lab"><div class="card-body"><span class="em-lab-icon"><i class="ri-pulse-line" aria-hidden="true"></i></span><p class="card-title">Noisy derivatives</p><p class="card-text">Finite differences, smoothing and weak forms on noisy video of a spring, and the next swing to record.</p><span class="card-more">Module 5 lab <i class="ri-arrow-right-line" aria-hidden="true"></i></span></div></a><a class="tool-card em-lab" href="/symbolic-laws/module-06/#lab"><div class="card-body"><span class="em-lab-icon"><i class="ri-contrast-drop-line" aria-hidden="true"></i></span><p class="card-title">Collapse and envelope</p><p class="card-text">Collapse nine pendulums onto one curve, break it with a missing variable, and measure a formula&#x27;s validity envelope.</p><span class="card-more">Module 6 lab <i class="ri-arrow-right-line" aria-hidden="true"></i></span></div></a><a class="tool-card em-lab" href="/symbolic-laws/module-07/#lab"><div class="card-body"><span class="em-lab-icon"><i class="ri-refresh-line" aria-hidden="true"></i></span><p class="card-title">Sparse dynamics</p><p class="card-text">Find a chemical clock&#x27;s law with sparse regression, and test it on steady states, the onset of ticking and a feed nobody ran.</p><span class="card-more">Module 7 lab <i class="ri-arrow-right-line" aria-hidden="true"></i></span></div></a><a class="tool-card em-lab" href="/symbolic-laws/module-08/#lab"><div class="card-body"><span class="em-lab-icon"><i class="ri-plant-line" aria-hidden="true"></i></span><p class="card-title">Field discovery</p><p class="card-text">Find a spreading plant&#x27;s field law from noisy sensors, and test it on two releases that merge.</p><span class="card-more">Module 8 lab <i class="ri-arrow-right-line" aria-hidden="true"></i></span></div></a><a class="tool-card em-lab" href="/symbolic-laws/module-09/#lab"><div class="card-body"><span class="em-lab-icon"><i class="ri-shield-check-line" aria-hidden="true"></i></span><p class="card-title">Stress-test bench</p><p class="card-text">Stress-test a tank law: calibration, controls, and the experiment that falsifies its rivals.</p><span class="card-more">Module 9 lab <i class="ri-arrow-right-line" aria-hidden="true"></i></span></div></a><a class="tool-card em-lab" href="/symbolic-laws/module-10/#lab"><div class="card-body"><span class="em-lab-icon"><i class="ri-flask-line" aria-hidden="true"></i></span><p class="card-title">Distil a black box</p><p class="card-text">Distil a black box into a formula, and test it beyond the data.</p><span class="card-more">Module 10 lab <i class="ri-arrow-right-line" aria-hidden="true"></i></span></div></a></div>
+    </div></section>
+  </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Courses</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/rl-course/" class="hover:text-white">Reinforcement Learning</a></li>
+                  <li><a href="/epidemic-modeling/" class="hover:text-white">Epidemic Modeling</a></li>
+                  <li><a href="/symbolic-laws/" class="hover:text-white">Symbolic Physical Laws Discovery</a></li>
+                  <li><a href="/non-observed-economy/" class="hover:text-white">Non-Observed Economy</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/rl-course/" class="hover:text-white">RL course</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <script src="/js/videos.js"></script>
+      
+      <script src="/js/epi-course.js" defer></script>
+   </body>
+</html>

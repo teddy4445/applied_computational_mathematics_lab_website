@@ -1,0 +1,37 @@
+<!-- Used by tools/build_noe_course.py: lab 8 (Module 8) of the Non-Observed Economy course: choose a policy mix for an invented country under uncertainty, read its Pareto front, and see how a pilot changes the answer. Script: js/noe-labs.js (data-noex="policy"). -->
+      <div class="rlx" id="policy-lab" data-noex="policy">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">The policy room: three instruments, 300 futures</h3>
+          <p class="rlx-sub">The course’s ten-year teaching model of the invented Mainland: audits, digital reporting and services act on the true hidden share, the authority’s observability and trust. Every response coefficient is uncertain, so each of 300 futures draws its own, with recessions and noise. A yearly budget of 1.0 buys audits at 1, digital reporting at 1.5 and services at 1.3 per unit.</p>
+          <div class="math-grid">
+            <article class="math-card"><div class="math-card-title">Criteria</div><div class="formula-line"><span class="formula-chip">average · worst tenth · P(≤ 22%)</span></div><p class="math-card-copy">The best mix depends on which you choose.</p></article>
+            <article class="math-card"><div class="math-card-title">Pareto front</div><div class="formula-line"><span class="formula-chip">no mix cheaper and better at once</span></div><p class="math-card-copy">The front removes waste; it does not pick a winner.</p></article>
+            <article class="math-card"><div class="math-card-title">A pilot</div><div class="formula-line"><span class="formula-chip">pin one uncertain effect</span></div><p class="math-card-copy">Learning the right number can change the decision.</p></article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Your mix controls">
+            <div><h4 class="rlx-h">Your mix</h4><p class="rlx-sub">Spend the budget.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="poA">Audits</label><span class="control-value" data-k="a-out">0.2</span></div><input id="poA" data-k="a" type="range" min="0" max="10" step="1" value="2"></div><div class="rlx-field"><div class="rlx-label"><label for="poD">Digital reporting</label><span class="control-value" data-k="d-out">0.0</span></div><input id="poD" data-k="d" type="range" min="0" max="6" step="1" value="0"></div><div class="rlx-field"><div class="rlx-label"><label for="poF">Services and formalisation</label><span class="control-value" data-k="f-out">0.00</span></div><input id="poF" data-k="f" type="range" min="0" max="15" step="1" value="0"></div><label class="srx-check"><input type="checkbox" data-k="pilot"> A pilot pins the services effect</label><div class="rlx-field"><div class="rlx-label"><label for="poP">Services effect found by the pilot</label><span class="control-value" data-k="pin-out">0.000</span></div><input id="poP" data-k="pin" type="range" min="0" max="35" step="1" value="0"></div>
+            <p class="rlx-hint">Hidden share after 10 years, across 300 futures. Status quo: audits 0.2. An invented teaching model, not real policy effects.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Average</div><div class="metric-value" data-k="mean">–</div></div><div class="metric-tile"><div class="metric-label">Worst tenth</div><div class="metric-value" data-k="p90">–</div></div><div class="metric-tile"><div class="metric-label">Chance of ≤ 22%</div><div class="metric-value" data-k="pt">–</div></div><div class="metric-tile"><div class="metric-label">Yearly cost</div><div class="metric-value" data-k="cost">–</div></div></div>
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Cost and average hidden share</h4><p class="rlx-sub" data-k="note"></p></div></div>
+              <div class="chart-shell" style="height:320px"><svg data-k="chart" role="img" aria-label="Pareto front of affordable policy mixes with your mix marked"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current settings.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Beat the status quo on both the average and the worst tenth, within budget.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Find a mix that ends below 22% in at least 85% of futures, within budget.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Find a mix on the Pareto front that costs less than 0.5.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>Run a pilot that finds the services effect near zero (at most 0.005), and see services first lose to enforcement first on average.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>

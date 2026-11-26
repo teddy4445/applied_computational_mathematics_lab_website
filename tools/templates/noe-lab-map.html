@@ -1,0 +1,37 @@
+<!-- Used by tools/build_noe_course.py: lab 6 (Module 6) of the Non-Observed Economy course: an invented hexagonal map of 160 districts; estimate unsurveyed districts, smooth across or within a river, test for spatial structure and find false hot spots. Script: js/noe-labs.js (data-noex="map"). -->
+      <div class="rlx" id="map-lab" data-noex="map">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">The night atlas: 160 districts, 40 surveys</h3>
+          <p class="rlx-sub">An invented country on a hexagonal map. A river splits a West that hides less from an East with a smuggling corridor, two market towns and hills. Careful surveys exist in 40 districts (rings), mostly in the West; cash use and self-employment are known everywhere.</p>
+          <div class="math-grid">
+            <article class="math-card"><div class="math-card-title">Neighbours</div><div class="formula-line"><span class="formula-chip">map, economy, or both</span></div><p class="math-card-copy">Which districts count as close decides what an estimate borrows.</p></article>
+            <article class="math-card"><div class="math-card-title">Smoothing</div><div class="formula-line"><span class="formula-chip">minimise ‖z − ŝ‖² + λ Σ(zᵢ − zⱼ)²</span></div><p class="math-card-copy">Cut the edges across the river and the model can jump there.</p></article>
+            <article class="math-card"><div class="math-card-title">Moran's I</div><div class="formula-line"><span class="formula-chip">I = (n/W) Σ wᵢⱼ zᵢ zⱼ / Σ zᵢ²</span></div><p class="math-card-copy">Compare it with shuffled maps; local versions find clusters.</p></article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Map controls">
+            <div><h4 class="rlx-h">Map</h4><p class="rlx-sub">Choose what to see and how to estimate.</p></div>
+            <div class="rlx-field"><label class="rlx-label" for="mpL">Show</label><select id="mpL" class="control-select" data-k="layer"><option value="truth">the invented truth</option><option value="estimate" selected>the estimate</option><option value="clusters">local clusters</option></select></div><div class="rlx-field"><label class="rlx-label" for="mpH">Neighbours for estimating</label><select id="mpH" class="control-select" data-k="how"><option value="map" selected>nearest on the map</option><option value="economy">most similar economy</option><option value="mixed">both</option></select></div><div class="rlx-field"><div class="rlx-label"><label for="mpK">Surveys borrowed (k)</label><span class="control-value" data-k="k-out">5</span></div><input id="mpK" data-k="k" type="range" min="1" max="20" step="1" value="5"></div><div class="rlx-field"><div class="rlx-label"><label for="mpS">Smoothing strength (λ)</label><span class="control-value" data-k="lam-out">0.0</span></div><input id="mpS" data-k="lam" type="range" min="0" max="5" step="0.1" value="0"></div><label class="srx-check"><input type="checkbox" data-k="cut"> Cut the edges that cross the river</label><label class="srx-check"><input type="checkbox" data-k="shuf"> Shuffle the true values across the map</label>
+            <p class="rlx-hint">Errors are in points of hidden share on the 120 unsurveyed districts. The river step compares districts on each bank.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Moran's I (truth)</div><div class="metric-value" data-k="moran">–</div></div><div class="metric-tile"><div class="metric-label">Error, unsurveyed</div><div class="metric-value" data-k="err">–</div></div><div class="metric-tile"><div class="metric-label">Step at the river</div><div class="metric-value" data-k="step">–</div></div><div class="metric-tile"><div class="metric-label">Significant local clusters</div><div class="metric-value" data-k="nsig">–</div></div></div>
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">The map</h4></div></div>
+              <div class="chart-shell" style="height:360px"><svg data-k="chart" role="img" aria-label="Hexagonal map of 160 invented districts"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current settings.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>See Moran's I above 0.8 on the true map, then shuffle the values and bring it near zero.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Estimate the unsurveyed districts with an error below 2.3 points.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Smooth with a strength of at least 1 and still keep a step of at least 7 points at the river.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>On the shuffled map, find at least three “significant” local clusters: false hot spots from many tests.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>

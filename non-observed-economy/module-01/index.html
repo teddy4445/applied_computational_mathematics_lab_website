@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_noe_course.py from data/noe-course.json. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Module 1: What is the non-observed economy? | Computational Approaches to the Non-Observed Economy Course | ACML</title>
+      <meta name="description" content="Module 1 of 9 of ACML’s Computational Approaches to the Non-Observed Economy course. Observers, boundaries and the five ways to go unseen: slides, 2 videos and an interactive lab.">
+      <meta name="author" content="Teddy Lazebnik">
+      <meta name="keywords" content="non-observed economy, informal economy, shadow economy, computational economics, what is the non-observed economy?, course, ACML">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/non-observed-economy/module-01/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Module 1: What is the non-observed economy? · Computational Approaches to the Non-Observed Economy">
+      <meta property="og:description" content="Module 1 of 9 of ACML’s Computational Approaches to the Non-Observed Economy course. Observers, boundaries and the five ways to go unseen: slides, 2 videos and an interactive lab.">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/non-observed-economy/module-01/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/non-observed-economy/module-01/share.jpg">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Module 1: What is the non-observed economy? · Computational Approaches to the Non-Observed Economy">
+      <meta name="twitter:description" content="Module 1 of 9 of ACML’s Computational Approaches to the Non-Observed Economy course. Observers, boundaries and the five ways to go unseen: slides, 2 videos and an interactive lab.">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/non-observed-economy/module-01/share.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "Module 1: What is the non-observed economy?",
+        "description": "Ask a tax office, a statistics office and a card company how much an invented town produced, and you get three different answers, none of them a lie. Being observed is a relation between an activity and an observer with a purpose. We define the non-observed economy, separate it from the shadow, informal and illegal economies, draw the production boundary, and take apart its five components: underground production, illegal production, the informal sector, production for own use, and statistical omissions. Then we measure: random audits against targeted ones, surveys that stay biased however large, and a cash method whose answer moves with one assumption.",
+        "url": "https://acml.teddylazebnik.com/non-observed-economy/module-01/",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "learningResourceType": [
+          "Lecture slides",
+          "Video",
+          "Interactive resource"
+        ],
+        "teaches": "Observers, boundaries and the five ways to go unseen",
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Computational Approaches to the Non-Observed Economy",
+          "url": "https://acml.teddylazebnik.com/non-observed-economy/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Teddy Lazebnik",
+          "url": "https://teddylazebnik.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Applied Computational Mathematics Laboratory",
+          "url": "https://acml.teddylazebnik.com/"
+        },
+        "hasPart": [
+          {
+            "@type": "VideoObject",
+            "name": "Seen is not the same as happened",
+            "description": "Three observers, one invented town: the tax office sees 80% of what was produced, the statistics office 85%, a card company 54%.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/non-observed-economy/img/videos/v01.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/kcrevsD-KZw",
+            "duration": "PT10M11S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Five ways to go unobserved, and how to measure them",
+            "description": "A café skipping receipts, an unlicensed taxi, a dressmaker at home, a family's vegetables and a bakery the register missed: five reasons to go unseen.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/non-observed-economy/img/videos/v02.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/TkBeJ51-hHM",
+            "duration": "PT10M21S"
+          },
+          {
+            "@type": "DigitalDocument",
+            "name": "Module 1 slides",
+            "encodingFormat": "application/pdf",
+            "url": "https://acml.teddylazebnik.com/non-observed-economy/slides/Non_Observed_Economy_Module01_What_is_the_non_observed_economy.pdf"
+          }
+        ]
+      }
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      <link href="/css/videos.css" rel="stylesheet">
+      
+      <link href="/css/exploration-lab.css" rel="stylesheet">
+      <link href="/css/rl-labs.css" rel="stylesheet">
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/project.css" rel="stylesheet">
+      <link href="/css/rl-course.css" rel="stylesheet">
+      <link href="/css/epi-course.css" rel="stylesheet">
+      <link href="/css/noe-course.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+          <a href="/courses.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Courses</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/courses.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Courses</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="proj-page rl-page bg-white">
+    <header class="proj-hero rl-hero">
+      <div class="proj-wrap proj-hero-grid">
+        <div>
+          <nav class="proj-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/courses.html">Courses</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/non-observed-economy/">Computational Approaches to the Non-Observed Economy</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Module 1</span></nav>
+          <p class="proj-kicker"><span><i class="ri-graduation-cap-line" aria-hidden="true"></i>Computational Approaches to the Non-Observed Economy</span><span>Foundations</span></p>
+          <h1 class="proj-title"><small>Module 1</small>What is the non-observed economy?</h1>
+          <p class="proj-about-lead rl-summary">Ask a tax office, a statistics office and a card company how much an invented town produced, and you get three different answers, none of them a lie. Being observed is a relation between an activity and an observer with a purpose. We define the non-observed economy, separate it from the shadow, informal and illegal economies, draw the production boundary, and take apart its five components: underground production, illegal production, the informal sector, production for own use, and statistical omissions. Then we measure: random audits against targeted ones, surveys that stay biased however large, and a cash method whose answer moves with one assumption.</p>
+          <div class="rl-goal"><i class="ri-focus-3-line" aria-hidden="true"></i><span>By the end you should be able to say who observed what, define the non-observed economy and its five components, decide what belongs inside the production boundary, and report a size with its definition, its denominator and the assumption that carries it.</span></div>
+          <h2 class="proj-h3 rl-ideas-title">Key ideas, one per video</h2>
+          <ul class="rl-ideas"><li><a href="#ep-1">Video 1</a><span>Observation is a relation, not a property. In the same invented town the non-observed economy is 15% of what was produced, 18% of official GDP, or 8% under the narrow shadow definition: always state the definition and the denominator.</span></li><li><a href="#ep-2">Video 2</a><span>Five components, five traces. Random audits estimate the undeclared share (9%); the riskiest 40 firms would suggest 47%. Surveys under-report by about a fifth however large, and five points in one cash assumption move the answer by more than a quarter.</span></li></ul>
+          <p class="rl-source"><b>Book:</b> Chapter 1 of <cite>Computational Approaches to the Non-Observed Economy: From Theory to Practice</cite> (coming soon). The videos and slides follow the chapter’s topics in our own words, figures and simulations; the towns and countries are invented, and nothing is copied from the book.</p>
+        </div>
+        <div class="rl-first">
+          <a class="rl-first-img" href="/non-observed-economy/slides/Non_Observed_Economy_Module01_What_is_the_non_observed_economy.pdf" target="_blank" rel="noopener"><img src="/non-observed-economy/img/slides/m01-s01.webp" alt="The title slide of Module 1: What is the non-observed economy?" width="960" height="540" fetchpriority="high" decoding="async"></a>
+          <p class="rl-first-text">40 slides, written to be read on your own, with worked examples, our own small simulations and check-yourself questions (answers at the end). PDF, 6.9 MB.</p>
+          <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="/non-observed-economy/slides/Non_Observed_Economy_Module01_What_is_the_non_observed_economy.pdf" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Open the PDF</a><a class="proj-btn" href="/non-observed-economy/slides/Non_Observed_Economy_Module01_What_is_the_non_observed_economy.pdf" download><i class="ri-download-2-line" aria-hidden="true"></i>Download</a></div>
+        </div>
+      </div>
+    </header>
+    <nav class="proj-subnav is-mobile-only" aria-label="Sections of this page"><div class="proj-wrap"><ul><li><a href="#watch">Watch</a></li><li><a href="#lab">Lab</a></li><li><a href="#next">Next</a></li></ul></div></nav>
+    <section id="watch" class="proj-section is-soft" aria-labelledby="watch-title"><div class="proj-wrap">
+      <h2 id="watch-title" class="proj-h2">Watch</h2>
+      <p class="proj-lead">2 videos for this module, each about 8 to 11 minutes. Pick one from the list, and open the transcript to read along: each timestamp plays the video from there. The narration is generated with a voice clone of Teddy, used with his permission.</p>
+      <div class="rl-watch">
+        <div class="rl-player-wrap">
+          <div id="rl-player" class="yt-player yt-16x9" data-yt-id="kcrevsD-KZw" data-yt-title="Seen is not the same as happened"><a class="yt-play" href="https://www.youtube.com/watch?v=kcrevsD-KZw" aria-label="Play video 1: Seen is not the same as happened"><img src="/non-observed-economy/img/videos/v01.webp" alt="" width="640" height="360" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div>
+          <div class="rl-now">
+            <p id="rl-now-num" class="rl-now-num">Video 1 · 10:11</p>
+            <p id="rl-now-title" class="rl-now-title">Seen is not the same as happened</p>
+            <p id="rl-now-hook" class="rl-now-hook">Three observers, one invented town: the tax office sees 80% of what was produced, the statistics office 85%, a card company 54%.</p>
+            <p id="rl-now-take" class="rl-now-take"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i><span>Observation is a relation, not a property. In the same invented town the non-observed economy is 15% of what was produced, 18% of official GDP, or 8% under the narrow shadow definition: always state the definition and the denominator.</span></p>
+          </div>
+            <details id="rl-tx" class="rl-tx">
+              <summary><i class="ri-file-text-line" aria-hidden="true"></i>Transcript<span id="rl-tx-which">Video 1</span><i class="ri-arrow-down-s-line rl-tx-caret" aria-hidden="true"></i></summary>
+              <div class="rl-tx-body"><div class="rl-tx-ep" data-ep="1"><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=kcrevsD-KZw" data-ep="1" data-t="0">0:00</a><p><b>One town, three answers.</b> Here is a small town at night. Every light is someone producing something: a café, a repair shop, a farm, a builder. Suppose we want one simple number. How much did this town produce last year? Ask the tax office, and you get one answer. Ask the statistics office, and you get another. Ask the company that processes card payments, and you get a third. None of them is lying. Each one sees a different part of the same economy. This town is invented, so we know the truth. The tax office sees 80 percent of what was produced. The statistics office sees 85 percent. And the card company sees only 54 percent. The part that slips past all of them has a name: the non-observed economy. This course is about studying it with computation. Welcome to Computational Approaches to the Non-Observed Economy. I&#x27;m Teddy. The course follows our book, chapter by chapter. There are nine modules and twenty long videos. Every module also has a slide deck, and a lab you can run in your browser. We&#x27;ll define what is missing, estimate its size, forecast it, map it, simulate it, and design policy around it. At the end, we&#x27;ll put it all together into one study. You&#x27;ll need some economics, probability and statistics. A little programming helps for the labs. One promise before we start. Every number in these videos comes from our own simulations, or from plain arithmetic. When a town or a country is invented, I&#x27;ll say so.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=kcrevsD-KZw&amp;t=95s" data-ep="1" data-t="95">1:35</a><p><b>Observation is institutional.</b> Let&#x27;s start with the most important idea of this module. Observation is institutional. Think about one sale in a small café. The customer knows it happened. She paid, and she drank the coffee. If she paid by card, the payment company knows that money moved. It doesn&#x27;t know what was bought, or whether the café will declare it. The tax office knows only what the café declares. The statistics office knows the café&#x27;s sector and size, from its register and its surveys. So, was the sale observed? The honest answer is another question. Observed by whom, about what, and for what purpose? Being observed is not a property of an activity. It&#x27;s a relation between an activity and an observer. That sounds like a small philosophical point. It isn&#x27;t. It decides what our models will try to estimate. Each observer also has its own purpose. The tax office wants to collect what&#x27;s owed. The statistics office wants complete totals. A bank wants to manage its risk. Different purposes mean different questions, and different blind spots. So when someone tells you that something is unobserved, ask whose eyes they mean.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=kcrevsD-KZw&amp;t=161s" data-ep="1" data-t="161">2:41</a><p><b>What the NOE is.</b> The non-observed economy, or NOE for short, is production that belongs in the economic accounts, but is missing, or only partly there, in the data used to measure the economy. Notice what it is not. It&#x27;s not one sector, one market, or one kind of behaviour. It&#x27;s a measurement problem with several different causes. That&#x27;s why the words in this field can be confusing. You&#x27;ll read about shadow, underground, informal and illegal economies. These words grew up in different research traditions. Tax researchers studied concealed income. Labour economists studied informal jobs. Criminologists studied illegal markets. And national accountants asked a different question: are the totals complete? More than twenty years ago, statisticians from several international organisations wrote down a shared framework for this, so that countries could measure the same thing in the same way. That framework is our starting point. The words are related, but they don&#x27;t name the same object. A study of the shadow economy and a study of the NOE can both be right, and still report very different numbers. Two quick examples. A worker can hold an informal job inside a fully registered firm. And an illegal sale can be watched closely by the police, while a legal sale goes unseen by the statistics office. So legal status and visibility are different things. And so are informal jobs and informal firms. Here is the practical rule. Before you estimate the size of anything, write down which activities your target includes. An algorithm will happily fit a badly defined target, very precisely.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=kcrevsD-KZw&amp;t=254s" data-ep="1" data-t="254">4:14</a><p><b>The production boundary.</b> The second key idea is the production boundary. It&#x27;s the line that national accounts draw around what counts as production. Inside the line are goods and services made for sale. So are goods that households make for their own use, like vegetables grown for the family table. Outside the line are most unpaid services inside a household, such as cooking, cleaning and caring for children. That doesn&#x27;t mean they have no value. They obviously do. It means the accounting rules leave them out, so missing them is not a measurement failure. The boundary follows the nature of production, not legality. Making and selling a prohibited product is production. Theft is not. It moves something that already exists. And some missing production involves no hiding at all. A brand new, fully legal firm can be absent from the statistics, simply because the business register hasn&#x27;t caught up. For computation, the boundary works like a constraint on the target. Decide it before you train a model, not after.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=kcrevsD-KZw&amp;t=315s" data-ep="1" data-t="315">5:15</a><p><b>Why it matters.</b> Why should anyone care about production that nobody records? First, the national accounts. If production is missing, measured GDP is too small. And every ratio with GDP underneath it moves too: taxes, debt, productivity. Second, taxes. Modern tax systems run on information. When an employer or a bank reports your income for you, there is little room to hide. When you report it yourself, there is much more. So two people with the same true income can face very different chances to conceal it. That&#x27;s a question of fairness, not only of revenue. Third, work and protection. An informal job usually comes without pension contributions, sick pay or job security. Sometimes by choice. Often because no formal job was available. Fourth, inequality. If hidden income is more common in some groups than in others, measured inequality is not the real inequality. And fifth, change. Recessions, inflation, new payment technology and new rules all shift what is hidden, and what can be seen. When the observer changes, the measured NOE can change, even if nobody&#x27;s behaviour does. Here&#x27;s an example. Say a country moves most shop payments onto electronic receipts. Suddenly, the statistics office sees sales that were always there. Its estimate of hidden activity drops. Did people become more honest? Not necessarily. The lamp got brighter, and it moved.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=kcrevsD-KZw&amp;t=395s" data-ep="1" data-t="395">6:35</a><p><b>Lantern Bay in numbers.</b> Let&#x27;s make this concrete with our invented town. We call it Lantern Bay. It has 640 registered firms. It also has 900 small household businesses that never registered. Thirty producers make or sell things that are illegal. And 1,500 households grow or make goods for their own use. About a quarter of the registered firms leave some sales undeclared. Most of them are cash-heavy trades, like cafés and building work. And 40 firms opened after the statistics office last updated its register. They pay their taxes. They just aren&#x27;t on its list. Before I show you the numbers, pause for a second. Which observer do you think sees the most? Now the three observers. The tax office adds up the declared sales of every registered firm. That&#x27;s 80 percent of the truth. The statistics office surveys the firms on its register, and runs a household survey for the small businesses and the home production. That&#x27;s 85 percent. Notice who sees the new firms. The tax office does. The statistics office doesn&#x27;t. And neither of them sees the undeclared sales. The card company sees 54 percent. It sees almost none of the undeclared sales, because those are mostly paid in cash. And it can&#x27;t tell which payments were declared. Here is the whole table. Rows are kinds of production, columns are observers. Each cell says how much of that row the observer records. The household survey catches about three quarters of the informal sales, because people under-report. It catches almost all of the home-grown food. And look at the illegal producers&#x27; row. Nobody records any of it. Not the tax office, not the statistics office, not the card company. So how big is the non-observed economy here? Everything the statistics office misses comes to 15 percent of what the town really produced. Measured against official GDP instead, the same missing production is 18 percent. Same town, different denominator. And if you count only concealed legal sales, the narrow shadow-economy definition, you get 8 percent. Fifteen, eighteen, eight. Three honest answers to three different questions. One more. The tax office collects 18 percent of declared sales. As a share of official GDP, that looks like 17 percent. As a share of what the town really produced, it&#x27;s 14 percent.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=kcrevsD-KZw&amp;t=536s" data-ep="1" data-t="536">8:56</a><p><b>Recap.</b> Let&#x27;s recap. Observation is a relation between an activity and an observer. It is not a property of the activity. The NOE is production inside the accounting boundary that the measurement system misses. It has several causes. Shadow, underground, informal and illegal describe different objects. The production boundary decides what counts. Unpaid household services are outside it. Goods made for own use, and illegal production, can be inside it. And the size you report depends on the definition and on the denominator. Always state both. So here are three questions to ask of any number about the hidden economy. Who observed? What was included? And divided by what? In this module&#x27;s lab, you&#x27;ll switch the observers of Lantern Bay on and off, and watch what each one records. In the next video, we&#x27;ll meet the five ways production goes unobserved, one by one, and the two families of methods we use to measure them.</p></div></div><div class="rl-tx-ep" data-ep="2" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=TkBeJ51-hHM" data-ep="2" data-t="0">0:00</a><p><b>Five producers, five reasons.</b> Five producers in Lantern Bay. A café that skips some of its receipts. A driver running a taxi without a licence. A woman sewing dresses at home for her neighbours. A family growing vegetables for its own table. And a new bakery that pays every tax, but isn&#x27;t on the statistics office&#x27;s list yet. All five are missing from the official picture. But for five different reasons. And each reason leaves a different trace. In this video, we&#x27;ll take the five apart. Then we&#x27;ll ask why activity becomes non-observed at all. And we&#x27;ll finish with how to measure it, directly and indirectly.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=TkBeJ51-hHM&amp;t=42s" data-ep="2" data-t="42">0:42</a><p><b>Underground production.</b> Component one is underground production. The activity is legal: the café is allowed to sell coffee. What&#x27;s hidden is part of it, on purpose. The reasons are taxes, social security contributions, regulations or paperwork. The café is registered and reports most of its sales. The underground part is only the sales it leaves out. That&#x27;s why you can&#x27;t find underground production by separating registered firms from unregistered ones. It lives inside registered firms too. And it&#x27;s a matter of degree. A firm chooses how much to hide, which sales, and which workers. In our models, agents will have a share, not a label. In Lantern Bay, 170 of the 640 registered firms hide something. A typical one leaves out about 30 percent of its sales. Some hide less than a tenth. Some hide more than half. Cash-heavy trades are about four times as likely to hide sales. Together, they account for three quarters of everything left undeclared. The classic explanation compares the tax saved with the expected cost of being caught. But real decisions also depend on beliefs, norms and trust, and on whether hiding is even possible. When a third party reports the transaction, like an employer reporting wages, hiding becomes much harder. Incentives and information work together.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=TkBeJ51-hHM&amp;t=116s" data-ep="2" data-t="116">1:56</a><p><b>Illegal production.</b> Component two is illegal production. Either the product itself is prohibited, or the producer isn&#x27;t allowed to make it, like our unlicensed taxi. National accounts care about production, not approval. An illegal service that people pay for is still production. Stealing a phone is not, because nothing new was made. And illegal is not the same as hidden. Some illegal markets are watched closely by the police. Some legal sales are invisible to everyone. Laws also differ between countries and over time. A product can be licensed in one country and banned in the next. So a comparison needs a stated place and year. Illegal markets also tend to run on trust and networks, because their contracts can&#x27;t be enforced in court. We&#x27;ll come back to networks in Modules 6 and 7.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=TkBeJ51-hHM&amp;t=164s" data-ep="2" data-t="164">2:44</a><p><b>The informal sector.</b> Component three is the informal sector. This one is defined by the producing unit, not by hiding. Think small, household-based and unregistered, with no clear line between the business&#x27;s money and the family&#x27;s money. Our dressmaker isn&#x27;t necessarily evading anything. Registering may cost more than it brings. Or the tax office may simply never reach her street. Formal status has costs: fees, records, taxes and rules. It also has benefits: credit, enforceable contracts and bigger customers. Whether to formalise depends on which side is heavier. And sometimes informal work is not a choice at all. When formal jobs are scarce, people create their own work. One distinction to keep. Informal employment is about the job. The informal sector is about the firm. A registered firm can employ someone informally. So a share of informal jobs is not a share of informal output. Jobs differ in hours, in scale and in productivity.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=TkBeJ51-hHM&amp;t=219s" data-ep="2" data-t="219">3:39</a><p><b>Own use and statistical omissions.</b> Component four is household production for own use. The family&#x27;s vegetables. No sale, no invoice, no wage, and so no record. Nobody is hiding anything here. The production simply leaves no trace in tax or payment data. Household and farm surveys are the right evidence, not audits. In Lantern Bay, the home growers produce under 2 percent of the town&#x27;s output. And the household survey catches almost all of it, because people have no reason to hide their vegetables. Component five is statistical omissions. Our new bakery is legal, registered with the tax office, and pays everything. It&#x27;s missing because the business register is out of date. Other omissions come from samples that miss fast-changing sectors, from firms that don&#x27;t answer questionnaires, and from new kinds of work that no classification fits yet. This component is a warning for anyone who builds models. A missing record is not proof of hidden behaviour. Sometimes it&#x27;s the observer who failed. In Lantern Bay, the 40 firms missing from the register produced almost 4 percent of the town&#x27;s output. That&#x27;s more than the illegal producers and the home growers put together. The five can also overlap. An informal business can hide sales, and an illegal one can employ people informally. When you measure, decide where each case goes, so nothing is counted twice.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=TkBeJ51-hHM&amp;t=298s" data-ep="2" data-t="298">4:58</a><p><b>Why activity goes unobserved.</b> So why does activity become non-observed? Each component has its own reasons. For concealment, it&#x27;s incentives and information. People hide when hiding pays, and when it&#x27;s feasible. And what matters is the risk they believe in, not the official audit rate. Social life matters too. If your neighbours seem to hide income, hiding feels normal and safe. If you trust the institutions, paying feels fair. For informality, it&#x27;s the costs and benefits of formal status, which change as a business grows, together with the state of the job market. For illegal production, it&#x27;s prohibition, which changes both the risks and the profits. For own use, there is simply no market. And for omissions, it&#x27;s the observation system itself. And the observers change the economy they watch. Make card payments more traceable, and some trade moves to cash. Start matching one kind of record, and reporting adapts. So there&#x27;s no single representative agent here. Many different actors, in different institutions, make different choices. That variety is one reason this book is computational.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=TkBeJ51-hHM&amp;t=359s" data-ep="2" data-t="359">5:59</a><p><b>Direct measurement.</b> Now, measurement. The first questions are what you&#x27;re measuring, and per what. Output or jobs? A country, a region, a firm, a household? A share of official GDP, or of total production? A figure of twenty percent means nothing until those are stated. Direct methods go close to the activity. Surveys of households and firms. And audits, which compare what was reported with what is found. Matched records are a third kind of direct evidence. An employer reports a wage, and the worker declares it. A seller reports a sale, and the buyer claims it. Two independent views of the same event. When the two views disagree, you&#x27;ve found something. That&#x27;s far stronger evidence than one source checking itself.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=TkBeJ51-hHM&amp;t=400s" data-ep="2" data-t="400">6:40</a><p><b>Random vs targeted audits.</b> Let&#x27;s run audits in Lantern Bay. The truth is that registered firms leave about 9 percent of their sales undeclared. Audit 40 firms chosen at random, and estimate the undeclared share from them. Over two thousand repeats, the typical answer is 9 percent. A single round is noisy. Most rounds land between 4 and 15 percent. Now a question before the next step. Suppose the tax office audits its forty riskiest-looking firms instead. Will its estimate of the undeclared share be too high, or too low? Now audit the 40 riskiest-looking firms instead, the way a tax office picks its cases. They hide a lot, so the audits find a lot. Extrapolate from them to the whole town, and you&#x27;d claim that 47 percent of sales are undeclared. That&#x27;s five times the truth. Targeted audits are great for collecting tax. They&#x27;re a terrible sample for estimating the size of anything. Random audits cost more and collect less, which is why few tax offices run them. But they&#x27;re the only kind of audit that can tell you how big the problem is. Surveys have their own problem. In our household survey, people under-report their informal sales, so the typical estimate comes out about a fifth too low. And a bigger sample doesn&#x27;t fix that, because the error isn&#x27;t random. It always points the same way.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=TkBeJ51-hHM&amp;t=479s" data-ep="2" data-t="479">7:59</a><p><b>Indirect measurement.</b> Indirect methods work from traces: cash demand, electricity use, gaps between spending and declared income, and models with a hidden variable. Their strength is coverage. Their weakness is that every trace has other causes. People hold cash for many reasons, and use electricity for many things. Here is a cash example. In Lantern Bay, cash sales add up to about 735 million. Part of that cash is ordinary recorded trade. The rest, we attribute to hidden trade. But how much cash does recorded trade use? Assume it&#x27;s paid 35 percent in cash. Then the hidden market comes to about 280 million. Assume 30 percent instead, and it grows to about 355 million. Assume 40 percent, and it shrinks to about 200 million. Five points in one assumption, and the answer moves by more than a quarter. That assumption needs evidence of its own. And no algorithm removes that need. A flexible model can learn a published estimate very well, without showing that the estimate is the truth. The strongest evidence combines sources with different weaknesses: surveys, audits, matched records and traces. Agreement means more when the sources fail in different ways.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=TkBeJ51-hHM&amp;t=550s" data-ep="2" data-t="550">9:10</a><p><b>Recap.</b> Let&#x27;s recap. There are five components: underground, illegal, informal sector, own use, and statistical omissions. Different causes, different traces, different evidence. Activity becomes non-observed through incentives, information, institutions and the observation system. And it reacts when the observers change. Measurement starts with a target, a unit and a denominator. Direct methods have sampling and honesty problems. Indirect methods have assumption problems. And targeted audits are not a sample. And always ask which assumption is doing the work. In the cash method, one assumption moved the answer by more than a quarter. In the lab, you&#x27;ll sort Lantern Bay&#x27;s producers into the five components, and see which observer records each one. Next module: theory-based and data-driven modelling, and what to do when the thing you want to predict is never observed itself.</p></div></div></div>
+            </details>
+        </div>
+        <div class="rl-eps">
+          <div class="rl-eps-head"><b>Module 1 videos</b><span>2 videos · 21 min</span></div>
+          <ol><li id="ep-1"><a class="rl-ep is-active" data-ep="1" href="https://www.youtube.com/watch?v=kcrevsD-KZw" aria-current=true><span class="rl-ep-thumb"><img src="/non-observed-economy/img/videos/v01.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>10:11</span></span><span><span class="rl-ep-num">Video 1 · 1.1</span><span class="rl-ep-title" style="display:block">Seen is not the same as happened</span><span class="rl-ep-take" style="display:block">Observation is a relation, not a property. In the same invented town the non-observed economy is 15% of what was produced, 18% of official GDP, or 8% under the narrow shadow definition: always state the definition and the denominator.</span></span></a></li><li id="ep-2"><a class="rl-ep" data-ep="2" href="https://www.youtube.com/watch?v=TkBeJ51-hHM"><span class="rl-ep-thumb"><img src="/non-observed-economy/img/videos/v02.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>10:21</span></span><span><span class="rl-ep-num">Video 2 · 1.2</span><span class="rl-ep-title" style="display:block">Five ways to go unobserved, and how to measure them</span><span class="rl-ep-take" style="display:block">Five components, five traces. Random audits estimate the undeclared share (9%); the riskiest 40 firms would suggest 47%. Surveys under-report by about a fifth however large, and five points in one cash assumption move the answer by more than a quarter.</span></span></a></li></ol>
+        </div>
+      </div>
+      <script type="application/json" id="rl-episodes">[{"ep": 1, "youtube": "kcrevsD-KZw", "title": "Seen is not the same as happened", "duration": "10:11", "hook": "Three observers, one invented town: the tax office sees 80% of what was produced, the statistics office 85%, a card company 54%.", "takeaway": "Observation is a relation, not a property. In the same invented town the non-observed economy is 15% of what was produced, 18% of official GDP, or 8% under the narrow shadow definition: always state the definition and the denominator.", "thumbAbs": "/non-observed-economy/img/videos/v01.webp"}, {"ep": 2, "youtube": "TkBeJ51-hHM", "title": "Five ways to go unobserved, and how to measure them", "duration": "10:21", "hook": "A café skipping receipts, an unlicensed taxi, a dressmaker at home, a family's vegetables and a bakery the register missed: five reasons to go unseen.", "takeaway": "Five components, five traces. Random audits estimate the undeclared share (9%); the riskiest 40 firms would suggest 47%. Surveys under-report by about a fifth however large, and five points in one cash assumption move the answer by more than a quarter.", "thumbAbs": "/non-observed-economy/img/videos/v02.webp"}]</script>
+    </div></section>
+    <section id="lab" class="rl-lab" aria-labelledby="lab-title">
+      <div class="proj-wrap rl-lab-head">
+        <p class="proj-label"><i class="ri-flashlight-line" aria-hidden="true"></i>Interactive lab</p>
+        <h2 id="lab-title" class="proj-h2" style="margin-top:.5rem">Lantern Bay&#x27;s observers</h2>
+        <p class="proj-lead">Switch the tax office, the statistics office and a card company on and off over an invented town, and see what each one records. Sort five producers into the five components, then change the definition and the denominator and watch the size of the non-observed economy move.</p>
+        <p class="proj-lead" style="margin-top:.6rem">The town is our own invented Lantern Bay (the same numbers as in the videos), computed in your browser. Four challenges are checked as you go.</p>
+      </div>
+      <div class="rlx" id="observers-lab" data-noex="observers">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">One town, three observers</h3>
+          <p class="rlx-sub">Lantern Bay is invented, so we know everything it really produced: about 1,666 million in its own currency. Each observer records a different part. The non-observed economy is what the statistics office misses.</p>
+          <div class="math-grid">
+            <article class="math-card"><div class="math-card-title">Tax office</div><div class="formula-line"><span class="formula-chip">declared sales of registered firms</span></div><p class="math-card-copy">Sees new firms the register missed; never sees undeclared sales, informal or illegal production.</p></article>
+            <article class="math-card"><div class="math-card-title">Statistics office</div><div class="formula-line"><span class="formula-chip">register + household survey</span></div><p class="math-card-copy">Surveys firms on its register, plus households for informal businesses and home-grown food. People under-report informal sales.</p></article>
+            <article class="math-card"><div class="math-card-title">Card company</div><div class="formula-line"><span class="formula-chip">card payments only</span></div><p class="math-card-copy">Sees money move, not what was bought or whether it was declared. Undeclared sales are mostly paid in cash.</p></article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Observer controls">
+            <div><h4 class="rlx-h">Observers</h4><p class="rlx-sub">Switch observers on and off, and change what the statistics office can see.</p></div>
+            <label class="srx-check"><input type="checkbox" data-k="tax" checked> Tax office</label>
+            <label class="srx-check"><input type="checkbox" data-k="stats" checked> Statistics office</label>
+            <label class="srx-check"><input type="checkbox" data-k="card" checked> Card company</label>
+            <label class="srx-check"><input type="checkbox" data-k="reg"> Statistics register up to date (adds the 40 new firms)</label>
+            <div class="rlx-field"><div class="rlx-label"><label for="obsHon">Household survey catches</label><span class="control-value" data-k="hon-out">78%</span></div><input id="obsHon" data-k="hon" type="range" min="0" max="100" step="1" value="78"></div>
+            <div class="rlx-field"><label class="rlx-label" for="obsDef">What counts</label><select id="obsDef" class="control-select" data-k="def"><option value="all">everything the statistics office misses</option><option value="shadow">concealed legal sales only (shadow)</option></select></div>
+            <div class="rlx-field"><label class="rlx-label" for="obsDen">Divided by</label><select id="obsDen" class="control-select" data-k="den"><option value="true">what was really produced</option><option value="gdp">official GDP (what the statistics office records)</option></select></div>
+            <p class="rlx-hint">All numbers come from our own simulation of the town, the same as in the videos.</p>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Size of the NOE</div><div class="metric-value" data-k="size">–</div></div><div class="metric-tile"><div class="metric-label">Statistics office records</div><div class="metric-value" data-k="stats-v">–</div></div><div class="metric-tile"><div class="metric-label">Missed production</div><div class="metric-value" data-k="missed">–</div></div><div class="metric-tile"><div class="metric-label">Tax ÷ official GDP / ÷ truth</div><div class="metric-value" data-k="taxgdp">–</div></div></div>
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">What each observer records</h4><p class="rlx-sub">Share of everything Lantern Bay really produced.</p></div></div>
+              <div class="chart-shell" style="height:200px"><svg data-k="chart" role="img" aria-label="Bars: what each observer records as a share of true output"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Sort five producers into the five components</h4><p class="rlx-sub" data-k="sorted">0 of 5 right</p></div></div>
+              <div class="noex-sort">
+                <label><span>A café that skips some receipts</span><select class="control-select" data-sort="underground"><option value="">choose…</option><option value="underground">underground</option><option value="illegal">illegal</option><option value="informal">informal sector</option><option value="own">own use</option><option value="omission">statistical omission</option></select></label>
+                <label><span>A taxi with no licence</span><select class="control-select" data-sort="illegal"><option value="">choose…</option><option value="underground">underground</option><option value="illegal">illegal</option><option value="informal">informal sector</option><option value="own">own use</option><option value="omission">statistical omission</option></select></label>
+                <label><span>A dressmaker sewing at home, unregistered</span><select class="control-select" data-sort="informal"><option value="">choose…</option><option value="underground">underground</option><option value="illegal">illegal</option><option value="informal">informal sector</option><option value="own">own use</option><option value="omission">statistical omission</option></select></label>
+                <label><span>A family growing vegetables for its table</span><select class="control-select" data-sort="own"><option value="">choose…</option><option value="underground">underground</option><option value="illegal">illegal</option><option value="informal">informal sector</option><option value="own">own use</option><option value="omission">statistical omission</option></select></label>
+                <label><span>A new bakery the register has not caught up with</span><select class="control-select" data-sort="omission"><option value="">choose…</option><option value="underground">underground</option><option value="illegal">illegal</option><option value="informal">informal sector</option><option value="own">own use</option><option value="omission">statistical omission</option></select></label>
+              </div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current settings.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Using only the statistics office's settings, bring the NOE (everything missed, divided by what was really produced) below 12%.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Find a definition and a denominator that report the NOE as more than 17% of something.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Sort all five producers into the right components.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>Make the statistics office record less than the tax office. Which setting does it, and why?</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="next" class="proj-section is-soft" aria-labelledby="next-title"><div class="proj-wrap">
+      <h2 id="next-title" class="proj-h2">Keep going</h2>
+      <div class="rl-pn"><a href="/non-observed-economy/"><i class="ri-arrow-left-line" aria-hidden="true"></i><span><small>Course page</small><strong>All modules</strong></span></a><a class="is-next" href="/non-observed-economy/module-02/"><span><small>Next · Module 2</small><strong>Theory-based and data-driven modelling</strong></span><i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+    </div></section>
+  </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Courses</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/rl-course/" class="hover:text-white">Reinforcement Learning</a></li>
+                  <li><a href="/epidemic-modeling/" class="hover:text-white">Epidemic Modeling</a></li>
+                  <li><a href="/symbolic-laws/" class="hover:text-white">Symbolic Physical Laws Discovery</a></li>
+                  <li><a href="/non-observed-economy/" class="hover:text-white">Non-Observed Economy</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/rl-course/" class="hover:text-white">RL course</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <script src="/js/videos.js"></script>
+      
+      <script src="/js/noe-labs.js" defer></script>
+      <script src="/js/epi-course.js" defer></script>
+   </body>
+</html>

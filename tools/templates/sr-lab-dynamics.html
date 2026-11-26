@@ -1,0 +1,62 @@
+<!-- Used by tools/build_sr_course.py: lab 7 (Module 7) of the Symbolic Physical Laws Discovery course: sparse dynamics. A simulated chemical clock (the Brusselator, a textbook model of oscillating reactions) is measured every 3 s; the visitor picks the data, the noise, the derivative pipeline and the threshold, runs sparse regression, and checks the found law's steady state, its onset of ticking and its period beyond the data. Script: js/sr-labs.js (data-srx="dynamics"). -->
+      <div class="rlx" id="dynamics-lab" data-srx="dynamics">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">A chemical clock, one sparse law</h3>
+          <p class="rlx-sub">The page simulates a chemical clock with the Brusselator, a textbook model of oscillating reactions: dX/dt = 1 − (b+1)·X + X²·Y and dY/dt = b·X − X²·Y, where b is the feed of the second chemical. Both concentrations are read every 3 seconds for 15 minutes, from up to six starting mixtures, with the noise you choose. Everything runs in your browser.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">A library of pieces</div>
+              <div class="formula-line"><span class="formula-chip">1, X, Y, X², X·Y, … Y³</span></div>
+              <p class="math-card-copy">Ten candidate terms for each rate; twenty when the feed b multiplies a second copy.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Sparse regression</div>
+              <div class="formula-line"><span class="formula-chip">fit · drop |ξ| &lt; threshold · refit</span></div>
+              <p class="math-card-copy">Repeat until nothing changes. The threshold is the one knob.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Tests beyond the fit</div>
+              <div class="formula-line"><span class="formula-chip">steady state · onset · period at b = 4</span></div>
+              <p class="math-card-copy">With the feed inside the law, ask about feeds that were never run.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Data and method">
+            <div><h4 class="rlx-h">A · Data</h4><p class="rlx-sub">What the experiment recorded.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="dyF">Feed b</label></div>
+              <select id="dyF" data-k="feed" class="control-select"><option value="1.5">1.5 (it settles)</option><option value="2.5" selected>2.5 (it ticks)</option><option value="3">3 (it ticks)</option><option value="all">1.5, 2.5 and 3, with b in the library</option></select></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="dyR">Runs</label></div>
+              <select id="dyR" data-k="runs" class="control-select"><option value="cycle">one run, settled on the cycle (30 min)</option><option value="1" selected>1 starting mixture</option><option value="3">3 starting mixtures</option><option value="6">6 starting mixtures</option></select></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="dyN">Noise</label><span class="control-value" data-k="noise-out">1%</span></div><input id="dyN" data-k="noise" type="range" min="0" max="5" step="1" value="3"></div>
+            <div style="margin-top:.75rem"><h4 class="rlx-h">B · Method</h4><p class="rlx-sub">How the rates are estimated, and how hard terms are pruned.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="dyP">Pipeline</label></div>
+              <select id="dyP" data-k="pipe" class="control-select"><option value="weak" selected>weak form (no derivatives)</option><option value="fd">finite differences</option></select></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="dyT">Threshold</label><span class="control-value" data-k="tau-out">0.3</span></div><input id="dyT" data-k="tau" type="range" min="0" max="8" step="1" value="4"></div>
+            <div class="rlx-btns"><button type="button" class="control-button control-button-secondary is-wide" data-k="redraw">New noise</button></div>
+            </aside>
+            <div class="rlx-main">
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">–</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">The law found</h4><p class="rlx-sub">Sparse regression on the recorded runs.</p></div></div>
+              <p class="rlx-hint srx-mono" data-k="lawx">–</p>
+              <p class="rlx-hint srx-mono" data-k="lawy">–</p>
+              <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Terms kept</div><div class="metric-value" data-k="nterms">–</div></div><div class="metric-tile"><div class="metric-label">The clock’s law?</div><div class="metric-value" data-k="right">–</div></div></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Tests beyond the fit</h4><p class="rlx-sub">Grey: the recorded runs. Dashed: the true clock from the first mixture. Orange: the found law from the same mixture. Blue dot: the found law’s steady state.</p></div></div>
+              <div class="chart-shell" style="height:300px"><svg data-k="pchart" role="img" aria-label="The recorded runs, the true clock and the found law in the X–Y plane"></svg></div>
+              <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Steady state</div><div class="metric-value" data-k="steady">–</div></div><div class="metric-tile"><div class="metric-label">Onset of ticking</div><div class="metric-value" data-k="onset">–</div></div><div class="metric-tile"><div class="metric-label">Period at b = 4</div><div class="metric-value" data-k="p4">–</div></div></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked as you go.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Recover the clock’s five-term law at 1% noise or more. Hint: one starting mixture isn’t enough.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Show that coverage matters: with the same noise, method and threshold, one run settled on the cycle fails where six starting mixtures succeed.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Find the threshold window at 1% noise with the weak form: one threshold that keeps more than ten terms, one that keeps fewer than five, and one that finds the law.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>Put the feed in the library and find a law whose onset is within 0.05 of b = 2 and whose period at b = 4 is within 3% of the truth.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>

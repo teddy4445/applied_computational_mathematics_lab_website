@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_sr_course.py from data/sr-course.json. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Module 6: Static laws and interpretable surrogates | Symbolic Physical Laws Discovery Course | ACML</title>
+      <meta name="description" content="Module 6 of 10 of ACML’s Symbolic Physical Laws Discovery course. Scaling laws, correlations and closures: slides, 2 videos and an interactive lab.">
+      <meta name="author" content="Teddy Lazebnik">
+      <meta name="keywords" content="symbolic regression, equation discovery, physics-informed machine learning, static laws and interpretable surrogates, course, ACML">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/symbolic-laws/module-06/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Module 6: Static laws and interpretable surrogates · Symbolic Physical Laws Discovery">
+      <meta property="og:description" content="Module 6 of 10 of ACML’s Symbolic Physical Laws Discovery course. Scaling laws, correlations and closures: slides, 2 videos and an interactive lab.">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/symbolic-laws/module-06/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/symbolic-laws/module-06/share.jpg">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Module 6: Static laws and interpretable surrogates · Symbolic Physical Laws Discovery">
+      <meta name="twitter:description" content="Module 6 of 10 of ACML’s Symbolic Physical Laws Discovery course. Scaling laws, correlations and closures: slides, 2 videos and an interactive lab.">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/symbolic-laws/module-06/share.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "Module 6: Static laws and interpretable surrogates",
+        "description": "Many laws are static: one formula from inputs to an output. With pendulums timed on Earth, Mars and the Moon and a cyclist's power against speed, we separate candidate laws, empirical correlations and surrogates, and let units work before any search: five quantities become two numbers, and nine pendulums collapse onto one curve. We search a correlation instead of guessing a template, size it from a Pareto front, and test closures inside the simulation they live in, where two equally good fits stop a coasting bike 15 seconds apart. Then we learn what a theory misses with residual laws, build symbolic surrogates and multi-fidelity models, and declare and attack each formula's validity envelope, side by side with black boxes.",
+        "url": "https://acml.teddylazebnik.com/symbolic-laws/module-06/",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "learningResourceType": [
+          "Lecture slides",
+          "Video",
+          "Interactive resource"
+        ],
+        "teaches": "Scaling laws, correlations and closures",
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Symbolic Physical Laws Discovery",
+          "url": "https://acml.teddylazebnik.com/symbolic-laws/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Teddy Lazebnik",
+          "url": "https://teddylazebnik.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Applied Computational Mathematics Laboratory",
+          "url": "https://acml.teddylazebnik.com/"
+        },
+        "hasPart": [
+          {
+            "@type": "VideoObject",
+            "name": "Scaling laws, correlations and closures",
+            "description": "Nine pendulums on three worlds fall on one curve before any search begins.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/symbolic-laws/img/videos/v12.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/CnbPdV_5LV0",
+            "duration": "PT8M16S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Residuals, surrogates and the limits of a formula",
+            "description": "The textbook pendulum formula is within 1% up to 1.8 rad, and 20% off at 2.9.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/symbolic-laws/img/videos/v13.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/CScxFRnETuo",
+            "duration": "PT8M37S"
+          },
+          {
+            "@type": "DigitalDocument",
+            "name": "Module 6 slides",
+            "encodingFormat": "application/pdf",
+            "url": "https://acml.teddylazebnik.com/symbolic-laws/slides/Symbolic_Laws_Module06_Static_laws_and_interpretable_surrogates.pdf"
+          }
+        ]
+      }
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      <link href="/css/videos.css" rel="stylesheet">
+      
+      <link href="/css/exploration-lab.css" rel="stylesheet">
+      <link href="/css/rl-labs.css" rel="stylesheet">
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/project.css" rel="stylesheet">
+      <link href="/css/rl-course.css" rel="stylesheet">
+      <link href="/css/epi-course.css" rel="stylesheet">
+      <link href="/css/sr-course.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+          <a href="/courses.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Courses</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/courses.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Courses</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="proj-page rl-page bg-white">
+    <header class="proj-hero rl-hero">
+      <div class="proj-wrap proj-hero-grid">
+        <div>
+          <nav class="proj-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/courses.html">Courses</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/symbolic-laws/">Symbolic Physical Laws Discovery</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Module 6</span></nav>
+          <p class="proj-kicker"><span><i class="ri-graduation-cap-line" aria-hidden="true"></i>Symbolic Physical Laws Discovery</span><span>Laws in practice</span></p>
+          <h1 class="proj-title"><small>Module 6</small>Static laws and interpretable surrogates</h1>
+          <p class="proj-about-lead rl-summary">Many laws are static: one formula from inputs to an output. With pendulums timed on Earth, Mars and the Moon and a cyclist&#x27;s power against speed, we separate candidate laws, empirical correlations and surrogates, and let units work before any search: five quantities become two numbers, and nine pendulums collapse onto one curve. We search a correlation instead of guessing a template, size it from a Pareto front, and test closures inside the simulation they live in, where two equally good fits stop a coasting bike 15 seconds apart. Then we learn what a theory misses with residual laws, build symbolic surrogates and multi-fidelity models, and declare and attack each formula&#x27;s validity envelope, side by side with black boxes.</p>
+          <div class="rl-goal"><i class="ri-focus-3-line" aria-hidden="true"></i><span>By the end you should be able to tell a law from a correlation and a surrogate, use dimensional analysis and data collapse, search and size a correlation, test a closure inside its simulation, learn a residual law, and state and stress-test a validity envelope.</span></div>
+          <h2 class="proj-h3 rl-ideas-title">Key ideas, one per video</h2>
+          <ul class="rl-ideas"><li><a href="#ep-12">Video 12</a><span>Units turned five quantities into two numbers, and nine pendulums collapsed to within 0.46%. A guessed power law gave a meaningless exponent (2.33); a search found two mechanisms, v and v³, with physical coefficients. Two closures that fit equally well stopped a coasting bike 15 s apart.</span></li><li><a href="#ep-13">Video 13</a><span>A residual search next to the small-swing law found 0.0604·θ², against the known 1/16 = 0.0625. The series ran more than a million times faster than our integrator and held within 1% up to 1.8 rad; the cheap law plus three expensive runs gave 1.7% worst error, against 3.6% from the runs alone. State every formula&#x27;s envelope, then attack it.</span></li></ul>
+          <p class="rl-source"><b>Book:</b> Chapter 6 of <cite>Computational Methods for Symbolic Physical Laws Discovery</cite> by Teddy Lazebnik (coming soon). The videos and slides follow the chapter’s topics in our own words, figures and simulations; nothing is copied from the book.</p>
+        </div>
+        <div class="rl-first">
+          <a class="rl-first-img" href="/symbolic-laws/slides/Symbolic_Laws_Module06_Static_laws_and_interpretable_surrogates.pdf" target="_blank" rel="noopener"><img src="/symbolic-laws/img/slides/m06-s01.webp" alt="The title slide of Module 6: Static laws and interpretable surrogates" width="960" height="540" fetchpriority="high" decoding="async"></a>
+          <p class="rl-first-text">27 slides, written to be read on your own, with worked examples, our own small simulations and check-yourself questions (answers at the end). PDF, 1.6 MB.</p>
+          <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="/symbolic-laws/slides/Symbolic_Laws_Module06_Static_laws_and_interpretable_surrogates.pdf" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Open the PDF</a><a class="proj-btn" href="/symbolic-laws/slides/Symbolic_Laws_Module06_Static_laws_and_interpretable_surrogates.pdf" download><i class="ri-download-2-line" aria-hidden="true"></i>Download</a></div>
+        </div>
+      </div>
+    </header>
+    <nav class="proj-subnav is-mobile-only" aria-label="Sections of this page"><div class="proj-wrap"><ul><li><a href="#watch">Watch</a></li><li><a href="#lab">Lab</a></li><li><a href="#next">Next</a></li></ul></div></nav>
+    <section id="watch" class="proj-section is-soft" aria-labelledby="watch-title"><div class="proj-wrap">
+      <h2 id="watch-title" class="proj-h2">Watch</h2>
+      <p class="proj-lead">2 videos for this module, each about 8 to 15 minutes. Pick one from the list, and open the transcript to read along: each timestamp plays the video from there. The narration is generated with a voice clone of Teddy, used with his permission.</p>
+      <div class="rl-watch">
+        <div class="rl-player-wrap">
+          <div id="rl-player" class="yt-player yt-16x9" data-yt-id="CnbPdV_5LV0" data-yt-title="Scaling laws, correlations and closures"><a class="yt-play" href="https://www.youtube.com/watch?v=CnbPdV_5LV0" aria-label="Play video 12: Scaling laws, correlations and closures"><img src="/symbolic-laws/img/videos/v12.webp" alt="" width="640" height="360" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div>
+          <div class="rl-now">
+            <p id="rl-now-num" class="rl-now-num">Video 12 · 8:16</p>
+            <p id="rl-now-title" class="rl-now-title">Scaling laws, correlations and closures</p>
+            <p id="rl-now-hook" class="rl-now-hook">Nine pendulums on three worlds fall on one curve before any search begins.</p>
+            <p id="rl-now-take" class="rl-now-take"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i><span>Units turned five quantities into two numbers, and nine pendulums collapsed to within 0.46%. A guessed power law gave a meaningless exponent (2.33); a search found two mechanisms, v and v³, with physical coefficients. Two closures that fit equally well stopped a coasting bike 15 s apart.</span></p>
+          </div>
+            <details id="rl-tx" class="rl-tx">
+              <summary><i class="ri-file-text-line" aria-hidden="true"></i>Transcript<span id="rl-tx-which">Video 12</span><i class="ri-arrow-down-s-line rl-tx-caret" aria-hidden="true"></i></summary>
+              <div class="rl-tx-body"><div class="rl-tx-ep" data-ep="12"><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=CnbPdV_5LV0" data-ep="12" data-t="0">0:00</a><p><b>Nine pendulums, one curve.</b> We timed pendulums on three worlds, Earth, Mars and the Moon, with three lengths each, at swings from small to very large. The periods spread over a factor of eight. Now plot the period times the square root of g over L, against the swing angle. All nine pendulums fall on one curve. Two lines of algebra did that, before any search began. This module is about static laws: one formula from inputs to an output, with no time derivative. Some are laws, some are correlations, some stand in for a simulator. Knowing which is half the job. This is Module six: static laws and interpretable surrogates. Part one: dimensionless structure. Part two: correlations, searched instead of guessed. Part three: closures that live inside a simulation. Part four: descriptors.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=CnbPdV_5LV0&amp;t=55s" data-ep="12" data-t="55">0:55</a><p><b>Three kinds of static formula.</b> Three kinds of static formula look alike on paper. A candidate law claims to be part of the mechanism. An empirical correlation summarizes behaviour over a stated range. A surrogate approximates another computer model. The same equation can move between these labels only when new evidence changes the claim. And the label decides the search: units may be non-negotiable for a law, while a surrogate can afford an extra term if it is fast and smooth.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=CnbPdV_5LV0&amp;t=82s" data-ep="12" data-t="82">1:22</a><p><b>Dimensionless structure.</b> Part one: dimensionless structure. A pendulum&#x27;s period could depend on its length, gravity, its mass, and the swing angle. Only length, time and mass are involved, and nothing else carries mass, so mass drops out. So the law must read: the period times the square root of g over L equals some function of the angle alone. Five quantities became two numbers, before a single timing. The general rule is the Buckingham pi theorem. Count the quantities, subtract the number of independent units, and you get the number of dimensionless groups. Here: five quantities, three units, two groups. Engineers lean on the same idea every day. Groups like the Reynolds number let one correlation cover pipes of every size, and fluids of every kind. Now the search looks for one function of one variable, and its constants can&#x27;t quietly depend on whether you measured in metres or in feet. In our data, a small swing takes about 1.1 seconds for a short pendulum on Earth, and about 5.4 seconds for a long one on the Moon. In the new coordinates, the nine pendulums lie on one curve, rising from two pi at small swings. The collapse is also a test. If the points had refused to collapse, something missing from our list, like friction or a heavy string, would be shaping the period. Ours did collapse. The points scatter around one curve by about half a percent, the size of our timing noise. Nothing else is left to explain. But dimensional analysis doesn&#x27;t pick a unique set of groups. Many valid combinations exist, and some make the remaining search far easier than others. And a perfect collapse is not a mechanism. It shows that the runs share one representation. Why that representation works needs other evidence.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=CnbPdV_5LV0&amp;t=182s" data-ep="12" data-t="182">3:02</a><p><b>Correlations: guessed or searched.</b> Part two: engineering correlations. A cyclist&#x27;s power at a steady speed on flat ground. We simulated a hundred rides, most of them fast, with four percent noise. The classic move is to guess a template, power equals C times speed to the power b, and fit C and b. Templates like this are everywhere in engineering, and within a narrow range they can fit well. Here, the best fit gives b equal to 2.33. That exponent means nothing physical. It is a compromise between two mechanisms, and it misses both regimes: by about eight percent at low speed, and six and a half at high speed. Fit only the slow rides, and b drops to 1.8. Fit only the fast ones, and it rises to 2.6. The exponent records which rides you happened to collect. Now search instead: a small library of powers of speed, and thresholded least squares. The search keeps exactly two terms: speed, and speed cubed. Their coefficients are physical. The first gives a rolling coefficient of 0.0051. The second gives a drag area of 0.346 square metres. We simulated 0.005 and 0.35. Search found the structure the template had assumed away: two mechanisms, added. The errors fell to five percent at low speed, and three at high speed. And the search shows its Pareto front. One term, speed cubed, leaves a median error of 9.2 percent. Two terms: 3.2 percent. A third or a fourth term buys only a tenth of a percent. The bend is at two. Build correlations around regimes: weigh slow and fast rides by how the formula will be used, not by how many of each you happened to record. And choose from the front, near its bend.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=CnbPdV_5LV0&amp;t=286s" data-ep="12" data-t="286">4:46</a><p><b>Closures inside a simulation.</b> Part three: closures. A closure is a formula that lives inside a larger simulation: a stress law, a friction law, a turbulence correction. It must be judged as a regression, and as a component. Back to our cyclist. We fitted the resistance force two ways, on rides between four and fourteen metres per second: the true form, a constant plus a speed squared term, and a cubic polynomial. Both fit the rides equally well. Pause. Put each closure into a simulation of a bike coasting from six metres per second with no pedalling. Will they agree on when it stops? They don&#x27;t. With the fitted true form, the bike stops after about 83 seconds, close to the 85 of the law we simulated. With the polynomial, after about 98. The polynomial invented a lower resistance at slow speeds it never saw: near zero speed, 2.7 newtons instead of 4.2. Offline accuracy is not closure validity. A limit check would have caught it before any simulation. At zero speed, only rolling resistance is left: the mass, times g, times the rolling coefficient. That is 4.2 newtons, not 2.7. And the simulation went exactly where the data wasn&#x27;t. After about twenty seconds, the coasting bike is below four metres per second, and it stays there for the rest of the run. Testing a closure on stored data is called a priori testing. Running it inside the solver is a posteriori testing. You need both, and they often disagree. Closures carry constraints too. A correction that must keep a sign can be written as a factor, the exponential of a learned term. And candidates that break physical rules can be filtered before any expensive run.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=CnbPdV_5LV0&amp;t=391s" data-ep="12" data-t="391">6:31</a><p><b>Descriptors.</b> Part four: descriptors. In materials science the goal is often not a universal law, but a compact combination of properties that organizes a huge space of candidates. A searched descriptor, built from quantities like atomic radii, elastic moduli or energies, can rank materials for screening, and hint at what matters. That is worth a lot. A good descriptor can shrink a long list of candidate materials to a short one worth making in the lab, even before anyone knows why it works. Methods such as SISSO build millions of candidate combinations from basic properties, screen them, and keep a handful with sparse regression. With that many candidates, some will fit by chance. So test on whole families of materials the search never saw. And read a descriptor as a hypothesis about useful coordinates, not as a mechanism, until independent evidence says why it works.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=CnbPdV_5LV0&amp;t=444s" data-ep="12" data-t="444">7:24</a><p><b>Recap.</b> Let&#x27;s recap. Decide first whether you want a law, a correlation, or a surrogate. Dimensionless groups shrink the search: for our pendulum, five quantities became two numbers. Searching beat guessing a template: two mechanisms, added, with physical coefficients, chosen at the bend of the front. And closures must pass their limit checks, and be tested inside the simulation they will live in. In the lab, you&#x27;ll collapse the pendulums yourself. Next video: residuals, surrogates, and the limits of a formula.</p></div></div><div class="rl-tx-ep" data-ep="13" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=CScxFRnETuo" data-ep="13" data-t="0">0:00</a><p><b>Where formulas stop working.</b> The textbook correction for a pendulum&#x27;s period matches the exact value within one percent, for swings up to 1.8 radians. At 2.9 radians it predicts 1.78 times the small-swing period. The truth is 2.24. Black boxes trained on swings up to two radians do no better. A nearest-neighbour model predicts 1.25 for every larger swing. A degree eight polynomial predicts 7.3 at 2.8 radians. Every formula has a validity envelope. This video is about finding it, and about formulas that live next to a theory, or stand in for a simulator. In this video. Part one: residuals, learning what a theory misses. Part two: symbolic surrogates. Part three: combining cheap and expensive models. Part four: envelopes, stress tests and black boxes.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=CScxFRnETuo&amp;t=60s" data-ep="13" data-t="60">1:00</a><p><b>Residuals: learning what a theory misses.</b> Part one: residuals. When a trusted theory exists, don&#x27;t throw it away. Learn only what it misses: the measured value minus the theory, or their ratio. For the pendulum, the small-swing law is the theory. We divided each measured period by it, and searched for that ratio as a function of the angle, using swings up to one and a half radians. The theory carries the units and the big picture, so the search only has to find a small, dimensionless number close to one. That is a far easier target than the whole law. We offered only even powers of the angle. A swing to the left takes as long as a swing to the right, so the correction must be symmetric. Symmetry shrank the library before the search began. Here is what the search returned. One, plus 0.0604 times theta squared, plus 0.0049 times theta to the fourth. The known series starts with one, plus one sixteenth theta squared. And one sixteenth is 0.0625. How sure are these numbers? We resampled the data four hundred times. The squared term stayed between 0.056 and 0.064, and one sixteenth sits inside that range. The fourth-power term is far less sure. It ranged from 0.003 to 0.007, and the series value of 0.0036 sits near the lower edge. It soaks up higher terms that the data cannot separate. When we offered theta to the sixth, its coefficient came out at essentially zero. The correction has an immediate meaning: how much a big swing slows the pendulum down. That&#x27;s the appeal of residual laws: the theory stays, and the new term is small and readable. Choose the form by the suspected error: an added term for a missing process, a ratio or a log ratio for a missing factor. And remember that residuals also hold noise and bias, not only new physics.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=CScxFRnETuo&amp;t=171s" data-ep="13" data-t="171">2:51</a><p><b>Symbolic surrogates.</b> Part two: symbolic surrogates. Our expensive simulator integrates the pendulum&#x27;s equation numerically: about 5,600 small steps for each period. The series gives a period in a single line. In our Python code it was more than a million times faster: tens of milliseconds for the integrator, tens of nanoseconds for the formula. And it matched the integrator within one percent, up to 1.8 radians. Our own fitted correction, from noisy data, held within one percent up to 2.1 radians, further than the textbook terms, because its larger fourth-power term stands in for the missing ones. Further, but still finite. A surrogate is judged by its purpose: speed and accuracy, for the quantity a downstream calculation needs, over a declared domain. Not by whether it is the law. Surrogates pay off in repeated work: calibration, uncertainty propagation, design, control. A formula is also differentiable, and easy to embed anywhere. Where should the expensive runs go when you build one? We used an even grid. Spending runs where the formula&#x27;s error is largest is cheaper: the active learning of Module five, aimed at a simulator.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=CScxFRnETuo&amp;t=243s" data-ep="13" data-t="243">4:03</a><p><b>Cheap and expensive models.</b> Part three: multi-fidelity. Cheap models are plentiful but biased. Expensive ones are accurate but rare. Combine them. Here the cheap model is the small-swing law, free everywhere. The expensive one is the integrator, run only three times. We learned a correction to the cheap model from those three runs. Across swings up to 2.3 radians, the combined model&#x27;s worst error was 1.7 percent. A quadratic through the three expensive runs alone: 3.6 percent. And the correction it learned from three runs was 0.061 times theta squared. Again, that is close to one sixteenth. Why did it work? The cheap law is exactly right at small swings, so the correction must vanish there. Building that in left only two numbers to learn from three runs. The quadratic had to learn everything from the same three. The cheap model supplies the shape, and the expensive runs supply the correction. But a biased cheap model can also mislead, so check the combination on expensive runs it never saw.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=CScxFRnETuo&amp;t=303s" data-ep="13" data-t="303">5:03</a><p><b>Black boxes beyond the data.</b> Pause. The nearest-neighbour model, the polynomial, and a fitted series all match the training swings well. Which one would you trust at 2.5 radians? None of them, fully. At 2.5 radians the truth is 1.64. The fitted series says 1.57. The nearest-neighbour model says 1.25. The polynomial says 2.54. Just past the training edge, at 2.2 radians, the series is off by under two percent, the polynomial by under four, and the nearest-neighbour model by twelve. The black boxes fail silently: one flattens, one explodes. The series fails gradually, and its form tells you why: a polynomial in the angle cannot follow a period that grows without limit as the swing approaches the top. Near the top, the period really does grow without limit. A formula fitted below two radians cannot know that. Declare the envelope.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=CScxFRnETuo&amp;t=361s" data-ep="13" data-t="361">6:01</a><p><b>Validity envelopes and stress tests.</b> Part four: validity envelopes. State where a formula holds: the range of each input, the combinations covered, and the tolerance. Our series holds within one percent up to 1.8 radians. Its first term alone, only to about 1.3. And the envelope depends on the tolerance you declare. At one part in a thousand, the series holds only to about 1.3 radians. At five percent, it holds to about 2.4. Then stress-test it. Push the inputs toward the edges, check the limits, check symmetries, and test points inside the range but far from any data. Our series passes the limit test: at zero swing, the ratio is one. It passes the symmetry test by construction. It fails the edge test: near the top, it stays finite. So the report reads: the period ratio is one, plus theta squared over sixteen, plus eleven theta to the fourth over three thousand and seventy two. Valid within one percent for swings up to 1.8 radians. Checked against a numerical integrator. A formula used outside its envelope isn&#x27;t a law being tested. It&#x27;s a guess with good handwriting. Black boxes are often more accurate inside the data. Compare them fairly: the same splits, the same inputs, the same extrapolation tests, and accuracy reported against complexity. Prefer the symbolic model when its behaviour must be checked, embedded, or extrapolated, or when its terms answer a scientific question. Prefer the black box when only accuracy inside the data matters. Black boxes have envelopes too. They just don&#x27;t print them. Report where the training data lie, and treat every prediction outside them as a guess. And they can work together: a black box can teach a formula. That is a topic for Module ten.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=CScxFRnETuo&amp;t=463s" data-ep="13" data-t="463">7:43</a><p><b>Recap.</b> Let&#x27;s recap. Residual laws keep the theory and learn what it misses. Here, a correction close to one sixteenth of the angle squared. Symbolic surrogates trade a little accuracy for enormous speed, over a declared domain. Multi-fidelity combines a cheap model&#x27;s shape with an expensive model&#x27;s correction. Black boxes and formulas deserve the same tests: the same splits, the same edges, and an honest envelope for each. Every formula has an envelope: find it, state it, and stress-test it. In the lab, you&#x27;ll draw ours. Next module: ordinary differential equations.</p></div></div></div>
+            </details>
+        </div>
+        <div class="rl-eps">
+          <div class="rl-eps-head"><b>Module 6 videos</b><span>2 videos · 17 min</span></div>
+          <ol><li id="ep-12"><a class="rl-ep is-active" data-ep="12" href="https://www.youtube.com/watch?v=CnbPdV_5LV0" aria-current=true><span class="rl-ep-thumb"><img src="/symbolic-laws/img/videos/v12.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>8:16</span></span><span><span class="rl-ep-num">Video 12 · 6.1</span><span class="rl-ep-title" style="display:block">Scaling laws, correlations and closures</span><span class="rl-ep-take" style="display:block">Units turned five quantities into two numbers, and nine pendulums collapsed to within 0.46%. A guessed power law gave a meaningless exponent (2.33); a search found two mechanisms, v and v³, with physical coefficients. Two closures that fit equally well stopped a coasting bike 15 s apart.</span></span></a></li><li id="ep-13"><a class="rl-ep" data-ep="13" href="https://www.youtube.com/watch?v=CScxFRnETuo"><span class="rl-ep-thumb"><img src="/symbolic-laws/img/videos/v13.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>8:37</span></span><span><span class="rl-ep-num">Video 13 · 6.2</span><span class="rl-ep-title" style="display:block">Residuals, surrogates and the limits of a formula</span><span class="rl-ep-take" style="display:block">A residual search next to the small-swing law found 0.0604·θ², against the known 1/16 = 0.0625. The series ran more than a million times faster than our integrator and held within 1% up to 1.8 rad; the cheap law plus three expensive runs gave 1.7% worst error, against 3.6% from the runs alone. State every formula&#x27;s envelope, then attack it.</span></span></a></li></ol>
+        </div>
+      </div>
+      <script type="application/json" id="rl-episodes">[{"ep": 12, "youtube": "CnbPdV_5LV0", "title": "Scaling laws, correlations and closures", "duration": "8:16", "hook": "Nine pendulums on three worlds fall on one curve before any search begins.", "takeaway": "Units turned five quantities into two numbers, and nine pendulums collapsed to within 0.46%. A guessed power law gave a meaningless exponent (2.33); a search found two mechanisms, v and v³, with physical coefficients. Two closures that fit equally well stopped a coasting bike 15 s apart.", "thumbAbs": "/symbolic-laws/img/videos/v12.webp"}, {"ep": 13, "youtube": "CScxFRnETuo", "title": "Residuals, surrogates and the limits of a formula", "duration": "8:37", "hook": "The textbook pendulum formula is within 1% up to 1.8 rad, and 20% off at 2.9.", "takeaway": "A residual search next to the small-swing law found 0.0604·θ², against the known 1/16 = 0.0625. The series ran more than a million times faster than our integrator and held within 1% up to 1.8 rad; the cheap law plus three expensive runs gave 1.7% worst error, against 3.6% from the runs alone. State every formula's envelope, then attack it.", "thumbAbs": "/symbolic-laws/img/videos/v13.webp"}]</script>
+    </div></section>
+    <section id="lab" class="rl-lab" aria-labelledby="lab-title">
+      <div class="proj-wrap rl-lab-head">
+        <p class="proj-label"><i class="ri-contrast-drop-line" aria-hidden="true"></i>Interactive lab</p>
+        <h2 id="lab-title" class="proj-h2" style="margin-top:.5rem">Collapse and envelope</h2>
+        <p class="proj-lead">Time nine pendulums on Earth, Mars and the Moon, and choose the axes until they fall on one curve; hang a heavy string and watch the collapse break. Then measure where a formula for the period holds, at the tolerance you choose, and refit it on wider swings.</p>
+        <p class="proj-lead" style="margin-top:.6rem">The pendulums are simulated in your browser (exact periods from the elliptic integral, 0.5% timing noise; the heavy string makes the 1.2 m pendulums physical pendulums). Four challenges are checked as you go.</p>
+      </div>
+      <div class="rlx" id="collapse-lab" data-srx="collapse">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">Nine pendulums, one curve, one envelope</h3>
+          <p class="rlx-sub">The page times nine simulated pendulums: Earth, Mars and the Moon (g = 9.81, 3.71, 1.62 m/s²), lengths 0.3, 0.6 and 1.2 m, swings from 0.1 to 2.5 rad, with 0.5% timing noise. The exact periods come from the elliptic integral. Everything runs in your browser.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">Units first</div>
+              <div class="formula-line"><span class="formula-chip">T·√(g/L) = f(θ₀)</span></div>
+              <p class="math-card-copy">Period, length, gravity, mass and angle: five quantities, three units, two numbers.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">A failed collapse</div>
+              <div class="formula-line"><span class="formula-chip">a heavy string</span></div>
+              <p class="math-card-copy">If the points refuse to fall on one curve, something missing from the list shapes the period.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Envelope</div>
+              <div class="formula-line"><span class="formula-chip">|formula ÷ exact − 1| ≤ tolerance</span></div>
+              <p class="math-card-copy">Where a formula holds depends on the tolerance you declare, and on the data it was fitted to.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Axes and formula">
+            <div><h4 class="rlx-h">A · Axes</h4><p class="rlx-sub">Pick what to plot. The scatter measures how far the points sit from one smooth curve.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="clY">Vertical axis</label></div>
+              <select id="clY" data-k="yax" class="control-select"><option value="T">T, the period [s]</option><option value="TL">T ÷ L [s/m]</option><option value="Tg">T · g [m/s]</option><option value="TLg">T · √(L/g) [s²]</option><option value="TgL">T · √(g/L) [no units]</option></select></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="clX">Horizontal axis</label></div>
+              <select id="clX" data-k="xax" class="control-select"><option value="th">θ₀ [rad]</option><option value="th2">θ₀² [rad²]</option><option value="sin">sin(θ₀/2)</option></select></div>
+            <label class="srx-check"><input type="checkbox" data-k="string"> <span>Hang the 1.2 m bobs on a heavy string (string as heavy as the bob)</span></label>
+            <div class="rlx-btns"><button type="button" class="control-button control-button-secondary is-wide" data-k="redraw">New timing noise</button></div>
+            <div style="margin-top:.75rem"><h4 class="rlx-h">B · Envelope</h4><p class="rlx-sub">A formula for T ÷ T₀, where T₀ = 2π√(L/g) is the small-swing law.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="clF">Formula</label></div>
+              <select id="clF" data-k="form" class="control-select"><option value="two">1 + θ₀²/16 (first correction)</option><option value="series">1 + θ₀²/16 + 11·θ₀⁴/3072 (textbook)</option><option value="fit" selected>a + b·θ₀² + c·θ₀⁴, fitted</option></select></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="clR">Fit to swings up to</label><span class="control-value" data-k="fitmax-out">1.5 rad</span></div><input id="clR" data-k="fitmax" type="range" min="0" max="10" step="1" value="5"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="clT">Tolerance</label><span class="control-value" data-k="tol-out">1%</span></div><input id="clT" data-k="tol" type="range" min="0" max="6" step="1" value="3"></div>
+            </aside>
+            <div class="rlx-main">
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">–</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">A · Do they collapse?</h4><p class="rlx-sub">Green: Earth. Red: Mars. Blue: the Moon. Bigger dots: longer pendulums.</p></div></div>
+              <div class="chart-shell" style="height:280px"><svg data-k="cchart" role="img" aria-label="The nine pendulums' timings on the chosen axes"></svg></div>
+              <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Scatter around one curve</div><div class="metric-value" data-k="scatter">–</div></div><div class="metric-tile"><div class="metric-label">Timing noise</div><div class="metric-value">0.5%</div></div></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">B · Where does the formula hold?</h4><p class="rlx-sub">Its error against the exact period, on a log scale. The envelope ends where the error first crosses the tolerance.</p></div></div>
+              <p class="rlx-hint srx-mono" data-k="formula">–</p>
+              <div class="chart-shell" style="height:260px"><svg data-k="echart" role="img" aria-label="Error of the formula against swing angle, with the tolerance line"></svg></div>
+              <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Envelope at this tolerance</div><div class="metric-value" data-k="env">–</div></div><div class="metric-tile"><div class="metric-label">Error at a 0.1 rad swing</div><div class="metric-value" data-k="small">–</div></div></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked as you go.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Choose axes that collapse all nine pendulums to within 1%.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Show that the groups are not unique: collapse them to within 1% with a different horizontal axis.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Break the collapse with a missing variable: keep collapsing axes and push the scatter above 2%.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>Refit the correction on wider swings until its 1% envelope passes 2.3 rad. What happens at small swings?</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="next" class="proj-section is-soft" aria-labelledby="next-title"><div class="proj-wrap">
+      <h2 id="next-title" class="proj-h2">Keep going</h2>
+      <div class="rl-pn"><a href="/symbolic-laws/module-05/"><i class="ri-arrow-left-line" aria-hidden="true"></i><span><small>Previous · Module 5</small><strong>Scientific data, noise and experimental design</strong></span></a><a class="is-next" href="/symbolic-laws/module-07/"><span><small>Next · Module 7</small><strong>Ordinary differential equations</strong></span><i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+    </div></section>
+  </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Courses</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/rl-course/" class="hover:text-white">Reinforcement Learning</a></li>
+                  <li><a href="/epidemic-modeling/" class="hover:text-white">Epidemic Modeling</a></li>
+                  <li><a href="/symbolic-laws/" class="hover:text-white">Symbolic Physical Laws Discovery</a></li>
+                  <li><a href="/non-observed-economy/" class="hover:text-white">Non-Observed Economy</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/rl-course/" class="hover:text-white">RL course</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <script src="/js/videos.js"></script>
+      
+      <script src="/js/sr-labs.js" defer></script>
+      <script src="/js/epi-course.js" defer></script>
+   </body>
+</html>

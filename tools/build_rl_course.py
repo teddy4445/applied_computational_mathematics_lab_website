@@ -196,8 +196,7 @@ def build_hub(data, template, eps):
           <p class="proj-kicker"><span><i class="ri-graduation-cap-line" aria-hidden="true"></i>Open course materials</span><span><i class="ri-user-3-line" aria-hidden="true"></i>{esc(data["teacher"])}</span></p>
           <h1 class="proj-title">{esc(data["title"])}</h1>
           <p class="proj-subtitle">{esc(data["description"])}</p>
-          <div class="proj-stats">{stat(len(L), "lectures")}{stat(len(data["episodes"]), "short episodes, about " + str(round(total_min / 60, 1)).rstrip("0").rstrip(".") + " hours")}{stat(total_pages, "slides")}{stat(f"{len(data['labs'])} + {len(data['games'])}", "labs and games", True)}</div>
-          <div class="proj-actions">{btn("/rl-course/lecture-01/", "ri-play-circle-line", "Start with Lecture 1", True)}{btn("#lectures", "ri-list-check-2", "All lectures")}{btn("#practice", "ri-gamepad-line", "Labs and games")}{btn("https://www.youtube.com/playlist?list=" + data["playlist"], "ri-youtube-line", "Playlist on YouTube", external=True)}</div>
+          <div class="proj-actions">{btn("/rl-course/lecture-01/", "ri-play-circle-line", "Start with Lecture 1", True)}{btn("#lectures", "ri-list-check-2", "All lectures")}{btn("#practice", "ri-gamepad-line", "Labs and games")}</div>
         </div>
         <figure class="rl-art"><img src="/{HUB_ART}" alt="Illustration: Teddy and Bit, the course’s little robot, playing chess" width="640" height="470" fetchpriority="high" decoding="async"></figure>
       </div>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_sr_course.py from data/sr-course.json. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Module 8: PDEs, fields and graphs | Symbolic Physical Laws Discovery Course | ACML</title>
+      <meta name="description" content="Module 8 of 10 of ACML’s Symbolic Physical Laws Discovery course. Laws in space and time: slides, 2 videos and an interactive lab.">
+      <meta name="author" content="Teddy Lazebnik">
+      <meta name="keywords" content="symbolic regression, equation discovery, physics-informed machine learning, pdes, fields and graphs, course, ACML">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/symbolic-laws/module-08/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Module 8: PDEs, fields and graphs · Symbolic Physical Laws Discovery">
+      <meta property="og:description" content="Module 8 of 10 of ACML’s Symbolic Physical Laws Discovery course. Laws in space and time: slides, 2 videos and an interactive lab.">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/symbolic-laws/module-08/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/symbolic-laws/module-08/share.jpg">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Module 8: PDEs, fields and graphs · Symbolic Physical Laws Discovery">
+      <meta name="twitter:description" content="Module 8 of 10 of ACML’s Symbolic Physical Laws Discovery course. Laws in space and time: slides, 2 videos and an interactive lab.">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/symbolic-laws/module-08/share.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "Module 8: PDEs, fields and graphs",
+        "description": "Many laws live in space as well as time: a temperature in a solid, a concentration in a fluid, a plant spreading along a coast. With our own simulations of a plant on a 100-km coast (the Fisher–KPP equation) we see why second derivatives from noisy sensors fail, and how the weak form in space and time avoids them; read initial and boundary conditions as evidence, since one front sliding through a window looks like drift; check conservation without derivatives; and choose among plausible laws with an experiment the fit never saw. Then the plant moves to forty ponds with no grid at all: spread becomes a sum over neighbours on a graph, the edges become part of the model, a delay offered to the search turns out to come from the noise, the law transfers to a new map, and a beetle that eats the plant shows what coupled fields need from the data.",
+        "url": "https://acml.teddylazebnik.com/symbolic-laws/module-08/",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "learningResourceType": [
+          "Lecture slides",
+          "Video",
+          "Interactive resource"
+        ],
+        "teaches": "Laws in space and time",
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Symbolic Physical Laws Discovery",
+          "url": "https://acml.teddylazebnik.com/symbolic-laws/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Teddy Lazebnik",
+          "url": "https://teddylazebnik.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Applied Computational Mathematics Laboratory",
+          "url": "https://acml.teddylazebnik.com/"
+        },
+        "hasPart": [
+          {
+            "@type": "VideoObject",
+            "name": "Laws in space and time",
+            "description": "Watching one front pass a 40-km stretch of coast, a law-finding search wrote a drift that isn't there. A release in the middle gave the true law.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/symbolic-laws/img/videos/v16.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/XcctVF69pdo",
+            "duration": "PT8M36S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "From grids to graphs",
+            "description": "Offered a one-week delay, the search took it in 20 noise draws out of 20, and the fit improved. The simulation has no delay.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/symbolic-laws/img/videos/v17.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/Co4EWdLvS3k",
+            "duration": "PT8M39S"
+          },
+          {
+            "@type": "DigitalDocument",
+            "name": "Module 8 slides",
+            "encodingFormat": "application/pdf",
+            "url": "https://acml.teddylazebnik.com/symbolic-laws/slides/Symbolic_Laws_Module08_PDEs_fields_and_graphs.pdf"
+          }
+        ]
+      }
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      <link href="/css/videos.css" rel="stylesheet">
+      
+      <link href="/css/exploration-lab.css" rel="stylesheet">
+      <link href="/css/rl-labs.css" rel="stylesheet">
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/project.css" rel="stylesheet">
+      <link href="/css/rl-course.css" rel="stylesheet">
+      <link href="/css/epi-course.css" rel="stylesheet">
+      <link href="/css/sr-course.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+          <a href="/courses.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Courses</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/courses.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Courses</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="proj-page rl-page bg-white">
+    <header class="proj-hero rl-hero">
+      <div class="proj-wrap proj-hero-grid">
+        <div>
+          <nav class="proj-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/courses.html">Courses</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/symbolic-laws/">Symbolic Physical Laws Discovery</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Module 8</span></nav>
+          <p class="proj-kicker"><span><i class="ri-graduation-cap-line" aria-hidden="true"></i>Symbolic Physical Laws Discovery</span><span>Laws in practice</span></p>
+          <h1 class="proj-title"><small>Module 8</small>PDEs, fields and graphs</h1>
+          <p class="proj-about-lead rl-summary">Many laws live in space as well as time: a temperature in a solid, a concentration in a fluid, a plant spreading along a coast. With our own simulations of a plant on a 100-km coast (the Fisher–KPP equation) we see why second derivatives from noisy sensors fail, and how the weak form in space and time avoids them; read initial and boundary conditions as evidence, since one front sliding through a window looks like drift; check conservation without derivatives; and choose among plausible laws with an experiment the fit never saw. Then the plant moves to forty ponds with no grid at all: spread becomes a sum over neighbours on a graph, the edges become part of the model, a delay offered to the search turns out to come from the noise, the law transfers to a new map, and a beetle that eats the plant shows what coupled fields need from the data.</p>
+          <div class="rl-goal"><i class="ri-focus-3-line" aria-hidden="true"></i><span>By the end you should be able to estimate what a field law needs and use the weak form in space and time, read initial and boundary conditions as evidence, check conservation, choose among plausible laws with held-out experiments, write laws on graphs with the edges as part of the model, test delays with a negative control, transfer a graph law to a new map, and report benchmarks you can trust.</span></div>
+          <h2 class="proj-h3 rl-ideas-title">Key ideas, one per video</h2>
+          <ul class="rl-ideas"><li><a href="#ep-16">Video 16</a><span>At 1 km spacing the true curvature of the cover profile was five times smaller than the noise of its three-point estimate; finite differences never found the law, while the weak form found it in 20, 20 and 19 of 20 draws at 0.2, 0.5 and 1% noise, and in none at 2%. Total cover matched summed growth within 0.6%, and on two merging releases the true three-term law forecast best; a cubic term fit slightly better and forecast worse.</span></li><li><a href="#ep-17">Video 17</a><span>On forty ponds the lowest fit error came from the graph we simulated with in 20 of 20 draws; it forecast a new introduction within a median 0.75 weeks, while nearest-neighbour graphs missed by 11.5 and 14.5 weeks. A one-week delay improved the fit and was chosen every time at 1% noise, never with cleaner data, and forecast 3.25 weeks off. The law transferred to a new map within 0.75 weeks, and the coupled plant and beetle laws went from 11 and 12 of 20 draws to 20 and 20 with a second run.</span></li></ul>
+          <p class="rl-source"><b>Book:</b> Chapter 8 of <cite>Computational Methods for Symbolic Physical Laws Discovery</cite> by Teddy Lazebnik (coming soon). The videos and slides follow the chapter’s topics in our own words, figures and simulations; nothing is copied from the book.</p>
+        </div>
+        <div class="rl-first">
+          <a class="rl-first-img" href="/symbolic-laws/slides/Symbolic_Laws_Module08_PDEs_fields_and_graphs.pdf" target="_blank" rel="noopener"><img src="/symbolic-laws/img/slides/m08-s01.webp" alt="The title slide of Module 8: PDEs, fields and graphs" width="960" height="540" fetchpriority="high" decoding="async"></a>
+          <p class="rl-first-text">25 slides, written to be read on your own, with worked examples, our own small simulations and check-yourself questions (answers at the end). PDF, 1.8 MB.</p>
+          <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="/symbolic-laws/slides/Symbolic_Laws_Module08_PDEs_fields_and_graphs.pdf" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Open the PDF</a><a class="proj-btn" href="/symbolic-laws/slides/Symbolic_Laws_Module08_PDEs_fields_and_graphs.pdf" download><i class="ri-download-2-line" aria-hidden="true"></i>Download</a></div>
+        </div>
+      </div>
+    </header>
+    <nav class="proj-subnav is-mobile-only" aria-label="Sections of this page"><div class="proj-wrap"><ul><li><a href="#watch">Watch</a></li><li><a href="#lab">Lab</a></li><li><a href="#next">Next</a></li></ul></div></nav>
+    <section id="watch" class="proj-section is-soft" aria-labelledby="watch-title"><div class="proj-wrap">
+      <h2 id="watch-title" class="proj-h2">Watch</h2>
+      <p class="proj-lead">2 videos for this module, each about 8 to 15 minutes. Pick one from the list, and open the transcript to read along: each timestamp plays the video from there. The narration is generated with a voice clone of Teddy, used with his permission.</p>
+      <div class="rl-watch">
+        <div class="rl-player-wrap">
+          <div id="rl-player" class="yt-player yt-16x9" data-yt-id="XcctVF69pdo" data-yt-title="Laws in space and time"><a class="yt-play" href="https://www.youtube.com/watch?v=XcctVF69pdo" aria-label="Play video 16: Laws in space and time"><img src="/symbolic-laws/img/videos/v16.webp" alt="" width="640" height="360" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div>
+          <div class="rl-now">
+            <p id="rl-now-num" class="rl-now-num">Video 16 · 8:36</p>
+            <p id="rl-now-title" class="rl-now-title">Laws in space and time</p>
+            <p id="rl-now-hook" class="rl-now-hook">Watching one front pass a 40-km stretch of coast, a law-finding search wrote a drift that isn&#x27;t there. A release in the middle gave the true law.</p>
+            <p id="rl-now-take" class="rl-now-take"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i><span>At 1 km spacing the true curvature of the cover profile was five times smaller than the noise of its three-point estimate; finite differences never found the law, while the weak form found it in 20, 20 and 19 of 20 draws at 0.2, 0.5 and 1% noise, and in none at 2%. Total cover matched summed growth within 0.6%, and on two merging releases the true three-term law forecast best; a cubic term fit slightly better and forecast worse.</span></p>
+          </div>
+            <details id="rl-tx" class="rl-tx">
+              <summary><i class="ri-file-text-line" aria-hidden="true"></i>Transcript<span id="rl-tx-which">Video 16</span><i class="ri-arrow-down-s-line rl-tx-caret" aria-hidden="true"></i></summary>
+              <div class="rl-tx-body"><div class="rl-tx-ep" data-ep="16"><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=XcctVF69pdo" data-ep="16" data-t="0">0:00</a><p><b>A plant on the coast.</b> A plant is spreading along a hundred kilometres of coast. Sensors every kilometre report how much of the ground it covers, four times a week. We simulated it, added one percent noise, and gave a law-finding search the readings from a forty-kilometre stretch while one front passed through. It wrote five terms, including a drift, as if a wind were pushing the plant along the coast. Nineteen noise draws out of twenty included that drift. Then we released the same plant in the middle of the coast and gave the search the whole coast from the start. Three terms: growth, crowding and spread. The law we simulated, in nineteen draws out of twenty. Same plant, same law, same noise. What changed was what the data saw. This video is about laws in space and time. This is Module eight: partial differential equations, fields and graphs. Part one: fields and their noisy derivatives. Part two: libraries and the weak form in space and time. Part three: initial and boundary conditions as evidence. Part four: conservation. Part five: choosing among plausible laws.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=XcctVF69pdo&amp;t=71s" data-ep="16" data-t="71">1:11</a><p><b>A field and its law.</b> A field is a quantity with a value at every place and every time. Here, u is the fraction of ground the plant covers, between zero and one, at each point along the coast, in each week. The law we simulated is a classic. The rate of change of u equals 0.5 times u times one minus u, plus 4 times the second derivative of u in space. The first part is growth that slows as the ground fills up. The second is spread: plant moves from crowded stretches into empty ones. Laws like this make fronts that travel. Theory says the front&#x27;s speed settles at 2.8 kilometres a week. Over our 24 weeks, the front averaged 2.5, still speeding up toward that limit. Before any search, look at what the field shows. The release flattens and widens. Two fronts move apart at the same speed. And after about twenty-one weeks, they reach the closed ends of the coast, where nothing leaves. Where does 2.8 come from? At the leading edge, the plant is sparse, so crowding hardly matters yet. There, growth and spread alone set the pace, and the speed works out to twice the square root of the growth rate times the spread rate: twice the square root of 0.5 times 4.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=XcctVF69pdo&amp;t=145s" data-ep="16" data-t="145">2:25</a><p><b>Derivatives in a field.</b> Part one: derivatives in a field. The law needs the second derivative in space, the curvature of the cover profile. With a sensor every kilometre, the simplest estimate takes three neighbouring readings: left plus right, minus twice the middle. At week twelve, the largest true curvature anywhere on the coast was 0.005 per square kilometre. With one percent noise, the error of that three-point estimate was 0.023. The noise is five times the biggest signal. The signal is small because the profile bends gently over many kilometres, while the noise of three readings adds up. Finite differences failed at every noise level we tried, even at 0.2 percent. In a field, the derivative problem from Module five comes back stronger: more derivatives, and higher ones.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=XcctVF69pdo&amp;t=197s" data-ep="16" data-t="197">3:17</a><p><b>Libraries and the weak form.</b> Part two: libraries and the weak form. Our library has seven candidate terms. Cover, its square and its cube, for growth and crowding. The first derivative in space, for drift. The second, for spread. Cover times its first derivative, for transport that depends on cover. And a third derivative, which appears in some wave equations. The weak form now works in two directions. Take a window, twelve kilometres by three weeks. Multiply the law by a smooth bump that vanishes at the window&#x27;s edges, and integrate. Integration by parts moves every derivative, in space and in time, onto the bump, which we know exactly. On the middle release at one percent noise, it returned the growth term, 0.50 u; the crowding term, minus 0.50 u squared; and 3.99 times the second derivative, for the spread. Each weight within one percent of the truth. What&#x27;s left are integrals of the readings themselves, which average the noise. Across twenty noise draws, the weak form found the law every time at 0.2 percent noise, every time at 0.5 percent, and nineteen times at one percent. It has a limit. At two percent noise it failed too, every time. Past that point, the fix is better data: more sensors, or more frequent readings. A weak form doesn&#x27;t make noise disappear. It moves the derivatives to where we know them exactly. There&#x27;s a second gift. Every window gives one equation, and a coast watched for twenty-four weeks holds many windows, so the search sees the same law tested in many places and times at once.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=XcctVF69pdo&amp;t=289s" data-ep="16" data-t="289">4:49</a><p><b>Initial and boundary conditions as evidence.</b> Part three: initial and boundary conditions are evidence. Back to the opening puzzle. Why did one front, crossing a forty-kilometre stretch, produce a drift? Pause and predict. A front that keeps its shape and moves at a steady speed: which law explains it, growth with spread, or pure drift? Both. A shape sliding at a steady speed satisfies the drift law exactly. Inside that window, the front was close to sliding, so drift and spread could explain the same readings, and the search mixed them. The release in the middle broke the tie. A bump of plant spreads both ways at once, and no single drift can explain that. Two fronts moving apart, a peak that flattens, and closed ends where nothing leaves: each is a place where the candidate laws disagree. Where an experiment starts, and where its edges are, are part of the data. Choose them so that the laws you&#x27;re comparing must disagree. In practice, ask for the parts of an experiment that look boring: how it starts, what happens at the edges, the moment two fronts meet. Those are where a wrong law gets caught.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=XcctVF69pdo&amp;t=356s" data-ep="16" data-t="356">5:56</a><p><b>Conservation.</b> Part four: conservation. Many field laws share one shape: the change at a place equals what flows in, minus what flows out, plus what&#x27;s made there. Spread is a flow. Growth is making. That gives a check that needs no derivative of the field at all. With closed ends, flow only moves plant around. So the total cover along the coast can change only through growth. We checked it on the middle release. At every reading but the first and the last, the rate of change of the total matched the growth summed along the coast to within 0.6 percent of its peak. This splits the library in two. Terms that only move plant should be written as differences of a flow, so they sum to zero over a closed coast. Only growth terms may change the total. Building that split into the library removes candidates before the search begins. Conservation is a law about the law. Check it on the data, then build it into the library.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=XcctVF69pdo&amp;t=407s" data-ep="16" data-t="407">6:47</a><p><b>Choosing among plausible laws.</b> Part five: choosing among plausible laws. We fitted four candidates to the middle release, then asked each to predict a new experiment: two releases, at 25 and 75 kilometres, whose fronts run into each other. Growth with spread: fit error 0.046, forecast error 0.002 of cover. Add a cubic growth term, and the fit gets slightly better, 0.045, while the forecast gets slightly worse, 0.003. Drift with growth fits four times worse, and misses the merger by 0.6. Spread with growth that never slows misses by about as much: 0.6 again. The cubic term&#x27;s weight was 0.01, small enough to look harmless. It bought a better fit and a worse forecast. Choose among laws with experiments they haven&#x27;t seen, designed where they disagree. Fit error alone always rewards an extra term.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=XcctVF69pdo&amp;t=461s" data-ep="16" data-t="461">7:41</a><p><b>Recap.</b> Let&#x27;s recap. A field law needs derivatives in space and time, and the higher ones drown in noise. The weak form moves them onto a bump we know exactly. Initial and boundary conditions decide which laws the data can tell apart. One front sliding through a window can&#x27;t separate drift from spread. Conservation gives a check without derivatives, and a cleaner library. And between plausible laws, held-out experiments decide, not the fit. In the lab, you&#x27;ll choose the experiment, the noise and the method, and see which laws survive. Next video: what if there&#x27;s no grid at all? Laws on graphs.</p></div></div><div class="rl-tx-ep" data-ep="17" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Co4EWdLvS3k" data-ep="17" data-t="0">0:00</a><p><b>A delay nobody put in.</b> We gave a law-finding search one extra option: a delay. Spread between ponds could depend on what the neighbours looked like a week earlier. The search took that option in twenty noise draws out of twenty, and the fit improved. There is no delay in the simulation we made. In part three, you&#x27;ll see where it came from, and how a forecast caught it when the fit didn&#x27;t. This video is about laws without a grid: laws on graphs. This is Module eight, video two. Part one: from grids to graphs. Part two: building the graph. Part three: edges in time. Part four: one law, many maps. Part five: coupled fields. And part six: benchmarks you can trust.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Co4EWdLvS3k&amp;t=46s" data-ep="17" data-t="46">0:46</a><p><b>From grids to graphs.</b> Our plant now lives in forty ponds, scattered over a landscape sixty kilometres on a side. Seeds travel between ponds. There&#x27;s no coastline and no x axis, so there&#x27;s no second derivative to take. On a graph, spread is a sum over neighbours: each neighbour&#x27;s cover minus mine, times the weight of the edge between us. It&#x27;s the graph&#x27;s version of the second derivative, and it&#x27;s called the graph Laplacian. We simulated growth at 0.5 per week, as before. Spread runs at the same rate, along edges whose weight fades with distance, falling by a factor of e every five kilometres, with no edges beyond fifteen. Two introductions, one in a corner and one in the middle. Readings four times a week, with one percent noise. Each pond gives its own time series, so the weak form works in time only. The library: cover, cover squared, and the graph term. Why does a sum over neighbours act like a second derivative? On a line of sensors, the sum over the two neighbours, left minus me plus right minus me, is exactly the three-point estimate from the last video: left plus right, minus twice the middle. A graph just lets the neighbours be anywhere.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Co4EWdLvS3k&amp;t=111s" data-ep="17" data-t="111">1:51</a><p><b>Building the graph.</b> Part two: building the graph. A law on a graph doesn&#x27;t come with edges. We choose them, and the choice is part of the model. We tried seven: three or six nearest neighbours, every pond within eight or within fifteen kilometres, and weights that fade over two and a half, five or ten kilometres. Pause and predict. Which graph will forecast better: each pond linked to its six nearest neighbours, or every pond within fifteen kilometres, counted equally? The fit first. In all twenty noise draws, the lowest fit error came from the graph we simulated with, fading over five kilometres. Nearest-neighbour graphs fit worst. Then the real test: a third introduction, near another corner, and the week each pond reaches half cover. The five-kilometre graph missed by a median of 0.75 weeks. Within fifteen kilometres: 1.25. Six nearest neighbours: eleven and a half weeks. And within eight kilometres, the graph broke into islands, and the forecast reached three ponds out of thirty-nine. A nearest-neighbour graph gives a pond in a tight cluster the same number of links as an isolated pond, however far its neighbours are. In our landscape, spread depends on distance, not on how many neighbours a pond has. One honest caveat. Weights fading over ten kilometres forecast as well: a median of half a week. Forecasts couldn&#x27;t separate those two graphs, while the fit preferred five kilometres every time. Report both. A useful habit: when the edges are a choice, keep the rejected graphs in the report. A reader who sees that six nearest neighbours missed by eleven and a half weeks learns how much the edge rule matters.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Co4EWdLvS3k&amp;t=213s" data-ep="17" data-t="213">3:33</a><p><b>Edges in time.</b> Part three: edges in time. Some processes really do have delays, like seeds that take a week to sprout. A temporal edge links the neighbours&#x27; cover a week ago to a pond&#x27;s change now. So we added a week-old copy of the graph term to the library. The fit error dropped to 0.133, down from 0.147. And sparse regression kept the week-old copy and dropped the instant one, in all twenty draws. Then the forecast: arrival weeks off by a median of 3.25 weeks, instead of 0.75. A better fit, and a worse law. Where did the delay come from? The noise. With clean data, the search never picked it. At 0.2 and 0.5 percent noise, never. At one percent, every time. Noise also bends the instant term. On clean data, the spread rate comes out at 0.50. At one percent noise, it comes out at 0.42. A likely reason the week-old copy won: its noise is independent of today&#x27;s readings, so it escapes part of that bias. So before believing a delay, run the same pipeline on simulated data with no delay and your noise level. If a delay appears there too, it&#x27;s the pipeline talking, not the system.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Co4EWdLvS3k&amp;t=283s" data-ep="17" data-t="283">4:43</a><p><b>One law, many maps.</b> Part four: one law, many maps. A law written per pond and per edge isn&#x27;t tied to these forty ponds. It&#x27;s a rule for any map of ponds. So we drew a new landscape, forty other ponds, and ran the laws found on the first map, each with its own rule for edges. The five-kilometre law forecast arrival weeks within a median of 0.75 weeks, at all forty ponds. Within fifteen kilometres: 1.5 weeks. Six nearest neighbours reached thirty-five ponds of forty, and missed by eleven weeks. In machine learning, models that learn maps from one whole field to another, whatever the grid, are called neural operators. A symbolic law on a graph is a small, readable relative. It transfers because the edge rule is part of the law. An irregular domain isn&#x27;t an obstacle for a graph law. The test is whether the law, edge rule included, works on a map it has never seen.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Co4EWdLvS3k&amp;t=338s" data-ep="17" data-t="338">5:38</a><p><b>Coupled fields.</b> Part five: coupled fields. Back to the coast, now with a beetle that eats the plant. There are two fields now, each with its own law. The plant grows, spreads, and is eaten, at a rate of u times v. The beetle spreads, grows by eating, 0.6 u v, and dies at 0.2 per week. Each law gets a library of seven terms: u and v, their squares, their product, and both second derivatives. One run: plant everywhere at 0.9 cover, beetles released in the middle. The plant&#x27;s law came out right in eleven draws out of twenty, the beetle&#x27;s in twelve. Here&#x27;s a wrong beetle law: the right three terms, and two extras. Plus 0.01 u. And minus 0.01 u squared. Two tiny terms that nearly cancel. With the plant near 0.9 almost everywhere, u and u squared move together; their correlation was 0.994. The library can&#x27;t tell them apart. The fix is the one that worked for the chemical clock: data where each field varies on its own. We added a second run that starts with sparse cover, five percent along the coast plus a dense patch at the west end, so the plant ranges from 0.05 to full cover. With both runs, both laws came out right in all twenty draws. In a coupled system, every field must move on its own somewhere in the data, or the search can swap a term for a look-alike.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Co4EWdLvS3k&amp;t=419s" data-ep="17" data-t="419">6:59</a><p><b>Benchmarks you can trust.</b> Part six: benchmarks you can trust. Every number in this module came with its noise level and its number of draws: twenty noise draws for each search, ten for each forecast. We reported the failures with the successes: the weak form at two percent noise, nearest-neighbour graphs, the eight-kilometre graph, the delay. And every claim was tested on an event the fit never saw: merging fronts, a third introduction, a new landscape. One more thing made these numbers checkable: we knew the true law, because we simulated it. With real data you won&#x27;t. So before trusting a pipeline on real fields, run it on simulated fields with your sensors, your sampling and your noise, and see what it finds. A benchmark you can trust says what was tried, how often it worked, how it failed, and what it was tested on.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=Co4EWdLvS3k&amp;t=464s" data-ep="17" data-t="464">7:44</a><p><b>Recap.</b> Let&#x27;s recap. On a graph, spread becomes a sum over neighbours, and the edges are part of the model: choose them with the fit and with forecasts. A delay that appears in a found law may come from the noise. A negative control on simulated data tells you. A law with an edge rule transfers to new maps. Coupled fields need data where each field varies on its own. And benchmarks report draws, failures and held-out tests. In the lab, you&#x27;ll choose the data, the method and the threshold, and test the law you find on an experiment it hasn&#x27;t seen. Next module: trustworthy discovery. How sure can we be of a law we found?</p></div></div></div>
+            </details>
+        </div>
+        <div class="rl-eps">
+          <div class="rl-eps-head"><b>Module 8 videos</b><span>2 videos · 17 min</span></div>
+          <ol><li id="ep-16"><a class="rl-ep is-active" data-ep="16" href="https://www.youtube.com/watch?v=XcctVF69pdo" aria-current=true><span class="rl-ep-thumb"><img src="/symbolic-laws/img/videos/v16.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>8:36</span></span><span><span class="rl-ep-num">Video 16 · 8.1</span><span class="rl-ep-title" style="display:block">Laws in space and time</span><span class="rl-ep-take" style="display:block">At 1 km spacing the true curvature of the cover profile was five times smaller than the noise of its three-point estimate; finite differences never found the law, while the weak form found it in 20, 20 and 19 of 20 draws at 0.2, 0.5 and 1% noise, and in none at 2%. Total cover matched summed growth within 0.6%, and on two merging releases the true three-term law forecast best; a cubic term fit slightly better and forecast worse.</span></span></a></li><li id="ep-17"><a class="rl-ep" data-ep="17" href="https://www.youtube.com/watch?v=Co4EWdLvS3k"><span class="rl-ep-thumb"><img src="/symbolic-laws/img/videos/v17.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>8:39</span></span><span><span class="rl-ep-num">Video 17 · 8.2</span><span class="rl-ep-title" style="display:block">From grids to graphs</span><span class="rl-ep-take" style="display:block">On forty ponds the lowest fit error came from the graph we simulated with in 20 of 20 draws; it forecast a new introduction within a median 0.75 weeks, while nearest-neighbour graphs missed by 11.5 and 14.5 weeks. A one-week delay improved the fit and was chosen every time at 1% noise, never with cleaner data, and forecast 3.25 weeks off. The law transferred to a new map within 0.75 weeks, and the coupled plant and beetle laws went from 11 and 12 of 20 draws to 20 and 20 with a second run.</span></span></a></li></ol>
+        </div>
+      </div>
+      <script type="application/json" id="rl-episodes">[{"ep": 16, "youtube": "XcctVF69pdo", "title": "Laws in space and time", "duration": "8:36", "hook": "Watching one front pass a 40-km stretch of coast, a law-finding search wrote a drift that isn't there. A release in the middle gave the true law.", "takeaway": "At 1 km spacing the true curvature of the cover profile was five times smaller than the noise of its three-point estimate; finite differences never found the law, while the weak form found it in 20, 20 and 19 of 20 draws at 0.2, 0.5 and 1% noise, and in none at 2%. Total cover matched summed growth within 0.6%, and on two merging releases the true three-term law forecast best; a cubic term fit slightly better and forecast worse.", "thumbAbs": "/symbolic-laws/img/videos/v16.webp"}, {"ep": 17, "youtube": "Co4EWdLvS3k", "title": "From grids to graphs", "duration": "8:39", "hook": "Offered a one-week delay, the search took it in 20 noise draws out of 20, and the fit improved. The simulation has no delay.", "takeaway": "On forty ponds the lowest fit error came from the graph we simulated with in 20 of 20 draws; it forecast a new introduction within a median 0.75 weeks, while nearest-neighbour graphs missed by 11.5 and 14.5 weeks. A one-week delay improved the fit and was chosen every time at 1% noise, never with cleaner data, and forecast 3.25 weeks off. The law transferred to a new map within 0.75 weeks, and the coupled plant and beetle laws went from 11 and 12 of 20 draws to 20 and 20 with a second run.", "thumbAbs": "/symbolic-laws/img/videos/v17.webp"}]</script>
+    </div></section>
+    <section id="lab" class="rl-lab" aria-labelledby="lab-title">
+      <div class="proj-wrap rl-lab-head">
+        <p class="proj-label"><i class="ri-plant-line" aria-hidden="true"></i>Interactive lab</p>
+        <h2 id="lab-title" class="proj-h2" style="margin-top:.5rem">Field discovery</h2>
+        <p class="proj-lead">Choose an experiment on the coast, the noise, the pipeline and the threshold, and run sparse regression on seven candidate field terms. See a window that watches one front invent a drift, find where the weak form stops working, and test the law you find on two releases that merge, an experiment the fit never saw.</p>
+        <p class="proj-lead" style="margin-top:.6rem">The plant is simulated in your browser with the Fisher–KPP equation (sensors every 1 km, four readings a week for 24 weeks, Gaussian noise, closed ends). Four challenges are checked as you go.</p>
+      </div>
+      <div class="rlx" id="field-lab" data-srx="field">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">A plant on the coast, one field law</h3>
+          <p class="rlx-sub">The page simulates a plant spreading along 100 km of coast with the Fisher–KPP equation: ∂u/∂t = 0.5·u·(1 − u) + 4·∂²u/∂x², where u is the fraction of ground covered. Sensors every 1 km read u four times a week for 24 weeks, with the noise you choose; the ends of the coast are closed. Everything runs in your browser.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">A library of field terms</div>
+              <div class="formula-line"><span class="formula-chip">u, u², u³, u_x, u_xx, u·u_x, u_xxx</span></div>
+              <p class="math-card-copy">Growth and crowding, drift, spread, transport that depends on cover, and a wave term.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">The weak form</div>
+              <div class="formula-line"><span class="formula-chip">∬ φ·∂u/∂t = −∬ ∂φ/∂t·u</span></div>
+              <p class="math-card-copy">A smooth bump on windows 12 km × 3 weeks takes every derivative; the readings are only integrated.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">A held-out test</div>
+              <div class="formula-line"><span class="formula-chip">two releases that merge</span></div>
+              <p class="math-card-copy">The found law runs on an experiment it never saw; the error is in cover, 0 to 1.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Data and method">
+            <div><h4 class="rlx-h">A · Data</h4><p class="rlx-sub">What the sensors recorded.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="fdE">Experiment</label></div>
+              <select id="fdE" data-k="exp" class="control-select"><option value="window">west-end release, a 40-km window (weeks 6–18)</option><option value="west">west-end release, whole coast</option><option value="middle" selected>release in the middle, whole coast</option></select></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="fdN">Noise</label><span class="control-value" data-k="noise-out">1%</span></div><input id="fdN" data-k="noise" type="range" min="0" max="5" step="1" value="3"></div>
+            <div style="margin-top:.75rem"><h4 class="rlx-h">B · Method</h4><p class="rlx-sub">How the derivatives are handled, and how hard terms are pruned.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="fdP">Pipeline</label></div>
+              <select id="fdP" data-k="pipe" class="control-select"><option value="weak">weak form (no derivatives of the data)</option><option value="fd" selected>finite differences</option></select></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="fdT">Threshold</label><span class="control-value" data-k="tau-out">0.2</span></div><input id="fdT" data-k="tau" type="range" min="0" max="6" step="1" value="3"></div>
+            <div class="rlx-btns"><button type="button" class="control-button control-button-secondary is-wide" data-k="redraw">New noise</button></div>
+            </aside>
+            <div class="rlx-main">
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">–</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">The law found</h4><p class="rlx-sub">Sparse regression on the readings the search saw (map below: green is more cover; time runs down).</p></div></div>
+              <p class="rlx-hint srx-mono" data-k="law">–</p>
+              <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Terms kept</div><div class="metric-value" data-k="nterms">–</div></div><div class="metric-tile"><div class="metric-label">The plant’s law?</div><div class="metric-value" data-k="right">–</div></div></div>
+              <div class="chart-shell" style="height:220px"><svg data-k="hchart" role="img" aria-label="The noisy readings as a space–time map"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">A test the fit never saw</h4><p class="rlx-sub">Two releases, at 25 and 75 km, whose fronts merge. Dashed: the true plant. Orange: the found law from the same start.</p></div></div>
+              <div class="chart-shell" style="height:280px"><svg data-k="mchart" role="img" aria-label="Cover along the coast at weeks 4, 8 and 12: the truth and the found law"></svg></div>
+              <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Forecast error (RMS, 24 weeks)</div><div class="metric-value" data-k="test">–</div></div></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked as you go.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Find the plant’s three-term law at 1% noise or more. Hint: the pipeline matters.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Watch one front through the 40-km window and get a law with a drift term; then find the plant’s law from the middle release, with the same noise and method.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Find where the weak form stops working on the middle release: the law found at 1% noise and missed at 2%.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>Forecast the merging fronts to within 0.005 of cover (RMS) with a law found at 1% noise or more.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="next" class="proj-section is-soft" aria-labelledby="next-title"><div class="proj-wrap">
+      <h2 id="next-title" class="proj-h2">Keep going</h2>
+      <div class="rl-pn"><a href="/symbolic-laws/module-07/"><i class="ri-arrow-left-line" aria-hidden="true"></i><span><small>Previous · Module 7</small><strong>Ordinary differential equations</strong></span></a><a class="is-next" href="/symbolic-laws/module-09/"><span><small>Next · Module 9</small><strong>Trustworthy equation discovery</strong></span><i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+    </div></section>
+  </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Courses</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/rl-course/" class="hover:text-white">Reinforcement Learning</a></li>
+                  <li><a href="/epidemic-modeling/" class="hover:text-white">Epidemic Modeling</a></li>
+                  <li><a href="/symbolic-laws/" class="hover:text-white">Symbolic Physical Laws Discovery</a></li>
+                  <li><a href="/non-observed-economy/" class="hover:text-white">Non-Observed Economy</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/rl-course/" class="hover:text-white">RL course</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <script src="/js/videos.js"></script>
+      
+      <script src="/js/sr-labs.js" defer></script>
+      <script src="/js/epi-course.js" defer></script>
+   </body>
+</html>

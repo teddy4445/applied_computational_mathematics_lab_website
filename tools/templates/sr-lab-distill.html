@@ -1,0 +1,58 @@
+<!-- Used by tools/build_sr_course.py: lab 10 (Module 10) of the Symbolic Physical Laws Discovery course: distil a black box. 400 shots of a projectile on flat ground without drag (R = v²·sin 2θ / g, v 5–20 m/s, θ 10°–80°) are simulated with the noise the visitor chooses; a black box (a nearest-neighbour average of 8 shots, or a degree-4 polynomial in v and θ) is trained on them in the browser. The visitor asks it 1,000 questions inside or beyond its data (or uses the shots directly), fits a student c·v^a·f(θ), and compares fidelity (student vs teacher) with accuracy (student vs the true law) in range and at 20–30 m/s; then uses the student's formula as a feature for a straight line. Script: js/sr-labs.js (data-srx="distill"). -->
+      <div class="rlx" id="distill-lab" data-srx="distill">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">A projectile, a black box and a student</h3>
+          <p class="rlx-sub">The page simulates 400 shots on flat ground without drag, at speeds from 5 to 20 m/s and angles from 10° to 80°, with the noise you choose. A black box learns the range from them. You ask it questions, fit a simple formula to its answers, and check that formula against the true law, inside the data and at 20 to 30 m/s. Everything runs in your browser.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">The law</div>
+              <div class="formula-line"><span class="formula-chip">R = v²·sin 2θ / g, g = 9.81 m/s²</span></div>
+              <p class="math-card-copy">The student is c·v^a·f(θ): a power of the speed times one of eight functions of the angle.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Two different numbers</div>
+              <div class="formula-line"><span class="formula-chip">fidelity: student vs teacher · accuracy: student vs the law</span></div>
+              <p class="math-card-copy">A student can copy its teacher well and still be wrong, or copy it loosely and be right.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">A formula as a feature</div>
+              <div class="formula-line"><span class="formula-chip">R ≈ b₀ + b₁·(the student's formula)</span></div>
+              <p class="math-card-copy">A straight line on a good feature can work far beyond the data.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Teacher and student">
+            <div><h4 class="rlx-h">A · Teacher</h4><p class="rlx-sub">A black box, trained on the shots.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="dsT">Black box</label></div>
+              <select id="dsT" data-k="teacher" class="control-select"><option value="knn" selected>nearest-neighbour average of 8 shots</option><option value="poly">degree-4 polynomial in v and θ</option></select></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="dsN">Noise</label><span class="control-value" data-k="noise-out">2%</span></div><input id="dsN" data-k="noise" type="range" min="0" max="3" step="1" value="2"></div>
+            <div style="margin-top:.75rem"><h4 class="rlx-h">B · Student</h4><p class="rlx-sub">Where its training answers come from. Start without a teacher, then ask one.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="dsQ">Questions</label></div>
+              <select id="dsQ" data-k="query" class="control-select"><option value="data" selected>no teacher: fit the 400 shots directly</option><option value="in">ask the teacher inside its data, 5–20 m/s</option><option value="wide">ask the teacher at 5–30 m/s</option></select></div>
+            <div class="rlx-btns"><button type="button" class="control-button control-button-secondary is-wide" data-k="redraw">New shots</button></div>
+            </aside>
+            <div class="rlx-main">
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">–</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Teacher and student at 45°</h4><p class="rlx-sub">Grey: the true law. Purple: the black box. Orange: the student. Shaded: the speeds in the data.</p></div></div>
+              <p class="rlx-hint srx-mono" data-k="law">–</p>
+              <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Teacher off the law, 5–20 / 20–30 m/s</div><div class="metric-value" data-k="teach">–</div></div><div class="metric-tile"><div class="metric-label">Fidelity (student vs teacher)</div><div class="metric-value" data-k="fid">–</div></div><div class="metric-tile"><div class="metric-label">Student off the law, 5–20 m/s</div><div class="metric-value" data-k="ain">–</div></div><div class="metric-tile"><div class="metric-label">Student off the law, 20–30 m/s</div><div class="metric-value" data-k="aout">–</div></div></div>
+              <div class="chart-shell" style="height:280px"><svg data-k="chart" role="img" aria-label="Range against speed at 45 degrees: the law, the black box and the student"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">The formula as a feature</h4><p class="rlx-sub">Two straight lines fitted to the 400 shots: one on the raw speed and angle, one on the student's formula.</p></div></div>
+              <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Line on v and θ, 5–20 / 20–30 m/s</div><div class="metric-value" data-k="raw">–</div></div><div class="metric-tile"><div class="metric-label">Line on the student's formula, 5–20 / 20–30 m/s</div><div class="metric-value" data-k="sym">–</div></div></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked as you go.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Ask a teacher inside its data, and get a student that is the true law (v² times sin 2θ) and less than 2% off.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Find a student that is more accurate than its teacher, inside the data.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Make a student copy its teacher's mistakes: ask beyond the data, and see it more than 10% off at 20–30 m/s.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>Use a formula distilled from a teacher as a feature: a straight line on it less than 1% off at 20–30 m/s, while the line on v and θ is more than 20% off.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>

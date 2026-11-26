@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_sr_course.py from data/sr-course.json. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Module 7: Ordinary differential equations | Symbolic Physical Laws Discovery Course | ACML</title>
+      <meta name="description" content="Module 7 of 10 of ACML’s Symbolic Physical Laws Discovery course. Discovering how systems change in time: slides, 2 videos and an interactive lab.">
+      <meta name="author" content="Teddy Lazebnik">
+      <meta name="keywords" content="symbolic regression, equation discovery, physics-informed machine learning, ordinary differential equations, course, ACML">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/symbolic-laws/module-07/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Module 7: Ordinary differential equations · Symbolic Physical Laws Discovery">
+      <meta property="og:description" content="Module 7 of 10 of ACML’s Symbolic Physical Laws Discovery course. Discovering how systems change in time: slides, 2 videos and an interactive lab.">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/symbolic-laws/module-07/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/symbolic-laws/module-07/share.jpg">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Module 7: Ordinary differential equations · Symbolic Physical Laws Discovery">
+      <meta name="twitter:description" content="Module 7 of 10 of ACML’s Symbolic Physical Laws Discovery course. Discovering how systems change in time: slides, 2 videos and an interactive lab.">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/symbolic-laws/module-07/share.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "Module 7: Ordinary differential equations",
+        "description": "Most laws in physics, chemistry and biology say how a system changes in time. With a simulated chemical clock (the Brusselator, a textbook model of oscillating reactions) we treat every derivative as an estimate and compare finite differences, smoothing and the weak form; find a sparse right-hand side from a library of candidate terms, with a threshold that works across a wide window; compare derivative, weak-form and trajectory matching; and design data that cover the state space, with the feed rate written into the law. Then we test the law where the fit never looked: we rebuild a hidden species from partial knowledge, check steady states and the onset of ticking (a Hopf bifurcation), push the feed beyond the data, and handle noise inside the reaction, a slow detector and a pump that varies the feed.",
+        "url": "https://acml.teddylazebnik.com/symbolic-laws/module-07/",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "learningResourceType": [
+          "Lecture slides",
+          "Video",
+          "Interactive resource"
+        ],
+        "teaches": "Discovering how systems change in time",
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Symbolic Physical Laws Discovery",
+          "url": "https://acml.teddylazebnik.com/symbolic-laws/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Teddy Lazebnik",
+          "url": "https://teddylazebnik.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Applied Computational Mathematics Laboratory",
+          "url": "https://acml.teddylazebnik.com/"
+        },
+        "hasPart": [
+          {
+            "@type": "VideoObject",
+            "name": "Finding the right-hand side",
+            "description": "A beaker that keeps time: plain least squares writes twenty terms for its law, and fits a little better than the truth. The law has five.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/symbolic-laws/img/videos/v14.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/qSXBm2PGFLI",
+            "duration": "PT8M19S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "Beyond the fit: structure, stability and the real world",
+            "description": "Two laws fit our chemical clock equally well. At a feed nobody ran, one predicts the period within a tenth of a minute; the other blows up, stops, or guesses.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/symbolic-laws/img/videos/v15.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/62l9CtXG200",
+            "duration": "PT8M17S"
+          },
+          {
+            "@type": "DigitalDocument",
+            "name": "Module 7 slides",
+            "encodingFormat": "application/pdf",
+            "url": "https://acml.teddylazebnik.com/symbolic-laws/slides/Symbolic_Laws_Module07_Ordinary_differential_equations.pdf"
+          }
+        ]
+      }
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      <link href="/css/videos.css" rel="stylesheet">
+      
+      <link href="/css/exploration-lab.css" rel="stylesheet">
+      <link href="/css/rl-labs.css" rel="stylesheet">
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/project.css" rel="stylesheet">
+      <link href="/css/rl-course.css" rel="stylesheet">
+      <link href="/css/epi-course.css" rel="stylesheet">
+      <link href="/css/sr-course.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+          <a href="/courses.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Courses</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/courses.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Courses</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="proj-page rl-page bg-white">
+    <header class="proj-hero rl-hero">
+      <div class="proj-wrap proj-hero-grid">
+        <div>
+          <nav class="proj-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/courses.html">Courses</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/symbolic-laws/">Symbolic Physical Laws Discovery</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Module 7</span></nav>
+          <p class="proj-kicker"><span><i class="ri-graduation-cap-line" aria-hidden="true"></i>Symbolic Physical Laws Discovery</span><span>Laws in practice</span></p>
+          <h1 class="proj-title"><small>Module 7</small>Ordinary differential equations</h1>
+          <p class="proj-about-lead rl-summary">Most laws in physics, chemistry and biology say how a system changes in time. With a simulated chemical clock (the Brusselator, a textbook model of oscillating reactions) we treat every derivative as an estimate and compare finite differences, smoothing and the weak form; find a sparse right-hand side from a library of candidate terms, with a threshold that works across a wide window; compare derivative, weak-form and trajectory matching; and design data that cover the state space, with the feed rate written into the law. Then we test the law where the fit never looked: we rebuild a hidden species from partial knowledge, check steady states and the onset of ticking (a Hopf bifurcation), push the feed beyond the data, and handle noise inside the reaction, a slow detector and a pump that varies the feed.</p>
+          <div class="rl-goal"><i class="ri-focus-3-line" aria-hidden="true"></i><span>By the end you should be able to treat derivatives as estimates, find a sparse right-hand side, choose a formulation, design data that cover the state space and put parameters in the library, rebuild hidden variables from partial knowledge, and validate a dynamical law on steady states, stability and bifurcations, with noise, delays and inputs in the model.</span></div>
+          <h2 class="proj-h3 rl-ideas-title">Key ideas, one per video</h2>
+          <ul class="rl-ideas"><li><a href="#ep-14">Video 14</a><span>At 1% noise the weak form found the clock&#x27;s five terms in 39 of 40 noise draws, finite differences in 22, smoothing in none. Thresholds from 0.2 to 1.2 all worked; one settled run on the cycle never found the law, six starting mixtures found it 39 times in 40, and with the feed in the library it was found in all 40.</span></li><li><a href="#ep-15">Video 15</a><span>A law for X alone explains 20% of its rate; rebuilding the hidden species from its known chemistry recovered the law in 40 of 40 draws. The found law puts the onset of ticking at b = 2.00, like the truth, and at b = 4 predicts the period within a tenth of a minute, where a 20-term fit blew up, stopped or guessed. A detector 24 s late, or a pump left out of the library, keeps the search from ever finding the law.</span></li></ul>
+          <p class="rl-source"><b>Book:</b> Chapter 7 of <cite>Computational Methods for Symbolic Physical Laws Discovery</cite> by Teddy Lazebnik (coming soon). The videos and slides follow the chapter’s topics in our own words, figures and simulations; nothing is copied from the book.</p>
+        </div>
+        <div class="rl-first">
+          <a class="rl-first-img" href="/symbolic-laws/slides/Symbolic_Laws_Module07_Ordinary_differential_equations.pdf" target="_blank" rel="noopener"><img src="/symbolic-laws/img/slides/m07-s01.webp" alt="The title slide of Module 7: Ordinary differential equations" width="960" height="540" fetchpriority="high" decoding="async"></a>
+          <p class="rl-first-text">24 slides, written to be read on your own, with worked examples, our own small simulations and check-yourself questions (answers at the end). PDF, 2.1 MB.</p>
+          <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="/symbolic-laws/slides/Symbolic_Laws_Module07_Ordinary_differential_equations.pdf" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Open the PDF</a><a class="proj-btn" href="/symbolic-laws/slides/Symbolic_Laws_Module07_Ordinary_differential_equations.pdf" download><i class="ri-download-2-line" aria-hidden="true"></i>Download</a></div>
+        </div>
+      </div>
+    </header>
+    <nav class="proj-subnav is-mobile-only" aria-label="Sections of this page"><div class="proj-wrap"><ul><li><a href="#watch">Watch</a></li><li><a href="#lab">Lab</a></li><li><a href="#next">Next</a></li></ul></div></nav>
+    <section id="watch" class="proj-section is-soft" aria-labelledby="watch-title"><div class="proj-wrap">
+      <h2 id="watch-title" class="proj-h2">Watch</h2>
+      <p class="proj-lead">2 videos for this module, each about 8 to 15 minutes. Pick one from the list, and open the transcript to read along: each timestamp plays the video from there. The narration is generated with a voice clone of Teddy, used with his permission.</p>
+      <div class="rl-watch">
+        <div class="rl-player-wrap">
+          <div id="rl-player" class="yt-player yt-16x9" data-yt-id="qSXBm2PGFLI" data-yt-title="Finding the right-hand side"><a class="yt-play" href="https://www.youtube.com/watch?v=qSXBm2PGFLI" aria-label="Play video 14: Finding the right-hand side"><img src="/symbolic-laws/img/videos/v14.webp" alt="" width="640" height="360" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div>
+          <div class="rl-now">
+            <p id="rl-now-num" class="rl-now-num">Video 14 · 8:19</p>
+            <p id="rl-now-title" class="rl-now-title">Finding the right-hand side</p>
+            <p id="rl-now-hook" class="rl-now-hook">A beaker that keeps time: plain least squares writes twenty terms for its law, and fits a little better than the truth. The law has five.</p>
+            <p id="rl-now-take" class="rl-now-take"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i><span>At 1% noise the weak form found the clock&#x27;s five terms in 39 of 40 noise draws, finite differences in 22, smoothing in none. Thresholds from 0.2 to 1.2 all worked; one settled run on the cycle never found the law, six starting mixtures found it 39 times in 40, and with the feed in the library it was found in all 40.</span></p>
+          </div>
+            <details id="rl-tx" class="rl-tx">
+              <summary><i class="ri-file-text-line" aria-hidden="true"></i>Transcript<span id="rl-tx-which">Video 14</span><i class="ri-arrow-down-s-line rl-tx-caret" aria-hidden="true"></i></summary>
+              <div class="rl-tx-body"><div class="rl-tx-ep" data-ep="14"><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=qSXBm2PGFLI" data-ep="14" data-t="0">0:00</a><p><b>A chemical clock.</b> A beaker that keeps time. Feed it two chemicals at a steady rate, and its colour swings back and forth, about once every six and a half minutes. Chemists call reactions like this chemical clocks. We simulated one with a textbook model called the Brusselator, measured two concentrations every three seconds, and added one percent noise. Then we asked a computer for the law. Plain least squares wrote twenty terms, and fit our data a little better than the truth did. The real law has five terms. This video is about finding those five: the right-hand side of a differential equation. This is Module seven: ordinary differential equations. Part one: derivatives are inferred objects. Part two: sparse libraries and a threshold. Part three: three ways to pose the fit. Part four: many runs and many regimes.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=qSXBm2PGFLI&amp;t=56s" data-ep="14" data-t="56">0:56</a><p><b>Derivatives are inferred objects.</b> An ordinary differential equation says how fast each quantity changes, given the current state. In our clock, the rate of change of X depends on X and Y, and so does the rate of change of Y. That rule, the right-hand side, is what we want. But no instrument measures a rate of change. We measure concentrations. Every derivative in a discovery pipeline is estimated, and the estimate has its own errors and its own assumptions. Finite differences assume that samples are close enough for a straight line between them. In our sixth run, X starts out changing at fifty-one units per minute. With a sample every three seconds, the difference quotient misses by up to about five, with no noise at all. Smoothing assumes that the curve is gentle inside its window. Our window was half a minute, longer than that fast start. With perfect data, smoothing first and differentiating second already breaks the search. The weak form avoids the derivative. Multiply the equation by a smooth bump, integrate, and move the derivative onto the bump by integration by parts. What&#x27;s left needs only the measured concentrations. Across forty noise draws at one percent noise, the weak form found the right terms thirty-nine times. Finite differences found them twenty-two times. Smoothing, never. A derivative is a measurement you didn&#x27;t make. Treat it like one, with error bars and a stated method.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=qSXBm2PGFLI&amp;t=137s" data-ep="14" data-t="137">2:17</a><p><b>Sparse libraries and a threshold.</b> Part two: sparse libraries. We don&#x27;t know the right-hand side, so we list candidate pieces: a constant, X, Y, and every product up to degree three. That&#x27;s ten terms for each equation. Then we write each rate as a weighted sum of those pieces and fit the weights. That&#x27;s a linear problem, fast and exact. But ordinary least squares keeps every term, and that&#x27;s how we got twenty. Most laws in physics and chemistry use only a few of the possible pieces. So we look for a sparse answer: fit, drop every term whose weight falls below a threshold, refit with what&#x27;s left, and repeat until nothing changes. On our clock data, that loop returns this. dX by dt equals one, minus 3.5 times X, plus X squared Y. And dY by dt equals 2.5 times X, minus X squared Y. That&#x27;s the law we simulated, to two decimals. Each term reads as chemistry. The one is the steady feed. Minus 3.5 X is X being used up: 2.5 parts turn into Y, one part leaves. And X squared Y is the step where two X and one Y make a third X. That feedback makes the clock tick. The threshold is the knob that matters. We tried nine values, each on forty noise draws. Set it too low and nothing is dropped. Eighteen or nineteen terms survive, and the law is never found. Set it too high and a real term goes too. Four terms, never right. In between, a wide window, from 0.2 to 1.2, finds the law in thirty-seven to forty draws out of forty. A window that wide is good news. A result that appears at one magic threshold only is a warning. And notice what the threshold didn&#x27;t do: improve the fit. The twenty-term formula fit our data slightly better than the truth. Fit alone can&#x27;t choose here. Sparsity, chemistry and later tests must.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=qSXBm2PGFLI&amp;t=252s" data-ep="14" data-t="252">4:12</a><p><b>Three ways to pose the fit.</b> Part three: three ways to pose the fit. Derivative matching estimates the rates and regresses them on the library. The weak form matches integrals against test functions. Trajectory matching simulates the candidate equations and compares whole curves with the data. We kept the five true terms fixed and compared the three on the numbers alone, ten noise draws each. At one percent noise, the worst coefficient error was 5.4 percent for finite differences. The weak form got it down to 0.6 percent. And trajectory matching got it to 0.08 percent. At five times the noise: 14 percent, 4.7 percent, and 0.3 percent. Matching whole trajectories weighs every sample against the noise, and never differentiates anything. So why not always simulate? Because it&#x27;s slow, and because the error surface has more than one valley. Every guess needs a full simulation, and an oscillation that&#x27;s slightly off in timing can score worse than one that&#x27;s far off. Here&#x27;s a real slice. Take a one-hour recording, and vary only the feedback coefficient, whose true value is one. The error has five valleys. A local search that starts outside 0.87 to 1.12 settles in a wrong one. Started from the weak-form estimate, it went straight to the law. A practical recipe: let a fast, robust formulation choose the terms and a starting point, then let trajectory matching polish the numbers.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=qSXBm2PGFLI&amp;t=335s" data-ep="14" data-t="335">5:35</a><p><b>Many runs, many regimes.</b> Part four: many runs and many regimes. Pause here. Which data would you rather have: one long recording of the clock, ticking steadily, or six short runs from six different starting mixtures? Once the clock settles onto its cycle, the data trace the same closed loop again and again. On that loop, many different formulas agree, so the library becomes nearly redundant. With thirty minutes on the cycle, the law was found in none of forty draws. Six runs from six starting mixtures fill the space around the loop, fast starts included. Same noise, same method: thirty-nine out of forty. The same holds below the clock&#x27;s threshold. With less of the second chemical, the mixture settles to a steady state. One run that started close to that steady state never found the law. Six starts found it twenty-eight times in forty. Discovery needs states that disagree with each other. Plan experiments that push the system into places the equation must explain. Real experiments rarely run one setting. Suppose we ran the clock at three feeds of the second chemical, b equal to 1.5, 2.5 and 3. Each run obeys its own law, but we suspect that one law covers them all, with the feed b inside it. So we give the library a second copy of every term, multiplied by b. Twenty candidates per equation. The search returned: dX by dt equals one, minus X, minus b times X, plus X squared Y. And dY by dt equals b times X, minus X squared Y. That&#x27;s the Brusselator, with the feed in the right places, found in all forty draws. One equation now describes three regimes, including one where the clock doesn&#x27;t tick at all. And a law with the feed inside it can be asked about feeds nobody ran. That&#x27;s where the next video starts.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=qSXBm2PGFLI&amp;t=440s" data-ep="14" data-t="440">7:20</a><p><b>Recap.</b> Let&#x27;s recap. Derivatives are inferred objects. Finite differences, smoothing and weak forms each assume something, and those assumptions can fail even with perfect data. Sparse regression turns the search for terms into a fast linear problem, and its threshold should work across a wide window. Trajectory matching gives the best numbers, once you know the terms and have a good start. And the data must cover the space: many starting states, several settings, and the parameters written into the library. In the lab, you&#x27;ll run this loop on the clock yourself. Next video: beyond the fit. Hidden species, bifurcations, noise inside the system, delays and forcing.</p></div></div><div class="rl-tx-ep" data-ep="15" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=62l9CtXG200" data-ep="15" data-t="0">0:00</a><p><b>Two laws, one stress test.</b> Two laws for our chemical clock. One has five terms, the other twenty. On our data, the twenty-term law fits slightly better, and both say that the clock starts ticking when the feed b passes two. Now turn the feed up to four, beyond anything we ran. We refitted both laws on eight noise draws. Every time, the five-term law predicts a period within a tenth of a minute of the truth, 9.0 minutes. The twenty-term law blew up once, stopped ticking twice, and otherwise said anything from 6.9 to 9.2 minutes. A good fit is where a dynamical law starts, not where it ends. This video is about the tests beyond the fit. This is the second video of Module seven. Part one: hidden species and partial knowledge. Part two: steady states and bifurcations as tests. Part three: noise inside the system, delays and inputs. Part four: a worked study, end to end.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=62l9CtXG200&amp;t=57s" data-ep="15" data-t="57">0:57</a><p><b>Hidden species.</b> Part one: hidden species. Suppose only X has a colour, and Y is invisible to our instrument. Pause here. Can any law for X alone, using only X, reproduce the clock? We tried: a law for the rate of X built from X and its powers up to five. It explains 20 percent of how X changes. With Y in the library, the same rates are explained to 99.96 percent. There&#x27;s a reason. A law in one variable can only push a state up or down a line. It can never bring it back around. An oscillation needs at least two variables, so a hidden one must exist. Picture X as a bead on a wire. At each position, the law gives it one speed, with one sign. So the bead can only slide one way, or stop. To come back around, it would have to pass the same point moving the other way, and with one variable, it can&#x27;t. With no knowledge of Y at all, there is another route: use X from a moment ago as a stand-in for the hidden variable. That can reproduce the motion, but the formula is written in borrowed coordinates, and its terms no longer read as chemistry. Partial knowledge helps. Suppose the chemistry of Y is known: it&#x27;s made from X at rate b, and used up by the step that makes X. That gives dY by dt equals b X minus X squared Y, a law we can run with the measured X as its input. Start that law from a wrong guess, and the error fades. Y&#x27;s equation forgets where it started. From a guess of zero, or of five, the rebuilt Y was within one percent of the truth after about six minutes. Better still, we know how much Y we poured in at the start. With that, rebuilding Y and running the search found the law for X in forty draws out of forty, with every coefficient within 0.1 percent. Hidden variables don&#x27;t end discovery. But the knowledge that fills them in, here the chemistry of Y, becomes part of the claim, and it must be stated.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=62l9CtXG200&amp;t=168s" data-ep="15" data-t="168">2:48</a><p><b>Steady states and bifurcations.</b> Part two: structure as a test. A law makes promises the fit never checked. Where does the mixture stand still? Is that resting point stable? And at what feed does the clock begin to tick? Set both rates of the found law to zero. The steady state is X equal to one, and Y equal to b. At a feed of 2.5, the found law puts it at 1.00 and 2.50, right where the chemistry puts it. Then linearize around it. The eigenvalues of the Jacobian say whether small disturbances die out or grow. As b rises, a pair of complex eigenvalues crosses into growth at b equal to 2.00, for the found law and for the truth. That&#x27;s a Hopf bifurcation: a steady state gives way to a cycle. The onset is an experiment you can run: raise the feed slowly, and note where the colour starts to swing. Both of our laws passed that test, because both were fitted on feeds on either side of it. Why does a pair of complex eigenvalues mean a clock? Near the steady state, the mixture moves in a spiral. While the pair&#x27;s real part is negative, the spiral winds inward, and the colour settles. Once it turns positive, the spiral winds outward until it reaches a closed loop, and the colour keeps swinging. So we traced the whole diagram: the swing of X after settling, for feeds from one to four and a half. The truth and the five-term law overlap everywhere. The twenty-term law tracks them across the feeds we ran. Beyond them it drifts, blows up at 3.5, and from 3.75 on says the clock stops, while the real one keeps swinging wider. Steady states, stability and bifurcations are strong tests, because the fit never aimed at them. A law that passes them, outside the data too, has earned some trust. These tests run on the law alone, so they&#x27;re cheap. Find every steady state, check its stability, compare the onsets with experiments, and look for cycles where the data had none.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=62l9CtXG200&amp;t=281s" data-ep="15" data-t="281">4:41</a><p><b>Noise, delays and inputs.</b> Part three: the real world. So far, the reaction was exact, and only our instrument was noisy. In a tiny droplet, the reaction itself is random. Molecules meet by chance, one at a time. Then there are two laws in the data: the average push, called the drift, and the size of the random kicks, called the diffusion. In a big beaker, with twenty thousand molecules per unit of concentration, six runs still gave the law in five noise draws out of six. In a droplet a hundred times smaller, the same search kept fourteen to twenty terms, even with thirty-six runs. But the kicks carry information too. Their size grows with the reaction rates, and fitting that relation put the droplet at about 180 to 210 molecules per unit. The truth is 200. So in a small system, the noise is more than a nuisance to average away. Its size is a measurement in its own right. Delays are another trap. Suppose the detector for X responds 24 seconds late. Ignore that, and the search keeps all twenty terms. Scan the assumed delay, and the fit error is smallest at 0.4 minutes, which is 24 seconds, where the law comes back in nine draws out of ten. Why so many terms? X arrives late, so each of its readings sits next to a Y from a different moment. No short law links the two, so the search piles up terms to bend one onto the other. And inputs. Suppose a pump varies the feed of the first chemical over a five-minute cycle. A library without the pump can&#x27;t represent that: the search keeps nine terms for X and never finds the law. Add the pump&#x27;s signal, u, as a candidate, and the law comes back in twenty draws of twenty: dX by dt equals u, minus 3.5 X, plus X squared Y. Delays, inputs and hidden states are part of the system. If the library can&#x27;t express them, the search will invent something else to fill the gap.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=62l9CtXG200&amp;t=390s" data-ep="15" data-t="390">6:30</a><p><b>A worked study, end to end.</b> Part four: the whole study, end to end. Six starting mixtures at each of three feeds, a reading every three seconds, one percent noise. The weak form, a library with the feed inside it, and a threshold from a wide, stable window. The result is the Brusselator, found in all forty draws, with coefficients within about half a percent. Then the checks that the fit never saw. The steady state sits at one and b. The clock starts ticking at b equal to two. And at b equal to four, outside the data, the period is within a tenth of a minute of the true nine. And the report states it all: the data and how they were taken, the library, the threshold window, the steady-state and onset checks, the feeds where the law was tested, and what was assumed to be known. The weakest link is coverage. We ran feeds from 1.5 to 3. Outside that range, only the single check at four backs the law up, and the report should say so.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=62l9CtXG200&amp;t=445s" data-ep="15" data-t="445">7:25</a><p><b>Recap.</b> Let&#x27;s recap. Hidden variables can be rebuilt when part of the system is known, and that knowledge becomes part of the claim. Steady states, stability and bifurcations are tests the fit never aimed at. A law should pass them before it&#x27;s trusted outside the data. Noise inside the system, delays and inputs each need a place in the model. Otherwise the search fills the gap with terms that don&#x27;t exist. In the lab, you&#x27;ll break the clock and repair it yourself. Next module: laws in space and time, from partial differential equations to graphs.</p></div></div></div>
+            </details>
+        </div>
+        <div class="rl-eps">
+          <div class="rl-eps-head"><b>Module 7 videos</b><span>2 videos · 17 min</span></div>
+          <ol><li id="ep-14"><a class="rl-ep is-active" data-ep="14" href="https://www.youtube.com/watch?v=qSXBm2PGFLI" aria-current=true><span class="rl-ep-thumb"><img src="/symbolic-laws/img/videos/v14.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>8:19</span></span><span><span class="rl-ep-num">Video 14 · 7.1</span><span class="rl-ep-title" style="display:block">Finding the right-hand side</span><span class="rl-ep-take" style="display:block">At 1% noise the weak form found the clock&#x27;s five terms in 39 of 40 noise draws, finite differences in 22, smoothing in none. Thresholds from 0.2 to 1.2 all worked; one settled run on the cycle never found the law, six starting mixtures found it 39 times in 40, and with the feed in the library it was found in all 40.</span></span></a></li><li id="ep-15"><a class="rl-ep" data-ep="15" href="https://www.youtube.com/watch?v=62l9CtXG200"><span class="rl-ep-thumb"><img src="/symbolic-laws/img/videos/v15.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>8:17</span></span><span><span class="rl-ep-num">Video 15 · 7.2</span><span class="rl-ep-title" style="display:block">Beyond the fit: structure, stability and the real world</span><span class="rl-ep-take" style="display:block">A law for X alone explains 20% of its rate; rebuilding the hidden species from its known chemistry recovered the law in 40 of 40 draws. The found law puts the onset of ticking at b = 2.00, like the truth, and at b = 4 predicts the period within a tenth of a minute, where a 20-term fit blew up, stopped or guessed. A detector 24 s late, or a pump left out of the library, keeps the search from ever finding the law.</span></span></a></li></ol>
+        </div>
+      </div>
+      <script type="application/json" id="rl-episodes">[{"ep": 14, "youtube": "qSXBm2PGFLI", "title": "Finding the right-hand side", "duration": "8:19", "hook": "A beaker that keeps time: plain least squares writes twenty terms for its law, and fits a little better than the truth. The law has five.", "takeaway": "At 1% noise the weak form found the clock's five terms in 39 of 40 noise draws, finite differences in 22, smoothing in none. Thresholds from 0.2 to 1.2 all worked; one settled run on the cycle never found the law, six starting mixtures found it 39 times in 40, and with the feed in the library it was found in all 40.", "thumbAbs": "/symbolic-laws/img/videos/v14.webp"}, {"ep": 15, "youtube": "62l9CtXG200", "title": "Beyond the fit: structure, stability and the real world", "duration": "8:17", "hook": "Two laws fit our chemical clock equally well. At a feed nobody ran, one predicts the period within a tenth of a minute; the other blows up, stops, or guesses.", "takeaway": "A law for X alone explains 20% of its rate; rebuilding the hidden species from its known chemistry recovered the law in 40 of 40 draws. The found law puts the onset of ticking at b = 2.00, like the truth, and at b = 4 predicts the period within a tenth of a minute, where a 20-term fit blew up, stopped or guessed. A detector 24 s late, or a pump left out of the library, keeps the search from ever finding the law.", "thumbAbs": "/symbolic-laws/img/videos/v15.webp"}]</script>
+    </div></section>
+    <section id="lab" class="rl-lab" aria-labelledby="lab-title">
+      <div class="proj-wrap rl-lab-head">
+        <p class="proj-label"><i class="ri-refresh-line" aria-hidden="true"></i>Interactive lab</p>
+        <h2 id="lab-title" class="proj-h2" style="margin-top:.5rem">Sparse dynamics</h2>
+        <p class="proj-lead">Record a chemical clock from one or several starting mixtures, choose the noise, the pipeline and the threshold, and run sparse regression. Then put the feed into the library and test the law where the fit never looked: its steady state, the feed where it starts to tick, and its period at a feed nobody ran.</p>
+        <p class="proj-lead" style="margin-top:.6rem">The clock is the Brusselator, a textbook model of oscillating reactions, simulated in your browser (readings every 3 s for 15 min, Gaussian noise). Four challenges are checked as you go.</p>
+      </div>
+      <div class="rlx" id="dynamics-lab" data-srx="dynamics">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">A chemical clock, one sparse law</h3>
+          <p class="rlx-sub">The page simulates a chemical clock with the Brusselator, a textbook model of oscillating reactions: dX/dt = 1 − (b+1)·X + X²·Y and dY/dt = b·X − X²·Y, where b is the feed of the second chemical. Both concentrations are read every 3 seconds for 15 minutes, from up to six starting mixtures, with the noise you choose. Everything runs in your browser.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">A library of pieces</div>
+              <div class="formula-line"><span class="formula-chip">1, X, Y, X², X·Y, … Y³</span></div>
+              <p class="math-card-copy">Ten candidate terms for each rate; twenty when the feed b multiplies a second copy.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Sparse regression</div>
+              <div class="formula-line"><span class="formula-chip">fit · drop |ξ| &lt; threshold · refit</span></div>
+              <p class="math-card-copy">Repeat until nothing changes. The threshold is the one knob.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Tests beyond the fit</div>
+              <div class="formula-line"><span class="formula-chip">steady state · onset · period at b = 4</span></div>
+              <p class="math-card-copy">With the feed inside the law, ask about feeds that were never run.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Data and method">
+            <div><h4 class="rlx-h">A · Data</h4><p class="rlx-sub">What the experiment recorded.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="dyF">Feed b</label></div>
+              <select id="dyF" data-k="feed" class="control-select"><option value="1.5">1.5 (it settles)</option><option value="2.5" selected>2.5 (it ticks)</option><option value="3">3 (it ticks)</option><option value="all">1.5, 2.5 and 3, with b in the library</option></select></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="dyR">Runs</label></div>
+              <select id="dyR" data-k="runs" class="control-select"><option value="cycle">one run, settled on the cycle (30 min)</option><option value="1" selected>1 starting mixture</option><option value="3">3 starting mixtures</option><option value="6">6 starting mixtures</option></select></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="dyN">Noise</label><span class="control-value" data-k="noise-out">1%</span></div><input id="dyN" data-k="noise" type="range" min="0" max="5" step="1" value="3"></div>
+            <div style="margin-top:.75rem"><h4 class="rlx-h">B · Method</h4><p class="rlx-sub">How the rates are estimated, and how hard terms are pruned.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="dyP">Pipeline</label></div>
+              <select id="dyP" data-k="pipe" class="control-select"><option value="weak" selected>weak form (no derivatives)</option><option value="fd">finite differences</option></select></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="dyT">Threshold</label><span class="control-value" data-k="tau-out">0.3</span></div><input id="dyT" data-k="tau" type="range" min="0" max="8" step="1" value="4"></div>
+            <div class="rlx-btns"><button type="button" class="control-button control-button-secondary is-wide" data-k="redraw">New noise</button></div>
+            </aside>
+            <div class="rlx-main">
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">–</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">The law found</h4><p class="rlx-sub">Sparse regression on the recorded runs.</p></div></div>
+              <p class="rlx-hint srx-mono" data-k="lawx">–</p>
+              <p class="rlx-hint srx-mono" data-k="lawy">–</p>
+              <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Terms kept</div><div class="metric-value" data-k="nterms">–</div></div><div class="metric-tile"><div class="metric-label">The clock’s law?</div><div class="metric-value" data-k="right">–</div></div></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Tests beyond the fit</h4><p class="rlx-sub">Grey: the recorded runs. Dashed: the true clock from the first mixture. Orange: the found law from the same mixture. Blue dot: the found law’s steady state.</p></div></div>
+              <div class="chart-shell" style="height:300px"><svg data-k="pchart" role="img" aria-label="The recorded runs, the true clock and the found law in the X–Y plane"></svg></div>
+              <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Steady state</div><div class="metric-value" data-k="steady">–</div></div><div class="metric-tile"><div class="metric-label">Onset of ticking</div><div class="metric-value" data-k="onset">–</div></div><div class="metric-tile"><div class="metric-label">Period at b = 4</div><div class="metric-value" data-k="p4">–</div></div></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked as you go.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Recover the clock’s five-term law at 1% noise or more. Hint: one starting mixture isn’t enough.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Show that coverage matters: with the same noise, method and threshold, one run settled on the cycle fails where six starting mixtures succeed.</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Find the threshold window at 1% noise with the weak form: one threshold that keeps more than ten terms, one that keeps fewer than five, and one that finds the law.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>Put the feed in the library and find a law whose onset is within 0.05 of b = 2 and whose period at b = 4 is within 3% of the truth.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="next" class="proj-section is-soft" aria-labelledby="next-title"><div class="proj-wrap">
+      <h2 id="next-title" class="proj-h2">Keep going</h2>
+      <div class="rl-pn"><a href="/symbolic-laws/module-06/"><i class="ri-arrow-left-line" aria-hidden="true"></i><span><small>Previous · Module 6</small><strong>Static laws and interpretable surrogates</strong></span></a><a class="is-next" href="/symbolic-laws/module-08/"><span><small>Next · Module 8</small><strong>PDEs, fields and graphs</strong></span><i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+    </div></section>
+  </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Courses</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/rl-course/" class="hover:text-white">Reinforcement Learning</a></li>
+                  <li><a href="/epidemic-modeling/" class="hover:text-white">Epidemic Modeling</a></li>
+                  <li><a href="/symbolic-laws/" class="hover:text-white">Symbolic Physical Laws Discovery</a></li>
+                  <li><a href="/non-observed-economy/" class="hover:text-white">Non-Observed Economy</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/rl-course/" class="hover:text-white">RL course</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <script src="/js/videos.js"></script>
+      
+      <script src="/js/sr-labs.js" defer></script>
+      <script src="/js/epi-course.js" defer></script>
+   </body>
+</html>

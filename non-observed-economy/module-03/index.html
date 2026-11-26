@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<!-- Made by tools/build_noe_course.py from data/noe-course.json. Edit those, not this file. -->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Module 3: Mathematical-economic modelling | Computational Approaches to the Non-Observed Economy Course | ACML</title>
+      <meta name="description" content="Module 3 of 9 of ACML’s Computational Approaches to the Non-Observed Economy course. Games between auditors, agents and communities: slides, 2 videos and an interactive lab.">
+      <meta name="author" content="Teddy Lazebnik">
+      <meta name="keywords" content="non-observed economy, informal economy, shadow economy, computational economics, mathematical-economic modelling, course, ACML">
+      <link rel="canonical" href="https://acml.teddylazebnik.com/non-observed-economy/module-03/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Applied Computational Mathematics Laboratory">
+      <meta property="og:title" content="Module 3: Mathematical-economic modelling · Computational Approaches to the Non-Observed Economy">
+      <meta property="og:description" content="Module 3 of 9 of ACML’s Computational Approaches to the Non-Observed Economy course. Games between auditors, agents and communities: slides, 2 videos and an interactive lab.">
+      <meta property="og:url" content="https://acml.teddylazebnik.com/non-observed-economy/module-03/">
+      <meta property="og:image" content="https://acml.teddylazebnik.com/non-observed-economy/module-03/share.jpg">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Module 3: Mathematical-economic modelling · Computational Approaches to the Non-Observed Economy">
+      <meta name="twitter:description" content="Module 3 of 9 of ACML’s Computational Approaches to the Non-Observed Economy course. Games between auditors, agents and communities: slides, 2 videos and an interactive lab.">
+      <meta name="twitter:image" content="https://acml.teddylazebnik.com/non-observed-economy/module-03/share.jpg">
+      <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "Module 3: Mathematical-economic modelling",
+        "description": "The observer is a player. With 2,000 invented firms, a tax office and stylised games, we write down the textbook evader and the compliance puzzle, compare audits with third-party reporting, let the tax office move first, take away its commitment in an inspection game where the fine sets the audit rate rather than evasion, and watch tipping when people copy their neighbours. Then the rules a community makes and enforces itself: how rules form, information spread across people, deterrence through the future in a market that grows from 20 to 1,280 traders, monitoring as a public good, and the dark side of community enforcement.",
+        "url": "https://acml.teddylazebnik.com/non-observed-economy/module-03/",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "learningResourceType": [
+          "Lecture slides",
+          "Video",
+          "Interactive resource"
+        ],
+        "teaches": "Games between auditors, agents and communities",
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Computational Approaches to the Non-Observed Economy",
+          "url": "https://acml.teddylazebnik.com/non-observed-economy/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Teddy Lazebnik",
+          "url": "https://teddylazebnik.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Applied Computational Mathematics Laboratory",
+          "url": "https://acml.teddylazebnik.com/"
+        },
+        "hasPart": [
+          {
+            "@type": "VideoObject",
+            "name": "The enforcement game",
+            "description": "Double the fine for evasion: evasion dips, then drifts most of the way back, and the tax office audits about two fifths less.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/non-observed-economy/img/videos/v05.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/KfuIxjQs0gQ",
+            "duration": "PT9M3S"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "When communities enforce the rules",
+            "description": "Twenty traders with no tax office stay 99% honest. At 320 traders only 37% do. A shared record brings it back.",
+            "thumbnailUrl": "https://acml.teddylazebnik.com/non-observed-economy/img/videos/v06.webp",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/kbJ_m7ZV10g",
+            "duration": "PT8M31S"
+          },
+          {
+            "@type": "DigitalDocument",
+            "name": "Module 3 slides",
+            "encodingFormat": "application/pdf",
+            "url": "https://acml.teddylazebnik.com/non-observed-economy/slides/Non_Observed_Economy_Module03_Mathematical_economic_modelling.pdf"
+          }
+        ]
+      }
+      </script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+      <link href="/css/styles.css" rel="stylesheet">
+      <link href="/css/videos.css" rel="stylesheet">
+      
+      <link href="/css/exploration-lab.css" rel="stylesheet">
+      <link href="/css/rl-labs.css" rel="stylesheet">
+      <link href="/css/tailwind.css" rel="stylesheet">
+      <link href="/css/project.css" rel="stylesheet">
+      <link href="/css/rl-course.css" rel="stylesheet">
+      <link href="/css/epi-course.css" rel="stylesheet">
+      <link href="/css/noe-course.css" rel="stylesheet">
+   </head>
+   <body class="bg-gray-50 font-['Inter']">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent backdrop-blur-md border-b border-gray-100/30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+      <div class="flex items-center gap-2">
+        <a href="/" aria-label="ACML home"><img src="/img/logo.png" alt="Applied Computational Mathematics Laboratory logo" width="100px"></a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <div class="flex space-x-1 bg-gray-50 rounded-full p-1 mr-6">
+          <a href="/" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Home</a>
+          <a href="/team.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Our Team</a>
+          <a href="/projects.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Projects</a>
+          <a href="/publications.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Publications</a>
+          <a href="/tools.html" class="nav-link px-6 py-2 rounded-full text-gray-700 hover:text-primary transition font-medium text-sm">Tools</a>
+          <a href="/courses.html" class="nav-link px-6 py-2 rounded-full text-primary transition font-medium text-sm">Courses</a>
+        </div>
+        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition font-medium text-sm">Contact Us</a>
+      </div>
+      <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-white border-t border-gray-200 transition-all duration-500 ease-in-out">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:text-primary">Home</a>
+      <a href="/team.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Our Team</a>
+      <a href="/projects.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Projects</a>
+      <a href="/publications.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Publications</a>
+      <a href="/tools.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Tools</a>
+      <a href="/courses.html" class="block px-6 py-3 text-gray-700 hover:text-primary">Courses</a>
+      <a href="/#contact" class="block px-6 py-3 m-4 bg-primary text-white rounded-md text-center hover:bg-primary/90">Contact Us</a>
+    </div>
+  </nav>
+  <div class="h-20"></div>
+
+  <main class="proj-page rl-page bg-white">
+    <header class="proj-hero rl-hero">
+      <div class="proj-wrap proj-hero-grid">
+        <div>
+          <nav class="proj-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/courses.html">Courses</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><a href="/non-observed-economy/">Computational Approaches to the Non-Observed Economy</a><i class="ri-arrow-right-s-line" aria-hidden="true"></i><span>Module 3</span></nav>
+          <p class="proj-kicker"><span><i class="ri-graduation-cap-line" aria-hidden="true"></i>Computational Approaches to the Non-Observed Economy</span><span>Foundations</span></p>
+          <h1 class="proj-title"><small>Module 3</small>Mathematical-economic modelling</h1>
+          <p class="proj-about-lead rl-summary">The observer is a player. With 2,000 invented firms, a tax office and stylised games, we write down the textbook evader and the compliance puzzle, compare audits with third-party reporting, let the tax office move first, take away its commitment in an inspection game where the fine sets the audit rate rather than evasion, and watch tipping when people copy their neighbours. Then the rules a community makes and enforces itself: how rules form, information spread across people, deterrence through the future in a market that grows from 20 to 1,280 traders, monitoring as a public good, and the dark side of community enforcement.</p>
+          <div class="rl-goal"><i class="ri-focus-3-line" aria-hidden="true"></i><span>By the end you should be able to write a concealment decision and an enforcement game, compare levers inside an explicit model, explain commitment, mixed equilibria and tipping, and model community enforcement with its information, deterrence and free-riding problems.</span></div>
+          <h2 class="proj-h3 rl-ideas-title">Key ideas, one per video</h2>
+          <ul class="rl-ideas"><li><a href="#ep-5">Video 5</a><span>At realistic audit rates, more third-party reporting cut hiding by a fifth while doubling audits cut it by under 4%. Without commitment the fine sets the audit rate, and with copying one audit rate supports two very different worlds.</span></li><li><a href="#ep-6">Video 6</a><span>Deterrence through the future works in small, stable groups and fades as they grow, unless a shared record takes over. Monitoring is a public good: five members acting alone catch a cheat 16% of the time, against 43% if they coordinate.</span></li></ul>
+          <p class="rl-source"><b>Book:</b> Chapter 3 of <cite>Computational Approaches to the Non-Observed Economy: From Theory to Practice</cite> (coming soon). The videos and slides follow the chapter’s topics in our own words, figures and simulations; the towns and countries are invented, and nothing is copied from the book.</p>
+        </div>
+        <div class="rl-first">
+          <a class="rl-first-img" href="/non-observed-economy/slides/Non_Observed_Economy_Module03_Mathematical_economic_modelling.pdf" target="_blank" rel="noopener"><img src="/non-observed-economy/img/slides/m03-s01.webp" alt="The title slide of Module 3: Mathematical-economic modelling" width="960" height="540" fetchpriority="high" decoding="async"></a>
+          <p class="rl-first-text">33 slides, written to be read on your own, with worked examples, our own small simulations and check-yourself questions (answers at the end). PDF, 5.6 MB.</p>
+          <div class="proj-actions"><a class="proj-btn proj-btn-primary" href="/non-observed-economy/slides/Non_Observed_Economy_Module03_Mathematical_economic_modelling.pdf" target="_blank" rel="noopener"><i class="ri-external-link-line" aria-hidden="true"></i>Open the PDF</a><a class="proj-btn" href="/non-observed-economy/slides/Non_Observed_Economy_Module03_Mathematical_economic_modelling.pdf" download><i class="ri-download-2-line" aria-hidden="true"></i>Download</a></div>
+        </div>
+      </div>
+    </header>
+    <nav class="proj-subnav is-mobile-only" aria-label="Sections of this page"><div class="proj-wrap"><ul><li><a href="#watch">Watch</a></li><li><a href="#lab">Lab</a></li><li><a href="#next">Next</a></li></ul></div></nav>
+    <section id="watch" class="proj-section is-soft" aria-labelledby="watch-title"><div class="proj-wrap">
+      <h2 id="watch-title" class="proj-h2">Watch</h2>
+      <p class="proj-lead">2 videos for this module, each about 8 to 11 minutes. Pick one from the list, and open the transcript to read along: each timestamp plays the video from there. The narration is generated with a voice clone of Teddy, used with his permission.</p>
+      <div class="rl-watch">
+        <div class="rl-player-wrap">
+          <div id="rl-player" class="yt-player yt-16x9" data-yt-id="KfuIxjQs0gQ" data-yt-title="The enforcement game"><a class="yt-play" href="https://www.youtube.com/watch?v=KfuIxjQs0gQ" aria-label="Play video 5: The enforcement game"><img src="/non-observed-economy/img/videos/v05.webp" alt="" width="640" height="360" decoding="async"><span class="yt-play-icon" aria-hidden="true"><i class="ri-play-fill"></i></span></a></div>
+          <div class="rl-now">
+            <p id="rl-now-num" class="rl-now-num">Video 5 · 9:03</p>
+            <p id="rl-now-title" class="rl-now-title">The enforcement game</p>
+            <p id="rl-now-hook" class="rl-now-hook">Double the fine for evasion: evasion dips, then drifts most of the way back, and the tax office audits about two fifths less.</p>
+            <p id="rl-now-take" class="rl-now-take"><i class="ri-lightbulb-flash-line" aria-hidden="true"></i><span>At realistic audit rates, more third-party reporting cut hiding by a fifth while doubling audits cut it by under 4%. Without commitment the fine sets the audit rate, and with copying one audit rate supports two very different worlds.</span></p>
+          </div>
+            <details id="rl-tx" class="rl-tx">
+              <summary><i class="ri-file-text-line" aria-hidden="true"></i>Transcript<span id="rl-tx-which">Video 5</span><i class="ri-arrow-down-s-line rl-tx-caret" aria-hidden="true"></i></summary>
+              <div class="rl-tx-body"><div class="rl-tx-ep" data-ep="5"><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=KfuIxjQs0gQ" data-ep="5" data-t="0">0:00</a><p><b>Double the fine.</b> A tax office doubles the fine for evasion. What happens to evasion? In our simulation, it drops at first. Then, slowly, it creeps most of the way back. What changed for good is the tax office. Once the fine doubled, it audited about two fifths less. Nobody planned that. It falls out of the logic of a game. And that&#x27;s what this module is about: the observer is a player too.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=KfuIxjQs0gQ&amp;t=32s" data-ep="5" data-t="32">0:32</a><p><b>The observer is a player.</b> Welcome to Module 3: mathematical-economic modelling. I&#x27;m Teddy. In Module 1 we saw that observers change the economy they watch. Game theory is the tool for that. It treats the tax office and the firms as players, each reacting to the other. Computation helps when the algebra runs out: many different firms, beliefs, learning, neighbours. We write down the rules, and let the computer play the game. Why computation? Solving one firm&#x27;s problem takes a line of algebra. Solving two thousand different firms, who learn and copy each other, has no neat formula. A simulation shows the whole path, including the surprises along the way. Today: one firm&#x27;s choice, a whole population of firms, a tax office that moves first, one that can&#x27;t, and what happens when people copy their neighbours.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=KfuIxjQs0gQ&amp;t=76s" data-ep="5" data-t="76">1:16</a><p><b>The textbook evader.</b> Start with the textbook evader. Every number in this example is invented. The tax rate is 20 percent. If a firm hides a sale and gets caught, it pays the tax, plus a surcharge of the same size. So hiding one euro of tax gains one euro if you&#x27;re not caught, and costs one extra euro if you are. A firm that only counts money will hide everything, unless its chance of being caught is above one half. Real audit rates are a few percent, not fifty. So this model says almost everyone should hide almost everything. Yet most firms pay most of their taxes. Economists call this the compliance puzzle. The model is missing something. Several things, actually. Hiding gets harder the more you hide. You can&#x27;t hide what someone else reports for you. Some people simply won&#x27;t cheat. And people act on the risk they believe in, not the official one.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=KfuIxjQs0gQ&amp;t=128s" data-ep="5" data-t="128">2:08</a><p><b>Two thousand firms.</b> So let&#x27;s add those, and build a population. Two thousand invented firms. Three in ten never hide anything. For the rest, hiding gets more expensive the more they hide, and part of their sales is reported by others, like card companies and business customers. Each firm picks the amount that pays best for it. We let the computer solve two thousand small problems, and add them up. With two percent of firms audited, about 16 percent of all sales are hidden. Now double the audits, to four percent. Hidden sales fall by less than four percent of what they were. Instead, keep the audits, and let third parties report thirty more points of each firm&#x27;s sales. Hidden sales fall by more than a fifth. At realistic audit rates, in this world, information beats inspection. What you can&#x27;t hide matters more than how often you&#x27;re checked. Notice what the computer added. Each firm&#x27;s problem is easy. But the total depends on how costs and third-party shares are spread across firms, and that needs the whole population.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=KfuIxjQs0gQ&amp;t=185s" data-ep="5" data-t="185">3:05</a><p><b>Moving first.</b> Now the tax office. Suppose it moves first. It announces an audit policy, sticks to it, and the firms respond. Game theorists call this a leader and followers. The office knows how firms will react, so it can choose its policy with that reaction in mind. Each extra audit costs money, and brings back some tax. The office keeps auditing until one more audit costs more than it recovers. That gives two regimes. When audits are cheap, it pays to audit enough that nobody hides at all. When audits are expensive, the office accepts some hiding, on purpose. In our population, with cheap audits the office goes all the way to deterrence. With expensive audits, it stops at about ten percent, and accepts that about fourteen percent of sales stay hidden. These audit rates are far above real ones, because our fine is mild and our firms count only money. The point is the shape of the decision, not the levels. That second regime is uncomfortable, but common. A tolerated level of evasion can be the result of a calculation, not of neglect. Moving first is valuable. But only if the promise is believed. Once everyone complies, the office is tempted to stop auditing. And firms know it. Why not just make the fine enormous? Because fines are limited by law and by fairness. Audits make mistakes, and an enormous fine on an honest firm is a disaster. Huge fines also make bribes more attractive. And the office has a second lever besides audits: information. Third-party reporting, electronic invoices, matching records. In the model, that lever changes what firms can hide, not just the chance of being caught.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=KfuIxjQs0gQ&amp;t=282s" data-ep="5" data-t="282">4:42</a><p><b>Both move at once.</b> So what if the office can&#x27;t commit? Then both sides move at once. The office decides whether to audit. The firm decides whether to evade. Neither sees the other&#x27;s choice. Try to find a stable pair. If the office never audits, firms evade. If firms evade, the office audits. If it audits, they comply. If they comply, it stops auditing. Round and round. The way out is randomness. The office audits just often enough that evading stops paying. Firms evade just often enough that auditing still pays. And here&#x27;s the twist. The amount of evasion is set by the office&#x27;s costs and gains, not by the fine. The fine only sets how often the office must audit. That&#x27;s what we saw at the start. In our simulation, firms and the office learn by trial and error. Before the change, about 6 percent of firms evade, and the office audits about 30 percent. Then the fine doubles. Evasion drops to about 2 percent. But the office learns that audits find less, and audits less. Evasion drifts back up, to about 5 percent. Meanwhile, the audit rate settles near 17 percent. About two fifths lower than before. Evasion doesn&#x27;t come all the way back, because our simulated firms make small mistakes. But most of the dip is gone. These are stylised games, so don&#x27;t read the levels literally. Read the logic. A bigger stick can mean fewer inspections, rather than fewer evaders. And commitment pays. In this game, an office that can credibly promise its audit rate loses half as much per firm as one that can&#x27;t. Notice the dip after the change. A study that measured evasion one year after the fine doubled would call it a big success. Two years later, the effect is mostly gone. Timing is part of the result.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=KfuIxjQs0gQ&amp;t=386s" data-ep="5" data-t="386">6:26</a><p><b>Copying the neighbours.</b> So far, each firm decided alone. But people watch each other. If your neighbours seem to evade, evading feels normal, and safer. Let&#x27;s build two thousand agents. Each one has a private wish to evade, which audits push down. And each one leans towards what the others are doing. Before we run it, a question. If we turn the audits up and then back down along the same path, will evasion retrace its steps? Now we turn the audit rate up slowly, starting from a world where most people evade. Evasion stays high, and then suddenly collapses, at about five and a quarter percent audits. Now turn the audits back down. Compliance holds, much longer than you&#x27;d expect. Evasion only returns below four percent. So at five percent audits, there are two possible worlds. In one, most people evade. In the other, almost nobody does. Which one you get depends on history. Without the copying, the same agents give one smooth curve, with about 43 percent evading at five percent audits. Two lessons. Cutting enforcement can be cheap to do, and expensive to undo. And two countries with the same policy can sit in different equilibria, so comparing them can mislead you. Taking this to data is hard. Neighbours look alike for many reasons: shared rules, shared customers, shared shocks. Copying is only one of them. Separating them needs careful designs, which is a theme for Module 6. The same goes for the other parameters. Concealment costs can be estimated from audit data. Beliefs about audit risk come from surveys. Every parameter in these games needs its own evidence.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=KfuIxjQs0gQ&amp;t=481s" data-ep="5" data-t="481">8:01</a><p><b>Recap.</b> Let&#x27;s recap. The textbook evader hides everything at realistic audit rates, so real behaviour needs more: costs of hiding, third-party reports, morals and beliefs. In our population, more third-party reporting cut hiding far more than doubling the audits. A tax office that moves first can choose its tolerated level of evasion. One that can&#x27;t commit plays a game where the fine sets its audit rate, and its own costs set the evasion. And when people copy each other, the same policy can support two very different worlds. In the lab, you&#x27;ll play the audit game against learning firms, double the fine, and watch what adapts. Next video: what happens when there&#x27;s no tax office at all, and the community enforces the rules itself.</p></div></div><div class="rl-tx-ep" data-ep="6" hidden><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=kbJ_m7ZV10g" data-ep="6" data-t="0">0:00</a><p><b>Twenty traders, then 320.</b> Here is a market of twenty traders. No tax office, no courts. If you cheat a partner, the news spreads, and people stop trading with you. In our simulation, 99 percent of these traders stay honest. Now grow the market to 320 traders. Same kind of people, same rules. Only 37 percent stay honest. Give them a shared record of who cheated whom, and honesty goes back to 99 percent. Morals didn&#x27;t change. Information did. This video is about rules that a community makes, watches and enforces by itself.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=kbJ_m7ZV10g&amp;t=42s" data-ep="6" data-t="42">0:42</a><p><b>Governance without a government.</b> In the last video, the government was a player with a clear job. Here, nobody has that job. The rules come from the population itself. That isn&#x27;t only history. Think of merchant associations, villages sharing a pasture or a fishing ground, cooperatives, informal labour markets, and online platforms with reputation scores. Often there is a formal state too. Community rules can replace it where it doesn&#x27;t reach, or work alongside it, explaining and enforcing its rules locally. For the non-observed economy this matters a lot. Much informal activity isn&#x27;t ungoverned. It&#x27;s governed by people other than the tax office. One warning before we start. Community compliance and legal compliance are different things. An informal job can be perfectly accepted locally, and still break labour law. And the reverse holds too. A deal within the law can still break a community rule, like an obligation to help a neighbour. So community governance isn&#x27;t automatically lawful, efficient or fair.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=kbJ_m7ZV10g&amp;t=100s" data-ep="6" data-t="100">1:40</a><p><b>How rules form.</b> How do community rules form? Sometimes by explicit agreement. A rule is adopted when enough support gathers behind it. But support is rarely equal. Older members, big traders, or people who control something essential can carry more weight. Other rules just grow. A practice that keeps working gets copied, and becomes expected. One that keeps failing fades. And support alone doesn&#x27;t make a rule strong. It also needs legitimacy, it must be enforceable, and applying it can&#x27;t cost too much. A rule everyone likes, but nobody can check, is weak. A rule few people like, enforced by a powerful group, can be strong. An invented example. Lantern Bay&#x27;s fishers agree to sell only at the morning market, where everyone can see the catch and the price. Selling on the side is cheaper for one fisher, but it hides the catch from everyone else. The rule works as long as most fishers support it, the morning market is easy to watch, and breaking it gets noticed. Change any of those, and the rule weakens.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=kbJ_m7ZV10g&amp;t=158s" data-ep="6" data-t="158">2:38</a><p><b>Nobody sees everything.</b> Next, information. In a community, nobody sees everything. One person saw the payment. Another knows the amount. A third knows whether the seller had a licence. A deal becomes known if at least one trusted path brings the right pieces together. Five witnesses, each with a thirty percent chance of passing it on, give an eighty-three percent chance that it gets out. And not everyone needs to know. It&#x27;s enough that the right people do: a market elder, a lender, the members who would refuse to trade. Credibility matters too. A rumour from a known liar counts for little. A report from someone who saw the deal, and has nothing to gain, counts a lot.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=kbJ_m7ZV10g&amp;t=193s" data-ep="6" data-t="193">3:13</a><p><b>The shadow of the future.</b> Now enforcement. Cheating a partner pays once. Being shut out costs you every future trade. So the rule holds when the one-off gain is smaller than the chance of being found out, times what you&#x27;d lose: any immediate penalty, plus the value of all your future trade. In our market, a trader who values the future the way we assume loses about nine periods of trade if everyone shuts them out. But gossip has a reach. We built a friendship network, eight friends each, and let news travel two steps. With twenty traders, about four in five hear about a cheat. With three hundred and twenty, fewer than one in ten. With twelve hundred and eighty, two in a hundred. Fewer people who hear means fewer partners lost, so the threat shrinks. Honesty falls from 99 percent, to 37, to under 3. Before we look at the fix, pause. What would you add to a market of twelve hundred and eighty traders to bring honesty back? A shared record restores it, at any size. That&#x27;s one way to read the history of registers, credit bureaus and reputation systems: they replace gossip when communities grow. It also explains a pattern in the hidden economy. Small, stable groups can sustain a lot of informal trade on trust. As they grow and become anonymous, that trust needs formal support. Notice that the shared record doesn&#x27;t have to belong to a government. A traders&#x27; association, a cooperative or a platform can keep it. What matters is that news reaches the people who would refuse to trade.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=kbJ_m7ZV10g&amp;t=282s" data-ep="6" data-t="282">4:42</a><p><b>Watching is a public good.</b> There&#x27;s a catch. Watching others costs time and effort. But when you catch a cheat, everyone benefits, not just you. So each member watches a bit less than the group would want. Economists call this a second-order free-rider problem. The rule is a public good, and so is enforcing it. We let members choose how much to watch, each one doing what&#x27;s best for themselves. With five members, the chance of catching a cheat is about 16 percent. If they coordinated, it would be 43. With a hundred members, it&#x27;s 70 percent instead of 99. And each member watches about a third as much as with five. Communities that last tend to fix this on purpose. Monitoring in turns. A shared fund for enforcement. Rewards for credible reports. Sanctions that start small and grow. And a cheap way to settle disputes. Why start small? Because people make honest mistakes, and observers get things wrong. A warning keeps a useful relationship alive. Big penalties are kept for those who repeat. Governments face the same problem with each other. Two tax offices both gain when a cross-border deal is traced, and each prefers the other to pay for it. In a simple version, acting alone they trace 56 percent of such deals. Coordinating, 75. That&#x27;s the case for information-sharing agreements.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=kbJ_m7ZV10g&amp;t=359s" data-ep="6" data-t="359">5:59</a><p><b>The dark side.</b> Community enforcement has a dark side, and a model should include it. Reports can be false. Rivals can be accused. Information from marginalised people can be ignored. And a wrong reputation can follow someone for years. Powerful members can define the rules to protect themselves. And punishment can be excessive, or aimed at outsiders. So when you model a community, don&#x27;t assume it&#x27;s efficient or fair. Make those properties outcomes you measure. And watch what happens when formal rules arrive. A new registration system can weaken the community&#x27;s own enforcement before the formal one works. Whether that happens is an empirical question. A model is a way to ask it carefully.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=kbJ_m7ZV10g&amp;t=398s" data-ep="6" data-t="398">6:38</a><p><b>From theory to data.</b> How do you take this to data? Write down what the model needs, and ask where you could measure it. Who can observe whom. How fast and how reliably news travels. How big the sanctions are, and how much membership is worth. And what people believe about all of it. Some of these come from surveys and experiments. Some from network data. Some only from careful fieldwork. We&#x27;ll build the network side in Module 6, and full agent-based models in Module 7. Experiments help too. In public-goods games in the lab, many people pay a cost to punish free riders, and that changes how others behave. How strongly, differs between places and groups. So parameters measured in one community don&#x27;t travel automatically. And platform data, where they exist, record ratings, complaints and exclusions directly. That&#x27;s community enforcement leaving a trace.</p></div><div class="rl-tx-ch"><a class="rl-tx-t" href="https://www.youtube.com/watch?v=kbJ_m7ZV10g&amp;t=447s" data-ep="6" data-t="447">7:27</a><p><b>Recap.</b> Let&#x27;s recap. Many rules in the hidden economy are made and enforced by communities, not governments. Community compliance is not legal compliance. Rules need support, legitimacy, enforceability and low cost. Information is spread across people, and a deal is known when one trusted path brings it together. Deterrence comes from the future. It works in small, stable groups, and fades as they grow, unless a shared record takes over. Watching is a public good, so it&#x27;s underprovided. And community enforcement can be unfair, so measure fairness rather than assuming it. In the lab, you&#x27;ll grow the market, change how far gossip travels, and add a shared record. Next module: estimating the size of the hidden economy, from proxies to estimates with honest errors.</p></div></div></div>
+            </details>
+        </div>
+        <div class="rl-eps">
+          <div class="rl-eps-head"><b>Module 3 videos</b><span>2 videos · 18 min</span></div>
+          <ol><li id="ep-5"><a class="rl-ep is-active" data-ep="5" href="https://www.youtube.com/watch?v=KfuIxjQs0gQ" aria-current=true><span class="rl-ep-thumb"><img src="/non-observed-economy/img/videos/v05.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>9:03</span></span><span><span class="rl-ep-num">Video 5 · 3.1</span><span class="rl-ep-title" style="display:block">The enforcement game</span><span class="rl-ep-take" style="display:block">At realistic audit rates, more third-party reporting cut hiding by a fifth while doubling audits cut it by under 4%. Without commitment the fine sets the audit rate, and with copying one audit rate supports two very different worlds.</span></span></a></li><li id="ep-6"><a class="rl-ep" data-ep="6" href="https://www.youtube.com/watch?v=kbJ_m7ZV10g"><span class="rl-ep-thumb"><img src="/non-observed-economy/img/videos/v06.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span>8:31</span></span><span><span class="rl-ep-num">Video 6 · 3.2</span><span class="rl-ep-title" style="display:block">When communities enforce the rules</span><span class="rl-ep-take" style="display:block">Deterrence through the future works in small, stable groups and fades as they grow, unless a shared record takes over. Monitoring is a public good: five members acting alone catch a cheat 16% of the time, against 43% if they coordinate.</span></span></a></li></ol>
+        </div>
+      </div>
+      <script type="application/json" id="rl-episodes">[{"ep": 5, "youtube": "KfuIxjQs0gQ", "title": "The enforcement game", "duration": "9:03", "hook": "Double the fine for evasion: evasion dips, then drifts most of the way back, and the tax office audits about two fifths less.", "takeaway": "At realistic audit rates, more third-party reporting cut hiding by a fifth while doubling audits cut it by under 4%. Without commitment the fine sets the audit rate, and with copying one audit rate supports two very different worlds.", "thumbAbs": "/non-observed-economy/img/videos/v05.webp"}, {"ep": 6, "youtube": "kbJ_m7ZV10g", "title": "When communities enforce the rules", "duration": "8:31", "hook": "Twenty traders with no tax office stay 99% honest. At 320 traders only 37% do. A shared record brings it back.", "takeaway": "Deterrence through the future works in small, stable groups and fades as they grow, unless a shared record takes over. Monitoring is a public good: five members acting alone catch a cheat 16% of the time, against 43% if they coordinate.", "thumbAbs": "/non-observed-economy/img/videos/v06.webp"}]</script>
+    </div></section>
+    <section id="lab" class="rl-lab" aria-labelledby="lab-title">
+      <div class="proj-wrap rl-lab-head">
+        <p class="proj-label"><i class="ri-auction-line" aria-hidden="true"></i>Interactive lab</p>
+        <h2 id="lab-title" class="proj-h2" style="margin-top:.5rem">The audit game</h2>
+        <p class="proj-lead">Play an inspection game between a tax office and learning firms: change the fine, the audit cost and how noisy the firms are, and watch who adapts. Then sweep the audit rate up and down in a population that copies its neighbours.</p>
+        <p class="proj-lead" style="margin-top:.6rem">Both games run in your browser with stylised payoffs (read the logic, not the levels). Four challenges are checked as you go.</p>
+      </div>
+      <div class="rlx" id="audit-lab" data-noex="audit">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">An inspection game, played by learners</h3>
+          <p class="rlx-sub">A firm can comply or evade; the tax office can audit or not, and neither sees the other's move. Evading saves the tax (1); if audited, the firm pays the fine on top. Auditing costs the office c and recovers the tax. Both sides learn by trial and error. The payoffs are stylised: read the logic, not the levels.</p>
+          <div class="math-grid">
+            <article class="math-card"><div class="math-card-title">The office audits</div><div class="formula-line"><span class="formula-chip">q* = 1 / (1 + fine)</span></div><p class="math-card-copy">just often enough that evading stops paying.</p></article>
+            <article class="math-card"><div class="math-card-title">Firms evade</div><div class="formula-line"><span class="formula-chip">x* = c / 2</span></div><p class="math-card-copy">just often enough that auditing still pays. The fine does not appear.</p></article>
+            <article class="math-card"><div class="math-card-title">Copying</div><div class="formula-line"><span class="formula-chip">evade if uᵢ − 12·a + α(E − ½) &gt; 0</span></div><p class="math-card-copy">2,000 agents; E is the share of others evading, a the audit rate, α how strongly people copy.</p></article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Game controls">
+            <div><h4 class="rlx-h">The game</h4><p class="rlx-sub">Change the fine, the audit cost and how noisy the firms are.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="audF">Fine</label><span class="control-value" data-k="fine-out">3.0× the tax</span></div><input id="audF" data-k="fine" type="range" min="1" max="10" step="0.5" value="3"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="audC">Audit cost c</label><span class="control-value" data-k="cost-out">0.15</span></div><input id="audC" data-k="cost" type="range" min="0.04" max="0.5" step="0.01" value="0.15"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="audN">How sharply firms respond</label><span class="control-value" data-k="noise-out">15</span></div><input id="audN" data-k="noise" type="range" min="5" max="40" step="1" value="15"></div>
+            <label class="srx-check"><input type="checkbox" data-k="double" checked> Double the fine half way through</label>
+            <div><h4 class="rlx-h" style="margin-top:.8rem">Copying</h4></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="audA">Copying strength α</label><span class="control-value" data-k="alpha-out">1.00</span></div><input id="audA" data-k="alpha" type="range" min="0" max="1.5" step="0.05" value="1"></div>
+            </aside>
+            <div class="rlx-main">
+            <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Evading, before / after</div><div class="metric-value"><span data-k="x0">–</span> / <span data-k="x1">–</span></div></div><div class="metric-tile"><div class="metric-label">Audited, before / after</div><div class="metric-value"><span data-k="q0">–</span> / <span data-k="q1">–</span></div></div><div class="metric-tile"><div class="metric-label">Tipping loop</div><div class="metric-value" data-k="loop">–</div></div></div>
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">Running…</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Who adapts</h4><p class="rlx-sub">Blue: share of firms evading. Amber: audit rate.</p></div></div>
+              <p class="rlx-hint" data-k="nash"></p>
+              <div class="chart-shell" style="height:280px"><svg data-k="chart" role="img" aria-label="Evasion and audit rates over rounds of play"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Audits up, then down</h4><p class="rlx-sub">Orange: audits rising from a high-evasion world. Blue: audits falling from a compliant one.</p></div></div>
+              <div class="chart-shell" style="height:260px"><svg data-k="cchart" role="img" aria-label="Share evading as the audit rate is swept up and down"></svg></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked on your current settings.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>With the fine doubling half way, find settings where long-run evasion ends within 1.5 points of where it started, while audits fall by more than a quarter.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Bring long-run evasion below 4%. Which lever does it: the fine or the audit cost?</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Find a copying strength where the tipping loop is wider than 2 points of audit rate.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>Switch copying off and check that the two curves become one.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="next" class="proj-section is-soft" aria-labelledby="next-title"><div class="proj-wrap">
+      <h2 id="next-title" class="proj-h2">Keep going</h2>
+      <div class="rl-pn"><a href="/non-observed-economy/module-02/"><i class="ri-arrow-left-line" aria-hidden="true"></i><span><small>Previous · Module 2</small><strong>Theory-based and data-driven modelling</strong></span></a><a class="is-next" href="/non-observed-economy/module-04/"><span><small>Next · Module 4</small><strong>Estimating the size</strong></span><i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+    </div></section>
+  </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 mt-20">
+         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+               <img loading="lazy" decoding="async" src="/img/LOGO_Blue.svg" alt="Applied Computational Mathematics Laboratory footer logo" width="100px"/>
+               <p class="text-gray-400 mb-4">Advancing computational mathematics through real-world problem solving.</p>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Courses</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/rl-course/" class="hover:text-white">Reinforcement Learning</a></li>
+                  <li><a href="/epidemic-modeling/" class="hover:text-white">Epidemic Modeling</a></li>
+                  <li><a href="/symbolic-laws/" class="hover:text-white">Symbolic Physical Laws Discovery</a></li>
+                  <li><a href="/non-observed-economy/" class="hover:text-white">Non-Observed Economy</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Resources</h4>
+               <ul class="space-y-2 text-gray-400">
+                  <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
+                  <li><a href="/tools.html" class="hover:text-white">Tools</a></li>
+                  <li><a href="/rl-course/" class="hover:text-white">RL course</a></li>
+                  <li><a href="/media.html" class="hover:text-white">Media</a></li>
+                  <li><a href="/videos.html" class="hover:text-white">Videos</a></li>
+               </ul>
+            </div>
+            <div>
+               <h4 class="font-semibold mb-3">Contact Info</h4>
+               <p class="text-gray-400">Department of Information Systems,<br>University of Haifa<br>Department of Computing,<br>Jönköping University<br>Lazebnik.teddy (at) gmail.com<br></p>
+            </div>
+         </div>
+         <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2025-<script>document.write(new Date().getFullYear())</script> Applied Computational Mathematics Laboratory. All rights reserved to <a href="https://teddylazebnik.com">Teddy Lazebnik</a>.
+         </div>
+      </footer>
+      <script src="/js/videos.js"></script>
+      
+      <script src="/js/noe-labs.js" defer></script>
+      <script src="/js/epi-course.js" defer></script>
+   </body>
+</html>

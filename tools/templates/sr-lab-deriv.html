@@ -1,0 +1,60 @@
+<!-- Used by tools/build_sr_course.py: lab 5 (Module 5) of the Symbolic Physical Laws Discovery course: noisy derivatives. A weight on a spring (a = −16·x − 0.4·v, plus −400·x³ when it stiffens) is filmed by a phone; the camera sees position only. Finite differences, local cubic smoothing and a weak form turn positions into a law; then the next swing is chosen where two candidate laws disagree. Script: js/sr-labs.js (data-srx="deriv"). -->
+      <div class="rlx" id="deriv-lab" data-srx="deriv">
+        <div class="proj-wrap">
+        <div class="math-panel rlx-math">
+          <div class="section-kicker">Simple math</div>
+          <h3 class="rlx-h" style="margin-top:.6rem">A weight on a spring, filmed by a phone</h3>
+          <p class="rlx-sub">The page simulates four recordings of 6 seconds (starts of 2 to 5 cm) from a = −16·x − 0.4·v, our own made-up spring. The camera sees the position x only, with tracking noise. Every pipeline searches the same library (1, x, v, x², x·v, x³, x²·v) with thresholded least squares. Everything runs in your browser.</p>
+          <div class="math-grid">
+            <article class="math-card">
+              <div class="math-card-title">Finite differences</div>
+              <div class="formula-line"><span class="formula-chip">a ≈ (xᵢ₊₁ − 2xᵢ + xᵢ₋₁) / Δt²</span></div>
+              <p class="math-card-copy">Simple, and the noise is divided by Δt²: faster cameras make it worse.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Smoothing</div>
+              <div class="formula-line"><span class="formula-chip">local cubic, then differentiate</span></div>
+              <p class="math-card-copy">Less noise, but the window also flattens the swing: a bias.</p>
+            </article>
+            <article class="math-card">
+              <div class="math-card-title">Weak form</div>
+              <div class="formula-line"><span class="formula-chip">∫ φ·a dt = ∫ φ″·x dt</span></div>
+              <p class="math-card-copy">A bump φ that vanishes at both ends takes the derivatives; no noisy derivative is computed.</p>
+            </article>
+          </div>
+        </div>
+          <div class="rlx-grid">
+            <aside class="rlx-card rlx-controls" aria-label="Camera and pipelines">
+            <div><h4 class="rlx-h">Camera and pipelines</h4><p class="rlx-sub">Changes apply when you release a slider.</p></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="drN">Tracking noise σ</label><span class="control-value" data-k="noise-out">0.25 mm</span></div><input id="drN" data-k="noise" type="range" min="0" max="7" step="1" value="2"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="drF">Frame rate</label><span class="control-value" data-k="fps-out">30 frames/s</span></div><input id="drF" data-k="fps" type="range" min="0" max="4" step="1" value="1"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="drW">Smoothing window</label><span class="control-value" data-k="win-out">0.50 s</span></div><input id="drW" data-k="win" type="range" min="10" max="150" step="5" value="50"></div>
+            <div class="rlx-field"><div class="rlx-label"><label for="drV">Weak-form window</label><span class="control-value" data-k="wwin-out">1.00 s</span></div><input id="drV" data-k="wwin" type="range" min="30" max="200" step="10" value="100"></div>
+            <div class="rlx-btns"><button type="button" class="control-button control-button-secondary is-wide" data-k="redraw">New noise</button></div>
+            <p class="rlx-hint">Noise in the finite-difference acceleration (recording 1): <b data-k="fdnoise">–</b>. The real acceleration never exceeds 0.8 m/s².</p>
+            </aside>
+            <div class="rlx-main">
+            <p class="rlx-status" data-k="status" role="status" aria-live="polite">–</p>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">A · Three pipelines, one video</h4><p class="rlx-sub">The true law is a = −16·x − 0.4·v. Damping error compares the coefficient of v with 0.4.</p></div></div>
+              <div class="srx-tablewrap"><table class="srx-table" data-k="table"></table></div>
+              <div class="chart-shell" style="height:260px"><svg data-k="achart" role="img" aria-label="True acceleration, finite differences and smoothing for recording 1"></svg></div>
+              <p class="rlx-hint">Dashed: the true acceleration. Grey: finite differences. Orange: smoothing.</p>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">B · The next swing</h4><p class="rlx-sub">Now the spring stiffens: a = −16·x − 0.4·v − 400·x³. We have swings of 1, 1.5 and 2 cm (σ = 0.5 mm). The curve shows where a plain spring and a stiffening one, both fitted to those swings, disagree.</p></div></div>
+              <div class="chart-shell" style="height:240px"><svg data-k="dchart" role="img" aria-label="Disagreement of two candidate laws against swing amplitude"></svg></div>
+              <div class="rlx-field" style="max-width:420px"><div class="rlx-label"><label for="drA">Amplitude of one new swing</label><span class="control-value" data-k="amp-out">3 cm</span></div><input id="drA" data-k="amp" type="range" min="1" max="10" step="1" value="3"></div>
+              <div class="rlx-btns" style="max-width:420px"><button type="button" class="control-button control-button-primary is-wide" data-k="swing">Record this swing</button></div>
+              <div class="rlx-metrics"><div class="metric-tile"><div class="metric-label">Stiffening k₃, small swings only</div><div class="metric-value" data-k="k3before">–</div></div><div class="metric-tile"><div class="metric-label">With the new swing (truth 400)</div><div class="metric-value" data-k="k3after">–</div></div></div>
+            </div>
+            <div class="rlx-card"><div class="rlx-head"><div><h4 class="rlx-h">Challenges</h4><p class="rlx-sub">Each one is checked as you go.</p></div></div>
+              <ol class="epx-challenges">
+                <li data-ch="0"><span class="epx-mark"></span><span>Find a noise level where finite differences lose the right terms but the weak form keeps them.</span></li>
+                <li data-ch="1"><span class="epx-mark"></span><span>Show that a faster camera makes the finite-difference acceleration noisier (same tracking noise, higher frame rate).</span></li>
+                <li data-ch="2"><span class="epx-mark"></span><span>Pick a smoothing window that pushes the damping error above 30% while the weak form stays under 5%.</span></li>
+                <li data-ch="3"><span class="epx-mark"></span><span>Record one new swing that brings the stiffening coefficient within 3% of 400.</span></li>
+              </ol>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
