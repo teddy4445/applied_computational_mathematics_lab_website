@@ -242,7 +242,14 @@ def build_hub(data, tpl, eps):
             meta.append(f'<span><i class="ri-play-circle-line" aria-hidden="true"></i>{ep_txt}</span>')
             if m['labs']: meta.append('<span><i class="ri-flask-line" aria-hidden="true"></i>Lab</span>')
             if m['games']: meta.append('<span><i class="ri-gamepad-line" aria-hidden="true"></i>Game</span>')
-            cards += (f'<a class="rl-lec-card" href="{BASE}{m["slug"]}/"><img src="/epidemic-modeling/img/modules/m{k:02d}.webp" alt="Concept illustration for Module {k}: {esc(m["title"])}" width="960" height="540" loading="lazy" decoding="async"><div class="rl-lec-body">'
+            card = m.get('card')  # the card picture (800 and 480 px wide WebP); the older concept drawing until there is one
+            if card:
+                cols = len(p['modules']) if len(p['modules']) in (2, 3, 4) else 3
+                img = (f'<img src="/{esc(card["src"])}" srcset="/{esc(card["small"])} 480w, /{esc(card["src"])} 800w" '
+                       f'sizes="(min-width: 1100px) { {2: 600, 3: 400, 4: 300}[cols]}px, (min-width: 700px) 46vw, 92vw" alt="{esc(card["alt"])}" width="800" height="450" loading="lazy" decoding="async">')
+            else:
+                img = f'<img src="/epidemic-modeling/img/modules/m{k:02d}.webp" alt="Concept illustration for Module {k}: {esc(m["title"])}" width="960" height="540" loading="lazy" decoding="async">'
+            cards += (f'<a class="rl-lec-card" href="{BASE}{m["slug"]}/">{img}<div class="rl-lec-body">'
                       f'<span class="rl-lec-num">Module {k}</span><span class="rl-lec-title">{esc(m["title"])}</span><span class="rl-lec-text">{esc(m["sub"])}</span>'
                       f'<span class="rl-lec-meta">{"".join(meta)}</span></div></a>')
         n = len(p['modules'])

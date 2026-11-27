@@ -195,7 +195,7 @@ def build_hub(data, tpl, eps):
           <div class="em-book"><i class="ri-book-open-line" aria-hidden="true"></i><p><b>The course book.</b> {(esc(book["author"]) + ", ") if book.get("author") else ""}<cite>{esc(book["title"])}</cite>. Coming soon. Each module follows one chapter of the book; the videos, slides and labs are written in our own words, figures and simulations, with invented towns and countries.</p></div>
           <div class="proj-actions">{acts}</div>
         </div>
-        <figure class="rl-art"><img src="/{esc(data["cover_img"])}" alt="Night Atlas illustration: an invented land seen from orbit at night, with two observers' searchlights lighting part of it" width="960" height="600" fetchpriority="high" decoding="async"></figure>
+        <figure class="noe-cover"><span class="noe-cover-book"><img src="/{esc(data.get("book_cover") or data["cover_img"])}" alt="Cover of the book {esc(book["title"])}" width="720" height="1080" fetchpriority="high" decoding="async"></span><figcaption>The course book · coming soon</figcaption></figure>
       </div>
     </header>'''
     nav = subnav([('how', 'How to study'), ('modules', 'Modules'), ('labs', 'Labs')])
@@ -218,8 +218,14 @@ def build_hub(data, tpl, eps):
                 if m['labs']: meta.append('<span><i class="ri-flask-line" aria-hidden="true"></i>Lab</span>')
             else:
                 meta.append(f'<span><i class="ri-time-line" aria-hidden="true"></i>In production · {plural(len(me), "video")}</span>')
-            img = f'/non-observed-economy/img/modules/m{k:02d}.webp'
-            inner = (f'<img src="{img}" alt="Night Atlas plate for Module {k}: {esc(m["title"])}" width="960" height="540" loading="lazy" decoding="async"><div class="rl-lec-body">'
+            card = m.get('card')  # the card picture (800 and 480 px wide WebP); the older Night Atlas plate until there is one
+            if card:
+                cols = len(p['modules']) if len(p['modules']) in (2, 3, 4) else 3
+                img = (f'<img src="/{esc(card["src"])}" srcset="/{esc(card["small"])} 480w, /{esc(card["src"])} 800w" '
+                       f'sizes="(min-width: 1100px) { {2: 600, 3: 400, 4: 300}[cols]}px, (min-width: 700px) 46vw, 92vw" alt="{esc(card["alt"])}" width="800" height="450" loading="lazy" decoding="async">')
+            else:
+                img = f'<img src="/non-observed-economy/img/modules/m{k:02d}.webp" alt="Night Atlas plate for Module {k}: {esc(m["title"])}" width="960" height="540" loading="lazy" decoding="async">'
+            inner = (f'{img}<div class="rl-lec-body">'
                      f'<span class="rl-lec-num">Module {k}</span><span class="rl-lec-title">{esc(m["title"])}</span><span class="rl-lec-text">{esc(m["sub"])}</span>'
                      f'<span class="rl-lec-meta">{"".join(meta)}</span></div>')
             cards += f'<a class="rl-lec-card" href="{BASE}{m["slug"]}/">{inner}</a>' if m.get('ready') else f'<div class="rl-lec-card is-soon" aria-disabled="true">{inner}</div>'

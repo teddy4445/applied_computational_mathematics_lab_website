@@ -16,3 +16,11 @@
 .noex-flags { list-style: none; margin: .2rem 0 .4rem; padding: 0; display: flex; flex-direction: column; gap: .45rem; }
 .noex-flags li { font-size: .92rem; line-height: 1.45; color: #92400E; background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 12px; padding: .5rem .7rem; }
 .noex-flags li.ok { color: #065F46; background: #ECFDF5; border-color: #A7F3D0; }
+/* Hub header: the course book's cover, drawn as a physical book */
+.noe-cover { margin: 0; justify-self: center; width: min(100%, 340px); text-align: center; }
+.noe-cover-book { position: relative; display: block; border-radius: 4px 12px 12px 4px; overflow: hidden; background: #0B1324; box-shadow: 0 34px 60px -24px rgba(15, 23, 42, .6), 0 14px 26px -14px rgba(15, 23, 42, .45); transform: perspective(1400px) rotateY(-6deg); transform-origin: left center; }
+.noe-cover-book img { display: block; width: 100%; height: auto; aspect-ratio: 2 / 3; object-fit: cover; }
+.noe-cover-book::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgba(255, 255, 255, .22) 0, rgba(255, 255, 255, 0) 2.5%, rgba(0, 0, 0, .28) 4%, rgba(0, 0, 0, 0) 8%, rgba(255, 255, 255, .06) 60%, rgba(255, 255, 255, 0) 100%); }
+.noe-cover figcaption { margin-top: 1rem; font-size: .9rem; color: #475569; }
+@media (max-width: 1023px) { .noe-cover { width: min(70%, 260px); } }
+@media (prefers-reduced-motion: no-preference) { .noe-cover-book { transition: transform .4s ease; } .noe-cover:hover .noe-cover-book { transform: perspective(1400px) rotateY(0deg); } }

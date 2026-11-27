@@ -211,3 +211,10 @@
   }
 }
 
+/* Tool cards: an image header (800:340, like the course cards), then the title, one paragraph and the button. */
+.tool-card-art { display: block; margin: 0; aspect-ratio: 800 / 340; background-color: #f5f9ff; border-bottom: 1px solid #eef2f7; overflow: hidden; }
+.tool-card-art img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.tool-card-page:hover .tool-card-art img { transform: scale(1.03); }
+.tool-card-title { color: inherit; }
+.tool-card-title:hover { color: rgb(37 99 235); }
+@media (prefers-reduced-motion: reduce) { .tool-card-art img { transition: none; } .tool-card-page:hover .tool-card-art img { transform: none; } }

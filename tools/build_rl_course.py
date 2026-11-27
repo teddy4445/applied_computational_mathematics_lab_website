@@ -5,7 +5,7 @@ Data:      data/rl-course.json              lectures, episodes (YouTube ids, cha
            data/rl-course-transcripts.json  episode transcripts by chapter (from each episode's captions)
 Templates: tools/templates/rl-course.html             page frame (head, menu, footer)
            tools/templates/rl-course-lab-*.html       one per lab (see LAB_TEMPLATES)
-Files the pages use (not made here): rl-course/slides/*.pdf, rl-course/img/{slides,episodes,games}/*.webp,
+Files the pages use (not made here): rl-course/slides/*.pdf, rl-course/img/{slides,episodes,games,cards}/*.webp,
 rl-course/img/teddy-bit-chess.svg (+ .png for the share image), css/rl-course.css (+ css/project.css, css/videos.css),
 js/rl-course.js (+ js/videos.js), and for the labs css/exploration-lab.css, css/rl-labs.css, js/exploration-lab.js
 (bandit and gridworld labs) and js/rl-labs.js (the other labs).
@@ -223,7 +223,13 @@ def build_hub(data, template, eps):
                 badges += '<span><i class="ri-flask-line" aria-hidden="true"></i>Lab</span>'
             if l['games']:
                 badges += f'<span><i class="ri-gamepad-line" aria-hidden="true"></i>{plural(len(l["games"]), "game")}</span>'
-            cards.append(f'''<a class="rl-lec-card" href="/rl-course/{l["slug"]}/"><img src="/{esc(l["slides"]["cover"])}" alt="A slide from Lecture {n}" width="960" height="540" loading="lazy" decoding="async"><div class="rl-lec-body">
+            card = l.get('card')  # the card picture (800 and 480 px wide WebP); a slide from the lecture until there is one
+            if card:
+                img = (f'<img src="/{esc(card["src"])}" srcset="/{esc(card["small"])} 480w, /{esc(card["src"])} 800w" '
+                       f'sizes="(min-width: 1100px) 400px, (min-width: 700px) 46vw, 92vw" alt="{esc(card["alt"])}" width="800" height="450" loading="lazy" decoding="async">')
+            else:
+                img = f'<img src="/{esc(l["slides"]["cover"])}" alt="A slide from Lecture {n}" width="960" height="540" loading="lazy" decoding="async">'
+            cards.append(f'''<a class="rl-lec-card" href="/rl-course/{l["slug"]}/">{img}<div class="rl-lec-body">
             <span class="rl-lec-num">Lecture {n}</span><span class="rl-lec-title">{esc(l["title"])}</span><span class="rl-lec-text">{esc(l["topics"])}</span>
             <span class="rl-lec-meta"><span><i class="ri-slideshow-line" aria-hidden="true"></i>{l["slides"]["pages"]} slides</span><span><i class="ri-play-circle-line" aria-hidden="true"></i>{plural(len(le), "episode")} · {mins(sum(e["seconds"] for e in le))} min</span>{badges}</span></div></a>''')
         parts.append(f'''      <div class="rl-part">

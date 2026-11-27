@@ -217,8 +217,14 @@ def build_hub(data, tpl, eps):
                 if m['labs']: meta.append('<span><i class="ri-flask-line" aria-hidden="true"></i>Lab</span>')
             else:
                 meta.append(f'<span><i class="ri-time-line" aria-hidden="true"></i>In production · {plural(len(me), "video")}</span>')
-            img = f'/symbolic-laws/img/modules/m{k:02d}.webp'
-            inner = (f'<img src="{img}" alt="Blueprint drawing for Module {k}: {esc(m["title"])}" width="960" height="540" loading="lazy" decoding="async"><div class="rl-lec-body">'
+            card = m.get('card')  # the card picture (800 and 480 px wide WebP); the older blueprint drawing until there is one
+            if card:
+                cols = len(p['modules']) if len(p['modules']) in (2, 3, 4) else 3
+                img = (f'<img src="/{esc(card["src"])}" srcset="/{esc(card["small"])} 480w, /{esc(card["src"])} 800w" '
+                       f'sizes="(min-width: 1100px) { {2: 600, 3: 400, 4: 300}[cols]}px, (min-width: 700px) 46vw, 92vw" alt="{esc(card["alt"])}" width="800" height="450" loading="lazy" decoding="async">')
+            else:
+                img = f'<img src="/symbolic-laws/img/modules/m{k:02d}.webp" alt="Blueprint drawing for Module {k}: {esc(m["title"])}" width="960" height="540" loading="lazy" decoding="async">'
+            inner = (f'{img}<div class="rl-lec-body">'
                      f'<span class="rl-lec-num">Module {k}</span><span class="rl-lec-title">{esc(m["title"])}</span><span class="rl-lec-text">{esc(m["sub"])}</span>'
                      f'<span class="rl-lec-meta">{"".join(meta)}</span></div>')
             cards += f'<a class="rl-lec-card" href="{BASE}{m["slug"]}/">{inner}</a>' if m.get('ready') else f'<div class="rl-lec-card is-soon" aria-disabled="true">{inner}</div>'

@@ -45,34 +45,19 @@
 
     toolsGrid.innerHTML = tools
       .map((tool) => {
-        const secondaryAttrs = tool.secondaryExternal ? ' target="_blank" rel="noopener"' : '';
+        // Card header: the tool's image (800 px, plus a 480 px copy for small screens), or its colour gradient until an image is added.
+        const srcset = tool.imageSmall ? ` srcset="${tool.imageSmall} 480w, ${tool.image} 800w" sizes="(min-width: 1280px) 384px, (min-width: 768px) 46vw, 92vw"` : '';
+        const art = tool.image
+          ? `<figure class="tool-card-art"><img src="${tool.image}"${srcset} alt="${tool.imageAlt || ''}" width="800" height="340" loading="lazy" decoding="async"></figure>`
+          : `<div class="tool-card-art bg-gradient-to-br ${tool.gradient}" aria-hidden="true"></div>`;
         return `
-          <article class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-100 flex flex-col">
-            <div class="p-6 border-b border-gray-100 bg-gradient-to-br ${tool.gradient} text-white">
-              <div class="flex items-center justify-between gap-4 mb-4">
-                <span class="inline-flex items-center gap-2 bg-white/15 rounded-full px-3 py-1 text-xs font-semibold">${tool.badge}</span>
-                <i class="${tool.icon} text-2xl"></i>
-              </div>
-              <h3 class="text-2xl font-semibold mb-3">${tool.title}</h3>
-              <p class="text-white/85">${tool.description}</p>
-            </div>
+          <article class="tool-card-page bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-100 flex flex-col">
+            ${art}
             <div class="p-6 flex-1 flex flex-col">
-              <div class="grid grid-cols-2 gap-3 mb-6">
-                ${tool.metrics
-                  .map(
-                    (metric) => `
-                      <div class="rounded-xl bg-gray-50 border border-gray-100 p-4">
-                        <div class="text-sm text-gray-500">${metric.label}</div>
-                        <div class="text-lg font-semibold text-gray-900">${metric.value}</div>
-                      </div>
-                    `
-                  )
-                  .join('')}
-              </div>
-              <p class="text-gray-600 leading-relaxed mb-6">${tool.body}</p>
+              <h3 class="text-2xl font-semibold text-gray-900 mb-3"><a href="${tool.primaryHref}" class="tool-card-title">${tool.title}</a></h3>
+              <p class="text-gray-600 leading-relaxed mb-6">${tool.text || tool.description}</p>
               <div class="mt-auto flex flex-wrap gap-4">
                 <a href="${tool.primaryHref}" class="bg-primary text-white px-6 py-3 rounded-full hover:bg-primary/90 transition font-medium">${tool.primaryLabel}</a>
-                <a href="${tool.secondaryHref}" class="text-primary font-medium hover:text-secondary transition-colors duration-200 flex items-center"${secondaryAttrs}>${tool.secondaryLabel} <i class="ri-arrow-right-line ml-1"></i></a>
               </div>
             </div>
           </article>

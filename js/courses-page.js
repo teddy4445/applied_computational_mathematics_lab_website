@@ -32,7 +32,7 @@
               <img src="${c.image}" alt="${c.imageAlt || ''}" width="800" height="340" loading="lazy" decoding="async">
             </figure>
             <div class="course-card-body flex-1 flex flex-col">
-              <h3 class="text-2xl font-semibold text-gray-900 mb-4 flex items-center gap-3"><i class="${c.icon} text-primary"></i><a href="${c.primaryHref}" class="course-card-title">${c.title}</a></h3>
+              <h3 class="text-2xl font-semibold text-gray-900 mb-4"><a href="${c.primaryHref}" class="course-card-title">${c.title}</a></h3>
               ${(c.paragraphs || []).map((t) => `<p class="text-gray-600 leading-relaxed mb-4">${t}</p>`).join('')}
               <div class="mt-auto pt-2">
                 <a href="${c.primaryHref}" class="course-card-btn bg-primary text-white px-6 py-3 rounded-full hover:bg-primary/90 transition font-medium">${c.primaryLabel}</a>
