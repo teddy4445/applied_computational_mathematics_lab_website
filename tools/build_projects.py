@@ -324,13 +324,15 @@ def tool_info(href, data):
     if t:
         return {'title': t['title'], 'text': t.get('description', ''), 'icon': t.get('icon') or 'ri-tools-line', 'href': '/' + href}
     path = ROOT / href
+    if path.is_dir():                 # a folder link such as rl-course/ reads its index.html
+        path = path / 'index.html'
     if not path.exists():
         return None
     page = path.read_text(encoding='utf-8', errors='ignore')
     title = re.search(r'<title>(.*?)</title>', page, re.S)
     desc = re.search(r'<meta\s+name="description"\s+content="([^"]*)"', page)
     return {'title': re.sub(r'\s*\|.*$', '', title.group(1)).strip() if title else href, 'text': desc.group(1) if desc else '',
-            'icon': 'ri-gamepad-line', 'href': '/' + href}
+            'icon': 'ri-graduation-cap-line' if href.endswith('/') else 'ri-gamepad-line', 'href': '/' + href}
 
 
 def years_span(papers):
